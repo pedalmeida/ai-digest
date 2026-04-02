@@ -2,8 +2,7 @@
 /**
  * generate-slides.js
  * Reads remixed JSON from remix-digest.js (stdin).
- * Writes a self-contained slide-deck HTML to ~/.follow-builders/digest-latest.html
- * Prints the output file path to stdout.
+ * Writes a rich, scannable slide-deck HTML to ~/.follow-builders/digest-latest.html
  */
 
 import fs   from 'fs';
@@ -21,19 +20,11 @@ process.stdin.on('end', () => {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
   });
 
-  // ── Build slide list ──────────────────────────────────────────
   const slides = [{ type: 'title', date: today }];
-
-  (data.builders || []).forEach(b => {
-    slides.push({ type: 'x', ...b });
-  });
-
-  (data.podcasts || []).forEach(p => {
-    slides.push({ type: 'podcast', ...p });
-  });
+  (data.builders || []).forEach(b => slides.push({ type: 'x', ...b }));
+  (data.podcasts || []).forEach(p => slides.push({ type: 'podcast', ...p }));
 
   const html = renderHTML(slides, today);
-
   const dir = path.join(os.homedir(), '.follow-builders');
   fs.mkdirSync(dir, { recursive: true });
   const outPath = path.join(dir, 'digest-latest.html');
@@ -44,10 +35,13 @@ process.stdin.on('end', () => {
 // ── Helpers ───────────────────────────────────────────────────────
 function esc(str) {
   return String(str || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// Convert **bold** markdown to <strong> tags
+function richText(str) {
+  return esc(str).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 }
 
 function ytThumb(videoId) {
@@ -58,6 +52,20 @@ function avatarUrl(handle) {
   return handle ? `https://unavatar.io/twitter/${handle}` : '';
 }
 
+const SIGNAL_LABELS = {
+  '🔴': 'Urgent',
+  '🟡': 'Watch',
+  '🟢': 'Apply now',
+  '💡': 'Learn',
+};
+
+const SIGNAL_CLASSES = {
+  '🔴': 'signal-red',
+  '🟡': 'signal-yellow',
+  '🟢': 'signal-green',
+  '💡': 'signal-blue',
+};
+
 // ── Renderers ─────────────────────────────────────────────────────
 function renderTitleSlide(s) {
   const hour = new Date().getHours();
@@ -65,15 +73,15 @@ function renderTitleSlide(s) {
   return `
   <div class="slide active" data-i="0">
     <div class="title-card">
-      <div class="title-top">
-        <div class="title-badge">Daily Briefing</div>
+      <div class="title-card__top">
+        <span class="title-badge">Daily Briefing</span>
       </div>
-      <div class="title-body">
+      <div class="title-card__body">
         <div class="title-greeting">${greeting} ☀️</div>
         <h1 class="title-headline">AI Builders<br><em>Digest</em></h1>
         <p class="title-date">${esc(s.date)}</p>
       </div>
-      <div class="title-footer">
+      <div class="title-card__footer">
         <span class="title-tagline">Follow builders, not influencers</span>
         <span class="title-hint">← → to navigate</span>
       </div>
@@ -83,69 +91,136 @@ function renderTitleSlide(s) {
 
 function renderXSlide(s, idx) {
   const avatar = avatarUrl(s.handle);
-  const urls = (s.urls || []).filter(Boolean);
-  const urlsHTML = urls.map(u => `
-    <a class="source-url" href="${esc(u)}" target="_blank" rel="noopener">↗ ${esc(u.replace('https://', ''))}</a>
-  `).join('');
+  const signal = s.signal || '🟡';
+  const signalClass = SIGNAL_CLASSES[signal] || 'signal-yellow';
+  const signalLabel = SIGNAL_LABELS[signal] || 'Watch';
+
+  const insightsHTML = (s.insights || []).map(ins => `
+    <li class="insight-item">
+      <span class="insight-dot">◆</span>
+      <span>${richText(ins)}</span>
+    </li>`).join('');
+
+  const urlsHTML = (s.urls || []).filter(Boolean).map(u => `
+    <a class="source-url" href="${esc(u)}" target="_blank" rel="noopener">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
+      ${esc(u.replace('https://x.com/', '@').replace(/\/status\/\d+/, ''))}
+    </a>`).join('');
 
   return `
   <div class="slide" data-i="${idx}">
-    <div class="x-card">
-      <div class="x-card-header">
-        <div class="header-left">
-          <div class="card-tag tag-x">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    <div class="content-card">
+
+      <!-- LEFT: identity + signal -->
+      <div class="card-left">
+        <div class="left-top">
+          <div class="card-type-label">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
             X / Twitter
           </div>
-          <div class="x-card-author">
-            ${avatar ? `<img class="author-avatar" src="${esc(avatar)}" alt="${esc(s.name)}" onerror="this.style.display='none'">` : ''}
-            <div>
-              <div class="author-name">${esc(s.name)}</div>
-              <div class="author-role">${esc(s.role)}</div>
-            </div>
+          <div class="signal-badge ${signalClass}">${signal} ${signalLabel}</div>
+        </div>
+        <div class="author-block">
+          ${avatar ? `<img class="author-avatar" src="${esc(avatar)}" alt="" onerror="this.style.display='none'">` : ''}
+          <div class="author-text">
+            <div class="author-name">${esc(s.name)}</div>
+            <div class="author-role">${esc(s.role)}</div>
           </div>
         </div>
-        <div class="card-index">${String(s.index || idx).padStart(2, '0')}</div>
+        <p class="hook-text">${richText(s.hook || '')}</p>
+        <div class="card-index">${String(s.index || idx).padStart(2,'0')}</div>
       </div>
-      <div class="x-card-body">
-        <p class="summary-text">${esc(s.summary)}</p>
-        <div class="source-urls">${urlsHTML}</div>
+
+      <!-- RIGHT: insights + for you -->
+      <div class="card-right">
+        <div class="right-section">
+          <div class="section-label">
+            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
+            Key signals
+          </div>
+          <ul class="insight-list">${insightsHTML}</ul>
+        </div>
+
+        <div class="for-you-box">
+          <div class="for-you-label">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            What this means for you
+          </div>
+          <p class="for-you-text">${richText(s.for_you || '')}</p>
+        </div>
+
+        ${urlsHTML ? `<div class="url-row">${urlsHTML}</div>` : ''}
       </div>
+
     </div>
   </div>`;
 }
 
 function renderPodcastSlide(s, idx) {
   const thumb = s.videoId ? ytThumb(s.videoId) : '';
+  const signal = s.signal || '🟡';
+  const signalClass = SIGNAL_CLASSES[signal] || 'signal-yellow';
+  const signalLabel = SIGNAL_LABELS[signal] || 'Watch';
+
+  const pointsHTML = (s.key_points || []).map(p => `
+    <li class="insight-item">
+      <span class="insight-dot">◆</span>
+      <span>${richText(p)}</span>
+    </li>`).join('');
+
   return `
   <div class="slide" data-i="${idx}">
-    <div class="content-card podcast-card">
-      <div class="card-left">
-        <div class="card-tag tag-podcast">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-          Podcast
+    <div class="content-card podcast-layout">
+
+      <!-- LEFT: show info + thumbnail -->
+      <div class="card-left podcast-left">
+        <div class="left-top">
+          <div class="card-type-label card-type-pod">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            Podcast
+          </div>
+          <div class="signal-badge ${signalClass}">${signal} ${signalLabel}</div>
         </div>
         <div class="podcast-show">${esc(s.show)}</div>
         <h2 class="podcast-episode">${esc(s.episode)}</h2>
-        ${s.takeaway ? `<div class="takeaway-box"><span class="takeaway-label">Takeaway</span> ${esc(s.takeaway)}</div>` : ''}
-        ${s.summary ? `<p class="podcast-summary">${esc(s.summary)}</p>` : ''}
-        ${s.url ? `<a class="card-link" href="${esc(s.url)}" target="_blank" rel="noopener">Listen now →</a>` : ''}
-        <div class="card-index">${String(s.index || idx).padStart(2, '0')}</div>
-      </div>
-      <div class="card-right">
+        <div class="takeaway-box">
+          <span class="takeaway-label">Takeaway</span>
+          <p class="takeaway-text">${richText(s.takeaway || '')}</p>
+        </div>
         ${thumb ? `
-        <a class="yt-wrap" href="${esc(s.url)}" target="_blank" rel="noopener">
-          <img class="yt-thumb" src="${esc(thumb)}" alt="Episode thumbnail" loading="lazy">
-          <div class="yt-play">
-            <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
-          </div>
+        <a class="yt-thumb-link" href="${esc(s.url)}" target="_blank" rel="noopener">
+          <img class="yt-thumb" src="${esc(thumb)}" alt="Episode thumbnail">
+          <div class="yt-play"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
         </a>` : ''}
+        <div class="card-index">${String(s.index || idx).padStart(2,'0')}</div>
       </div>
+
+      <!-- RIGHT: key points + for you -->
+      <div class="card-right">
+        <div class="right-section">
+          <div class="section-label">
+            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
+            Key points
+          </div>
+          <ul class="insight-list">${pointsHTML}</ul>
+        </div>
+
+        <div class="for-you-box">
+          <div class="for-you-label">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            What this means for you
+          </div>
+          <p class="for-you-text">${richText(s.for_you || '')}</p>
+        </div>
+
+        ${s.url ? `<div class="url-row"><a class="source-url" href="${esc(s.url)}" target="_blank" rel="noopener">↗ Listen on YouTube</a></div>` : ''}
+      </div>
+
     </div>
   </div>`;
 }
 
-// ── Full HTML page ────────────────────────────────────────────────
+// ── Full HTML ─────────────────────────────────────────────────────
 function renderHTML(slides, today) {
   const total = slides.length;
   const slidesHTML = slides.map((s, i) => {
@@ -163,27 +238,32 @@ function renderHTML(slides, today) {
 <title>AI Builders Digest — ${esc(today)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #FDF8F2;
-  --surface:   #FFFFFF;
-  --border:    #EDE5D8;
-  --text:      #1C1712;
-  --muted:     #8C7E6B;
-  --subtle:    #F7F2EA;
+  --bg:          #F8F4EE;
+  --surface:     #FFFFFF;
+  --border:      #E8E0D4;
+  --border-soft: #F0EAE0;
+  --text:        #1A1410;
+  --text-2:      #4A3F35;
+  --muted:       #8A7B6C;
+  --subtle:      #F2EDE5;
+
+  /* Signal colors */
+  --red:    #DC2626; --red-bg:    #FEF2F2; --red-border:    #FECACA;
+  --yellow: #D97706; --yellow-bg: #FFFBEB; --yellow-border: #FDE68A;
+  --green:  #16A34A; --green-bg:  #F0FDF4; --green-border:  #BBF7D0;
+  --blue:   #2563EB; --blue-bg:   #EFF6FF; --blue-border:   #BFDBFE;
+
+  /* Type colors */
   --x-color:   #D97706;
-  --x-bg:      #FFFBEB;
-  --x-border:  #FDE68A;
   --pod-color: #7C3AED;
-  --pod-bg:    #F5F3FF;
-  --pod-border:#DDD6FE;
-  --link:      #2563EB;
-  --shadow:    0 4px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+
+  --shadow:    0 2px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05);
 }
 
 html, body {
@@ -192,238 +272,288 @@ html, body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--text);
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* ── Deck & Slides ── */
 #deck { position: relative; width: 100vw; height: 100vh; }
 
 .slide {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  padding: 24px;
+  padding: 20px;
   opacity: 0; pointer-events: none;
-  transform: translateX(32px);
-  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  transform: translateX(28px);
+  transition: opacity 0.38s cubic-bezier(0.4,0,0.2,1), transform 0.38s cubic-bezier(0.4,0,0.2,1);
 }
 .slide.active  { opacity: 1; pointer-events: all; transform: translateX(0); }
-.slide.leaving { opacity: 0; transform: translateX(-32px); transition-duration: 0.25s; }
+.slide.leaving { opacity: 0; transform: translateX(-28px); transition-duration: 0.22s; }
 
-/* ── Title ── */
+/* ── Title Card ── */
 .title-card {
-  width: 100%; max-width: 600px;
+  width: 100%; max-width: 580px;
   background: var(--surface);
-  border-radius: 24px;
+  border-radius: 20px;
   box-shadow: var(--shadow-lg);
-  padding: 52px 56px;
+  padding: 48px 52px;
   border: 1px solid var(--border);
   position: relative; overflow: hidden;
 }
 .title-card::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, #F59E0B, #EC4899, #8B5CF6, #3B82F6);
 }
-.title-top    { margin-bottom: 36px; }
-.title-badge  {
-  display: inline-block;
+.title-card__top  { margin-bottom: 32px; }
+.title-badge {
   font-family: 'DM Mono', monospace;
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--muted); background: var(--bg); border: 1px solid var(--border);
-  padding: 5px 12px; border-radius: 100px;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); background: var(--subtle); border: 1px solid var(--border);
+  padding: 4px 11px; border-radius: 100px; display: inline-block;
 }
-.title-body   { margin-bottom: 44px; }
-.title-greeting { font-size: 17px; font-weight: 500; color: var(--muted); margin-bottom: 14px; }
-.title-headline {
+.title-card__body { margin-bottom: 40px; }
+.title-greeting   { font-size: 16px; font-weight: 500; color: var(--muted); margin-bottom: 12px; }
+.title-headline   {
   font-family: 'Lora', serif;
-  font-size: clamp(38px, 6vw, 60px);
+  font-size: clamp(36px, 5.5vw, 58px);
   font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
-  color: var(--text); margin-bottom: 18px;
+  color: var(--text); margin-bottom: 16px;
 }
 .title-headline em { font-style: italic; color: var(--x-color); }
-.title-date { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
-.title-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  border-top: 1px solid var(--border); padding-top: 18px;
-}
-.title-tagline { font-size: 13px; color: var(--muted); font-style: italic; }
-.title-hint    { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--border); }
-
-/* ── Shared tag ── */
-.card-tag {
-  display: inline-flex; align-items: center; gap: 6px;
+.title-date {
   font-family: 'DM Mono', monospace;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 4px 11px; border-radius: 100px; border: 1px solid;
-  width: fit-content; flex-shrink: 0;
+  font-size: 11px; color: var(--muted); letter-spacing: 0.04em;
 }
-.tag-x       { color: var(--x-color);   background: var(--x-bg);   border-color: var(--x-border); }
-.tag-podcast { color: var(--pod-color); background: var(--pod-bg); border-color: var(--pod-border); }
+.title-card__footer {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--border-soft); padding-top: 16px;
+}
+.title-tagline { font-size: 12px; color: var(--muted); font-style: italic; }
+.title-hint    { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--border); }
 
-/* ── X Card ── */
-.x-card {
-  width: 100%; max-width: 720px;
+/* ── Content Card (2-col) ── */
+.content-card {
+  width: 100%; max-width: 940px; height: min(600px, 88vh);
   background: var(--surface);
-  border-radius: 24px;
+  border-radius: 20px;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border);
-  display: flex; flex-direction: column;
+  display: grid; grid-template-columns: 300px 1fr;
   overflow: hidden;
 }
 
-.x-card-header {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  gap: 16px;
-  padding: 28px 36px 22px;
-  border-bottom: 1px solid var(--border);
+/* LEFT COLUMN */
+.card-left {
   background: var(--subtle);
+  border-right: 1px solid var(--border);
+  padding: 28px 26px;
+  display: flex; flex-direction: column; gap: 16px;
+  position: relative; overflow: hidden;
 }
-.header-left { display: flex; flex-direction: column; gap: 14px; flex: 1; min-width: 0; }
+.left-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.card-type-label {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--x-color); background: #FFFBEB; border: 1px solid #FDE68A;
+  padding: 3px 9px; border-radius: 100px;
+}
+.card-type-pod {
+  color: var(--pod-color); background: #F5F3FF; border-color: #DDD6FE;
+}
 
-.x-card-author { display: flex; align-items: center; gap: 12px; }
+/* Signal badge */
+.signal-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em;
+  padding: 3px 8px; border-radius: 100px; border: 1px solid;
+  white-space: nowrap;
+}
+.signal-red    { color: var(--red);    background: var(--red-bg);    border-color: var(--red-border); }
+.signal-yellow { color: var(--yellow); background: var(--yellow-bg); border-color: var(--yellow-border); }
+.signal-green  { color: var(--green);  background: var(--green-bg);  border-color: var(--green-border); }
+.signal-blue   { color: var(--blue);   background: var(--blue-bg);   border-color: var(--blue-border); }
+
+/* Author */
+.author-block { display: flex; align-items: center; gap: 10px; }
 .author-avatar {
-  width: 44px; height: 44px; border-radius: 50%;
+  width: 40px; height: 40px; border-radius: 50%;
   object-fit: cover; border: 2px solid var(--border); flex-shrink: 0;
 }
 .author-name {
   font-family: 'Lora', serif;
-  font-size: clamp(19px, 2.2vw, 24px);
+  font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 600; color: var(--text); line-height: 1.1;
 }
 .author-role {
-  font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.4;
-  max-width: 460px;
+  font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4;
 }
+
+/* Hook */
+.hook-text {
+  font-size: clamp(13px, 1.4vw, 15px);
+  line-height: 1.6; color: var(--text-2);
+  font-weight: 500;
+  padding: 12px 14px;
+  background: var(--surface);
+  border-radius: 10px;
+  border-left: 3px solid var(--x-color);
+}
+.podcast-left .hook-text { border-left-color: var(--pod-color); }
+
+/* Ghost index */
 .card-index {
-  font-family: 'Lora', serif;
-  font-size: 44px; font-weight: 600;
-  color: rgba(0,0,0,0.06); line-height: 1;
-  user-select: none; flex-shrink: 0;
+  position: absolute; bottom: -10px; right: 10px;
+  font-family: 'Lora', serif; font-size: 80px; font-weight: 600;
+  color: rgba(0,0,0,0.05); line-height: 1;
+  user-select: none; pointer-events: none;
 }
 
-.x-card-body {
-  padding: 28px 36px 24px;
+/* RIGHT COLUMN */
+.card-right {
+  padding: 24px 28px;
   display: flex; flex-direction: column; gap: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin; scrollbar-color: var(--border) transparent;
 }
 
-/* The interpreted summary — the star of the show */
-.summary-text {
-  font-size: clamp(15px, 1.7vw, 19px);
-  line-height: 1.75; color: var(--text);
+.right-section { display: flex; flex-direction: column; gap: 10px; }
+
+.section-label {
+  display: flex; align-items: center; gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+/* Insights list */
+.insight-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.insight-item {
+  display: flex; align-items: baseline; gap: 9px;
+  font-size: clamp(13px, 1.4vw, 15px);
+  line-height: 1.65; color: var(--text);
+}
+.insight-dot {
+  color: var(--x-color); font-size: 7px;
+  flex-shrink: 0; margin-top: 5px;
+}
+.podcast-layout .insight-dot { color: var(--pod-color); }
+.insight-item strong {
+  background: #FEF9C3;
+  padding: 0 2px; border-radius: 2px;
+  font-weight: 600; color: var(--text);
+}
+
+/* For You box */
+.for-you-box {
+  background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%);
+  border: 1px solid #BFDBFE;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.for-you-label {
+  display: flex; align-items: center; gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--blue); font-weight: 400;
+}
+.for-you-text {
+  font-size: clamp(13px, 1.4vw, 14px);
+  line-height: 1.7; color: var(--text-2);
   font-weight: 400;
 }
+.for-you-text strong {
+  color: var(--text); font-weight: 600;
+}
 
-/* Source URLs — understated, at the bottom */
-.source-urls {
-  display: flex; flex-direction: column; gap: 4px;
+/* URL row */
+.url-row {
+  display: flex; flex-wrap: wrap; gap: 8px;
   padding-top: 4px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-soft);
 }
 .source-url {
+  display: inline-flex; align-items: center; gap: 4px;
   font-family: 'DM Mono', monospace;
-  font-size: 11px; color: var(--muted);
+  font-size: 10px; color: var(--muted);
   text-decoration: none; letter-spacing: 0.02em;
-  transition: color 0.15s;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  padding: 3px 8px; border-radius: 6px;
+  background: var(--subtle); border: 1px solid var(--border);
+  transition: color 0.15s, border-color 0.15s;
 }
-.source-url:hover { color: var(--link); }
+.source-url:hover { color: var(--blue); border-color: #BFDBFE; }
 
-/* ── Podcast card ── */
-.content-card {
-  width: 100%; max-width: 860px; height: min(520px, 82vh);
-  background: var(--surface);
-  border-radius: 24px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border);
-  display: grid; grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-}
-.card-left {
-  padding: 36px 40px;
-  display: flex; flex-direction: column; justify-content: center;
-  border-right: 1px solid var(--border);
-  position: relative; gap: 0; overflow: hidden;
-}
-.card-left .card-tag { margin-bottom: 16px; }
+/* ── Podcast left extras ── */
 .podcast-show {
   font-family: 'DM Mono', monospace;
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--pod-color); margin-bottom: 10px;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--pod-color);
 }
 .podcast-episode {
   font-family: 'Lora', serif;
-  font-size: clamp(16px, 1.9vw, 22px);
+  font-size: clamp(14px, 1.6vw, 18px);
   font-weight: 400; line-height: 1.35; color: var(--text);
-  margin-bottom: 18px;
 }
 .takeaway-box {
-  background: var(--pod-bg);
+  background: var(--surface);
   border-left: 3px solid var(--pod-color);
   border-radius: 0 8px 8px 0;
-  padding: 10px 14px;
-  margin-bottom: 14px;
-  font-size: 13px; line-height: 1.6; color: var(--text);
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 4px;
 }
 .takeaway-label {
   font-family: 'DM Mono', monospace;
   font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--pod-color); display: block; margin-bottom: 4px;
+  color: var(--pod-color);
 }
-.podcast-summary {
-  font-size: clamp(12px, 1.2vw, 14px);
-  line-height: 1.65; color: var(--muted);
-  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
-  overflow: hidden; margin-bottom: 16px;
+.takeaway-text {
+  font-size: clamp(12px, 1.3vw, 14px);
+  line-height: 1.6; color: var(--text); font-weight: 500;
 }
-.card-link {
-  display: inline-block;
-  font-size: 13px; font-weight: 600;
-  color: var(--link); text-decoration: none;
+.takeaway-text strong { background: #EDE9FE; padding: 0 2px; border-radius: 2px; }
+
+/* YouTube thumbnail */
+.yt-thumb-link {
+  display: block; border-radius: 8px; overflow: hidden;
+  position: relative; flex-shrink: 0;
+  border: 1px solid var(--border); text-decoration: none;
 }
-.card-link:hover { text-decoration: underline; }
-.card-left .card-index {
-  position: absolute; bottom: -8px; right: 12px;
-  font-family: 'Lora', serif; font-size: 80px; font-weight: 600;
-  color: rgba(0,0,0,0.04); line-height: 1;
-  user-select: none; pointer-events: none;
-}
-.card-right {
-  position: relative; background: var(--subtle);
-  display: flex; align-items: center; justify-content: center; overflow: hidden;
-}
-.yt-wrap {
-  display: block; width: 100%; height: 100%;
-  position: relative; text-decoration: none;
-}
-.yt-thumb {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center; display: block;
-}
+.yt-thumb { width: 100%; height: 80px; object-fit: cover; display: block; }
 .yt-play {
   position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52px; height: 52px; border-radius: 50%;
+  transform: translate(-50%,-50%);
+  width: 36px; height: 36px; border-radius: 50%;
   background: rgba(0,0,0,0.65);
   display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s;
 }
-.yt-wrap:hover .yt-play { background: #FF0000; transform: translate(-50%,-50%) scale(1.1); }
+.yt-thumb-link:hover .yt-play { background: #FF0000; }
 
-/* ── Navigation ── */
+/* ── Nav ── */
 #nav {
-  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 12px; z-index: 100;
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 100px; padding: 7px 16px;
+  border-radius: 100px; padding: 6px 14px;
   box-shadow: var(--shadow);
 }
 .nav-btn {
-  width: 30px; height: 30px; border-radius: 50%;
-  border: 1px solid var(--border); background: var(--bg);
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--subtle);
   color: var(--muted); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
 }
 .nav-btn:hover { background: var(--text); color: white; border-color: var(--text); }
-.nav-btn svg { width: 13px; height: 13px; }
+.nav-btn svg { width: 12px; height: 12px; }
 #counter {
   font-family: 'DM Mono', monospace;
   font-size: 11px; color: var(--muted); min-width: 36px; text-align: center;
@@ -431,28 +561,27 @@ html, body {
 
 /* ── Dots ── */
 #dots {
-  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
   display: flex; gap: 5px; z-index: 100;
 }
 .dot {
   width: 5px; height: 5px; border-radius: 50%;
-  background: var(--border); transition: background 0.3s, transform 0.3s; cursor: pointer;
+  background: var(--border); transition: background 0.25s, transform 0.25s; cursor: pointer;
 }
-.dot.active { background: var(--text); transform: scale(1.4); }
+.dot.active { background: var(--text); transform: scale(1.5); }
 
 /* ── Progress ── */
 #progress {
   position: fixed; top: 0; left: 0; height: 3px;
   background: linear-gradient(90deg, #F59E0B, #EC4899);
-  transition: width 0.4s cubic-bezier(0.4,0,0.2,1); z-index: 200;
+  transition: width 0.38s cubic-bezier(0.4,0,0.2,1); z-index: 200;
 }
 
-@media (max-width: 640px) {
-  .content-card { grid-template-columns: 1fr; height: auto; max-height: 86vh; }
-  .card-left { border-right: none; border-bottom: 1px solid var(--border); padding: 28px; }
-  .card-right { min-height: 180px; }
-  .x-card-header { padding: 20px 22px 16px; }
-  .x-card-body   { padding: 20px 22px; }
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .content-card { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; max-height: 90vh; }
+  .card-left { border-right: none; border-bottom: 1px solid var(--border); }
+  .card-right { max-height: 55vh; }
 }
 </style>
 </head>
@@ -465,11 +594,11 @@ ${slidesHTML}
 </div>
 <div id="nav">
   <button class="nav-btn" id="prev" aria-label="Previous">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
   </button>
   <div id="counter">1 / ${total}</div>
   <button class="nav-btn" id="next" aria-label="Next">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
   </button>
 </div>
 
@@ -479,7 +608,6 @@ let current = 0;
 const allSlides = () => [...document.querySelectorAll('.slide')];
 const allDots   = () => [...document.querySelectorAll('.dot')];
 
-// Build dots
 const dotsEl = document.getElementById('dots');
 for (let i = 0; i < TOTAL; i++) {
   const d = document.createElement('div');
@@ -490,8 +618,7 @@ for (let i = 0; i < TOTAL; i++) {
 
 function goTo(n) {
   if (n === current || n < 0 || n >= TOTAL) return;
-  const els = allSlides();
-  const ds  = allDots();
+  const els = allSlides(), ds = allDots();
   els[current].classList.remove('active');
   els[current].classList.add('leaving');
   ds[current].classList.remove('active');
@@ -501,7 +628,7 @@ function goTo(n) {
     els[current].classList.add('active');
     ds[current].classList.add('active');
   });
-  setTimeout(() => els[prev].classList.remove('leaving'), 400);
+  setTimeout(() => els[prev].classList.remove('leaving'), 380);
   document.getElementById('counter').textContent = (current + 1) + ' / ' + TOTAL;
   document.getElementById('progress').style.width = ((current + 1) / TOTAL * 100) + '%';
 }
@@ -510,15 +637,14 @@ document.getElementById('next').addEventListener('click', () => goTo(current + 1
 document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
 document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
-  if (e.key === 'ArrowLeft')                    { e.preventDefault(); goTo(current - 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
 });
 let tx = 0;
 document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
-document.addEventListener('touchend',   e => {
+document.addEventListener('touchend', e => {
   const d = tx - e.changedTouches[0].clientX;
   if (Math.abs(d) > 50) d > 0 ? goTo(current + 1) : goTo(current - 1);
 });
-
 document.getElementById('progress').style.width = (1 / TOTAL * 100) + '%';
 </script>
 </body>
