@@ -37,19 +37,22 @@ process.stdin.on('end', () => {
         .replace(/\s{2,}/g, ' ')
         .trim();
 
-    const parts = tweets.slice(0, 3).map(cleanText).filter(s => s.length > 10);
-    const summary = parts.join(' — ');
-    const tweetUrl = tweets[0].url || '';
-    const handle = (tweetUrl.match(/x\.com\/([^/]+)\/status/) || [])[1] || '';
+    const firstUrl = tweets[0].url || '';
+    const handle = (firstUrl.match(/x\.com\/([^/]+)\/status/) || [])[1] || '';
+
+    // Keep each tweet as its own item for rich display
+    const tweetItems = tweets.slice(0, 3).map(t => ({
+      text: cleanText(t),
+      url:  t.url || ''
+    })).filter(t => t.text.length > 10);
 
     slides.push({
-      type:    'x',
-      name:    builder.name || builder.handle,
-      role:    bio,
-      summary: summary || 'Active on X today.',
-      url:     tweetUrl,
+      type:   'x',
+      name:   builder.name || builder.handle,
+      role:   bio,
+      tweets: tweetItems,
       handle,
-      index:   i + 1
+      index:  i + 1
     });
   });
 
@@ -83,10 +86,6 @@ function esc(str) {
     .replace(/"/g, '&quot;');
 }
 
-function screenshotUrl(url) {
-  return `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
-}
-
 function ytThumb(videoId) {
   return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 }
@@ -112,7 +111,7 @@ function renderTitleSlide(s) {
       </div>
       <div class="title-footer">
         <span class="title-tagline">Follow builders, not influencers</span>
-        <span class="title-hint">Use ← → to navigate</span>
+        <span class="title-hint">← → to navigate</span>
       </div>
     </div>
   </div>`;
@@ -120,36 +119,33 @@ function renderTitleSlide(s) {
 
 function renderXSlide(s, idx) {
   const avatar = avatarUrl(s.handle);
-  const screenshot = s.url ? screenshotUrl(s.url) : '';
+  const tweetsHTML = (s.tweets || []).map((t, i) => `
+    <div class="tweet-item${i > 0 ? ' tweet-item--sep' : ''}">
+      <div class="tweet-bubble">
+        <p class="tweet-text">${esc(t.text)}</p>
+      </div>
+      ${t.url ? `<a class="tweet-link" href="${esc(t.url)}" target="_blank" rel="noopener">↗ View on X</a>` : ''}
+    </div>`).join('');
+
   return `
   <div class="slide" data-i="${idx}">
-    <div class="content-card">
-      <div class="card-left">
+    <div class="x-card">
+      <div class="x-card-header">
         <div class="card-tag tag-x">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          From X
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X / Twitter
         </div>
-        <div class="card-author">
+        <div class="x-card-author">
           ${avatar ? `<img class="author-avatar" src="${esc(avatar)}" alt="${esc(s.name)}" onerror="this.style.display='none'">` : ''}
-          <div class="author-info">
+          <div>
             <div class="author-name">${esc(s.name)}</div>
             <div class="author-role">${esc(s.role)}</div>
           </div>
         </div>
-        <blockquote class="card-summary">${esc(s.summary)}</blockquote>
-        ${s.url ? `<a class="card-link" href="${esc(s.url)}" target="_blank" rel="noopener">Read on X →</a>` : ''}
         <div class="card-index">${String(s.index).padStart(2,'0')}</div>
       </div>
-      <div class="card-right">
-        ${screenshot ? `
-        <div class="screenshot-wrap">
-          <img class="screenshot-img" src="${esc(screenshot)}" alt="Tweet screenshot" loading="lazy"
-               onerror="this.closest('.screenshot-wrap').classList.add('screenshot-error')">
-          <div class="screenshot-placeholder">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Loading preview…</span>
-          </div>
-        </div>` : ''}
+      <div class="tweet-list">
+        ${tweetsHTML}
       </div>
     </div>
   </div>`;
@@ -162,7 +158,7 @@ function renderPodcastSlide(s, idx) {
     <div class="content-card podcast-card">
       <div class="card-left">
         <div class="card-tag tag-podcast">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
           Podcast
         </div>
         <div class="podcast-show">${esc(s.show)}</div>
@@ -172,12 +168,12 @@ function renderPodcastSlide(s, idx) {
       </div>
       <div class="card-right">
         ${thumb ? `
-        <div class="screenshot-wrap yt-wrap">
-          <img class="screenshot-img yt-thumb" src="${esc(thumb)}" alt="Episode thumbnail" loading="lazy">
+        <a class="yt-wrap" href="${esc(s.url)}" target="_blank" rel="noopener">
+          <img class="yt-thumb" src="${esc(thumb)}" alt="Episode thumbnail" loading="lazy">
           <div class="yt-play">
-            <svg viewBox="0 0 24 24" fill="white" width="32" height="32"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
           </div>
-        </div>` : ''}
+        </a>` : ''}
       </div>
     </div>
   </div>`;
@@ -207,24 +203,28 @@ function renderHTML(slides, today) {
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:         #FDF8F2;
-  --surface:    #FFFFFF;
-  --border:     #EDE5D8;
-  --text:       #1C1712;
-  --muted:      #8C7E6B;
-  --x-color:    #D97706;
-  --x-bg:       #FEF3C7;
-  --pod-color:  #7C3AED;
-  --pod-bg:     #EDE9FE;
-  --link:       #2563EB;
-  --shadow:     0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
-  --shadow-lg:  0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  --bg:        #FDF8F2;
+  --surface:   #FFFFFF;
+  --border:    #EDE5D8;
+  --text:      #1C1712;
+  --muted:     #8C7E6B;
+  --subtle:    #F5F0E8;
+  --x-color:   #D97706;
+  --x-bg:      #FEF3C7;
+  --x-border:  #FDE68A;
+  --pod-color: #7C3AED;
+  --pod-bg:    #EDE9FE;
+  --pod-border:#DDD6FE;
+  --link:      #2563EB;
+  --shadow:    0 4px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
 }
 
 html, body {
   height: 100%; width: 100%;
   background: var(--bg);
   font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text);
   overflow: hidden;
 }
 
@@ -235,22 +235,21 @@ html, body {
 .slide {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  padding: 20px;
+  padding: 24px;
   opacity: 0; pointer-events: none;
-  transform: translateX(40px);
-  transition: opacity 0.45s cubic-bezier(0.4,0,0.2,1), transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  transform: translateX(36px);
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 .slide.active  { opacity: 1; pointer-events: all; transform: translateX(0); }
-.slide.leaving { opacity: 0; transform: translateX(-40px); transition-duration: 0.3s; }
+.slide.leaving { opacity: 0; transform: translateX(-36px); transition-duration: 0.25s; }
 
 /* ── Title card ── */
 .title-card {
-  width: 100%; max-width: 680px;
+  width: 100%; max-width: 620px;
   background: var(--surface);
   border-radius: 24px;
   box-shadow: var(--shadow-lg);
   padding: 52px 56px;
-  display: flex; flex-direction: column; gap: 0;
   border: 1px solid var(--border);
   position: relative; overflow: hidden;
 }
@@ -259,7 +258,7 @@ html, body {
   position: absolute; top: 0; left: 0; right: 0; height: 4px;
   background: linear-gradient(90deg, #F59E0B, #EC4899, #8B5CF6, #3B82F6);
 }
-.title-top { margin-bottom: 40px; }
+.title-top { margin-bottom: 36px; }
 .title-badge {
   display: inline-block;
   font-family: 'DM Mono', monospace;
@@ -268,36 +267,119 @@ html, body {
   background: var(--bg); border: 1px solid var(--border);
   padding: 5px 12px; border-radius: 100px;
 }
-.title-body { margin-bottom: 48px; }
-.title-greeting {
-  font-size: 18px; font-weight: 500; color: var(--muted);
-  margin-bottom: 16px;
-}
+.title-body { margin-bottom: 44px; }
+.title-greeting { font-size: 17px; font-weight: 500; color: var(--muted); margin-bottom: 14px; }
 .title-headline {
   font-family: 'Lora', serif;
-  font-size: clamp(40px, 6vw, 64px);
+  font-size: clamp(38px, 6vw, 60px);
   font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: 20px;
+  color: var(--text); margin-bottom: 18px;
 }
 .title-headline em { font-style: italic; color: var(--x-color); }
-.title-date {
-  font-family: 'DM Mono', monospace;
-  font-size: 13px; color: var(--muted); letter-spacing: 0.05em;
-}
+.title-date { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
 .title-footer {
   display: flex; justify-content: space-between; align-items: center;
-  border-top: 1px solid var(--border); padding-top: 20px;
+  border-top: 1px solid var(--border); padding-top: 18px;
 }
 .title-tagline { font-size: 13px; color: var(--muted); font-style: italic; }
-.title-hint {
+.title-hint { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--border); }
+
+/* ── Shared tag pill ── */
+.card-tag {
+  display: inline-flex; align-items: center; gap: 6px;
   font-family: 'DM Mono', monospace;
-  font-size: 11px; color: var(--border); letter-spacing: 0.08em;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 4px 11px; border-radius: 100px; border: 1px solid;
+  width: fit-content;
+}
+.tag-x       { color: var(--x-color);   background: var(--x-bg);   border-color: var(--x-border); }
+.tag-podcast { color: var(--pod-color); background: var(--pod-bg); border-color: var(--pod-border); }
+
+/* ── X card — full width, rich layout ── */
+.x-card {
+  width: 100%; max-width: 780px; max-height: 86vh;
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  overflow: hidden;
 }
 
-/* ── Content card ── */
+/* Header bar */
+.x-card-header {
+  display: flex; align-items: center; gap: 16px;
+  padding: 24px 36px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--subtle);
+  position: relative;
+}
+.x-card-author {
+  display: flex; align-items: center; gap: 12px;
+  flex: 1;
+}
+.author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  object-fit: cover; border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.author-name {
+  font-family: 'Lora', serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600; color: var(--text); line-height: 1.1;
+}
+.author-role {
+  font-size: 12px; color: var(--muted); margin-top: 2px;
+  line-height: 1.4; max-width: 420px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.card-index {
+  font-family: 'Lora', serif;
+  font-size: 42px; font-weight: 600;
+  color: rgba(0,0,0,0.06);
+  line-height: 1; user-select: none;
+  flex-shrink: 0;
+}
+
+/* Tweet list */
+.tweet-list {
+  flex: 1;
+  padding: 0 36px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.tweet-item {
+  padding: 22px 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.tweet-item--sep { border-top: 1px solid var(--border); }
+
+/* Tweet bubble */
+.tweet-bubble {
+  background: var(--subtle);
+  border-radius: 12px;
+  border-left: 3px solid var(--x-color);
+  padding: 14px 18px;
+}
+.tweet-text {
+  font-size: clamp(14px, 1.55vw, 17px);
+  line-height: 1.7; color: var(--text);
+  font-weight: 400;
+}
+.tweet-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600;
+  color: var(--link); text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.02em;
+  padding: 0 2px;
+}
+.tweet-link:hover { text-decoration: underline; }
+
+/* ── Podcast card — two column ── */
 .content-card {
-  width: 100%; max-width: 1000px; height: min(620px, 85vh);
+  width: 100%; max-width: 860px; height: min(540px, 82vh);
   background: var(--surface);
   border-radius: 24px;
   box-shadow: var(--shadow-lg);
@@ -305,163 +387,93 @@ html, body {
   display: grid; grid-template-columns: 1fr 1fr;
   overflow: hidden;
 }
-
-/* Card left */
 .card-left {
   padding: 40px 44px;
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; justify-content: center;
   border-right: 1px solid var(--border);
-  position: relative; overflow: hidden;
+  position: relative; gap: 0;
 }
-.card-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 5px 12px; border-radius: 100px; border: 1px solid;
-  width: fit-content; margin-bottom: 28px;
-}
-.tag-x       { color: var(--x-color);   background: var(--x-bg);   border-color: #FDE68A; }
-.tag-podcast { color: var(--pod-color); background: var(--pod-bg); border-color: #DDD6FE; }
-
-/* Author */
-.card-author {
-  display: flex; align-items: center; gap: 14px;
-  margin-bottom: 24px;
-}
-.author-avatar {
-  width: 48px; height: 48px; border-radius: 50%;
-  object-fit: cover; border: 2px solid var(--border);
-  flex-shrink: 0;
-}
-.author-name {
-  font-family: 'Lora', serif;
-  font-size: clamp(20px, 2.4vw, 28px);
-  font-weight: 600; color: var(--text); line-height: 1.1;
-}
-.author-role {
-  font-size: 12px; color: var(--muted); margin-top: 3px;
-  line-height: 1.4;
-}
-
-/* Summary */
-.card-summary {
-  font-size: clamp(14px, 1.5vw, 17px);
-  font-weight: 400; line-height: 1.7; color: var(--text);
-  flex: 1;
-  display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Link */
+.card-left .card-tag { margin-bottom: 20px; }
 .card-link {
   display: inline-block; margin-top: 24px;
   font-size: 13px; font-weight: 600;
   color: var(--link); text-decoration: none;
-  transition: gap 0.2s;
 }
 .card-link:hover { text-decoration: underline; }
-
-/* Ghost index number */
-.card-index {
-  position: absolute; bottom: -10px; right: 20px;
-  font-family: 'Lora', serif;
-  font-size: 96px; font-weight: 600;
-  color: rgba(0,0,0,0.04);
-  line-height: 1; user-select: none; pointer-events: none;
+.card-left .card-index {
+  position: absolute; bottom: -6px; right: 16px;
+  font-size: 80px; color: rgba(0,0,0,0.04);
 }
-
-/* Card right — screenshot */
-.card-right {
-  position: relative; background: #F5F0E8;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-}
-.screenshot-wrap {
-  width: 100%; height: 100%;
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
-}
-.screenshot-img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: top;
-  display: block;
-}
-.screenshot-placeholder {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 10px;
-  color: var(--muted); font-size: 12px;
-  font-family: 'DM Mono', monospace;
-  background: var(--bg);
-  transition: opacity 0.3s;
-}
-.screenshot-wrap:has(.screenshot-img[src]) .screenshot-placeholder {
-  opacity: 0; pointer-events: none;
-}
-.screenshot-error .screenshot-placeholder { opacity: 1 !important; }
-.screenshot-error .screenshot-placeholder::after { content: 'Preview unavailable'; }
-.screenshot-error .screenshot-img { display: none; }
-
-/* YouTube */
-.yt-wrap { cursor: pointer; }
-.yt-thumb { object-position: center; }
-.yt-play {
-  position: absolute;
-  width: 56px; height: 56px; border-radius: 50%;
-  background: rgba(0,0,0,0.7);
-  display: flex; align-items: center; justify-content: center;
-  transition: transform 0.2s, background 0.2s;
-}
-.yt-wrap:hover .yt-play { background: #FF0000; transform: scale(1.1); }
-
-/* Podcast card */
-.podcast-card .card-left { justify-content: center; }
 .podcast-show {
   font-family: 'DM Mono', monospace;
-  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--pod-color); margin-bottom: 14px;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--pod-color); margin-bottom: 12px;
 }
 .podcast-episode {
   font-family: 'Lora', serif;
-  font-size: clamp(18px, 2.2vw, 26px);
-  font-weight: 400; line-height: 1.3; color: var(--text);
-  margin-bottom: 28px;
+  font-size: clamp(17px, 2vw, 24px);
+  font-weight: 400; line-height: 1.35; color: var(--text);
+  margin-bottom: 0;
+}
+.card-right {
+  position: relative; background: var(--subtle);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
 }
 
-/* ── Nav ── */
+/* YouTube thumbnail */
+.yt-wrap {
+  display: block; width: 100%; height: 100%;
+  position: relative; text-decoration: none;
+}
+.yt-thumb {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+}
+.yt-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.yt-wrap:hover .yt-play { background: #FF0000; transform: translate(-50%, -50%) scale(1.1); }
+
+/* ── Nav pill ── */
 #nav {
-  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 12px; z-index: 100;
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 100px; padding: 8px 16px;
+  border-radius: 100px; padding: 7px 16px;
   box-shadow: var(--shadow);
 }
 .nav-btn {
-  width: 32px; height: 32px; border-radius: 50%;
+  width: 30px; height: 30px; border-radius: 50%;
   border: 1px solid var(--border); background: var(--bg);
   color: var(--muted); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 .nav-btn:hover { background: var(--text); color: white; border-color: var(--text); }
-.nav-btn svg { width: 14px; height: 14px; }
+.nav-btn svg { width: 13px; height: 13px; }
 #counter {
   font-family: 'DM Mono', monospace;
-  font-size: 12px; color: var(--muted); min-width: 40px; text-align: center;
+  font-size: 11px; color: var(--muted); min-width: 36px; text-align: center;
 }
 
 /* ── Dots ── */
 #dots {
-  position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 6px; z-index: 100;
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 5px; z-index: 100;
 }
 .dot {
-  width: 6px; height: 6px; border-radius: 50%;
+  width: 5px; height: 5px; border-radius: 50%;
   background: var(--border); transition: background 0.3s, transform 0.3s;
   cursor: pointer;
 }
-.dot.active { background: var(--text); transform: scale(1.3); }
+.dot.active { background: var(--text); transform: scale(1.4); }
 
 /* ── Progress bar ── */
 #progress {
@@ -471,10 +483,12 @@ html, body {
   z-index: 200;
 }
 
-@media (max-width: 700px) {
-  .content-card { grid-template-columns: 1fr; grid-template-rows: auto 240px; }
+@media (max-width: 640px) {
+  .content-card { grid-template-columns: 1fr; height: auto; max-height: 86vh; }
   .card-left { border-right: none; border-bottom: 1px solid var(--border); padding: 28px; }
-  .card-right { min-height: 200px; }
+  .card-right { min-height: 180px; }
+  .x-card-header { padding: 18px 20px 16px; }
+  .tweet-list { padding: 0 20px; }
 }
 </style>
 </head>
@@ -551,13 +565,6 @@ document.addEventListener('touchend',   e => {
 // Init progress
 document.getElementById('progress').style.width = (1 / TOTAL * 100) + '%';
 
-// YouTube thumbnail click → open video
-document.querySelectorAll('.yt-wrap').forEach(el => {
-  el.addEventListener('click', () => {
-    const link = el.closest('.slide').querySelector('.card-link');
-    if (link) window.open(link.href, '_blank');
-  });
-});
 </script>
 </body>
 </html>`;
