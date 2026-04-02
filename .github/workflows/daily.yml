@@ -26,13 +26,17 @@ jobs:
       - name: Install follow-builders dependencies
         run: cd /tmp/follow-builders/scripts && npm install
 
-      - name: Copy generate-slides.js
-        run: cp scripts/generate-slides.js /tmp/follow-builders/scripts/generate-slides.js
+      - name: Copy custom scripts
+        run: |
+          cp scripts/remix-digest.js /tmp/follow-builders/scripts/remix-digest.js
+          cp scripts/generate-slides.js /tmp/follow-builders/scripts/generate-slides.js
 
       - name: Generate slide deck
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           cd /tmp/follow-builders/scripts
-          node prepare-digest.js 2>/dev/null | node generate-slides.js
+          node prepare-digest.js 2>/dev/null | node remix-digest.js | node generate-slides.js
           cp ~/.follow-builders/digest-latest.html $GITHUB_WORKSPACE/index.html
 
       - name: Commit and push index.html

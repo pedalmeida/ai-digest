@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * generate-slides.js
- * Reads prepare-digest.js JSON from stdin, writes a self-contained
- * slide-deck HTML to ~/.follow-builders/digest-latest.html
+ * Reads remixed JSON from remix-digest.js (stdin).
+ * Writes a self-contained slide-deck HTML to ~/.follow-builders/digest-latest.html
  * Prints the output file path to stdout.
  */
 
@@ -17,55 +17,19 @@ process.stdin.on('end', () => {
   try { data = JSON.parse(raw); }
   catch (e) { process.stderr.write('generate-slides: invalid JSON\n'); process.exit(1); }
 
-  const today = new Date().toLocaleDateString('en-GB', {
+  const today = data.date || new Date().toLocaleDateString('en-GB', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
   });
 
-  // ── Build slide data ──────────────────────────────────────────────
+  // ── Build slide list ──────────────────────────────────────────
   const slides = [{ type: 'title', date: today }];
 
-  const xBuilders = data.x || [];
-  xBuilders.forEach((builder, i) => {
-    const tweets = (builder.tweets || []).filter(t => t.text && t.text.trim().length > 15);
-    if (!tweets.length) return;
-
-    const bio = (builder.bio || '').split('\n')[0].replace(/\s+/g, ' ').trim();
-
-    const cleanText = t =>
-      t.text
-        .replace(/https?:\/\/t\.co\/\S+/g, '')
-        .replace(/\s{2,}/g, ' ')
-        .trim();
-
-    const firstUrl = tweets[0].url || '';
-    const handle = (firstUrl.match(/x\.com\/([^/]+)\/status/) || [])[1] || '';
-
-    // Keep each tweet as its own item for rich display
-    const tweetItems = tweets.slice(0, 3).map(t => ({
-      text: cleanText(t),
-      url:  t.url || ''
-    })).filter(t => t.text.length > 10);
-
-    slides.push({
-      type:   'x',
-      name:   builder.name || builder.handle,
-      role:   bio,
-      tweets: tweetItems,
-      handle,
-      index:  i + 1
-    });
+  (data.builders || []).forEach(b => {
+    slides.push({ type: 'x', ...b });
   });
 
-  (data.podcasts || []).forEach((pod, i) => {
-    const videoId = (pod.url || '').match(/(?:v=|watch\?v=|youtu\.be\/)([^&\s]+)/)?.[1] || '';
-    slides.push({
-      type:    'podcast',
-      show:    pod.name,
-      episode: pod.title,
-      url:     pod.url,
-      videoId,
-      index:   xBuilders.length + i + 1
-    });
+  (data.podcasts || []).forEach(p => {
+    slides.push({ type: 'podcast', ...p });
   });
 
   const html = renderHTML(slides, today);
@@ -94,7 +58,7 @@ function avatarUrl(handle) {
   return handle ? `https://unavatar.io/twitter/${handle}` : '';
 }
 
-// ── Slide renderers ───────────────────────────────────────────────
+// ── Renderers ─────────────────────────────────────────────────────
 function renderTitleSlide(s) {
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
@@ -119,33 +83,33 @@ function renderTitleSlide(s) {
 
 function renderXSlide(s, idx) {
   const avatar = avatarUrl(s.handle);
-  const tweetsHTML = (s.tweets || []).map((t, i) => `
-    <div class="tweet-item${i > 0 ? ' tweet-item--sep' : ''}">
-      <div class="tweet-bubble">
-        <p class="tweet-text">${esc(t.text)}</p>
-      </div>
-      ${t.url ? `<a class="tweet-link" href="${esc(t.url)}" target="_blank" rel="noopener">↗ View on X</a>` : ''}
-    </div>`).join('');
+  const urls = (s.urls || []).filter(Boolean);
+  const urlsHTML = urls.map(u => `
+    <a class="source-url" href="${esc(u)}" target="_blank" rel="noopener">↗ ${esc(u.replace('https://', ''))}</a>
+  `).join('');
 
   return `
   <div class="slide" data-i="${idx}">
     <div class="x-card">
       <div class="x-card-header">
-        <div class="card-tag tag-x">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          X / Twitter
-        </div>
-        <div class="x-card-author">
-          ${avatar ? `<img class="author-avatar" src="${esc(avatar)}" alt="${esc(s.name)}" onerror="this.style.display='none'">` : ''}
-          <div>
-            <div class="author-name">${esc(s.name)}</div>
-            <div class="author-role">${esc(s.role)}</div>
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            ${avatar ? `<img class="author-avatar" src="${esc(avatar)}" alt="${esc(s.name)}" onerror="this.style.display='none'">` : ''}
+            <div>
+              <div class="author-name">${esc(s.name)}</div>
+              <div class="author-role">${esc(s.role)}</div>
+            </div>
           </div>
         </div>
-        <div class="card-index">${String(s.index).padStart(2,'0')}</div>
+        <div class="card-index">${String(s.index || idx).padStart(2, '0')}</div>
       </div>
-      <div class="tweet-list">
-        ${tweetsHTML}
+      <div class="x-card-body">
+        <p class="summary-text">${esc(s.summary)}</p>
+        <div class="source-urls">${urlsHTML}</div>
       </div>
     </div>
   </div>`;
@@ -163,8 +127,10 @@ function renderPodcastSlide(s, idx) {
         </div>
         <div class="podcast-show">${esc(s.show)}</div>
         <h2 class="podcast-episode">${esc(s.episode)}</h2>
+        ${s.takeaway ? `<div class="takeaway-box"><span class="takeaway-label">Takeaway</span> ${esc(s.takeaway)}</div>` : ''}
+        ${s.summary ? `<p class="podcast-summary">${esc(s.summary)}</p>` : ''}
         ${s.url ? `<a class="card-link" href="${esc(s.url)}" target="_blank" rel="noopener">Listen now →</a>` : ''}
-        <div class="card-index">${String(s.index).padStart(2,'0')}</div>
+        <div class="card-index">${String(s.index || idx).padStart(2, '0')}</div>
       </div>
       <div class="card-right">
         ${thumb ? `
@@ -208,12 +174,12 @@ function renderHTML(slides, today) {
   --border:    #EDE5D8;
   --text:      #1C1712;
   --muted:     #8C7E6B;
-  --subtle:    #F5F0E8;
+  --subtle:    #F7F2EA;
   --x-color:   #D97706;
-  --x-bg:      #FEF3C7;
+  --x-bg:      #FFFBEB;
   --x-border:  #FDE68A;
   --pod-color: #7C3AED;
-  --pod-bg:    #EDE9FE;
+  --pod-bg:    #F5F3FF;
   --pod-border:#DDD6FE;
   --link:      #2563EB;
   --shadow:    0 4px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
@@ -228,24 +194,22 @@ html, body {
   overflow: hidden;
 }
 
-/* ── Deck ── */
 #deck { position: relative; width: 100vw; height: 100vh; }
 
-/* ── Slides ── */
 .slide {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
   padding: 24px;
   opacity: 0; pointer-events: none;
-  transform: translateX(36px);
+  transform: translateX(32px);
   transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 .slide.active  { opacity: 1; pointer-events: all; transform: translateX(0); }
-.slide.leaving { opacity: 0; transform: translateX(-36px); transition-duration: 0.25s; }
+.slide.leaving { opacity: 0; transform: translateX(-32px); transition-duration: 0.25s; }
 
-/* ── Title card ── */
+/* ── Title ── */
 .title-card {
-  width: 100%; max-width: 620px;
+  width: 100%; max-width: 600px;
   background: var(--surface);
   border-radius: 24px;
   box-shadow: var(--shadow-lg);
@@ -258,16 +222,15 @@ html, body {
   position: absolute; top: 0; left: 0; right: 0; height: 4px;
   background: linear-gradient(90deg, #F59E0B, #EC4899, #8B5CF6, #3B82F6);
 }
-.title-top { margin-bottom: 36px; }
-.title-badge {
+.title-top    { margin-bottom: 36px; }
+.title-badge  {
   display: inline-block;
   font-family: 'DM Mono', monospace;
   font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--muted);
-  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); background: var(--bg); border: 1px solid var(--border);
   padding: 5px 12px; border-radius: 100px;
 }
-.title-body { margin-bottom: 44px; }
+.title-body   { margin-bottom: 44px; }
 .title-greeting { font-size: 17px; font-weight: 500; color: var(--muted); margin-bottom: 14px; }
 .title-headline {
   font-family: 'Lora', serif;
@@ -282,22 +245,22 @@ html, body {
   border-top: 1px solid var(--border); padding-top: 18px;
 }
 .title-tagline { font-size: 13px; color: var(--muted); font-style: italic; }
-.title-hint { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--border); }
+.title-hint    { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--border); }
 
-/* ── Shared tag pill ── */
+/* ── Shared tag ── */
 .card-tag {
   display: inline-flex; align-items: center; gap: 6px;
   font-family: 'DM Mono', monospace;
   font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
   padding: 4px 11px; border-radius: 100px; border: 1px solid;
-  width: fit-content;
+  width: fit-content; flex-shrink: 0;
 }
 .tag-x       { color: var(--x-color);   background: var(--x-bg);   border-color: var(--x-border); }
 .tag-podcast { color: var(--pod-color); background: var(--pod-bg); border-color: var(--pod-border); }
 
-/* ── X card — full width, rich layout ── */
+/* ── X Card ── */
 .x-card {
-  width: 100%; max-width: 780px; max-height: 86vh;
+  width: 100%; max-width: 720px;
   background: var(--surface);
   border-radius: 24px;
   box-shadow: var(--shadow-lg);
@@ -306,80 +269,66 @@ html, body {
   overflow: hidden;
 }
 
-/* Header bar */
 .x-card-header {
-  display: flex; align-items: center; gap: 16px;
-  padding: 24px 36px 20px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px;
+  padding: 28px 36px 22px;
   border-bottom: 1px solid var(--border);
   background: var(--subtle);
-  position: relative;
 }
-.x-card-author {
-  display: flex; align-items: center; gap: 12px;
-  flex: 1;
-}
+.header-left { display: flex; flex-direction: column; gap: 14px; flex: 1; min-width: 0; }
+
+.x-card-author { display: flex; align-items: center; gap: 12px; }
 .author-avatar {
   width: 44px; height: 44px; border-radius: 50%;
-  object-fit: cover; border: 2px solid var(--border);
-  flex-shrink: 0;
+  object-fit: cover; border: 2px solid var(--border); flex-shrink: 0;
 }
 .author-name {
   font-family: 'Lora', serif;
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(19px, 2.2vw, 24px);
   font-weight: 600; color: var(--text); line-height: 1.1;
 }
 .author-role {
-  font-size: 12px; color: var(--muted); margin-top: 2px;
-  line-height: 1.4; max-width: 420px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.4;
+  max-width: 460px;
 }
 .card-index {
   font-family: 'Lora', serif;
-  font-size: 42px; font-weight: 600;
-  color: rgba(0,0,0,0.06);
-  line-height: 1; user-select: none;
-  flex-shrink: 0;
+  font-size: 44px; font-weight: 600;
+  color: rgba(0,0,0,0.06); line-height: 1;
+  user-select: none; flex-shrink: 0;
 }
 
-/* Tweet list */
-.tweet-list {
-  flex: 1;
-  padding: 0 36px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
+.x-card-body {
+  padding: 28px 36px 24px;
+  display: flex; flex-direction: column; gap: 20px;
 }
-.tweet-item {
-  padding: 22px 0;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.tweet-item--sep { border-top: 1px solid var(--border); }
 
-/* Tweet bubble */
-.tweet-bubble {
-  background: var(--subtle);
-  border-radius: 12px;
-  border-left: 3px solid var(--x-color);
-  padding: 14px 18px;
-}
-.tweet-text {
-  font-size: clamp(14px, 1.55vw, 17px);
-  line-height: 1.7; color: var(--text);
+/* The interpreted summary — the star of the show */
+.summary-text {
+  font-size: clamp(15px, 1.7vw, 19px);
+  line-height: 1.75; color: var(--text);
   font-weight: 400;
 }
-.tweet-link {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 12px; font-weight: 600;
-  color: var(--link); text-decoration: none;
-  font-family: 'DM Mono', monospace;
-  letter-spacing: 0.02em;
-  padding: 0 2px;
-}
-.tweet-link:hover { text-decoration: underline; }
 
-/* ── Podcast card — two column ── */
+/* Source URLs — understated, at the bottom */
+.source-urls {
+  display: flex; flex-direction: column; gap: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+.source-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--muted);
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: color 0.15s;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.source-url:hover { color: var(--link); }
+
+/* ── Podcast card ── */
 .content-card {
-  width: 100%; max-width: 860px; height: min(540px, 82vh);
+  width: 100%; max-width: 860px; height: min(520px, 82vh);
   background: var(--surface);
   border-radius: 24px;
   box-shadow: var(--shadow-lg);
@@ -388,48 +337,65 @@ html, body {
   overflow: hidden;
 }
 .card-left {
-  padding: 40px 44px;
+  padding: 36px 40px;
   display: flex; flex-direction: column; justify-content: center;
   border-right: 1px solid var(--border);
-  position: relative; gap: 0;
+  position: relative; gap: 0; overflow: hidden;
 }
-.card-left .card-tag { margin-bottom: 20px; }
+.card-left .card-tag { margin-bottom: 16px; }
+.podcast-show {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--pod-color); margin-bottom: 10px;
+}
+.podcast-episode {
+  font-family: 'Lora', serif;
+  font-size: clamp(16px, 1.9vw, 22px);
+  font-weight: 400; line-height: 1.35; color: var(--text);
+  margin-bottom: 18px;
+}
+.takeaway-box {
+  background: var(--pod-bg);
+  border-left: 3px solid var(--pod-color);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 13px; line-height: 1.6; color: var(--text);
+}
+.takeaway-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--pod-color); display: block; margin-bottom: 4px;
+}
+.podcast-summary {
+  font-size: clamp(12px, 1.2vw, 14px);
+  line-height: 1.65; color: var(--muted);
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+  overflow: hidden; margin-bottom: 16px;
+}
 .card-link {
-  display: inline-block; margin-top: 24px;
+  display: inline-block;
   font-size: 13px; font-weight: 600;
   color: var(--link); text-decoration: none;
 }
 .card-link:hover { text-decoration: underline; }
 .card-left .card-index {
-  position: absolute; bottom: -6px; right: 16px;
-  font-size: 80px; color: rgba(0,0,0,0.04);
-}
-.podcast-show {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--pod-color); margin-bottom: 12px;
-}
-.podcast-episode {
-  font-family: 'Lora', serif;
-  font-size: clamp(17px, 2vw, 24px);
-  font-weight: 400; line-height: 1.35; color: var(--text);
-  margin-bottom: 0;
+  position: absolute; bottom: -8px; right: 12px;
+  font-family: 'Lora', serif; font-size: 80px; font-weight: 600;
+  color: rgba(0,0,0,0.04); line-height: 1;
+  user-select: none; pointer-events: none;
 }
 .card-right {
   position: relative; background: var(--subtle);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
-
-/* YouTube thumbnail */
 .yt-wrap {
   display: block; width: 100%; height: 100%;
   position: relative; text-decoration: none;
 }
 .yt-thumb {
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  display: block;
+  object-fit: cover; object-position: center; display: block;
 }
 .yt-play {
   position: absolute; top: 50%; left: 50%;
@@ -439,9 +405,9 @@ html, body {
   display: flex; align-items: center; justify-content: center;
   transition: background 0.2s, transform 0.2s;
 }
-.yt-wrap:hover .yt-play { background: #FF0000; transform: translate(-50%, -50%) scale(1.1); }
+.yt-wrap:hover .yt-play { background: #FF0000; transform: translate(-50%,-50%) scale(1.1); }
 
-/* ── Nav pill ── */
+/* ── Navigation ── */
 #nav {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 12px; z-index: 100;
@@ -470,25 +436,23 @@ html, body {
 }
 .dot {
   width: 5px; height: 5px; border-radius: 50%;
-  background: var(--border); transition: background 0.3s, transform 0.3s;
-  cursor: pointer;
+  background: var(--border); transition: background 0.3s, transform 0.3s; cursor: pointer;
 }
 .dot.active { background: var(--text); transform: scale(1.4); }
 
-/* ── Progress bar ── */
+/* ── Progress ── */
 #progress {
   position: fixed; top: 0; left: 0; height: 3px;
   background: linear-gradient(90deg, #F59E0B, #EC4899);
-  transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
-  z-index: 200;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1); z-index: 200;
 }
 
 @media (max-width: 640px) {
   .content-card { grid-template-columns: 1fr; height: auto; max-height: 86vh; }
   .card-left { border-right: none; border-bottom: 1px solid var(--border); padding: 28px; }
   .card-right { min-height: 180px; }
-  .x-card-header { padding: 18px 20px 16px; }
-  .tweet-list { padding: 0 20px; }
+  .x-card-header { padding: 20px 22px 16px; }
+  .x-card-body   { padding: 20px 22px; }
 }
 </style>
 </head>
@@ -512,8 +476,8 @@ ${slidesHTML}
 <script>
 const TOTAL = ${total};
 let current = 0;
-const slides = () => [...document.querySelectorAll('.slide')];
-const dots   = () => [...document.querySelectorAll('.dot')];
+const allSlides = () => [...document.querySelectorAll('.slide')];
+const allDots   = () => [...document.querySelectorAll('.dot')];
 
 // Build dots
 const dotsEl = document.getElementById('dots');
@@ -524,47 +488,38 @@ for (let i = 0; i < TOTAL; i++) {
   dotsEl.appendChild(d);
 }
 
-function goTo(n, dir) {
-  if (n === current) return;
-  const els = slides();
-  const ds  = dots();
+function goTo(n) {
+  if (n === current || n < 0 || n >= TOTAL) return;
+  const els = allSlides();
+  const ds  = allDots();
   els[current].classList.remove('active');
   els[current].classList.add('leaving');
-  setTimeout(() => els[current < n ? current : n + (n < current ? 0 : 0)].classList.remove('leaving'), 350);
   ds[current].classList.remove('active');
-  current = Math.max(0, Math.min(n, TOTAL - 1));
-  // small delay to allow leaving animation to start
+  const prev = current;
+  current = n;
   requestAnimationFrame(() => {
     els[current].classList.add('active');
     ds[current].classList.add('active');
   });
+  setTimeout(() => els[prev].classList.remove('leaving'), 400);
   document.getElementById('counter').textContent = (current + 1) + ' / ' + TOTAL;
   document.getElementById('progress').style.width = ((current + 1) / TOTAL * 100) + '%';
-  // clean up leaving after transition
-  setTimeout(() => {
-    slides().forEach(s => { if (!s.classList.contains('active')) s.classList.remove('leaving'); });
-  }, 500);
 }
 
-function next() { if (current < TOTAL - 1) goTo(current + 1); }
-function prev() { if (current > 0) goTo(current - 1); }
-
-document.getElementById('next').addEventListener('click', next);
-document.getElementById('prev').addEventListener('click', prev);
+document.getElementById('next').addEventListener('click', () => goTo(current + 1));
+document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
 document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
-  if (e.key === 'ArrowLeft')                    { e.preventDefault(); prev(); }
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+  if (e.key === 'ArrowLeft')                    { e.preventDefault(); goTo(current - 1); }
 });
 let tx = 0;
 document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
 document.addEventListener('touchend',   e => {
   const d = tx - e.changedTouches[0].clientX;
-  if (Math.abs(d) > 50) d > 0 ? next() : prev();
+  if (Math.abs(d) > 50) d > 0 ? goTo(current + 1) : goTo(current - 1);
 });
 
-// Init progress
 document.getElementById('progress').style.width = (1 / TOTAL * 100) + '%';
-
 </script>
 </body>
 </html>`;
