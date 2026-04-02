@@ -26,10 +26,11 @@ jobs:
       - name: Install follow-builders dependencies
         run: cd /tmp/follow-builders/scripts && npm install
 
-      - name: Copy custom scripts
+      - name: Copy custom scripts and install extra deps
         run: |
           cp scripts/remix-digest.js /tmp/follow-builders/scripts/remix-digest.js
           cp scripts/generate-slides.js /tmp/follow-builders/scripts/generate-slides.js
+          cd /tmp/follow-builders/scripts && npm install @anthropic-ai/sdk --save
 
       - name: Generate slide deck
         env:
