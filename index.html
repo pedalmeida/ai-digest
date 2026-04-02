@@ -6,326 +6,737 @@
 <title>AI Builders Digest — Thursday, 2 April 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #080808; --surface: #0f0f0f; --border: #1e1e1e;
-    --text: #e8e4dc; --muted: #5a5650; --accent: #c8a84b;
-    --accent-dim: rgba(200,168,75,0.12);
-    --tag-x: #1d9bf0; --tag-pod: #a855f7;
-  }
-  html, body { height: 100%; width: 100%; background: var(--bg); color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif; overflow: hidden; cursor: none; }
-  .cursor { position: fixed; width: 8px; height: 8px; background: var(--accent);
-    border-radius: 50%; pointer-events: none; z-index: 9999;
-    transition: transform .15s ease, opacity .15s ease; transform: translate(-50%,-50%); }
-  .cursor.clicking { transform: translate(-50%,-50%) scale(2); opacity: .5; }
-  body::before { content: ''; position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: .35; pointer-events: none; z-index: 1; }
-  #deck { position: relative; width: 100vw; height: 100vh; z-index: 2; }
-  .slide { position: absolute; inset: 0; display: flex; flex-direction: column;
-    justify-content: center; padding: 7vh 8vw; opacity: 0; pointer-events: none;
-    transition: opacity .55s cubic-bezier(.4,0,.2,1); }
-  .slide.active { opacity: 1; pointer-events: all; }
-  .slide-title { align-items: flex-start; }
-  .slide-title .eyebrow { font-family: 'IBM Plex Mono', monospace;
-    font-size: clamp(10px,1.1vw,13px); letter-spacing: .3em; color: var(--accent);
-    text-transform: uppercase; margin-bottom: 3vh;
-    opacity: 0; transform: translateY(8px); transition: opacity .5s .1s ease, transform .5s .1s ease; }
-  .slide-title .headline { font-family: 'Fraunces', serif; font-size: clamp(52px,9vw,110px);
-    font-weight: 300; line-height: .95; letter-spacing: -.02em; color: var(--text);
-    margin-bottom: 4vh;
-    opacity: 0; transform: translateY(16px); transition: opacity .6s .2s ease, transform .6s .2s ease; }
-  .slide-title .headline em { font-style: italic; color: var(--accent); }
-  .slide-title .date-line { font-family: 'IBM Plex Mono', monospace;
-    font-size: clamp(11px,1.2vw,14px); color: var(--muted); letter-spacing: .15em;
-    opacity: 0; transform: translateY(8px); transition: opacity .5s .4s ease, transform .5s .4s ease; }
-  .slide-title .tagline { font-family: 'IBM Plex Sans', sans-serif;
-    font-size: clamp(13px,1.4vw,16px); font-weight: 300; color: var(--muted); margin-top: 5vh;
-    border-top: 1px solid var(--border); padding-top: 2.5vh; max-width: 420px; line-height: 1.6;
-    opacity: 0; transform: translateY(8px); transition: opacity .5s .55s ease, transform .5s .55s ease; }
-  .slide.active .eyebrow, .slide.active .headline, .slide.active .date-line,
-  .slide.active .tagline { opacity: 1; transform: translateY(0); }
-  .slide-content { position: relative; }
-  .slide-content .tag { font-family: 'IBM Plex Mono', monospace; font-size: clamp(9px,.9vw,11px);
-    letter-spacing: .35em; text-transform: uppercase; padding: 4px 10px; border: 1px solid;
-    display: inline-block; margin-bottom: 3.5vh;
-    opacity: 0; transform: translateY(6px); transition: opacity .4s .05s ease, transform .4s .05s ease; }
-  .tag-x { color: var(--tag-x); border-color: rgba(29,155,240,.3); }
-  .tag-podcast { color: var(--tag-pod); border-color: rgba(168,85,247,.3); }
-  .slide-content .name { font-family: 'Fraunces', serif; font-size: clamp(36px,6.5vw,80px);
-    font-weight: 400; line-height: 1; letter-spacing: -.025em; color: var(--text); margin-bottom: 1.2vh;
-    opacity: 0; transform: translateY(14px); transition: opacity .55s .15s ease, transform .55s .15s ease; }
-  .slide-content .role { font-family: 'IBM Plex Mono', monospace; font-size: clamp(10px,1.1vw,13px);
-    color: var(--accent); letter-spacing: .08em; margin-bottom: 4.5vh;
-    opacity: 0; transform: translateY(8px); transition: opacity .45s .25s ease, transform .45s .25s ease; }
-  .slide-content .episode-title { font-family: 'Fraunces', serif; font-style: italic;
-    font-size: clamp(13px,1.5vw,18px); font-weight: 300; color: var(--muted); margin-bottom: 4vh;
-    max-width: 580px; line-height: 1.4;
-    opacity: 0; transform: translateY(8px); transition: opacity .45s .25s ease, transform .45s .25s ease; }
-  .slide-content .divider { width: 48px; height: 1px; background: var(--accent); margin-bottom: 4vh;
-    opacity: 0; transition: opacity .4s .3s ease; }
-  .slide-content .summary { font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(15px,1.8vw,22px);
-    font-weight: 300; line-height: 1.65; color: var(--text); max-width: 640px;
-    opacity: 0; transform: translateY(10px); transition: opacity .55s .35s ease, transform .55s .35s ease; }
-  .slide-content .source-link { display: inline-block; margin-top: 4.5vh;
-    font-family: 'IBM Plex Mono', monospace; font-size: clamp(10px,1vw,12px); color: var(--muted);
-    text-decoration: none; letter-spacing: .05em; border-bottom: 1px solid var(--border); padding-bottom: 2px;
-    opacity: 0; transition: opacity .4s .5s ease, color .2s ease, border-color .2s ease; }
-  .slide-content .source-link:hover { color: var(--text); border-color: var(--muted); }
-  .slide.active .tag, .slide.active .name, .slide.active .role, .slide.active .episode-title,
-  .slide.active .divider, .slide.active .summary, .slide.active .source-link
-    { opacity: 1; transform: translateY(0); }
-  .slide-content .index-num { position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-    font-family: 'Fraunces', serif; font-size: clamp(80px,14vw,180px); font-weight: 700;
-    color: rgba(255,255,255,.025); line-height: 1; user-select: none; pointer-events: none; }
-  #progress-bar { position: fixed; bottom: 0; left: 0; height: 2px; background: var(--accent);
-    transition: width .5s cubic-bezier(.4,0,.2,1); z-index: 100; }
-  #nav { position: fixed; bottom: 32px; right: 40px; display: flex; align-items: center;
-    gap: 20px; z-index: 100; }
-  #counter { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted);
-    letter-spacing: .1em; min-width: 48px; text-align: center; }
-  .nav-btn { width: 36px; height: 36px; border: 1px solid var(--border); background: transparent;
-    color: var(--muted); cursor: none; display: flex; align-items: center; justify-content: center;
-    transition: border-color .2s, color .2s, background .2s; }
-  .nav-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-  .nav-btn svg { width: 14px; height: 14px; }
-  #topbar { position: fixed; top: 28px; left: 40px; right: 40px;
-    display: flex; justify-content: space-between; align-items: center; z-index: 100; }
-  #logo { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .25em;
-    color: var(--muted); text-transform: uppercase; }
-  #logo span { color: var(--accent); }
-  #hint { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--border); letter-spacing: .1em; }
-  .v-line { position: fixed; left: 5vw; top: 0; bottom: 0; width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
-    z-index: 2; pointer-events: none; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #FDF8F2;
+  --surface:   #FFFFFF;
+  --border:    #EDE5D8;
+  --text:      #1C1712;
+  --muted:     #8C7E6B;
+  --subtle:    #F7F2EA;
+  --x-color:   #D97706;
+  --x-bg:      #FFFBEB;
+  --x-border:  #FDE68A;
+  --pod-color: #7C3AED;
+  --pod-bg:    #F5F3FF;
+  --pod-border:#DDD6FE;
+  --link:      #2563EB;
+  --shadow:    0 4px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+}
+
+html, body {
+  height: 100%; width: 100%;
+  background: var(--bg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text);
+  overflow: hidden;
+}
+
+#deck { position: relative; width: 100vw; height: 100vh; }
+
+.slide {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; pointer-events: none;
+  transform: translateX(32px);
+  transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.slide.active  { opacity: 1; pointer-events: all; transform: translateX(0); }
+.slide.leaving { opacity: 0; transform: translateX(-32px); transition-duration: 0.25s; }
+
+/* ── Title ── */
+.title-card {
+  width: 100%; max-width: 600px;
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: 52px 56px;
+  border: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.title-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #F59E0B, #EC4899, #8B5CF6, #3B82F6);
+}
+.title-top    { margin-bottom: 36px; }
+.title-badge  {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); background: var(--bg); border: 1px solid var(--border);
+  padding: 5px 12px; border-radius: 100px;
+}
+.title-body   { margin-bottom: 44px; }
+.title-greeting { font-size: 17px; font-weight: 500; color: var(--muted); margin-bottom: 14px; }
+.title-headline {
+  font-family: 'Lora', serif;
+  font-size: clamp(38px, 6vw, 60px);
+  font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--text); margin-bottom: 18px;
+}
+.title-headline em { font-style: italic; color: var(--x-color); }
+.title-date { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); }
+.title-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--border); padding-top: 18px;
+}
+.title-tagline { font-size: 13px; color: var(--muted); font-style: italic; }
+.title-hint    { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--border); }
+
+/* ── Shared tag ── */
+.card-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 4px 11px; border-radius: 100px; border: 1px solid;
+  width: fit-content; flex-shrink: 0;
+}
+.tag-x       { color: var(--x-color);   background: var(--x-bg);   border-color: var(--x-border); }
+.tag-podcast { color: var(--pod-color); background: var(--pod-bg); border-color: var(--pod-border); }
+
+/* ── X Card ── */
+.x-card {
+  width: 100%; max-width: 720px;
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+.x-card-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px;
+  padding: 28px 36px 22px;
+  border-bottom: 1px solid var(--border);
+  background: var(--subtle);
+}
+.header-left { display: flex; flex-direction: column; gap: 14px; flex: 1; min-width: 0; }
+
+.x-card-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  object-fit: cover; border: 2px solid var(--border); flex-shrink: 0;
+}
+.author-name {
+  font-family: 'Lora', serif;
+  font-size: clamp(19px, 2.2vw, 24px);
+  font-weight: 600; color: var(--text); line-height: 1.1;
+}
+.author-role {
+  font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.4;
+  max-width: 460px;
+}
+.card-index {
+  font-family: 'Lora', serif;
+  font-size: 44px; font-weight: 600;
+  color: rgba(0,0,0,0.06); line-height: 1;
+  user-select: none; flex-shrink: 0;
+}
+
+.x-card-body {
+  padding: 28px 36px 24px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+
+/* The interpreted summary — the star of the show */
+.summary-text {
+  font-size: clamp(15px, 1.7vw, 19px);
+  line-height: 1.75; color: var(--text);
+  font-weight: 400;
+}
+
+/* Source URLs — understated, at the bottom */
+.source-urls {
+  display: flex; flex-direction: column; gap: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+.source-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--muted);
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: color 0.15s;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.source-url:hover { color: var(--link); }
+
+/* ── Podcast card ── */
+.content-card {
+  width: 100%; max-width: 860px; height: min(520px, 82vh);
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+.card-left {
+  padding: 36px 40px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid var(--border);
+  position: relative; gap: 0; overflow: hidden;
+}
+.card-left .card-tag { margin-bottom: 16px; }
+.podcast-show {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--pod-color); margin-bottom: 10px;
+}
+.podcast-episode {
+  font-family: 'Lora', serif;
+  font-size: clamp(16px, 1.9vw, 22px);
+  font-weight: 400; line-height: 1.35; color: var(--text);
+  margin-bottom: 18px;
+}
+.takeaway-box {
+  background: var(--pod-bg);
+  border-left: 3px solid var(--pod-color);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 13px; line-height: 1.6; color: var(--text);
+}
+.takeaway-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--pod-color); display: block; margin-bottom: 4px;
+}
+.podcast-summary {
+  font-size: clamp(12px, 1.2vw, 14px);
+  line-height: 1.65; color: var(--muted);
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
+  overflow: hidden; margin-bottom: 16px;
+}
+.card-link {
+  display: inline-block;
+  font-size: 13px; font-weight: 600;
+  color: var(--link); text-decoration: none;
+}
+.card-link:hover { text-decoration: underline; }
+.card-left .card-index {
+  position: absolute; bottom: -8px; right: 12px;
+  font-family: 'Lora', serif; font-size: 80px; font-weight: 600;
+  color: rgba(0,0,0,0.04); line-height: 1;
+  user-select: none; pointer-events: none;
+}
+.card-right {
+  position: relative; background: var(--subtle);
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.yt-wrap {
+  display: block; width: 100%; height: 100%;
+  position: relative; text-decoration: none;
+}
+.yt-thumb {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center; display: block;
+}
+.yt-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.yt-wrap:hover .yt-play { background: #FF0000; transform: translate(-50%,-50%) scale(1.1); }
+
+/* ── Navigation ── */
+#nav {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 12px; z-index: 100;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 100px; padding: 7px 16px;
+  box-shadow: var(--shadow);
+}
+.nav-btn {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--bg);
+  color: var(--muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.nav-btn:hover { background: var(--text); color: white; border-color: var(--text); }
+.nav-btn svg { width: 13px; height: 13px; }
+#counter {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--muted); min-width: 36px; text-align: center;
+}
+
+/* ── Dots ── */
+#dots {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 5px; z-index: 100;
+}
+.dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--border); transition: background 0.3s, transform 0.3s; cursor: pointer;
+}
+.dot.active { background: var(--text); transform: scale(1.4); }
+
+/* ── Progress ── */
+#progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, #F59E0B, #EC4899);
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1); z-index: 200;
+}
+
+@media (max-width: 640px) {
+  .content-card { grid-template-columns: 1fr; height: auto; max-height: 86vh; }
+  .card-left { border-right: none; border-bottom: 1px solid var(--border); padding: 28px; }
+  .card-right { min-height: 180px; }
+  .x-card-header { padding: 20px 22px 16px; }
+  .x-card-body   { padding: 20px 22px; }
+}
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="v-line"></div>
-<div id="progress-bar"></div>
-<div id="topbar">
-  <div id="logo">AI<span>·</span>DIGEST</div>
-  <div id="hint">← → to navigate</div>
-</div>
+
+<div id="progress"></div>
+<div id="dots"></div>
 <div id="deck">
-<div class="slide active" data-i="0">
-      <div class="slide-title">
-        <div class="eyebrow">Morning Briefing</div>
-        <div class="headline">AI <em>Builders</em><br>Digest</div>
-        <div class="date-line">Thursday, 2 April 2026</div>
-        <div class="tagline">Follow builders, not influencers — researchers, founders, and engineers actually shipping in AI.</div>
+
+  <div class="slide active" data-i="0">
+    <div class="title-card">
+      <div class="title-top">
+        <div class="title-badge">Daily Briefing</div>
+      </div>
+      <div class="title-body">
+        <div class="title-greeting">Good afternoon ☀️</div>
+        <h1 class="title-headline">AI Builders<br><em>Digest</em></h1>
+        <p class="title-date">Thursday, 2 April 2026</p>
+      </div>
+      <div class="title-footer">
+        <span class="title-tagline">Follow builders, not influencers</span>
+        <span class="title-hint">← → to navigate</span>
       </div>
     </div>
-<div class="slide" data-i="1">
-      <div class="slide-content">
-        <div class="index-num">01</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Swyx</div>
-        <div class="role">achieve ambition with intentionality, intensity, integrity &amp; insanity.</div>
-        <div class="divider"></div>
-        <div class="summary">@aiDotEngineer bookmark this page for next week — @latentspacepod interesting triangles here — &quot;We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard; because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one we intend to win, and the others, too.&quot;</div>
-        <a class="source-link" href="https://x.com/swyx/status/2039597048585167265" target="_blank" rel="noopener">x.com/swyx/status/2039597048585167265</a>
+  </div>
+
+  <div class="slide" data-i="1">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/swyx" alt="Swyx" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Swyx</div>
+              <div class="author-role">AI builder and community leader</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">01</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Swyx is signaling upcoming announcements across his network (AI.engineer, Latent Space podcast, Cognition) and drawing parallels to ambitious goal-setting through a Kennedy moon-landing reference, suggesting that hard technical challenges require intentional commitment to organize resources and skills effectively.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/swyx/status/2039597048585167265" target="_blank" rel="noopener">↗ x.com/swyx/status/2039597048585167265</a>
+  
+    <a class="source-url" href="https://x.com/swyx/status/2039479213854728517" target="_blank" rel="noopener">↗ x.com/swyx/status/2039479213854728517</a>
+  
+    <a class="source-url" href="https://x.com/swyx/status/2039472186600427903" target="_blank" rel="noopener">↗ x.com/swyx/status/2039472186600427903</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="2">
-      <div class="slide-content">
-        <div class="index-num">02</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Peter Yang</div>
-        <div class="role">I share extremely practical AI tutorials and interviews | Join 140K+ readers at https://t.co/XYKTmGVH14 | Product at Roblox</div>
-        <div class="divider"></div>
-        <div class="summary">I think the combination of mobile and short video has rotted the brains of an entire generation of kids. See so many kids staring at their TikTok, YouTube Shorts, Reels, etc like zombies. — Me and my OpenClaw are ready for Disneyland Shanghai</div>
-        <a class="source-link" href="https://x.com/petergyang/status/2039563521885901091" target="_blank" rel="noopener">x.com/petergyang/status/2039563521885901091</a>
+  </div>
+
+  <div class="slide" data-i="2">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/petergyang" alt="Peter Yang" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Peter Yang</div>
+              <div class="author-role">Product at Roblox, AI educator</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">02</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Yang expresses concern about the cognitive impact of short-form mobile video on younger generations, observing zombie-like engagement patterns with TikTok, YouTube Shorts, and Reels—a contrarian take amid the platform's continued growth.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/petergyang/status/2039563521885901091" target="_blank" rel="noopener">↗ x.com/petergyang/status/2039563521885901091</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="3">
-      <div class="slide-content">
-        <div class="index-num">03</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Nan Yu</div>
-        <div class="role">head of product @linear</div>
-        <div class="divider"></div>
-        <div class="summary">Doona is the Notion of strollers — If you're a PM or on sales or support, how many times have you needed to bother an engineer to find out exactly how the app works? I wanted to know exactly what the default setting was for a personal configuration for all of our users. You never need to ask an engineer again for this kind of thing, because Linear Agent can just read the code and tell you.</div>
-        <a class="source-link" href="https://x.com/thenanyu/status/2039530536050274648" target="_blank" rel="noopener">x.com/thenanyu/status/2039530536050274648</a>
+  </div>
+
+  <div class="slide" data-i="3">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/thenanyu" alt="Nan Yu" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Nan Yu</div>
+              <div class="author-role">Head of Product at Linear</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">03</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Yu announces Linear Agent, a tool that allows PMs, sales, and support teams to query application behavior directly from code without bothering engineers—addressing a fundamental workflow friction point and expanding Linear's utility beyond human developers to knowledge workers across organizations.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/thenanyu/status/2039490349941526770" target="_blank" rel="noopener">↗ x.com/thenanyu/status/2039490349941526770</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="4">
-      <div class="slide-content">
-        <div class="index-num">04</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Cat Wu</div>
-        <div class="role">claude code + cowork @anthropicai, prev: @dagster, @scale_ai</div>
-        <div class="divider"></div>
-        <div class="summary">I love using Claude Code on Claude mobile app to fire off ideas on the go, then pick them up on my laptop later. We support easily teleporting sessions to your local CLI. Download link for Claude iOS and Android apps:</div>
-        <a class="source-link" href="https://x.com/_catwu/status/2039421527935033854" target="_blank" rel="noopener">x.com/_catwu/status/2039421527935033854</a>
+  </div>
+
+  <div class="slide" data-i="4">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/_catwu" alt="Cat Wu" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Cat Wu</div>
+              <div class="author-role">Claude Code developer at Anthropic</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">04</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Wu highlights a practical workflow pattern: using Claude Code on mobile to rapid-prototype ideas, then seamlessly continuing work on desktop via CLI session transfer—demonstrating how AI coding tools are enabling more fluid, device-agnostic development.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/_catwu/status/2039421527935033854" target="_blank" rel="noopener">↗ x.com/_catwu/status/2039421527935033854</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="5">
-      <div class="slide-content">
-        <div class="index-num">05</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Thariq</div>
-        <div class="role">Claude Code @anthropicai. prev YC W20, mit media lab.</div>
-        <div class="divider"></div>
-        <div class="summary">not an April Fools joke, we rewrote the Claude Code renderer to use a virtual viewport you can use your mouse, the prompt input stays at the bottom, and a lot more small UX wins people have been asking for it's experimental so give us your feedback</div>
-        <a class="source-link" href="https://x.com/trq212/status/2039453692592873587" target="_blank" rel="noopener">x.com/trq212/status/2039453692592873587</a>
+  </div>
+
+  <div class="slide" data-i="5">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/trq212" alt="Thariq" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Thariq</div>
+              <div class="author-role">Claude Code engineer at Anthropic</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">05</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Thariq ships a significant Claude Code UX upgrade with a rewritten renderer using virtual viewport technology, enabling mouse interaction while keeping the prompt input accessible—addressing core usability feedback from users.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/trq212/status/2039453692592873587" target="_blank" rel="noopener">↗ x.com/trq212/status/2039453692592873587</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="6">
-      <div class="slide-content">
-        <div class="index-num">06</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Amjad Masad</div>
-        <div class="role">ceo @replit. civilizationist</div>
-        <div class="divider"></div>
-        <div class="summary">We’re in an unprecedented era of rapid wealth creation. — Agent 4 made Replit into an OS of sorts. You can endlessly customize the platform with skills.</div>
-        <a class="source-link" href="https://x.com/amasad/status/2039552681493336250" target="_blank" rel="noopener">x.com/amasad/status/2039552681493336250</a>
+  </div>
+
+  <div class="slide" data-i="6">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/amasad" alt="Amjad Masad" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Amjad Masad</div>
+              <div class="author-role">CEO of Replit</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">06</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Masad observes an unprecedented era of rapid wealth creation and notes that Replit Agent 4 transforms the platform into an OS-like environment where users can endlessly customize with skills—shifting Replit from a tool into an extensible infrastructure layer.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/amasad/status/2039552681493336250" target="_blank" rel="noopener">↗ x.com/amasad/status/2039552681493336250</a>
+  
+    <a class="source-url" href="https://x.com/amasad/status/2039429759344730549" target="_blank" rel="noopener">↗ x.com/amasad/status/2039429759344730549</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="7">
-      <div class="slide-content">
-        <div class="index-num">07</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Guillermo Rauch</div>
-        <div class="role">@vercel CEO</div>
-        <div class="divider"></div>
-        <div class="summary">Vercel signups are growing at 52% MoM
-(up from 23%, up from 17%)</div>
-        <a class="source-link" href="https://x.com/rauchg/status/2039493013043626427" target="_blank" rel="noopener">x.com/rauchg/status/2039493013043626427</a>
+  </div>
+
+  <div class="slide" data-i="7">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/rauchg" alt="Guillermo Rauch" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Guillermo Rauch</div>
+              <div class="author-role">CEO of Vercel</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">07</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Rauch reports accelerating signup growth at 52% month-over-month (up from 23% and 17% in prior periods), signaling strong market momentum for the platform.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/rauchg/status/2039493013043626427" target="_blank" rel="noopener">↗ x.com/rauchg/status/2039493013043626427</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="8">
-      <div class="slide-content">
-        <div class="index-num">08</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Aaron Levie</div>
-        <div class="role">ceo @box - your business lives in content. unleash it with AI</div>
-        <div class="divider"></div>
-        <div class="summary">My team is going to kill me for sharing this, but it's April 1st so why not. Coming very soon.</div>
-        <a class="source-link" href="https://x.com/levie/status/2039414479084278239" target="_blank" rel="noopener">x.com/levie/status/2039414479084278239</a>
+  </div>
+
+  <div class="slide" data-i="8">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/levie" alt="Aaron Levie" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Aaron Levie</div>
+              <div class="author-role">CEO of Box</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">08</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Levie teases an imminent announcement for April 1st, hinting at new capabilities within Box's AI-driven content platform.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/levie/status/2039414479084278239" target="_blank" rel="noopener">↗ x.com/levie/status/2039414479084278239</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="9">
-      <div class="slide-content">
-        <div class="index-num">09</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Garry Tan</div>
-        <div class="role">President &amp; CEO @ycombinator —Founder @garryslist—Creator of GStack—designer/engineer who helps founders—SF Dem accelerating the boom loop</div>
-        <div class="divider"></div>
-        <div class="summary">Local models are a very very good thing</div>
-        <a class="source-link" href="https://x.com/garrytan/status/2039573921956327489" target="_blank" rel="noopener">x.com/garrytan/status/2039573921956327489</a>
+  </div>
+
+  <div class="slide" data-i="9">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/garrytan" alt="Garry Tan" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Garry Tan</div>
+              <div class="author-role">President &amp; CEO of Y Combinator</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">09</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Tan affirms that local models represent a significant positive development for the ecosystem, positioning on-device AI as a key architectural direction.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/garrytan/status/2039568811440128137" target="_blank" rel="noopener">↗ x.com/garrytan/status/2039568811440128137</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="10">
-      <div class="slide-content">
-        <div class="index-num">010</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Zara Zhang</div>
-        <div class="role">Builder. Dangerously skips permissions. Harvard’17. GitHub: https://t.co/KCuEajezlL YouTube: https://t.co/8xzbGWtf6w</div>
-        <div class="divider"></div>
-        <div class="summary">Just had an aha moment with OpenClaw. I'm replacing my to-do list with &quot;braindumping to-dos to OpenClaw&quot;. Whenever I think of a quick task, I just message it to OpenClaw Not only will it record those tasks, but it will actually DO those tasks Every morning it sends me a report of what tasks are already done, and highlights the ones that need my attention This might actually be a to-do management system that works — Introducing the &quot;Follow builders&quot; skill: the best way to stay on top of the insane happenings in AI I carefully curated 25 X accounts &amp; podcasts that share the highest-quality, first-hand insights on AI (by builders from OpenAI, Anthropic, Google, OpenClaw, Replit, Vercel, Cursor...) Your OpenClaw/agent can remix my central feed &amp; send you a personalized daily newsletter in whatever channel you like Already widely used with 2k+ stars on GitHub; link below</div>
-        <a class="source-link" href="https://x.com/zarazhangrui/status/2039599038358814961" target="_blank" rel="noopener">x.com/zarazhangrui/status/2039599038358814961</a>
+  </div>
+
+  <div class="slide" data-i="10">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/zarazhangrui" alt="Zara Zhang" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Zara Zhang</div>
+              <div class="author-role">Builder and AI developer</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">10</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Zhang introduces the 'Follow builders' skill—a curated OpenClaw capability that aggregates insights from 25 top AI builders and sends personalized daily newsletters—and shares a novel productivity pattern: braindumping tasks to agents that both record and execute them with morning summaries, fundamentally rethinking how to-do lists work.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/zarazhangrui/status/2039599038358814961" target="_blank" rel="noopener">↗ x.com/zarazhangrui/status/2039599038358814961</a>
+  
+    <a class="source-url" href="https://x.com/zarazhangrui/status/2039368866741277074" target="_blank" rel="noopener">↗ x.com/zarazhangrui/status/2039368866741277074</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="11">
-      <div class="slide-content">
-        <div class="index-num">011</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Nikunj Kothari</div>
-        <div class="role">partner @fpvventures - investing in seed/A. previous: early hire @meter, @opendoor, @atlassian &amp; others. love @shimoleejhaveri + 👦👧</div>
-        <div class="divider"></div>
-        <div class="summary">confirmed bionic 🤖</div>
-        <a class="source-link" href="https://x.com/nikunj/status/2039371652287652109" target="_blank" rel="noopener">x.com/nikunj/status/2039371652287652109</a>
+  </div>
+
+  <div class="slide" data-i="11">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/nikunj" alt="Peter Steinberger" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Peter Steinberger</div>
+              <div class="author-role">ClawFather at OpenClaw</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">11</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Steinberger advocates against using plan mode in agents, arguing that direct conversation with your agent is more effective for users, particularly for those deeply embedded in the AI-native workflow.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/steipete/status/2039551079621566812" target="_blank" rel="noopener">↗ x.com/steipete/status/2039551079621566812</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="12">
-      <div class="slide-content">
-        <div class="index-num">012</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Peter Steinberger</div>
-        <div class="role">Polyagentmorous ClawFather. Came back from retirement to mess with AI and help a lobster take over the world @openclaw🦞</div>
-        <div class="divider"></div>
-        <div class="summary">I never use plan mode. The main reason this was added to codex is for claude-pilled people who struggle with changing their habits. just talk with your agent. — See you there!</div>
-        <a class="source-link" href="https://x.com/steipete/status/2039551079621566812" target="_blank" rel="noopener">x.com/steipete/status/2039551079621566812</a>
+  </div>
+
+  <div class="slide" data-i="12">
+    <div class="x-card">
+      <div class="x-card-header">
+        <div class="header-left">
+          <div class="card-tag tag-x">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </div>
+          <div class="x-card-author">
+            <img class="author-avatar" src="https://unavatar.io/twitter/steipete" alt="Dan Shipper" onerror="this.style.display='none'">
+            <div>
+              <div class="author-name">Dan Shipper</div>
+              <div class="author-role">CEO of Every</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-index">12</div>
+      </div>
+      <div class="x-card-body">
+        <p class="summary-text">Shipper argues that SaaS isn't dead but must become agent-native, highlighting Linear as a exemplar that remained true to its mission (helping teams build software) while pivoting to support agents as first-class users—a pattern where companies become the platform agents operate within rather than chasing AI feature commodification.</p>
+        <div class="source-urls">
+    <a class="source-url" href="https://x.com/danshipper/status/2039357127903350960" target="_blank" rel="noopener">↗ x.com/danshipper/status/2039357127903350960</a>
+  </div>
       </div>
     </div>
-<div class="slide" data-i="13">
-      <div class="slide-content">
-        <div class="index-num">013</div>
-        <span class="tag tag-x">X / Twitter</span>
-        <div class="name">Dan Shipper</div>
-        <div class="role">ceo @every | the only subscription you need to stay at the edge of AI</div>
-        <div class="divider"></div>
-        <div class="summary">@linear YouTube: Spotify: — SaaS isn’t dead, it just needs to become agent-native. Linear (@linear) is a great example of how: They pivoted the product to be used by both humans and agents, and that has made them one of the premier software tools in the agent-native era. I had Linear’s cofounder and CEO @karrisaarinen on @every's AI &amp; I to talk about how a product management tool for human software developers became an agent-native tool—and how Linear’s trajectory reveals a bright future for SaaS businesses:
-- Speed means decisions matter more, not less. AI makes it easy to have an idea and build it without considering whether its existence is justified. When ChatGPT was released, SaaS companies were launching their own chatbots left, right, and center. Instead of jumping on the bandwagon, Linear stopped to consider whether the application was useful. (It wasn’t.) - Just because the technology has changed doesn’t mean your mission should. Karri attributes Linear’s success to never losing sight of what matters: helping teams develop great software. Instead of chasing trends, Linear focused on understanding how AI was impacting its customers’ workflows—and updating its product accordingly.
-- Agents are now first-class users. Linear never tried to change what it was or did well; it just expanded the user base. Companies can now kick off agents inside Linear, manage them, and track what they're working on alongside the humans on the team, which explains why Codex, Coinbase, and Brex all run their agents on Linear. This is a must watch for anyone interested in how an agent-native SaaS company operates. Watch below! Timestamps:
-Introduction and how Every first discovered Linear: 00:00:39
-Why Linear waited to ship AI features instead of rushing to chatbots: 00:02:00
-Linear's agent platform and becoming the system that guides AI agents: 00:05:06
-Why &quot;SaaS is dead&quot; is a simplistic narrative: 00:07:42
-How Linear adopted AI coding tools internally: 00:12:18
-AI's impact on product building workflows—speed versus thoughtfulness: 00:17:45
-The value of conceptual work and thinking before shipping: 00:22:18
-How AI is reshaping Linear's product strategy: 00:29:30
-Demo: Linear's agent skills, shared context, and code review workflow: 00:37:18
-The future of product development and the enduring role of human judgment: 00:47:48 — @every @NotionHQ technically this camp is sponsored by Notion but ive been a fan and power user since i met @ivanhzhao in 2018 and he showed me Notion 2.0 tbh i feel like notion was made for this moment in AI—a pleasure for us to work with them</div>
-        <a class="source-link" href="https://x.com/danshipper/status/2039357945310277717" target="_blank" rel="noopener">x.com/danshipper/status/2039357945310277717</a>
+  </div>
+
+  <div class="slide" data-i="13">
+    <div class="content-card podcast-card">
+      <div class="card-left">
+        <div class="card-tag tag-podcast">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Podcast
+        </div>
+        <div class="podcast-show">Latent Space</div>
+        <h2 class="podcast-episode">Mistral: Voxtral TTS, Forge, Leanstral, &amp; Mistral 4 — w/ Pavan Kumar Reddy &amp; Guillaume Lample</h2>
+        <div class="takeaway-box"><span class="takeaway-label">Takeaway</span> Mistral's Voxtral TTS and novel neural audio codec architecture enable enterprises to monetize years or decades of proprietary domain data that closed-source models can't access, shifting the competitive advantage to organizations with rich internal datasets.</div>
+        <p class="podcast-summary">Mistral released Voxtral, a 3B text-to-speech model supporting nine languages with state-of-the-art quality at a fraction of competitor costs. The model leverages a novel in-house auto-regressive flow-matching architecture and a custom neural audio codec that converts audio into discrete semantic and acoustic tokens at 12.5 Hz—enabling efficient generation. What makes this significant is the implicit strategic positioning: enterprises currently stuck with closed-source models can't leverage their proprietary datasets (sometimes trillions of tokens collected over decades in specific domains). By open-sourcing the capability, Mistral enables organizations to fine-tune on their own data, unlocking competitive moats. The audio codec innovation matters because it solves a fundamental problem in audio generation—reducing continuous waveforms to discrete tokens that transformers can process, much like how vision encoders handle images. This represents Mistral's broader philosophy: give builders the tools to own their models rather than depend on API access.</p>
+        <a class="card-link" href="https://youtube.com/watch?v=SUjA25ijcNs" target="_blank" rel="noopener">Listen now →</a>
+        <div class="card-index">13</div>
+      </div>
+      <div class="card-right">
+        
+        <a class="yt-wrap" href="https://youtube.com/watch?v=SUjA25ijcNs" target="_blank" rel="noopener">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/SUjA25ijcNs/hqdefault.jpg" alt="Episode thumbnail" loading="lazy">
+          <div class="yt-play">
+            <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </a>
       </div>
     </div>
-<div class="slide" data-i="14">
-      <div class="slide-content">
-        <div class="index-num">014</div>
-        <span class="tag tag-podcast">Podcast</span>
-        <div class="name">Latent Space</div>
-        <div class="episode-title">Mistral: Voxtral TTS, Forge, Leanstral, &amp; Mistral 4 — w/ Pavan Kumar Reddy &amp; Guillaume Lample</div>
-        <div class="summary">When customers use this offtheshelf close model, what's very sad is that they are not leveraging, you know, these data that they have been collecting for for years or sometime for decades. So much data, sometimes it's trillions of tokens of data in a very specific domain, their d…</div>
-        <a class="source-link" href="https://youtube.com/watch?v=SUjA25ijcNs" target="_blank" rel="noopener">youtube.com/watch?v=SUjA25ijcNs</a>
-      </div>
-    </div>
+  </div>
 </div>
 <div id="nav">
   <button class="nav-btn" id="prev" aria-label="Previous">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
   </button>
-  <div id="counter">1 / 15</div>
+  <div id="counter">1 / 14</div>
   <button class="nav-btn" id="next" aria-label="Next">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
   </button>
 </div>
+
 <script>
-const total = 15;
+const TOTAL = 14;
 let current = 0;
-const els = () => document.querySelectorAll('.slide');
-const counter = document.getElementById('counter');
-const bar = document.getElementById('progress-bar');
-function goTo(n) {
-  els()[current].classList.remove('active');
-  current = Math.max(0, Math.min(n, total - 1));
-  els()[current].classList.add('active');
-  counter.textContent = (current + 1) + ' / ' + total;
-  bar.style.width = ((current + 1) / total * 100) + '%';
+const allSlides = () => [...document.querySelectorAll('.slide')];
+const allDots   = () => [...document.querySelectorAll('.dot')];
+
+// Build dots
+const dotsEl = document.getElementById('dots');
+for (let i = 0; i < TOTAL; i++) {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => goTo(i));
+  dotsEl.appendChild(d);
 }
+
+function goTo(n) {
+  if (n === current || n < 0 || n >= TOTAL) return;
+  const els = allSlides();
+  const ds  = allDots();
+  els[current].classList.remove('active');
+  els[current].classList.add('leaving');
+  ds[current].classList.remove('active');
+  const prev = current;
+  current = n;
+  requestAnimationFrame(() => {
+    els[current].classList.add('active');
+    ds[current].classList.add('active');
+  });
+  setTimeout(() => els[prev].classList.remove('leaving'), 400);
+  document.getElementById('counter').textContent = (current + 1) + ' / ' + TOTAL;
+  document.getElementById('progress').style.width = ((current + 1) / TOTAL * 100) + '%';
+}
+
 document.getElementById('next').addEventListener('click', () => goTo(current + 1));
 document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
 document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
-  if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+  if (e.key === 'ArrowLeft')                    { e.preventDefault(); goTo(current - 1); }
 });
 let tx = 0;
 document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
-document.addEventListener('touchend', e => {
+document.addEventListener('touchend',   e => {
   const d = tx - e.changedTouches[0].clientX;
   if (Math.abs(d) > 50) d > 0 ? goTo(current + 1) : goTo(current - 1);
 });
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
-document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
-bar.style.width = (1 / total * 100) + '%';
+
+document.getElementById('progress').style.width = (1 / TOTAL * 100) + '%';
 </script>
 </body>
 </html>
