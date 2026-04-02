@@ -113,13 +113,6 @@ function renderXSlide(s, idx) {
 
       <!-- LEFT: identity + signal -->
       <div class="card-left">
-        <div class="left-top">
-          <div class="card-type-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
-            X / Twitter
-          </div>
-          <div class="signal-badge ${signalClass}">${signal} ${signalLabel}</div>
-        </div>
         <div class="author-block">
           ${avatar ? `<img class="author-avatar" src="${esc(avatar)}" alt="" onerror="this.style.display='none'">` : ''}
           <div class="author-text">
@@ -174,13 +167,6 @@ function renderPodcastSlide(s, idx) {
 
       <!-- LEFT: show info + thumbnail -->
       <div class="card-left podcast-left">
-        <div class="left-top">
-          <div class="card-type-label card-type-pod">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-            Podcast
-          </div>
-          <div class="signal-badge ${signalClass}">${signal} ${signalLabel}</div>
-        </div>
         <div class="podcast-show">${esc(s.show)}</div>
         <h2 class="podcast-episode">${esc(s.episode)}</h2>
         <div class="takeaway-box">
