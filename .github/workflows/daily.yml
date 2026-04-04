@@ -30,6 +30,8 @@ jobs:
         run: |
           cp scripts/remix-digest.js /tmp/follow-builders/scripts/remix-digest.js
           cp scripts/generate-slides.js /tmp/follow-builders/scripts/generate-slides.js
+          cp scripts/merge-sources.js /tmp/follow-builders/scripts/merge-sources.js
+          [ -f scripts/custom-sources.json ] && mkdir -p ~/.follow-builders && cp scripts/custom-sources.json ~/.follow-builders/custom-sources.json || true
           cd /tmp/follow-builders/scripts && npm install @anthropic-ai/sdk --save
 
       - name: Generate slide deck
@@ -37,7 +39,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           cd /tmp/follow-builders/scripts
-          node prepare-digest.js 2>/dev/null | node remix-digest.js | node generate-slides.js
+          node prepare-digest.js 2>/dev/null | node merge-sources.js | node remix-digest.js | node generate-slides.js
           cp ~/.follow-builders/digest-latest.html $GITHUB_WORKSPACE/index.html
 
       - name: Commit and push index.html
