@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Digest Sources</title>
+  <style>
+    :root {
+      --bg: #f4f1e8;
+      --panel: rgba(255, 251, 242, 0.9);
+      --ink: #1c1a16;
+      --muted: #6c665b;
+      --line: rgba(28, 26, 22, 0.12);
+      --accent: #c96f3b;
+      --accent-strong: #9f4e25;
+      --danger: #8a2f2f;
+      --shadow: 0 20px 60px rgba(48, 32, 17, 0.12);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(201, 111, 59, 0.16), transparent 32%),
+        radial-gradient(circle at top right, rgba(113, 146, 115, 0.2), transparent 24%),
+        linear-gradient(180deg, #f8f5ec 0%, var(--bg) 100%);
+    }
+
+    .shell {
+      width: min(1120px, calc(100vw - 32px));
+      margin: 32px auto 48px;
+    }
+
+    .hero,
+    .panel {
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .lede,
+    .helper,
+    .meta {
+      color: var(--muted);
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 60ch;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .panel h2 {
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin: 0 0 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--ink);
+      font: inherit;
+    }
+
+    input:focus {
+      outline: 2px solid rgba(201, 111, 59, 0.22);
+      border-color: var(--accent);
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 120ms ease, opacity 120ms ease, background 120ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: wait;
+      transform: none;
+    }
+
+    .primary {
+      color: #fff9f1;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+    }
+
+    .secondary {
+      color: var(--ink);
+      background: rgba(28, 26, 22, 0.08);
+    }
+
+    .danger {
+      color: #fff4f4;
+      background: var(--danger);
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar .field {
+      flex: 1 1 280px;
+    }
+
+    .status {
+      min-height: 1.4em;
+      margin: 4px 0 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .status.error {
+      color: var(--danger);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      position: relative;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(28, 26, 22, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 248, 240, 0.72)),
+        radial-gradient(circle at top right, rgba(201, 111, 59, 0.14), transparent 30%);
+      min-height: 172px;
+    }
+
+    .avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: block;
+      margin-bottom: 14px;
+      background: rgba(28, 26, 22, 0.05);
+      object-fit: cover;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.1;
+    }
+
+    .handle {
+      margin: 6px 0 0;
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    .remove {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      line-height: 1;
+      color: var(--danger);
+      background: rgba(138, 47, 47, 0.1);
+    }
+
+    .empty {
+      padding: 28px;
+      border: 1px dashed rgba(28, 26, 22, 0.15);
+      border-radius: 20px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .meta {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .shell {
+        width: min(100vw - 24px, 1120px);
+        margin-top: 12px;
+      }
+
+      .hero,
+      .panel {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <h1>Manage AI Digest sources.</h1>
+      <p class="lede">Edit the X accounts tracked by this digest, then commit <code>scripts/my-sources.json</code> back to GitHub from the browser. Podcasts stay in the same file and are preserved on save.</p>
+    </section>
+
+    <section class="layout">
+      <aside class="stack">
+        <div class="panel">
+          <h2>GitHub token</h2>
+          <label for="token">Personal access token</label>
+          <input id="token" type="password" autocomplete="off" placeholder="Paste PAT with repo access">
+          <p class="helper">Stored in <code>localStorage</code> on this browser only.</p>
+          <div class="row">
+            <button id="save-token" class="secondary" type="button">Save token</button>
+            <button id="clear-token" class="secondary" type="button">Clear token</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Add account</h2>
+          <label for="new-handle">X handle</label>
+          <input id="new-handle" type="text" autocomplete="off" placeholder="@newhandle">
+          <p class="helper">New entries default their display name to the handle. The fetch script can still use the live X profile name when building the feed.</p>
+          <div class="row">
+            <button id="add-account" class="primary" type="button">Add account</button>
+            <button id="save-sources" class="secondary" type="button">Save</button>
+          </div>
+          <p id="status" class="status" aria-live="polite"></p>
+        </div>
+      </aside>
+
+      <section class="panel">
+        <div class="toolbar">
+          <div class="field">
+            <label for="filter">Search tracked accounts</label>
+            <input id="filter" type="search" placeholder="Filter by display name or handle">
+          </div>
+          <div class="meta">
+            <strong id="count">0</strong> account(s)
+          </div>
+        </div>
+
+        <div id="cards" class="grid" aria-live="polite"></div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'ai-digest-github-pat';
+    const REPO_OWNER = 'pedro-ux';
+    const REPO_NAME = 'ai-digest';
+    const FILE_PATH = 'scripts/my-sources.json';
+    const CONTENTS_URL = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
+
+    const state = {
+      sources: { x_accounts: [], podcasts: [] },
+      remoteSha: '',
+      filter: '',
+      dirty: false,
+      saving: false
+    };
+
+    const elements = {
+      token: document.getElementById('token'),
+      saveToken: document.getElementById('save-token'),
+      clearToken: document.getElementById('clear-token'),
+      newHandle: document.getElementById('new-handle'),
+      addAccount: document.getElementById('add-account'),
+      saveSources: document.getElementById('save-sources'),
+      filter: document.getElementById('filter'),
+      cards: document.getElementById('cards'),
+      count: document.getElementById('count'),
+      status: document.getElementById('status')
+    };
+
+    function getToken() {
+      return localStorage.getItem(STORAGE_KEY) || '';
+    }
+
+    function setStatus(message, isError = false) {
+      elements.status.textContent = message;
+      elements.status.className = isError ? 'status error' : 'status';
+    }
+
+    function sanitizeHandle(value) {
+      return String(value || '')
+        .trim()
+        .replace(/^https?:\/\/(www\.)?x\.com\//i, '')
+        .replace(/^@+/, '')
+        .replace(/\/.*$/, '')
+        .replace(/[^A-Za-z0-9_]/g, '')
+        .toLowerCase();
+    }
+
+    function markDirty() {
+      state.dirty = true;
+      renderMeta();
+    }
+
+    function sortAccounts() {
+      state.sources.x_accounts.sort((a, b) => {
+        const left = (a.name || a.handle || '').toLowerCase();
+        const right = (b.name || b.handle || '').toLowerCase();
+        return left.localeCompare(right);
+      });
+    }
+
+    function renderMeta() {
+      const visibleCount = getFilteredAccounts().length;
+      elements.count.textContent = String(visibleCount);
+      elements.saveSources.textContent = state.saving ? 'Saving…' : state.dirty ? 'Save changes' : 'Save';
+      elements.saveSources.disabled = state.saving;
+    }
+
+    function getFilteredAccounts() {
+      const query = state.filter.trim().toLowerCase();
+      if (!query) return state.sources.x_accounts;
+      return state.sources.x_accounts.filter(account => {
+        return [account.name, account.handle]
+          .filter(Boolean)
+          .some(value => value.toLowerCase().includes(query));
+      });
+    }
+
+    function renderCards() {
+      const accounts = getFilteredAccounts();
+      elements.cards.innerHTML = '';
+
+      if (accounts.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.textContent = state.sources.x_accounts.length === 0
+          ? 'No tracked accounts yet.'
+          : 'No accounts match the current filter.';
+        elements.cards.appendChild(empty);
+        renderMeta();
+        return;
+      }
+
+      for (const account of accounts) {
+        const card = document.createElement('article');
+        card.className = 'card';
+
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'remove';
+        remove.setAttribute('aria-label', `Remove @${account.handle}`);
+        remove.textContent = '×';
+        remove.addEventListener('click', () => {
+          state.sources.x_accounts = state.sources.x_accounts.filter(item => item.handle !== account.handle);
+          markDirty();
+          setStatus(`Removed @${account.handle}.`);
+          renderCards();
+        });
+
+        const avatar = document.createElement('img');
+        avatar.className = 'avatar';
+        avatar.alt = `${account.name || account.handle} avatar`;
+        avatar.src = `https://unavatar.io/twitter/${encodeURIComponent(account.handle)}`;
+
+        const name = document.createElement('h3');
+        name.className = 'name';
+        name.textContent = account.name || account.handle;
+
+        const handle = document.createElement('p');
+        handle.className = 'handle';
+        handle.textContent = `@${account.handle}`;
+
+        card.append(remove, avatar, name, handle);
+        elements.cards.appendChild(card);
+      }
+
+      renderMeta();
+    }
+
+    async function loadSources() {
+      setStatus('Loading sources…');
+      const response = await fetch(CONTENTS_URL, {
+        headers: {
+          Accept: 'application/vnd.github+json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Could not load ${FILE_PATH} from GitHub (${response.status})`);
+      }
+
+      const payload = await response.json();
+      state.remoteSha = payload.sha || '';
+      state.sources = JSON.parse(atob(payload.content.replace(/\n/g, '')));
+      sortAccounts();
+      state.dirty = false;
+      setStatus('Sources loaded.');
+      renderCards();
+    }
+
+    function addAccount() {
+      const handle = sanitizeHandle(elements.newHandle.value);
+      if (!handle) {
+        setStatus('Enter a valid X handle.', true);
+        return;
+      }
+
+      if (state.sources.x_accounts.some(account => account.handle.toLowerCase() === handle)) {
+        setStatus(`@${handle} is already tracked.`, true);
+        return;
+      }
+
+      state.sources.x_accounts.push({ name: handle, handle });
+      sortAccounts();
+      markDirty();
+      elements.newHandle.value = '';
+      setStatus(`Added @${handle}.`);
+      renderCards();
+    }
+
+    async function saveSources() {
+      const token = getToken();
+      if (!token) {
+        setStatus('Save a GitHub token first.', true);
+        return;
+      }
+
+      state.saving = true;
+      renderMeta();
+      setStatus('Saving to GitHub…');
+
+      try {
+        const response = await fetch(CONTENTS_URL, {
+          method: 'PUT',
+          headers: {
+            Accept: 'application/vnd.github+json',
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: 'Update my-sources.json',
+            content: btoa(unescape(encodeURIComponent(JSON.stringify(state.sources, null, 2)))),
+            sha: state.remoteSha
+          })
+        });
+
+        if (!response.ok) {
+          const error = await response.json().catch(() => ({}));
+          throw new Error(error.message || `GitHub save failed (${response.status})`);
+        }
+
+        const payload = await response.json();
+        state.remoteSha = payload.content?.sha || state.remoteSha;
+        state.dirty = false;
+        setStatus('Saved scripts/my-sources.json to GitHub.');
+      } catch (error) {
+        setStatus(error.message, true);
+      } finally {
+        state.saving = false;
+        renderMeta();
+      }
+    }
+
+    elements.saveToken.addEventListener('click', () => {
+      localStorage.setItem(STORAGE_KEY, elements.token.value.trim());
+      setStatus(elements.token.value.trim() ? 'Token saved in this browser.' : 'Token cleared.');
+    });
+
+    elements.clearToken.addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      elements.token.value = '';
+      setStatus('Token cleared.');
+    });
+
+    elements.addAccount.addEventListener('click', addAccount);
+    elements.newHandle.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        addAccount();
+      }
+    });
+
+    elements.filter.addEventListener('input', event => {
+      state.filter = event.target.value || '';
+      renderCards();
+    });
+
+    elements.saveSources.addEventListener('click', saveSources);
+
+    elements.token.value = getToken();
+    loadSources().catch(error => setStatus(error.message, true));
+  </script>
+</body>
+</html>
