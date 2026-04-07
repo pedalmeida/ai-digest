@@ -20,34 +20,22 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Clone follow-builders
-        run: git clone https://github.com/zarazhangrui/follow-builders.git /tmp/follow-builders
-
-      - name: Install follow-builders dependencies
-        run: cd /tmp/follow-builders/scripts && npm install
-
       - name: Install local script dependencies
         run: |
           cd scripts && npm install
 
-      - name: Fetch my X feed
+      - name: Fetch feed (X + podcasts)
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
-        run: |
-          node scripts/fetch-my-feed.js
-
-      - name: Fetch podcast feed
-        env:
           SUPADATA_API_KEY: ${{ secrets.SUPADATA_API_KEY }}
         run: |
-          cd /tmp/follow-builders/scripts
-          node generate-feed.js --podcasts-only
+          node scripts/fetch-my-feed.js
 
       - name: Generate slide deck
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          node --input-type=module -e "import { readFile } from 'fs/promises'; const myFeed = JSON.parse(await readFile('my-feed.json', 'utf8')); const podcastFeed = JSON.parse(await readFile('/tmp/follow-builders/feed-podcasts.json', 'utf8')); const merged = { ...myFeed, podcasts: podcastFeed.podcasts || [], stats: { ...(myFeed.stats || {}), podcastEpisodes: (podcastFeed.podcasts || []).length }, generatedAt: myFeed.generatedAt || podcastFeed.generatedAt }; process.stdout.write(JSON.stringify(merged));" | node scripts/remix-digest.js | node scripts/generate-slides.js
+          cat my-feed.json | node scripts/remix-digest.js | node scripts/generate-slides.js
           cp ~/.follow-builders/digest-latest.html $GITHUB_WORKSPACE/index.html
 
       - name: Commit and push index.html

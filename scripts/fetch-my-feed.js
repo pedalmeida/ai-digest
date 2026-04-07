@@ -4,10 +4,12 @@ import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 
 const X_API_BASE = 'https://api.x.com/2';
+const SUPADATA_BASE = 'https://api.supadata.ai/v1';
 const SCRIPT_DIR = decodeURIComponent(new URL('.', import.meta.url).pathname);
 const SOURCES_PATH = join(SCRIPT_DIR, 'my-sources.json');
 const OUTPUT_PATH = join(SCRIPT_DIR, '..', 'my-feed.json');
 const MAX_TWEETS_PER_USER = 10;
+const PODCAST_LOOKBACK_HOURS = 336; // 14 days — podcasts publish weekly/biweekly
 const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504]);
 
 function sleep(ms) {
@@ -103,12 +105,81 @@ async function fetchTweets(userId, handle, bearerToken) {
   }));
 }
 
+async function fetchPodcasts(podcastSources, apiKey) {
+  const podcasts = [];
+  const cutoff = new Date(Date.now() - PODCAST_LOOKBACK_HOURS * 60 * 60 * 1000);
+
+  for (const podcast of podcastSources) {
+    try {
+      const videosUrl = `${SUPADATA_BASE}/youtube/channel/videos?id=${podcast.channelHandle}&type=video`;
+      const videosRes = await fetch(videosUrl, { headers: { 'x-api-key': apiKey } });
+
+      if (!videosRes.ok) {
+        warning(`podcasts: failed to fetch videos for ${podcast.name}: HTTP ${videosRes.status}`);
+        continue;
+      }
+
+      const videosData = await videosRes.json();
+      const regularIds = videosData.videoIds || videosData.video_ids || [];
+      const liveIds = videosData.liveIds || videosData.live_ids || [];
+      const videoIds = [...regularIds, ...liveIds];
+
+      // Check first 2 videos, pick newest one with a transcript
+      for (const videoId of videoIds.slice(0, 2)) {
+        try {
+          const metaRes = await fetch(
+            `${SUPADATA_BASE}/youtube/video?id=${videoId}`,
+            { headers: { 'x-api-key': apiKey } }
+          );
+          if (!metaRes.ok) continue;
+
+          const meta = await metaRes.json();
+          const publishedAt = meta.uploadDate || meta.publishedAt || meta.date || null;
+
+          // Skip if outside lookback window (but include if date is unknown)
+          if (publishedAt && new Date(publishedAt) < cutoff) continue;
+
+          const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+          const transcriptRes = await fetch(
+            `${SUPADATA_BASE}/youtube/transcript?url=${encodeURIComponent(videoUrl)}&text=true`,
+            { headers: { 'x-api-key': apiKey } }
+          );
+          if (!transcriptRes.ok) continue;
+
+          const transcriptData = await transcriptRes.json();
+          const transcript = transcriptData.content || '';
+          if (!transcript) continue;
+
+          podcasts.push({
+            source: 'podcast',
+            name: podcast.name,
+            title: meta.title || 'Untitled',
+            url: `https://youtube.com/watch?v=${videoId}`,
+            publishedAt,
+            transcript
+          });
+          break; // one episode per podcast source
+        } catch (err) {
+          warning(`podcasts: error processing video ${videoId}: ${err.message}`);
+        }
+        await sleep(300);
+      }
+    } catch (err) {
+      warning(`podcasts: error processing ${podcast.name}: ${err.message}`);
+    }
+  }
+
+  return podcasts;
+}
+
 async function main() {
   const bearerToken = process.env.X_BEARER_TOKEN;
   if (!bearerToken) {
     process.stderr.write('fetch-my-feed: X_BEARER_TOKEN not set\n');
     process.exit(1);
   }
+
+  const supadataKey = process.env.SUPADATA_API_KEY;
 
   const sources = await readSources();
   const x = [];
@@ -141,18 +212,26 @@ async function main() {
     }
   }
 
+  const podcasts = supadataKey
+    ? await fetchPodcasts(sources.podcasts || [], supadataKey)
+    : [];
+
+  if (!supadataKey) {
+    warning('SUPADATA_API_KEY not set — skipping podcast fetch');
+  }
+
   const output = {
     generatedAt: new Date().toISOString(),
     x,
-    podcasts: [],
+    podcasts,
     stats: {
       xBuilders: x.length,
-      totalTweets: x.reduce((sum, account) => sum + account.tweets.length, 0)
+      totalTweets: x.reduce((sum, account) => sum + account.tweets.length, 0),
+      podcastEpisodes: podcasts.length
     },
     errors: errors.length > 0 ? errors : undefined
   };
 
-  // Keep an empty podcasts array so the file can be piped directly into remix-digest.js if needed.
   await writeFile(OUTPUT_PATH, JSON.stringify(output, null, 2));
 }
 
