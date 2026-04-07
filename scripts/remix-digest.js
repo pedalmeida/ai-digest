@@ -128,9 +128,11 @@ ${sections.join('\n\n')}`;
       system: systemPrompt,
     });
 
-    const text = msg.content[0].text.trim()
-      .replace(/^```(?:json)?\n?/, '').replace(/\n?```$/, '').trim();
-    remixed = JSON.parse(text);
+    const raw = msg.content[0].text;
+    const start = raw.indexOf('{');
+    const end = raw.lastIndexOf('}');
+    if (start === -1 || end === -1) throw new Error('no JSON object found in response');
+    remixed = JSON.parse(raw.slice(start, end + 1));
   } catch (e) {
     process.stderr.write(`remix-digest: API error — ${e.message}\n`);
     process.exit(1);
