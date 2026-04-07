@@ -119,6 +119,8 @@ Produce the JSON digest for these sources:
 
 ${sections.join('\n\n')}`;
 
+  process.stderr.write(`remix-digest: sections built (${sections.length}), calling Claude...\n`);
+
   let remixed;
   try {
     const msg = await client.messages.create({
@@ -128,11 +130,13 @@ ${sections.join('\n\n')}`;
       system: systemPrompt,
     });
 
-    const raw = msg.content[0].text;
-    const start = raw.indexOf('{');
-    const end = raw.lastIndexOf('}');
+    const responseText = msg.content[0].text;
+    process.stderr.write(`remix-digest: response length=${responseText.length}, preview=${responseText.slice(0, 120).replace(/\n/g, ' ')}\n`);
+
+    const start = responseText.indexOf('{');
+    const end = responseText.lastIndexOf('}');
     if (start === -1 || end === -1) throw new Error('no JSON object found in response');
-    remixed = JSON.parse(raw.slice(start, end + 1));
+    remixed = JSON.parse(responseText.slice(start, end + 1));
   } catch (e) {
     process.stderr.write(`remix-digest: API error — ${e.message}\n`);
     process.exit(1);

@@ -31,6 +31,11 @@ jobs:
         run: |
           node scripts/fetch-my-feed.js
 
+      - name: Debug feed contents
+        run: |
+          echo "=== my-feed.json stats ==="
+          node -e "const d=JSON.parse(require('fs').readFileSync('my-feed.json','utf8')); console.log('xBuilders:', d.x?.length, 'podcasts:', d.podcasts?.length, 'errors:', d.errors);"
+
       - name: Generate slide deck
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
