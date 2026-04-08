@@ -23,7 +23,14 @@ if (fs.existsSync(envPath)) {
   }
 }
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const apiKey = process.env.ANTHROPIC_API_KEY;
+if (!apiKey) {
+  process.stderr.write('remix-digest: ANTHROPIC_API_KEY is not set\n');
+  process.exit(1);
+}
+process.stderr.write(`remix-digest: API key present (${apiKey.slice(0, 10)}...)\n`);
+
+const client = new Anthropic({ apiKey });
 
 let raw = '';
 process.stdin.on('data', c => { raw += c; });
@@ -123,22 +130,24 @@ ${sections.join('\n\n')}`;
 
   let remixed;
   try {
+    // Prefill with '{' so Claude is forced to start the JSON object immediately,
+    // with no preamble or markdown fences. The response continues from '{'.
     const msg = await client.messages.create({
       model: 'claude-haiku-4-5-20251001',
       max_tokens: 6000,
-      messages: [{ role: 'user', content: userPrompt }],
       system: systemPrompt,
+      messages: [
+        { role: 'user', content: userPrompt },
+        { role: 'assistant', content: '{' }
+      ],
     });
 
-    const responseText = msg.content[0].text;
-    process.stderr.write(`remix-digest: response length=${responseText.length}, preview=${responseText.slice(0, 120).replace(/\n/g, ' ')}\n`);
-
-    const start = responseText.indexOf('{');
-    const end = responseText.lastIndexOf('}');
-    if (start === -1 || end === -1) throw new Error('no JSON object found in response');
-    remixed = JSON.parse(responseText.slice(start, end + 1));
+    // Claude's response is the continuation after our '{' prefill, so we prepend it back
+    const responseText = '{' + msg.content[0].text;
+    process.stderr.write(`remix-digest: response length=${responseText.length}\n`);
+    remixed = JSON.parse(responseText);
   } catch (e) {
-    process.stderr.write(`remix-digest: API error — ${e.message}\n`);
+    process.stderr.write(`remix-digest: error — ${e.message}\n${e.stack || ''}\n`);
     process.exit(1);
   }
 
