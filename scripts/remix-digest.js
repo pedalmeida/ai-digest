@@ -134,7 +134,7 @@ ${sections.join('\n\n')}`;
     // with no preamble or markdown fences. The response continues from '{'.
     const msg = await client.messages.create({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 6000,
+      max_tokens: 8192,
       system: systemPrompt,
       messages: [
         { role: 'user', content: userPrompt },
@@ -142,9 +142,13 @@ ${sections.join('\n\n')}`;
       ],
     });
 
+    if (msg.stop_reason === 'max_tokens') {
+      throw new Error('Claude response was truncated (max_tokens reached) — JSON will be incomplete');
+    }
+
     // Claude's response is the continuation after our '{' prefill, so we prepend it back
     const responseText = '{' + msg.content[0].text;
-    process.stderr.write(`remix-digest: response length=${responseText.length}\n`);
+    process.stderr.write(`remix-digest: response length=${responseText.length}, stop_reason=${msg.stop_reason}\n`);
     remixed = JSON.parse(responseText);
   } catch (e) {
     process.stderr.write(`remix-digest: error — ${e.message}\n${e.stack || ''}\n`);

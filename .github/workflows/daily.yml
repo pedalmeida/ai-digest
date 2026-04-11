@@ -40,6 +40,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
+          set -o pipefail
           cat my-feed.json | node scripts/remix-digest.js | node scripts/generate-slides.js
           cp ~/.follow-builders/digest-latest.html $GITHUB_WORKSPACE/index.html
 
