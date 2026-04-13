@@ -128,11 +128,22 @@ function renderNewsSlide(s, idx) {
   };
   const sec = sectionColors[s.section] || sectionColors.world;
 
+  const mediaHTML = s.video
+    ? `<div class="news-media">
+         <iframe class="news-video" src="https://www.youtube-nocookie.com/embed/${esc(s.video.id)}?rel=0&modestbranding=1"
+                 allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"
+                 title="${esc(s.video.title || '')}"></iframe>
+       </div>`
+    : s.image
+    ? `<div class="news-media"><img class="news-image" src="${esc(s.image)}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`
+    : '';
+
   return `
   <div class="slide" data-i="${idx}">
     <div class="content-card news-layout" style="--sec-color:${sec.color};--sec-bg:${sec.bg};--sec-border:${sec.border}">
 
       <div class="card-left news-left">
+        ${mediaHTML}
         <div class="news-source-tag">${esc(s.source_name || '')}</div>
         <h2 class="news-headline">${richText(s.headline || s.hook || '')}</h2>
         <p class="hook-text news-hook">${richText(s.hook || '')}</p>
@@ -466,6 +477,27 @@ html, body {
 }
 .news-hook {
   border-left-color: var(--sec-color, #1D4ED8) !important;
+}
+
+/* News media (image or YouTube Shorts embed) */
+.news-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, var(--sec-bg, #EFF6FF), var(--sec-border, #BFDBFE));
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  flex: 0 0 auto;
+}
+.news-image,
+.news-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border: 0;
+  display: block;
 }
 
 /* Hook */

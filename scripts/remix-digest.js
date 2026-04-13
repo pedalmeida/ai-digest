@@ -37,6 +37,78 @@ const client = new Anthropic({ apiKey });
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DRAFT_PATH = path.join(__dirname, '..', 'digest-draft.json');
 
+// ── News enrichment (images + YouTube Shorts) ────────────────────
+const ENRICH_TIMEOUT_MS = 10_000;
+
+async function fetchOgImage(url) {
+  try {
+    const res = await fetch(url, {
+      headers: { 'user-agent': 'Mozilla/5.0 (compatible; ai-digest/1.0)' },
+      signal: AbortSignal.timeout(ENRICH_TIMEOUT_MS),
+    });
+    if (!res.ok) return null;
+    const html = await res.text();
+    const og = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
+            || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i)
+            || html.match(/<meta[^>]+name=["']twitter:image["'][^>]+content=["']([^"']+)["']/i);
+    return og ? og[1] : null;
+  } catch { return null; }
+}
+
+async function googleImageSearch(query, apiKey, cx) {
+  if (!apiKey || !cx) return null;
+  const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&searchType=image&num=3&safe=active&q=${encodeURIComponent(query)}`;
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(ENRICH_TIMEOUT_MS) });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const first = (data.items || []).find(i => i.link && /^https?:/.test(i.link));
+    return first ? first.link : null;
+  } catch { return null; }
+}
+
+async function youtubeShortsSearch(query, apiKey) {
+  if (!apiKey) return null;
+  const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoDuration=short&maxResults=5&safeSearch=strict&q=${encodeURIComponent(query + ' shorts')}&key=${apiKey}`;
+  try {
+    const sr = await fetch(searchUrl, { signal: AbortSignal.timeout(ENRICH_TIMEOUT_MS) });
+    if (!sr.ok) return null;
+    const sData = await sr.json();
+    const ids = (sData.items || []).map(i => i.id?.videoId).filter(Boolean);
+    if (ids.length === 0) return null;
+
+    const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet&id=${ids.join(',')}&key=${apiKey}`;
+    const dr = await fetch(detailsUrl, { signal: AbortSignal.timeout(ENRICH_TIMEOUT_MS) });
+    if (!dr.ok) return null;
+    const dData = await dr.json();
+    const parseISO = d => {
+      const m = (d || '').match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
+      return (+(m?.[1] || 0)) * 60 + (+(m?.[2] || 0));
+    };
+    const short = (dData.items || []).find(v => parseISO(v.contentDetails?.duration) <= 60);
+    if (!short) return null;
+    return {
+      id: short.id,
+      title: short.snippet?.title || '',
+      thumbnail: short.snippet?.thumbnails?.medium?.url || `https://img.youtube.com/vi/${short.id}/hqdefault.jpg`,
+    };
+  } catch { return null; }
+}
+
+async function enrichNewsItem(item) {
+  const query = item.headline || item.hook || '';
+  if (!query) return item;
+
+  let image = item.url ? await fetchOgImage(item.url) : null;
+  if (!image) image = await googleImageSearch(query, process.env.GOOGLE_SEARCH_API_KEY, process.env.GOOGLE_SEARCH_CX);
+  if (image) item.image = image;
+
+  const video = await youtubeShortsSearch(query, process.env.YOUTUBE_API_KEY);
+  if (video) item.video = video;
+
+  return item;
+}
+
 let raw = '';
 process.stdin.on('data', c => { raw += c; });
 process.stdin.on('end', async () => {
@@ -252,6 +324,16 @@ ${sections.join('\n\n')}`;
   } catch (e) {
     process.stderr.write(`remix-digest: error — ${e.message}\n${e.stack || ''}\n`);
     process.exit(1);
+  }
+
+  // Enrich news items with images + YouTube Shorts (parallel, best-effort)
+  const allNews = [...(remixed.pt_news || []), ...(remixed.world_news || [])];
+  if (allNews.length > 0) {
+    process.stderr.write(`remix-digest: enriching ${allNews.length} news items with media...\n`);
+    await Promise.all(allNews.map(enrichNewsItem));
+    const withImage = allNews.filter(i => i.image).length;
+    const withVideo = allNews.filter(i => i.video).length;
+    process.stderr.write(`remix-digest: enriched ${withImage}/${allNews.length} with image, ${withVideo}/${allNews.length} with video\n`);
   }
 
   // ── Build final output ────────────────────────────────────────────
