@@ -59,14 +59,16 @@ async function fetchRSSFeeds(rssFeeds) {
   return rss;
 }
 
+const FETCH_TIMEOUT_MS = 15_000;  // 15s per request
+const MAX_RATE_LIMIT_WAIT_MS = 90_000;  // cap 429 waits at 90s
+
 async function fetchJson(url, bearerToken, options = {}) {
   const { retries = 2 } = options;
 
   for (let attempt = 0; attempt <= retries; attempt += 1) {
     const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${bearerToken}`
-      }
+      headers: { Authorization: `Bearer ${bearerToken}` },
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
     });
 
     if (response.ok) {
@@ -85,11 +87,12 @@ async function fetchJson(url, bearerToken, options = {}) {
 
     const resetAt = Number(response.headers.get('x-rate-limit-reset') || 0) * 1000;
     const retryAfter = Number(response.headers.get('retry-after') || 0) * 1000;
-    const waitMs = Math.max(
+    const rawWait = Math.max(
       retryAfter,
       resetAt > Date.now() ? resetAt - Date.now() : 0,
-      response.status === 429 ? 60_000 : 2_000 * (attempt + 1)
+      response.status === 429 ? 30_000 : 2_000 * (attempt + 1)
     );
+    const waitMs = Math.min(rawWait, MAX_RATE_LIMIT_WAIT_MS);
 
     warning(`rate limit/server error for ${url} (${response.status}), waiting ${Math.ceil(waitMs / 1000)}s`);
     await sleep(waitMs);
@@ -144,7 +147,10 @@ async function fetchPodcasts(podcastSources, apiKey) {
       const videosUrl = podcast.playlistId
         ? `${SUPADATA_BASE}/youtube/playlist/videos?id=${podcast.playlistId}`
         : `${SUPADATA_BASE}/youtube/channel/videos?id=${podcast.channelHandle}&type=video`;
-      const videosRes = await fetch(videosUrl, { headers: { 'x-api-key': apiKey } });
+      const videosRes = await fetch(videosUrl, {
+        headers: { 'x-api-key': apiKey },
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      });
 
       if (!videosRes.ok) {
         warning(`podcasts: failed to fetch videos for ${podcast.name}: HTTP ${videosRes.status}`);
@@ -161,7 +167,7 @@ async function fetchPodcasts(podcastSources, apiKey) {
         try {
           const metaRes = await fetch(
             `${SUPADATA_BASE}/youtube/video?id=${videoId}`,
-            { headers: { 'x-api-key': apiKey } }
+            { headers: { 'x-api-key': apiKey }, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) }
           );
           if (!metaRes.ok) continue;
 
@@ -174,7 +180,7 @@ async function fetchPodcasts(podcastSources, apiKey) {
           const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
           const transcriptRes = await fetch(
             `${SUPADATA_BASE}/youtube/transcript?url=${encodeURIComponent(videoUrl)}&text=true`,
-            { headers: { 'x-api-key': apiKey } }
+            { headers: { 'x-api-key': apiKey }, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) }
           );
           if (!transcriptRes.ok) continue;
 
