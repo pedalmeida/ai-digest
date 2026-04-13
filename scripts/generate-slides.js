@@ -24,6 +24,9 @@ const today = data.date || new Date().toLocaleDateString('en-GB', {
   weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
 });
 
+const SIGNAL_LABELS  = { '🔴': 'Urgent', '🟡': 'Watch', '🟢': 'Apply now', '💡': 'Learn' };
+const SIGNAL_CLASSES = { '🔴': 'signal-red', '🟡': 'signal-yellow', '🟢': 'signal-green', '💡': 'signal-blue' };
+
 // ── Build slide list ──────────────────────────────────────────────
 const slides = [{ type: 'title', date: today }];
 
@@ -70,9 +73,6 @@ function ytThumb(videoId) {
 function avatarUrl(handle) {
   return handle ? `https://unavatar.io/twitter/${handle}` : '';
 }
-
-const SIGNAL_LABELS = { '🔴': 'Urgent', '🟡': 'Watch', '🟢': 'Apply now', '💡': 'Learn' };
-const SIGNAL_CLASSES = { '🔴': 'signal-red', '🟡': 'signal-yellow', '🟢': 'signal-green', '💡': 'signal-blue' };
 
 // ── Renderers ─────────────────────────────────────────────────────
 function renderTitleSlide(s) {
