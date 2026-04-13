@@ -1,565 +1,1182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Digest Sources</title>
-  <style>
-    :root {
-      --bg: #f4f1e8;
-      --panel: rgba(255, 251, 242, 0.9);
-      --ink: #1c1a16;
-      --muted: #6c665b;
-      --line: rgba(28, 26, 22, 0.12);
-      --accent: #c96f3b;
-      --accent-strong: #9f4e25;
-      --danger: #8a2f2f;
-      --shadow: 0 20px 60px rgba(48, 32, 17, 0.12);
-      --radius: 24px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Digest — Sources</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    * {
-      box-sizing: border-box;
-    }
+:root {
+  --bg:          #F5F0E8;
+  --surface:     #FEFCF8;
+  --surface-2:   #F9F5EE;
+  --border:      #E2D9C8;
+  --border-soft: #EDE6D8;
+  --text:        #1A1208;
+  --text-2:      #4A3F2E;
+  --muted:       #8A7B66;
+  --subtle:      #F2EDE3;
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(201, 111, 59, 0.16), transparent 32%),
-        radial-gradient(circle at top right, rgba(113, 146, 115, 0.2), transparent 24%),
-        linear-gradient(180deg, #f8f5ec 0%, var(--bg) 100%);
-    }
+  --ai:          #D97706;
+  --ai-bg:       #FFFBEB;
+  --ai-border:   #FDE68A;
+  --tech:        #7C3AED;
+  --tech-bg:     #F5F3FF;
+  --tech-border: #DDD6FE;
+  --pt:          #16803C;
+  --pt-bg:       #F0FDF4;
+  --pt-border:   #BBF7D0;
+  --world:       #1D4ED8;
+  --world-bg:    #EFF6FF;
+  --world-border:#BFDBFE;
 
-    .shell {
-      width: min(1120px, calc(100vw - 32px));
-      margin: 32px auto 48px;
-    }
+  --danger:      #DC2626;
+  --danger-bg:   #FEF2F2;
 
-    .hero,
-    .panel {
-      background: var(--panel);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+  --accent:      #C96F3B;
+  --accent-dark: #9F4E25;
 
-    .hero {
-      padding: 28px;
-      margin-bottom: 20px;
-    }
+  --shadow:      0 2px 12px rgba(26,18,8,0.07), 0 1px 3px rgba(26,18,8,0.05);
+  --shadow-lg:   0 8px 40px rgba(26,18,8,0.1), 0 2px 8px rgba(26,18,8,0.06);
+  --shadow-pop:  0 16px 60px rgba(26,18,8,0.14), 0 4px 16px rgba(26,18,8,0.08);
 
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 4vw, 3.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-    }
+  --radius:      16px;
+  --radius-sm:   10px;
+  --sidebar:     300px;
+}
 
-    .lede,
-    .helper,
-    .meta {
-      color: var(--muted);
-    }
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
 
-    .lede {
-      margin: 0;
-      max-width: 60ch;
-      font-size: 1.05rem;
-      line-height: 1.5;
-    }
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
 
-    .layout {
-      display: grid;
-      grid-template-columns: 320px minmax(0, 1fr);
-      gap: 20px;
-      align-items: start;
-    }
+/* ── Shell ── */
+.shell {
+  display: grid;
+  grid-template-columns: var(--sidebar) 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
 
-    .panel {
-      padding: 22px;
-    }
+/* ── Header ── */
+.header {
+  grid-column: 1 / -1;
+  padding: 28px 32px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-    .panel h2 {
-      margin: 0 0 14px;
-      font-size: 1.2rem;
-    }
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1;
+}
 
-    label {
-      display: block;
-      margin: 0 0 8px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
+.header-title em {
+  font-style: italic;
+  color: var(--accent);
+}
 
-    input {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--ink);
-      font: inherit;
-    }
+.header-sub {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: auto;
+}
 
-    input:focus {
-      outline: 2px solid rgba(201, 111, 59, 0.22);
-      border-color: var(--accent);
-    }
+#status-global {
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: var(--subtle);
+  color: var(--muted);
+  border: 1px solid var(--border-soft);
+  transition: all 0.25s;
+  white-space: nowrap;
+}
 
-    .stack {
-      display: grid;
-      gap: 14px;
-    }
+#status-global.ok    { background: #F0FDF4; color: #15803D; border-color: #BBF7D0; }
+#status-global.error { background: var(--danger-bg); color: var(--danger); border-color: #FECACA; }
+#status-global.busy  { background: #FFFBEB; color: var(--ai); border-color: var(--ai-border); }
 
-    .row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+/* ── Sidebar ── */
+.sidebar {
+  padding: 24px 20px;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 89px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
 
-    button {
-      border: 0;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font: inherit;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 120ms ease, opacity 120ms ease, background 120ms ease;
-    }
+.panel {
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 18px;
+}
 
-    button:hover {
-      transform: translateY(-1px);
-    }
+.panel-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
-    button:disabled {
-      opacity: 0.55;
-      cursor: wait;
-      transform: none;
-    }
+.panel-title::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: var(--border);
+}
 
-    .primary {
-      color: #fff9f1;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
-    }
+/* ── Form elements ── */
+.field { display: flex; flex-direction: column; gap: 5px; }
 
-    .secondary {
-      color: var(--ink);
-      background: rgba(28, 26, 22, 0.08);
-    }
+label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+  text-transform: uppercase;
+}
 
-    .danger {
-      color: #fff4f4;
-      background: var(--danger);
-    }
+input, select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: none;
+}
 
-    .toolbar {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: end;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
+input::placeholder { color: var(--muted); }
 
-    .toolbar .field {
-      flex: 1 1 280px;
-    }
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201,111,59,0.12);
+}
 
-    .status {
-      min-height: 1.4em;
-      margin: 4px 0 0;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
+input[type="password"] { font-family: 'DM Mono', monospace; letter-spacing: 0.1em; }
 
-    .status.error {
-      color: var(--danger);
-    }
+/* ── Buttons ── */
+button {
+  border: none;
+  border-radius: 100px;
+  padding: 9px 16px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s, opacity 0.12s, box-shadow 0.12s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 14px;
-    }
+button:hover:not(:disabled) { transform: translateY(-1px); }
+button:active:not(:disabled) { transform: translateY(0); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    .card {
-      position: relative;
-      padding: 18px;
-      border-radius: 20px;
-      border: 1px solid rgba(28, 26, 22, 0.08);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 248, 240, 0.72)),
-        radial-gradient(circle at top right, rgba(201, 111, 59, 0.14), transparent 30%);
-      min-height: 172px;
-    }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #FFF9F1;
+  box-shadow: 0 2px 8px rgba(201,111,59,0.3);
+}
 
-    .avatar {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      display: block;
-      margin-bottom: 14px;
-      background: rgba(28, 26, 22, 0.05);
-      object-fit: cover;
-    }
+.btn-primary:hover:not(:disabled) { box-shadow: 0 4px 16px rgba(201,111,59,0.4); }
 
-    .name {
-      margin: 0;
-      font-size: 1.15rem;
-      line-height: 1.1;
-    }
+.btn-ghost {
+  background: transparent;
+  color: var(--text-2);
+  border: 1px solid var(--border);
+}
 
-    .handle {
-      margin: 6px 0 0;
-      font-size: 0.98rem;
-      color: var(--muted);
-    }
+.btn-ghost:hover:not(:disabled) { background: var(--subtle); }
 
-    .remove {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 34px;
-      height: 34px;
-      padding: 0;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      line-height: 1;
-      color: var(--danger);
-      background: rgba(138, 47, 47, 0.1);
-    }
+.btn-danger-ghost {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid #FECACA;
+  font-size: 11px;
+  padding: 5px 10px;
+}
 
-    .empty {
-      padding: 28px;
-      border: 1px dashed rgba(28, 26, 22, 0.15);
-      border-radius: 20px;
-      text-align: center;
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.45);
-    }
+.btn-danger-ghost:hover:not(:disabled) { background: var(--danger-bg); }
 
-    .meta {
-      margin-top: 16px;
-      font-size: 0.92rem;
-      line-height: 1.5;
-    }
+.btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
-    code {
-      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
-      font-size: 0.92em;
-    }
+/* ── Sub-form toggle ── */
+.form-toggle {
+  display: flex;
+  background: var(--subtle);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 2px;
+  gap: 2px;
+  margin-bottom: 14px;
+}
 
-    @media (max-width: 860px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
+.toggle-btn {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s;
+}
 
-      .shell {
-        width: min(100vw - 24px, 1120px);
-        margin-top: 12px;
-      }
+.toggle-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
 
-      .hero,
-      .panel {
-        padding: 18px;
-      }
-    }
-  </style>
+.sub-form { display: none; }
+.sub-form.active { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── Main area ── */
+.main {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 0;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px;
+  align-self: flex-start;
+  flex-wrap: wrap;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tab:hover:not(.active) { background: var(--subtle); color: var(--text-2); transform: none; }
+
+.tab.active { color: #fff; }
+.tab[data-tab="ai"].active     { background: var(--ai);    box-shadow: 0 2px 12px rgba(217,119,6,0.35); }
+.tab[data-tab="tech"].active   { background: var(--tech);  box-shadow: 0 2px 12px rgba(124,58,237,0.35); }
+.tab[data-tab="pt"].active     { background: var(--pt);    box-shadow: 0 2px 12px rgba(22,128,60,0.35); }
+.tab[data-tab="world"].active  { background: var(--world); box-shadow: 0 2px 12px rgba(29,78,216,0.35); }
+
+.tab-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.25);
+  min-width: 20px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.tab:not(.active) .tab-count {
+  background: var(--border-soft);
+  color: var(--muted);
+}
+
+/* ── Grid toolbar ── */
+.grid-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.search-wrap {
+  flex: 1;
+  min-width: 180px;
+  position: relative;
+}
+
+.search-wrap svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.search-wrap input {
+  padding-left: 36px;
+}
+
+#count-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  white-space: nowrap;
+}
+
+/* ── Section header ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-soft);
+  margin-bottom: 4px;
+}
+
+.section-icon {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.section-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.section-desc { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+/* Section accent per tab */
+.tab-ai    .section-icon { background: var(--ai-bg); border: 1px solid var(--ai-border); }
+.tab-tech  .section-icon { background: var(--tech-bg); border: 1px solid var(--tech-border); }
+.tab-pt    .section-icon { background: var(--pt-bg); border: 1px solid var(--pt-border); }
+.tab-world .section-icon { background: var(--world-bg); border: 1px solid var(--world-border); }
+
+.tab-ai    .section-name { color: var(--ai); }
+.tab-tech  .section-name { color: var(--tech); }
+.tab-pt    .section-name { color: var(--pt); }
+.tab-world .section-name { color: var(--world); }
+
+/* ── Cards grid ── */
+#cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+  animation: cardIn 0.22s ease both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--border);
+}
+
+.card-remove {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+}
+
+.card:hover .card-remove { opacity: 1; }
+.card-remove:hover {
+  background: var(--danger-bg) !important;
+  color: var(--danger) !important;
+  transform: none !important;
+}
+
+/* X Account card */
+.card-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  background: var(--subtle);
+}
+
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+  padding-right: 24px;
+}
+
+.card-handle, .card-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.card-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 100px;
+  border: 1px solid;
+  align-self: flex-start;
+}
+
+.badge-ai    { color: var(--ai);    background: var(--ai-bg);    border-color: var(--ai-border); }
+.badge-tech  { color: var(--tech);  background: var(--tech-bg);  border-color: var(--tech-border); }
+.badge-pt    { color: var(--pt);    background: var(--pt-bg);    border-color: var(--pt-border); }
+.badge-world { color: var(--world); background: var(--world-bg); border-color: var(--world-border); }
+.badge-channel  { color: var(--accent); background: #FFF7ED; border-color: #FED7AA; }
+.badge-playlist { color: var(--tech);   background: var(--tech-bg); border-color: var(--tech-border); }
+.badge-rss  { color: var(--pt); background: var(--pt-bg); border-color: var(--pt-border); }
+
+/* Empty state */
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.4);
+}
+
+.empty-state p { font-size: 14px; margin-top: 8px; }
+
+/* ── Save bar ── */
+.save-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  flex-wrap: wrap;
+}
+
+.save-hint { font-size: 12px; color: var(--muted); }
+.save-hint strong { color: var(--text-2); }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; }
+  .header { padding: 16px; }
+  .sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+  }
+  .sidebar > .panel { flex: 1 1 280px; }
+  .main { padding: 16px; }
+  .tabs { width: 100%; justify-content: stretch; }
+  .tab { flex: 1; justify-content: center; }
+}
+
+/* Divider between card groups */
+.group-label {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-soft);
+}
+</style>
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <h1>Manage AI Digest sources.</h1>
-      <p class="lede">Edit the X accounts tracked by this digest, then commit <code>scripts/my-sources.json</code> back to GitHub from the browser. Podcasts stay in the same file and are preserved on save.</p>
-    </section>
+<div class="shell">
 
-    <section class="layout">
-      <aside class="stack">
-        <div class="panel">
-          <h2>GitHub token</h2>
-          <label for="token">Personal access token</label>
-          <input id="token" type="password" autocomplete="off" placeholder="Paste PAT with repo access">
-          <p class="helper">Stored in <code>localStorage</code> on this browser only.</p>
-          <div class="row">
-            <button id="save-token" class="secondary" type="button">Save token</button>
-            <button id="clear-token" class="secondary" type="button">Clear token</button>
-          </div>
-        </div>
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="header-title">AI Digest — <em>Sources</em></h1>
+    <span class="header-sub">Changes saved here take effect tomorrow at 8am</span>
+    <span id="status-global">Loading…</span>
+  </header>
 
-        <div class="panel">
-          <h2>Add account</h2>
-          <label for="new-handle">X handle</label>
-          <input id="new-handle" type="text" autocomplete="off" placeholder="@newhandle">
-          <p class="helper">New entries default their display name to the handle. The fetch script can still use the live X profile name when building the feed.</p>
-          <div class="row">
-            <button id="add-account" class="primary" type="button">Add account</button>
-            <button id="save-sources" class="secondary" type="button">Save</button>
-          </div>
-          <p id="status" class="status" aria-live="polite"></p>
-        </div>
-      </aside>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
 
-      <section class="panel">
-        <div class="toolbar">
-          <div class="field">
-            <label for="filter">Search tracked accounts</label>
-            <input id="filter" type="search" placeholder="Filter by display name or handle">
-          </div>
-          <div class="meta">
-            <strong id="count">0</strong> account(s)
-          </div>
-        </div>
+    <!-- Token panel -->
+    <div class="panel">
+      <p class="panel-title">GitHub token</p>
+      <div class="field">
+        <label for="token">Personal access token</label>
+        <input id="token" type="password" autocomplete="off" placeholder="ghp_…">
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin:8px 0 12px;line-height:1.5">Stored in <code style="font-family:'DM Mono',monospace;font-size:10px">localStorage</code> only. Needs <code style="font-family:'DM Mono',monospace;font-size:10px">repo</code> scope.</p>
+      <div class="btn-row">
+        <button id="save-token" class="btn-ghost" style="font-size:12px;padding:7px 12px">Save</button>
+        <button id="clear-token" class="btn-ghost" style="font-size:12px;padding:7px 12px">Clear</button>
+      </div>
+    </div>
 
-        <div id="cards" class="grid" aria-live="polite"></div>
-      </section>
-    </section>
+    <!-- Add source panel -->
+    <div class="panel" id="add-panel">
+      <p class="panel-title" id="add-panel-title">Add to AI</p>
+      <div id="add-form-container"></div>
+    </div>
+
+    <!-- Save -->
+    <div class="save-bar">
+      <span class="save-hint" id="save-hint">No unsaved changes</span>
+      <button id="save-btn" class="btn-primary" disabled>Saved</button>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="ai">
+        <span>🤖</span> AI
+        <span class="tab-count" id="count-ai">0</span>
+      </button>
+      <button class="tab" data-tab="tech">
+        <span>⚙️</span> Tech
+        <span class="tab-count" id="count-tech">0</span>
+      </button>
+      <button class="tab" data-tab="pt">
+        <span>🇵🇹</span> PT News
+        <span class="tab-count" id="count-pt">0</span>
+      </button>
+      <button class="tab" data-tab="world">
+        <span>🌍</span> World News
+        <span class="tab-count" id="count-world">0</span>
+      </button>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="grid-toolbar">
+      <div class="search-wrap">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input id="search" type="search" placeholder="Search sources…">
+      </div>
+      <span id="count-label">— sources</span>
+    </div>
+
+    <!-- Section header -->
+    <div id="section-header"></div>
+
+    <!-- Cards -->
+    <div id="cards"></div>
+
   </main>
+</div>
 
-  <script>
-    const STORAGE_KEY = 'ai-digest-github-pat';
-    const REPO_OWNER = 'pedro-ux';
-    const REPO_NAME = 'ai-digest';
-    const FILE_PATH = 'scripts/my-sources.json';
-    const CONTENTS_URL = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
+<script>
+// ── Constants ─────────────────────────────────────────────────────
+const STORAGE_KEY   = 'ai-digest-github-pat';
+const REPO_OWNER    = 'pedro-ux';
+const REPO_NAME     = 'ai-digest';
+const FILE_PATH     = 'scripts/my-sources.json';
+const CONTENTS_URL  = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
 
-    const state = {
-      sources: { x_accounts: [], podcasts: [] },
-      remoteSha: '',
-      filter: '',
-      dirty: false,
-      saving: false
-    };
+const TAB_META = {
+  ai:    { label: 'AI Builders',  emoji: '🤖', color: 'var(--ai)',    desc: 'X accounts + podcasts tracked for AI insights' },
+  tech:  { label: 'Tech',         emoji: '⚙️',  color: 'var(--tech)',  desc: 'X accounts + RSS feeds for general tech' },
+  pt:    { label: 'PT News',      emoji: '🇵🇹', color: 'var(--pt)',    desc: 'Portuguese news RSS feeds' },
+  world: { label: 'World News',   emoji: '🌍',  color: 'var(--world)', desc: 'Global news RSS feeds' },
+};
 
-    const elements = {
-      token: document.getElementById('token'),
-      saveToken: document.getElementById('save-token'),
-      clearToken: document.getElementById('clear-token'),
-      newHandle: document.getElementById('new-handle'),
-      addAccount: document.getElementById('add-account'),
-      saveSources: document.getElementById('save-sources'),
-      filter: document.getElementById('filter'),
-      cards: document.getElementById('cards'),
-      count: document.getElementById('count'),
-      status: document.getElementById('status')
-    };
+// ── State ─────────────────────────────────────────────────────────
+const state = {
+  sources: { x_accounts: [], podcasts: [], rss_feeds: [] },
+  remoteSha: '',
+  activeTab: 'ai',
+  filter: '',
+  dirty: false,
+  saving: false,
+  addMode: {},  // per-tab toggle: 'x' | 'podcast' | 'rss'
+};
 
-    function getToken() {
-      return localStorage.getItem(STORAGE_KEY) || '';
+// ── Helpers ───────────────────────────────────────────────────────
+function setStatus(msg, type = '') {
+  const el = document.getElementById('status-global');
+  el.textContent = msg;
+  el.className = type;
+}
+
+function setDirty(val) {
+  state.dirty = val;
+  const hint = document.getElementById('save-hint');
+  const btn  = document.getElementById('save-btn');
+  if (val) {
+    hint.innerHTML = '<strong>Unsaved changes</strong> — save to apply tomorrow';
+    btn.textContent = 'Save changes';
+    btn.disabled = false;
+  } else {
+    hint.textContent = 'No unsaved changes';
+    btn.textContent = 'Saved';
+    btn.disabled = true;
+  }
+}
+
+function sanitizeHandle(v) {
+  return String(v || '').trim()
+    .replace(/^https?:\/\/(www\.)?x\.com\//i, '')
+    .replace(/^@+/, '')
+    .replace(/\/.*$/, '')
+    .replace(/[^A-Za-z0-9_]/g, '')
+    .toLowerCase();
+}
+
+function getToken() { return localStorage.getItem(STORAGE_KEY) || ''; }
+
+// ── Tab counts ────────────────────────────────────────────────────
+function getTabSources(tab) {
+  const { x_accounts, podcasts, rss_feeds } = state.sources;
+  if (tab === 'ai')    return [...x_accounts.filter(a => (a.category || 'ai') === 'ai'), ...podcasts];
+  if (tab === 'tech')  return [...x_accounts.filter(a => a.category === 'tech'), ...rss_feeds.filter(f => f.category === 'tech')];
+  if (tab === 'pt')    return rss_feeds.filter(f => f.category === 'pt_news');
+  if (tab === 'world') return rss_feeds.filter(f => f.category === 'world_news');
+  return [];
+}
+
+function updateCounts() {
+  ['ai','tech','pt','world'].forEach(t => {
+    document.getElementById('count-' + t).textContent = getTabSources(t).length;
+  });
+}
+
+// ── Section header ────────────────────────────────────────────────
+function renderSectionHeader(tab) {
+  const m = TAB_META[tab];
+  document.getElementById('section-header').innerHTML = `
+    <div class="section-header tab-${tab}">
+      <div class="section-icon">${m.emoji}</div>
+      <div>
+        <div class="section-name">${m.label}</div>
+        <div class="section-desc">${m.desc}</div>
+      </div>
+    </div>`;
+}
+
+// ── Cards ─────────────────────────────────────────────────────────
+function renderXCard(acc) {
+  const card = document.createElement('article');
+  card.className = 'card';
+  const catClass = acc.category === 'tech' ? 'badge-tech' : 'badge-ai';
+  const catLabel = acc.category === 'tech' ? 'Tech' : 'AI';
+  card.innerHTML = `
+    <button class="card-remove" title="Remove">×</button>
+    <img class="card-avatar" src="https://unavatar.io/twitter/${encodeURIComponent(acc.handle)}"
+         alt="" onerror="this.style.display='none'">
+    <div class="card-name">${esc(acc.name || acc.handle)}</div>
+    <div class="card-handle">@${esc(acc.handle)}</div>
+    <span class="badge ${catClass}">${catLabel}</span>`;
+  card.querySelector('.card-remove').addEventListener('click', () => {
+    state.sources.x_accounts = state.sources.x_accounts.filter(a => a.handle !== acc.handle);
+    setDirty(true);
+    renderCurrentTab();
+  });
+  return card;
+}
+
+function renderPodcastCard(pod) {
+  const card = document.createElement('article');
+  card.className = 'card';
+  const isPlaylist = pod.type === 'youtube_playlist';
+  const idText = isPlaylist ? (pod.playlistId || '') : (pod.channelHandle || '');
+  const badgeClass = isPlaylist ? 'badge-playlist' : 'badge-channel';
+  const badgeLabel = isPlaylist ? 'Playlist' : 'Channel';
+  card.innerHTML = `
+    <button class="card-remove" title="Remove">×</button>
+    <div style="font-size:24px">🎙️</div>
+    <div class="card-name">${esc(pod.name)}</div>
+    <span class="badge ${badgeClass}">${badgeLabel}</span>
+    <div class="card-sub">${esc(idText)}</div>`;
+  card.querySelector('.card-remove').addEventListener('click', () => {
+    state.sources.podcasts = state.sources.podcasts.filter(p => p.name !== pod.name);
+    setDirty(true);
+    renderCurrentTab();
+  });
+  return card;
+}
+
+function renderRSSCard(feed) {
+  const card = document.createElement('article');
+  card.className = 'card';
+  card.innerHTML = `
+    <button class="card-remove" title="Remove">×</button>
+    <div style="font-size:24px">📡</div>
+    <div class="card-name">${esc(feed.name)}</div>
+    <span class="badge badge-rss">RSS</span>
+    <div class="card-url" title="${esc(feed.url)}">${esc(feed.url)}</div>`;
+  card.querySelector('.card-remove').addEventListener('click', () => {
+    state.sources.rss_feeds = state.sources.rss_feeds.filter(f => !(f.name === feed.name && f.url === feed.url));
+    setDirty(true);
+    renderCurrentTab();
+  });
+  return card;
+}
+
+function renderCurrentTab() {
+  const tab = state.activeTab;
+  const query = state.filter.toLowerCase().trim();
+  const cardsEl = document.getElementById('cards');
+  cardsEl.innerHTML = '';
+
+  const { x_accounts, podcasts, rss_feeds } = state.sources;
+
+  function matchItem(item) {
+    if (!query) return true;
+    return ['name','handle','url','channelHandle','playlistId']
+      .some(k => item[k] && String(item[k]).toLowerCase().includes(query));
+  }
+
+  let total = 0;
+
+  if (tab === 'ai') {
+    const xAI = x_accounts.filter(a => (a.category || 'ai') === 'ai').filter(matchItem);
+    const pods = podcasts.filter(matchItem);
+    if (xAI.length > 0) {
+      const gl = document.createElement('div');
+      gl.className = 'group-label';
+      gl.textContent = 'X Accounts';
+      cardsEl.appendChild(gl);
+      xAI.forEach(a => cardsEl.appendChild(renderXCard(a)));
     }
-
-    function setStatus(message, isError = false) {
-      elements.status.textContent = message;
-      elements.status.className = isError ? 'status error' : 'status';
+    if (pods.length > 0) {
+      const gl = document.createElement('div');
+      gl.className = 'group-label';
+      gl.textContent = 'Podcasts';
+      cardsEl.appendChild(gl);
+      pods.forEach(p => cardsEl.appendChild(renderPodcastCard(p)));
     }
+    total = xAI.length + pods.length;
+  }
 
-    function sanitizeHandle(value) {
-      return String(value || '')
-        .trim()
-        .replace(/^https?:\/\/(www\.)?x\.com\//i, '')
-        .replace(/^@+/, '')
-        .replace(/\/.*$/, '')
-        .replace(/[^A-Za-z0-9_]/g, '')
-        .toLowerCase();
+  if (tab === 'tech') {
+    const xTech = x_accounts.filter(a => a.category === 'tech').filter(matchItem);
+    const rss   = rss_feeds.filter(f => f.category === 'tech').filter(matchItem);
+    if (xTech.length > 0) {
+      const gl = document.createElement('div');
+      gl.className = 'group-label';
+      gl.textContent = 'X Accounts';
+      cardsEl.appendChild(gl);
+      xTech.forEach(a => cardsEl.appendChild(renderXCard(a)));
     }
-
-    function markDirty() {
-      state.dirty = true;
-      renderMeta();
+    if (rss.length > 0) {
+      const gl = document.createElement('div');
+      gl.className = 'group-label';
+      gl.textContent = 'RSS Feeds';
+      cardsEl.appendChild(gl);
+      rss.forEach(f => cardsEl.appendChild(renderRSSCard(f)));
     }
+    total = xTech.length + rss.length;
+  }
 
-    function sortAccounts() {
-      state.sources.x_accounts.sort((a, b) => {
-        const left = (a.name || a.handle || '').toLowerCase();
-        const right = (b.name || b.handle || '').toLowerCase();
-        return left.localeCompare(right);
+  if (tab === 'pt') {
+    const feeds = rss_feeds.filter(f => f.category === 'pt_news').filter(matchItem);
+    feeds.forEach(f => cardsEl.appendChild(renderRSSCard(f)));
+    total = feeds.length;
+  }
+
+  if (tab === 'world') {
+    const feeds = rss_feeds.filter(f => f.category === 'world_news').filter(matchItem);
+    feeds.forEach(f => cardsEl.appendChild(renderRSSCard(f)));
+    total = feeds.length;
+  }
+
+  if (total === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty-state';
+    empty.innerHTML = `<div style="font-size:28px">🗂️</div><p>${query ? 'No sources match your search.' : 'No sources in this section yet. Add one using the form on the left.'}</p>`;
+    cardsEl.appendChild(empty);
+  }
+
+  document.getElementById('count-label').textContent = `${total} source${total !== 1 ? 's' : ''}`;
+  updateCounts();
+  renderSectionHeader(tab);
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Add forms ─────────────────────────────────────────────────────
+function renderAddForm(tab) {
+  const container = document.getElementById('add-form-container');
+  const titleEl   = document.getElementById('add-panel-title');
+  const tabMeta   = TAB_META[tab];
+  titleEl.textContent = `Add to ${tabMeta.label}`;
+
+  if (tab === 'ai') {
+    const mode = state.addMode.ai || 'x';
+    container.innerHTML = `
+      <div class="form-toggle">
+        <button class="toggle-btn ${mode==='x'?'active':''}" data-mode="x">X Account</button>
+        <button class="toggle-btn ${mode==='podcast'?'active':''}" data-mode="podcast">Podcast</button>
+      </div>
+      <div class="sub-form ${mode==='x'?'active':''}" id="sf-x">
+        <div class="field"><label>Handle</label><input id="ai-handle" placeholder="@karpathy" autocomplete="off"></div>
+        <div class="field"><label>Name (optional)</label><input id="ai-name" placeholder="Andrej Karpathy" autocomplete="off"></div>
+        <button id="add-ai-x" class="btn-primary" style="width:100%;justify-content:center">Add Account</button>
+      </div>
+      <div class="sub-form ${mode==='podcast'?'active':''}" id="sf-podcast">
+        <div class="field"><label>Show name</label><input id="pod-name" placeholder="Latent Space" autocomplete="off"></div>
+        <div class="field">
+          <label>Type</label>
+          <select id="pod-type"><option value="youtube_channel">YouTube Channel</option><option value="youtube_playlist">YouTube Playlist</option></select>
+        </div>
+        <div class="field" id="pod-id-field"><label id="pod-id-label">Channel Handle</label><input id="pod-id" placeholder="LatentSpacePod" autocomplete="off"></div>
+        <button id="add-podcast" class="btn-primary" style="width:100%;justify-content:center">Add Podcast</button>
+      </div>`;
+
+    container.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.addMode.ai = btn.dataset.mode;
+        renderAddForm('ai');
       });
-    }
+    });
 
-    function renderMeta() {
-      const visibleCount = getFilteredAccounts().length;
-      elements.count.textContent = String(visibleCount);
-      elements.saveSources.textContent = state.saving ? 'Saving…' : state.dirty ? 'Save changes' : 'Save';
-      elements.saveSources.disabled = state.saving;
-    }
+    document.getElementById('pod-type').addEventListener('change', e => {
+      const isPlaylist = e.target.value === 'youtube_playlist';
+      document.getElementById('pod-id-label').textContent = isPlaylist ? 'Playlist ID' : 'Channel Handle';
+      document.getElementById('pod-id').placeholder = isPlaylist ? 'PLuMcoKK9mKgH…' : 'LatentSpacePod';
+    });
 
-    function getFilteredAccounts() {
-      const query = state.filter.trim().toLowerCase();
-      if (!query) return state.sources.x_accounts;
-      return state.sources.x_accounts.filter(account => {
-        return [account.name, account.handle]
-          .filter(Boolean)
-          .some(value => value.toLowerCase().includes(query));
+    document.getElementById('add-ai-x').addEventListener('click', () => {
+      const handle = sanitizeHandle(document.getElementById('ai-handle').value);
+      const name   = document.getElementById('ai-name').value.trim() || handle;
+      if (!handle) { setStatus('Enter a valid handle', 'error'); return; }
+      if (state.sources.x_accounts.some(a => a.handle === handle)) { setStatus(`@${handle} already tracked`, 'error'); return; }
+      state.sources.x_accounts.push({ name, handle, category: 'ai' });
+      setDirty(true);
+      setStatus(`Added @${handle}`, 'ok');
+      renderCurrentTab();
+      renderAddForm('ai');
+    });
+
+    document.getElementById('add-podcast').addEventListener('click', () => {
+      const name   = document.getElementById('pod-name').value.trim();
+      const type   = document.getElementById('pod-type').value;
+      const id     = document.getElementById('pod-id').value.trim();
+      if (!name || !id) { setStatus('Fill in all podcast fields', 'error'); return; }
+      if (state.sources.podcasts.some(p => p.name === name)) { setStatus(`${name} already exists`, 'error'); return; }
+      const entry = { name, type };
+      if (type === 'youtube_playlist') entry.playlistId = id;
+      else entry.channelHandle = id;
+      state.sources.podcasts.push(entry);
+      setDirty(true);
+      setStatus(`Added podcast: ${name}`, 'ok');
+      renderCurrentTab();
+      renderAddForm('ai');
+    });
+  }
+
+  if (tab === 'tech') {
+    const mode = state.addMode.tech || 'x';
+    container.innerHTML = `
+      <div class="form-toggle">
+        <button class="toggle-btn ${mode==='x'?'active':''}" data-mode="x">X Account</button>
+        <button class="toggle-btn ${mode==='rss'?'active':''}" data-mode="rss">RSS Feed</button>
+      </div>
+      <div class="sub-form ${mode==='x'?'active':''}" id="sf-x">
+        <div class="field"><label>Handle</label><input id="tech-handle" placeholder="@rauchg" autocomplete="off"></div>
+        <div class="field"><label>Name (optional)</label><input id="tech-name" placeholder="Guillermo Rauch" autocomplete="off"></div>
+        <button id="add-tech-x" class="btn-primary" style="width:100%;justify-content:center">Add Account</button>
+      </div>
+      <div class="sub-form ${mode==='rss'?'active':''}" id="sf-rss">
+        <div class="field"><label>Feed name</label><input id="tech-feed-name" placeholder="TechCrunch" autocomplete="off"></div>
+        <div class="field"><label>RSS URL</label><input id="tech-feed-url" placeholder="https://techcrunch.com/feed/" type="url" autocomplete="off"></div>
+        <button id="add-tech-rss" class="btn-primary" style="width:100%;justify-content:center">Add Feed</button>
+      </div>`;
+
+    container.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.addMode.tech = btn.dataset.mode;
+        renderAddForm('tech');
       });
-    }
-
-    function renderCards() {
-      const accounts = getFilteredAccounts();
-      elements.cards.innerHTML = '';
-
-      if (accounts.length === 0) {
-        const empty = document.createElement('div');
-        empty.className = 'empty';
-        empty.textContent = state.sources.x_accounts.length === 0
-          ? 'No tracked accounts yet.'
-          : 'No accounts match the current filter.';
-        elements.cards.appendChild(empty);
-        renderMeta();
-        return;
-      }
-
-      for (const account of accounts) {
-        const card = document.createElement('article');
-        card.className = 'card';
-
-        const remove = document.createElement('button');
-        remove.type = 'button';
-        remove.className = 'remove';
-        remove.setAttribute('aria-label', `Remove @${account.handle}`);
-        remove.textContent = '×';
-        remove.addEventListener('click', () => {
-          state.sources.x_accounts = state.sources.x_accounts.filter(item => item.handle !== account.handle);
-          markDirty();
-          setStatus(`Removed @${account.handle}.`);
-          renderCards();
-        });
-
-        const avatar = document.createElement('img');
-        avatar.className = 'avatar';
-        avatar.alt = `${account.name || account.handle} avatar`;
-        avatar.src = `https://unavatar.io/twitter/${encodeURIComponent(account.handle)}`;
-
-        const name = document.createElement('h3');
-        name.className = 'name';
-        name.textContent = account.name || account.handle;
-
-        const handle = document.createElement('p');
-        handle.className = 'handle';
-        handle.textContent = `@${account.handle}`;
-
-        card.append(remove, avatar, name, handle);
-        elements.cards.appendChild(card);
-      }
-
-      renderMeta();
-    }
-
-    async function loadSources() {
-      setStatus('Loading sources…');
-      const response = await fetch(CONTENTS_URL, {
-        headers: {
-          Accept: 'application/vnd.github+json'
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error(`Could not load ${FILE_PATH} from GitHub (${response.status})`);
-      }
-
-      const payload = await response.json();
-      state.remoteSha = payload.sha || '';
-      state.sources = JSON.parse(atob(payload.content.replace(/\n/g, '')));
-      sortAccounts();
-      state.dirty = false;
-      setStatus('Sources loaded.');
-      renderCards();
-    }
-
-    function addAccount() {
-      const handle = sanitizeHandle(elements.newHandle.value);
-      if (!handle) {
-        setStatus('Enter a valid X handle.', true);
-        return;
-      }
-
-      if (state.sources.x_accounts.some(account => account.handle.toLowerCase() === handle)) {
-        setStatus(`@${handle} is already tracked.`, true);
-        return;
-      }
-
-      state.sources.x_accounts.push({ name: handle, handle });
-      sortAccounts();
-      markDirty();
-      elements.newHandle.value = '';
-      setStatus(`Added @${handle}.`);
-      renderCards();
-    }
-
-    async function saveSources() {
-      const token = getToken();
-      if (!token) {
-        setStatus('Save a GitHub token first.', true);
-        return;
-      }
-
-      state.saving = true;
-      renderMeta();
-      setStatus('Saving to GitHub…');
-
-      try {
-        const response = await fetch(CONTENTS_URL, {
-          method: 'PUT',
-          headers: {
-            Accept: 'application/vnd.github+json',
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            message: 'Update my-sources.json',
-            content: btoa(unescape(encodeURIComponent(JSON.stringify(state.sources, null, 2)))),
-            sha: state.remoteSha
-          })
-        });
-
-        if (!response.ok) {
-          const error = await response.json().catch(() => ({}));
-          throw new Error(error.message || `GitHub save failed (${response.status})`);
-        }
-
-        const payload = await response.json();
-        state.remoteSha = payload.content?.sha || state.remoteSha;
-        state.dirty = false;
-        setStatus('Saved scripts/my-sources.json to GitHub.');
-      } catch (error) {
-        setStatus(error.message, true);
-      } finally {
-        state.saving = false;
-        renderMeta();
-      }
-    }
-
-    elements.saveToken.addEventListener('click', () => {
-      localStorage.setItem(STORAGE_KEY, elements.token.value.trim());
-      setStatus(elements.token.value.trim() ? 'Token saved in this browser.' : 'Token cleared.');
     });
 
-    elements.clearToken.addEventListener('click', () => {
-      localStorage.removeItem(STORAGE_KEY);
-      elements.token.value = '';
-      setStatus('Token cleared.');
+    document.getElementById('add-tech-x').addEventListener('click', () => {
+      const handle = sanitizeHandle(document.getElementById('tech-handle').value);
+      const name   = document.getElementById('tech-name').value.trim() || handle;
+      if (!handle) { setStatus('Enter a valid handle', 'error'); return; }
+      if (state.sources.x_accounts.some(a => a.handle === handle)) { setStatus(`@${handle} already tracked`, 'error'); return; }
+      state.sources.x_accounts.push({ name, handle, category: 'tech' });
+      setDirty(true);
+      setStatus(`Added @${handle}`, 'ok');
+      renderCurrentTab();
+      renderAddForm('tech');
     });
 
-    elements.addAccount.addEventListener('click', addAccount);
-    elements.newHandle.addEventListener('keydown', event => {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        addAccount();
-      }
+    document.getElementById('add-tech-rss').addEventListener('click', () => {
+      const name = document.getElementById('tech-feed-name').value.trim();
+      const url  = document.getElementById('tech-feed-url').value.trim();
+      if (!name || !url) { setStatus('Fill in all RSS fields', 'error'); return; }
+      if (state.sources.rss_feeds.some(f => f.url === url)) { setStatus('Feed URL already exists', 'error'); return; }
+      state.sources.rss_feeds.push({ name, url, category: 'tech' });
+      setDirty(true);
+      setStatus(`Added: ${name}`, 'ok');
+      renderCurrentTab();
+      renderAddForm('tech');
     });
+  }
 
-    elements.filter.addEventListener('input', event => {
-      state.filter = event.target.value || '';
-      renderCards();
+  if (tab === 'pt') {
+    container.innerHTML = `
+      <div class="sub-form active">
+        <div class="field"><label>Feed name</label><input id="pt-feed-name" placeholder="Público" autocomplete="off"></div>
+        <div class="field"><label>RSS URL</label><input id="pt-feed-url" placeholder="https://publico.pt/rss" type="url" autocomplete="off"></div>
+        <button id="add-pt-rss" class="btn-primary" style="width:100%;justify-content:center">Add Feed</button>
+      </div>`;
+    document.getElementById('add-pt-rss').addEventListener('click', () => {
+      const name = document.getElementById('pt-feed-name').value.trim();
+      const url  = document.getElementById('pt-feed-url').value.trim();
+      if (!name || !url) { setStatus('Fill in all fields', 'error'); return; }
+      if (state.sources.rss_feeds.some(f => f.url === url)) { setStatus('Feed URL already exists', 'error'); return; }
+      state.sources.rss_feeds.push({ name, url, category: 'pt_news' });
+      setDirty(true);
+      setStatus(`Added: ${name}`, 'ok');
+      renderCurrentTab();
+      renderAddForm('pt');
     });
+  }
 
-    elements.saveSources.addEventListener('click', saveSources);
+  if (tab === 'world') {
+    container.innerHTML = `
+      <div class="sub-form active">
+        <div class="field"><label>Feed name</label><input id="world-feed-name" placeholder="Reuters World" autocomplete="off"></div>
+        <div class="field"><label>RSS URL</label><input id="world-feed-url" placeholder="https://feeds.reuters.com/…" type="url" autocomplete="off"></div>
+        <button id="add-world-rss" class="btn-primary" style="width:100%;justify-content:center">Add Feed</button>
+      </div>`;
+    document.getElementById('add-world-rss').addEventListener('click', () => {
+      const name = document.getElementById('world-feed-name').value.trim();
+      const url  = document.getElementById('world-feed-url').value.trim();
+      if (!name || !url) { setStatus('Fill in all fields', 'error'); return; }
+      if (state.sources.rss_feeds.some(f => f.url === url)) { setStatus('Feed URL already exists', 'error'); return; }
+      state.sources.rss_feeds.push({ name, url, category: 'world_news' });
+      setDirty(true);
+      setStatus(`Added: ${name}`, 'ok');
+      renderCurrentTab();
+      renderAddForm('world');
+    });
+  }
+}
 
-    elements.token.value = getToken();
-    loadSources().catch(error => setStatus(error.message, true));
-  </script>
+// ── GitHub API ────────────────────────────────────────────────────
+async function loadSources() {
+  setStatus('Loading…', 'busy');
+  try {
+    const res = await fetch(CONTENTS_URL, { headers: { Accept: 'application/vnd.github+json' } });
+    if (!res.ok) throw new Error(`GitHub ${res.status}`);
+    const payload = await res.json();
+    state.remoteSha = payload.sha || '';
+    state.sources = JSON.parse(atob(payload.content.replace(/\n/g, '')));
+    // Ensure arrays exist
+    state.sources.x_accounts = state.sources.x_accounts || [];
+    state.sources.podcasts    = state.sources.podcasts    || [];
+    state.sources.rss_feeds   = state.sources.rss_feeds   || [];
+    setStatus('Sources loaded', 'ok');
+    setDirty(false);
+    renderCurrentTab();
+    renderAddForm(state.activeTab);
+    updateCounts();
+  } catch (e) {
+    setStatus(e.message, 'error');
+  }
+}
+
+async function saveSources() {
+  const token = getToken();
+  if (!token) { setStatus('Save a GitHub token first', 'error'); return; }
+  state.saving = true;
+  const btn = document.getElementById('save-btn');
+  btn.textContent = 'Saving…';
+  btn.disabled = true;
+  setStatus('Saving to GitHub…', 'busy');
+  try {
+    const res = await fetch(CONTENTS_URL, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: `sources: update ${new Date().toISOString().slice(0,10)}`,
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(state.sources, null, 2)))),
+        sha: state.remoteSha
+      })
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || `GitHub ${res.status}`);
+    }
+    const payload = await res.json();
+    state.remoteSha = payload.content?.sha || state.remoteSha;
+    setDirty(false);
+    setStatus('Saved ✓', 'ok');
+  } catch (e) {
+    setStatus(e.message, 'error');
+    btn.textContent = 'Save changes';
+    btn.disabled = false;
+  } finally {
+    state.saving = false;
+  }
+}
+
+// ── Event wiring ──────────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    state.activeTab = tab.dataset.tab;
+    state.filter = '';
+    document.getElementById('search').value = '';
+    renderCurrentTab();
+    renderAddForm(state.activeTab);
+  });
+});
+
+document.getElementById('save-token').addEventListener('click', () => {
+  const val = document.getElementById('token').value.trim();
+  localStorage.setItem(STORAGE_KEY, val);
+  setStatus(val ? 'Token saved' : 'Token cleared', 'ok');
+});
+
+document.getElementById('clear-token').addEventListener('click', () => {
+  localStorage.removeItem(STORAGE_KEY);
+  document.getElementById('token').value = '';
+  setStatus('Token cleared', 'ok');
+});
+
+document.getElementById('save-btn').addEventListener('click', saveSources);
+
+document.getElementById('search').addEventListener('input', e => {
+  state.filter = e.target.value || '';
+  renderCurrentTab();
+});
+
+// ── Init ──────────────────────────────────────────────────────────
+document.getElementById('token').value = getToken();
+loadSources();
+</script>
 </body>
 </html>

@@ -20,34 +20,35 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install local script dependencies
-        run: |
-          cd scripts && npm install
+      - name: Install dependencies
+        run: cd scripts && npm install
 
-      - name: Fetch feed (X + podcasts)
+      - name: Fetch feed (X + podcasts + RSS)
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
           SUPADATA_API_KEY: ${{ secrets.SUPADATA_API_KEY }}
-        run: |
-          node scripts/fetch-my-feed.js
+        run: node scripts/fetch-my-feed.js
 
       - name: Debug feed contents
         run: |
-          echo "=== my-feed.json stats ==="
-          node -e "const d=JSON.parse(require('fs').readFileSync('my-feed.json','utf8')); console.log('xBuilders:', d.x?.length, 'podcasts:', d.podcasts?.length, 'errors:', d.errors);"
+          node -e "
+            const d = JSON.parse(require('fs').readFileSync('my-feed.json', 'utf8'));
+            console.log('xBuilders:', d.x?.length, '| podcasts:', d.podcasts?.length, '| rssFeeds:', d.rss?.length, '| errors:', d.errors?.length ?? 0);
+          "
 
-      - name: Generate slide deck
+      - name: Generate digest (Claude)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          cat my-feed.json | node scripts/remix-digest.js | node scripts/generate-slides.js
-          cp ~/.follow-builders/digest-latest.html $GITHUB_WORKSPACE/index.html
+        run: cat my-feed.json | node scripts/remix-digest.js
 
-      - name: Commit and push index.html
+      - name: Build slide deck
+        run: node scripts/generate-slides.js
+
+      - name: Commit and push
         run: |
           git config user.name "AI Digest Bot"
           git config user.email "bot@ai-digest.local"
-          git add index.html
+          git add index.html digest-draft.json
           git diff --staged --quiet || git commit -m "digest: $(date +%Y-%m-%d)"
           git push
 
@@ -56,5 +57,5 @@ jobs:
           curl -s -X POST \
             "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-            --data-urlencode "text=☀️ Your AI Builders Digest is ready:
-          https://pedro-ux.github.io/ai-digest"
+            --data-urlencode "text=☀️ Your Daily Digest is ready:
+          https://pedro-ux.github.io/ai-digest" || true

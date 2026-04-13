@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
  * remix-digest.js
- * Reads prepare-digest.js JSON from stdin.
- * Calls Claude API to produce structured, scannable digest content
- * tailored for a busy founder/PM who needs actionable takeaways.
- * Outputs structured JSON to stdout for generate-slides.js.
+ * Reads my-feed.json from stdin.
+ * Calls Claude API to produce a 4-section structured digest:
+ *   pt_news, world_news, tech, ai (+ podcasts)
+ * Writes output to digest-draft.json (repo root) AND stdout.
  *
  * Required env: ANTHROPIC_API_KEY
  */
@@ -13,6 +13,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import path from 'path';
 import os from 'os';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
 
 // Load .env
 const envPath = path.join(os.homedir(), '.follow-builders', '.env');
@@ -32,6 +33,10 @@ process.stderr.write(`remix-digest: API key present (${apiKey.slice(0, 10)}...)\
 
 const client = new Anthropic({ apiKey });
 
+// digest-draft.json lives at repo root (one level up from scripts/)
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DRAFT_PATH = path.join(__dirname, '..', 'digest-draft.json');
+
 let raw = '';
 process.stdin.on('data', c => { raw += c; });
 process.stdin.on('end', async () => {
@@ -43,56 +48,152 @@ process.stdin.on('end', async () => {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
   });
 
-  const xBuilders = (data.x || []).filter(b =>
+  // ── Separate X accounts by category ────────────────────────────
+  const xAll = (data.x || []).filter(b =>
     (b.tweets || []).some(t => t.text?.trim().length > 15)
   );
+  const xAI   = xAll.filter(b => b.category === 'ai'   || !b.category); // default to ai
+  const xTech = xAll.filter(b => b.category === 'tech');
   const podcasts = data.podcasts || [];
+  const rssByCategory = {};
+  for (const feed of (data.rss || [])) {
+    if (!rssByCategory[feed.category]) rssByCategory[feed.category] = [];
+    rssByCategory[feed.category].push(feed);
+  }
 
-  // ── Build source sections ─────────────────────────────────────
+  // ── Build source sections ────────────────────────────────────────
   const sections = [];
 
-  xBuilders.forEach((b, i) => {
+  // PT News section
+  const ptFeeds = rssByCategory['pt_news'] || [];
+  if (ptFeeds.length > 0) {
+    const lines = ptFeeds.flatMap(f =>
+      (f.items || []).map(i => `  • [${f.feed_name}] ${i.title}${i.contentSnippet ? ' — ' + i.contentSnippet : ''}\n    URL: ${i.link}`)
+    ).join('\n');
+    sections.push(`=== PT_NEWS ===\n${lines}`);
+  }
+
+  // World News section
+  const worldFeeds = rssByCategory['world_news'] || [];
+  if (worldFeeds.length > 0) {
+    const lines = worldFeeds.flatMap(f =>
+      (f.items || []).map(i => `  • [${f.feed_name}] ${i.title}${i.contentSnippet ? ' — ' + i.contentSnippet : ''}\n    URL: ${i.link}`)
+    ).join('\n');
+    sections.push(`=== WORLD_NEWS ===\n${lines}`);
+  }
+
+  // Tech section (X accounts + RSS)
+  const techRssFeeds = rssByCategory['tech'] || [];
+  const techLines = [];
+  xTech.forEach((b, i) => {
     const bio = (b.bio || '').replace(/\s+/g, ' ').trim();
     const tweets = (b.tweets || [])
       .filter(t => t.text?.trim().length > 15)
       .slice(0, 4)
       .map(t => `  • TEXT: ${t.text.replace(/https?:\/\/t\.co\/\S+/g, '').trim()}\n    URL: ${t.url || ''}`)
       .join('\n');
-    sections.push(`=== BUILDER ${i + 1}: ${b.name || b.handle} ===\nBio: ${bio}\nTweets:\n${tweets}`);
+    techLines.push(`--- X Builder: ${b.name || b.handle} ---\nBio: ${bio}\nTweets:\n${tweets}`);
   });
+  techRssFeeds.forEach(f => {
+    const items = (f.items || []).map(i => `  • [${f.feed_name}] ${i.title}\n    URL: ${i.link}`).join('\n');
+    techLines.push(`--- RSS: ${f.feed_name} ---\n${items}`);
+  });
+  if (techLines.length > 0) {
+    sections.push(`=== TECH ===\n${techLines.join('\n\n')}`);
+  }
 
+  // AI section (X accounts + podcasts)
+  const aiLines = [];
+  xAI.forEach((b, i) => {
+    const bio = (b.bio || '').replace(/\s+/g, ' ').trim();
+    const tweets = (b.tweets || [])
+      .filter(t => t.text?.trim().length > 15)
+      .slice(0, 4)
+      .map(t => `  • TEXT: ${t.text.replace(/https?:\/\/t\.co\/\S+/g, '').trim()}\n    URL: ${t.url || ''}`)
+      .join('\n');
+    aiLines.push(`--- X Builder: ${b.name || b.handle} ---\nBio: ${bio}\nTweets:\n${tweets}`);
+  });
   podcasts.forEach((p, i) => {
-    sections.push(`=== PODCAST ${i + 1}: ${p.name} ===\nTitle: ${p.title}\nURL: ${p.url}\nTranscript:\n${(p.transcript || '').slice(0, 5000)}`);
+    aiLines.push(`--- Podcast: ${p.name} ---\nTitle: ${p.title}\nURL: ${p.url}\nTranscript:\n${(p.transcript || '').slice(0, 5000)}`);
   });
+  if (aiLines.length > 0) {
+    sections.push(`=== AI ===\n${aiLines.join('\n\n')}`);
+  }
 
-  // ── Prompt ────────────────────────────────────────────────────
-  const systemPrompt = `You are the executive assistant and chief curator for Pedro, a Portuguese entrepreneur and product builder.
+  // ── System prompt ─────────────────────────────────────────────────
+  const systemPrompt = `You are the executive assistant and chief curator for Pedro, a Portuguese PM building AI products.
 
 Pedro's profile:
-- Non-technical product builder actively building and selling AI products and services
-- Product Manager background with UX and strategy experience
+- Building and selling AI products/services in Portugal
+- Product Manager with UX and strategy background
 - Learning to be technically fluent in AI — curious, not expert
-- Goal: use AI to build products faster, find new business models, and stay ahead of the curve
+- Goal: use AI to build products faster, find new business models, stay ahead
 
-Your job: Transform raw builder content into a SCANNABLE EXECUTIVE BRIEF.
+Your job: Transform raw content into a SCANNABLE EXECUTIVE BRIEF across 4 sections.
 Pedro has 90 seconds per slide. Every word must earn its place.
 
 OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
 
 {
-  "builders": [
+  "pt_news": [
     {
-      "name": "Full Name",
-      "role": "Title · Company",
-      "hook": "One punchy sentence. What happened. Why it matters. Max 15 words.",
-      "insights": [
-        "First key insight — specific, concrete, no filler",
-        "Second key insight — what's new or surprising",
-        "Third key insight (optional) — implication or signal"
+      "headline": "Short punchy headline, max 12 words",
+      "hook": "One sentence. What happened and why it matters.",
+      "key_points": [
+        "First concrete detail or implication",
+        "Second concrete detail (optional)"
       ],
-      "for_you": "2-3 sentences max. Speak directly to Pedro. Start with the action or implication. Example: 'As you build [X], this means...' or 'Watch this pattern — it's exactly what you need for...' Be specific to his projects when relevant.",
+      "for_you": "1-2 sentences. What does this mean for Pedro building in Portugal? Be specific.",
       "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
-      "urls": ["url1", "url2"]
+      "url": "article url",
+      "source_name": "Publication name"
+    }
+  ],
+  "world_news": [
+    {
+      "headline": "Short punchy headline, max 12 words",
+      "hook": "One sentence. What happened and why it matters.",
+      "key_points": [
+        "First concrete detail or implication",
+        "Second concrete detail (optional)"
+      ],
+      "for_you": "1-2 sentences. Global context for a Portuguese entrepreneur.",
+      "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
+      "url": "article url",
+      "source_name": "Publication name"
+    }
+  ],
+  "tech": [
+    {
+      "name": "Person or source name",
+      "role": "Title · Company (for X accounts) or RSS source name",
+      "hook": "One punchy sentence. Max 15 words.",
+      "insights": [
+        "First key insight — specific, concrete",
+        "Second key insight (optional)"
+      ],
+      "for_you": "2-3 sentences. What does this mean for someone building tech products?",
+      "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
+      "urls": ["url1"],
+      "handle": "x handle if applicable, else empty string",
+      "index": 1
+    }
+  ],
+  "ai": [
+    {
+      "name": "Person or show name",
+      "role": "Title · Company or 'Podcast'",
+      "hook": "One punchy sentence. Max 15 words.",
+      "insights": [
+        "First key insight — specific, concrete",
+        "Second key insight",
+        "Third key insight (optional)"
+      ],
+      "for_you": "2-3 sentences. What does this mean for Pedro building AI products?",
+      "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
+      "urls": ["url1"],
+      "handle": "x handle if applicable, else empty string",
+      "index": 1
     }
   ],
   "podcasts": [
@@ -105,7 +206,7 @@ OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
         "Point 2 — supporting evidence or example",
         "Point 3 — implication for builders"
       ],
-      "for_you": "2-3 sentences. What does this mean for Pedro specifically? Reference his projects or stage when relevant. What should he do or think differently about?",
+      "for_you": "2-3 sentences. What does this mean for Pedro specifically?",
       "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
       "url": "episode url"
     }
@@ -113,11 +214,14 @@ OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
 }
 
 RULES:
+- Include only sections that have actual content. Omit empty arrays entirely.
+- pt_news and world_news: pick the 3-5 most relevant stories. Skip duplicates.
+- tech and ai: each X builder = one entry; each podcast also gets an entry in ai.
 - hook: punchy, present tense, no jargon. "X does Y" not "X announced that Y"
 - insights: start each with a strong verb or concrete noun. No "he said that". Just the fact.
-- Bold key phrases by wrapping them in **double asterisks** — use sparingly, max 2 per bullet
-- for_you: this is the most important section. Be a trusted advisor, not a journalist. Frame everything in terms of what it means for someone building and selling AI products — new opportunities, tools to use, patterns to follow, risks to avoid. Keep it practical and actionable.
-- signal: use 🟢 for things Pedro can apply right now, 🔴 for things that could threaten or disrupt, 🟡 for trends to monitor, 💡 for concepts worth learning
+- Bold key phrases with **double asterisks** — max 2 per bullet.
+- for_you: most important field. Be a trusted advisor. Frame everything in terms of building and selling AI products in Portugal.
+- signal: 🟢 apply right now, 🔴 threat or disruption, 🟡 trend to monitor, 💡 concept to learn.
 - Never pad. Never summarize what you just said. No "In conclusion".`;
 
   const userPrompt = `Today: ${today}
@@ -130,11 +234,9 @@ ${sections.join('\n\n')}`;
 
   let remixed;
   try {
-    // Prefill with '{' so Claude is forced to start the JSON object immediately,
-    // with no preamble or markdown fences. The response continues from '{'.
     const msg = await client.messages.create({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 6000,
+      max_tokens: 8000,
       system: systemPrompt,
       messages: [
         { role: 'user', content: userPrompt },
@@ -142,22 +244,25 @@ ${sections.join('\n\n')}`;
       ],
     });
 
-    // Claude's response is the continuation after our '{' prefill, so we prepend it back
+    // Prepend '{' (prefill) and strip any trailing prose after the last '}'
     const responseText = '{' + msg.content[0].text;
-    process.stderr.write(`remix-digest: response length=${responseText.length}\n`);
-    remixed = JSON.parse(responseText);
+    const end = responseText.lastIndexOf('}');
+    process.stderr.write(`remix-digest: response length=${responseText.length}, JSON end=${end}\n`);
+    remixed = JSON.parse(responseText.slice(0, end + 1));
   } catch (e) {
     process.stderr.write(`remix-digest: error — ${e.message}\n${e.stack || ''}\n`);
     process.exit(1);
   }
 
-  // ── Merge with original data ──────────────────────────────────
-  const output = {
-    date: today,
-    builders: (remixed.builders || []).map((b, i) => {
-      const orig = xBuilders[i] || {};
+  // ── Build final output ────────────────────────────────────────────
+  // Enrich tech and ai entries with handle/index from original data
+  let globalIndex = 1;
+
+  const enrichXEntries = (entries, sourceList) =>
+    (entries || []).map((b, i) => {
+      const orig = sourceList[i] || {};
       const firstUrl = (orig.tweets || [])[0]?.url || '';
-      const handle = (firstUrl.match(/x\.com\/([^/]+)\/status/) || [])[1] || '';
+      const handle = b.handle || (firstUrl.match(/x\.com\/([^/]+)\/status/) || [])[1] || '';
       return {
         name:     b.name,
         role:     b.role,
@@ -167,25 +272,41 @@ ${sections.join('\n\n')}`;
         signal:   b.signal || '🟡',
         urls:     (b.urls || []).filter(Boolean),
         handle,
-        index:    i + 1,
+        index:    globalIndex++,
       };
-    }),
-    podcasts: (remixed.podcasts || []).map((p, i) => {
-      const orig = podcasts[i] || {};
-      const videoId = (orig.url || '').match(/(?:v=|youtu\.be\/)([^&\s]+)/)?.[1] || '';
-      return {
-        show:       p.show || orig.name,
-        episode:    p.episode || orig.title,
-        takeaway:   p.takeaway,
-        key_points: p.key_points || [],
-        for_you:    p.for_you,
-        signal:     p.signal || '🟡',
-        url:        p.url || orig.url,
-        videoId,
-        index:      (remixed.builders || []).length + i + 1,
-      };
-    }),
+    });
+
+  const techEntries = enrichXEntries(remixed.tech, xTech);
+  const aiEntries   = enrichXEntries(remixed.ai, xAI);
+
+  const podcastEntries = (remixed.podcasts || []).map((p, i) => {
+    const orig = podcasts[i] || {};
+    const videoId = (orig.url || '').match(/(?:v=|youtu\.be\/)([^&\s]+)/)?.[1] || '';
+    return {
+      show:       p.show || orig.name,
+      episode:    p.episode || orig.title,
+      takeaway:   p.takeaway,
+      key_points: p.key_points || [],
+      for_you:    p.for_you,
+      signal:     p.signal || '🟡',
+      url:        p.url || orig.url,
+      videoId,
+      index:      globalIndex++,
+    };
+  });
+
+  const output = {
+    date: today,
+    pt_news:    remixed.pt_news    || [],
+    world_news: remixed.world_news || [],
+    tech:       techEntries,
+    ai:         aiEntries,
+    podcasts:   podcastEntries,
   };
+
+  // Write draft file to repo root for manual review
+  fs.writeFileSync(DRAFT_PATH, JSON.stringify(output, null, 2));
+  process.stderr.write(`remix-digest: draft written to ${DRAFT_PATH}\n`);
 
   process.stdout.write(JSON.stringify(output) + '\n');
 });

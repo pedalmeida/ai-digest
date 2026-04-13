@@ -1,36 +1,56 @@
 #!/usr/bin/env node
 /**
  * generate-slides.js
- * Reads remixed JSON from remix-digest.js (stdin).
- * Writes a rich, scannable slide-deck HTML to ~/.follow-builders/digest-latest.html
+ * Reads digest-draft.json from repo root (written by remix-digest.js).
+ * Writes a rich, scannable 4-section slide-deck HTML to index.html.
  */
 
 import fs   from 'fs';
 import path from 'path';
-import os   from 'os';
+import { fileURLToPath } from 'url';
 
-let raw = '';
-process.stdin.on('data', chunk => { raw += chunk; });
-process.stdin.on('end', () => {
-  let data;
-  try { data = JSON.parse(raw); }
-  catch (e) { process.stderr.write('generate-slides: invalid JSON\n'); process.exit(1); }
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DRAFT_PATH = path.join(__dirname, '..', 'digest-draft.json');
+const OUT_PATH   = path.join(__dirname, '..', 'index.html');
 
-  const today = data.date || new Date().toLocaleDateString('en-GB', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-  });
+if (!fs.existsSync(DRAFT_PATH)) {
+  process.stderr.write(`generate-slides: digest-draft.json not found at ${DRAFT_PATH}\n`);
+  process.exit(1);
+}
 
-  const slides = [{ type: 'title', date: today }];
-  (data.builders || []).forEach(b => slides.push({ type: 'x', ...b }));
-  (data.podcasts || []).forEach(p => slides.push({ type: 'podcast', ...p }));
+const data = JSON.parse(fs.readFileSync(DRAFT_PATH, 'utf8'));
 
-  const html = renderHTML(slides, today);
-  const dir = path.join(os.homedir(), '.follow-builders');
-  fs.mkdirSync(dir, { recursive: true });
-  const outPath = path.join(dir, 'digest-latest.html');
-  fs.writeFileSync(outPath, html, 'utf8');
-  process.stdout.write(outPath + '\n');
+const today = data.date || new Date().toLocaleDateString('en-GB', {
+  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
 });
+
+// ── Build slide list ──────────────────────────────────────────────
+const slides = [{ type: 'title', date: today }];
+
+if ((data.pt_news || []).length > 0) {
+  slides.push({ type: 'section', label: 'Portuguese News', emoji: '🇵🇹', color: '#006400', bg: '#F0FDF4', border: '#BBF7D0' });
+  (data.pt_news || []).forEach(s => slides.push({ type: 'news', section: 'pt', ...s }));
+}
+
+if ((data.world_news || []).length > 0) {
+  slides.push({ type: 'section', label: 'World News', emoji: '🌍', color: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE' });
+  (data.world_news || []).forEach(s => slides.push({ type: 'news', section: 'world', ...s }));
+}
+
+if ((data.tech || []).length > 0) {
+  slides.push({ type: 'section', label: 'Tech', emoji: '⚙️', color: '#7C3AED', bg: '#F5F3FF', border: '#DDD6FE' });
+  (data.tech || []).forEach(b => slides.push({ type: 'x', ...b }));
+}
+
+if ((data.ai || []).length > 0 || (data.podcasts || []).length > 0) {
+  slides.push({ type: 'section', label: 'AI Builders', emoji: '🤖', color: '#D97706', bg: '#FFFBEB', border: '#FDE68A' });
+  (data.ai || []).forEach(b => slides.push({ type: 'x', ...b }));
+  (data.podcasts || []).forEach(p => slides.push({ type: 'podcast', ...p }));
+}
+
+const html = renderHTML(slides, today);
+fs.writeFileSync(OUT_PATH, html, 'utf8');
+process.stdout.write(`generate-slides: wrote ${slides.length} slides to ${OUT_PATH}\n`);
 
 // ── Helpers ───────────────────────────────────────────────────────
 function esc(str) {
@@ -39,7 +59,6 @@ function esc(str) {
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-// Convert **bold** markdown to <strong> tags
 function richText(str) {
   return esc(str).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 }
@@ -52,19 +71,8 @@ function avatarUrl(handle) {
   return handle ? `https://unavatar.io/twitter/${handle}` : '';
 }
 
-const SIGNAL_LABELS = {
-  '🔴': 'Urgent',
-  '🟡': 'Watch',
-  '🟢': 'Apply now',
-  '💡': 'Learn',
-};
-
-const SIGNAL_CLASSES = {
-  '🔴': 'signal-red',
-  '🟡': 'signal-yellow',
-  '🟢': 'signal-green',
-  '💡': 'signal-blue',
-};
+const SIGNAL_LABELS = { '🔴': 'Urgent', '🟡': 'Watch', '🟢': 'Apply now', '💡': 'Learn' };
+const SIGNAL_CLASSES = { '🔴': 'signal-red', '🟡': 'signal-yellow', '🟢': 'signal-green', '💡': 'signal-blue' };
 
 // ── Renderers ─────────────────────────────────────────────────────
 function renderTitleSlide(s) {
@@ -78,20 +86,87 @@ function renderTitleSlide(s) {
       </div>
       <div class="title-card__body">
         <div class="title-greeting">${greeting} ☀️</div>
-        <h1 class="title-headline">AI Builders<br><em>Digest</em></h1>
+        <h1 class="title-headline">Daily<br><em>Digest</em></h1>
         <p class="title-date">${esc(s.date)}</p>
       </div>
       <div class="title-card__footer">
-        <span class="title-tagline">Follow builders, not influencers</span>
+        <span class="title-tagline">PT News · World · Tech · AI</span>
         <span class="title-hint">← → to navigate</span>
       </div>
     </div>
   </div>`;
 }
 
+function renderSectionSlide(s, idx) {
+  return `
+  <div class="slide" data-i="${idx}">
+    <div class="section-card" style="--sec-color:${s.color};--sec-bg:${s.bg};--sec-border:${s.border}">
+      <div class="section-card__inner">
+        <div class="section-emoji">${s.emoji}</div>
+        <div class="section-chapter">Chapter</div>
+        <h2 class="section-title">${esc(s.label)}</h2>
+        <div class="section-rule"></div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderNewsSlide(s, idx) {
+  const signal      = s.signal || '🟡';
+  const signalClass = SIGNAL_CLASSES[signal] || 'signal-yellow';
+  const signalLabel = SIGNAL_LABELS[signal] || 'Watch';
+
+  const pointsHTML = (s.key_points || []).map(p => `
+    <li class="insight-item">
+      <span class="insight-dot">◆</span>
+      <span>${richText(p)}</span>
+    </li>`).join('');
+
+  const sectionColors = {
+    pt:    { color: '#006400', bg: '#F0FDF4', border: '#BBF7D0', label: 'PT News' },
+    world: { color: '#1D4ED8', bg: '#EFF6FF', border: '#BFDBFE', label: 'World News' },
+  };
+  const sec = sectionColors[s.section] || sectionColors.world;
+
+  return `
+  <div class="slide" data-i="${idx}">
+    <div class="content-card news-layout" style="--sec-color:${sec.color};--sec-bg:${sec.bg};--sec-border:${sec.border}">
+
+      <div class="card-left news-left">
+        <div class="news-source-tag">${esc(s.source_name || '')}</div>
+        <h2 class="news-headline">${richText(s.headline || s.hook || '')}</h2>
+        <p class="hook-text news-hook">${richText(s.hook || '')}</p>
+        <div class="card-index">${String(idx).padStart(2,'0')}</div>
+      </div>
+
+      <div class="card-right">
+        ${pointsHTML ? `
+        <div class="right-section">
+          <div class="section-label">
+            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
+            Key points
+          </div>
+          <ul class="insight-list">${pointsHTML}</ul>
+        </div>` : ''}
+
+        <div class="for-you-box">
+          <div class="for-you-label">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            What this means for you
+          </div>
+          <p class="for-you-text">${richText(s.for_you || '')}</p>
+        </div>
+
+        ${s.url ? `<div class="url-row"><a class="source-url" href="${esc(s.url)}" target="_blank" rel="noopener">↗ Read article</a></div>` : ''}
+      </div>
+
+    </div>
+  </div>`;
+}
+
 function renderXSlide(s, idx) {
-  const avatar = avatarUrl(s.handle);
-  const signal = s.signal || '🟡';
+  const avatar      = avatarUrl(s.handle);
+  const signal      = s.signal || '🟡';
   const signalClass = SIGNAL_CLASSES[signal] || 'signal-yellow';
   const signalLabel = SIGNAL_LABELS[signal] || 'Watch';
 
@@ -111,7 +186,6 @@ function renderXSlide(s, idx) {
   <div class="slide" data-i="${idx}">
     <div class="content-card">
 
-      <!-- LEFT: identity + signal -->
       <div class="card-left">
         <div class="author-block">
           ${avatar ? `<img class="author-avatar" src="${esc(avatar)}" alt="" onerror="this.style.display='none'">` : ''}
@@ -124,7 +198,6 @@ function renderXSlide(s, idx) {
         <div class="card-index">${String(s.index || idx).padStart(2,'0')}</div>
       </div>
 
-      <!-- RIGHT: insights + for you -->
       <div class="card-right">
         <div class="right-section">
           <div class="section-label">
@@ -150,8 +223,8 @@ function renderXSlide(s, idx) {
 }
 
 function renderPodcastSlide(s, idx) {
-  const thumb = s.videoId ? ytThumb(s.videoId) : '';
-  const signal = s.signal || '🟡';
+  const thumb       = s.videoId ? ytThumb(s.videoId) : '';
+  const signal      = s.signal || '🟡';
   const signalClass = SIGNAL_CLASSES[signal] || 'signal-yellow';
   const signalLabel = SIGNAL_LABELS[signal] || 'Watch';
 
@@ -165,7 +238,6 @@ function renderPodcastSlide(s, idx) {
   <div class="slide" data-i="${idx}">
     <div class="content-card podcast-layout">
 
-      <!-- LEFT: show info + thumbnail -->
       <div class="card-left podcast-left">
         <div class="podcast-show">${esc(s.show)}</div>
         <h2 class="podcast-episode">${esc(s.episode)}</h2>
@@ -181,7 +253,6 @@ function renderPodcastSlide(s, idx) {
         <div class="card-index">${String(s.index || idx).padStart(2,'0')}</div>
       </div>
 
-      <!-- RIGHT: key points + for you -->
       <div class="card-right">
         <div class="right-section">
           <div class="section-label">
@@ -211,6 +282,8 @@ function renderHTML(slides, today) {
   const total = slides.length;
   const slidesHTML = slides.map((s, i) => {
     if (s.type === 'title')   return renderTitleSlide(s);
+    if (s.type === 'section') return renderSectionSlide(s, i);
+    if (s.type === 'news')    return renderNewsSlide(s, i);
     if (s.type === 'x')       return renderXSlide(s, i);
     if (s.type === 'podcast') return renderPodcastSlide(s, i);
     return '';
@@ -221,7 +294,7 @@ function renderHTML(slides, today) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Builders Digest — ${esc(today)}</title>
+<title>Daily Digest — ${esc(today)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -238,15 +311,15 @@ function renderHTML(slides, today) {
   --muted:       #8A7B6C;
   --subtle:      #F2EDE5;
 
-  /* Signal colors */
   --red:    #DC2626; --red-bg:    #FEF2F2; --red-border:    #FECACA;
   --yellow: #D97706; --yellow-bg: #FFFBEB; --yellow-border: #FDE68A;
   --green:  #16A34A; --green-bg:  #F0FDF4; --green-border:  #BBF7D0;
   --blue:   #2563EB; --blue-bg:   #EFF6FF; --blue-border:   #BFDBFE;
 
-  /* Type colors */
   --x-color:   #D97706;
   --pod-color: #7C3AED;
+  --pt-color:  #006400;
+  --world-color: #1D4ED8;
 
   --shadow:    0 2px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
   --shadow-lg: 0 8px 40px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05);
@@ -261,7 +334,6 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Deck & Slides ── */
 #deck { position: relative; width: 100vw; height: 100vh; }
 
 .slide {
@@ -288,7 +360,7 @@ html, body {
 .title-card::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, #F59E0B, #EC4899, #8B5CF6, #3B82F6);
+  background: linear-gradient(90deg, #006400, #1D4ED8, #7C3AED, #D97706);
 }
 .title-card__top  { margin-bottom: 32px; }
 .title-badge {
@@ -317,6 +389,43 @@ html, body {
 .title-tagline { font-size: 12px; color: var(--muted); font-style: italic; }
 .title-hint    { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--border); }
 
+/* ── Section Card ── */
+.section-card {
+  width: 100%; max-width: 580px;
+  background: var(--sec-bg, #FFFBEB);
+  border: 1px solid var(--sec-border, #FDE68A);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  padding: 56px 52px;
+  position: relative; overflow: hidden;
+}
+.section-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--sec-color, #D97706);
+}
+.section-card__inner { display: flex; flex-direction: column; gap: 12px; }
+.section-emoji { font-size: 40px; }
+.section-chapter {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--sec-color, #D97706); opacity: 0.7;
+}
+.section-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 400; line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--sec-color, #D97706);
+}
+.section-rule {
+  width: 48px; height: 3px;
+  background: var(--sec-color, #D97706);
+  border-radius: 2px;
+  margin-top: 8px;
+  opacity: 0.4;
+}
+
 /* ── Content Card (2-col) ── */
 .content-card {
   width: 100%; max-width: 940px; height: min(600px, 88vh);
@@ -336,31 +445,49 @@ html, body {
   display: flex; flex-direction: column; gap: 16px;
   position: relative; overflow: hidden;
 }
-.left-top {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+
+/* News layout overrides */
+.news-left {
+  background: var(--sec-bg, #EFF6FF);
+  border-right-color: var(--sec-border, #BFDBFE);
 }
-.card-type-label {
-  display: inline-flex; align-items: center; gap: 5px;
+.news-source-tag {
   font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--x-color); background: #FFFBEB; border: 1px solid #FDE68A;
-  padding: 3px 9px; border-radius: 100px;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sec-color, #1D4ED8);
+  opacity: 0.8;
 }
-.card-type-pod {
-  color: var(--pod-color); background: #F5F3FF; border-color: #DDD6FE;
+.news-headline {
+  font-family: 'Lora', serif;
+  font-size: clamp(15px, 1.7vw, 19px);
+  font-weight: 600; line-height: 1.3;
+  color: var(--text);
+  padding-right: 8px;
+}
+.news-hook {
+  border-left-color: var(--sec-color, #1D4ED8) !important;
 }
 
-/* Signal badge */
-.signal-badge {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.1em;
-  padding: 3px 8px; border-radius: 100px; border: 1px solid;
-  white-space: nowrap;
+/* Hook */
+.hook-text {
+  font-size: clamp(13px, 1.4vw, 15px);
+  line-height: 1.6; color: var(--text-2);
+  font-weight: 500;
+  padding: 12px 14px;
+  background: var(--surface);
+  border-radius: 10px;
+  border-left: 3px solid var(--x-color);
+  flex: 0 0 auto;
 }
-.signal-red    { color: var(--red);    background: var(--red-bg);    border-color: var(--red-border); }
-.signal-yellow { color: var(--yellow); background: var(--yellow-bg); border-color: var(--yellow-border); }
-.signal-green  { color: var(--green);  background: var(--green-bg);  border-color: var(--green-border); }
-.signal-blue   { color: var(--blue);   background: var(--blue-bg);   border-color: var(--blue-border); }
+.podcast-left .hook-text { border-left-color: var(--pod-color); }
+
+/* Ghost index */
+.card-index {
+  position: absolute; bottom: -10px; right: 10px;
+  font-family: 'Lora', serif; font-size: 80px; font-weight: 600;
+  color: rgba(0,0,0,0.05); line-height: 1;
+  user-select: none; pointer-events: none;
+}
 
 /* Author */
 .author-block { display: flex; align-items: center; gap: 10px; }
@@ -373,29 +500,7 @@ html, body {
   font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 600; color: var(--text); line-height: 1.1;
 }
-.author-role {
-  font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4;
-}
-
-/* Hook */
-.hook-text {
-  font-size: clamp(13px, 1.4vw, 15px);
-  line-height: 1.6; color: var(--text-2);
-  font-weight: 500;
-  padding: 12px 14px;
-  background: var(--surface);
-  border-radius: 10px;
-  border-left: 3px solid var(--x-color);
-}
-.podcast-left .hook-text { border-left-color: var(--pod-color); }
-
-/* Ghost index */
-.card-index {
-  position: absolute; bottom: -10px; right: 10px;
-  font-family: 'Lora', serif; font-size: 80px; font-weight: 600;
-  color: rgba(0,0,0,0.05); line-height: 1;
-  user-select: none; pointer-events: none;
-}
+.author-role { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
 
 /* RIGHT COLUMN */
 .card-right {
@@ -416,33 +521,21 @@ html, body {
   border-bottom: 1px solid var(--border-soft);
 }
 
-/* Insights list */
-.insight-list {
-  list-style: none;
-  display: flex; flex-direction: column; gap: 10px;
-}
+.insight-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .insight-item {
   display: flex; align-items: baseline; gap: 9px;
   font-size: clamp(13px, 1.4vw, 15px);
   line-height: 1.65; color: var(--text);
 }
-.insight-dot {
-  color: var(--x-color); font-size: 7px;
-  flex-shrink: 0; margin-top: 5px;
-}
+.insight-dot { color: var(--x-color); font-size: 7px; flex-shrink: 0; margin-top: 5px; }
 .podcast-layout .insight-dot { color: var(--pod-color); }
-.insight-item strong {
-  background: #FEF9C3;
-  padding: 0 2px; border-radius: 2px;
-  font-weight: 600; color: var(--text);
-}
+.insight-item strong { background: #FEF9C3; padding: 0 2px; border-radius: 2px; font-weight: 600; color: var(--text); }
 
 /* For You box */
 .for-you-box {
   background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%);
   border: 1px solid #BFDBFE;
-  border-radius: 12px;
-  padding: 14px 16px;
+  border-radius: 12px; padding: 14px 16px;
   display: flex; flex-direction: column; gap: 6px;
 }
 .for-you-label {
@@ -451,43 +544,28 @@ html, body {
   font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--blue); font-weight: 400;
 }
-.for-you-text {
-  font-size: clamp(13px, 1.4vw, 14px);
-  line-height: 1.7; color: var(--text-2);
-  font-weight: 400;
-}
-.for-you-text strong {
-  color: var(--text); font-weight: 600;
-}
+.for-you-text { font-size: clamp(13px, 1.4vw, 14px); line-height: 1.7; color: var(--text-2); }
+.for-you-text strong { color: var(--text); font-weight: 600; }
 
 /* URL row */
-.url-row {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  padding-top: 4px;
-  border-top: 1px solid var(--border-soft);
-}
+.url-row { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px; border-top: 1px solid var(--border-soft); }
 .source-url {
   display: inline-flex; align-items: center; gap: 4px;
   font-family: 'DM Mono', monospace;
-  font-size: 10px; color: var(--muted);
-  text-decoration: none; letter-spacing: 0.02em;
+  font-size: 10px; color: var(--muted); text-decoration: none;
   padding: 3px 8px; border-radius: 6px;
   background: var(--subtle); border: 1px solid var(--border);
   transition: color 0.15s, border-color 0.15s;
 }
 .source-url:hover { color: var(--blue); border-color: #BFDBFE; }
 
-/* ── Podcast left extras ── */
+/* Podcast extras */
 .podcast-show {
   font-family: 'DM Mono', monospace;
   font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--pod-color);
 }
-.podcast-episode {
-  font-family: 'Lora', serif;
-  font-size: clamp(14px, 1.6vw, 18px);
-  font-weight: 400; line-height: 1.35; color: var(--text);
-}
+.podcast-episode { font-family: 'Lora', serif; font-size: clamp(14px, 1.6vw, 18px); font-weight: 400; line-height: 1.35; color: var(--text); }
 .takeaway-box {
   background: var(--surface);
   border-left: 3px solid var(--pod-color);
@@ -495,31 +573,16 @@ html, body {
   padding: 10px 12px;
   display: flex; flex-direction: column; gap: 4px;
 }
-.takeaway-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--pod-color);
-}
-.takeaway-text {
-  font-size: clamp(12px, 1.3vw, 14px);
-  line-height: 1.6; color: var(--text); font-weight: 500;
-}
+.takeaway-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pod-color); }
+.takeaway-text { font-size: clamp(12px, 1.3vw, 14px); line-height: 1.6; color: var(--text); font-weight: 500; }
 .takeaway-text strong { background: #EDE9FE; padding: 0 2px; border-radius: 2px; }
-
-/* YouTube thumbnail */
-.yt-thumb-link {
-  display: block; border-radius: 8px; overflow: hidden;
-  position: relative; flex-shrink: 0;
-  border: 1px solid var(--border); text-decoration: none;
-}
+.yt-thumb-link { display: block; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; border: 1px solid var(--border); text-decoration: none; }
 .yt-thumb { width: 100%; height: 80px; object-fit: cover; display: block; }
 .yt-play {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
   width: 36px; height: 36px; border-radius: 50%;
   background: rgba(0,0,0,0.65);
   display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s;
 }
 .yt-thumb-link:hover .yt-play { background: #FF0000; }
 
@@ -536,32 +599,19 @@ html, body {
   border: 1px solid var(--border); background: var(--subtle);
   color: var(--muted); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  transition: background 0.18s, color 0.18s;
 }
 .nav-btn:hover { background: var(--text); color: white; border-color: var(--text); }
 .nav-btn svg { width: 12px; height: 12px; }
-#counter {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; color: var(--muted); min-width: 36px; text-align: center;
-}
+#counter { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); min-width: 36px; text-align: center; }
 
 /* ── Dots ── */
-#dots {
-  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 5px; z-index: 100;
-}
-.dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--border); transition: background 0.25s, transform 0.25s; cursor: pointer;
-}
+#dots { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 100; }
+.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border); transition: background 0.25s, transform 0.25s; cursor: pointer; }
 .dot.active { background: var(--text); transform: scale(1.5); }
 
 /* ── Progress ── */
-#progress {
-  position: fixed; top: 0; left: 0; height: 3px;
-  background: linear-gradient(90deg, #F59E0B, #EC4899);
-  transition: width 0.38s cubic-bezier(0.4,0,0.2,1); z-index: 200;
-}
+#progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #006400, #1D4ED8, #7C3AED, #D97706); transition: width 0.38s cubic-bezier(0.4,0,0.2,1); z-index: 200; }
 
 /* ── Responsive ── */
 @media (max-width: 680px) {
@@ -632,7 +682,7 @@ document.addEventListener('touchend', e => {
   if (Math.abs(d) > 50) d > 0 ? goTo(current + 1) : goTo(current - 1);
 });
 document.getElementById('progress').style.width = (1 / TOTAL * 100) + '%';
-</script>
+<\/script>
 </body>
 </html>`;
 }

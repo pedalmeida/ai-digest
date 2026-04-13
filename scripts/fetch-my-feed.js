@@ -2,6 +2,7 @@
 
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
+import Parser from 'rss-parser';
 
 const X_API_BASE = 'https://api.x.com/2';
 const SUPADATA_BASE = 'https://api.supadata.ai/v1';
@@ -25,8 +26,37 @@ async function readSources() {
   const parsed = JSON.parse(raw);
   return {
     x_accounts: Array.isArray(parsed.x_accounts) ? parsed.x_accounts : [],
-    podcasts: Array.isArray(parsed.podcasts) ? parsed.podcasts : []
+    podcasts: Array.isArray(parsed.podcasts) ? parsed.podcasts : [],
+    rss_feeds: Array.isArray(parsed.rss_feeds) ? parsed.rss_feeds : []
   };
+}
+
+async function fetchRSSFeeds(rssFeeds) {
+  const parser = new Parser({ timeout: 10000 });
+  const rss = [];
+
+  for (const feed of rssFeeds) {
+    try {
+      const result = await parser.parseURL(feed.url);
+      const items = (result.items || []).slice(0, 5).map(item => ({
+        title: item.title || '',
+        link: item.link || '',
+        pubDate: item.pubDate || item.isoDate || '',
+        contentSnippet: (item.contentSnippet || item.summary || '').slice(0, 400)
+      }));
+      rss.push({
+        source: 'rss',
+        feed_name: feed.name,
+        category: feed.category,
+        items
+      });
+      warning(`rss: fetched ${items.length} items from ${feed.name}`);
+    } catch (err) {
+      warning(`rss: failed to fetch ${feed.name}: ${err.message}`);
+    }
+  }
+
+  return rss;
 }
 
 async function fetchJson(url, bearerToken, options = {}) {
@@ -111,7 +141,9 @@ async function fetchPodcasts(podcastSources, apiKey) {
 
   for (const podcast of podcastSources) {
     try {
-      const videosUrl = `${SUPADATA_BASE}/youtube/channel/videos?id=${podcast.channelHandle}&type=video`;
+      const videosUrl = podcast.playlistId
+        ? `${SUPADATA_BASE}/youtube/playlist/videos?id=${podcast.playlistId}`
+        : `${SUPADATA_BASE}/youtube/channel/videos?id=${podcast.channelHandle}&type=video`;
       const videosRes = await fetch(videosUrl, { headers: { 'x-api-key': apiKey } });
 
       if (!videosRes.ok) {
@@ -220,14 +252,18 @@ async function main() {
     warning('SUPADATA_API_KEY not set — skipping podcast fetch');
   }
 
+  const rss = await fetchRSSFeeds(sources.rss_feeds || []);
+
   const output = {
     generatedAt: new Date().toISOString(),
     x,
     podcasts,
+    rss,
     stats: {
       xBuilders: x.length,
       totalTweets: x.reduce((sum, account) => sum + account.tweets.length, 0),
-      podcastEpisodes: podcasts.length
+      podcastEpisodes: podcasts.length,
+      rssFeeds: rss.length
     },
     errors: errors.length > 0 ? errors : undefined
   };
