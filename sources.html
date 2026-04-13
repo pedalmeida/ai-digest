@@ -560,6 +560,168 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .save-hint { font-size: 12px; color: var(--muted); }
 .save-hint strong { color: var(--text-2); }
 
+/* ── Catalog ── */
+.add-mode-toggle {
+  display: flex;
+  background: var(--subtle);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 3px;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+
+.add-mode-btn {
+  flex: 1;
+  padding: 7px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: center;
+}
+
+.add-mode-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.catalog-search-wrap {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.catalog-search-wrap svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.catalog-search-wrap input {
+  padding-left: 32px;
+  font-size: 12px;
+}
+
+.catalog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 340px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+  padding-right: 2px;
+}
+
+.catalog-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 11px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  cursor: default;
+}
+
+.catalog-item:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.catalog-item-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+}
+
+.catalog-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.catalog-item-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.catalog-item-desc {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.catalog-item-add {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.catalog-item-add:hover:not(:disabled) {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: none;
+}
+
+.catalog-item-add:disabled {
+  color: var(--muted);
+  border-color: var(--border-soft);
+  cursor: default;
+  opacity: 0.6;
+}
+
+.catalog-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.catalog-group-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 4px 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.catalog-group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-soft);
+}
+
 /* ── Responsive ── */
 @media (max-width: 860px) {
   .shell { grid-template-columns: 1fr; }
@@ -633,7 +795,12 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
     <!-- Add source panel -->
     <div class="panel" id="add-panel">
       <p class="panel-title" id="add-panel-title">Add to AI</p>
+      <div class="add-mode-toggle">
+        <button class="add-mode-btn active" id="mode-manual">Manual</button>
+        <button class="add-mode-btn" id="mode-catalog">Browse catalog</button>
+      </div>
       <div id="add-form-container"></div>
+      <div id="catalog-container" style="display:none"></div>
     </div>
 
     <!-- Save -->
@@ -1142,6 +1309,198 @@ async function saveSources() {
   }
 }
 
+// ── Catalog data ─────────────────────────────────────────────────
+const CATALOG = [
+  // ── AI People ────────────────────────────────────────────────
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Andrej Karpathy',   handle: 'karpathy',      desc: 'AI researcher · ex-Tesla, ex-OpenAI' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Sam Altman',        handle: 'sama',          desc: 'CEO · OpenAI' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Greg Brockman',     handle: 'gdb',           desc: 'Co-founder · OpenAI' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Yann LeCun',        handle: 'ylecun',        desc: 'Chief AI Scientist · Meta' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Demis Hassabis',    handle: 'demishassabis', desc: 'CEO · Google DeepMind' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Alex Albert',       handle: 'alexalbert__',  desc: 'Head of Prompt Eng · Anthropic' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Dan Shipper',       handle: 'danshipper',    desc: 'CEO · Every — AI writing + tools' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Swyx',              handle: 'swyx',          desc: 'AI builder · latent.space' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Ethan Mollick',     handle: 'emollick',      desc: 'Wharton professor · AI in education' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Matt Turck',        handle: 'mattturck',     desc: 'VC · FirstMark — AI/data investor' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Nikunj Kothari',    handle: 'nikunj',        desc: 'AI product builder' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Aditya Agarwal',    handle: 'adityaag',      desc: 'Eng leader · AI products' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Logan Kilpatrick',  handle: 'OfficialLoganK',desc: 'AI Developer Relations · Google' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Clement Delangue',  handle: 'ClementDelangue',desc: 'CEO · Hugging Face' },
+  { type: 'x', category: 'ai', icon: '🤖', name: 'Peter Yang',        handle: 'petergyang',    desc: 'PM builder · AI products' },
+  // ── Tech People ───────────────────────────────────────────────
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'Amjad Masad',     handle: 'amasad',       desc: 'CEO · Replit' },
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'Guillermo Rauch', handle: 'rauchg',       desc: 'CEO · Vercel' },
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'Aaron Levie',     handle: 'levie',        desc: 'CEO · Box' },
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'Garry Tan',       handle: 'garrytan',     desc: 'President · Y Combinator' },
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'Paul Graham',     handle: 'paulg',        desc: 'Co-founder · Y Combinator' },
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'DHH',             handle: 'dhh',          desc: 'Creator · Ruby on Rails · Basecamp/Hey' },
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'Marc Andreessen', handle: 'pmarca',       desc: 'GP · Andreessen Horowitz' },
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'Lenny Rachitsky', handle: 'lennysan',     desc: 'Product newsletter + podcast' },
+  { type: 'x', category: 'tech', icon: '⚙️', name: 'Shreyas Doshi',   handle: 'shreyas',      desc: 'Product leadership + strategy' },
+  // ── PT News ───────────────────────────────────────────────────
+  { type: 'rss', category: 'pt_news', icon: '🇵🇹', name: 'Público',             url: 'https://www.publico.pt/rss',                          desc: 'Daily quality newspaper' },
+  { type: 'rss', category: 'pt_news', icon: '🇵🇹', name: 'Observador',          url: 'https://observador.pt/feed/',                          desc: 'News and opinion' },
+  { type: 'rss', category: 'pt_news', icon: '🇵🇹', name: 'Jornal de Negócios',  url: 'https://www.jornaldenegocios.pt/rss/todos',             desc: 'Business and economy' },
+  { type: 'rss', category: 'pt_news', icon: '🇵🇹', name: 'Dinheiro Vivo',       url: 'https://www.dinheirovivo.pt/feed/',                     desc: 'Economy and finance' },
+  { type: 'rss', category: 'pt_news', icon: '🇵🇹', name: 'Sapo Tek',            url: 'https://tek.sapo.pt/feeds/news.rss',                   desc: 'Portuguese tech news' },
+  { type: 'rss', category: 'pt_news', icon: '🇵🇹', name: 'ECO',                 url: 'https://eco.pt/feed/',                                  desc: 'Economy news (PT)' },
+  // ── World News ────────────────────────────────────────────────
+  { type: 'rss', category: 'world_news', icon: '🌍', name: 'Reuters World',    url: 'https://feeds.reuters.com/reuters/worldNews',           desc: 'Global wire service' },
+  { type: 'rss', category: 'world_news', icon: '🌍', name: 'BBC World',        url: 'http://feeds.bbci.co.uk/news/world/rss.xml',            desc: 'BBC international' },
+  { type: 'rss', category: 'world_news', icon: '🌍', name: 'The Guardian',     url: 'https://www.theguardian.com/world/rss',                 desc: 'Global news and opinion' },
+  { type: 'rss', category: 'world_news', icon: '🌍', name: 'Al Jazeera',       url: 'https://www.aljazeera.com/xml/rss/all.xml',             desc: 'International news' },
+  { type: 'rss', category: 'world_news', icon: '🌍', name: 'Associated Press', url: 'https://rsshub.app/apnews/topics/apf-topnews',          desc: 'AP top stories' },
+  // ── Tech Publications ─────────────────────────────────────────
+  { type: 'rss', category: 'tech', icon: '⚙️', name: 'TechCrunch',       url: 'https://techcrunch.com/feed/',                             desc: 'Startup and tech news' },
+  { type: 'rss', category: 'tech', icon: '⚙️', name: 'The Verge',        url: 'https://www.theverge.com/rss/index.xml',                   desc: 'Tech, science, culture' },
+  { type: 'rss', category: 'tech', icon: '⚙️', name: 'Wired',            url: 'https://www.wired.com/feed/rss',                           desc: 'Tech and culture magazine' },
+  { type: 'rss', category: 'tech', icon: '⚙️', name: 'Ars Technica',     url: 'https://feeds.arstechnica.com/arstechnica/index',          desc: 'In-depth tech journalism' },
+  { type: 'rss', category: 'tech', icon: '⚙️', name: 'MIT Tech Review',  url: 'https://www.technologyreview.com/feed/',                   desc: 'Technology and society' },
+  { type: 'rss', category: 'tech', icon: '⚙️', name: 'Hacker News',      url: 'https://news.ycombinator.com/rss',                         desc: 'YC community — top stories' },
+  { type: 'rss', category: 'tech', icon: '⚙️', name: 'Product Hunt',     url: 'https://www.producthunt.com/feed',                         desc: 'New products launched daily' },
+  // ── AI Publications ───────────────────────────────────────────
+  { type: 'rss', category: 'tech', icon: '🤖', name: 'The Batch (deeplearning.ai)', url: 'https://www.deeplearning.ai/the-batch/rss/',  desc: 'Andrew Ng\'s AI weekly' },
+  { type: 'rss', category: 'tech', icon: '🤖', name: 'Import AI',        url: 'https://importai.substack.com/feed',                       desc: 'Jack Clark · AI research digest' },
+  { type: 'rss', category: 'tech', icon: '🤖', name: 'Interconnects',    url: 'https://www.interconnects.ai/feed',                        desc: 'Nathan Lambert · AI research' },
+  { type: 'rss', category: 'tech', icon: '🤖', name: 'Stratechery',      url: 'https://stratechery.com/feed/',                            desc: 'Ben Thompson · tech strategy (free posts)' },
+];
+
+const CATALOG_GROUP_LABELS = {
+  ai:         '🤖 AI People',
+  tech_x:     '⚙️ Tech People',
+  pt_news:    '🇵🇹 Portuguese News',
+  world_news: '🌍 World News',
+  tech_rss:   '📡 Tech & AI Publications',
+};
+
+let catalogQuery = '';
+
+function isAlreadyAdded(item) {
+  if (item.type === 'x') {
+    return state.sources.x_accounts.some(a => a.handle === item.handle);
+  }
+  return state.sources.rss_feeds.some(f => f.url === item.url);
+}
+
+function addFromCatalog(item) {
+  if (item.type === 'x') {
+    state.sources.x_accounts.push({ name: item.name, handle: item.handle, category: item.category });
+  } else {
+    state.sources.rss_feeds.push({ name: item.name, url: item.url, category: item.category });
+  }
+  setDirty(true);
+  setStatus(`Added: ${item.name}`, 'ok');
+  renderCurrentTab();
+  renderCatalog();
+}
+
+function renderCatalog() {
+  const container = document.getElementById('catalog-container');
+  const q = catalogQuery.trim().toLowerCase();
+
+  // Filter catalog items relevant to active tab
+  const relevantCategories = {
+    ai:    ['ai'],
+    tech:  ['tech'],
+    pt:    ['pt_news'],
+    world: ['world_news'],
+  }[state.activeTab] || [];
+
+  let items = CATALOG.filter(item => relevantCategories.includes(item.category));
+  if (q) {
+    items = items.filter(item =>
+      item.name.toLowerCase().includes(q) ||
+      (item.desc || '').toLowerCase().includes(q) ||
+      (item.handle || '').toLowerCase().includes(q)
+    );
+  }
+
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div class="catalog-search-wrap">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input id="catalog-search" type="search" placeholder="Search publications, people…" value="${esc(catalogQuery)}">
+      </div>
+      <div class="catalog-empty">No results for "${esc(q)}"</div>`;
+    document.getElementById('catalog-search').addEventListener('input', e => {
+      catalogQuery = e.target.value;
+      renderCatalog();
+    });
+    return;
+  }
+
+  // Group items
+  const groups = {};
+  items.forEach(item => {
+    const key = item.type === 'x'
+      ? (item.category === 'ai' ? 'ai' : 'tech_x')
+      : (item.category === 'pt_news' ? 'pt_news' : item.category === 'world_news' ? 'world_news' : 'tech_rss');
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(item);
+  });
+
+  let html = `
+    <div class="catalog-search-wrap">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="catalog-search" type="search" placeholder="Search publications, people…" value="${esc(catalogQuery)}">
+    </div>
+    <div class="catalog-list" id="catalog-list">`;
+
+  const groupOrder = ['ai', 'tech_x', 'pt_news', 'world_news', 'tech_rss'];
+  groupOrder.forEach(gkey => {
+    if (!groups[gkey]) return;
+    if (Object.keys(groups).length > 1) {
+      html += `<div class="catalog-group-label">${CATALOG_GROUP_LABELS[gkey] || gkey}</div>`;
+    }
+    groups[gkey].forEach((item, idx) => {
+      const added = isAlreadyAdded(item);
+      const itemId = `cat-${gkey}-${idx}`;
+      html += `
+        <div class="catalog-item">
+          <div class="catalog-item-icon">${item.icon}</div>
+          <div class="catalog-item-info">
+            <div class="catalog-item-name">${esc(item.name)}</div>
+            <div class="catalog-item-desc">${esc(item.desc)}</div>
+          </div>
+          <button class="catalog-item-add" id="${itemId}" ${added ? 'disabled' : ''}>
+            ${added ? 'Added' : '+ Add'}
+          </button>
+        </div>`;
+    });
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+
+  // Wire add buttons
+  groupOrder.forEach(gkey => {
+    if (!groups[gkey]) return;
+    groups[gkey].forEach((item, idx) => {
+      const btn = document.getElementById(`cat-${gkey}-${idx}`);
+      if (btn && !btn.disabled) {
+        btn.addEventListener('click', () => addFromCatalog(item));
+      }
+    });
+  });
+
+  document.getElementById('catalog-search').addEventListener('input', e => {
+    catalogQuery = e.target.value;
+    renderCatalog();
+  });
+}
+
+// ── Catalog / manual mode toggle ──────────────────────────────────
+let addMode = 'manual'; // 'manual' | 'catalog'
+
+function setAddMode(mode) {
+  addMode = mode;
+  document.getElementById('mode-manual').classList.toggle('active', mode === 'manual');
+  document.getElementById('mode-catalog').classList.toggle('active', mode === 'catalog');
+  document.getElementById('add-form-container').style.display  = mode === 'manual'  ? '' : 'none';
+  document.getElementById('catalog-container').style.display   = mode === 'catalog' ? '' : 'none';
+  if (mode === 'catalog') renderCatalog();
+}
+
 // ── Event wiring ──────────────────────────────────────────────────
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -1149,11 +1508,16 @@ document.querySelectorAll('.tab').forEach(tab => {
     tab.classList.add('active');
     state.activeTab = tab.dataset.tab;
     state.filter = '';
+    catalogQuery = '';
     document.getElementById('search').value = '';
     renderCurrentTab();
     renderAddForm(state.activeTab);
+    if (addMode === 'catalog') renderCatalog();
   });
 });
+
+document.getElementById('mode-manual').addEventListener('click', () => setAddMode('manual'));
+document.getElementById('mode-catalog').addEventListener('click', () => setAddMode('catalog'));
 
 document.getElementById('save-token').addEventListener('click', () => {
   const val = document.getElementById('token').value.trim();
