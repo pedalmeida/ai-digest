@@ -8,6 +8,7 @@ on:
 jobs:
   generate-and-publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: write
 
@@ -24,6 +25,7 @@ jobs:
         run: cd scripts && npm install
 
       - name: Fetch feed (X + podcasts + RSS)
+        timeout-minutes: 8
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
           SUPADATA_API_KEY: ${{ secrets.SUPADATA_API_KEY }}
@@ -55,10 +57,19 @@ jobs:
           git diff --staged --quiet || git commit -m "digest: $(date +%Y-%m-%d)"
           git push
 
-      - name: Send Telegram notification
+      - name: Send Telegram notification (success)
+        if: success()
         run: |
           curl -s -X POST \
             "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
             --data-urlencode "text=☀️ Your Daily Digest is ready:
-          https://pedalmeida.github.io/ai-digest/" || true
+          https://pealmeida.com/projects/ai-digest/" || true
+
+      - name: Send Telegram notification (failure)
+        if: failure()
+        run: |
+          curl -s -X POST \
+            "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            --data-urlencode "text=⚠️ Daily Digest failed today. Run: https://github.com/pedalmeida/ai-digest/actions/runs/${{ github.run_id }}" || true
