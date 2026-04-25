@@ -31,32 +31,46 @@ async function readSources() {
   };
 }
 
-async function fetchRSSFeeds(rssFeeds) {
-  const parser = new Parser({ timeout: 10000 });
-  const rss = [];
-
-  for (const feed of rssFeeds) {
-    try {
-      const result = await parser.parseURL(feed.url);
-      const items = (result.items || []).slice(0, 5).map(item => ({
-        title: item.title || '',
-        link: item.link || '',
-        pubDate: item.pubDate || item.isoDate || '',
-        contentSnippet: (item.contentSnippet || item.summary || '').slice(0, 400)
-      }));
-      rss.push({
-        source: 'rss',
-        feed_name: feed.name,
-        category: feed.category,
-        items
-      });
-      warning(`rss: fetched ${items.length} items from ${feed.name}`);
-    } catch (err) {
-      warning(`rss: failed to fetch ${feed.name}: ${err.message}`);
+async function fetchOneRSS(parser, feed) {
+  try {
+    const response = await fetch(feed.url, {
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      headers: { 'User-Agent': 'ai-digest/1.0 (+https://pealmeida.com)' },
+      redirect: 'follow'
+    });
+    if (!response.ok) {
+      warning(`rss: ${feed.name}: HTTP ${response.status}`);
+      return null;
     }
+    const xml = await response.text();
+    const result = await parser.parseString(xml);
+    const items = (result.items || []).slice(0, 5).map(item => ({
+      title: item.title || '',
+      link: item.link || '',
+      pubDate: item.pubDate || item.isoDate || '',
+      contentSnippet: (item.contentSnippet || item.summary || '').slice(0, 400)
+    }));
+    warning(`rss: fetched ${items.length} items from ${feed.name}`);
+    return {
+      source: 'rss',
+      feed_name: feed.name,
+      category: feed.category,
+      items
+    };
+  } catch (err) {
+    warning(`rss: failed to fetch ${feed.name}: ${err.message}`);
+    return null;
   }
+}
 
-  return rss;
+async function fetchRSSFeeds(rssFeeds) {
+  const parser = new Parser();
+  const results = await Promise.allSettled(
+    rssFeeds.map(feed => fetchOneRSS(parser, feed))
+  );
+  return results
+    .map(r => (r.status === 'fulfilled' ? r.value : null))
+    .filter(Boolean);
 }
 
 const FETCH_TIMEOUT_MS = 15_000;  // 15s per request
