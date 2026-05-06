@@ -109,6 +109,23 @@ async function enrichNewsItem(item) {
   return item;
 }
 
+// Walk the response character by character to find the outermost balanced {} object.
+// This handles cases where Claude emits trailing prose or the lastIndexOf('}') trick
+// cuts inside a nested string value.
+function extractJSON(text) {
+  let depth = 0, inString = false, escape = false, start = -1;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (escape) { escape = false; continue; }
+    if (ch === '\\' && inString) { escape = true; continue; }
+    if (ch === '"') { inString = !inString; continue; }
+    if (inString) continue;
+    if (ch === '{') { if (depth++ === 0) start = i; }
+    else if (ch === '}') { if (--depth === 0 && start !== -1) return JSON.parse(text.slice(start, i + 1)); }
+  }
+  throw new SyntaxError('No complete JSON object found in Claude response');
+}
+
 let raw = '';
 process.stdin.on('data', c => { raw += c; });
 process.stdin.on('end', async () => {
@@ -302,7 +319,26 @@ Produce the JSON digest for these sources:
 
 ${sections.join('\n\n')}`;
 
-  process.stderr.write(`remix-digest: sections built (${sections.length}), calling Claude...\n`);
+  process.stderr.write(`remix-digest: sections built (${sections.length}), errors=${data.errors?.length ?? 0}, calling Claude...\n`);
+
+  // If all sources failed and we have nothing to summarise, write a fallback digest
+  // so generate-slides still has valid input and the pipeline doesn't crash.
+  if (sections.length === 0) {
+    process.stderr.write('remix-digest: no content sections — emitting fallback digest\n');
+    const fallback = {
+      date: today,
+      pt_news: [],
+      world_news: [],
+      tech: [],
+      ai: [],
+      podcasts: [],
+      _fallback: true,
+    };
+    const DRAFT_PATH = path.join(__dirname, '..', 'digest-draft.json');
+    fs.writeFileSync(DRAFT_PATH, JSON.stringify(fallback, null, 2));
+    process.stdout.write(JSON.stringify(fallback) + '\n');
+    process.exit(0);
+  }
 
   let remixed;
   try {
@@ -316,11 +352,10 @@ ${sections.join('\n\n')}`;
       ],
     });
 
-    // Prepend '{' (prefill) and strip any trailing prose after the last '}'
+    // Prepend '{' (prefill) then find the outermost balanced JSON object
     const responseText = '{' + msg.content[0].text;
-    const end = responseText.lastIndexOf('}');
-    process.stderr.write(`remix-digest: response length=${responseText.length}, JSON end=${end}\n`);
-    remixed = JSON.parse(responseText.slice(0, end + 1));
+    process.stderr.write(`remix-digest: response length=${responseText.length}\n`);
+    remixed = extractJSON(responseText);
   } catch (e) {
     process.stderr.write(`remix-digest: error — ${e.message}\n${e.stack || ''}\n`);
     process.exit(1);
