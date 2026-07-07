@@ -1,269 +1,260 @@
 {
-  "date": "Monday, 6 July 2026",
+  "date": "Tuesday, 7 July 2026",
+  "ai": [
+    {
+      "name": "Tencent Hy Team",
+      "role": "RSS · AINews / Simon Willison's Blog",
+      "hook": "Tencent drops Hy3, a 295B open-weight model that beats models 2-5x its size.",
+      "insights": [
+        "**295B MoE** with only **21B active parameters** and **256K context**, Apache 2.0 licensed",
+        "Runs natively on **vLLM** with up to **2.95x speedups** on both NVIDIA and AMD hardware",
+        "Positioned as a direct rival to **GLM-5.2** in the open model race"
+      ],
+      "for_you": "Not something to run on a laptop, but worth knowing open models keep closing the gap with frontier closed models, which matters for keeping agency costs down if you ever self-host for PT clients wary of sending data to US clouds.",
+      "why_it_made_the_cut": "Only real open-weight model release today, confirmed across two independent sources",
+      "signal": "🟡",
+      "urls": [
+        "https://simonwillison.net/2026/Jul/6/hy3/#atom-everything",
+        "https://news.smol.ai/issues/26-07-06-not-much/"
+      ],
+      "handle": ""
+    },
+    {
+      "name": "Simon Willison",
+      "role": "Independent developer · sqlite-utils maintainer",
+      "hook": "Ships sqlite-utils 4.0 almost entirely written by Claude Fable, for $149 in API costs.",
+      "insights": [
+        "Used **Claude Code on iPhone** to do a final pre-release review of a real production library",
+        "Cost breakdown made public: **~$149.25** for a full major-version release cycle",
+        "Feature scope grew mid-process (compound foreign key support) because the agent kept finding more to fix"
+      ],
+      "for_you": "This is the clearest real-world proof point yet of what 'AI does a real ship-quality software task end to end' costs in dollars, use this exact framing when pitching PT SMB clients on what an agentic workflow can replace versus a junior dev.",
+      "why_it_made_the_cut": "Concrete dollar figure and workflow, rare and useful over vague model-launch hype",
+      "signal": "🟢",
+      "urls": [
+        "https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/#atom-everything"
+      ],
+      "handle": "@simonw",
+      "image": "https://static.simonwillison.net/static/2026/fable-plan-usage.webp"
+    },
+    {
+      "name": "Martin Alderson",
+      "role": "Blog post · Hacker News (408 pts, 251 comments)",
+      "hook": "Argues GLM-5.2's price/performance is the start of an AI margin collapse.",
+      "insights": [
+        "Open models like **GLM-5.2** now close enough to frontier that API resellers can't sustain current markups",
+        "Top HN story of the day by a wide margin, 251 comments of pushback and agreement",
+        "Thesis: whoever builds thin wrappers on frontier model APIs gets squeezed first"
+      ],
+      "for_you": "Directly relevant to your AI agency's pricing model, if margin compression is real, differentiate on integration/workflow ownership for PT SMBs rather than on model access, because that part is about to get commoditized fast.",
+      "why_it_made_the_cut": "Highest engagement item across all sources today, directly threatens agency-model economics",
+      "signal": "🔴",
+      "urls": [
+        "https://martinalderson.com/posts/the-upcoming-ai-margin-collapse-part-1-glm-5-2/",
+        "https://news.ycombinator.com/item?id=48809877"
+      ],
+      "handle": "",
+      "image": "https://martinalderson.com/img/og/glm-5-2-and-the-coming-ai-margin-collapse-part-1.png"
+    },
+    {
+      "name": "Natalia Quintero",
+      "role": "Head of Consulting · Every (AI & I podcast)",
+      "hook": "A non-technical consultant now builds internal tools with Codex instead of buying SaaS.",
+      "insights": [
+        "Automated her own **CRM setup** and built a medical-care management portal without being a developer",
+        "Every still pays for **Attio and Asana** rather than vibe-coding replacements, drawing a real line on where AI-built tools stop making sense",
+        "Uses an internal AI agent ('Claudie') as a project manager that still needs human oversight"
+      ],
+      "for_you": "This is your exact user profile, a non-technical operator building real internal tooling with AI. Steal her before/after workflow as a case study you can literally replicate for a PT SMB client's ops.",
+      "why_it_made_the_cut": "Most directly analogous persona to Pedro of anything in today's sources",
+      "signal": "🟢",
+      "urls": [
+        "https://youtube.com/watch?v=IiGt2_-NmbI"
+      ],
+      "handle": ""
+    },
+    {
+      "name": "Vercel / Guillermo Rauch",
+      "role": "CEO · Vercel (TechCrunch interview)",
+      "hook": "Vercel bets agents and models are splitting into separate layers you must design for.",
+      "insights": [
+        "Vercel's **eve** framework treats agents as a distinct software category, not just a chat wrapper on a model",
+        "New concepts pushed: **skills, sandboxes, and agent-readable websites** as first-class design targets",
+        "Argument: coordination (routing, memory, observability) is now the hard problem, not raw model capability"
+      ],
+      "for_you": "When you scope agency projects for PT SMBs, start separating 'which model' from 'what does the agent actually do and remember' in your proposals, clients are starting to expect that distinction from vendors who know what they're doing.",
+      "why_it_made_the_cut": "Recurring theme across three sources today (Latent Space, TechCrunch, AINews) on agent architecture shift",
+      "signal": "💡",
+      "urls": [
+        "https://techcrunch.com/2026/07/06/vercel-ceo-guillermo-rauch-on-the-fight-to-split-off-models-from-agents/"
+      ],
+      "handle": "",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/PHB_1846_16507246419711358101.jpeg?resize=1200,800"
+    },
+    {
+      "name": "Genesis (Evan Feinberg & Sergey Edunov)",
+      "role": "Latent Space Podcast",
+      "hook": "Diffusion models now predict how proteins physically flex to bind drugs, not just static poses.",
+      "insights": [
+        "New model **PEARL** models protein flexibility during ligand binding, previously computationally intractable",
+        "Agentic system **SAPPHIRE** acts like a chemist: forms hypotheses, reads literature, proposes next candidates",
+        "Argues the industry benchmark (2Å RMSD) is largely meaningless ('slop')"
+      ],
+      "for_you": "No direct action here, filed for awareness, this is a good talking point if a PT biotech/pharma prospect ever comes up, but not core to your SMB agency work.",
+      "why_it_made_the_cut": "Genuinely novel technical development, distinct from the usual LLM news cycle",
+      "signal": "💡",
+      "urls": [
+        "https://youtube.com/watch?v=YQWXxnkK4dw"
+      ],
+      "handle": ""
+    }
+  ],
+  "build_this": [
+    {
+      "name": "OfficeCLI",
+      "source": "GitHub / Hacker News (180 pts)",
+      "what_it_is": "A CLI tool letting AI agents directly read and edit Microsoft Office files (Word, Excel, PowerPoint).",
+      "why_try_it": "Most PT SMBs live in Excel and Word for invoicing, proposals, reports. Wire this into a Claude Code or Codex workflow this week and you have a concrete agency demo: 'AI that fills in your monthly report from raw data' without exporting to some SaaS dashboard they'll never adopt.",
+      "url": "https://github.com/iOfficeAI/OfficeCLI"
+    },
+    {
+      "name": "Ternlight",
+      "source": "Hacker News (218 pts)",
+      "what_it_is": "A 7MB embedding model that runs entirely in-browser via WASM, no server needed.",
+      "why_try_it": "For the yoga/meditation platform, this could power on-device semantic search over class transcripts or journaling entries with zero backend cost or latency, worth a quick prototype this week to see if it's fast enough for a real search box.",
+      "url": "https://ternlight-demo.vercel.app/"
+    },
+    {
+      "name": "Code Cleanliness vs Coding Agents study",
+      "source": "arXiv / Hacker News (196 pts)",
+      "what_it_is": "Controlled study measuring whether messy vs clean codebases actually change coding agent performance.",
+      "why_try_it": "Read this before your next vibe-coding session on the micro-SaaS idea, it'll tell you whether it's worth the extra time to keep your prototype code clean or if agents handle mess fine, directly affects how you spend your limited building hours.",
+      "url": "https://arxiv.org/abs/2605.20049"
+    }
+  ],
+  "podcasts": [],
+  "tech": [
+    {
+      "name": "TechCrunch",
+      "role": "RSS",
+      "hook": "First AI-run ransomware attack still needed a human in the loop.",
+      "for_you": "Good reminder for client conversations that 'full autonomy' claims from AI security tools are still overhyped.",
+      "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/Ransomware-attack.png?resize=1200,686",
+      "video": {
+        "id": "AQ19pJFerOA",
+        "title": "ransomware live attack | live Android hack"
+      }
+    },
+    {
+      "name": "AMD / LTT Labs",
+      "role": "Hardware review · Hacker News (329 pts)",
+      "hook": "AMD's Ryzen AI Halo dev kit brings local AI inference to a $4k desktop box.",
+      "for_you": "Worth a look if you ever want to offer PT clients an on-prem inference option instead of cloud API dependency.",
+      "signal": "🟡",
+      "urls": [
+        "https://www.lttlabs.com/articles/2026/07/06/amd-ryzen-ai-halo"
+      ],
+      "image": "https://storage.ghost.io/c/68/2d/682dc4d0-6daf-426a-b3d4-9f443976d0d8/content/images/2026/07/2026-06---AMD-Ryzen-AI-Halo-1-1.png",
+      "video": {
+        "id": "z_4HX5NzVe8",
+        "title": "AMD Ryzen AI Halo vs DGX Spark. Same Box Less Money!"
+      }
+    }
+  ],
   "pt_news": [
     {
-      "headline": "Fibra ótica chega a 288 concelhos nas zonas brancas",
-      "hook": "Portugal aprova instalação de fibra em 288 concelhos e 1.967 localidades sem acesso a comunicações de alta capacidade após quatro anos de identificação.",
-      "key_points": [
-        "**Zonas brancas** finalmente mapeadas e com acordos assinados para expansão de infraestrutura",
-        "Impacto direto na conectividade rural — essencial para startups em cidades secundárias"
-      ],
-      "for_you": "If you're building AI products with distributed teams or expanding outside Lisbon/Porto, this unlocks new markets. Rural connectivity = new customer bases and talent pools for your startup.",
-      "signal": "🟢 apply now",
-      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/fibra-otica-vai-chegar-a-288-concelhos-e-1-967-localidades-consideradas-zonas-brancas/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/07/Captura-de-ecra-2026-07-06-110110-1024x751.png"
-    },
-    {
-      "headline": "Tourism Advance abre candidaturas para startups de hotelaria",
-      "hook": "Programa de inovação na terceira edição procura startups com soluções para desafios reais da hotelaria.",
-      "key_points": [
-        "**Terceira edição** com foco em testar e adaptar soluções em contexto real",
-        "Oportunidade direta para AI products no setor turismo — vertente crítica para Portugal"
-      ],
-      "for_you": "Tourism is 15% of Portugal's economy. If you have an AI solution for hospitality (yield management, guest analytics, operations), apply now. Direct path to enterprise pilots.",
-      "signal": "🟢 apply now",
-      "url": "https://tek.sapo.pt/extras/site-do-dia/artigos/tourism-advance-procura-startups-com-solucoes-para-a-hotelaria/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/492161ab46a7ca4b23d9d36b15d1414f6cc71888.jpg"
-    },
-    {
-      "headline": "ONU avisa: IA avança mais rápido que governos conseguem acompanhar",
-      "hook": "António Guterres pede ação urgente enquanto painel científico da ONU publica primeira avaliação global sobre governação da IA.",
-      "key_points": [
-        "Governos estão **atrasados na regulação** — janela de oportunidade antes de legislação restritiva",
-        "Pressão global por governação aumenta — compliance e transparência serão diferenciadores"
-      ],
-      "for_you": "Regulation is coming. If you're building B2B AI in Portugal now, prioritize explainability and auditability. Being ahead of compliance requirements is a moat against future disruption.",
-      "signal": "🟡 watch",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/onu-avisa-que-a-ia-avanca-mais-depressa-do-que-qualquer-governo-consegue-acompanhar/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/07/UN71143637.jpg"
-    },
-    {
-      "headline": "Permira investe na Quadrante para expansão nos EUA",
-      "hook": "Fundo britânico de 90B€ entra no capital da empresa portuguesa de engenharia para acelerar crescimento internacional.",
-      "key_points": [
-        "**Quadrante acessa capital e expertise** para expansão — modelo de scale clássico",
-        "Validação global de empresa portuguesa — sinal positivo para credibilidade de startups lusos"
-      ],
-      "for_you": "Portuguese deep-tech gets global backing. If you're in engineering, AI-for-industry, or enterprise SaaS, this shows there's appetite for Portuguese founders who solve real problems at scale.",
-      "signal": "💡 learn",
-      "url": "https://eco.sapo.pt/2026/07/06/permira-entra-no-capital-da-quadrante-para-acelerar-expansao-da-empresa-portuguesa-nos-eua/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2025/11/quadrante.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Açores apoiam conversão de contratos com 5 mil euros por contrato",
-      "hook": "Governo dos Açores oferece subsídio para transformar contratos a termo em contratos permanentes.",
-      "key_points": [
-        "**Incentivo fiscal regional** — oportunidade de consolidar equipa a custo reduzido",
-        "Sinaliza investimento em estabilidade laboral — relevante se tiverem operações na região"
-      ],
-      "for_you": "If you're hiring in the Azores or considering regional expansion, this subsidy de-risks team building. Check if your startup qualifies for regional support programs.",
-      "signal": "🟡 watch",
-      "url": "https://observador.pt/2026/07/06/nova-medida-nos-acores-apoia-conversao-de-contratos-de-trabalho/",
+      "headline": "Tekever compra Cloudsweep, reforça aposta em IA",
+      "hook": "A portuguesa Tekever adquire a startup nacional Cloudsweep, especializada em IA para desenvolvimento de software.",
+      "for_you": "Um sinal de que M&A de IA em Portugal está a acontecer entre players nacionais, vale a pena perceber o que a Cloudsweep fazia para calibrar o teu próprio posicionamento na agência.",
+      "signal": "🟡",
+      "url": "https://observador.pt/2026/07/07/tekever-compra-cloudsweep-e-reforca-aposta-em-inteligencia-artificial/",
       "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1122%3Anowe%3A0%3A211%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2025%2F09%2F24180658%2F45574951.jpg?layer=obstop:T"
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1124%3Anowe%3A0%3A104%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2019%2F05%2F15182706%2F4w3a0314_2.jpg?layer=obstop:T"
+    },
+    {
+      "headline": "Portugal tem fundos, mas falta capital inteligente",
+      "hook": "CEO da Bright Pixel diz que há dinheiro para investir, mas falta capital que traga conhecimento além do financeiro.",
+      "for_you": "Relevante se procurares investimento para o micro-SaaS, o argumento é que mentoria e rede importam tanto quanto o cheque.",
+      "signal": "💡",
+      "url": "https://observador.pt/2026/07/07/portugal-tem-dinheiro-para-investir-mas-falta-capital-inteligente/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A1440%3A809%3Anowe%3A0%3A75%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2022%2F07%2F26205454%2F27003211.jpg?layer=obstop:T"
     }
   ],
   "world_news": [
     {
-      "headline": "FIFA reverses Balogun ban after Trump White House intervention",
-      "hook": "Political pressure overrides sports governance as Trump administration directly interferes with World Cup eligibility ruling.",
-      "key_points": [
-        "**Governance precedent broken** — regulatory bodies now directly influenced by political actors",
-        "UEFA formally warns decision creates dangerous precedent for rules interpretation"
-      ],
-      "for_you": "Signal: regulatory capture is global and accelerating. Build your AI compliance and governance assuming political pressure can override rules. Document everything and design for audit trails.",
-      "signal": "🔴 urgent",
-      "url": "https://www.politico.eu/article/belgium-slams-fifa-us-red-card-suspension-balogun-trump-world-cup-football/?utm_source=RSS_Feed",
-      "source_name": "Politico Europe"
-    },
-    {
-      "headline": "Ukraine faces critical missile shortage amid 68+ daily Russian strikes",
-      "hook": "Zelensky warns of interceptor scarcity as Russia escalates drone and missile attacks on Kyiv region.",
-      "key_points": [
-        "**Supply chain vulnerability** in active conflict — logistics and inventory management at war scale",
-        "Defense tech demand extreme — but supply chain fragility shows limits of hardware-dependent solutions"
-      ],
-      "for_you": "Context for geopolitical risk. If you're in defense tech or supply chain AI, Ukraine shows real-world stress-testing. If you're in non-defense sectors, this signals economic pressure on Europe heading into winter.",
-      "signal": "🟡 watch",
-      "url": "https://www.bbc.co.uk/news/articles/cewqqnd7zdwo?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c163/live/a90f6680-791c-11f1-9510-1546718f668b.jpg"
-    },
-    {
-      "headline": "Vietnam cracks down on counterfeit luxury market under US pressure",
-      "hook": "Trump administration pushes Vietnam to eliminate booming black market for fake goods; locals divided on impact.",
-      "key_points": [
-        "**IP enforcement tightens globally** — counterfeit supply chains being dismantled",
-        "Model for protectionism: trade pressure = regulatory tightening on both enforcement and borders"
-      ],
-      "for_you": "If you're building supply chain, authentication, or anti-counterfeiting AI tools, this is a tailwind. Expect governments to demand transparency and traceability. B2B SaaS for brand protection is hot.",
-      "signal": "🟢 apply now",
-      "url": "https://www.bbc.co.uk/news/articles/cdx7zzywz7wo?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/b0a6/live/d2d3d720-76b6-11f1-925a-557464d48d36.jpg"
-    },
-    {
-      "headline": "Marine Le Pen appeal verdict shapes France's 2027 election",
-      "hook": "Far-right leader learns if conviction will bar her from 2027 presidential race amid polling lead.",
-      "key_points": [
-        "**Political uncertainty in EU's second economy** — regulatory and business environment will shift post-verdict",
-        "Le Pen leads polls — nationalist economic policy could reshape EU tech/data regulations"
-      ],
-      "for_you": "Watch French regulatory environment closely. If Le Pen runs (and potentially wins), expect data sovereignty pushes, EU fragmentation, and tighter controls on US tech. Plan compliance scenarios now.",
-      "signal": "🟡 watch",
+      "headline": "Le Pen court verdict could reshape French 2027 race",
+      "hook": "A Paris appeals court decides today whether Marine Le Pen can run for president in 2027.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
       "url": "https://www.bbc.co.uk/news/articles/clyeele4leeo?at_medium=RSS&at_campaign=rss",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1ae5/live/6c2d8350-7868-11f1-ab53-3dbca6ef5ee1.jpg"
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1ae5/live/6c2d8350-7868-11f1-ab53-3dbca6ef5ee1.jpg",
+      "video": {
+        "id": "19vwZpNs-8Y",
+        "title": "Marine Le Pen's verdict could reshape France's 2027 race #Shorts"
+      }
     },
     {
-      "headline": "UK's Farage faces scrutiny over gold deal amid populist brand test",
-      "hook": "Far-right politician's outside earnings challenge anti-establishment credentials as rival party gains ground.",
-      "key_points": [
-        "**Populism commodified** — anti-establishment figures monetizing brand while losing credibility",
-        "Restore Britain rising — fragmentation of right-wing politics accelerating"
-      ],
-      "for_you": "Signal: political narratives are weakening in UK/Europe. Economic uncertainty fuels populism, but coherent policy is absent. Expect volatility and regulatory whiplash. Build compliant, boring products.",
-      "signal": "🟡 watch",
-      "url": "https://www.aljazeera.com/news/2026/7/6/uks-farages-gold-deal-tests-his-populist-brand-as-restore-britain-rises/",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a47b77b-1783084923.jpg?resize=1920%2C1440"
+      "headline": "Explosions near Macron's hotel during Damascus visit",
+      "hook": "Blasts reported close to where the French president is staying in the Syrian capital.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🔴",
+      "url": "https://www.dn.pt/internacional/exploses-em-damasco-perto-do-hotel-onde-macron-est-hospedado",
+      "source_name": "Dinheiro Vivo",
+      "image": "https://media.assettype.com/dn%2F2025-09-12%2Fupka8uq0%2Fmacron-1.avif?rect=0%2C0%2C1200%2C630&amp;w=1200&amp;ar=40%3A21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop&amp;enlarge=true&amp;overlay=false&amp;overlay_position=bottom&amp;overlay_width=100",
+      "video": {
+        "id": "VPGVHJVHo4c",
+        "title": "Explosions Near Macron's Damascus Hotel As French Leader Meets Syria President | Macron Hotel"
+      }
     }
   ],
-  "tech": [
-    {
-      "name": "Even Realities",
-      "role": "Smart Glasses Startup · Funded by Meituan, Tencent",
-      "hook": "Even Realities hits $1B valuation with $150M funding round led by Chinese tech giants.",
-      "insights": [
-        "**AR hardware consolidating**: unicorn status achieved; Asian capital dominates consumer AR space",
-        "Chinese capital backing non-Chinese founders — globalization signal for AR/VR market"
-      ],
-      "for_you": "AR is hot and capital-intensive. If you're building spatial computing or AR applications, Even's success shows market appetite. But competition from well-funded Asian teams is fierce. Differentiate on software/services, not hardware.",
-      "signal": "🟡 watch",
-      "urls": [
-        "https://techcrunch.com/2026/07/06/smart-glasses-maker-even-realities-hits-1b-valuation-with-150m-funding-led-by-meituan-tencent/"
-      ],
-      "handle": "",
-      "index": 1
+  "since_yesterday": null,
+  "health": {
+    "x": {
+      "attempted": 15,
+      "ok": 0,
+      "errors": [
+        "@karpathy: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@sama: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@gdb: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@amasad: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@rauchg: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@levie: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@garrytan: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@danshipper: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@swyx: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@petergyang: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@emollick: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@mattturck: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@nikunj: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@alexalbert__: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@adityaag: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+      ]
     },
-    {
-      "name": "Amazon Mechanical Turk",
-      "role": "Platform · Amazon",
-      "hook": "Amazon stops accepting new customers for crowdsourced labor platform Mechanical Turk.",
-      "insights": [
-        "**Legacy crowdsourcing platform shuttering to new users** — model declining or consolidating",
-        "AI training data pipelines shifting from MTurk to internal/contracted suppliers — less transparent"
-      ],
-      "for_you": "If you depend on MTurk for data labeling, diversify now. This signals Amazon pivoting to proprietary data sourcing. Look at specialized labeling vendors (Scale AI, Labelbox) or build your own. Crowdsourcing as a moat is dead.",
-      "signal": "🔴 urgent",
-      "urls": [
-        "https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/"
-      ],
-      "handle": "",
-      "index": 2
+    "podcasts": {
+      "attempted": 3,
+      "ok": 3,
+      "errors": []
     },
-    {
-      "name": "Uber",
-      "role": "Ride-sharing Platform",
-      "hook": "Uber's European expansion plans hit a speed bump.",
-      "insights": [
-        "**Regulatory friction in EU accelerating** — not just policy but market execution friction",
-        "Profitability vs. growth trade-off forcing Uber to tighten strategy in mature markets"
-      ],
-      "for_you": "Europe remains fragmented. If you're building marketplace or gig-economy AI, assume Uber-level regulatory pressure. You won't have Uber's legal budget. Compliance-first strategy = competitive advantage.",
-      "signal": "🟡 watch",
-      "urls": [
-        "https://techcrunch.com/2026/07/05/ubers-european-expansion-plans-may-have-hit-a-speed-bump/"
-      ],
-      "handle": "",
-      "index": 3
+    "rss": {
+      "attempted": 22,
+      "ok": 22,
+      "errors": []
     },
-    {
-      "name": "Wealthy AI Schools (Alpha Forge Prep)",
-      "role": "EdTech · Private Schools",
-      "hook": "Affluent families are deploying AI tutoring systems to replace traditional education for their children.",
-      "insights": [
-        "**Wealthy segment outsourcing education to AI** — creates two-tier education system",
-        "Premium EdTech AI becoming status symbol and practical tool for high-income households"
-      ],
-      "for_you": "High-end EdTech AI is a real market. B2B2C play: sell to private schools and families willing to pay for premium AI tutoring. Focus on personalization, outcomes tracking, and prestige positioning. Don't compete on price.",
-      "signal": "🟢 apply now",
-      "urls": [
-        "https://www.theverge.com/ai-artificial-intelligence/961505/wealthy-ai-schools-alpha-forge-prep"
-      ],
-      "handle": "",
-      "index": 4
+    "hackernews": {
+      "attempted": 1,
+      "ok": 1,
+      "errors": []
     },
-    {
-      "name": "Infuriating Google Commercial",
-      "role": "Brand · Google",
-      "hook": "Google imagines Founding Fathers embracing AI in new commercial; backlash erupts.",
-      "insights": [
-        "**AI adoption narrative contested** — tech industry overselling AI utility to consumers",
-        "Backlash signals consumer skepticism about AI benefits beyond corporate efficiency"
-      ],
-      "for_you": "Consumer trust in AI is fragile. If you're building B2C AI products, messaging matters. Avoid hype. Focus on concrete, narrow use cases. Over-promising AI breaks credibility faster than competitors' products.",
-      "signal": "💡 learn",
-      "urls": [
-        "https://www.theverge.com/ai-artificial-intelligence/961468/google-ai-commercial-founding-fathers-declaration-of-independence"
-      ],
-      "handle": "",
-      "index": 5
+    "github_trending": {
+      "attempted": 1,
+      "ok": 1,
+      "errors": []
     }
-  ],
-  "ai": [
-    {
-      "name": "South Korea Chip Workers as 'Bachelors'",
-      "role": "Industry Trend · MIT Technology Review",
-      "hook": "Skilled chip engineers are South Korea's hottest dating demographic as STEM shortage fuels premium status.",
-      "insights": [
-        "**Talent competition for semiconductor workers is extreme** — premium salary and status signaling",
-        "STEM shortage translates to social/cultural capital, not just wages — signal of supply scarcity"
-      ],
-      "for_you": "Semiconductor/AI hardware talent will be expensive and contested globally. If you need deep ML/chip engineers, expect competition from Samsung, SK Hynix, etc. Consider hiring mid-level talent and building internal expertise rather than poaching seniors.",
-      "signal": "🟡 watch",
-      "urls": [
-        "https://www.technologyreview.com/2026/07/06/1140000/south-korea-bachelors-samsung-skhynix-chip-workers/"
-      ],
-      "handle": "",
-      "index": 6
-    },
-    {
-      "name": "Achieving Operational Excellence with AI",
-      "role": "Opinion · MIT Technology Review",
-      "hook": "Enterprise AI use case: operational excellence through AI optimization.",
-      "insights": [
-        "**B2B operational AI becoming mainstream narrative** — not sci-fi, now boardroom priority",
-        "Efficiency gains measurable and quantifiable — CFOs now sponsors, not CTOs"
-      ],
-      "for_you": "If you're building AI for operations (supply chain, manufacturing, logistics), this is your moment. Enterprise buyers are educated and ready to buy. Focus on ROI, not AI sexiness. Build with finance teams, not just ops.",
-      "signal": "🟢 apply now",
-      "urls": [
-        "https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/"
-      ],
-      "handle": "",
-      "index": 7
-    }
-  ],
-  "podcasts": [
-    {
-      "show": "Castro Podcasts",
-      "episode": "Things I Got Wrong: Building relationships with customers through support",
-      "takeaway": "Direct customer support as a relationship builder didn't deliver ROI or retention lift as expected.",
-      "key_points": [
-        "**Support cost scaling faster than retention benefit** — founder expected deeper relationships through support",
-        "Data showed engagement ≠ loyalty — support-heavy model drained resources without defensibility",
-        "Lesson: build network effects and switching costs, not just touch-points"
-      ],
-      "for_you": "As you build your AI product, don't assume customer intimacy through support scales. If support is your moat, you're losing. Build product stickiness (data lock-in, integrations, workflows) instead. Outsource support early.",
-      "signal": "💡 learn",
-      "url": "https://www.uncommonapps.nyc/p/castro-podcasts-things-i-got-wrong-support",
-      "videoId": "",
-      "index": 8
-    }
-  ]
+  }
 }

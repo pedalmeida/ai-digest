@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Digest — Monday, 6 July 2026</title>
+<title>Daily Digest — Tuesday, 7 July 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -52,51 +52,124 @@ html, body {
   opacity: 0; pointer-events: none;
   transform: translateX(28px);
   transition: opacity 0.38s cubic-bezier(0.4,0,0.2,1), transform 0.38s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
 }
 .slide.active  { opacity: 1; pointer-events: all; transform: translateX(0); }
 .slide.leaving { opacity: 0; transform: translateX(-28px); transition-duration: 0.22s; }
 
-/* ── Title Card ── */
-.title-card {
-  width: 100%; max-width: 580px;
+/* ── Intro slide ── */
+.intro-card {
+  width: 100%; max-width: 720px;
   background: var(--surface);
   border-radius: 20px;
   box-shadow: var(--shadow-lg);
-  padding: 48px 52px;
+  padding: 40px 40px 32px;
   border: 1px solid var(--border);
-  position: relative; overflow: hidden;
+  position: relative;
+  max-height: 92vh;
+  overflow-y: auto;
+  display: flex; flex-direction: column; gap: 4px;
 }
-.title-card::before {
+.intro-card::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, #006400, #1D4ED8, #7C3AED, #D97706);
 }
-.title-card__top  { margin-bottom: 32px; }
+.intro-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
 .title-badge {
   font-family: 'DM Mono', monospace;
   font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--muted); background: var(--subtle); border: 1px solid var(--border);
   padding: 4px 11px; border-radius: 100px; display: inline-block;
 }
-.title-card__body { margin-bottom: 40px; }
-.title-greeting   { font-size: 16px; font-weight: 500; color: var(--muted); margin-bottom: 12px; }
-.title-headline   {
+.intro-greeting { font-size: 15px; font-weight: 500; color: var(--muted); margin-bottom: 8px; }
+.intro-headline {
   font-family: 'Lora', serif;
-  font-size: clamp(36px, 5.5vw, 58px);
-  font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
-  color: var(--text); margin-bottom: 16px;
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 400; line-height: 1.05; letter-spacing: -0.02em;
+  color: var(--text); margin-bottom: 10px;
 }
-.title-headline em { font-style: italic; color: var(--x-color); }
-.title-date {
+.intro-headline em { font-style: italic; color: var(--x-color); }
+.intro-date {
   font-family: 'DM Mono', monospace;
   font-size: 11px; color: var(--muted); letter-spacing: 0.04em;
+  margin-bottom: 8px;
 }
-.title-card__footer {
-  display: flex; justify-content: space-between; align-items: center;
-  border-top: 1px solid var(--border-soft); padding-top: 16px;
+
+.health-banner { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+.health-banner summary { cursor: pointer; }
+.health-rows { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-width: 220px; }
+.health-item { background: var(--subtle); border: 1px solid var(--border); border-radius: 100px; padding: 2px 8px; white-space: nowrap; }
+.health-item.health-bad { background: var(--red-bg); border-color: var(--red-border); color: var(--red); }
+
+.since-yesterday {
+  margin: 8px 0 16px; padding: 12px 14px;
+  background: var(--blue-bg); border: 1px solid var(--blue-border); border-radius: 12px;
 }
-.title-tagline { font-size: 12px; color: var(--muted); font-style: italic; }
-.title-hint    { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--border); }
+.since-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); }
+.since-yesterday p { font-size: 13px; color: var(--text-2); margin-top: 4px; }
+
+.signal-legend {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  padding: 10px 12px; margin-bottom: 18px;
+  background: var(--subtle); border: 1px solid var(--border-soft); border-radius: 10px;
+}
+.legend-item {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted);
+}
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.legend-dot.signal-red    { background: var(--red); }
+.legend-dot.signal-yellow { background: var(--yellow); }
+.legend-dot.signal-green  { background: var(--green); }
+.legend-dot.signal-blue   { background: var(--blue); }
+
+.intro-list { display: flex; flex-direction: column; gap: 32px; margin-bottom: 24px; }
+.intro-group { display: flex; flex-direction: column; gap: 12px; }
+.intro-group-label {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding-bottom: 10px; border-bottom: 1px solid var(--border-soft); margin-bottom: 2px;
+}
+.intro-item {
+  display: flex; align-items: center; gap: 16px;
+  width: 100%; text-align: left; background: var(--surface); cursor: pointer;
+  padding: 14px; border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  font-family: inherit; color: var(--text);
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+.intro-item:hover { background: var(--subtle); border-color: var(--border); transform: translateY(-1px); }
+
+.intro-thumb-wrap { position: relative; flex-shrink: 0; }
+.intro-thumb {
+  width: 76px; height: 76px; border-radius: 12px; object-fit: cover;
+  border: 1px solid var(--border); display: block; background: var(--subtle);
+}
+.intro-thumb-round { border-radius: 50%; }
+.intro-thumb-fallback {
+  width: 76px; height: 76px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--subtle); border: 1px solid var(--border); font-size: 30px;
+}
+.intro-signal-dot {
+  position: absolute; top: -4px; right: -4px;
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 3px solid var(--surface);
+}
+
+.intro-item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+.intro-item-title { font-size: 15px; font-weight: 600; line-height: 1.35; }
+.intro-item-summary { font-size: 13px; line-height: 1.55; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.intro-item-arrow { font-size: 16px; color: var(--muted); opacity: 0; transition: opacity 0.15s; flex-shrink: 0; }
+.intro-item:hover .intro-item-arrow { opacity: 1; }
+
+.intro-start {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em;
+  color: var(--surface); background: var(--text);
+  border: none; border-radius: 100px; padding: 12px 20px;
+  cursor: pointer; align-self: flex-start;
+}
+.intro-start:hover { opacity: 0.85; }
 
 /* ── Section Card ── */
 .section-card {
@@ -146,7 +219,6 @@ html, body {
   overflow: hidden;
 }
 
-/* LEFT COLUMN */
 .card-left {
   background: var(--subtle);
   border-right: 1px solid var(--border);
@@ -155,11 +227,7 @@ html, body {
   position: relative; overflow: hidden;
 }
 
-/* News layout overrides */
-.news-left {
-  background: var(--sec-bg, #EFF6FF);
-  border-right-color: var(--sec-border, #BFDBFE);
-}
+.news-left { background: #EFF6FF; border-right-color: #BFDBFE; }
 .news-source-tag {
   font-family: 'DM Mono', monospace;
   font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
@@ -173,32 +241,46 @@ html, body {
   color: var(--text);
   padding-right: 8px;
 }
-.news-hook {
-  border-left-color: var(--sec-color, #1D4ED8) !important;
-}
+.news-hook { border-left-color: var(--sec-color, #1D4ED8) !important; }
 
-/* News media (image or YouTube Shorts embed) */
-.news-media {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 4px;
-  background: linear-gradient(135deg, var(--sec-bg, #EFF6FF), var(--sec-border, #BFDBFE));
+.card-media {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 12px; overflow: hidden; margin-bottom: 4px;
+  background: linear-gradient(135deg, #EFF6FF, #BFDBFE);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   flex: 0 0 auto;
 }
-.news-image,
-.news-video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border: 0;
-  display: block;
-}
+.card-media-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
 
-/* Hook */
+/* Secondary thumbnail shown alongside an autoplaying Short, when a story
+   also has a real article image — keeps the extra picture instead of
+   throwing it away. */
+.card-media-secondary {
+  width: 100%; max-width: 220px; aspect-ratio: 16 / 9;
+  border-radius: 10px; overflow: hidden; margin: 8px auto 0;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+.card-media-secondary-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Shorts video (9:16, portrait) — sized to sit comfortably in the left column */
+.card-video {
+  position: relative; width: 100%; max-width: 220px;
+  aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden;
+  margin: 0 auto 4px; background: #000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  flex: 0 0 auto;
+}
+.card-video-frame { position: absolute; inset: 0; width: 100%; height: 100%; }
+.card-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.card-video-open {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(0,0,0,0.55); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; text-decoration: none;
+}
+.card-video-open:hover { background: rgba(0,0,0,0.8); }
+
 .hook-text {
   font-size: clamp(13px, 1.4vw, 15px);
   line-height: 1.6; color: var(--text-2);
@@ -211,7 +293,6 @@ html, body {
 }
 .podcast-left .hook-text { border-left-color: var(--pod-color); }
 
-/* Ghost index */
 .card-index {
   position: absolute; bottom: -10px; right: 10px;
   font-family: 'Lora', serif; font-size: 80px; font-weight: 600;
@@ -219,11 +300,15 @@ html, body {
   user-select: none; pointer-events: none;
 }
 
-/* Author */
 .author-block { display: flex; align-items: center; gap: 10px; }
 .author-avatar {
   width: 40px; height: 40px; border-radius: 50%;
   object-fit: cover; border: 2px solid var(--border); flex-shrink: 0;
+}
+.build-icon {
+  width: 40px; height: 40px; border-radius: 10px; background: var(--green-bg);
+  display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+  border: 1px solid var(--green-border);
 }
 .author-name {
   font-family: 'Lora', serif;
@@ -232,18 +317,24 @@ html, body {
 }
 .author-role { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
 
-/* RIGHT COLUMN */
+.signal-badge {
+  font-family: 'DM Mono', monospace; font-size: 10px; padding: 4px 10px; border-radius: 100px;
+  align-self: flex-start;
+}
+.signal-red    { background: var(--red-bg);    color: var(--red); }
+.signal-yellow { background: var(--yellow-bg); color: var(--yellow); }
+.signal-green  { background: var(--green-bg);  color: var(--green); }
+.signal-blue   { background: var(--blue-bg);   color: var(--blue); }
+
 .card-right {
   padding: 24px 28px;
-  display: flex; flex-direction: column; gap: 20px;
+  display: flex; flex-direction: column; gap: 16px;
   overflow-y: auto;
   scrollbar-width: thin; scrollbar-color: var(--border) transparent;
 }
 
 .right-section { display: flex; flex-direction: column; gap: 10px; }
-
 .section-label {
-  display: flex; align-items: center; gap: 5px;
   font-family: 'DM Mono', monospace;
   font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--muted);
@@ -258,10 +349,8 @@ html, body {
   line-height: 1.65; color: var(--text);
 }
 .insight-dot { color: var(--x-color); font-size: 7px; flex-shrink: 0; margin-top: 5px; }
-.podcast-layout .insight-dot { color: var(--pod-color); }
 .insight-item strong { background: #FEF9C3; padding: 0 2px; border-radius: 2px; font-weight: 600; color: var(--text); }
 
-/* For You box */
 .for-you-box {
   background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%);
   border: 1px solid #BFDBFE;
@@ -269,7 +358,6 @@ html, body {
   display: flex; flex-direction: column; gap: 6px;
 }
 .for-you-label {
-  display: flex; align-items: center; gap: 5px;
   font-family: 'DM Mono', monospace;
   font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--blue); font-weight: 400;
@@ -277,7 +365,8 @@ html, body {
 .for-you-text { font-size: clamp(13px, 1.4vw, 14px); line-height: 1.7; color: var(--text-2); }
 .for-you-text strong { color: var(--text); font-weight: 600; }
 
-/* URL row */
+.why-cut { font-size: 11px; color: var(--muted); font-style: italic; }
+
 .url-row { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px; border-top: 1px solid var(--border-soft); }
 .source-url {
   display: inline-flex; align-items: center; gap: 4px;
@@ -285,11 +374,9 @@ html, body {
   font-size: 10px; color: var(--muted); text-decoration: none;
   padding: 3px 8px; border-radius: 6px;
   background: var(--subtle); border: 1px solid var(--border);
-  transition: color 0.15s, border-color 0.15s;
 }
 .source-url:hover { color: var(--blue); border-color: #BFDBFE; }
 
-/* Podcast extras */
 .podcast-show {
   font-family: 'DM Mono', monospace;
   font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -305,7 +392,6 @@ html, body {
 }
 .takeaway-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pod-color); }
 .takeaway-text { font-size: clamp(12px, 1.3vw, 14px); line-height: 1.6; color: var(--text); font-weight: 500; }
-.takeaway-text strong { background: #EDE9FE; padding: 0 2px; border-radius: 2px; }
 .yt-thumb-link { display: block; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; border: 1px solid var(--border); text-decoration: none; }
 .yt-thumb { width: 100%; height: 80px; object-fit: cover; display: block; }
 .yt-play {
@@ -333,500 +419,497 @@ html, body {
 }
 .nav-btn:hover { background: var(--text); color: white; border-color: var(--text); }
 .nav-btn svg { width: 12px; height: 12px; }
-#counter { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); min-width: 36px; text-align: center; }
+#counter { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); min-width: 44px; text-align: center; }
+.nav-home {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--subtle);
+  color: var(--muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+.nav-home:hover { background: var(--text); color: white; border-color: var(--text); }
 
-/* ── Dots ── */
-#dots { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 100; }
-.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border); transition: background 0.25s, transform 0.25s; cursor: pointer; }
-.dot.active { background: var(--text); transform: scale(1.5); }
-
-/* ── Progress ── */
 #progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #006400, #1D4ED8, #7C3AED, #D97706); transition: width 0.38s cubic-bezier(0.4,0,0.2,1); z-index: 200; }
 
-/* ── Responsive ── */
 @media (max-width: 680px) {
   .content-card { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; max-height: 90vh; }
   .card-left { border-right: none; border-bottom: 1px solid var(--border); }
   .card-right { max-height: 55vh; }
+  .intro-card { padding: 28px 22px; }
 }
 </style>
 </head>
 <body>
 
 <div id="progress"></div>
-<div id="dots"></div>
 <div id="deck">
 
   <div class="slide active" data-i="0">
-    <div class="title-card">
-      <div class="title-card__top">
+    <div class="intro-card">
+      <div class="intro-top">
         <span class="title-badge">Daily Briefing</span>
+        <details class="health-banner"><summary>Source health</summary><div class="health-rows"><span class="health-item health-bad">X/Twitter 0/15</span><span class="health-item">Podcasts 3/3</span><span class="health-item">RSS 22/22</span><span class="health-item">Hacker News 1/1</span><span class="health-item">GitHub Trending 1/1</span></div></details>
       </div>
-      <div class="title-card__body">
-        <div class="title-greeting">Good morning ☀️</div>
-        <h1 class="title-headline">Daily<br><em>Digest</em></h1>
-        <p class="title-date">Monday, 6 July 2026</p>
-      </div>
-      <div class="title-card__footer">
-        <span class="title-tagline">PT News · World · Tech · AI</span>
-        <span class="title-hint">← → to navigate</span>
-      </div>
+      <div class="intro-greeting">Good morning ☀️</div>
+      <h1 class="intro-headline">Daily<br><em>Digest</em></h1>
+      <p class="intro-date">Tuesday, 7 July 2026</p>
+      
+      
+    <div class="signal-legend">
+      <span class="legend-item"><span class="legend-dot signal-green"></span>Apply now</span>
+      <span class="legend-item"><span class="legend-dot signal-yellow"></span>Watch</span>
+      <span class="legend-item"><span class="legend-dot signal-red"></span>Urgent</span>
+      <span class="legend-item"><span class="legend-dot signal-blue"></span>Learn</span>
+    </div>
+      <div class="intro-list">
+    <div class="intro-group">
+      <div class="intro-group-label" style="color:#D97706">🤖 AI &amp; Building</div>
+      
+    <button class="intro-item" data-goto="2">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Tencent drops Hy3, a 295B open-weight model that beats models 2-5x its size.</span>
+        <span class="intro-item-summary"><strong>295B MoE</strong> with only <strong>21B active parameters</strong> and <strong>256K context</strong>, Apache 2.0 licensed</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="3">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://static.simonwillison.net/static/2026/fable-plan-usage.webp" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Ships sqlite-utils 4.0 almost entirely written by Claude Fable, for $149 in API costs.</span>
+        <span class="intro-item-summary">Used <strong>Claude Code on iPhone</strong> to do a final pre-release review of a real production library</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="4">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://martinalderson.com/img/og/glm-5-2-and-the-coming-ai-margin-collapse-part-1.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Argues GLM-5.2's price/performance is the start of an AI margin collapse.</span>
+        <span class="intro-item-summary">Open models like <strong>GLM-5.2</strong> now close enough to frontier that API resellers can't sustain current markups</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="5">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">A non-technical consultant now builds internal tools with Codex instead of buying SaaS.</span>
+        <span class="intro-item-summary">Automated her own <strong>CRM setup</strong> and built a medical-care management portal without being a developer</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="6">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://techcrunch.com/wp-content/uploads/2026/07/PHB_1846_16507246419711358101.jpeg?resize=1200,800" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Vercel bets agents and models are splitting into separate layers you must design for.</span>
+        <span class="intro-item-summary">Vercel's <strong>eve</strong> framework treats agents as a distinct software category, not just a chat wrapper on a model</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="7">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Diffusion models now predict how proteins physically flex to bind drugs, not just static poses.</span>
+        <span class="intro-item-summary">New model <strong>PEARL</strong> models protein flexibility during ligand binding, previously computationally intractable</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    </div>
+    <div class="intro-group">
+      <div class="intro-group-label" style="color:#16A34A">🛠️ Build This Week</div>
+      
+    <button class="intro-item" data-goto="9">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">OfficeCLI</span>
+        <span class="intro-item-summary">A CLI tool letting AI agents directly read and edit Microsoft Office files (Word, Excel, PowerPoint).</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="10">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Ternlight</span>
+        <span class="intro-item-summary">A 7MB embedding model that runs entirely in-browser via WASM, no server needed.</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="11">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Code Cleanliness vs Coding Agents study</span>
+        <span class="intro-item-summary">Controlled study measuring whether messy vs clean codebases actually change coding agent performance.</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    </div>
+    <div class="intro-group">
+      <div class="intro-group-label" style="color:#7C3AED">⚙️ Tech</div>
+      
+    <button class="intro-item" data-goto="13">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/AQ19pJFerOA/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">First AI-run ransomware attack still needed a human in the loop.</span>
+        
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="14">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/z_4HX5NzVe8/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">AMD's Ryzen AI Halo dev kit brings local AI inference to a $4k desktop box.</span>
+        
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    </div>
+    <div class="intro-group">
+      <div class="intro-group-label" style="color:#006400">🇵🇹 PT News</div>
+      
+    <button class="intro-item" data-goto="16">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1124%3Anowe%3A0%3A104%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2019%2F05%2F15182706%2F4w3a0314_2.jpg?layer=obstop:T" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Tekever compra Cloudsweep, reforça aposta em IA</span>
+        <span class="intro-item-summary">A portuguesa Tekever adquire a startup nacional Cloudsweep, especializada em IA para desenvolvimento de software.</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="17">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A1440%3A809%3Anowe%3A0%3A75%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2022%2F07%2F26205454%2F27003211.jpg?layer=obstop:T" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Portugal tem fundos, mas falta capital inteligente</span>
+        <span class="intro-item-summary">CEO da Bright Pixel diz que há dinheiro para investir, mas falta capital que traga conhecimento além do financeiro.</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    </div>
+    <div class="intro-group">
+      <div class="intro-group-label" style="color:#1D4ED8">🌍 World News</div>
+      
+    <button class="intro-item" data-goto="19">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/19vwZpNs-8Y/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Le Pen court verdict could reshape French 2027 race</span>
+        <span class="intro-item-summary">A Paris appeals court decides today whether Marine Le Pen can run for president in 2027.</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    <button class="intro-item" data-goto="20">
+      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/VPGVHJVHo4c/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <span class="intro-item-text">
+        <span class="intro-item-title">Explosions near Macron's hotel during Damascus visit</span>
+        <span class="intro-item-summary">Blasts reported close to where the French president is staying in the Syrian capital.</span>
+      </span>
+      <span class="intro-item-arrow">→</span>
+    </button>
+    </div></div>
+      <button class="intro-start" data-goto="1">Start from the top ↓</button>
     </div>
   </div>
 
   <div class="slide" data-i="1">
-    <div class="section-card" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
+    <div class="section-card" style="--sec-color:#D97706;--sec-bg:#FFFBEB;--sec-border:#FDE68A">
       <div class="section-card__inner">
-        <div class="section-emoji">🇵🇹</div>
+        <div class="section-emoji">🤖</div>
         <div class="section-chapter">Chapter</div>
-        <h2 class="section-title">Portuguese News</h2>
+        <h2 class="section-title">AI &amp; Building</h2>
         <div class="section-rule"></div>
       </div>
     </div>
   </div>
 
   <div class="slide" data-i="2">
-    <div class="content-card news-layout" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://cdn.teknoticias.pt/uploads/2026/07/Captura-de-ecra-2026-07-06-110110-1024x751.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">Fibra ótica chega a 288 concelhos nas zonas brancas</h2>
-        <p class="hook-text news-hook">Portugal aprova instalação de fibra em 288 concelhos e 1.967 localidades sem acesso a comunicações de alta capacidade após quatro anos de identificação.</p>
+    <div class="content-card">
+      <div class="card-left">
+        
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Tencent Hy Team</div>
+            <div class="author-role">RSS · AINews / Simon Willison's Blog</div>
+          </div>
+        </div>
+        <p class="hook-text">Tencent drops Hy3, a 295B open-weight model that beats models 2-5x its size.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
         <div class="card-index">02</div>
       </div>
-
       <div class="card-right">
         
         <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
+          <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Zonas brancas</strong> finalmente mapeadas e com acordos assinados para expansão de infraestrutura</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Impacto direto na conectividade rural — essencial para startups em cidades secundárias</span>
-    </li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>295B MoE</strong> with only <strong>21B active parameters</strong> and <strong>256K context</strong>, Apache 2.0 licensed</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Runs natively on <strong>vLLM</strong> with up to <strong>2.95x speedups</strong> on both NVIDIA and AMD hardware</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Positioned as a direct rival to <strong>GLM-5.2</strong> in the open model race</span></li></ul>
         </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">If you're building AI products with distributed teams or expanding outside Lisbon/Porto, this unlocks new markets. Rural connectivity = new customer bases and talent pools for your startup.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Not something to run on a laptop, but worth knowing open models keep closing the gap with frontier closed models, which matters for keeping agency costs down if you ever self-host for PT clients wary of sending data to US clouds.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/fibra-otica-vai-chegar-a-288-concelhos-e-1-967-localidades-consideradas-zonas-brancas/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <p class="why-cut">Why this made the cut: Only real open-weight model release today, confirmed across two independent sources</p>
+        <div class="url-row">
+    <a class="source-url" href="https://simonwillison.net/2026/Jul/6/hy3/#atom-everything" target="_blank" rel="noopener">↗ simonwillison.net/2026/Jul/6/hy3/#atom-eve</a>
+    <a class="source-url" href="https://news.smol.ai/issues/26-07-06-not-much/" target="_blank" rel="noopener">↗ news.smol.ai/issues/26-07-06-not-much</a></div>
       </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="3">
-    <div class="content-card news-layout" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://cdn.teknoticias.pt/uploads/492161ab46a7ca4b23d9d36b15d1414f6cc71888.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">Tourism Advance abre candidaturas para startups de hotelaria</h2>
-        <p class="hook-text news-hook">Programa de inovação na terceira edição procura startups com soluções para desafios reais da hotelaria.</p>
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://static.simonwillison.net/static/2026/fable-plan-usage.webp" alt="Ships sqlite-utils 4.0 almost entirely written by Claude Fable, for $149 in API costs." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          <img class="author-avatar" src="https://unavatar.io/twitter/@simonw" alt="" onerror="this.style.display='none'">
+          <div class="author-text">
+            <div class="author-name">Simon Willison</div>
+            <div class="author-role">Independent developer · sqlite-utils maintainer</div>
+          </div>
+        </div>
+        <p class="hook-text">Ships sqlite-utils 4.0 almost entirely written by Claude Fable, for $149 in API costs.</p>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">03</div>
       </div>
-
       <div class="card-right">
         
         <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
+          <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Terceira edição</strong> com foco em testar e adaptar soluções em contexto real</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Oportunidade direta para AI products no setor turismo — vertente crítica para Portugal</span>
-    </li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Used <strong>Claude Code on iPhone</strong> to do a final pre-release review of a real production library</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Cost breakdown made public: <strong>~$149.25</strong> for a full major-version release cycle</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Feature scope grew mid-process (compound foreign key support) because the agent kept finding more to fix</span></li></ul>
         </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Tourism is 15% of Portugal's economy. If you have an AI solution for hospitality (yield management, guest analytics, operations), apply now. Direct path to enterprise pilots.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">This is the clearest real-world proof point yet of what 'AI does a real ship-quality software task end to end' costs in dollars, use this exact framing when pitching PT SMB clients on what an agentic workflow can replace versus a junior dev.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/extras/site-do-dia/artigos/tourism-advance-procura-startups-com-solucoes-para-a-hotelaria/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <p class="why-cut">Why this made the cut: Concrete dollar figure and workflow, rare and useful over vague model-launch hype</p>
+        <div class="url-row">
+    <a class="source-url" href="https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/#atom-everything" target="_blank" rel="noopener">↗ simonwillison.net/2026/Jul/5/sqlite-utils-</a></div>
       </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="4">
-    <div class="content-card news-layout" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://cdn.teknoticias.pt/uploads/2026/07/UN71143637.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">ONU avisa: IA avança mais rápido que governos conseguem acompanhar</h2>
-        <p class="hook-text news-hook">António Guterres pede ação urgente enquanto painel científico da ONU publica primeira avaliação global sobre governação da IA.</p>
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://martinalderson.com/img/og/glm-5-2-and-the-coming-ai-margin-collapse-part-1.png" alt="Argues GLM-5.2's price/performance is the start of an AI margin collapse." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Martin Alderson</div>
+            <div class="author-role">Blog post · Hacker News (408 pts, 251 comments)</div>
+          </div>
+        </div>
+        <p class="hook-text">Argues GLM-5.2's price/performance is the start of an AI margin collapse.</p>
+        <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="card-index">04</div>
       </div>
-
       <div class="card-right">
         
         <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
+          <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Governos estão <strong>atrasados na regulação</strong> — janela de oportunidade antes de legislação restritiva</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Pressão global por governação aumenta — compliance e transparência serão diferenciadores</span>
-    </li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Open models like <strong>GLM-5.2</strong> now close enough to frontier that API resellers can't sustain current markups</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Top HN story of the day by a wide margin, 251 comments of pushback and agreement</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Thesis: whoever builds thin wrappers on frontier model APIs gets squeezed first</span></li></ul>
         </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Regulation is coming. If you're building B2B AI in Portugal now, prioritize explainability and auditability. Being ahead of compliance requirements is a moat against future disruption.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Directly relevant to your AI agency's pricing model, if margin compression is real, differentiate on integration/workflow ownership for PT SMBs rather than on model access, because that part is about to get commoditized fast.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/internet/artigos/onu-avisa-que-a-ia-avanca-mais-depressa-do-que-qualquer-governo-consegue-acompanhar/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <p class="why-cut">Why this made the cut: Highest engagement item across all sources today, directly threatens agency-model economics</p>
+        <div class="url-row">
+    <a class="source-url" href="https://martinalderson.com/posts/the-upcoming-ai-margin-collapse-part-1-glm-5-2/" target="_blank" rel="noopener">↗ martinalderson.com/posts/the-upcoming-ai-m</a>
+    <a class="source-url" href="https://news.ycombinator.com/item?id=48809877" target="_blank" rel="noopener">↗ news.ycombinator.com/item?id=48809877</a></div>
       </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="5">
-    <div class="content-card news-layout" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://eco.imgix.net/uploads/2025/11/quadrante.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">ECO</div>
-        <h2 class="news-headline">Permira investe na Quadrante para expansão nos EUA</h2>
-        <p class="hook-text news-hook">Fundo britânico de 90B€ entra no capital da empresa portuguesa de engenharia para acelerar crescimento internacional.</p>
+    <div class="content-card">
+      <div class="card-left">
+        
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Natalia Quintero</div>
+            <div class="author-role">Head of Consulting · Every (AI &amp; I podcast)</div>
+          </div>
+        </div>
+        <p class="hook-text">A non-technical consultant now builds internal tools with Codex instead of buying SaaS.</p>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">05</div>
       </div>
-
       <div class="card-right">
         
         <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
+          <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Quadrante acessa capital e expertise</strong> para expansão — modelo de scale clássico</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Validação global de empresa portuguesa — sinal positivo para credibilidade de startups lusos</span>
-    </li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Automated her own <strong>CRM setup</strong> and built a medical-care management portal without being a developer</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Every still pays for <strong>Attio and Asana</strong> rather than vibe-coding replacements, drawing a real line on where AI-built tools stop making sense</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Uses an internal AI agent ('Claudie') as a project manager that still needs human oversight</span></li></ul>
         </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Portuguese deep-tech gets global backing. If you're in engineering, AI-for-industry, or enterprise SaaS, this shows there's appetite for Portuguese founders who solve real problems at scale.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">This is your exact user profile, a non-technical operator building real internal tooling with AI. Steal her before/after workflow as a case study you can literally replicate for a PT SMB client's ops.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://eco.sapo.pt/2026/07/06/permira-entra-no-capital-da-quadrante-para-acelerar-expansao-da-empresa-portuguesa-nos-eua/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <p class="why-cut">Why this made the cut: Most directly analogous persona to Pedro of anything in today's sources</p>
+        <div class="url-row">
+    <a class="source-url" href="https://youtube.com/watch?v=IiGt2_-NmbI" target="_blank" rel="noopener">↗ youtube.com/watch?v=IiGt2_-NmbI</a></div>
       </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="6">
-    <div class="content-card news-layout" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1122%3Anowe%3A0%3A211%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2025%2F09%2F24180658%2F45574951.jpg?layer=obstop:T" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Observador</div>
-        <h2 class="news-headline">Açores apoiam conversão de contratos com 5 mil euros por contrato</h2>
-        <p class="hook-text news-hook">Governo dos Açores oferece subsídio para transformar contratos a termo em contratos permanentes.</p>
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://techcrunch.com/wp-content/uploads/2026/07/PHB_1846_16507246419711358101.jpeg?resize=1200,800" alt="Vercel bets agents and models are splitting into separate layers you must design for." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Vercel / Guillermo Rauch</div>
+            <div class="author-role">CEO · Vercel (TechCrunch interview)</div>
+          </div>
+        </div>
+        <p class="hook-text">Vercel bets agents and models are splitting into separate layers you must design for.</p>
+        <span class="signal-badge signal-blue">💡 Learn</span>
         <div class="card-index">06</div>
       </div>
-
       <div class="card-right">
         
         <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
+          <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Incentivo fiscal regional</strong> — oportunidade de consolidar equipa a custo reduzido</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Sinaliza investimento em estabilidade laboral — relevante se tiverem operações na região</span>
-    </li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Vercel's <strong>eve</strong> framework treats agents as a distinct software category, not just a chat wrapper on a model</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>New concepts pushed: <strong>skills, sandboxes, and agent-readable websites</strong> as first-class design targets</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Argument: coordination (routing, memory, observability) is now the hard problem, not raw model capability</span></li></ul>
         </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">If you're hiring in the Azores or considering regional expansion, this subsidy de-risks team building. Check if your startup qualifies for regional support programs.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">When you scope agency projects for PT SMBs, start separating 'which model' from 'what does the agent actually do and remember' in your proposals, clients are starting to expect that distinction from vendors who know what they're doing.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://observador.pt/2026/07/06/nova-medida-nos-acores-apoia-conversao-de-contratos-de-trabalho/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <p class="why-cut">Why this made the cut: Recurring theme across three sources today (Latent Space, TechCrunch, AINews) on agent architecture shift</p>
+        <div class="url-row">
+    <a class="source-url" href="https://techcrunch.com/2026/07/06/vercel-ceo-guillermo-rauch-on-the-fight-to-split-off-models-from-agents/" target="_blank" rel="noopener">↗ techcrunch.com/2026/07/06/vercel-ceo-guill</a></div>
       </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="7">
-    <div class="section-card" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
-      <div class="section-card__inner">
-        <div class="section-emoji">🌍</div>
-        <div class="section-chapter">Chapter</div>
-        <h2 class="section-title">World News</h2>
-        <div class="section-rule"></div>
+    <div class="content-card">
+      <div class="card-left">
+        
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Genesis (Evan Feinberg &amp; Sergey Edunov)</div>
+            <div class="author-role">Latent Space Podcast</div>
+          </div>
+        </div>
+        <p class="hook-text">Diffusion models now predict how proteins physically flex to bind drugs, not just static poses.</p>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="card-index">07</div>
+      </div>
+      <div class="card-right">
+        
+        <div class="right-section">
+          <div class="section-label">Key signals</div>
+          <ul class="insight-list">
+    <li class="insight-item"><span class="insight-dot">◆</span><span>New model <strong>PEARL</strong> models protein flexibility during ligand binding, previously computationally intractable</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Agentic system <strong>SAPPHIRE</strong> acts like a chemist: forms hypotheses, reads literature, proposes next candidates</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Argues the industry benchmark (2Å RMSD) is largely meaningless ('slop')</span></li></ul>
+        </div>
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness, this is a good talking point if a PT biotech/pharma prospect ever comes up, but not core to your SMB agency work.</p>
+        </div>
+        <p class="why-cut">Why this made the cut: Genuinely novel technical development, distinct from the usual LLM news cycle</p>
+        <div class="url-row">
+    <a class="source-url" href="https://youtube.com/watch?v=YQWXxnkK4dw" target="_blank" rel="noopener">↗ youtube.com/watch?v=YQWXxnkK4dw</a></div>
       </div>
     </div>
   </div>
 
   <div class="slide" data-i="8">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
-
-      <div class="card-left news-left">
-        
-        <div class="news-source-tag">Politico Europe</div>
-        <h2 class="news-headline">FIFA reverses Balogun ban after Trump White House intervention</h2>
-        <p class="hook-text news-hook">Political pressure overrides sports governance as Trump administration directly interferes with World Cup eligibility ruling.</p>
-        <div class="card-index">08</div>
+    <div class="section-card" style="--sec-color:#16A34A;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
+      <div class="section-card__inner">
+        <div class="section-emoji">🛠️</div>
+        <div class="section-chapter">Chapter</div>
+        <h2 class="section-title">Build This Week</h2>
+        <div class="section-rule"></div>
       </div>
-
-      <div class="card-right">
-        
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Governance precedent broken</strong> — regulatory bodies now directly influenced by political actors</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>UEFA formally warns decision creates dangerous precedent for rules interpretation</span>
-    </li></ul>
-        </div>
-
-        <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Signal: regulatory capture is global and accelerating. Build your AI compliance and governance assuming political pressure can override rules. Document everything and design for audit trails.</p>
-        </div>
-
-        <div class="url-row"><a class="source-url" href="https://www.politico.eu/article/belgium-slams-fifa-us-red-card-suspension-balogun-trump-world-cup-football/?utm_source=RSS_Feed" target="_blank" rel="noopener">↗ Read article</a></div>
-      </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="9">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c163/live/a90f6680-791c-11f1-9510-1546718f668b.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">Ukraine faces critical missile shortage amid 68+ daily Russian strikes</h2>
-        <p class="hook-text news-hook">Zelensky warns of interceptor scarcity as Russia escalates drone and missile attacks on Kyiv region.</p>
+    <div class="content-card">
+      <div class="card-left">
+        <div class="author-block">
+          <div class="build-icon">🛠️</div>
+          <div class="author-text">
+            <div class="author-name">OfficeCLI</div>
+            <div class="author-role">GitHub / Hacker News (180 pts)</div>
+          </div>
+        </div>
+        <p class="hook-text">A CLI tool letting AI agents directly read and edit Microsoft Office files (Word, Excel, PowerPoint).</p>
         <div class="card-index">09</div>
       </div>
-
       <div class="card-right">
-        
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Supply chain vulnerability</strong> in active conflict — logistics and inventory management at war scale</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Defense tech demand extreme — but supply chain fragility shows limits of hardware-dependent solutions</span>
-    </li></ul>
-        </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Context for geopolitical risk. If you're in defense tech or supply chain AI, Ukraine shows real-world stress-testing. If you're in non-defense sectors, this signals economic pressure on Europe heading into winter.</p>
+          <div class="for-you-label">Try this</div>
+          <p class="for-you-text">Most PT SMBs live in Excel and Word for invoicing, proposals, reports. Wire this into a Claude Code or Codex workflow this week and you have a concrete agency demo: 'AI that fills in your monthly report from raw data' without exporting to some SaaS dashboard they'll never adopt.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cewqqnd7zdwo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://github.com/iOfficeAI/OfficeCLI" target="_blank" rel="noopener">↗ Open link</a></div>
       </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="10">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/b0a6/live/d2d3d720-76b6-11f1-925a-557464d48d36.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">Vietnam cracks down on counterfeit luxury market under US pressure</h2>
-        <p class="hook-text news-hook">Trump administration pushes Vietnam to eliminate booming black market for fake goods; locals divided on impact.</p>
+    <div class="content-card">
+      <div class="card-left">
+        <div class="author-block">
+          <div class="build-icon">🛠️</div>
+          <div class="author-text">
+            <div class="author-name">Ternlight</div>
+            <div class="author-role">Hacker News (218 pts)</div>
+          </div>
+        </div>
+        <p class="hook-text">A 7MB embedding model that runs entirely in-browser via WASM, no server needed.</p>
         <div class="card-index">10</div>
       </div>
-
       <div class="card-right">
-        
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>IP enforcement tightens globally</strong> — counterfeit supply chains being dismantled</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Model for protectionism: trade pressure = regulatory tightening on both enforcement and borders</span>
-    </li></ul>
-        </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">If you're building supply chain, authentication, or anti-counterfeiting AI tools, this is a tailwind. Expect governments to demand transparency and traceability. B2B SaaS for brand protection is hot.</p>
+          <div class="for-you-label">Try this</div>
+          <p class="for-you-text">For the yoga/meditation platform, this could power on-device semantic search over class transcripts or journaling entries with zero backend cost or latency, worth a quick prototype this week to see if it's fast enough for a real search box.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cdx7zzywz7wo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://ternlight-demo.vercel.app/" target="_blank" rel="noopener">↗ Open link</a></div>
       </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="11">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1ae5/live/6c2d8350-7868-11f1-ab53-3dbca6ef5ee1.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">Marine Le Pen appeal verdict shapes France's 2027 election</h2>
-        <p class="hook-text news-hook">Far-right leader learns if conviction will bar her from 2027 presidential race amid polling lead.</p>
+    <div class="content-card">
+      <div class="card-left">
+        <div class="author-block">
+          <div class="build-icon">🛠️</div>
+          <div class="author-text">
+            <div class="author-name">Code Cleanliness vs Coding Agents study</div>
+            <div class="author-role">arXiv / Hacker News (196 pts)</div>
+          </div>
+        </div>
+        <p class="hook-text">Controlled study measuring whether messy vs clean codebases actually change coding agent performance.</p>
         <div class="card-index">11</div>
       </div>
-
       <div class="card-right">
-        
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Political uncertainty in EU's second economy</strong> — regulatory and business environment will shift post-verdict</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Le Pen leads polls — nationalist economic policy could reshape EU tech/data regulations</span>
-    </li></ul>
-        </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Watch French regulatory environment closely. If Le Pen runs (and potentially wins), expect data sovereignty pushes, EU fragmentation, and tighter controls on US tech. Plan compliance scenarios now.</p>
+          <div class="for-you-label">Try this</div>
+          <p class="for-you-text">Read this before your next vibe-coding session on the micro-SaaS idea, it'll tell you whether it's worth the extra time to keep your prototype code clean or if agents handle mess fine, directly affects how you spend your limited building hours.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/clyeele4leeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://arxiv.org/abs/2605.20049" target="_blank" rel="noopener">↗ Open link</a></div>
       </div>
-
     </div>
   </div>
 
   <div class="slide" data-i="12">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
-
-      <div class="card-left news-left">
-        <div class="news-media"><img class="news-image" src="https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a47b77b-1783084923.jpg?resize=1920%2C1440" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Al Jazeera</div>
-        <h2 class="news-headline">UK's Farage faces scrutiny over gold deal amid populist brand test</h2>
-        <p class="hook-text news-hook">Far-right politician's outside earnings challenge anti-establishment credentials as rival party gains ground.</p>
-        <div class="card-index">12</div>
-      </div>
-
-      <div class="card-right">
-        
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Populism commodified</strong> — anti-establishment figures monetizing brand while losing credibility</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Restore Britain rising — fragmentation of right-wing politics accelerating</span>
-    </li></ul>
-        </div>
-
-        <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Signal: political narratives are weakening in UK/Europe. Economic uncertainty fuels populism, but coherent policy is absent. Expect volatility and regulatory whiplash. Build compliant, boring products.</p>
-        </div>
-
-        <div class="url-row"><a class="source-url" href="https://www.aljazeera.com/news/2026/7/6/uks-farages-gold-deal-tests-his-populist-brand-as-restore-britain-rises/" target="_blank" rel="noopener">↗ Read article</a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="slide" data-i="13">
     <div class="section-card" style="--sec-color:#7C3AED;--sec-bg:#F5F3FF;--sec-border:#DDD6FE">
       <div class="section-card__inner">
         <div class="section-emoji">⚙️</div>
@@ -837,462 +920,242 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="14">
+  <div class="slide" data-i="13">
     <div class="content-card">
-
       <div class="card-left">
+        
+    <div class="card-video" data-yt-id="AQ19pJFerOA">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/AQ19pJFerOA" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://techcrunch.com/wp-content/uploads/2026/07/Ransomware-attack.png?resize=1200,686" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
           
           <div class="author-text">
-            <div class="author-name">Even Realities</div>
-            <div class="author-role">Smart Glasses Startup · Funded by Meituan, Tencent</div>
+            <div class="author-name">TechCrunch</div>
+            <div class="author-role">RSS</div>
           </div>
         </div>
-        <p class="hook-text">Even Realities hits $1B valuation with $150M funding round led by Chinese tech giants.</p>
-        <div class="card-index">01</div>
+        <p class="hook-text">First AI-run ransomware attack still needed a human in the loop.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">13</div>
       </div>
-
       <div class="card-right">
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key signals
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>AR hardware consolidating</strong>: unicorn status achieved; Asian capital dominates consumer AR space</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Chinese capital backing non-Chinese founders — globalization signal for AR/VR market</span>
-    </li></ul>
-        </div>
-
+        
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">AR is hot and capital-intensive. If you're building spatial computing or AR applications, Even's success shows market appetite. But competition from well-funded Asian teams is fierce. Differentiate on software/services, not hardware.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Good reminder for client conversations that 'full autonomy' claims from AI security tools are still overhyped.</p>
         </div>
-
+        
         <div class="url-row">
-    <a class="source-url" href="https://techcrunch.com/2026/07/06/smart-glasses-maker-even-realities-hits-1b-valuation-with-150m-funding-led-by-meituan-tencent/" target="_blank" rel="noopener">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
-      https://techcrunch.com/2026/07/06/smart-glasses-maker-even-realities-hits-1b-valuation-with-150m-funding-led-by-meituan-tencent/
-    </a></div>
+    <a class="source-url" href="https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/" target="_blank" rel="noopener">↗ techcrunch.com/2026/07/06/the-first-ai-run</a></div>
       </div>
+    </div>
+  </div>
 
+  <div class="slide" data-i="14">
+    <div class="content-card">
+      <div class="card-left">
+        
+    <div class="card-video" data-yt-id="z_4HX5NzVe8">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/z_4HX5NzVe8" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://storage.ghost.io/c/68/2d/682dc4d0-6daf-426a-b3d4-9f443976d0d8/content/images/2026/07/2026-06---AMD-Ryzen-AI-Halo-1-1.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">AMD / LTT Labs</div>
+            <div class="author-role">Hardware review · Hacker News (329 pts)</div>
+          </div>
+        </div>
+        <p class="hook-text">AMD's Ryzen AI Halo dev kit brings local AI inference to a $4k desktop box.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">14</div>
+      </div>
+      <div class="card-right">
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Worth a look if you ever want to offer PT clients an on-prem inference option instead of cloud API dependency.</p>
+        </div>
+        
+        <div class="url-row">
+    <a class="source-url" href="https://www.lttlabs.com/articles/2026/07/06/amd-ryzen-ai-halo" target="_blank" rel="noopener">↗ www.lttlabs.com/articles/2026/07/06/amd-ry</a></div>
+      </div>
     </div>
   </div>
 
   <div class="slide" data-i="15">
-    <div class="content-card">
-
-      <div class="card-left">
-        <div class="author-block">
-          
-          <div class="author-text">
-            <div class="author-name">Amazon Mechanical Turk</div>
-            <div class="author-role">Platform · Amazon</div>
-          </div>
-        </div>
-        <p class="hook-text">Amazon stops accepting new customers for crowdsourced labor platform Mechanical Turk.</p>
-        <div class="card-index">02</div>
-      </div>
-
-      <div class="card-right">
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key signals
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Legacy crowdsourcing platform shuttering to new users</strong> — model declining or consolidating</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>AI training data pipelines shifting from MTurk to internal/contracted suppliers — less transparent</span>
-    </li></ul>
-        </div>
-
-        <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">If you depend on MTurk for data labeling, diversify now. This signals Amazon pivoting to proprietary data sourcing. Look at specialized labeling vendors (Scale AI, Labelbox) or build your own. Crowdsourcing as a moat is dead.</p>
-        </div>
-
-        <div class="url-row">
-    <a class="source-url" href="https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/" target="_blank" rel="noopener">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
-      https://techcrunch.com/2026/07/05/amazon-will-stop-accepting-new-customers-for-mechanical-turk/
-    </a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="slide" data-i="16">
-    <div class="content-card">
-
-      <div class="card-left">
-        <div class="author-block">
-          
-          <div class="author-text">
-            <div class="author-name">Uber</div>
-            <div class="author-role">Ride-sharing Platform</div>
-          </div>
-        </div>
-        <p class="hook-text">Uber's European expansion plans hit a speed bump.</p>
-        <div class="card-index">03</div>
-      </div>
-
-      <div class="card-right">
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key signals
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Regulatory friction in EU accelerating</strong> — not just policy but market execution friction</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Profitability vs. growth trade-off forcing Uber to tighten strategy in mature markets</span>
-    </li></ul>
-        </div>
-
-        <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Europe remains fragmented. If you're building marketplace or gig-economy AI, assume Uber-level regulatory pressure. You won't have Uber's legal budget. Compliance-first strategy = competitive advantage.</p>
-        </div>
-
-        <div class="url-row">
-    <a class="source-url" href="https://techcrunch.com/2026/07/05/ubers-european-expansion-plans-may-have-hit-a-speed-bump/" target="_blank" rel="noopener">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
-      https://techcrunch.com/2026/07/05/ubers-european-expansion-plans-may-have-hit-a-speed-bump/
-    </a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="slide" data-i="17">
-    <div class="content-card">
-
-      <div class="card-left">
-        <div class="author-block">
-          
-          <div class="author-text">
-            <div class="author-name">Wealthy AI Schools (Alpha Forge Prep)</div>
-            <div class="author-role">EdTech · Private Schools</div>
-          </div>
-        </div>
-        <p class="hook-text">Affluent families are deploying AI tutoring systems to replace traditional education for their children.</p>
-        <div class="card-index">04</div>
-      </div>
-
-      <div class="card-right">
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key signals
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Wealthy segment outsourcing education to AI</strong> — creates two-tier education system</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Premium EdTech AI becoming status symbol and practical tool for high-income households</span>
-    </li></ul>
-        </div>
-
-        <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">High-end EdTech AI is a real market. B2B2C play: sell to private schools and families willing to pay for premium AI tutoring. Focus on personalization, outcomes tracking, and prestige positioning. Don't compete on price.</p>
-        </div>
-
-        <div class="url-row">
-    <a class="source-url" href="https://www.theverge.com/ai-artificial-intelligence/961505/wealthy-ai-schools-alpha-forge-prep" target="_blank" rel="noopener">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
-      https://www.theverge.com/ai-artificial-intelligence/961505/wealthy-ai-schools-alpha-forge-prep
-    </a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="slide" data-i="18">
-    <div class="content-card">
-
-      <div class="card-left">
-        <div class="author-block">
-          
-          <div class="author-text">
-            <div class="author-name">Infuriating Google Commercial</div>
-            <div class="author-role">Brand · Google</div>
-          </div>
-        </div>
-        <p class="hook-text">Google imagines Founding Fathers embracing AI in new commercial; backlash erupts.</p>
-        <div class="card-index">05</div>
-      </div>
-
-      <div class="card-right">
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key signals
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>AI adoption narrative contested</strong> — tech industry overselling AI utility to consumers</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Backlash signals consumer skepticism about AI benefits beyond corporate efficiency</span>
-    </li></ul>
-        </div>
-
-        <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Consumer trust in AI is fragile. If you're building B2C AI products, messaging matters. Avoid hype. Focus on concrete, narrow use cases. Over-promising AI breaks credibility faster than competitors' products.</p>
-        </div>
-
-        <div class="url-row">
-    <a class="source-url" href="https://www.theverge.com/ai-artificial-intelligence/961468/google-ai-commercial-founding-fathers-declaration-of-independence" target="_blank" rel="noopener">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
-      https://www.theverge.com/ai-artificial-intelligence/961468/google-ai-commercial-founding-fathers-declaration-of-independence
-    </a></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="slide" data-i="19">
-    <div class="section-card" style="--sec-color:#D97706;--sec-bg:#FFFBEB;--sec-border:#FDE68A">
+    <div class="section-card" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
       <div class="section-card__inner">
-        <div class="section-emoji">🤖</div>
+        <div class="section-emoji">🇵🇹</div>
         <div class="section-chapter">Chapter</div>
-        <h2 class="section-title">AI Builders</h2>
+        <h2 class="section-title">PT News</h2>
         <div class="section-rule"></div>
       </div>
     </div>
   </div>
 
-  <div class="slide" data-i="20">
-    <div class="content-card">
-
-      <div class="card-left">
-        <div class="author-block">
-          
-          <div class="author-text">
-            <div class="author-name">South Korea Chip Workers as 'Bachelors'</div>
-            <div class="author-role">Industry Trend · MIT Technology Review</div>
-          </div>
-        </div>
-        <p class="hook-text">Skilled chip engineers are South Korea's hottest dating demographic as STEM shortage fuels premium status.</p>
-        <div class="card-index">06</div>
+  <div class="slide" data-i="16">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1124%3Anowe%3A0%3A104%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2019%2F05%2F15182706%2F4w3a0314_2.jpg?layer=obstop:T" alt="A portuguesa Tekever adquire a startup nacional Cloudsweep, especializada em IA para desenvolvimento de software." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">Observador</div>
+        <h2 class="news-headline">Tekever compra Cloudsweep, reforça aposta em IA</h2>
+        <p class="hook-text news-hook">A portuguesa Tekever adquire a startup nacional Cloudsweep, especializada em IA para desenvolvimento de software.</p>
+        <div class="card-index">16</div>
       </div>
-
       <div class="card-right">
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key signals
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Talent competition for semiconductor workers is extreme</strong> — premium salary and status signaling</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>STEM shortage translates to social/cultural capital, not just wages — signal of supply scarcity</span>
-    </li></ul>
-        </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">Semiconductor/AI hardware talent will be expensive and contested globally. If you need deep ML/chip engineers, expect competition from Samsung, SK Hynix, etc. Consider hiring mid-level talent and building internal expertise rather than poaching seniors.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Um sinal de que M&amp;A de IA em Portugal está a acontecer entre players nacionais, vale a pena perceber o que a Cloudsweep fazia para calibrar o teu próprio posicionamento na agência.</p>
         </div>
-
-        <div class="url-row">
-    <a class="source-url" href="https://www.technologyreview.com/2026/07/06/1140000/south-korea-bachelors-samsung-skhynix-chip-workers/" target="_blank" rel="noopener">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
-      https://www.technologyreview.com/2026/07/06/1140000/south-korea-bachelors-samsung-skhynix-chip-workers/
-    </a></div>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="url-row"><a class="source-url" href="https://observador.pt/2026/07/07/tekever-compra-cloudsweep-e-reforca-aposta-em-inteligencia-artificial/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
-
     </div>
   </div>
 
-  <div class="slide" data-i="21">
-    <div class="content-card">
-
-      <div class="card-left">
-        <div class="author-block">
-          
-          <div class="author-text">
-            <div class="author-name">Achieving Operational Excellence with AI</div>
-            <div class="author-role">Opinion · MIT Technology Review</div>
-          </div>
-        </div>
-        <p class="hook-text">Enterprise AI use case: operational excellence through AI optimization.</p>
-        <div class="card-index">07</div>
+  <div class="slide" data-i="17">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A1440%3A809%3Anowe%3A0%3A75%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2022%2F07%2F26205454%2F27003211.jpg?layer=obstop:T" alt="CEO da Bright Pixel diz que há dinheiro para investir, mas falta capital que traga conhecimento além do financeiro." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">Observador</div>
+        <h2 class="news-headline">Portugal tem fundos, mas falta capital inteligente</h2>
+        <p class="hook-text news-hook">CEO da Bright Pixel diz que há dinheiro para investir, mas falta capital que traga conhecimento além do financeiro.</p>
+        <div class="card-index">17</div>
       </div>
-
       <div class="card-right">
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key signals
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>B2B operational AI becoming mainstream narrative</strong> — not sci-fi, now boardroom priority</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Efficiency gains measurable and quantifiable — CFOs now sponsors, not CTOs</span>
-    </li></ul>
-        </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">If you're building AI for operations (supply chain, manufacturing, logistics), this is your moment. Enterprise buyers are educated and ready to buy. Focus on ROI, not AI sexiness. Build with finance teams, not just ops.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Relevante se procurares investimento para o micro-SaaS, o argumento é que mentoria e rede importam tanto quanto o cheque.</p>
         </div>
-
-        <div class="url-row">
-    <a class="source-url" href="https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/" target="_blank" rel="noopener">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631z"/></svg>
-      https://www.technologyreview.com/2026/07/02/1140045/achieving-operational-excellence-with-ai/
-    </a></div>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="url-row"><a class="source-url" href="https://observador.pt/2026/07/07/portugal-tem-dinheiro-para-investir-mas-falta-capital-inteligente/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
-
     </div>
   </div>
 
-  <div class="slide" data-i="22">
-    <div class="content-card podcast-layout">
+  <div class="slide" data-i="18">
+    <div class="section-card" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
+      <div class="section-card__inner">
+        <div class="section-emoji">🌍</div>
+        <div class="section-chapter">Chapter</div>
+        <h2 class="section-title">World News</h2>
+        <div class="section-rule"></div>
+      </div>
+    </div>
+  </div>
 
-      <div class="card-left podcast-left">
-        <div class="podcast-show">Castro Podcasts</div>
-        <h2 class="podcast-episode">Things I Got Wrong: Building relationships with customers through support</h2>
-        <div class="takeaway-box">
-          <span class="takeaway-label">Takeaway</span>
-          <p class="takeaway-text">Direct customer support as a relationship builder didn't deliver ROI or retention lift as expected.</p>
-        </div>
+  <div class="slide" data-i="19">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
         
-        <div class="card-index">08</div>
+    <div class="card-video" data-yt-id="19vwZpNs-8Y">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/19vwZpNs-8Y" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1ae5/live/6c2d8350-7868-11f1-ab53-3dbca6ef5ee1.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">BBC World</div>
+        <h2 class="news-headline">Le Pen court verdict could reshape French 2027 race</h2>
+        <p class="hook-text news-hook">A Paris appeals court decides today whether Marine Le Pen can run for president in 2027.</p>
+        <div class="card-index">19</div>
       </div>
-
       <div class="card-right">
-        <div class="right-section">
-          <div class="section-label">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
-            Key points
-          </div>
-          <ul class="insight-list">
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span><strong>Support cost scaling faster than retention benefit</strong> — founder expected deeper relationships through support</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Data showed engagement ≠ loyalty — support-heavy model drained resources without defensibility</span>
-    </li>
-    <li class="insight-item">
-      <span class="insight-dot">◆</span>
-      <span>Lesson: build network effects and switching costs, not just touch-points</span>
-    </li></ul>
-        </div>
-
         <div class="for-you-box">
-          <div class="for-you-label">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            What this means for you
-          </div>
-          <p class="for-you-text">As you build your AI product, don't assume customer intimacy through support scales. If support is your moat, you're losing. Build product stickiness (data lock-in, integrations, workflows) instead. Outsource support early.</p>
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness.</p>
         </div>
-
-        <div class="url-row"><a class="source-url" href="https://www.uncommonapps.nyc/p/castro-podcasts-things-i-got-wrong-support" target="_blank" rel="noopener">↗ Listen on YouTube</a></div>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/clyeele4leeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
+    </div>
+  </div>
 
+  <div class="slide" data-i="20">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        
+    <div class="card-video" data-yt-id="VPGVHJVHo4c">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/VPGVHJVHo4c" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://media.assettype.com/dn%2F2025-09-12%2Fupka8uq0%2Fmacron-1.avif?rect=0%2C0%2C1200%2C630&amp;amp;w=1200&amp;amp;ar=40%3A21&amp;amp;auto=format%2Ccompress&amp;amp;ogImage=true&amp;amp;mode=crop&amp;amp;enlarge=true&amp;amp;overlay=false&amp;amp;overlay_position=bottom&amp;amp;overlay_width=100" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">Dinheiro Vivo</div>
+        <h2 class="news-headline">Explosions near Macron's hotel during Damascus visit</h2>
+        <p class="hook-text news-hook">Blasts reported close to where the French president is staying in the Syrian capital.</p>
+        <div class="card-index">20</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness.</p>
+        </div>
+        <span class="signal-badge signal-red">🔴 Urgent</span>
+        <div class="url-row"><a class="source-url" href="https://www.dn.pt/internacional/exploses-em-damasco-perto-do-hotel-onde-macron-est-hospedado" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
     </div>
   </div>
 </div>
 <div id="nav">
+  <button class="nav-home" id="home" aria-label="Back to overview" title="Back to overview">⌂</button>
   <button class="nav-btn" id="prev" aria-label="Previous">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
   </button>
-  <div id="counter">1 / 23</div>
+  <div id="counter">1 / 21</div>
   <button class="nav-btn" id="next" aria-label="Next">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
   </button>
 </div>
 
 <script>
-const TOTAL = 23;
+const TOTAL = 21;
 let current = 0;
 const allSlides = () => [...document.querySelectorAll('.slide')];
-const allDots   = () => [...document.querySelectorAll('.dot')];
 
-const dotsEl = document.getElementById('dots');
-for (let i = 0; i < TOTAL; i++) {
-  const d = document.createElement('div');
-  d.className = 'dot' + (i === 0 ? ' active' : '');
-  d.addEventListener('click', () => goTo(i));
-  dotsEl.appendChild(d);
+// Swap a card-video's iframe in/out so only the active slide's Short ever
+// plays — mute is required for autoplay to fire in mobile browsers.
+function setSlideVideoPlaying(slideEl, playing) {
+  const box = slideEl?.querySelector('.card-video');
+  if (!box) return;
+  const frame = box.querySelector('.card-video-frame');
+  const id = box.dataset.ytId;
+  if (!id) return;
+  if (playing) {
+    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&mute=1&playsinline=1&loop=1&playlist=' + id +
+      '&controls=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" loading="lazy"></iframe>';
+  } else {
+    frame.innerHTML = '';
+  }
 }
 
 function goTo(n) {
   if (n === current || n < 0 || n >= TOTAL) return;
-  const els = allSlides(), ds = allDots();
+  const els = allSlides();
   els[current].classList.remove('active');
   els[current].classList.add('leaving');
-  ds[current].classList.remove('active');
+  setSlideVideoPlaying(els[current], false);
   const prev = current;
   current = n;
   requestAnimationFrame(() => {
     els[current].classList.add('active');
-    ds[current].classList.add('active');
+    setSlideVideoPlaying(els[current], true);
   });
   setTimeout(() => els[prev].classList.remove('leaving'), 380);
-  document.getElementById('counter').textContent = (current + 1) + ' / ' + TOTAL;
+  document.getElementById('counter').textContent = current === 0 ? 'Overview' : (current) + ' / ' + (TOTAL - 1);
   document.getElementById('progress').style.width = ((current + 1) / TOTAL * 100) + '%';
 }
 
 document.getElementById('next').addEventListener('click', () => goTo(current + 1));
 document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
+document.getElementById('home').addEventListener('click', () => goTo(0));
+
+document.querySelectorAll('[data-goto]').forEach(el => {
+  el.addEventListener('click', () => goTo(parseInt(el.dataset.goto, 10)));
+});
+
 document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
   if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+  if (e.key === 'Escape') { goTo(0); }
 });
 let tx = 0;
 document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
@@ -1300,6 +1163,7 @@ document.addEventListener('touchend', e => {
   const d = tx - e.changedTouches[0].clientX;
   if (Math.abs(d) > 50) d > 0 ? goTo(current + 1) : goTo(current - 1);
 });
+document.getElementById('counter').textContent = 'Overview';
 document.getElementById('progress').style.width = (1 / TOTAL * 100) + '%';
 </script>
 </body>
