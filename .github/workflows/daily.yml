@@ -24,47 +24,47 @@ jobs:
       - name: Install dependencies
         run: cd scripts && npm install
 
-      - name: Fetch feed (X + podcasts + RSS)
+      - name: Fetch feed (X + podcasts + RSS + Hacker News + GitHub Trending)
         timeout-minutes: 8
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
-          SUPADATA_API_KEY: ${{ secrets.SUPADATA_API_KEY }}
         run: node scripts/fetch-my-feed.js
 
       - name: Debug feed contents
         run: |
           node -e "
             const d = JSON.parse(require('fs').readFileSync('my-feed.json', 'utf8'));
-            console.log('xBuilders:', d.x?.length, '| podcasts:', d.podcasts?.length, '| rssFeeds:', d.rss?.length, '| errors:', d.errors?.length ?? 0);
+            console.log(JSON.stringify(d.stats));
+            console.log(JSON.stringify(d.health));
           "
 
-      - name: Generate digest (Claude)
+      - name: Generate digest (Claude Sonnet 5)
         env:
           ANTHROPIC_API_KEY:     ${{ secrets.ANTHROPIC_API_KEY }}
-          YOUTUBE_API_KEY:       ${{ secrets.YOUTUBE_API_KEY }}
           GOOGLE_SEARCH_API_KEY: ${{ secrets.GOOGLE_SEARCH_API_KEY }}
           GOOGLE_SEARCH_CX:      ${{ secrets.GOOGLE_SEARCH_CX }}
+          YOUTUBE_API_KEY:       ${{ secrets.YOUTUBE_API_KEY }}
         run: cat my-feed.json | node scripts/remix-digest.js
 
-      - name: Build slide deck
+      - name: Build reading page
         run: node scripts/generate-slides.js
 
       - name: Commit and push
         run: |
           git config user.name "AI Digest Bot"
           git config user.email "bot@ai-digest.local"
-          git add index.html digest-draft.json
+          git add index.html digest-draft.json state/seen.json
           git diff --staged --quiet || git commit -m "digest: $(date +%Y-%m-%d)"
           git push
 
       - name: Send Telegram notification (success)
         if: success()
         run: |
+          MSG=$(node scripts/build-telegram-message.js)
           curl -s -X POST \
             "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-            --data-urlencode "text=☀️ Your Daily Digest is ready:
-          https://pealmeida.com/projects/ai-digest/" || true
+            --data-urlencode "text=$MSG" || true
 
       - name: Send Telegram notification (failure)
         if: failure()

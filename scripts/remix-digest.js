@@ -2,8 +2,10 @@
 /**
  * remix-digest.js
  * Reads my-feed.json from stdin.
- * Calls Claude API to produce a 4-section structured digest:
- *   pt_news, world_news, tech, ai (+ podcasts)
+ * Calls Claude (Sonnet 5) to produce the structured digest:
+ *   ai (deep-dive), build_this, podcasts, then a thin pt_news/world_news/tech strip.
+ * Dedupes against state/seen.json (rolling 7-day memory) before synthesis,
+ * and updates it after.
  * Writes output to digest-draft.json (repo root) AND stdout.
  *
  * Required env: ANTHROPIC_API_KEY
@@ -14,6 +16,7 @@ import path from 'path';
 import os from 'os';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { loadState, saveState, buildSeenContext, normalizeUrl } from './digest-state.js';
 
 // Load .env
 const envPath = path.join(os.homedir(), '.follow-builders', '.env');
@@ -29,15 +32,15 @@ if (!apiKey) {
   process.stderr.write('remix-digest: ANTHROPIC_API_KEY is not set\n');
   process.exit(1);
 }
-process.stderr.write(`remix-digest: API key present (${apiKey.slice(0, 10)}...)\n`);
 
 const client = new Anthropic({ apiKey });
+const MODEL = 'claude-sonnet-5';
 
-// digest-draft.json lives at repo root (one level up from scripts/)
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DRAFT_PATH = path.join(__dirname, '..', 'digest-draft.json');
+const REPO_ROOT = path.join(__dirname, '..');
+const DRAFT_PATH = path.join(REPO_ROOT, 'digest-draft.json');
 
-// ── News enrichment (images + YouTube Shorts) ────────────────────
+// ── News enrichment (images) ──────────────────────────────────────
 const ENRICH_TIMEOUT_MS = 10_000;
 
 async function fetchOgImage(url) {
@@ -67,51 +70,121 @@ async function googleImageSearch(query, apiKey, cx) {
   } catch { return null; }
 }
 
-async function youtubeShortsSearch(query, apiKey) {
-  if (!apiKey) return null;
-  const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoDuration=short&maxResults=5&safeSearch=strict&q=${encodeURIComponent(query + ' shorts')}&key=${apiKey}`;
-  try {
-    const sr = await fetch(searchUrl, { signal: AbortSignal.timeout(ENRICH_TIMEOUT_MS) });
-    if (!sr.ok) return null;
-    const sData = await sr.json();
-    const ids = (sData.items || []).map(i => i.id?.videoId).filter(Boolean);
-    if (ids.length === 0) return null;
-
-    const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet&id=${ids.join(',')}&key=${apiKey}`;
-    const dr = await fetch(detailsUrl, { signal: AbortSignal.timeout(ENRICH_TIMEOUT_MS) });
-    if (!dr.ok) return null;
-    const dData = await dr.json();
-    const parseISO = d => {
-      const m = (d || '').match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
-      return (+(m?.[1] || 0)) * 60 + (+(m?.[2] || 0));
-    };
-    const short = (dData.items || []).find(v => parseISO(v.contentDetails?.duration) <= 60);
-    if (!short) return null;
-    return {
-      id: short.id,
-      title: short.snippet?.title || '',
-      thumbnail: short.snippet?.thumbnails?.medium?.url || `https://img.youtube.com/vi/${short.id}/hqdefault.jpg`,
-    };
-  } catch { return null; }
-}
-
 async function enrichNewsItem(item) {
   const query = item.headline || item.hook || '';
   if (!query) return item;
-
-  let image = item.url ? await fetchOgImage(item.url) : null;
+  const primaryUrl = item.url || (item.urls || [])[0] || '';
+  let image = primaryUrl ? await fetchOgImage(primaryUrl) : null;
   if (!image) image = await googleImageSearch(query, process.env.GOOGLE_SEARCH_API_KEY, process.env.GOOGLE_SEARCH_CX);
   if (image) item.image = image;
-
-  const video = await youtubeShortsSearch(query, process.env.YOUTUBE_API_KEY);
-  if (video) item.video = video;
-
   return item;
 }
 
+// ── YouTube Shorts enrichment ────────────────────────────────────────
+// Finds a Short (<=60s) matching a story's topic for autoplay in the card.
+// Best-effort only: a missing key, a quota error, or no match all resolve
+// to "no video" — never fails the run. build_this/GitHub items are skipped
+// entirely (a repo doesn't have a "story" to illustrate).
+function parseISODuration(d) {
+  const m = (d || '').match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
+  return (+(m?.[1] || 0)) * 60 + (+(m?.[2] || 0));
+}
+
+// Common words carry no topical signal — stripped before keyword-overlap scoring.
+const STOPWORDS = new Set(['the','a','an','and','or','but','not','just','with','for','from','into','onto','this','that','these','those','is','are','was','were','be','been','of','to','in','on','at','as','it','its','their','his','her','new','real']);
+
+function keywordsOf(text) {
+  return new Set(
+    String(text || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9À-ÿ\s]/g, ' ')
+      .split(/\s+/)
+      .filter(w => w.length > 2 && !STOPWORDS.has(w))
+  );
+}
+
+// Require the candidate's title to share real topical overlap with the
+// query — otherwise a Short about something else entirely (matched only on
+// a generic keyword like "AI") slips through as a false "match found".
+function isRelevantMatch(query, candidateTitle) {
+  const queryWords = keywordsOf(query);
+  const titleWords = keywordsOf(candidateTitle);
+  if (queryWords.size === 0) return false;
+  let overlap = 0;
+  for (const w of queryWords) if (titleWords.has(w)) overlap += 1;
+  return overlap >= Math.min(2, queryWords.size);
+}
+
+async function youtubeShortsSearch(query, apiKey) {
+  if (!apiKey || !query) return null;
+  try {
+    const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoDuration=short&maxResults=8&safeSearch=strict&relevanceLanguage=en&q=${encodeURIComponent(query)}&key=${apiKey}`;
+    const sr = await fetch(searchUrl, { signal: AbortSignal.timeout(ENRICH_TIMEOUT_MS) });
+    if (!sr.ok) return null;
+    const sData = await sr.json();
+    const candidates = (sData.items || []).filter(i => i.id?.videoId);
+    if (candidates.length === 0) return null;
+
+    const ids = candidates.map(i => i.id.videoId);
+    const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet,status&id=${ids.join(',')}&key=${apiKey}`;
+    const dr = await fetch(detailsUrl, { signal: AbortSignal.timeout(ENRICH_TIMEOUT_MS) });
+    if (!dr.ok) return null;
+    const dData = await dr.json();
+
+    const short = (dData.items || []).find(v =>
+      parseISODuration(v.contentDetails?.duration) > 0 &&
+      parseISODuration(v.contentDetails?.duration) <= 60 &&
+      v.status?.embeddable !== false &&
+      isRelevantMatch(query, v.snippet?.title)
+    );
+    if (!short) return null;
+
+    return { id: short.id, title: short.snippet?.title || '' };
+  } catch {
+    return null;
+  }
+}
+
+// Each item type gets its own query heuristic — the query is what makes
+// this useful instead of noise, so it's tailored per section rather than
+// reusing one field blindly.
+function videoQueryFor(item, kind) {
+  if (kind === 'ai' || kind === 'tech') return item.hook || item.name || '';
+  if (kind === 'news') return item.headline || item.hook || '';
+  return ''; // build_this and podcasts don't use search (see enrichVideos)
+}
+
+async function enrichVideos(output, apiKey) {
+  if (!apiKey) {
+    process.stderr.write('remix-digest: YOUTUBE_API_KEY not set — skipping video enrichment\n');
+    return { attempted: 0, found: 0 };
+  }
+
+  const targets = [
+    ...(output.ai || []).map(item => ({ item, kind: 'ai' })),
+    ...(output.tech || []).map(item => ({ item, kind: 'tech' })),
+    ...(output.pt_news || []).map(item => ({ item, kind: 'news' })),
+    ...(output.world_news || []).map(item => ({ item, kind: 'news' })),
+  ];
+
+  let found = 0;
+  await Promise.all(targets.map(async ({ item, kind }) => {
+    const query = videoQueryFor(item, kind);
+    const video = await youtubeShortsSearch(query, apiKey);
+    if (video) { item.video = video; found += 1; }
+  }));
+
+  // Podcasts already point at a real YouTube video — no search needed, just embed it.
+  for (const p of output.podcasts || []) {
+    const videoId = (p.url || '').match(/(?:v=|youtu\.be\/)([^&\s]+)/)?.[1];
+    if (videoId) { p.video = { id: videoId, title: p.episode || '' }; found += 1; }
+  }
+
+  return { attempted: targets.length + (output.podcasts || []).length, found };
+}
+
 // Walk the response character by character to find the outermost balanced {} object.
-// This handles cases where Claude emits trailing prose or the lastIndexOf('}') trick
-// cuts inside a nested string value.
+// Handles cases where Claude emits trailing prose or a '}' appears inside a string value.
 function extractJSON(text) {
   let depth = 0, inString = false, escape = false, start = -1;
   for (let i = 0; i < text.length; i++) {
@@ -137,152 +210,142 @@ process.stdin.on('end', async () => {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
   });
 
+  const state = await loadState(REPO_ROOT);
+  const { seenUrls, seenHeadlines } = buildSeenContext(state);
+
   // ── Separate X accounts by category ────────────────────────────
   const xAll = (data.x || []).filter(b =>
     (b.tweets || []).some(t => t.text?.trim().length > 15)
   );
-  const xAI   = xAll.filter(b => b.category === 'ai'   || !b.category); // default to ai
+  const xAI   = xAll.filter(b => b.category === 'ai'   || !b.category);
   const xTech = xAll.filter(b => b.category === 'tech');
   const podcasts = data.podcasts || [];
+  const hackernews = data.hackernews || [];
+  const githubTrending = data.githubTrending || [];
   const rssByCategory = {};
   for (const feed of (data.rss || [])) {
     if (!rssByCategory[feed.category]) rssByCategory[feed.category] = [];
     rssByCategory[feed.category].push(feed);
   }
 
+  // Rank tweets by engagement (likes+RTs+bookmarks) instead of chronological slice.
+  function topTweets(tweets, n) {
+    return [...(tweets || [])]
+      .filter(t => t.text?.trim().length > 15)
+      .sort((a, b) => {
+        const scoreA = (a.likes || 0) + (a.retweets || 0) * 2 + (a.metrics?.bookmark_count || 0);
+        const scoreB = (b.likes || 0) + (b.retweets || 0) * 2 + (b.metrics?.bookmark_count || 0);
+        return scoreB - scoreA;
+      })
+      .slice(0, n);
+  }
+
+  function formatBuilder(b) {
+    const bio = (b.bio || '').replace(/\s+/g, ' ').trim();
+    const tweets = topTweets(b.tweets, 4)
+      .map(t => `  • [${t.likes || 0}♥ ${t.retweets || 0}rt] ${t.text.replace(/https?:\/\/t\.co\/\S+/g, '').trim()}\n    URL: ${t.url || ''}`)
+      .join('\n');
+    return `--- X Builder: ${b.name || b.handle} ---\nBio: ${bio}\nTop tweets (ranked by engagement):\n${tweets}`;
+  }
+
+  // Sort RSS feeds within a category by weight (AINews/HN-derived feeds first).
+  function feedLines(feeds) {
+    return [...feeds]
+      .sort((a, b) => (b.weight || 1) - (a.weight || 1))
+      .flatMap(f =>
+        (f.items || []).map(i => `  • [${f.feed_name}] ${i.title}${i.contentSnippet ? ' — ' + i.contentSnippet : ''}\n    URL: ${i.link}`)
+      ).join('\n');
+  }
+
   // ── Build source sections ────────────────────────────────────────
   const sections = [];
 
-  // PT News section
-  const ptFeeds = rssByCategory['pt_news'] || [];
-  if (ptFeeds.length > 0) {
-    const lines = ptFeeds.flatMap(f =>
-      (f.items || []).map(i => `  • [${f.feed_name}] ${i.title}${i.contentSnippet ? ' — ' + i.contentSnippet : ''}\n    URL: ${i.link}`)
-    ).join('\n');
-    sections.push(`=== PT_NEWS ===\n${lines}`);
-  }
-
-  // World News section
-  const worldFeeds = rssByCategory['world_news'] || [];
-  if (worldFeeds.length > 0) {
-    const lines = worldFeeds.flatMap(f =>
-      (f.items || []).map(i => `  • [${f.feed_name}] ${i.title}${i.contentSnippet ? ' — ' + i.contentSnippet : ''}\n    URL: ${i.link}`)
-    ).join('\n');
-    sections.push(`=== WORLD_NEWS ===\n${lines}`);
-  }
-
-  // Tech section (X accounts + RSS)
-  const techRssFeeds = rssByCategory['tech'] || [];
-  const techLines = [];
-  xTech.forEach((b, i) => {
-    const bio = (b.bio || '').replace(/\s+/g, ' ').trim();
-    const tweets = (b.tweets || [])
-      .filter(t => t.text?.trim().length > 15)
-      .slice(0, 4)
-      .map(t => `  • TEXT: ${t.text.replace(/https?:\/\/t\.co\/\S+/g, '').trim()}\n    URL: ${t.url || ''}`)
-      .join('\n');
-    techLines.push(`--- X Builder: ${b.name || b.handle} ---\nBio: ${bio}\nTweets:\n${tweets}`);
+  // AI section (richest — X builders, podcasts, weighted RSS)
+  const aiLines = [];
+  xAI.forEach(b => aiLines.push(formatBuilder(b)));
+  (rssByCategory['ai'] || [])
+    .sort((a, b) => (b.weight || 1) - (a.weight || 1))
+    .forEach(f => {
+      const items = (f.items || []).map(i => `  • ${i.title}${i.contentSnippet ? ' — ' + i.contentSnippet : ''}\n    URL: ${i.link}`).join('\n');
+      aiLines.push(`--- RSS: ${f.feed_name} ---\n${items}`);
+    });
+  podcasts.forEach(p => {
+    aiLines.push(`--- Podcast: ${p.name} ---\nTitle: ${p.title}\nURL: ${p.url}\nDescription:\n${(p.description || p.transcript || '').slice(0, 1500)}`);
   });
-  techRssFeeds.forEach(f => {
+  if (aiLines.length > 0) sections.push(`=== AI ===\n${aiLines.join('\n\n')}`);
+
+  // Build-this section (GitHub trending + Hacker News, ranked)
+  const buildLines = [];
+  if (githubTrending.length > 0) {
+    buildLines.push('--- GitHub Trending (today) ---\n' + githubTrending
+      .map(r => `  • ${r.repo}: ${r.description}\n    URL: ${r.url}`).join('\n'));
+  }
+  if (hackernews.length > 0) {
+    buildLines.push('--- Hacker News (AI/dev-tools, ranked by points) ---\n' + hackernews
+      .map(s => `  • [${s.points}pts, ${s.comments} comments] ${s.title}\n    URL: ${s.link}\n    Discussion: ${s.discussionUrl}`).join('\n'));
+  }
+  if (buildLines.length > 0) sections.push(`=== BUILD_THIS_CANDIDATES ===\n${buildLines.join('\n\n')}`);
+
+  // Tech strip (thin)
+  const techLines = [];
+  xTech.forEach(b => techLines.push(formatBuilder(b)));
+  (rssByCategory['tech'] || []).forEach(f => {
     const items = (f.items || []).map(i => `  • [${f.feed_name}] ${i.title}\n    URL: ${i.link}`).join('\n');
     techLines.push(`--- RSS: ${f.feed_name} ---\n${items}`);
   });
-  if (techLines.length > 0) {
-    sections.push(`=== TECH ===\n${techLines.join('\n\n')}`);
-  }
+  if (techLines.length > 0) sections.push(`=== TECH ===\n${techLines.join('\n\n')}`);
 
-  // AI section (X accounts + podcasts)
-  const aiLines = [];
-  xAI.forEach((b, i) => {
-    const bio = (b.bio || '').replace(/\s+/g, ' ').trim();
-    const tweets = (b.tweets || [])
-      .filter(t => t.text?.trim().length > 15)
-      .slice(0, 4)
-      .map(t => `  • TEXT: ${t.text.replace(/https?:\/\/t\.co\/\S+/g, '').trim()}\n    URL: ${t.url || ''}`)
-      .join('\n');
-    aiLines.push(`--- X Builder: ${b.name || b.handle} ---\nBio: ${bio}\nTweets:\n${tweets}`);
-  });
-  podcasts.forEach((p, i) => {
-    aiLines.push(`--- Podcast: ${p.name} ---\nTitle: ${p.title}\nURL: ${p.url}\nTranscript:\n${(p.transcript || '').slice(0, 5000)}`);
-  });
-  if (aiLines.length > 0) {
-    sections.push(`=== AI ===\n${aiLines.join('\n\n')}`);
+  // PT News strip (thin)
+  const ptFeeds = rssByCategory['pt_news'] || [];
+  if (ptFeeds.length > 0) sections.push(`=== PT_NEWS ===\n${feedLines(ptFeeds)}`);
+
+  // World News strip (thin)
+  const worldFeeds = rssByCategory['world_news'] || [];
+  if (worldFeeds.length > 0) sections.push(`=== WORLD_NEWS ===\n${feedLines(worldFeeds)}`);
+
+  // What was already shown recently (dedup + momentum context)
+  let memoryBlock = '';
+  if (seenHeadlines.length > 0) {
+    const recent = seenHeadlines.slice(-40).map(h => `  • [${h.date}] ${h.headline}`).join('\n');
+    memoryBlock = `\n\nALREADY COVERED IN THE LAST 7 DAYS (do not repeat as new; if a story has developed further, say what changed):\n${recent}`;
   }
 
   // ── System prompt ─────────────────────────────────────────────────
-  const systemPrompt = `You are the executive assistant and chief curator for Pedro, a Portuguese PM building AI products.
+  const systemPrompt = `You are Pedro's chief of staff for AI and building. You write his daily morning brief.
 
-Pedro's profile:
-- Building and selling AI products/services in Portugal
-- Product Manager with UX and strategy background
-- Learning to be technically fluent in AI — curious, not expert
-- Goal: use AI to build products faster, find new business models, stay ahead
-
-Your job: Transform raw content into a SCANNABLE EXECUTIVE BRIEF across 4 sections.
-Pedro has 90 seconds per slide. Every word must earn its place.
+WHO PEDRO IS (bias every judgment call to this, not a generic founder):
+- Portuguese Product Manager, UX + product strategy background, learning to be technically fluent — not yet a developer, but building real products.
+- Actively building and selling: an AI agency for Portuguese SMBs (his main bet), a yoga/meditation educational platform, a possible micro-SaaS.
+- Reads this at 8am to decide what to pay attention to and what to go BUILD today.
+- He wants to feel plugged into AI and ready to build, not caught up on news. AI + hands-on building must dominate. PT/world/tech news is a thin scannable strip, present but secondary.
 
 OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
 
 {
-  "pt_news": [
-    {
-      "headline": "Short punchy headline, max 12 words",
-      "hook": "One sentence. What happened and why it matters.",
-      "key_points": [
-        "First concrete detail or implication",
-        "Second concrete detail (optional)"
-      ],
-      "for_you": "1-2 sentences. What does this mean for Pedro building in Portugal? Be specific.",
-      "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
-      "url": "article url",
-      "source_name": "Publication name"
-    }
-  ],
-  "world_news": [
-    {
-      "headline": "Short punchy headline, max 12 words",
-      "hook": "One sentence. What happened and why it matters.",
-      "key_points": [
-        "First concrete detail or implication",
-        "Second concrete detail (optional)"
-      ],
-      "for_you": "1-2 sentences. Global context for a Portuguese entrepreneur.",
-      "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
-      "url": "article url",
-      "source_name": "Publication name"
-    }
-  ],
-  "tech": [
-    {
-      "name": "Person or source name",
-      "role": "Title · Company (for X accounts) or RSS source name",
-      "hook": "One punchy sentence. Max 15 words.",
-      "insights": [
-        "First key insight — specific, concrete",
-        "Second key insight (optional)"
-      ],
-      "for_you": "2-3 sentences. What does this mean for someone building tech products?",
-      "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
-      "urls": ["url1"],
-      "handle": "x handle if applicable, else empty string",
-      "index": 1
-    }
-  ],
   "ai": [
     {
-      "name": "Person or show name",
-      "role": "Title · Company or 'Podcast'",
-      "hook": "One punchy sentence. Max 15 words.",
+      "name": "Person, show, or source name",
+      "role": "Title · Company, or 'Podcast', or RSS source name",
+      "hook": "One punchy sentence on what actually happened. Max 15 words.",
       "insights": [
-        "First key insight — specific, concrete",
-        "Second key insight",
-        "Third key insight (optional)"
+        "First concrete fact or development — specific, not vibes",
+        "Second concrete fact",
+        "Third (optional)"
       ],
-      "for_you": "2-3 sentences. What does this mean for Pedro building AI products?",
-      "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
+      "for_you": "1-2 sentences, SPECIFIC to Pedro's AI agency for PT SMBs or his other bets. Must fail the 'swap test': if this sentence could apply to any random founder anywhere, cut it or make it specific. It is OK to write 'No direct action here, filed for awareness' rather than pad.",
+      "why_it_made_the_cut": "One short phrase: why this beat other candidates today (e.g. 'most-engaged post from Karpathy this week' or 'only real model release today').",
+      "signal": "exactly one emoji, no label text: 🔴 or 🟡 or 🟢 or 💡",
       "urls": ["url1"],
-      "handle": "x handle if applicable, else empty string",
-      "index": 1
+      "handle": "x handle if applicable, else empty string"
+    }
+  ],
+  "build_this": [
+    {
+      "name": "Tool, repo, or technique name",
+      "source": "GitHub / Hacker News / etc",
+      "what_it_is": "One sentence, plain, what it does.",
+      "why_try_it": "1-2 sentences — concretely what Pedro could do with this THIS WEEK for the agency, the yoga platform, or a micro-SaaS experiment.",
+      "url": "link"
     }
   ],
   "podcasts": [
@@ -290,51 +353,58 @@ OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
       "show": "Show Name",
       "episode": "Episode Title",
       "takeaway": "Single sentence. The ONE thing Pedro needs to know.",
-      "key_points": [
-        "Point 1 — concrete finding or argument",
-        "Point 2 — supporting evidence or example",
-        "Point 3 — implication for builders"
-      ],
-      "for_you": "2-3 sentences. What does this mean for Pedro specifically?",
-      "signal": "one of: 🔴 urgent | 🟡 watch | 🟢 apply now | 💡 learn",
+      "key_points": ["Point 1", "Point 2", "Point 3 (optional)"],
+      "for_you": "1-2 sentences, specific, swap-test applies.",
+      "signal": "exactly one emoji, no label text: 🔴 or 🟡 or 🟢 or 💡",
       "url": "episode url"
     }
-  ]
+  ],
+  "tech": [
+    {
+      "name": "Person or source name",
+      "role": "Title · Company or RSS source",
+      "hook": "One punchy sentence, max 15 words.",
+      "for_you": "1 sentence max — this is a thin strip, not a deep dive.",
+      "signal": "exactly one emoji, no label text: 🔴 or 🟡 or 🟢 or 💡",
+      "urls": ["url1"]
+    }
+  ],
+  "pt_news": [
+    { "headline": "Max 12 words", "hook": "One sentence.", "for_you": "1 sentence, specific to building in Portugal.", "signal": "🔴|🟡|🟢|💡", "url": "...", "source_name": "..." }
+  ],
+  "world_news": [
+    { "headline": "Max 12 words", "hook": "One sentence.", "for_you": "1 sentence.", "signal": "🔴|🟡|🟢|💡", "url": "...", "source_name": "..." }
+  ],
+  "since_yesterday": "1-2 sentences, only if something genuinely developed from a story shown in the last 7 days. Omit the key entirely if nothing has continued."
 }
 
 RULES:
 - Include only sections that have actual content. Omit empty arrays entirely.
-- pt_news and world_news: pick the 3-5 most relevant stories. Skip duplicates.
-- tech and ai: each X builder = one entry; each podcast also gets an entry in ai.
-- hook: punchy, present tense, no jargon. "X does Y" not "X announced that Y"
-- insights: start each with a strong verb or concrete noun. No "he said that". Just the fact.
+- ai: this is the CORE section, be generous here — 5 to 8 entries when the sources support it. Prioritize actual news (model releases, technique breakthroughs, notable launches) over generic takes. One X builder's best tweet = one entry; do not create an entry for a builder whose tweets are trivial today, skip them instead of padding.
+- build_this: pick 2-3 the MOST concretely actionable items from the BUILD_THIS_CANDIDATES section — favor things Pedro could actually try or ship from this week, not just interesting reads. If nothing is genuinely actionable, return an empty array rather than forcing it.
+- tech, pt_news, world_news: 2-4 items max each. Keep these thin and scannable, this is a strip not a section.
+- Never repeat a story already in ALREADY COVERED unless it has genuinely developed — then say what's new in for_you, and consider using since_yesterday.
+- Deduplicate the same underlying story across multiple sources — pick the best single version, cite the best source.
+- hook/insights: punchy, present tense, no jargon, no "X announced that Y" — write "X does Y".
 - Bold key phrases with **double asterisks** — max 2 per bullet.
-- for_you: most important field. Be a trusted advisor. Frame everything in terms of building and selling AI products in Portugal.
+- for_you fields are the most important field in the whole digest. Every one must pass the swap test. Never write generic advice ("consider using AI to..."). If you can't be specific, omit the sentence or say there's no direct action.
 - signal: 🟢 apply right now, 🔴 threat or disruption, 🟡 trend to monitor, 💡 concept to learn.
-- Never pad. Never summarize what you just said. No "In conclusion".`;
+- Never pad, never write "In conclusion", never summarize what you just said.
+- Write in Portuguese ONLY for pt_news items' hook/for_you if the source material is in Portuguese and the story is Portugal-specific; otherwise write in English. Never use em dashes, use commas or colons instead.`;
 
   const userPrompt = `Today: ${today}
 
 Produce the JSON digest for these sources:
 
-${sections.join('\n\n')}`;
+${sections.join('\n\n')}${memoryBlock}`;
 
-  process.stderr.write(`remix-digest: sections built (${sections.length}), errors=${data.errors?.length ?? 0}, calling Claude...\n`);
+  process.stderr.write(`remix-digest: sections built (${sections.length}), errors=${JSON.stringify(data.health || {})}, calling ${MODEL}...\n`);
 
   // If all sources failed and we have nothing to summarise, write a fallback digest
   // so generate-slides still has valid input and the pipeline doesn't crash.
   if (sections.length === 0) {
     process.stderr.write('remix-digest: no content sections — emitting fallback digest\n');
-    const fallback = {
-      date: today,
-      pt_news: [],
-      world_news: [],
-      tech: [],
-      ai: [],
-      podcasts: [],
-      _fallback: true,
-    };
-    const DRAFT_PATH = path.join(__dirname, '..', 'digest-draft.json');
+    const fallback = { date: today, ai: [], build_this: [], podcasts: [], tech: [], pt_news: [], world_news: [], _fallback: true };
     fs.writeFileSync(DRAFT_PATH, JSON.stringify(fallback, null, 2));
     process.stdout.write(JSON.stringify(fallback) + '\n');
     process.exit(0);
@@ -343,87 +413,72 @@ ${sections.join('\n\n')}`;
   let remixed;
   try {
     const msg = await client.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+      model: MODEL,
       max_tokens: 8000,
+      thinking: { type: 'disabled' },
       system: systemPrompt,
       messages: [
         { role: 'user', content: userPrompt },
-        { role: 'assistant', content: '{' }
       ],
     });
 
-    // Prepend '{' (prefill) then find the outermost balanced JSON object
-    const responseText = '{' + msg.content[0].text;
-    process.stderr.write(`remix-digest: response length=${responseText.length}\n`);
+    if (msg.stop_reason === 'max_tokens') {
+      process.stderr.write('remix-digest: warning — response hit max_tokens, output may be truncated\n');
+    }
+    const textBlock = msg.content.find(b => b.type === 'text');
+    const responseText = textBlock?.text;
+    process.stderr.write(`remix-digest: response length=${responseText?.length}\n`);
     remixed = extractJSON(responseText);
   } catch (e) {
     process.stderr.write(`remix-digest: error — ${e.message}\n${e.stack || ''}\n`);
     process.exit(1);
   }
 
-  // Enrich news items with images + YouTube Shorts (parallel, best-effort)
-  const allNews = [...(remixed.pt_news || []), ...(remixed.world_news || [])];
-  if (allNews.length > 0) {
-    process.stderr.write(`remix-digest: enriching ${allNews.length} news items with media...\n`);
-    await Promise.all(allNews.map(enrichNewsItem));
-    const withImage = allNews.filter(i => i.image).length;
-    const withVideo = allNews.filter(i => i.video).length;
-    process.stderr.write(`remix-digest: enriched ${withImage}/${allNews.length} with image, ${withVideo}/${allNews.length} with video\n`);
+  // Enrich every card type with a real image (best-effort, og:image first,
+  // then a Google image search fallback). This runs before video enrichment
+  // so a matched Short can still take priority over the static image.
+  const allEnrichable = [
+    ...(remixed.pt_news || []), ...(remixed.world_news || []),
+    ...(remixed.ai || []), ...(remixed.tech || []),
+  ];
+  if (allEnrichable.length > 0) {
+    process.stderr.write(`remix-digest: enriching ${allEnrichable.length} items with images...\n`);
+    await Promise.all(allEnrichable.map(enrichNewsItem));
+    const withImage = allEnrichable.filter(i => i.image).length;
+    process.stderr.write(`remix-digest: enriched ${withImage}/${allEnrichable.length} with image\n`);
   }
 
-  // ── Build final output ────────────────────────────────────────────
-  // Enrich tech and ai entries with handle/index from original data
-  let globalIndex = 1;
-
-  const enrichXEntries = (entries, sourceList) =>
-    (entries || []).map((b, i) => {
-      const orig = sourceList[i] || {};
-      const firstUrl = (orig.tweets || [])[0]?.url || '';
-      const handle = b.handle || (firstUrl.match(/x\.com\/([^/]+)\/status/) || [])[1] || '';
-      return {
-        name:     b.name,
-        role:     b.role,
-        hook:     b.hook,
-        insights: b.insights || [],
-        for_you:  b.for_you,
-        signal:   b.signal || '🟡',
-        urls:     (b.urls || []).filter(Boolean),
-        handle,
-        index:    globalIndex++,
-      };
+  // Attach handle from original X data (model may omit it)
+  const allXAccounts = [...xAI, ...xTech];
+  function attachHandle(entries) {
+    return (entries || []).map(e => {
+      if (e.handle) return e;
+      const firstUrl = (e.urls || [])[0] || '';
+      const match = firstUrl.match(/x\.com\/([^/]+)\/status/);
+      return match ? { ...e, handle: match[1] } : e;
     });
-
-  const techEntries = enrichXEntries(remixed.tech, xTech);
-  const aiEntries   = enrichXEntries(remixed.ai, xAI);
-
-  const podcastEntries = (remixed.podcasts || []).map((p, i) => {
-    const orig = podcasts[i] || {};
-    const videoId = (orig.url || '').match(/(?:v=|youtu\.be\/)([^&\s]+)/)?.[1] || '';
-    return {
-      show:       p.show || orig.name,
-      episode:    p.episode || orig.title,
-      takeaway:   p.takeaway,
-      key_points: p.key_points || [],
-      for_you:    p.for_you,
-      signal:     p.signal || '🟡',
-      url:        p.url || orig.url,
-      videoId,
-      index:      globalIndex++,
-    };
-  });
+  }
 
   const output = {
     date: today,
-    pt_news:    remixed.pt_news    || [],
-    world_news: remixed.world_news || [],
-    tech:       techEntries,
-    ai:         aiEntries,
-    podcasts:   podcastEntries,
+    ai:          attachHandle(remixed.ai)   || [],
+    build_this:  remixed.build_this  || [],
+    podcasts:    remixed.podcasts    || [],
+    tech:        attachHandle(remixed.tech) || [],
+    pt_news:     remixed.pt_news     || [],
+    world_news:  remixed.world_news  || [],
+    since_yesterday: remixed.since_yesterday || null,
+    health: data.health || null,
   };
 
-  // Write draft file to repo root for manual review
+  const videoStats = await enrichVideos(output, process.env.YOUTUBE_API_KEY);
+  process.stderr.write(`remix-digest: video enrichment ${videoStats.found}/${videoStats.attempted}\n`);
+
   fs.writeFileSync(DRAFT_PATH, JSON.stringify(output, null, 2));
   process.stderr.write(`remix-digest: draft written to ${DRAFT_PATH}\n`);
+
+  await saveState(REPO_ROOT, state, today, output);
+  process.stderr.write('remix-digest: state/seen.json updated\n');
 
   process.stdout.write(JSON.stringify(output) + '\n');
 });

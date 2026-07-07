@@ -19,17 +19,14 @@
   "podcasts": [
     {
       "name": "Latent Space",
-      "type": "youtube_channel",
-      "channelHandle": "LatentSpacePod"
+      "channelId": "UCxBcwypKK-W3GHd_RZ9FZrQ"
     },
     {
       "name": "No Priors",
-      "type": "youtube_channel",
-      "channelHandle": "NoPriorsPodcast"
+      "channelId": "UCSI7h9hydQ40K5MJHnCrQvw"
     },
     {
       "name": "AI & I by Every",
-      "type": "youtube_playlist",
       "playlistId": "PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL"
     }
   ],
@@ -41,7 +38,6 @@
     { "name": "Dinheiro Vivo", "url": "https://www.dinheirovivo.pt/feed/", "category": "pt_news" },
 
     { "name": "BBC World", "url": "http://feeds.bbci.co.uk/news/world/rss.xml", "category": "world_news" },
-    { "name": "Associated Press", "url": "https://feeds.apnews.com/apnews/world-news", "category": "world_news" },
     { "name": "The Guardian World", "url": "https://www.theguardian.com/world/rss", "category": "world_news" },
     { "name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "category": "world_news" },
     { "name": "Politico Europe", "url": "https://www.politico.eu/feed/", "category": "world_news" },
@@ -50,12 +46,15 @@
     { "name": "The Verge", "url": "https://www.theverge.com/rss/index.xml", "category": "tech" },
     { "name": "Wired", "url": "https://www.wired.com/feed/rss", "category": "tech" },
     { "name": "Ars Technica", "url": "http://feeds.arstechnica.com/arstechnica/index", "category": "tech" },
-    { "name": "Hacker News Best", "url": "https://hnrss.org/best", "category": "tech" },
-    { "name": "MIT Technology Review", "url": "https://www.technologyreview.com/feed/", "category": "tech" },
 
+    { "name": "AINews (smol.ai)", "url": "https://news.smol.ai/rss.xml", "category": "ai", "weight": 3 },
     { "name": "Import AI", "url": "https://jack-clark.net/feed/", "category": "ai" },
     { "name": "Interconnects", "url": "https://www.interconnects.ai/feed", "category": "ai" },
+    { "name": "Simon Willison's Blog", "url": "https://simonwillison.net/atom/everything/", "category": "ai" },
     { "name": "Stratechery", "url": "https://stratechery.com/feed/", "category": "ai" },
-    { "name": "Simon Willison's Blog", "url": "https://simonwillison.net/atom/everything/", "category": "ai" }
+    { "name": "Latent Space (blog)", "url": "https://www.latent.space/feed", "category": "ai" },
+    { "name": "TLDR AI", "url": "https://tldr.tech/api/rss/ai", "category": "ai" },
+    { "name": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "category": "ai" },
+    { "name": "MIT Technology Review", "url": "https://www.technologyreview.com/feed/", "category": "ai" }
   ]
 }
