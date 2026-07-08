@@ -1,250 +1,241 @@
 {
-  "date": "Tuesday, 7 July 2026",
+  "date": "Wednesday, 8 July 2026",
   "ai": [
     {
-      "name": "Anthropic",
-      "role": "Claude Fable 5 / Sonnet 5",
-      "hook": "Fable writes its own GPU kernels, an early sign of AI improving its own tooling.",
+      "name": "OpenAI",
+      "role": "X / Twitter",
+      "hook": "GPT-5.6 ships this Thursday under three codenames: Sol, Terra, and Luna.",
       "insights": [
-        "Import AI calls it **\"the first genuine, fastest megakernel ever\"** written by an AI model",
-        "Signals a nascent **recursive self-improvement loop**: model helps build the tools that build better models",
-        "Comes right after Fable's cybersecurity-safeguard relaunch, now routing some requests to Opus 4.8"
+        "Announced via official OpenAI account, launching **publicly this week**",
+        "Three variants suggest tiered offering similar to Sonnet/Opus split from Anthropic",
+        "Comes right after Claude Sonnet 5's aggressive promo pricing, signals a pricing war heating up"
       ],
-      "for_you": "No direct action here for the agency today, but worth tracking: if models start writing their own optimized infra, the tooling gap between 'uses AI' and 'AI builds its own stack' widens fast, and that's the gap your agency needs to stay ahead of for clients.",
-      "why_it_made_the_cut": "Most significant capability signal in Import AI this week, distinct from routine model releases",
+      "for_you": "Watch pricing on launch day, if GPT-5.6's cheapest tier undercuts Sonnet 5's $2/$10 promo, that changes which model you default to for agency client work.",
+      "why_it_made_the_cut": "Highest-points HN story today (186pts) and a real frontier release, not just commentary",
       "signal": "🟡",
       "urls": [
-        "https://jack-clark.net/2026/07/06/import-ai-464-fables-writes-gpu-kernels-ai-automation-and-analog-computation/"
+        "https://twitter.com/OpenAI/status/2074704958419792299"
       ],
-      "handle": "",
-      "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/07/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-G33X9n.jpg?fit=258%2C258&#038;ssl=1"
+      "handle": "@OpenAI",
+      "image": "https://pbs.twimg.com/media/HMrU7U7bwAEO8yf.jpg:large"
     },
     {
-      "name": "Simon Willison",
-      "role": "Independent developer, Datasette/sqlite-utils",
-      "hook": "Shipped a semver-safe major release almost entirely via Claude Fable for $149 in API costs.",
+      "name": "GitLost researchers",
+      "role": "Noma Security",
+      "hook": "Researchers tricked GitHub's AI coding agent into leaking private repo contents.",
       "insights": [
-        "**sqlite-utils 4.0rc3** adds compound foreign key introspection, a breaking change he'd been avoiding for years",
-        "Used Claude Code for web on iPhone to do the final pre-release review",
-        "Total cost across rc1-rc3 iterations: **~$149.25** in API spend for what would've been days of manual work"
+        "Attack works by embedding malicious instructions in public repo content the agent reads",
+        "Agent then exfiltrates private repo data it has access to during the same session",
+        "Highlights a class of prompt-injection risk specific to agents with broad file/repo access"
       ],
-      "for_you": "This is your agency's pitch made concrete: a solo operator shipped a real, breaking-change library release for under €150 in AI costs. Use this exact framing (cost + before/after) as a case study slide for PT SMB clients who doubt AI can touch 'real' engineering work.",
-      "why_it_made_the_cut": "Most concrete, dollar-quantified proof point of solo+AI shipping this week",
-      "signal": "🟢",
+      "for_you": "If you ever hook Claude Code or Codex into a client's private repos for the agency, treat any external content (issues, READMEs, dependencies) the agent reads as untrusted input, not just the prompt you write.",
+      "why_it_made_the_cut": "Concrete security exploit with real numbers (160pts, 55 comments), directly relevant to agentic coding tools he uses",
+      "signal": "🔴",
       "urls": [
-        "https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/#atom-everything"
-      ],
-      "handle": "@simonw",
-      "image": "https://static.simonwillison.net/static/2026/fable-plan-usage.webp"
-    },
-    {
-      "name": "Interconnects (Nathan Lambert)",
-      "role": "Newsletter · Interconnects.ai",
-      "hook": "GLM-5.2 marks a real capability threshold for open-weight agents, not just a cheaper option.",
-      "insights": [
-        "Framed as a **step change**, not incremental: open models crossing into genuinely usable agentic territory",
-        "Coincides with Tencent's Hy3 release (295B MoE, 21B active) directly competing with GLM-5.2",
-        "Separate op-ed argues **banning open source AI would be a mistake**, co-authored for a general audience"
-      ],
-      "for_you": "Open models hitting frontier-agent quality means your agency can build client-facing agents on GLM-5.2 or Hy3 self-hosted, cutting per-token costs to near zero for high-volume PT SMB use cases like customer support bots.",
-      "why_it_made_the_cut": "Best synthesis of why open models matter now vs. just another release announcement",
-      "signal": "🟡",
-      "urls": [
-        "https://www.interconnects.ai/p/glm-52-is-the-step-change-for-open"
+        "https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/"
       ],
       "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!Of7h!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F267cdc82-6fbc-4f68-bcba-160091396dfd_3182x1790.png"
+      "image": "https://noma.security/wp-content/uploads/Screenshot-2026-06-29-at-14.16.35.png",
+      "video": {
+        "id": "33cUcI5aygI",
+        "title": "GitLost: How We Tricked GitHub’s AI Agent into Leaking Private Repos — Explained in 60s"
+      }
     },
     {
       "name": "Tencent",
-      "role": "Model release · Hy3",
-      "hook": "Tencent's Hy3 open-weights model beats rivals 2-5x its size, running natively on vLLM.",
+      "role": "Model release",
+      "hook": "Hy3 lands as a 295B open-weight MoE model rivaling GLM-5.2, runs natively on vLLM.",
       "insights": [
-        "**295B MoE** total, only **21B active parameters**, 192 experts, **256K context**",
-        "Apache 2.0 licensed, built from feedback across 50+ products since a preview in April",
-        "Up to **2.95x speedups** on NVIDIA/AMD via MTP speculative decoding"
+        "**295B total params, 21B active**, 192 experts, 256K context window",
+        "Supports MTP speculative decoding with up to **2.95x speedups** on NVIDIA and AMD",
+        "Positions as the main open-weight rival to GLM-5.2 this cycle"
       ],
-      "for_you": "Another self-hostable option to benchmark against GLM-5.2 for cost-sensitive PT SMB deployments where you control the inference stack rather than pay per-token to a US lab.",
-      "why_it_made_the_cut": "Concrete open-weight release with real benchmarks, not just a teaser",
-      "signal": "🟢",
+      "for_you": "No direct action, this is a China-side open-weight race; keep it filed unless a hosted/cheap API version appears that beats current GLM-5.2 pricing for agency client workloads.",
+      "why_it_made_the_cut": "Already flagged yesterday but confirmed again today across multiple sources as the dominant open-weight story",
+      "signal": "🟡",
       "urls": [
-        "https://simonwillison.net/2026/Jul/6/hy3/#atom-everything"
-      ],
-      "handle": ""
-    },
-    {
-      "name": "Natalia Quintero",
-      "role": "Head of Consulting · Every",
-      "hook": "A non-technical consultant now uses Codex to automate her CRM and manage her father's medical care.",
-      "insights": [
-        "Resisted Codex for months before daily pestering from Dan Shipper converted her",
-        "Still pays for Attio and Asana rather than vibe-coding replacements, even while building custom tools elsewhere",
-        "Manages an internal AI agent ('Claudie') that requires human oversight, not full autonomy"
-      ],
-      "for_you": "This is your target client persona exactly: a non-technical operator who'll pay for AI-built internal tools but won't replace core SaaS. Frame your agency's pitch to PT SMBs around the same boundary, custom automation around their existing tools, not a full rebuild.",
-      "why_it_made_the_cut": "Only episode this week showing a non-technical user's real build workflow, directly maps to Pedro's client profile",
-      "signal": "🟢",
-      "urls": [
-        "https://youtube.com/watch?v=IiGt2_-NmbI"
-      ],
-      "handle": ""
-    },
-    {
-      "name": "Vercel (Guillermo Rauch / Andrew Qu)",
-      "role": "CEO / Chief of Software · Vercel",
-      "hook": "Vercel bets agents and models are splitting into a separate layer developers must design for.",
-      "insights": [
-        "New agent framework **eve** treats skills, sandboxes, and agent-readable websites as first-class concerns",
-        "Argument: the model is commoditizing, the orchestration layer around it is where value concentrates",
-        "Ties into a broader theme this week (Latent Space, AIEWF) of coordination, routing, and memory as the new UX battleground"
-      ],
-      "for_you": "This validates the agency's positioning: sell PT SMBs the orchestration and integration layer around commodity models, not a proprietary model. That's the defensible, higher-margin part of the stack.",
-      "why_it_made_the_cut": "Clearest articulation of a structural shift echoed across three separate sources this week",
-      "signal": "💡",
-      "urls": [
-        "https://techcrunch.com/2026/07/06/vercel-ceo-guillermo-rauch-on-the-fight-to-split-off-models-from-agents/"
+        "https://news.smol.ai/issues/26-07-06-not-much/"
       ],
       "handle": "",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/PHB_1846_16507246419711358101.jpeg?resize=1200,800"
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**Tencent**+released+**Hy3**%2C+a+**295B+MoE**+open-weight+model+with+**21B+active+parameters**%2C+**192+experts**%2C+and+**256K+context**+supporting+**MTP+speculative+decoding**.+It+runs+natively+on+**vLLM**+with+optimizations+for+**NVIDIA**+and+**AMD**+hardware%2C+achieving+up+to+**2.95x**+speedups+and+latency+reductions.+Hy3+competes+closely+with+**GLM-5.2**+in+the+open+model+space.+**AutomationBench-AA**+leaderboard+evaluates+agents+on+**657+tasks**+across+**40+SaaS+apps**%2C+with+**Claude+Fable+5**+leading%2C+followed+by+**Opus+4.8**%2C+**Gemini+3.5+Flash**%2C+and+**GPT-5.5+xhigh**.+Open+models+lag+behind%2C+with+**GLM-5.2+max**+best+at+**27.8%25**.+New+domain-specific+capability+indices+highlight+cost-performance+tradeoffs.+Research+on+persistent+agent+memory+includes+**A-TMA**+improving+conflict+accuracy+and+**ReContext**+enhancing+long-context+inference+without+retraining.&type=issue&issueNumber=07&date=2026-07-06T05%3A44%3A39.731Z&companies=tencent%2Cnvidia%2Camd%2Cnous-research%2Chugging-face%2Cartificial-anlysiis%2Cdair-ai&models=hy3%2Cglm-5.2%2Cclaude-fable-5%2Copus-4.8%2Cgemini-3.5-flash%2Cgpt-5.5-xhigh%2Cglm-5.2-max"
+    },
+    {
+      "name": "Nathan Lambert",
+      "role": "Interconnects (newsletter)",
+      "hook": "Argues banning open-source AI outright would be a policy mistake, not just a competitiveness loss.",
+      "insights": [
+        "Co-authored as an op-ed with Kevin Xu of Interconnected for a general audience",
+        "Comes right as Hy3 and GLM-5.2 show open models closing the capability gap fast",
+        "Frames open weights as essential infrastructure, not just a cheaper alternative"
+      ],
+      "for_you": "Reinforces that betting on open-weight models (self-hosted or via cheap API) for PT SMB clients isn't a fallback, it's a defensible long-term cost strategy as these models keep closing the gap.",
+      "why_it_made_the_cut": "Direct policy angle on open weights, ties together this week's open-model releases",
+      "signal": "💡",
+      "urls": [
+        "https://www.interconnects.ai/p/banning-open-source-ai-would-be-a"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!gA_9!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2cf763f4-5f1e-47ec-b6e1-b14a69443d00_3182x1790.png"
+    },
+    {
+      "name": "Lilian Weng",
+      "role": "Research summary",
+      "hook": "Summarizes 35 papers on 'Harness Engineering' for recursive self-improvement.",
+      "insights": [
+        "Covers how agent scaffolding/tooling (the 'harness') matters as much as the base model for RSI loops",
+        "Comes days after Fable was reported writing its own GPU kernels, a live RSI example",
+        "Positioned as a condensed reading list rather than new research"
+      ],
+      "for_you": "Worth 20 minutes if you want the vocabulary behind why agent harnesses (not just model choice) are becoming the real product moat, useful framing when pitching agentic workflows to SMB clients.",
+      "why_it_made_the_cut": "Best condensed technical resource in a slow news day, ties to broader RSI narrative",
+      "signal": "💡",
+      "urls": [
+        "https://www.latent.space/p/ainews-lilian-weng-summarizes-35"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!L_Ci!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F603a46c6-cedc-4b38-a660-2fa1d4b3f4ba_1626x1146.png"
+    },
+    {
+      "name": "AutomationBench-AA",
+      "role": "Leaderboard",
+      "hook": "New agent benchmark tests 657 tasks across 40 real SaaS apps, Claude Fable 5 leads.",
+      "insights": [
+        "Ranks Claude Fable 5, then Opus 4.8, Gemini 3.5 Flash, GPT-5.5 xhigh",
+        "Open models still lag noticeably behind on real SaaS-task automation",
+        "Signals evaluation is shifting from toy coding tasks to actual app-usage automation"
+      ],
+      "for_you": "If you're building agentic automations for SMB clients (e.g. CRM or invoicing workflows), Claude-family models are still the safer default for reliability on real SaaS interactions, not open models yet.",
+      "why_it_made_the_cut": "Concrete, numbers-backed benchmark rather than a vibes-based take",
+      "signal": "🟢",
+      "urls": [
+        "https://news.smol.ai/issues/26-07-06-not-much/"
+      ],
+      "handle": "",
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**Tencent**+released+**Hy3**%2C+a+**295B+MoE**+open-weight+model+with+**21B+active+parameters**%2C+**192+experts**%2C+and+**256K+context**+supporting+**MTP+speculative+decoding**.+It+runs+natively+on+**vLLM**+with+optimizations+for+**NVIDIA**+and+**AMD**+hardware%2C+achieving+up+to+**2.95x**+speedups+and+latency+reductions.+Hy3+competes+closely+with+**GLM-5.2**+in+the+open+model+space.+**AutomationBench-AA**+leaderboard+evaluates+agents+on+**657+tasks**+across+**40+SaaS+apps**%2C+with+**Claude+Fable+5**+leading%2C+followed+by+**Opus+4.8**%2C+**Gemini+3.5+Flash**%2C+and+**GPT-5.5+xhigh**.+Open+models+lag+behind%2C+with+**GLM-5.2+max**+best+at+**27.8%25**.+New+domain-specific+capability+indices+highlight+cost-performance+tradeoffs.+Research+on+persistent+agent+memory+includes+**A-TMA**+improving+conflict+accuracy+and+**ReContext**+enhancing+long-context+inference+without+retraining.&type=issue&issueNumber=07&date=2026-07-06T05%3A44%3A39.731Z&companies=tencent%2Cnvidia%2Camd%2Cnous-research%2Chugging-face%2Cartificial-anlysiis%2Cdair-ai&models=hy3%2Cglm-5.2%2Cclaude-fable-5%2Copus-4.8%2Cgemini-3.5-flash%2Cgpt-5.5-xhigh%2Cglm-5.2-max"
     }
   ],
   "build_this": [
     {
-      "name": "OfficeCLI",
-      "source": "GitHub / Hacker News",
-      "what_it_is": "A CLI letting AI agents directly read and edit Microsoft Office files (Word, Excel, PowerPoint).",
-      "why_try_it": "Most PT SMB clients live in Excel and Word, not Notion or Airtable. Wire this into a client automation this week, e.g. an agent that reads invoices from Excel and drafts a Word report, and you have a demo that lands instantly with non-technical owners.",
-      "url": "https://github.com/iOfficeAI/OfficeCLI"
+      "name": "Rowboat",
+      "source": "Show HN",
+      "what_it_is": "Open-source, local-first alternative to Claude Desktop for running agents on your own machine.",
+      "why_try_it": "Spin this up this week as a private testbed for agency client demos, no per-seat SaaS cost, and you can show PT SMB clients a self-hosted agent setup that keeps their data local, a real selling point for privacy-conscious clients.",
+      "url": "https://github.com/rowboatlabs/rowboat"
     },
     {
-      "name": "Ternlight",
+      "name": "n8n",
+      "source": "GitHub Trending",
+      "what_it_is": "Fair-code workflow automation platform with visual building plus native AI/agent capabilities and 400+ integrations.",
+      "why_try_it": "This is the fastest path to a sellable first deliverable for a PT SMB client this week, wire up an invoice-to-CRM or lead-routing automation with an AI step, self-host it, and charge for setup plus a monthly retainer.",
+      "url": "https://github.com/n8n-io/n8n"
+    },
+    {
+      "name": "30papers.com",
       "source": "Hacker News",
-      "what_it_is": "A 7MB embedding model that runs entirely in-browser via WASM, no server round-trip.",
-      "why_try_it": "Drop this into the yoga/meditation platform for instant client-side semantic search, e.g. searching past sessions or journal entries by meaning, with zero backend cost or latency.",
-      "url": "https://ternlight-demo.vercel.app/"
-    },
-    {
-      "name": "sqlite-utils 4.0 (AI-assisted release workflow)",
-      "source": "Simon Willison's Blog",
-      "what_it_is": "A documented, reproducible workflow for using Claude Code to ship a real breaking-change software release cheaply.",
-      "why_try_it": "Steal the prompt pattern from his blog post ('final review before shipping a stable release') for your own micro-SaaS experiment this week, it's a ready-made checklist for using Claude/Codex to get to a confident v1.0 without needing to be the one writing every line.",
-      "url": "https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/#atom-everything"
+      "what_it_is": "Ilya Sutskever's 30 essential ML papers reformatted for beginners.",
+      "why_try_it": "Use this as your structured 'catch up on the fundamentals' track over the next few weeks, 30 minutes a day, so you can speak credibly about model internals when pitching or scoping AI work for clients, without needing to become a developer.",
+      "url": "https://30papers.com/"
     }
   ],
   "podcasts": [
     {
       "show": "AI & I by Every",
       "episode": "How Every's Head of Consulting Uses Codex Every Day",
-      "takeaway": "Non-technical operators are now building their own internal tools with Codex instead of buying more SaaS seats.",
+      "takeaway": "A non-technical consultant now builds internal tools with Codex instead of buying more SaaS.",
       "key_points": [
-        "Natalia went from zero technical background to shipping a CRM automation and a personal medical-care portal",
-        "The team still pays for Attio and Asana, AI building happens around the edges of existing SaaS, not replacing it wholesale",
-        "An internal AI agent ('Claudie') still needs a human manager for judgment calls"
+        "Natalia learned file/folder navigation in Claude Code through repetition, no formal dev background",
+        "Used Codex to automate her CRM setup and build a portal to manage her father's medical care",
+        "Every still pays for Attio and Asana rather than vibe-coding replacements, SaaS still wins for some workflows"
       ],
-      "for_you": "This is close to a script for your agency's sales pitch to PT SMB owners: position custom Codex-built automations as a complement to their existing tools (invoicing, CRM), not a rip-and-replace, since that's the exact adoption pattern shown here.",
+      "for_you": "This is close to your exact position, PM background, not a developer, learning to build. Her pattern (Codex for narrow internal tools, keep SaaS for complex shared workflows) is a good template for deciding what to build vs buy for the agency's own ops.",
       "signal": "🟢",
       "url": "https://youtube.com/watch?v=IiGt2_-NmbI",
       "video": {
         "id": "IiGt2_-NmbI",
         "title": "How Every's Head of Consulting Uses Codex Every Day"
       }
-    },
-    {
-      "show": "Latent Space",
-      "episode": "The Most Innovative Diffusion Research Is Happening in Drug Discovery, Not Image Generation",
-      "takeaway": "Diffusion models now simulate proteins physically flexing to bind drugs, a much harder problem than static pose prediction.",
-      "key_points": [
-        "Genesis's PEARL model predicts both binding location and protein flexibility simultaneously",
-        "The team argues the field's favorite benchmark, 2Å RMSD, is largely misleading",
-        "Their agentic system SAPPHIRE reasons like a chemist: hypotheses, literature reading, next-round candidate proposals"
-      ],
-      "for_you": "No direct action for Pedro's current bets, filed for awareness as a signal of where the most technically serious AI work is happening outside chatbots and coding agents.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=YQWXxnkK4dw",
-      "video": {
-        "id": "YQWXxnkK4dw",
-        "title": "The Most Innovative Diffusion Research Is Happening in Drug Discovery, Not Image Generation"
-      }
     }
   ],
   "tech": [
     {
-      "name": "TechCrunch",
-      "role": "RSS · TechCrunch",
-      "hook": "First 'AI-run' ransomware attack still needed a human at key decision points.",
-      "for_you": "Useful caveat to cite when clients ask if AI agents can be fully autonomous yet, the answer stays no for now.",
+      "name": "SambaNova",
+      "role": "TechCrunch",
+      "hook": "AI chip maker raises $1B at $11B valuation just 5 months after its last mega round.",
+      "for_you": "Signals inference infra funding is still red hot, worth noting if agency clients ask why AI compute costs keep shifting.",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/07/06/the-first-ai-run-ransomware-attack-still-needed-a-human/"
+        "https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/Ransomware-attack.png?resize=1200,686"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/chip__1_.png?w=940"
     },
     {
-      "name": "Ars Technica",
-      "role": "RSS · Ars Technica",
-      "hook": "Kremlin suspected of flying drones over Europe via a Russian shadow fleet.",
-      "for_you": "No direct action, filed for awareness.",
+      "name": "ZML",
+      "role": "TechCrunch",
+      "hook": "French startup releases a free product to speed inference across many AI chip types.",
+      "for_you": "Filed for awareness, could matter later if it lowers self-hosting costs for open-weight models.",
       "signal": "🟡",
       "urls": [
-        "https://arstechnica.com/gadgets/2026/07/kremlin-suspected-of-flying-drones-over-europe-using-russian-shadow-fleet/"
+        "https://techcrunch.com/2026/07/08/hot-french-startup-zml-releases-free-product-to-speed-inference-across-lots-of-ai-chips/"
       ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2238288864-2560x1440.jpg"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/ZML-founder-Steeve-Morin.jpg?resize=1200,800"
+    },
+    {
+      "name": "Meta",
+      "role": "The Verge",
+      "hook": "Meta's new Muse Image generator lets users pull other Instagram users into AI photos, backlash follows.",
+      "for_you": "A live example of consent/privacy blowback in generative image tools, useful cautionary reference if you ever pitch AI image features to SMB clients.",
+      "signal": "🔴",
+      "urls": [
+        "https://www.theverge.com/tech/962485/meta-muse-image-ai-model-instagram"
+      ],
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/meta-muse-image-instagram-tag.png?quality=90&amp;strip=all&amp;crop=0,16.342557965595,100,67.314884068811"
     }
   ],
   "pt_news": [
     {
-      "headline": "Tek: como a IA transforma a experiência do utilizador",
-      "hook": "Opinião defende que o valor da IA está na interpretação, não só na automação.",
-      "for_you": "Bom ângulo para reforçar o pitch da agência junto de PMEs: vender interpretação de dados, não só automação de tarefas.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/opiniao/artigos/como-a-ia-transforma-a-experiencia-do-utilizador-da-analise-a-decisao/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/07/Francisco-Val-Ferreira.png"
-    },
-    {
-      "headline": "SEE Countries desafia plataformas internacionais de turismo",
-      "hook": "Startup portuguesa de Abrantes agrega experiências turísticas locais para competir com gigantes globais.",
-      "for_you": "Exemplo local de um micro-SaaS de nicho a validar, vale a pena olhar ao modelo de agregação e comissão para inspirar experiências próprias.",
+      "headline": "Novo portal OpportunityHub.eu liga talento, fundadores e investidores",
+      "hook": "Plataforma agrega empregos, empreendedorismo e financiamento em toda a Europa.",
+      "for_you": "Vale a pena listar a agência e o projeto de yoga aqui assim que estiver estável, pode ser um canal barato de visibilidade e leads.",
       "signal": "🟢",
-      "url": "https://tek.sapo.pt/extras/site-do-dia/artigos/see-countries-a-alternativa-portuguesa-de-experiencias-locais-que-quer-rivalizar-com-as-grandes-plataformas-internacionais/",
+      "url": "https://tek.sapo.pt/extras/site-do-dia/artigos/novo-portal-destaca-oportunidades-e-liga-talento-fundadores-e-investidores/",
       "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/07/Turista-em-Lisboa.jpg"
+      "image": "https://cdn.teknoticias.pt/uploads/58bc57727973ef6fdf53b52eaa73c0387ec5c95d.jpg"
     },
     {
-      "headline": "Excedente dos municípios cresce 84% com IMT e taxa turística",
-      "hook": "Câmaras municipais portuguesas reforçam excedente orçamental impulsionadas por impostos ligados ao imobiliário e turismo.",
-      "for_you": "Sinal macro de fôlego financeiro local, pode significar mais orçamento municipal disponível para digitalização e serviços contratáveis por PMEs e agências locais.",
+      "headline": "Petróleo dispara 5,92% após Trump dar cessar-fogo com Irão por terminado",
+      "hook": "Brent ultrapassa os 78 dólares e mercados asiáticos caem.",
+      "for_you": "Se compras hardware ou infraestrutura cloud importada para clientes, custos de energia e logística podem subir a curto prazo.",
       "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/07/07/excedente-dos-municipios-dispara-84-a-boleia-do-imt-e-da-taxa-turistica/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/01/cropped-doc2025080645445296-ps05672.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "url": "https://eco.sapo.pt/2026/07/08/trump-anuncia-que-cessar-fogo-com-irao-acabou-e-corta-relacoes-comerciais-com-espanha/",
+      "source_name": "ECO / Dinheiro Vivo",
+      "image": "https://eco.imgix.net/uploads/2026/06/cropped-doc202606044723449113016823.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     }
   ],
   "world_news": [
     {
-      "headline": "Marine Le Pen appeal verdict lands today, could end 2027 bid",
-      "hook": "France's appeals court rules today on whether Le Pen's five-year office ban stands.",
-      "for_you": "No direct action, filed for awareness.",
+      "headline": "Trump declara fim do cessar-fogo com o Irão, chama líderes de 'mentirosos'",
+      "hook": "Escalada retórica em Ancara durante cimeira da NATO, tensão sobe nos mercados de energia.",
+      "for_you": "No direct action, filed for awareness given the oil price and market volatility spillover.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/clyeele4leeo?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1ae5/live/6c2d8350-7868-11f1-ab53-3dbca6ef5ee1.jpg"
+      "url": "https://www.politico.eu/article/donald-trump-says-iran-ceasefire-is-over/",
+      "source_name": "Politico Europe",
+      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/07/08/GettyImages-2284908882-scaled.jpg"
     },
     {
-      "headline": "Explosions injure 18 in Damascus during Macron visit",
-      "hook": "Blasts hit near the hotel where the French president is staying on a Syria visit.",
-      "for_you": "No direct action, filed for awareness.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/c2eylx1jj9ko?at_medium=RSS&at_campaign=rss",
+      "headline": "NATO allies announce £37bn for new missile project",
+      "hook": "About a dozen leaders convene in Ankara to discuss the joint defense program.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/ckg4e3lwzqzo?at_medium=RSS&at_campaign=rss",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d0a8/live/174f7230-79da-11f1-a627-714adb4eed6e.jpg",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/4b9c/live/d6af33b0-7a73-11f1-b49c-fd67f645cd09.jpg",
       "video": {
-        "id": "5CR119q4T_s",
-        "title": "Shocking Video! Moment of explosion in Damascus during Macron’s visit, smoke rises"
+        "id": "GUFlNNxSzl8",
+        "title": "Nato allies announce £37bn for new missile project"
       }
     }
   ],
-  "since_yesterday": "Le Pen verdict and the Damascus explosions near Macron's hotel, both flagged yesterday, remain live today: the court ruling is expected today and no further blast details have emerged yet.",
+  "since_yesterday": "Le Pen's guilty verdict story continues: she has now formally launched her 2027 presidential campaign hours after the appeal ruling, confirming she intends to run despite the conviction.",
   "health": {
     "x": {
       "attempted": 15,
