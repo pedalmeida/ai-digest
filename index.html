@@ -131,25 +131,29 @@ html, body {
   padding-bottom: 10px; border-bottom: 1px solid var(--border-soft); margin-bottom: 2px;
 }
 .intro-item {
-  display: flex; align-items: center; gap: 16px;
-  width: 100%; text-align: left; background: var(--surface); cursor: pointer;
-  padding: 14px; border-radius: 14px;
+  background: var(--surface); border-radius: 16px;
   border: 1px solid var(--border-soft);
-  font-family: inherit; color: var(--text);
   transition: background 0.15s, border-color 0.15s, transform 0.15s;
 }
 .intro-item:hover { background: var(--subtle); border-color: var(--border); transform: translateY(-1px); }
 
+.intro-item-body {
+  display: flex; align-items: center; gap: 18px;
+  width: 100%; text-align: left; background: none; cursor: pointer;
+  padding: 18px; border: none;
+  font-family: inherit; color: var(--text);
+}
+
 .intro-thumb-wrap { position: relative; flex-shrink: 0; }
 .intro-thumb {
-  width: 76px; height: 76px; border-radius: 12px; object-fit: cover;
+  width: 88px; height: 88px; border-radius: 12px; object-fit: cover;
   border: 1px solid var(--border); display: block; background: var(--subtle);
 }
 .intro-thumb-round { border-radius: 50%; }
 .intro-thumb-fallback {
-  width: 76px; height: 76px; border-radius: 12px;
+  width: 88px; height: 88px; border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  background: var(--subtle); border: 1px solid var(--border); font-size: 30px;
+  background: var(--subtle); border: 1px solid var(--border); font-size: 34px;
 }
 .intro-signal-dot {
   position: absolute; top: -4px; right: -4px;
@@ -157,11 +161,19 @@ html, body {
   border: 3px solid var(--surface);
 }
 
-.intro-item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
-.intro-item-title { font-size: 15px; font-weight: 600; line-height: 1.35; }
-.intro-item-summary { font-size: 13px; line-height: 1.55; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.intro-item-arrow { font-size: 16px; color: var(--muted); opacity: 0; transition: opacity 0.15s; flex-shrink: 0; }
+.intro-item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.intro-item-title { font-size: 17px; font-weight: 600; line-height: 1.4; }
+.intro-item-summary { font-size: 14px; line-height: 1.6; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.intro-item-arrow { font-size: 18px; color: var(--muted); opacity: 0; transition: opacity 0.15s; flex-shrink: 0; }
 .intro-item:hover .intro-item-arrow { opacity: 1; }
+
+.intro-item-source {
+  align-self: flex-start; font-family: 'DM Mono', monospace; font-size: 11px;
+  color: var(--x-color); text-decoration: none; margin-top: 2px;
+  padding: 2px 0;
+}
+.intro-item-source:hover { text-decoration: underline; }
+.intro-item-source-plain { color: var(--muted); cursor: default; }
 
 .intro-start {
   font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em;
@@ -456,7 +468,7 @@ html, body {
       
     <div class="since-yesterday">
       <span class="since-label">Since yesterday</span>
-      <p>Trump's 'ceasefire over' declaration from yesterday escalated overnight into actual US-Iran strikes for a second consecutive night, with Bahrain sounding air raid sirens.</p>
+      <p>Grok 4.5 pricing details firmed up ($2/$6 per 1M tokens) and Cursor's co-training role was confirmed, sharpening yesterday's launch news into an actual cost comparison you can run against your stack.</p>
     </div>
       
     <div class="signal-legend">
@@ -469,170 +481,323 @@ html, body {
     <div class="intro-group">
       <div class="intro-group-label" style="color:#D97706">🤖 AI &amp; Building</div>
       
-    <button class="intro-item" data-goto="2">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/3NOkQQqKQP4/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Grok 4.5 launches as a 1.5T-parameter, Opus-class coding model built for cost-efficiency, not benchmark bragging.</span>
-        <span class="intro-item-summary">Priced at <strong>$2/1M input, $6/1M output tokens</strong> with cache discounts, cheaper per-token than most Opus-class rivals</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="3">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">GPT-Live finally replaces ChatGPT's voice mode, quietly delegating hard questions to GPT-5.5 mid-conversation.</span>
-        <span class="intro-item-summary"><strong>Delegates to frontier model</strong> in the background for search, reasoning, or complex work, then folds the answer back into voice</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="4">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cognition.com/images/swe-1-7/swe-1-7-og.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">SWE-1.7 claims near-GPT-5.5 and Opus-level coding intelligence at presumably lower cost.</span>
-        <span class="intro-item-summary">Positioned directly against <strong>GPT-5.5 and Opus 4.8</strong> on coding benchmarks</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="5">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/33cUcI5aygI/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Researchers tricked GitHub's AI coding agent into leaking private repo contents, called it GitLost.</span>
-        <span class="intro-item-summary">Exploit chained <strong>prompt injection through issues/PRs</strong> to exfiltrate private repo data</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="6">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://mistral.ai/cms-media/api/media/file/Robostral-navigate.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Mistral ships Robostral Navigate, a state-of-the-art robotics navigation model.</span>
-        <span class="intro-item-summary">466 points on Hacker News, strong technical discussion on real-world nav performance</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="7">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Cut his newsletter tool bill from $7,000/year to $150 by rebuilding it himself with AI.</span>
-        <span class="intro-item-summary">Replaced <strong>Campaign Monitor</strong> entirely with a self-built AI-assisted tool</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="2">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/Z1f1k_Wf2lE/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Grok 4.5 ships as a 1.5T-parameter coding model priced for volume, not benchmark bragging rights.</span>
+          <span class="intro-item-summary"><strong>$2/1M input, $6/1M output tokens</strong>, with cache-hit discounts, 3x the parameter count of Grok 4.3</span>
+          <a class="intro-item-source" href="https://news.smol.ai/issues/26-07-08-grok-45/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ xAI</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="3">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">ChatGPT voice mode finally gets a real upgrade, quietly delegates hard questions mid-conversation.</span>
+          <span class="intro-item-summary">New voice model routes complex queries to <strong>GPT-5.5</strong> behind the scenes and returns the answer without breaking flow</span>
+          <a class="intro-item-source" href="https://simonwillison.net/2026/Jul/8/introducing-gptlive/#atom-everything" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ OpenAI</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="4">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cognition.com/images/swe-1-7/swe-1-7-og.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">SWE-1.7 claims near-GPT-5.5 and Opus-level coding intelligence, another challenger to the big labs.</span>
+          <span class="intro-item-summary">267 points, 134 comments on HN today</span>
+          <a class="intro-item-source" href="https://cognition.com/blog/swe-1-7" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Cognition</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="5">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://mistral.ai/cms-media/api/media/file/Robostral-navigate.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Mistral ships Robostral Navigate, a state-of-the-art robotics navigation model.</span>
+          <span class="intro-item-summary">468 points, 104 comments on HN</span>
+          <a class="intro-item-source" href="https://mistral.ai/news/robostral-navigate/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Mistral</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="6">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/33cUcI5aygI/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Researchers tricked GitHub's AI coding agent into leaking private repo contents.</span>
+          <span class="intro-item-summary">Called the exploit 'GitLost', 521 points and 196 comments on HN</span>
+          <a class="intro-item-source" href="https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Noma Security</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="7">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Cut his newsletter tool bill from $7,000/year to $150 by rebuilding it himself with AI.</span>
+          <span class="intro-item-summary">Rebuilt Campaign Monitor equivalent, plus a private Twitter alternative called 'The Good Place' for members</span>
+          <a class="intro-item-source" href="https://youtube.com/watch?v=7ND0lQmLJlA" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Craig Mod</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="8">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">347 points, 282 comments on a post about burning out from constant LLM use.</span>
+          <span class="intro-item-summary">High comment-to-point ratio suggests strong disagreement/discussion, not just agreement</span>
+          <a class="intro-item-source" href="https://www.alecscollon.com/blog/llm-burnout/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Alec Collon</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
     </div>
     <div class="intro-group">
       <div class="intro-group-label" style="color:#16A34A">🛠️ Build This Week</div>
       
-    <button class="intro-item" data-goto="9">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">GPT-Live delegation pattern</span>
-        <span class="intro-item-summary">A voice interface that transparently hands off hard queries to a frontier reasoning model mid-conversation.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="10">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">whisper.cpp</span>
-        <span class="intro-item-summary">Lightweight C/C++ port of OpenAI's Whisper speech-to-text model, runs locally with no API costs.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="11">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">GitLost disclosure</span>
-        <span class="intro-item-summary">A documented prompt-injection exploit chain against GitHub's AI coding agent.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="10">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Flint</span>
+          <span class="intro-item-summary">A visualization language specifically for AI agent outputs, lets agents render charts/diagrams instead of just text.</span>
+          <a class="intro-item-source" href="https://microsoft.github.io/flint-chart/#/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Microsoft, via Hacker News (296 pts)</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="11">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">GeoSQL</span>
+          <span class="intro-item-summary">A Claude/Codex skill that lets coding agents query and reason over geospatial data.</span>
+          <a class="intro-item-source" href="https://github.com/dekart-xyz/geosql" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ GitHub, via Hacker News (131 pts)</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="12">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">OpenAI's coding eval methodology</span>
+          <span class="intro-item-summary">A framework for separating real signal from noise when benchmarking coding models.</span>
+          <a class="intro-item-source" href="https://openai.com/index/separating-signal-from-noise-coding-evaluations/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ OpenAI blog, via Hacker News (222 pts)</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
     </div>
     <div class="intro-group">
       <div class="intro-group-label" style="color:#7C3AED">🎙️ Podcasts</div>
       
-    <button class="intro-item" data-goto="13">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://img.youtube.com/vi/7ND0lQmLJlA/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>🎙️</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">How a Writer Uses AI Without Losing His Voice</span>
-        <span class="intro-item-summary">Craig Mod rebuilt a $7K/year SaaS tool himself with AI for $150, proving custom tools now beat off-the-shelf software.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="14">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/UwxxlTNPjWo/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>🎙️</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">The 100,000 Sandbox Problem, Akshat Bubna, Modal CTO</span>
-        <span class="intro-item-summary">Modal shifted from developer experience to agent experience because agents need fundamentally different infra than humans do.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="14">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/7ND0lQmLJlA/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>🎙️</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">How a Writer Uses AI Without Losing His Voice</span>
+          <span class="intro-item-summary">Craig Mod replaced a $7K/year SaaS tool with a $150 AI-built custom one, and draws a hard line at using AI to actually write.</span>
+          <a class="intro-item-source" href="https://youtube.com/watch?v=7ND0lQmLJlA" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ AI &amp; I by Every</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="15">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://img.youtube.com/vi/UwxxlTNPjWo/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>🎙️</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">The 100,000 Sandbox Problem, Akshat Bubna, Modal CTO</span>
+          <span class="intro-item-summary">Modal is shifting from developer experience to agent experience, because production agents need hard guardrails and massive burst compute, not just good APIs.</span>
+          <a class="intro-item-source" href="https://youtube.com/watch?v=UwxxlTNPjWo" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Latent Space</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
     </div>
     <div class="intro-group">
       <div class="intro-group-label" style="color:#7C3AED">⚙️ Tech</div>
       
-    <button class="intro-item" data-goto="16">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/Xt5Ii4-N5sU/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Lovable reportedly in talks to double its valuation to $13.2B.</span>
-        
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="17">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/JVwergcB7ys/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Brown professor forced an in-person final after suspecting AI cheating, scores fell 50%.</span>
-        
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="18">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/wEcASrT_19w/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Meta reportedly building smart glasses that record all the time.</span>
-        
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="17">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/Xt5Ii4-N5sU/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Lovable reportedly in talks to double its valuation to $13.2B.</span>
+          <span class="intro-item-summary">The AI app-builder space keeps compounding valuation, Lovable's jump signals investor appetite for no-code AI tools hasn't cooled.</span>
+          <a class="intro-item-source" href="https://techcrunch.com/2026/07/08/lovable-reportedly-in-talks-to-double-its-valuation-to-13-2b/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ TechCrunch</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="18">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/JVwergcB7ys/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Ivy League professor forced an in-person final after suspecting AI cheating, scores fell 50%.</span>
+          <span class="intro-item-summary">Brown University scores dropped by half once students couldn't rely on AI tools during the exam.</span>
+          <a class="intro-item-source" href="https://arstechnica.com/ai/2026/07/we-cannot-choose-to-become-idiots-the-ai-cheating-scandal-roiling-brown-university/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Ars Technica</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="19">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/wEcASrT_19w/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Meta reportedly building smart glasses that record all the time.</span>
+          <span class="intro-item-summary">Described as 'super-sensing' glasses, always-on capture rather than tap-to-record.</span>
+          <a class="intro-item-source" href="https://www.theverge.com/tech/963138/meta-smart-glasses-recording-super-sensing-ai" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ The Verge</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="20">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/qxr9xu4k1Zw/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Feds demand autonomous vehicle companies stop interfering with first responders.</span>
+          <span class="intro-item-summary">Self-driving cars have been blocking or confusing emergency vehicles in multiple incidents.</span>
+          <a class="intro-item-source" href="https://techcrunch.com/2026/07/08/feds-demand-autonomous-vehicle-companies-stop-interfering-with-first-responders/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ TechCrunch</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="21">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://img.youtube.com/vi/n81gsfVlMr0/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Google's deepfake detector system used to debunk a viral McConnell hoax photo.</span>
+          <span class="intro-item-summary">First widely publicized real-world catch by Google's detection system since its rollout.</span>
+          <a class="intro-item-source" href="https://techcrunch.com/2026/07/08/googles-deepfake-detector-system-used-to-debunk-mcconnell-hoax-pic/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ TechCrunch</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
     </div>
     <div class="intro-group">
       <div class="intro-group-label" style="color:#006400">🇵🇹 PT News</div>
       
-    <button class="intro-item" data-goto="20">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://eco.imgix.net/uploads/2025/08/cropped-abstract-microchip-conventional-technologies-new-microprocessor-memory-chips-central-processor-electronic-board-abstract-microelectronics-technology-concept-3d-render.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Cerebras vai investir milhares de milhões de euros na Europa</span>
-        <span class="intro-item-summary">A startup rival da Nvidia anuncia expansão massiva de data centers de IA na Europa.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="21">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/07/Apple-Justica-EU.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">Tribunal da UE confirma que App Store e iOS seguem regras do DMA</span>
-        <span class="intro-item-summary">Apple perde recurso, mantém-se obrigada a cumprir regras de concorrência da UE.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="23">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://eco.imgix.net/uploads/2026/06/cropped-6p1a2880.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Turismo em Portugal abranda, mas ainda cresce 3,3% em 2025</span>
+          <span class="intro-item-summary">Portugal recebeu 29,9 milhões de turistas em 2025, um ritmo mais lento que os 9,3% de 2024.</span>
+          <a class="intro-item-source" href="https://eco.sapo.pt/2026/07/09/turismo-abrandou-em-2025-portugal-visitado-por-299-milhoes-de-turistas/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ ECO</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="24">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/07/Apple-Justica-EU.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Tribunal da UE confirma Apple sujeita às regras do DMA</span>
+          <span class="intro-item-summary">O Tribunal Geral do Luxemburgo rejeitou os três recursos da Apple contra a designação de gatekeeper.</span>
+          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/negocios/artigos/tribunal-da-ue-rejeita-recurso-da-apple-e-confirma-que-app-store-e-o-ios-continuam-sujeitos-as-regras-do-dma/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="25">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://img.youtube.com/vi/4qx2xLGsITo/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Google: backups do Android passam a contar para espaço da conta</span>
+          <span class="intro-item-summary">A partir de 7 de julho, SMS e definições do dispositivo ocupam os 15 GB gratuitos da conta Google.</span>
+          <a class="intro-item-source" href="https://tek.sapo.pt/mobile/android/artigos/google-backups-do-android-passam-a-contar-para-o-espaco-da-sua-conta-google-a-partir-de-hoje/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="26">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://eco.imgix.net/uploads/2026/06/cropped-42585605-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Publicidade a PPR já não precisa de autorização prévia</span>
+          <span class="intro-item-summary">Regulador passa a ter dez dias para se opor a campanhas de produtos de investimento complexos.</span>
+          <a class="intro-item-source" href="https://eco.sapo.pt/2026/07/09/publicidade-a-ppr-ja-nao-precisa-de-autorizacao-previa-regulador-tem-dez-dias-para-se-opor-nos-produtos-complexos/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ ECO</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="27">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/mKylJdp63q0/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Bazalto quer simplificar investimento imobiliário em Portugal</span>
+          <span class="intro-item-summary">Dois advogados criaram a Bazalto para integrar todo o processo de investimento imobiliário numa plataforma.</span>
+          <a class="intro-item-source" href="https://www.jornaldenegocios.pt/economia/justica/lex/detalhe/nao-e-por-se-alterarem-duas-ou-tres-leis-que-as-casas-vao-nascer-como-cogumelos" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Jornal de Negócios</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
     </div>
     <div class="intro-group">
       <div class="intro-group-label" style="color:#1D4ED8">🌍 World News</div>
       
-    <button class="intro-item" data-goto="23">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/DiWVAdmruqY/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">US and Iran trade strikes for second night after ceasefire collapse</span>
-        <span class="intro-item-summary">Trump declared the ceasefire 'over', traffic through the Strait of Hormuz has dropped sharply.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
-    <button class="intro-item" data-goto="24">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20251028__82BH9CQ__v5__HighRes__SudanConflict-1783591578_65a04e-1783591961.jpg?resize=1200%2C630&amp;amp;quality=80" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">UN probe finds Sudan's RSF killings amount to genocide</span>
-        <span class="intro-item-summary">UN Fact-Finding Mission confirms systematic mass killings and gang rapes in Darfur.</span>
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="29">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/DiWVAdmruqY/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">US and Iran trade strikes for second night, ceasefire collapses</span>
+          <span class="intro-item-summary">Traffic through the Strait of Hormuz has dropped dramatically since the latest attacks began.</span>
+          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/cz75zjj5wp8o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="30">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20251028__82BH9CQ__v5__HighRes__SudanConflict-1783591578_65a04e-1783591961.jpg?resize=1200%2C630&amp;amp;quality=80" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">UN probe finds Sudan's RSF killings amount to genocide</span>
+          <span class="intro-item-summary">A UN fact-finding mission found systematic mass killings and gang rapes by paramilitary forces in Darfur.</span>
+          <a class="intro-item-source" href="https://www.aljazeera.com/news/2026/7/9/un-probe-finds-mass-killings-gang-rapes-by-sudans-rsf-amount-to-genocide?traffic_source=rss" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Al Jazeera</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="31">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/94b1T-857Kw/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Iran prepares to bury slain leader Khamenei after mass funerals</span>
+          <span class="intro-item-summary">The late supreme leader will be buried in his hometown of Mashhad.</span>
+          <a class="intro-item-source" href="https://www.aljazeera.com/news/2026/7/9/iran-prepares-to-bury-slain-leader-khamenei-after-mass-funeral-ceremonies?traffic_source=rss" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Al Jazeera</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="32">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/szFsmDyI81U/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Democrat Senate candidate Platner suspends campaign after assault claim</span>
+          <span class="intro-item-summary">The decision follows a sexual assault accusation he calls categorically false.</span>
+          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/c9v229434p2o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="33">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://img.youtube.com/vi/IUs32vyOJIU/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Catnip lotion repels mosquitoes as well as Deet, study finds</span>
+          <span class="intro-item-summary">Trials in Uganda show a cheap homegrown catnip oil matches synthetic repellent performance.</span>
+          <a class="intro-item-source" href="https://www.theguardian.com/global-development/2026/jul/07/catnip-lotion-as-effective-as-deet-at-repelling-mosquitoes-study-finds" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ The Guardian World</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
     </div></div>
       <button class="intro-start" data-goto="1">Start from the top ↓</button>
     </div>
@@ -653,18 +818,18 @@ html, body {
     <div class="content-card">
       <div class="card-left">
         
-    <div class="card-video" data-yt-id="3NOkQQqKQP4">
+    <div class="card-video" data-yt-id="Z1f1k_Wf2lE">
       <div class="card-video-frame"></div>
-      <a class="card-video-open" href="https://youtube.com/shorts/3NOkQQqKQP4" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+      <a class="card-video-open" href="https://youtube.com/shorts/Z1f1k_Wf2lE" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
     </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://news.smol.ai/api/og?title=not+much+happened+today&amp;description=**xAI**+publicly+launched+**Grok+4.5**%2C+a+new+coding-and-agents-focused+frontier+model+emphasizing+capability-per-dollar+rather+than+benchmark+supremacy.+Elon+Musk+described+it+as+%22Opus-class%22+but+faster%2C+more+token-efficient%2C+and+lower+cost%2C+with+a+**1.5+trillion+parameter**+size%2C+making+it+3x+larger+than+Grok+4.3.+The+model+is+priced+at+**%242+per+1M+input+tokens**+and+**%246+per+1M+output+tokens**%2C+with+discounts+for+cache+hits+and+a+context+window+expected+to+return+to+**1+million+tokens**+soon.+**Cursor**+partnered+in+training+Grok+4.5%2C+highlighting+it+as+their+most+powerful+model+yet+and+expanding+beyond+software+engineering.+Early+ecosystem+support+includes+Grok+Build%2FAPI%2C+Hermes+Agent%2C+Portal%2C+and+OpenRouter.&amp;type=issue&amp;issueNumber=07&amp;date=2026-07-08T05%3A44%3A39.731Z&amp;companies=xai%2Ccursor%2Cscaling01&amp;models=grok-4.5%2Copus-4.7%2Copus-4.8%2Cgpt-5.6" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
-          
+          <img class="author-avatar" src="https://unavatar.io/twitter/@xai" alt="" onerror="this.style.display='none'">
           <div class="author-text">
             <div class="author-name">xAI</div>
-            <div class="author-role">Frontier Lab</div>
+            <div class="author-role">Frontier lab</div>
           </div>
         </div>
-        <p class="hook-text">Grok 4.5 launches as a 1.5T-parameter, Opus-class coding model built for cost-efficiency, not benchmark bragging.</p>
+        <p class="hook-text">Grok 4.5 ships as a 1.5T-parameter coding model priced for volume, not benchmark bragging rights.</p>
         <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">02</div>
       </div>
@@ -673,15 +838,15 @@ html, body {
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Priced at <strong>$2/1M input, $6/1M output tokens</strong> with cache discounts, cheaper per-token than most Opus-class rivals</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>3x larger than Grok 4.3</strong> at 1.5 trillion parameters, context window returning to 1M tokens soon</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Cursor co-trained the model</strong>, positioning it as their most capable coding assistant to date</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>$2/1M input, $6/1M output tokens</strong>, with cache-hit discounts, 3x the parameter count of Grok 4.3</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Cursor</strong> co-trained the model and calls it their most powerful yet</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Context window expected back at <strong>1M tokens</strong> soon, Musk pitches it as 'Opus-class but faster'</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">If Cursor's endorsement holds up in practice, this is worth testing as a cheaper Claude alternative for the agency's client-facing coding work, where token cost actually matters at SMB pricing.</p>
+          <p class="for-you-text">Watch the price point specifically, if Grok 4.5 API pricing holds, it's a cheaper backbone option for agency client work than Claude or GPT, worth a cost test against your current stack before committing to a vendor for the next SMB build.</p>
         </div>
-        <p class="why-cut">Why this made the cut: Only real frontier model launch today, covered across four separate sources</p>
+        <p class="why-cut">Why this made the cut: Biggest model launch of the week, already covered yesterday but pricing/Cursor detail is new and directly actionable</p>
         <div class="url-row">
     <a class="source-url" href="https://news.smol.ai/issues/26-07-08-grok-45/" target="_blank" rel="noopener">↗ news.smol.ai/issues/26-07-08-grok-45</a></div>
       </div>
@@ -696,11 +861,11 @@ html, body {
           
           <div class="author-text">
             <div class="author-name">OpenAI</div>
-            <div class="author-role">Frontier Lab</div>
+            <div class="author-role">GPT-Live launch</div>
           </div>
         </div>
-        <p class="hook-text">GPT-Live finally replaces ChatGPT's voice mode, quietly delegating hard questions to GPT-5.5 mid-conversation.</p>
-        <span class="signal-badge signal-green">🟢 Apply now</span>
+        <p class="hook-text">ChatGPT voice mode finally gets a real upgrade, quietly delegates hard questions mid-conversation.</p>
+        <span class="signal-badge signal-blue">💡 Learn</span>
         <div class="card-index">03</div>
       </div>
       <div class="card-right">
@@ -708,18 +873,18 @@ html, body {
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Delegates to frontier model</strong> in the background for search, reasoning, or complex work, then folds the answer back into voice</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Simon Willison had <strong>preview access for weeks</strong> and calls it genuinely impressive</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Hit <strong>709 points on Hacker News</strong>, the single biggest AI story of the day by engagement</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>New voice model routes complex queries to <strong>GPT-5.5</strong> behind the scenes and returns the answer without breaking flow</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>718 points, 481 comments on HN, the single biggest discussion of the week</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Simon Willison had preview access for weeks and calls it 'very impressive'</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Worth a real test for the yoga platform: a voice mode that can seamlessly hand off to deeper reasoning could be the interface for guided meditation Q&amp;A, not just narration.</p>
+          <p class="for-you-text">This delegation pattern (fast conversational layer + silent handoff to a bigger model) is exactly the architecture worth stealing for a yoga platform voice assistant, students ask casual questions fast, harder queries get routed to a stronger model without them noticing the seam.</p>
         </div>
-        <p class="why-cut">Why this made the cut: Top HN story of the day at 709 points, cross-confirmed by Simon Willison and TLDR</p>
+        <p class="why-cut">Why this made the cut: Top HN story of the day, direct architecture pattern relevant to Pedro's builds</p>
         <div class="url-row">
-    <a class="source-url" href="https://openai.com/index/introducing-gpt-live/" target="_blank" rel="noopener">↗ openai.com/index/introducing-gpt-live</a>
-    <a class="source-url" href="https://simonwillison.net/2026/Jul/8/introducing-gptlive/#atom-everything" target="_blank" rel="noopener">↗ simonwillison.net/2026/Jul/8/introducing-g</a></div>
+    <a class="source-url" href="https://simonwillison.net/2026/Jul/8/introducing-gptlive/#atom-everything" target="_blank" rel="noopener">↗ simonwillison.net/2026/Jul/8/introducing-g</a>
+    <a class="source-url" href="https://openai.com/index/introducing-gpt-live/" target="_blank" rel="noopener">↗ openai.com/index/introducing-gpt-live</a></div>
       </div>
     </div>
   </div>
@@ -727,15 +892,15 @@ html, body {
   <div class="slide" data-i="4">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://cognition.com/images/swe-1-7/swe-1-7-og.png" alt="SWE-1.7 claims near-GPT-5.5 and Opus-level coding intelligence at presumably lower cost." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://cognition.com/images/swe-1-7/swe-1-7-og.png" alt="SWE-1.7 claims near-GPT-5.5 and Opus-level coding intelligence, another challenger to the big labs." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
           
           <div class="author-text">
             <div class="author-name">Cognition</div>
-            <div class="author-role">AI Coding Startup</div>
+            <div class="author-role">AI coding lab</div>
           </div>
         </div>
-        <p class="hook-text">SWE-1.7 claims near-GPT-5.5 and Opus-level coding intelligence at presumably lower cost.</p>
+        <p class="hook-text">SWE-1.7 claims near-GPT-5.5 and Opus-level coding intelligence, another challenger to the big labs.</p>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
         <div class="card-index">04</div>
       </div>
@@ -744,14 +909,14 @@ html, body {
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Positioned directly against <strong>GPT-5.5 and Opus 4.8</strong> on coding benchmarks</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Gained <strong>264 points on Hacker News</strong> with active discussion on real-world performance</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>267 points, 134 comments on HN today</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Positions itself as a cost-competitive alternative for agentic coding tasks specifically</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Another cheap-but-capable coding model entering the market, worth a side-by-side test against whatever you're using for agency client code before committing budget to Grok 4.5.</p>
+          <p class="for-you-text">Another data point that coding-model competition is compressing prices fast, good news for margin on the AI agency if you're billing SMBs for AI-assisted dev work, your input costs keep dropping while your rates don't have to.</p>
         </div>
-        <p class="why-cut">Why this made the cut: Second-most-discussed coding model launch of the week</p>
+        <p class="why-cut">Why this made the cut: Notable frontier coding model claim with real HN traction</p>
         <div class="url-row">
     <a class="source-url" href="https://cognition.com/blog/swe-1-7" target="_blank" rel="noopener">↗ cognition.com/blog/swe-1-7</a></div>
       </div>
@@ -759,6 +924,40 @@ html, body {
   </div>
 
   <div class="slide" data-i="5">
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://mistral.ai/cms-media/api/media/file/Robostral-navigate.jpg" alt="Mistral ships Robostral Navigate, a state-of-the-art robotics navigation model." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Mistral</div>
+            <div class="author-role">Frontier lab</div>
+          </div>
+        </div>
+        <p class="hook-text">Mistral ships Robostral Navigate, a state-of-the-art robotics navigation model.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">05</div>
+      </div>
+      <div class="card-right">
+        
+        <div class="right-section">
+          <div class="section-label">Key signals</div>
+          <ul class="insight-list">
+    <li class="insight-item"><span class="insight-dot">◆</span><span>468 points, 104 comments on HN</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Signals European labs pushing into physical-world AI, not just chat/code</span></li></ul>
+        </div>
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness, robotics is outside your current bets but worth noting Mistral is diversifying beyond LLMs.</p>
+        </div>
+        <p class="why-cut">Why this made the cut: Notable European lab release, strong HN engagement</p>
+        <div class="url-row">
+    <a class="source-url" href="https://mistral.ai/news/robostral-navigate/" target="_blank" rel="noopener">↗ mistral.ai/news/robostral-navigate</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="6">
     <div class="content-card">
       <div class="card-left">
         
@@ -770,45 +969,11 @@ html, body {
           
           <div class="author-text">
             <div class="author-name">Noma Security</div>
-            <div class="author-role">Security Research</div>
+            <div class="author-role">Security research</div>
           </div>
         </div>
-        <p class="hook-text">Researchers tricked GitHub's AI coding agent into leaking private repo contents, called it GitLost.</p>
+        <p class="hook-text">Researchers tricked GitHub's AI coding agent into leaking private repo contents.</p>
         <span class="signal-badge signal-red">🔴 Urgent</span>
-        <div class="card-index">05</div>
-      </div>
-      <div class="card-right">
-        
-        <div class="right-section">
-          <div class="section-label">Key signals</div>
-          <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Exploit chained <strong>prompt injection through issues/PRs</strong> to exfiltrate private repo data</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Second-highest HN story of the day at <strong>521 points</strong>, sparking heavy debate on agent sandboxing</span></li></ul>
-        </div>
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">If the agency deploys any AI coding agents with repo access for PT SMB clients, this is a direct reminder to never grant broad repo scopes without reviewing the agent's tool permissions first.</p>
-        </div>
-        <p class="why-cut">Why this made the cut: High-engagement security story directly relevant to anyone shipping agentic coding tools</p>
-        <div class="url-row">
-    <a class="source-url" href="https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/" target="_blank" rel="noopener">↗ noma.security/blog/gitlost-how-we-tricked-</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="6">
-    <div class="content-card">
-      <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://mistral.ai/cms-media/api/media/file/Robostral-navigate.jpg" alt="Mistral ships Robostral Navigate, a state-of-the-art robotics navigation model." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="author-block">
-          
-          <div class="author-text">
-            <div class="author-name">Mistral</div>
-            <div class="author-role">AI Lab</div>
-          </div>
-        </div>
-        <p class="hook-text">Mistral ships Robostral Navigate, a state-of-the-art robotics navigation model.</p>
-        <span class="signal-badge signal-yellow">🟡 Watch</span>
         <div class="card-index">06</div>
       </div>
       <div class="card-right">
@@ -816,16 +981,16 @@ html, body {
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>466 points on Hacker News, strong technical discussion on real-world nav performance</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Signals <strong>European labs pushing into embodied AI</strong>, not just chat and coding</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Called the exploit 'GitLost', 521 points and 196 comments on HN</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Attack works through prompt injection embedded in seemingly normal repo content</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">No direct action here, filed for awareness, robotics is outside your current bets.</p>
+          <p class="for-you-text">If you ever wire an AI coding agent into client repos for the agency, this is the exact failure mode to test for before you touch anyone's private codebase, run this exploit against your own setup first.</p>
         </div>
-        <p class="why-cut">Why this made the cut: Notable European robotics release, third-highest HN story today</p>
+        <p class="why-cut">Why this made the cut: High-engagement security story directly relevant to anyone deploying coding agents on client data</p>
         <div class="url-row">
-    <a class="source-url" href="https://mistral.ai/news/robostral-navigate/" target="_blank" rel="noopener">↗ mistral.ai/news/robostral-navigate</a></div>
+    <a class="source-url" href="https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/" target="_blank" rel="noopener">↗ noma.security/blog/gitlost-how-we-tricked-</a></div>
       </div>
     </div>
   </div>
@@ -842,7 +1007,7 @@ html, body {
           </div>
         </div>
         <p class="hook-text">Cut his newsletter tool bill from $7,000/year to $150 by rebuilding it himself with AI.</p>
-        <span class="signal-badge signal-blue">💡 Learn</span>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">07</div>
       </div>
       <div class="card-right">
@@ -850,15 +1015,15 @@ html, body {
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Replaced <strong>Campaign Monitor</strong> entirely with a self-built AI-assisted tool</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Calls this the start of a <strong>'golden age of tool building'</strong> for non-developers</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Still refuses to let AI write his actual prose, uses it only as research assistant</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Rebuilt Campaign Monitor equivalent, plus a private Twitter alternative called 'The Good Place' for members</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Calls it the start of a 'golden age of tool building', anyone can now build software suited to their exact needs</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Still refuses to use AI to actually write his prose, keeps AI as research assistant only</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">This is the exact pitch for the agency: a PT SMB paying hundreds a month for generic SaaS could get a $150 custom tool built in a week. Use this story directly in sales conversations.</p>
+          <p class="for-you-text">This is literally your agency's pitch to PT SMBs made concrete, a solo non-developer replacing a $7K/year SaaS subscription with a custom AI-built tool costing $150. Use this exact story as a sales anecdote when pitching prospects on why custom AI tooling beats another subscription.</p>
         </div>
-        <p class="why-cut">Why this made the cut: Most concrete, replicable builder story of the day, directly mirrors Pedro's own positioning</p>
+        <p class="why-cut">Why this made the cut: Most concrete, swap-test-passing story of the day for the agency pitch</p>
         <div class="url-row">
     <a class="source-url" href="https://youtube.com/watch?v=7ND0lQmLJlA" target="_blank" rel="noopener">↗ youtube.com/watch?v=7ND0lQmLJlA</a></div>
       </div>
@@ -866,6 +1031,40 @@ html, body {
   </div>
 
   <div class="slide" data-i="8">
+    <div class="content-card">
+      <div class="card-left">
+        
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Alec Collon</div>
+            <div class="author-role">HN discussion, 'LLM burnout'</div>
+          </div>
+        </div>
+        <p class="hook-text">347 points, 282 comments on a post about burning out from constant LLM use.</p>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="card-index">08</div>
+      </div>
+      <div class="card-right">
+        
+        <div class="right-section">
+          <div class="section-label">Key signals</div>
+          <ul class="insight-list">
+    <li class="insight-item"><span class="insight-dot">◆</span><span>High comment-to-point ratio suggests strong disagreement/discussion, not just agreement</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Comes the same week as Craig Mod's counter-narrative about a 'golden age of tool building'</span></li></ul>
+        </div>
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Worth a skim as a gut-check, if you notice fatigue building AI agency work day after day, you're not alone, the tension between hype and burnout is a live debate right now, not just your own experience.</p>
+        </div>
+        <p class="why-cut">Why this made the cut: High engagement, useful counterweight to daily AI hype</p>
+        <div class="url-row">
+    <a class="source-url" href="https://www.alecscollon.com/blog/llm-burnout/" target="_blank" rel="noopener">↗ www.alecscollon.com/blog/llm-burnout</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="9">
     <div class="section-card" style="--sec-color:#16A34A;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
       <div class="section-card__inner">
         <div class="section-emoji">🛠️</div>
@@ -876,48 +1075,25 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="9">
-    <div class="content-card">
-      <div class="card-left">
-        <div class="author-block">
-          <div class="build-icon">🛠️</div>
-          <div class="author-text">
-            <div class="author-name">GPT-Live delegation pattern</div>
-            <div class="author-role">OpenAI / Simon Willison</div>
-          </div>
-        </div>
-        <p class="hook-text">A voice interface that transparently hands off hard queries to a frontier reasoning model mid-conversation.</p>
-        <div class="card-index">09</div>
-      </div>
-      <div class="card-right">
-        <div class="for-you-box">
-          <div class="for-you-label">Try this</div>
-          <p class="for-you-text">Prototype a voice-guided meditation flow for the yoga platform where simple prompts stay fast and cheap, but deeper questions (anatomy, injury modifications) silently route to a stronger model. Worth a weekend spike using the API.</p>
-        </div>
-        <div class="url-row"><a class="source-url" href="https://openai.com/index/introducing-gpt-live/" target="_blank" rel="noopener">↗ Open link</a></div>
-      </div>
-    </div>
-  </div>
-
   <div class="slide" data-i="10">
     <div class="content-card">
       <div class="card-left">
         <div class="author-block">
           <div class="build-icon">🛠️</div>
           <div class="author-text">
-            <div class="author-name">whisper.cpp</div>
-            <div class="author-role">GitHub Trending</div>
+            <div class="author-name">Flint</div>
+            <div class="author-role">Microsoft, via Hacker News (296 pts)</div>
           </div>
         </div>
-        <p class="hook-text">Lightweight C/C++ port of OpenAI's Whisper speech-to-text model, runs locally with no API costs.</p>
+        <p class="hook-text">A visualization language specifically for AI agent outputs, lets agents render charts/diagrams instead of just text.</p>
         <div class="card-index">10</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">Try this</div>
-          <p class="for-you-text">Could power offline transcription for yoga/meditation session recordings or client call notes for the agency, zero per-minute cost, good micro-SaaS building block to test this week.</p>
+          <p class="for-you-text">Directly usable for the agency, if you're building dashboards or reports for SMB clients where an agent summarizes data, Flint gives you a way to make agent output look like a real deliverable instead of a wall of text. Worth a quick prototype against one client's reporting need this week.</p>
         </div>
-        <div class="url-row"><a class="source-url" href="https://github.com/ggml-org/whisper.cpp" target="_blank" rel="noopener">↗ Open link</a></div>
+        <div class="url-row"><a class="source-url" href="https://microsoft.github.io/flint-chart/#/" target="_blank" rel="noopener">↗ Open link</a></div>
       </div>
     </div>
   </div>
@@ -928,24 +1104,47 @@ html, body {
         <div class="author-block">
           <div class="build-icon">🛠️</div>
           <div class="author-text">
-            <div class="author-name">GitLost disclosure</div>
-            <div class="author-role">Hacker News / Noma Security</div>
+            <div class="author-name">GeoSQL</div>
+            <div class="author-role">GitHub, via Hacker News (131 pts)</div>
           </div>
         </div>
-        <p class="hook-text">A documented prompt-injection exploit chain against GitHub's AI coding agent.</p>
+        <p class="hook-text">A Claude/Codex skill that lets coding agents query and reason over geospatial data.</p>
         <div class="card-index">11</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">Try this</div>
-          <p class="for-you-text">Read this before wiring any coding agent into a client's repo for the agency, use it as a checklist to scope permissions tightly on the first few client engagements.</p>
+          <p class="for-you-text">If any SMB client is retail, logistics, or real estate, a location-aware agent skill could be a quick differentiator, worth a 30-minute test to see if it plugs into a Claude Code workflow you already run.</p>
         </div>
-        <div class="url-row"><a class="source-url" href="https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/" target="_blank" rel="noopener">↗ Open link</a></div>
+        <div class="url-row"><a class="source-url" href="https://github.com/dekart-xyz/geosql" target="_blank" rel="noopener">↗ Open link</a></div>
       </div>
     </div>
   </div>
 
   <div class="slide" data-i="12">
+    <div class="content-card">
+      <div class="card-left">
+        <div class="author-block">
+          <div class="build-icon">🛠️</div>
+          <div class="author-text">
+            <div class="author-name">OpenAI's coding eval methodology</div>
+            <div class="author-role">OpenAI blog, via Hacker News (222 pts)</div>
+          </div>
+        </div>
+        <p class="hook-text">A framework for separating real signal from noise when benchmarking coding models.</p>
+        <div class="card-index">12</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">Try this</div>
+          <p class="for-you-text">Before you commit the agency's stack to Grok 4.5 or SWE-1.7 based on marketing claims, use this methodology to build your own 3-task eval against real client work, cheap insurance before switching vendors.</p>
+        </div>
+        <div class="url-row"><a class="source-url" href="https://openai.com/index/separating-signal-from-noise-coding-evaluations/" target="_blank" rel="noopener">↗ Open link</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="13">
     <div class="section-card" style="--sec-color:#7C3AED;--sec-bg:#F5F3FF;--sec-border:#DDD6FE">
       <div class="section-card__inner">
         <div class="section-emoji">🎙️</div>
@@ -956,52 +1155,18 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="13">
+  <div class="slide" data-i="14">
     <div class="content-card podcast-layout">
       <div class="card-left podcast-left">
         <div class="podcast-show">AI &amp; I by Every</div>
         <h2 class="podcast-episode">How a Writer Uses AI Without Losing His Voice</h2>
         <div class="takeaway-box">
           <span class="takeaway-label">Takeaway</span>
-          <p class="takeaway-text">Craig Mod rebuilt a $7K/year SaaS tool himself with AI for $150, proving custom tools now beat off-the-shelf software.</p>
+          <p class="takeaway-text">Craig Mod replaced a $7K/year SaaS tool with a $150 AI-built custom one, and draws a hard line at using AI to actually write.</p>
         </div>
         
         <a class="yt-thumb-link" href="https://youtube.com/watch?v=7ND0lQmLJlA" target="_blank" rel="noopener">
           <img class="yt-thumb" src="https://img.youtube.com/vi/7ND0lQmLJlA/hqdefault.jpg" alt="Episode thumbnail">
-          <div class="yt-play"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
-        <div class="card-index">13</div>
-      </div>
-      <div class="card-right">
-        
-        <div class="right-section">
-          <div class="section-label">Key points</div>
-          <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Replaced Campaign Monitor entirely with a self-built newsletter tool</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Calls this the start of a 'golden age of tool building' for non-engineers</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Draws a hard line: uses AI to build tools, never to write his actual prose</span></li></ul>
-        </div>
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">This is a ready-made case study to pitch PT SMB owners: show them the $7K to $150 number directly, it makes the agency's value concrete instead of abstract.</p>
-        </div>
-        <div class="url-row"><a class="source-url" href="https://youtube.com/watch?v=7ND0lQmLJlA" target="_blank" rel="noopener">↗ Watch/listen</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="14">
-    <div class="content-card podcast-layout">
-      <div class="card-left podcast-left">
-        <div class="podcast-show">Latent Space</div>
-        <h2 class="podcast-episode">The 100,000 Sandbox Problem, Akshat Bubna, Modal CTO</h2>
-        <div class="takeaway-box">
-          <span class="takeaway-label">Takeaway</span>
-          <p class="takeaway-text">Modal shifted from developer experience to agent experience because agents need fundamentally different infra than humans do.</p>
-        </div>
-        
-        <a class="yt-thumb-link" href="https://youtube.com/watch?v=UwxxlTNPjWo" target="_blank" rel="noopener">
-          <img class="yt-thumb" src="https://img.youtube.com/vi/UwxxlTNPjWo/hqdefault.jpg" alt="Episode thumbnail">
           <div class="yt-play"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
         </a>
         <div class="card-index">14</div>
@@ -1011,20 +1176,54 @@ html, body {
         <div class="right-section">
           <div class="section-label">Key points</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Kubernetes wasn't designed for the bursty, GPU-heavy workloads agents create</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>RL training rollouts can require <strong>100,000 concurrent sandboxes</strong></span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Observability now matters more than reading agent-written code directly</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Rebuilt his newsletter sending infrastructure and Quicken-style tax tool himself with AI assistance</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Built 'The Good Place', a private Twitter alternative just for his newsletter members</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Keeps a tech-free zone in the mornings for deep thinking, resists 'mainlining' AI into every task</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">No direct action here, filed for awareness, this is infra-layer scale far beyond agency or micro-SaaS needs right now.</p>
+          <p class="for-you-text">The cost-replacement story ($7K to $150) is a ready-made case study to pitch PT SMBs who are paying for bloated SaaS subscriptions they don't need, position the agency as the team that builds the $150 version.</p>
+        </div>
+        <div class="url-row"><a class="source-url" href="https://youtube.com/watch?v=7ND0lQmLJlA" target="_blank" rel="noopener">↗ Watch/listen</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="15">
+    <div class="content-card podcast-layout">
+      <div class="card-left podcast-left">
+        <div class="podcast-show">Latent Space</div>
+        <h2 class="podcast-episode">The 100,000 Sandbox Problem, Akshat Bubna, Modal CTO</h2>
+        <div class="takeaway-box">
+          <span class="takeaway-label">Takeaway</span>
+          <p class="takeaway-text">Modal is shifting from developer experience to agent experience, because production agents need hard guardrails and massive burst compute, not just good APIs.</p>
+        </div>
+        
+        <a class="yt-thumb-link" href="https://youtube.com/watch?v=UwxxlTNPjWo" target="_blank" rel="noopener">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/UwxxlTNPjWo/hqdefault.jpg" alt="Episode thumbnail">
+          <div class="yt-play"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
+        </a>
+        <div class="card-index">15</div>
+      </div>
+      <div class="card-right">
+        
+        <div class="right-section">
+          <div class="section-label">Key points</div>
+          <ul class="insight-list">
+    <li class="insight-item"><span class="insight-dot">◆</span><span>RL rollouts can require 100,000 sandboxes running simultaneously</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Kubernetes wasn't designed for bursty, compute-heavy agent workloads</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Observability now matters more than reading the code agents produce</span></li></ul>
+        </div>
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness, this is infra-scale territory well beyond a solo agency's needs right now, but the observability-over-code-review point is worth remembering as your own agent workflows grow.</p>
         </div>
         <div class="url-row"><a class="source-url" href="https://youtube.com/watch?v=UwxxlTNPjWo" target="_blank" rel="noopener">↗ Watch/listen</a></div>
       </div>
     </div>
   </div>
 
-  <div class="slide" data-i="15">
+  <div class="slide" data-i="16">
     <div class="section-card" style="--sec-color:#7C3AED;--sec-bg:#F5F3FF;--sec-border:#DDD6FE">
       <div class="section-card__inner">
         <div class="section-emoji">⚙️</div>
@@ -1035,7 +1234,7 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="16">
+  <div class="slide" data-i="17">
     <div class="content-card">
       <div class="card-left">
         
@@ -1052,13 +1251,13 @@ html, body {
         </div>
         <p class="hook-text">Lovable reportedly in talks to double its valuation to $13.2B.</p>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="card-index">16</div>
+        <div class="card-index">17</div>
       </div>
       <div class="card-right">
         
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Direct proof of demand for what you're doing at agency scale, a Portuguese-market version of Lovable-style AI app building remains wide open.</p>
+          <p class="for-you-text">Lovable's rise validates the no-code/AI-builder market you're adjacent to with the agency, worth tracking what they ship next as a competitive reference point for SMB-facing tooling.</p>
         </div>
         
         <div class="url-row">
@@ -1067,7 +1266,7 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="17">
+  <div class="slide" data-i="18">
     <div class="content-card">
       <div class="card-left">
         
@@ -1082,15 +1281,15 @@ html, body {
             <div class="author-role">RSS source</div>
           </div>
         </div>
-        <p class="hook-text">Brown professor forced an in-person final after suspecting AI cheating, scores fell 50%.</p>
+        <p class="hook-text">Ivy League professor forced an in-person final after suspecting AI cheating, scores fell 50%.</p>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="card-index">17</div>
+        <div class="card-index">18</div>
       </div>
       <div class="card-right">
         
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Signals real anxiety among educators about AI reliance, relevant if the yoga platform ever adds certification or testing components.</p>
+          <p class="for-you-text">No direct action here, filed for awareness, useful signal for the yoga/education platform though, if you ever build graded content, assume AI-assisted completion is the default, not the exception.</p>
         </div>
         
         <div class="url-row">
@@ -1099,7 +1298,7 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="18">
+  <div class="slide" data-i="19">
     <div class="content-card">
       <div class="card-left">
         
@@ -1116,7 +1315,39 @@ html, body {
         </div>
         <p class="hook-text">Meta reportedly building smart glasses that record all the time.</p>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="card-index">18</div>
+        <div class="card-index">19</div>
+      </div>
+      <div class="card-right">
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness, but worth watching for privacy-sensitive verticals if the agency ever pitches retail or hospitality clients on ambient AI capture use cases.</p>
+        </div>
+        
+        <div class="url-row">
+    <a class="source-url" href="https://www.theverge.com/tech/963138/meta-smart-glasses-recording-super-sensing-ai" target="_blank" rel="noopener">↗ www.theverge.com/tech/963138/meta-smart-gl</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="20">
+    <div class="content-card">
+      <div class="card-left">
+        
+    <div class="card-video" data-yt-id="qxr9xu4k1Zw">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/qxr9xu4k1Zw" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://techcrunch.com/wp-content/uploads/2026/03/waymo-london-getty.jpg?resize=1200,800" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">TechCrunch</div>
+            <div class="author-role">RSS source</div>
+          </div>
+        </div>
+        <p class="hook-text">Feds demand autonomous vehicle companies stop interfering with first responders.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">20</div>
       </div>
       <div class="card-right">
         
@@ -1126,12 +1357,44 @@ html, body {
         </div>
         
         <div class="url-row">
-    <a class="source-url" href="https://www.theverge.com/tech/963138/meta-smart-glasses-recording-super-sensing-ai" target="_blank" rel="noopener">↗ www.theverge.com/tech/963138/meta-smart-gl</a></div>
+    <a class="source-url" href="https://techcrunch.com/2026/07/08/feds-demand-autonomous-vehicle-companies-stop-interfering-with-first-responders/" target="_blank" rel="noopener">↗ techcrunch.com/2026/07/08/feds-demand-auto</a></div>
       </div>
     </div>
   </div>
 
-  <div class="slide" data-i="19">
+  <div class="slide" data-i="21">
+    <div class="content-card">
+      <div class="card-left">
+        
+    <div class="card-video" data-yt-id="n81gsfVlMr0">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/n81gsfVlMr0" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://techcrunch.com/wp-content/uploads/2023/05/google-io-2023-watermarking.jpg?resize=1200,675" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">TechCrunch</div>
+            <div class="author-role">RSS source</div>
+          </div>
+        </div>
+        <p class="hook-text">Google's deepfake detector system used to debunk a viral McConnell hoax photo.</p>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="card-index">21</div>
+      </div>
+      <div class="card-right">
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Good proof point if a client ever asks whether AI-generated marketing images carry reputational risk, deepfake detection is now mainstream and fast enough to catch fakes within a news cycle.</p>
+        </div>
+        
+        <div class="url-row">
+    <a class="source-url" href="https://techcrunch.com/2026/07/08/googles-deepfake-detector-system-used-to-debunk-mcconnell-hoax-pic/" target="_blank" rel="noopener">↗ techcrunch.com/2026/07/08/googles-deepfake</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="22">
     <div class="section-card" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
       <div class="section-card__inner">
         <div class="section-emoji">🇵🇹</div>
@@ -1142,47 +1405,115 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="20">
+  <div class="slide" data-i="23">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://eco.imgix.net/uploads/2025/08/cropped-abstract-microchip-conventional-technologies-new-microprocessor-memory-chips-central-processor-electronic-board-abstract-microelectronics-technology-concept-3d-render.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="A startup rival da Nvidia anuncia expansão massiva de data centers de IA na Europa." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://eco.imgix.net/uploads/2026/06/cropped-6p1a2880.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="Portugal recebeu 29,9 milhões de turistas em 2025, um ritmo mais lento que os 9,3% de 2024." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">ECO</div>
-        <h2 class="news-headline">Cerebras vai investir milhares de milhões de euros na Europa</h2>
-        <p class="hook-text news-hook">A startup rival da Nvidia anuncia expansão massiva de data centers de IA na Europa.</p>
-        <div class="card-index">20</div>
+        <h2 class="news-headline">Turismo em Portugal abranda, mas ainda cresce 3,3% em 2025</h2>
+        <p class="hook-text news-hook">Portugal recebeu 29,9 milhões de turistas em 2025, um ritmo mais lento que os 9,3% de 2024.</p>
+        <div class="card-index">23</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Mais capacidade computacional europeia pode baratear inference para quem construir produtos de IA em Portugal a médio prazo.</p>
+          <p class="for-you-text">Turismo continua a ser o setor mais óbvio para ferramentas de IA em PT (gestão de reservas, apoio ao cliente multilingue), a desaceleração é um sinal para focar em eficiência, não só crescimento, ao pitchar SMBs do setor.</p>
         </div>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="url-row"><a class="source-url" href="https://eco.sapo.pt/2026/07/09/startup-americana-cerebras-vai-investir-milhares-de-milhoes-de-euros-na-europa/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://eco.sapo.pt/2026/07/09/turismo-abrandou-em-2025-portugal-visitado-por-299-milhoes-de-turistas/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
 
-  <div class="slide" data-i="21">
+  <div class="slide" data-i="24">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/07/Apple-Justica-EU.jpg" alt="Apple perde recurso, mantém-se obrigada a cumprir regras de concorrência da UE." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/07/Apple-Justica-EU.jpg" alt="O Tribunal Geral do Luxemburgo rejeitou os três recursos da Apple contra a designação de gatekeeper." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">Tribunal da UE confirma que App Store e iOS seguem regras do DMA</h2>
-        <p class="hook-text news-hook">Apple perde recurso, mantém-se obrigada a cumprir regras de concorrência da UE.</p>
-        <div class="card-index">21</div>
+        <h2 class="news-headline">Tribunal da UE confirma Apple sujeita às regras do DMA</h2>
+        <p class="hook-text news-hook">O Tribunal Geral do Luxemburgo rejeitou os três recursos da Apple contra a designação de gatekeeper.</p>
+        <div class="card-index">24</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Reforça que distribuição via App Store continua sujeita a regras mais abertas na Europa, relevante se a plataforma de yoga vier a lançar app iOS.</p>
+          <p class="for-you-text">Reforça que apps e lojas de apps na UE vão continuar sob pressão regulatória, relevante se algum micro-SaaS futuro depender de distribuição via App Store.</p>
         </div>
-        <span class="signal-badge signal-blue">💡 Learn</span>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
         <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/negocios/artigos/tribunal-da-ue-rejeita-recurso-da-apple-e-confirma-que-app-store-e-o-ios-continuam-sujeitos-as-regras-do-dma/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
 
-  <div class="slide" data-i="22">
+  <div class="slide" data-i="25">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        
+    <div class="card-video" data-yt-id="4qx2xLGsITo">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/4qx2xLGsITo" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://cdn.teknoticias.pt/uploads/e6b32d1c3eaff434c00ce4da685a004fdf562f54-scaled.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">Sapo Tek</div>
+        <h2 class="news-headline">Google: backups do Android passam a contar para espaço da conta</h2>
+        <p class="hook-text news-hook">A partir de 7 de julho, SMS e definições do dispositivo ocupam os 15 GB gratuitos da conta Google.</p>
+        <div class="card-index">25</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness.</p>
+        </div>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/mobile/android/artigos/google-backups-do-android-passam-a-contar-para-o-espaco-da-sua-conta-google-a-partir-de-hoje/" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="26">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://eco.imgix.net/uploads/2026/06/cropped-42585605-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="Regulador passa a ter dez dias para se opor a campanhas de produtos de investimento complexos." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">ECO</div>
+        <h2 class="news-headline">Publicidade a PPR já não precisa de autorização prévia</h2>
+        <p class="hook-text news-hook">Regulador passa a ter dez dias para se opor a campanhas de produtos de investimento complexos.</p>
+        <div class="card-index">26</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Se algum cliente da agência for do setor financeiro ou de seguros, este é um processo mais rápido para lançar campanhas de marketing, vale a pena mencionar em conversas com esse tipo de SMB.</p>
+        </div>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="url-row"><a class="source-url" href="https://eco.sapo.pt/2026/07/09/publicidade-a-ppr-ja-nao-precisa-de-autorizacao-previa-regulador-tem-dez-dias-para-se-opor-nos-produtos-complexos/" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="27">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        
+    <div class="card-video" data-yt-id="mKylJdp63q0">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/mKylJdp63q0" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://cdn.jornaldenegocios.pt/images/2026-07/img_1200x676uu2026-07-09-10-23-04-526296.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">Jornal de Negócios</div>
+        <h2 class="news-headline">Bazalto quer simplificar investimento imobiliário em Portugal</h2>
+        <p class="hook-text news-hook">Dois advogados criaram a Bazalto para integrar todo o processo de investimento imobiliário numa plataforma.</p>
+        <div class="card-index">27</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Exemplo direto de um micro-SaaS vertical nascido em Portugal, vale a pena estudar o modelo de negócio deles como referência para a tua própria ideia de micro-SaaS.</p>
+        </div>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
+        <div class="url-row"><a class="source-url" href="https://www.jornaldenegocios.pt/economia/justica/lex/detalhe/nao-e-por-se-alterarem-duas-ou-tres-leis-que-as-casas-vao-nascer-como-cogumelos" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="28">
     <div class="section-card" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
       <div class="section-card__inner">
         <div class="section-emoji">🌍</div>
@@ -1193,7 +1524,7 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="23">
+  <div class="slide" data-i="29">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
         
@@ -1202,14 +1533,14 @@ html, body {
       <a class="card-video-open" href="https://youtube.com/shorts/DiWVAdmruqY" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
     </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/fc1c/live/94ebba30-7b76-11f1-9af8-1139253a4180.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">US and Iran trade strikes for second night after ceasefire collapse</h2>
-        <p class="hook-text news-hook">Trump declared the ceasefire 'over', traffic through the Strait of Hormuz has dropped sharply.</p>
-        <div class="card-index">23</div>
+        <h2 class="news-headline">US and Iran trade strikes for second night, ceasefire collapses</h2>
+        <p class="hook-text news-hook">Traffic through the Strait of Hormuz has dropped dramatically since the latest attacks began.</p>
+        <div class="card-index">29</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Watch oil price volatility, it already spiked 5.92% this week and could hit input costs for any physical-goods side of the yoga platform.</p>
+          <p class="for-you-text">No direct action here, filed for awareness.</p>
         </div>
         <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cz75zjj5wp8o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
@@ -1217,14 +1548,14 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="24">
+  <div class="slide" data-i="30">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20251028__82BH9CQ__v5__HighRes__SudanConflict-1783591578_65a04e-1783591961.jpg?resize=1200%2C630&amp;amp;quality=80" alt="UN Fact-Finding Mission confirms systematic mass killings and gang rapes in Darfur." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20251028__82BH9CQ__v5__HighRes__SudanConflict-1783591578_65a04e-1783591961.jpg?resize=1200%2C630&amp;amp;quality=80" alt="A UN fact-finding mission found systematic mass killings and gang rapes by paramilitary forces in Darfur." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">Al Jazeera</div>
         <h2 class="news-headline">UN probe finds Sudan's RSF killings amount to genocide</h2>
-        <p class="hook-text news-hook">UN Fact-Finding Mission confirms systematic mass killings and gang rapes in Darfur.</p>
-        <div class="card-index">24</div>
+        <p class="hook-text news-hook">A UN fact-finding mission found systematic mass killings and gang rapes by paramilitary forces in Darfur.</p>
+        <div class="card-index">30</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
@@ -1236,20 +1567,92 @@ html, body {
       </div>
     </div>
   </div>
+
+  <div class="slide" data-i="31">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        
+    <div class="card-video" data-yt-id="94b1T-857Kw">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/94b1T-857Kw" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://www.aljazeera.com/wp-content/uploads/2026/07/AFP__20260709__B9PQ3TE__v1__HighRes__IranUsIsraelWarFuneral-1783591100.jpg?resize=1920%2C1440" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">Al Jazeera</div>
+        <h2 class="news-headline">Iran prepares to bury slain leader Khamenei after mass funerals</h2>
+        <p class="hook-text news-hook">The late supreme leader will be buried in his hometown of Mashhad.</p>
+        <div class="card-index">31</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness.</p>
+        </div>
+        <span class="signal-badge signal-red">🔴 Urgent</span>
+        <div class="url-row"><a class="source-url" href="https://www.aljazeera.com/news/2026/7/9/iran-prepares-to-bury-slain-leader-khamenei-after-mass-funeral-ceremonies?traffic_source=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="32">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        
+    <div class="card-video" data-yt-id="szFsmDyI81U">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/szFsmDyI81U" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e675/live/2d7ced30-7b2e-11f1-8a1e-d1fe57c2b5bf.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">BBC World</div>
+        <h2 class="news-headline">Democrat Senate candidate Platner suspends campaign after assault claim</h2>
+        <p class="hook-text news-hook">The decision follows a sexual assault accusation he calls categorically false.</p>
+        <div class="card-index">32</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness.</p>
+        </div>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/c9v229434p2o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="33">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        
+    <div class="card-video" data-yt-id="IUs32vyOJIU">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/IUs32vyOJIU" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://i.guim.co.uk/img/media/20d778fb2769f5911f1d87e9581af1c62bd71648/0_0_5000_4000/master/5000.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=841de82a2ce0498cbe47f60acb25fb4c" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">The Guardian World</div>
+        <h2 class="news-headline">Catnip lotion repels mosquitoes as well as Deet, study finds</h2>
+        <p class="hook-text news-hook">Trials in Uganda show a cheap homegrown catnip oil matches synthetic repellent performance.</p>
+        <div class="card-index">33</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">No direct action here, filed for awareness.</p>
+        </div>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="url-row"><a class="source-url" href="https://www.theguardian.com/global-development/2026/jul/07/catnip-lotion-as-effective-as-deet-at-repelling-mosquitoes-study-finds" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
 </div>
 <div id="nav">
   <button class="nav-home" id="home" aria-label="Back to overview" title="Back to overview">⌂</button>
   <button class="nav-btn" id="prev" aria-label="Previous">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
   </button>
-  <div id="counter">1 / 25</div>
+  <div id="counter">1 / 34</div>
   <button class="nav-btn" id="next" aria-label="Next">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
   </button>
 </div>
 
 <script>
-const TOTAL = 25;
+const TOTAL = 34;
 let current = 0;
 const allSlides = () => [...document.querySelectorAll('.slide')];
 
