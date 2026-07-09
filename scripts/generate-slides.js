@@ -120,6 +120,8 @@ for (const sec of SECTIONS) {
       title: introTitle(item, sec.kind),
       summary: introSummary(item, sec.kind),
       thumb: introThumb(item, sec.kind),
+      source: introSource(item, sec.kind),
+      url: introUrl(item, sec.kind),
       signal: normalizeSignal(item.signal),
       slideIndex,
     });
@@ -136,10 +138,25 @@ function introTitle(item, kind) {
 }
 
 function introSummary(item, kind) {
-  if (kind === 'ai' || kind === 'tech') return (item.insights || [])[0] || '';
+  if (kind === 'ai' || kind === 'tech') return (item.insights || [])[0] || item.key_point || '';
   if (kind === 'build') return item.what_it_is || '';
   if (kind === 'podcast') return item.takeaway || (item.key_points || [])[0] || '';
   return item.hook || ''; // news — headline is the title, hook is the summary
+}
+
+// Who this item actually came from — shown on every overview card so the
+// source is visible without opening the deck.
+function introSource(item, kind) {
+  if (kind === 'ai' || kind === 'tech') return item.name || (item.handle ? `@${item.handle}` : '');
+  if (kind === 'build') return item.source || '';
+  if (kind === 'podcast') return item.show || '';
+  return item.source_name || ''; // news
+}
+
+// The single original URL to link out to, per item kind.
+function introUrl(item, kind) {
+  if (kind === 'ai' || kind === 'tech') return (item.urls || [])[0] || '';
+  return item.url || '';
 }
 
 // Thumbnail priority is the same for every kind: a matched Short beats a
@@ -245,15 +262,22 @@ function renderIntroItem(e) {
 
   const cls = { '🔴': 'signal-red', '🟡': 'signal-yellow', '🟢': 'signal-green', '💡': 'signal-blue' }[e.signal] || 'signal-yellow';
 
+  const sourceLink = e.url
+    ? `<a class="intro-item-source" href="${esc(e.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ ${esc(e.source || 'Source')}</a>`
+    : (e.source ? `<span class="intro-item-source intro-item-source-plain">${esc(e.source)}</span>` : '');
+
   return `
-    <button class="intro-item" data-goto="${e.slideIndex}">
-      <span class="intro-thumb-wrap"><span class="intro-signal-dot ${cls}"></span>${thumbHTML}</span>
-      <span class="intro-item-text">
-        <span class="intro-item-title">${richText(e.title)}</span>
-        ${e.summary ? `<span class="intro-item-summary">${richText(e.summary)}</span>` : ''}
-      </span>
-      <span class="intro-item-arrow">→</span>
-    </button>`;
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="${e.slideIndex}">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot ${cls}"></span>${thumbHTML}</span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">${richText(e.title)}</span>
+          ${e.summary ? `<span class="intro-item-summary">${richText(e.summary)}</span>` : ''}
+          ${sourceLink}
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>`;
 }
 
 // ── Section divider slide ────────────────────────────────────────────
@@ -557,25 +581,29 @@ html, body {
   padding-bottom: 10px; border-bottom: 1px solid var(--border-soft); margin-bottom: 2px;
 }
 .intro-item {
-  display: flex; align-items: center; gap: 16px;
-  width: 100%; text-align: left; background: var(--surface); cursor: pointer;
-  padding: 14px; border-radius: 14px;
+  background: var(--surface); border-radius: 16px;
   border: 1px solid var(--border-soft);
-  font-family: inherit; color: var(--text);
   transition: background 0.15s, border-color 0.15s, transform 0.15s;
 }
 .intro-item:hover { background: var(--subtle); border-color: var(--border); transform: translateY(-1px); }
 
+.intro-item-body {
+  display: flex; align-items: center; gap: 18px;
+  width: 100%; text-align: left; background: none; cursor: pointer;
+  padding: 18px; border: none;
+  font-family: inherit; color: var(--text);
+}
+
 .intro-thumb-wrap { position: relative; flex-shrink: 0; }
 .intro-thumb {
-  width: 76px; height: 76px; border-radius: 12px; object-fit: cover;
+  width: 88px; height: 88px; border-radius: 12px; object-fit: cover;
   border: 1px solid var(--border); display: block; background: var(--subtle);
 }
 .intro-thumb-round { border-radius: 50%; }
 .intro-thumb-fallback {
-  width: 76px; height: 76px; border-radius: 12px;
+  width: 88px; height: 88px; border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  background: var(--subtle); border: 1px solid var(--border); font-size: 30px;
+  background: var(--subtle); border: 1px solid var(--border); font-size: 34px;
 }
 .intro-signal-dot {
   position: absolute; top: -4px; right: -4px;
@@ -583,11 +611,19 @@ html, body {
   border: 3px solid var(--surface);
 }
 
-.intro-item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
-.intro-item-title { font-size: 15px; font-weight: 600; line-height: 1.35; }
-.intro-item-summary { font-size: 13px; line-height: 1.55; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.intro-item-arrow { font-size: 16px; color: var(--muted); opacity: 0; transition: opacity 0.15s; flex-shrink: 0; }
+.intro-item-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.intro-item-title { font-size: 17px; font-weight: 600; line-height: 1.4; }
+.intro-item-summary { font-size: 14px; line-height: 1.6; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.intro-item-arrow { font-size: 18px; color: var(--muted); opacity: 0; transition: opacity 0.15s; flex-shrink: 0; }
 .intro-item:hover .intro-item-arrow { opacity: 1; }
+
+.intro-item-source {
+  align-self: flex-start; font-family: 'DM Mono', monospace; font-size: 11px;
+  color: var(--x-color); text-decoration: none; margin-top: 2px;
+  padding: 2px 0;
+}
+.intro-item-source:hover { text-decoration: underline; }
+.intro-item-source-plain { color: var(--muted); cursor: default; }
 
 .intro-start {
   font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em;

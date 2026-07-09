@@ -364,7 +364,8 @@ OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
       "name": "Person or source name",
       "role": "Title · Company or RSS source",
       "hook": "One punchy sentence, max 15 words.",
-      "for_you": "1 sentence max — this is a thin strip, not a deep dive.",
+      "key_point": "One concrete supporting fact or detail, not vibes.",
+      "for_you": "1 sentence, specific to Pedro building/selling AI products.",
       "signal": "exactly one emoji, no label text: 🔴 or 🟡 or 🟢 or 💡",
       "urls": ["url1"]
     }
@@ -382,7 +383,7 @@ RULES:
 - Include only sections that have actual content. Omit empty arrays entirely.
 - ai: this is the CORE section, be generous here — 5 to 8 entries when the sources support it. Prioritize actual news (model releases, technique breakthroughs, notable launches) over generic takes. One X builder's best tweet = one entry; do not create an entry for a builder whose tweets are trivial today, skip them instead of padding.
 - build_this: pick 2-3 the MOST concretely actionable items from the BUILD_THIS_CANDIDATES section — favor things Pedro could actually try or ship from this week, not just interesting reads. If nothing is genuinely actionable, return an empty array rather than forcing it.
-- tech, pt_news, world_news: 2-4 items max each. Keep these thin and scannable, this is a strip not a section.
+- tech, pt_news, world_news: exactly 5 items each (fewer only if the sources genuinely don't have 5 distinct stories today). Pick the 5 most important/relevant. Still scannable, but each item should carry a real supporting detail, not just a headline.
 - Never repeat a story already in ALREADY COVERED unless it has genuinely developed — then say what's new in for_you, and consider using since_yesterday.
 - Deduplicate the same underlying story across multiple sources — pick the best single version, cite the best source.
 - hook/insights: punchy, present tense, no jargon, no "X announced that Y" — write "X does Y".
