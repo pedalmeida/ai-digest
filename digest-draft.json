@@ -1,36 +1,17 @@
 {
-  "date": "Saturday, 18 July 2026",
+  "date": "Sunday, 19 July 2026",
   "ai": [
     {
-      "name": "Moonshot AI",
-      "role": "Company · Kimi K3",
-      "hook": "Kimi K3 lands as the largest open model ever, matching closed frontier models on coding.",
+      "name": "Kimi K3 (Moonshot AI)",
+      "role": "RSS · AINews / Interconnects / Latent Space",
+      "hook": "Chinese open model K3 is now being ranked as genuinely near-frontier, not just cheap.",
       "insights": [
-        "**2.8T parameters** total, **1M-token context**, native multimodal input",
-        "New **Kimi Delta Attention** gives **6.3x faster decoding**, ~25% more training efficiency",
-        "Leads **Frontend Code Arena** with 76% win rate, beating Claude Fable 5 and GPT-5.6 Sol on that benchmark; open weights promised **July 27**"
+        "**2.8T params**, 1M-token context, native multimodal input, open weights promised by **July 27**",
+        "**Kimi Delta Attention** gives **6.3x faster decoding**, plus ~25% training efficiency gain",
+        "Leads **Frontend Code Arena** with a 76% pairwise win rate, above Claude Fable 5 and GPT-5.6 Sol on some benchmarks"
       ],
-      "for_you": "Once weights drop July 27, this is a candidate to self-host cheaply for the agency's coding/agentic client work instead of paying per-token for closed APIs, worth a test week when it lands.",
-      "why_it_made_the_cut": "Biggest, most-covered story across every source today, real frontier shift not hype",
-      "signal": "🟡",
-      "urls": [
-        "https://news.smol.ai/issues/26-07-16-kimi-k30/",
-        "https://simonwillison.net/2026/Jul/17/kimi-k3/#atom-everything"
-      ],
-      "handle": "",
-      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**Moonshot+AI**+launched+**Kimi+K3**%2C+a+frontier-class+open-weights+model+with+**2.8T+parameters**%2C+**1M-token+context+window**%2C+and+**native+multimodal+input**.+It+features+novel+**Kimi+Delta+Attention+%28KDA%29**+enabling+up+to+**6.3x+faster+decoding**+and+**Attention+Residuals**+for+**%7E25%25+higher+training+efficiency**.+K3+is+live+on+multiple+platforms+with+open+weights+promised+by+**July+27%2C+2026**.+It+leads+in+**Frontend+Code+Arena**+with+a+**76%25+pairwise+win+rate**%2C+ranking+above+**Claude+Fable+5**+and+**GPT-5.6+Sol**+in+several+benchmarks%2C+though+still+behind+these+models+in+overall+user+experience.+Independent+evaluations+place+K3+comparable+to+**Opus+4.8**+and+**GPT-5.5**+but+behind+Fable+5+and+GPT-5.6+Sol.+The+launch+is+seen+as+a+major+open-model+milestone.&type=issue&issueNumber=07&date=2026-07-16T05%3A44%3A39.731Z&companies=moonshot-ai%2Carena%2Cartificial-analysis&models=kimi-k3"
-    },
-    {
-      "name": "Nathan Lambert",
-      "role": "Interconnects (newsletter)",
-      "hook": "Calls this the most serious test yet of whether open source AI can stay near the frontier.",
-      "insights": [
-        "Chinese labs (Moonshot, Zhipu's GLM-5.2) now trade blows with closed US frontier models on real benchmarks",
-        "Strategic race has shifted from raw compute to an **'efficiency stack'**: MoE routing, quantization, data curation",
-        "GLM-5.2 specifically marked as a step-change for open agentic capability, not just a chat model"
-      ],
-      "for_you": "This is the trend that determines whether your agency can build client solutions on cheap/free open models within 12 months instead of being locked into OpenAI/Anthropic pricing, worth tracking monthly, not daily.",
-      "why_it_made_the_cut": "Best framing of the open-vs-closed story that's dominated the week",
+      "for_you": "Once open weights drop July 27, this is a serious candidate for a self-hosted coding/agent backend for the agency, cheaper than API calls to closed models for high-volume PT SMB client work.",
+      "why_it_made_the_cut": "Most-covered story across 4+ sources this week, but today's angle (strategic reassessment) is new",
       "signal": "🟡",
       "urls": [
         "https://www.interconnects.ai/p/6-months-to-live-for-open-models"
@@ -39,52 +20,34 @@
       "image": "https://substackcdn.com/image/fetch/$s_!UW3o!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e40ce14-a532-4db6-a855-caee778250f7_3182x1790.png"
     },
     {
-      "name": "Thinking Machines Lab",
-      "role": "Company · Inkling model",
-      "hook": "Ships Inkling, its first open-weights model, undercutting closed rivals on cost with 975B params.",
+      "name": "Interconnects: 6 months to live for open models",
+      "role": "Newsletter · Nathan Lambert",
+      "hook": "Open-weight AI is facing its most serious viability test right now, not hypothetically.",
       "insights": [
-        "**41B active parameters** (MoE), Apache 2.0 licensed, up to 1M context",
-        "Full ecosystem support day one: Tinker, Hugging Face, vLLM, SGLang, Modal, Baseten, Databricks",
-        "Team includes Mira Murati and Soumith Chintala, signals serious long-term open commitment not a one-off"
+        "Strategic shift from **compute moat** to **efficiency stack**: MoE routing, quantization, data curation",
+        "Moonshot's **Mooncake infrastructure** treats scarcity (limited GPUs) as a design constraint, not a blocker",
+        "**GLM-5.2** already marked a capability threshold; Kimi K3 and Inkling push further this same week"
       ],
-      "for_you": "No direct action here yet, filed for awareness, but Apache 2.0 licensing means it's legally cleanest to embed in a commercial product if you ever build a micro-SaaS on top of an open model.",
-      "why_it_made_the_cut": "Second major open-weight release of the week, distinct from Kimi K3",
-      "signal": "🟢",
-      "urls": [
-        "https://www.latent.space/p/ainews-thinkys-inkling-975b-a41b"
-      ],
-      "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!AvrX!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F90048da3-a87f-44d8-8ad4-e954031d2721_2540x1692.png"
-    },
-    {
-      "name": "OpenAI",
-      "role": "Company · Codex / ChatGPT",
-      "hook": "Agent products grow 2.5x weekly, Codex now added by JetBrains as a recommended agent.",
-      "insights": [
-        "Growth driven by **Codex + ChatGPT Work** combo and demand for GPT-5.6 Sol",
-        "LangChain improved tracing/observability across tools to keep pace",
-        "PrismML's **Bonsai 27B** and Tencent's quantized Hy3 295B now let similar agentic workflows run on a single GPU or phone"
-      ],
-      "for_you": "Client-facing agentic coding tools are becoming table stakes fast, if the agency pitches automation to PT SMBs, worth demoing Codex directly instead of a generic chatbot wrapper.",
-      "why_it_made_the_cut": "Concrete adoption numbers, not speculation",
+      "for_you": "If open models keep closing the gap, your agency's cost structure for PT SMB clients shifts fast, budget an experiment running one client workflow entirely on an open model this quarter instead of GPT/Claude API.",
+      "why_it_made_the_cut": "Best synthesis piece connecting this week's scattered model releases into one strategic thesis",
       "signal": "🟡",
       "urls": [
-        "https://news.smol.ai/issues/26-07-14-not-much/"
+        "https://www.interconnects.ai/p/6-months-to-live-for-open-models"
       ],
       "handle": "",
-      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**OpenAI%27s+agent+products**+saw+a+**2.5x+weekly+usage+growth**+driven+by+**Codex+%2B+ChatGPT+Work**+and+demand+for+**GPT-5.6+Sol**.+JetBrains+adopted+Codex+as+a+recommended+agent%2C+while+LangChain+enhanced+tracing+and+observability+across+multiple+tools.+**PrismML+released+Bonsai+27B**%2C+a+compressed+variant+of+**Qwen+3.6+27B**+enabling+local+multimodal+agentic+workflows+on+consumer+devices.+Tencent+Hunyuan+introduced+1-bit+and+4-bit+quantized+**Hy3+295B**+model+deployable+on+a+single+GPU.+Quantization+advances+like+**NVFP4+dynamic+quants**+for+**Gemma-4**+and+others+support+serious+local+inference.+OpenMOSS+launched+**MOSS-VL-Realtime+11B**+for+continuous+video+stream+perception+with+a+**256K+context+window**.+*%22Harness+quality+and+observability+are+becoming+a+first-class+differentiator%22*+and+local+inference+is+now+viable+for+agentic+workflows.&type=issue&issueNumber=07&date=2026-07-14T05%3A44%3A39.731Z&companies=openai%2Cjetbrains%2Clangchain%2Cprismml%2Ctencent-hunyuan%2Cmiaai_lab%2Copenmoss&models=gpt-5.6%2Ccodex%2Cbonsai-27b%2Cqwen-3.6-27b%2Chy3-295b%2Cgemma-4%2Cqwen3.5-122b-a10b%2Cglm-4.7-flash%2Cdeepseek-v4-flash%2Cmimo-v2.5%2Cglm-5.2-nvfp4%2Cmoss-vl-realtime"
+      "image": "https://substackcdn.com/image/fetch/$s_!UW3o!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e40ce14-a532-4db6-a855-caee778250f7_3182x1790.png"
     },
     {
       "name": "Craig Mod",
-      "role": "Writer · AI & I podcast (Every)",
-      "hook": "Rebuilt his own newsletter tool with AI, cutting a $7,000/year bill to $150.",
+      "role": "Writer · AI & I by Every",
+      "hook": "Rebuilt his own newsletter tool with AI, cutting a $7,000/year vendor bill to $150.",
       "insights": [
-        "Replaced Campaign Monitor entirely by vibe-coding his own sending infrastructure",
-        "Argues we're entering a **'golden age of tool building'** where anyone builds tools fit to their exact workflow",
-        "Draws a hard line: uses AI to build tools, refuses to use it to actually write his prose"
+        "Replaced Campaign Monitor entirely by building his own send tool",
+        "Calls this the start of a **'golden age of tool building'**, bespoke software beating slow incumbents",
+        "Still refuses to let AI write his prose, uses it only as a research assistant and builder"
       ],
-      "for_you": "This is the exact pitch for your micro-SaaS instinct, small PT businesses paying recurring fees for generic SaaS (invoicing, CRM, email) are prime candidates for a cheap custom-built replacement, look for one client with an expensive recurring tool this week.",
-      "why_it_made_the_cut": "Most concretely actionable builder story today, real dollar figure",
+      "for_you": "This is the exact pitch you should be making to PT SMBs: not 'add AI chatbot' but 'replace this €X/month SaaS subscription with a small custom tool.' Concrete, priced, sellable.",
+      "why_it_made_the_cut": "Most directly applicable founder story to Pedro's agency pitch this week",
       "signal": "🟢",
       "urls": [
         "https://youtube.com/watch?v=7ND0lQmLJlA"
@@ -92,255 +55,256 @@
       "handle": ""
     },
     {
-      "name": "Simon Willison",
-      "role": "Independent · Blog",
-      "hook": "Claude Fable 5 becomes permanent, folded into Max/Team plans at 50% of usage limits starting July 20.",
+      "name": "Andrej Karpathy",
+      "role": "Podcast · No Priors",
+      "hook": "Says there are things you literally can't say inside a frontier AI lab.",
       "insights": [
-        "Pro/Team Standard users get a one-time $100 credit instead of full access",
-        "Willison frames this as Anthropic responding directly to competitive pressure from OpenAI's Codex push"
+        "Describes structural pressure inside labs to say what the organization wants, not what's true",
+        "Frames this as the unresolved founding tension of OpenAI itself"
       ],
-      "for_you": "If you're on Claude Pro for agency work, check your plan tier before July 20, the usage limit change could affect how much client work you can run through it monthly.",
-      "why_it_made_the_cut": "Direct pricing/access change affecting any Claude subscriber",
+      "for_you": "No direct build action, filed for awareness on how much lab narratives (safety, capability claims) are shaped by internal incentives rather than neutral fact, useful skepticism when reading model release hype.",
+      "why_it_made_the_cut": "Already surfaced Friday, repeated today but no new development, kept brief for continuity",
+      "signal": "💡",
+      "urls": [
+        "https://youtube.com/watch?v=rwutaYGLIso"
+      ],
+      "handle": ""
+    },
+    {
+      "name": "Lila Sciences (Andy Beam & Rafa Gómez-Bombarelli)",
+      "role": "Podcast · Latent Space",
+      "hook": "The wet lab becomes the verifier, turning science itself into reinforcement learning.",
+      "insights": [
+        "One general model trained on ~10 trillion experimentally-verified tokens beats domain-specific models, **'breadth gives us depth'**",
+        "CAR-T candidate designed in six months by two or three people, the **'zero-FTE startup'** model",
+        "**'Monster UTRs'** hit ~10x Moderna/Pfizer mRNA expression levels"
+      ],
+      "for_you": "No direct action for the agency, filed as a signal that RL-with-verifiable-rewards is expanding beyond code into any domain with a measurable feedback loop, worth remembering if a future SaaS idea has a clear success metric to verify against.",
+      "why_it_made_the_cut": "Most technically substantive podcast this week, novel framing (lab as data center)",
+      "signal": "💡",
+      "urls": [
+        "https://youtube.com/watch?v=2wIxPWK6nCs"
+      ],
+      "handle": "",
+      "video": {
+        "id": "EIXKktE3PJM",
+        "title": "Learning about static electricity during science camp ⚡️#science #scienceexperiment #college"
+      }
+    },
+    {
+      "name": "Claude Fable 5 goes permanent",
+      "role": "RSS · Simon Willison's Blog",
+      "hook": "Anthropic folds its best model into standard plans starting July 20, at 50% usage limits.",
+      "insights": [
+        "Pro and Team Standard users get a one-time **$100 credit** instead of full access",
+        "Simon Willison frames this as direct competitive response to GPT-5.6 Sol pressure"
+      ],
+      "for_you": "If you're on Claude Pro for agency prototyping, expect tighter usage caps starting tomorrow, worth checking your current plan's limits before a client deadline.",
+      "why_it_made_the_cut": "Concrete date-specific change affecting Pedro's own tool usage this week",
       "signal": "🟡",
       "urls": [
         "https://simonwillison.net/2026/Jul/18/claude-make-fable-5-permanent/#atom-everything"
       ],
-      "handle": "@simonw"
+      "handle": ""
     }
   ],
   "build_this": [
     {
-      "name": "LLM cliché highlighter",
-      "source": "Simon Willison's Blog",
-      "what_it_is": "A small web tool that highlights common LLM-writing clichés (\"no fluff, no filler\") in any text, vibe-coded in an afternoon with Fable 5.",
-      "why_try_it": "This is a perfect one-day build to show a PT SMB client what 'AI-assisted tool building' looks like in practice, clone the pattern (small, single-purpose, useful) as a portfolio piece or lead magnet for the agency this week.",
-      "url": "https://tools.simonwillison.net/llm-cliche-highlighter"
+      "name": "Claude Code controlling a spare Mac",
+      "source": "Hacker News, 227 pts",
+      "what_it_is": "Step-by-step guide to let Claude Code fully control a separate Mac machine as an autonomous agent.",
+      "why_try_it": "Set this up on an old Mac this week as a dedicated agent box for the agency, run long client automation or scraping tasks overnight without tying up your main machine.",
+      "url": "https://ykdojo.github.io/claude-controls-mac/"
     },
     {
-      "name": "n8n",
+      "name": "PostHog",
       "source": "GitHub Trending",
-      "what_it_is": "Open-source, fair-code workflow automation platform with native AI capabilities and 400+ integrations, self-hostable or cloud.",
-      "why_try_it": "Directly usable this week to prototype automations for PT SMB clients (invoicing, lead routing, WhatsApp/email workflows) without building custom backend code, matches your PM/no-code-first building style well.",
-      "url": "https://github.com/n8n-io/n8n"
+      "what_it_is": "Open-source platform bundling analytics, session replay, feature flags, and AI observability, steerable via Slack or MCP.",
+      "why_try_it": "Drop this into the yoga/meditation platform now, before scaling, to get session replay and analytics on real user behavior instead of guessing what content resonates.",
+      "url": "https://github.com/PostHog/posthog"
     },
     {
-      "name": "codecrafters-io/build-your-own-x",
-      "source": "GitHub Trending",
-      "what_it_is": "Curated guides for rebuilding technologies from scratch (databases, web servers, shells) to learn how they actually work.",
-      "why_try_it": "Since you're building technical fluency, pick one small guide (e.g. build-your-own-HTTP-server) this weekend to close a specific gap that's slowing you down when reviewing developer output on agency projects.",
-      "url": "https://github.com/codecrafters-io/build-your-own-x"
+      "name": "Fable 5 vs GPT-5.6 Sol on an NP-Hard problem",
+      "source": "Hacker News, 240 pts",
+      "what_it_is": "Benchmark comparing two frontier models on a hard reasoning task, testing whether a '/goal' prompting technique helps.",
+      "why_try_it": "Read this before your next agency client demo, the /goal technique may be a cheap prompting upgrade to pitch as 'AI reasoning improvement' without switching models.",
+      "url": "https://charlesazam.com/blog/fable-5-gpt-5-6-sol-goal/"
     }
   ],
-  "podcasts": [
-    {
-      "show": "AI & I by Every",
-      "episode": "How a Writer Uses AI Without Losing His Voice",
-      "takeaway": "Craig Mod proves the highest-leverage use of AI right now is replacing your own expensive SaaS subscriptions, not writing your content.",
-      "key_points": [
-        "Cut a $7,000/year newsletter tool bill to $150 by vibe-coding a replacement",
-        "Built a private Twitter alternative for his members called 'The Good Place'",
-        "Keeps a tech-free zone in mornings for deep thinking, resists 'mainlining' AI into everything"
-      ],
-      "for_you": "Look at your own or a client's recurring SaaS spend this week, invoicing tools, CRM, scheduling, and estimate what a 2-day AI-built replacement would cost versus the annual subscription, that's a sellable service.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=7ND0lQmLJlA",
-      "video": {
-        "id": "7ND0lQmLJlA",
-        "title": "How a Writer Uses AI Without Losing His Voice"
-      }
-    },
-    {
-      "show": "Latent Space",
-      "episode": "RL with Verifiable Rewards, but the Verifier is a Lab",
-      "takeaway": "Lila Sciences argues the next AI scaling breakthrough comes from running physical experiments as the verifier, not more internet text.",
-      "key_points": [
-        "\"The internet is a spent resource, we fracked it\", next data comes from wet-lab experiments as reinforcement signal",
-        "One general model trained across biology, chemistry, materials beats domain-specific models, breadth gives depth",
-        "Describes a 'zero-FTE startup' model where the lab, not humans, is the product interface"
-      ],
-      "for_you": "No direct action here, filed for awareness, this is a frontier-lab-scale bet far outside PT SMB territory but useful to understand where the big labs think the next moat comes from.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=2wIxPWK6nCs",
-      "video": {
-        "id": "2wIxPWK6nCs",
-        "title": "RL with Verifiable Rewards, but the Verifier is a Lab"
-      }
-    }
-  ],
+  "podcasts": [],
   "tech": [
     {
-      "name": "Ben Thompson",
-      "role": "Stratechery",
-      "hook": "OpenAI reportedly rebrands ChatGPT around Codex, raising the question of whether it's abandoning chat entirely.",
-      "key_point": "Stratechery frames this as OpenAI betting its future on agentic coding/work products rather than the consumer chat interface that made it famous.",
-      "for_you": "If OpenAI's own product direction is agent-first, that validates pitching PT SMB clients on agentic workflows (not just chatbots) as the more durable service to sell.",
-      "signal": "🟡",
-      "urls": [
-        "https://stratechery.com/2026/the-openai-super-app-chatgpt-codex-whither-chat/"
-      ],
-      "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ"
-    },
-    {
-      "name": "Financial Times / Apple",
-      "role": "Apple vs OpenAI legal dispute",
-      "hook": "Apple sends legal letters targeting dozens of OpenAI employees over trade secrets.",
-      "key_point": "Stratechery notes this looks like Apple \"lashing out\" over one guilty employee rather than a systemic issue, framed as Apple's deeper AI strategy problem.",
-      "for_you": "No direct action here, filed for awareness, but signals how aggressively incumbents will fight over AI talent, relevant if you ever hire contractors with big-tech AI backgrounds.",
-      "signal": "🔴",
-      "urls": [
-        "https://stratechery.com/2026/apple-sues-openai-apples-real-problem/"
-      ],
-      "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ"
-    },
-    {
-      "name": "Databricks",
-      "role": "Company · Valuation news",
-      "hook": "Databricks hits $188B valuation, extending its run as AI's favorite second-act company.",
-      "key_point": "TechCrunch frames Databricks as the clearest example of an infra company riding the AI wave without being a foundation model lab itself.",
-      "for_you": "Reinforces that the durable AI money is in tooling/infra/data pipelines around models, not the models themselves, relevant framing if you ever pitch a micro-SaaS as 'AI infrastructure for PT SMBs' rather than 'another AI wrapper.'",
-      "signal": "🟢",
-      "urls": [
-        "https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/"
-      ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/04/dollar-signs-data-center.png?w=1024"
-    },
-    {
       "name": "TechCrunch",
-      "role": "Vertu AI agent review",
-      "hook": "Vertu charges executives $6,880 for an AI agent, TechCrunch tests it and finds it underwhelming.",
-      "key_point": "Article implies the product doesn't clearly outperform much cheaper agent tools already on the market.",
-      "for_you": "Good cautionary data point when pricing agency deliverables, luxury positioning alone doesn't justify AI agent pricing if the underlying capability is commodity-level.",
+      "role": "RSS · TechCrunch",
+      "hook": "Waymo's SF robotaxi service went dark for an hour during a power outage.",
+      "key_point": "Service resumed after the outage, no crashes reported",
+      "for_you": "No direct action, filed as awareness that autonomous fleets still have single points of failure worth noting if pitching AI reliability to clients.",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/07/17/vertu-wants-executives-to-pay-6880-for-an-ai-agent-heres-how-it-actually-performs/"
+        "https://techcrunch.com/2026/07/18/waymo-appears-to-pause-san-francisco-service-amidst-power-outage/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/vertu-alphafold-unfold.jpg?resize=1200,800"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/waymo-SF-getty.jpg?resize=1200,800",
+      "video": {
+        "id": "s-qBZ8LNFYM",
+        "title": "Videos show Waymo cars stuck at San Francisco intersections during massive power outage"
+      }
     },
     {
-      "name": "Hacker News",
-      "role": "Community discussion",
-      "hook": "\"The LLM Critics Are Right, I Use LLMs Anyway\" hits 296 points, sparks a 339-comment debate.",
-      "key_point": "Discussion centers on developers acknowledging LLM output quality problems while still finding them net-positive for daily work.",
-      "for_you": "Useful talking point when clients push back on AI reliability, the honest pitch is 'imperfect but net time-positive,' not 'flawless,' which builds more trust in sales conversations.",
+      "name": "TechCrunch: Kimi, threat or menace?",
+      "role": "RSS · TechCrunch",
+      "hook": "TechCrunch runs a skeptical take questioning how real Kimi K3's threat to US labs actually is.",
+      "key_point": "Piece weighs open-weights momentum against actual production readiness and support ecosystem",
+      "for_you": "Useful counterweight before you commit agency infrastructure to K3, wait for the July 27 open-weight release and real-world benchmarks before switching client workflows.",
+      "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/07/18/kimi-threat-or-menace/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2254580342.jpg?w=1024"
+    },
+    {
+      "name": "Dave Eggers on ChatGPT",
+      "role": "The Verge",
+      "hook": "Author told OpenAI staff that ChatGPT is 'silencing an entire generation.'",
+      "key_point": "Comments made directly to OpenAI employees, not in a public essay",
+      "for_you": "No direct action, filed as cultural pushback signal relevant to how you frame AI positioning for the yoga/education platform's audience, some users are actively anti-AI-in-writing.",
       "signal": "💡",
       "urls": [
-        "https://www.theocharis.dev/blog/llm-critics-are-right-i-use-llms-anyway/"
+        "https://www.theverge.com/ai-artificial-intelligence/967630/dave-eggers-openai-chatgpt-silencing-an-entire-generation"
       ],
-      "image": "https://www.theocharis.dev/jeremy-headshot.png"
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/gettyimages-2157758001.jpg?quality=90&amp;strip=all&amp;crop=0%2C2.5961195218394%2C100%2C43.073649479563&amp;w=1200",
+      "video": {
+        "id": "M9SQ7ksXD-s",
+        "title": "Dave Eggers told OpenAI staff that ChatGPT was ‘silencing an entire generation’"
+      }
+    },
+    {
+      "name": "AI and prior authorization",
+      "role": "Ars Technica",
+      "hook": "Healthcare industry debates whether AI fixes or worsens insurance prior-authorization delays.",
+      "key_point": "Both insurers and providers are deploying competing AI systems against each other",
+      "for_you": "No direct action, filed for awareness, an example of AI-vs-AI adversarial deployment in a regulated industry, a pattern worth remembering if the agency ever touches healthcare-adjacent SMBs.",
+      "signal": "🟡",
+      "urls": [
+        "https://arstechnica.com/ai/2026/07/will-ai-fix-prior-authorization-or-make-it-worse/"
+      ],
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2264310821-2560x1440.jpg"
+    },
+    {
+      "name": "Google open-sources 3D emoji",
+      "role": "The Verge",
+      "hook": "Google releases its 3D emoji designs as open source assets.",
+      "key_point": "Assets are free to use and modify for any project",
+      "for_you": "Minor, but usable as free polish assets if the yoga platform ever wants playful 3D icon elements without a designer.",
+      "signal": "🟢",
+      "urls": [
+        "https://www.theverge.com/design/967606/google-open-source-3d-emoji"
+      ],
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/videoframe_212.png?quality=90&amp;strip=all&amp;crop=0%2C7.7704522439834%2C100%2C84.459095512033&amp;w=1200"
     }
   ],
   "pt_news": [
     {
-      "headline": "Fuga de amoníaco na Docapesca em Matosinhos após explosão",
-      "hook": "Explosão num frigorífico provocou fuga de amoníaco e pelo menos um ferido ligeiro.",
-      "for_you": "Sem ação direta aqui, apenas relevante se tiveres contactos ou clientes na zona industrial de Leixões.",
+      "headline": "Notas de exames em falta chegam hoje às escolas",
+      "hook": "Diretores de escolas dizem que ministro errou ao culpar as escolas pelo atraso nas classificações.",
+      "for_you": "Sem ação direta, mas sinal de tensão institucional a acompanhar se estiveres a construir produtos ligados à educação em Portugal.",
       "signal": "🟡",
-      "url": "https://observador.pt/2026/07/18/fuga-de-amoniaco-nas-docas-de-leixoes-afeta-varias-pessoas/",
+      "url": "https://observador.pt/liveblogs/presidente-da-associacao-de-diretores-garante-que-notas-em-falta-chegam-as-escolas-esta-manha/",
       "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A1598%3A899%3Anowe%3A1%3A0%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2021%2F10%2F06150331%2Fporto-de-leixoes.jpg?layer=obstop:T"
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A1920%3A1079%3Anowe%3A0%3A0%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F07%2F17233914%2Fwhatsapp-image-2026-07-17-at-232444.jpeg?layer=obstop:T"
     },
     {
-      "headline": "Polémica nos exames nacionais atinge ministro da Educação",
-      "hook": "Sondagem coloca Fernando Alexandre entre os piores ministros do Governo após falhas na divulgação de notas.",
-      "for_you": "Sem ação direta para o negócio, mas mostra o tipo de falha operacional (sistemas digitais que atrasam informação crítica) que uma solução simples de automação poderia evitar, útil como case study de vendas para escolas ou câmaras municipais.",
+      "headline": "Irmãos Tate detidos em Miami por violação e tráfico sexual",
+      "hook": "Andrew e Tristan Tate foram detidos a pedido do Reino Unido, que pediu extradição.",
+      "for_you": "Sem ação direta para o teu trabalho.",
       "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/economia/detalhe/sondagem-ministro-da-educacao-junta-se-a-ministra-do-trabalho-nos-maus-resultados",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-07/img_1200x676uu2026-07-16-11-44-26-526685.png"
+      "url": "https://observador.pt/2026/07/19/eua-prendem-andrew-e-tristan-tate-a-pedido-do-reino-unido-por-crimes-de-violacao-e-trafico-sexual/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1126%3Anowe%3A0%3A47%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F07%2F19022813%2F44632999.jpg?layer=obstop:T"
     },
     {
-      "headline": "Meta usa fotos do Instagram para gerar imagens com IA por defeito",
-      "hook": "Nova ferramenta Muse Image vem ativada em todos os perfis públicos de adultos, sem aviso prévio.",
-      "for_you": "Bom exemplo prático para uma conversa com clientes PME sobre transparência e opt-in em ferramentas de IA, útil para posicionar a tua agência como mais ética/cuidadosa que os grandes players.",
+      "headline": "MP pede suspensão e demolição de hotel Hilton em Cascais",
+      "hook": "Ministério Público quer travar obras quase concluídas por alegadas irregularidades nas licenças.",
+      "for_you": "Sinal de risco regulatório real em construção/imobiliário em Portugal, relevante se algum cliente da agência estiver no setor imobiliário ou turístico.",
       "signal": "🔴",
-      "url": "https://tek.sapo.pt/how-to/artigos/a-meta-esta-a-usar-as-suas-fotos-do-instagram-para-criar-imagens-com-ia-saiba-como-desativar/",
+      "url": "https://eco.sapo.pt/2026/07/19/mp-pede-suspensao-de-hotel-hilton-na-linha-de-cascais/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2024/04/cropped-23807436-scaled-4.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Bruxelas proíbe marcas de luxo de destruir stocks a partir de hoje",
+      "hook": "Nova regra da UE obriga LVMH, Prada, Chanel e Inditex a encontrar alternativas para excedentes.",
+      "for_you": "Sem ação direta, mas mostra como regulação europeia pode criar necessidade de novas ferramentas de gestão de inventário/logística reversa, um nicho possível para micro-SaaS B2B.",
+      "signal": "🟡",
+      "url": "https://eco.sapo.pt/2026/07/19/bruxelas-proibe-marcas-de-luxo-de-destruirem-stocks/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2026/05/cropped-29950551-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Discovery usa IA para combater dislexia com 'karaoke' de leitura",
+      "hook": "Startup EdTech criada por alunos do Técnico lança app gratuita de leitura assistida por IA.",
+      "for_you": "Vale a pena testar esta app e ver o modelo de negócio, é o tipo exato de produto educativo com IA que podia inspirar features para a tua plataforma de yoga/meditação.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/mobile/apps/artigos/discovery-usa-inteligencia-artificial-para-combater-a-dislexia-e-cria-um-karaoke-de-leitura/",
       "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/07/App-Instagram.jpg",
-      "video": {
-        "id": "eyWOlqW6RSc",
-        "title": "O CHAT GPT PERDEU! O META AI CHEGOU COM TUDO! #metaai #inteligenciaartificial #intagram"
-      }
-    },
-    {
-      "headline": "Investimento angolano em Portugal duplica desde 2021",
-      "hook": "Angola investe hoje quase o dobro do que Portugal investe em Angola, segundo Banco de Portugal.",
-      "for_you": "Sem ação direta hoje, mas sinaliza um fluxo de capital e possíveis clientes/parceiros angolanos com negócios em Portugal a explorar a médio prazo.",
-      "signal": "💡",
-      "url": "https://eco.sapo.pt/2026/07/18/angola-ja-investe-quase-o-dobro-do-que-portugal-em-angola/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2025/07/cropped-45382136-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Prestação Social Única promulgada, agrega 13 apoios sociais",
-      "hook": "Presidente promulga autorização legislativa para criar prestação social única em Portugal.",
-      "for_you": "Vale a pena acompanhar a implementação, consolidação de sistemas administrativos como este cria abertura para ferramentas de apoio digital a cidadãos ou pequenas entidades que lidam com burocracia social.",
-      "signal": "💡",
-      "url": "https://eco.sapo.pt/2026/07/17/seguro-promulga-autorizacao-legislativa-para-criar-prestacao-social-unica/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2024/07/cropped-cropped-cropped-42748013-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "image": "https://cdn.teknoticias.pt/uploads/0e0a097e2b5b43455780e590858774cd6548d44c-scaled.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "US strikes hit Iran for seventh consecutive night",
-      "hook": "Iran retaliates against US allies, Kuwait reports a power and water plant hit.",
-      "for_you": "No direct action here, filed for awareness given regional escalation risk to energy prices.",
+      "headline": "US and Iran trade strikes for eighth straight night",
+      "hook": "Two US soldiers killed in Jordan, Iran fires drones at US military in Kuwait.",
+      "for_you": "No direct action, filed for awareness of escalating regional conflict risk affecting global markets and energy prices.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cy748n8zx8ro?at_medium=RSS&at_campaign=rss",
+      "url": "https://www.bbc.co.uk/news/articles/cgk417jp83po?at_medium=RSS&at_campaign=rss",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/bd47/live/65f79600-8282-11f1-b976-0b9c15b0ccfc.jpg"
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e354/live/adca3400-8323-11f1-926f-c90d1bcfbc84.jpg"
     },
     {
-      "headline": "Trump threatens new Canada tariffs over wildfire smoke",
-      "hook": "Trump blames Canada for 'filthy' air reaching US cities, threatens tariffs.",
+      "headline": "Russia launches massive ballistic missile attack on Kyiv",
+      "hook": "Zelensky calls it one of the most massive ballistic attacks on Ukraine's capital, one death reported.",
       "for_you": "No direct action here, filed for awareness.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cwyq93j34lgo?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0b00/live/0ecf40f0-81ea-11f1-b7bc-5dd9ae7a9918.jpg",
-      "video": {
-        "id": "KP6znV0fOmU",
-        "title": "Donald Trump threatens to raise tariffs over Canadian wildfire smoke"
-      }
-    },
-    {
-      "headline": "Ukrainian soldiers protest removal of defence minister",
-      "hook": "Troops openly criticize Fedorov's removal as protests erupt across Ukraine.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cvg8w4dpjkwo?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0d83/live/2d7f0f80-8212-11f1-bee8-53ce494e1abc.jpg",
-      "video": {
-        "id": "N6Xw_QC-vp0",
-        "title": "Ukrainian Soldiers Protest Defense Minister's Removal"
-      }
-    },
-    {
-      "headline": "India launches its first commercial orbital rocket",
-      "hook": "Skyroot Aerospace's Vikram-1 marks India's first private orbital launch.",
-      "for_you": "No direct action here, filed for awareness, but a good data point on how fast private space capability is spreading beyond the US/China duopoly.",
-      "signal": "🟢",
-      "url": "https://www.bbc.co.uk/news/articles/clyekv7rld3o?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d67c/live/812402b0-81c4-11f1-926f-c90d1bcfbc84.jpg",
-      "video": {
-        "id": "-PVSgTkXKt0",
-        "title": "Skyroot Launches Vikram-1, India's First Private Orbital Rocket | Historic Space Milestone"
-      }
-    },
-    {
-      "headline": "Moroccan intelligence whistleblower details Pegasus spyware use",
-      "hook": "Former intelligence insider reveals Morocco used Pegasus against journalists and foreign officials since 2017.",
-      "for_you": "No direct action here, filed for awareness, relevant background if any client work ever touches government or activist-facing tech.",
       "signal": "🔴",
-      "url": "https://www.theguardian.com/news/2026/jul/16/morocco-intelligence-insider-reveals-widespread-use-hacking-software-pegasus",
-      "source_name": "The Guardian World",
-      "image": "https://i.guim.co.uk/img/media/b622daf890a7625d7d426073102027c5db3ac491/378_21_2750_2200/master/2750.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2797c12a8bc5edf63b1f102c46874770",
+      "url": "https://www.bbc.co.uk/news/articles/c2el7xpnzrpo?at_medium=RSS&at_campaign=rss",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/856a/live/4c968bc0-8346-11f1-9454-a31108ec7e77.png",
       "video": {
-        "id": "ydG--u4seZg",
-        "title": "Spanish intelligence chief sacked over Pegasus scandal"
+        "id": "zzIJn90AR2o",
+        "title": "Russia Launches Massive Ballistic Missile Attack on Kyiv"
       }
+    },
+    {
+      "headline": "New EU border system triples passport control wait times",
+      "hook": "Airport operators and Ryanair warn of extended queues for summer travelers to Europe.",
+      "for_you": "Relevant if you or agency clients travel for business this summer, budget extra time at EU airports through peak season.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/ckg5gg6n9x3o?at_medium=RSS&at_campaign=rss",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/9693/live/d4402e80-81d1-11f1-926f-c90d1bcfbc84.jpg",
+      "video": {
+        "id": "YFLDmU7DuCs",
+        "title": "New EU border system triples passport control wait times!"
+      }
+    },
+    {
+      "headline": "SpaceX loses $1 billion in market value since June peak",
+      "hook": "Stock has fallen gradually since hitting a $2.64 trillion valuation peak on June 16.",
+      "for_you": "No direct action, filed as a market-sentiment data point on how fast even hyped-up tech valuations can correct.",
+      "signal": "🟡",
+      "url": "https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/spacex-ja-perdeu-1-biliao-de-dolares-em-valor-de-mercado",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-06/img_1200x676uu2026-06-04-14-45-36-524830.jpg",
+      "video": {
+        "id": "PLYnzGVeInI",
+        "title": "Elon Musk loses trillionaire status as global tech rout hits SpaceX"
+      }
+    },
+    {
+      "headline": "Trump activates never-before-used 'alien terrorist' deportation court",
+      "hook": "New legal mechanism marks a significant escalation in US immigration enforcement powers.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🔴",
+      "url": "https://www.politico.com/news/2026/07/18/trump-administration-activates-never-before-used-alien-terrorist-deportation-court-01004184?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "source_name": "Politico Europe"
     }
   ],
   "since_yesterday": null,
