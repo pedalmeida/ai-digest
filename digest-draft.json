@@ -1,52 +1,54 @@
 {
-  "date": "Monday, 20 July 2026",
+  "date": "Tuesday, 21 July 2026",
   "ai": [
     {
-      "name": "Moonshot AI",
-      "role": "Kimi K3 team",
-      "hook": "Kimi K3 demand is so high Moonshot **suspended new subscriptions** entirely.",
+      "name": "US AI Policy Debate",
+      "role": "AINews / Import AI",
+      "hook": "US weighs procurement bans and Entity List moves against Chinese open models like Kimi.",
       "insights": [
-        "K3 leads the **Frontend Code Arena** with a 76% pairwise win rate, beating Claude Fable 5 and GPT-5.6 Sol",
-        "Model is **2.8T params, 1M context**, open weights promised by **July 27, 2026**",
-        "New attention mechanism (**Kimi Delta Attention**) gives **6.3x faster decoding**"
+        "**Hugging Face** cited self-hosted **GLM-5.2** as critical during a recent cyber incident, arguing open models are a **security necessity**, not just a cost play.",
+        "Voices like **Clement Delangue** and **Margaret Mitchell** warn restrictions could hurt **competition and defensive security**, not just China.",
+        "**UK AISI** independently found the open vs closed cyber capability gap is **shrinking fast**."
       ],
-      "for_you": "When weights drop July 27, worth testing K3 against whatever you're using for the agency's coding/agentic client work, if it's genuinely Sonnet-class at open-weight pricing that changes your cost stack for PT SMB projects.",
-      "why_it_made_the_cut": "Real demand signal (suspended signups), not just benchmark hype, escalation of a story already tracked",
-      "signal": "🔴",
-      "urls": [
-        "https://news.ycombinator.com/item?id=48969291"
-      ],
-      "handle": "@kimi_moonshot"
-    },
-    {
-      "name": "Nathan Lambert",
-      "role": "Interconnects",
-      "hook": "Calls this the **most serious test yet** of whether open source AI can survive near the frontier.",
-      "insights": [
-        "Argues the strategic battle has shifted from **compute moat to efficiency stack**: MoE routing, quantization, data curation",
-        "Zyphra, Cohere, and Poolside are all expanding what counts as \"open\" beyond just weights",
-        "GLM-5.2 marks a capability threshold for open agents specifically"
-      ],
-      "for_you": "If open models keep closing the gap on agentic coding, your agency's cost argument to PT SMBs gets stronger, you can pitch open-weight-powered automations instead of routing everything through expensive closed APIs.",
-      "why_it_made_the_cut": "Most substantive strategic framing of the open-vs-closed story this week",
+      "for_you": "If US procurement rules start restricting Chinese open weights, the self-hosted/open-model options you'd lean on for cheap PT SMB deployments (GLM, Kimi derivatives) could get politically messier to use commercially, worth watching before you commit an agency stack to one.",
+      "why_it_made_the_cut": "Top story across 3 sources today, direct implication for open-model strategy",
       "signal": "🟡",
       "urls": [
-        "https://www.interconnects.ai/p/6-months-to-live-for-open-models"
+        "https://news.smol.ai/issues/26-07-20-not-much/",
+        "https://jack-clark.net/2026/07/20/import-ai-465-open-vs-closed-gaps-kimi-k3-demis-big-policy-plan/"
       ],
       "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!UW3o!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e40ce14-a532-4db6-a855-caee778250f7_3182x1790.png"
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**US+policy+debates**+are+moving+toward+restricting+Chinese+open+models+like+**Kimi**%2C+with+potential+**procurement+restrictions**+and+**Entity+List+designations**.+Technical+voices+including+**%40APompliano**%2C+**%40ClementDelangue**%2C+and+**%40mmitchell_ai**+warn+this+could+harm+**competition**%2C+**sovereignty**%2C+and+**defensive+security**.+**Hugging+Face**+highlighted+the+importance+of+**self-hosted+GLM-5.2**+during+a+cyber+incident%2C+reinforcing+the+argument+for+**open+models+as+a+security+necessity**.+**Kimi+K3**+is+emerging+as+a+top+open-weight+model+in+agentic+and+frontend+tasks%2C+ranking+highly+in+independent+benchmarks+alongside+**Claude+Opus+4.8**+and+**GPT-5.6+Sol**.+**Alibaba**+announced+**Qwen+3.8+Max+Preview**+with+plans+to+open-weight+the+final+release%2C+featuring+**2.4T+parameters**+and+multimodal+capabilities.+**Zhipu**+is+building+a+**1GW+data+center**+with+**Chinese-made+chips**+to+support+**GLM**+training%2C+signaling+a+strategic+domestic+compute+stack.+The+news+also+touches+on+a+shift+from+model-centric+to+system-centric+generalization+in+AI+development.&type=issue&issueNumber=07&date=2026-07-20T05%3A44%3A39.731Z&companies=openai%2Canthropic%2Chuggingface%2Calibaba%2Czhipu-ai&models=kimi-k3%2Cglm-5.2%2Cqwen-3.8-max-preview%2Cclaude-opus-4.8%2Cgpt-5.6-sol"
+    },
+    {
+      "name": "Kimi K3 (Moonshot AI)",
+      "role": "Model release",
+      "hook": "Kimi K3 hits 2.8T params and leads Frontend Code Arena with a 76% win rate.",
+      "insights": [
+        "**Kimi Delta Attention (KDA)** gives up to **6.3x faster decoding**, plus Attention Residuals for ~25% training efficiency gains.",
+        "Full open weights promised by **July 27, 2026**; live now on multiple platforms with 1M-token context.",
+        "Demand is so high **Moonshot suspended new subscriptions** entirely (already covered Monday)."
+      ],
+      "for_you": "Once open weights land July 27, this is a real candidate for a self-hosted coding/frontend agent inside the agency, especially for PT SMB clients who need low-cost, on-prem-friendly deployments.",
+      "why_it_made_the_cut": "Biggest recurring model story of the week, now with a concrete open-weights release date",
+      "signal": "🟢",
+      "urls": [
+        "https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!z9ev!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb7967fef-8d08-4180-a3fd-8c2239bc9619_3182x1790.png"
     },
     {
       "name": "Thinking Machines Lab",
-      "role": "Mira Murati's lab",
-      "hook": "Ships **Inkling**, its first open-weights model family, undercutting closed rivals on cost.",
+      "role": "Model release",
+      "hook": "Ships Inkling, a 975B-A41B Apache 2.0 open model with multimodal input.",
       "insights": [
-        "975B params with only **41B active** (MoE), Apache 2.0 licensed",
-        "Supports **text, image, audio input** with 1M context window",
-        "Immediate ecosystem support: vLLM, SGLang, Modal, Baseten, Databricks day one"
+        "**41B active params** in a MoE architecture, 1M context window, text/image/audio input.",
+        "Backed by ecosystem support from **vLLM, SGLang, Modal, Baseten, Databricks** on day one.",
+        "Positioned as the new best American Apache 2.0 open model, directly answering Kimi K3's pressure."
       ],
-      "for_you": "Apache 2.0 licensing means no legal ambiguity for commercial use, worth a bench test if you ever need a local/self-hosted multimodal option for a PT client wary of sending data to US clouds.",
-      "why_it_made_the_cut": "Only fully open, commercially-clean frontier-adjacent release this cycle",
+      "for_you": "Apache 2.0 licensing means zero legal ambiguity for commercial use, worth a quick eval against Kimi K3 for whichever ends up cheaper to self-host for agency client workloads.",
+      "why_it_made_the_cut": "Only new frontier open-weight model release with a permissive license this week",
       "signal": "🟢",
       "urls": [
         "https://www.latent.space/p/ainews-thinkys-inkling-975b-a41b"
@@ -55,99 +57,111 @@
       "image": "https://substackcdn.com/image/fetch/$s_!AvrX!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F90048da3-a87f-44d8-8ad4-e954031d2721_2540x1692.png"
     },
     {
-      "name": "Andrej Karpathy",
-      "role": "No Priors podcast",
-      "hook": "Says there are things you **literally can't say** inside a frontier AI lab.",
+      "name": "Ben Thompson",
+      "role": "Stratechery",
+      "hook": "Proposes a US law making training data collection fair use and banning anti-distillation clauses.",
       "insights": [
-        "Argues lab employment structurally limits acting as an independent agent",
-        "Points to unresolved founding tension at OpenAI as a recurring pattern across labs"
+        "Argues frontier labs' distillation bans are hypocritical since they trained on unlicensed data themselves.",
+        "Frames this as the real way for US open models to compete with Chinese ones, not export bans."
       ],
-      "for_you": "No direct action here, filed for awareness, it's a useful mental model for reading lab announcements skeptically (including today's Kimi/Inkling hype) rather than taking them at face value.",
-      "why_it_made_the_cut": "Karpathy's most quoted line this week per No Priors engagement",
+      "for_you": "No direct action here, filed for awareness, but it signals the legal ground under distillation-based fine-tuning could shift favorably for smaller builders like you.",
+      "why_it_made_the_cut": "Most substantive policy argument circulating today, cross-cited by Simon Willison",
       "signal": "💡",
       "urls": [
-        "https://youtube.com/watch?v=rwutaYGLIso"
-      ],
-      "handle": "@karpathy"
-    },
-    {
-      "name": "Lila Sciences (Andy Beam & Rafa Gómez-Bombarelli)",
-      "role": "CTO & Co-founder/CSO",
-      "hook": "The wet lab becomes the **verifier**, turning science itself into reinforcement learning.",
-      "insights": [
-        "One general model trained on ~10 trillion experimentally-verified tokens beats domain-specific ones: **\"breadth gives us depth\"**",
-        "A CAR-T candidate was designed in six months by **two or three people**",
-        "\"Zero-FTE startup\" model: the lab isn't the product, the model is"
-      ],
-      "for_you": "No direct action here, filed for awareness, but the RL-with-real-world-verifier pattern (versus synthetic reward hacking) is worth remembering if you ever build an agentic workflow for the agency that needs a trustworthy ground truth signal.",
-      "why_it_made_the_cut": "Most conceptually novel podcast this week, genuinely new framing on RL beyond chat",
-      "signal": "💡",
-      "urls": [
-        "https://youtube.com/watch?v=2wIxPWK6nCs"
+        "https://stratechery.com/2026/whos-afraid-of-chinese-models/"
       ],
       "handle": "",
-      "video": {
-        "id": "EIXKktE3PJM",
-        "title": "Learning about static electricity during science camp ⚡️#science #scienceexperiment #college"
-      }
+      "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ"
     },
     {
-      "name": "MIT Technology Review",
-      "role": "RSS source",
-      "hook": "New research shows LLMs can develop **their own hiring biases**, beyond what they inherit from training data.",
+      "name": "Simon Willison",
+      "role": "Independent developer, blog",
+      "hook": "Coding agents make reverse-engineering undocumented home device APIs cheap enough to bother with.",
       "insights": [
-        "Researchers found bias emerging independent of human-labeled training data patterns",
-        "Raises direct concern for any resume-screening or candidate-matching product"
+        "Prior to agents, reverse-engineering unstable APIs rarely had good ROI given maintenance risk.",
+        "Now agents absorb the cost of dealing with API breakage, changing the calculus entirely."
       ],
-      "for_you": "Relevant if the agency ever pitches an HR/recruiting automation to a PT SMB client, flag this as a liability talking point before you ship anything screening real candidates.",
-      "why_it_made_the_cut": "Only genuinely new research finding today, not a product launch",
+      "for_you": "This same cost-collapse logic applies to scraping/reverse-engineering PT SMB tools (POS systems, invoicing software) that lack proper APIs, an agent-assisted integration you couldn't justify billing for before might now be a viable service line.",
+      "why_it_made_the_cut": "Concrete, practical technique insight rather than a news recap",
+      "signal": "💡",
+      "urls": [
+        "https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything"
+      ],
+      "handle": ""
+    },
+    {
+      "name": "Nik Suresh",
+      "role": "Consultant, essayist",
+      "hook": "Executives are producing AI strategy decks for $2B+ companies without ever using ChatGPT.",
+      "insights": [
+        "Anecdote comes from direct consulting engagements with large organizations.",
+        "Frames this as evidence of AI hype outpacing actual operational understanding at the top."
+      ],
+      "for_you": "This is exactly the gap your agency should sell against for PT SMBs: owners who've heard the AI hype but have zero hands-on grounding are your highest-conversion prospects for a done-for-you build.",
+      "why_it_made_the_cut": "Sharpest anecdotal signal on the gap between AI hype and real adoption",
       "signal": "🟡",
       "urls": [
-        "https://www.technologyreview.com/2026/07/20/1140655/ai-biases-hiring-humans/"
+        "https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/"
       ],
-      "handle": "",
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/07/ai-slant1b.jpg?resize=1200,600"
+      "handle": ""
     }
   ],
   "build_this": [
     {
-      "name": "verifiers v1 (Prime Intellect)",
-      "source": "AINews / GitHub",
-      "what_it_is": "A redesigned agentic RL environment stack that stores rollout traces as message DAGs, cutting complexity from O(n²) to O(n).",
-      "why_try_it": "If you're prototyping an agentic workflow for a client (multi-turn task execution, not just single-shot prompts), this is the kind of harness worth studying, since Pedro isn't yet a developer, at minimum read the repo to understand what \"good agent infrastructure\" looks like before you evaluate agency tooling vendors.",
-      "url": "https://news.smol.ai/issues/26-07-13-not-much/"
-    },
-    {
-      "name": "Claude Code + Bun/Rust rewrite writeup",
-      "source": "Simon Willison / Hacker News (520pts)",
-      "what_it_is": "Simon Willison verifies Claude Code now runs on a Rust port of Bun for a 10% faster startup, and shows exactly how to check this yourself with shell commands.",
-      "why_try_it": "A quick, low-effort exercise to sharpen your technical fluency this week: run the `strings` command he shows on your own Claude Code install, it's a concrete, 5-minute way to build the habit of verifying tool internals instead of trusting release notes.",
-      "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/"
-    },
-    {
-      "name": "PostHog",
+      "name": "pocketbase",
       "source": "GitHub Trending",
-      "what_it_is": "Open-source product analytics platform now positioned around AI agent observability (session replay, error tracking, feature flags, MCP support).",
-      "why_try_it": "Worth wiring into the yoga/meditation platform now while it's still small, so you have real usage data (drop-off points, session replays) before you scale it, and it doubles as a reference stack you could recommend to PT SMB clients building their own products.",
-      "url": "https://github.com/PostHog/posthog"
+      "what_it_is": "Open source realtime backend in a single file, with auth, DB, and file storage built in.",
+      "why_try_it": "Perfect backend for a scrappy micro-SaaS experiment or the yoga platform's booking/membership system, you could stand up a working backend in a day without touching infra, then wire a simple AI feature on top to test demand.",
+      "url": "https://github.com/pocketbase/pocketbase"
+    },
+    {
+      "name": "Reverse-engineering with coding agents",
+      "source": "Simon Willison's Blog",
+      "what_it_is": "Using coding agents to cheaply reverse-engineer undocumented APIs of devices and software, absorbing the maintenance risk that used to make it not worth it.",
+      "why_try_it": "Try this on one PT SMB client's legacy POS or invoicing tool this week, if you can get an agent to build a working integration in an afternoon, that becomes a sellable service offering nobody else in the local market is pitching.",
+      "url": "https://simonwillison.net/2026/Jul/20/cheap-reverse-engineering/#atom-everything"
+    },
+    {
+      "name": "Agent swarms and model economics",
+      "source": "Hacker News / Cursor blog",
+      "what_it_is": "Analysis of how running multiple cheaper agents in parallel changes the cost-benefit math versus one expensive frontier call.",
+      "why_try_it": "Directly relevant to pricing your agency's automation deliverables, if swarms of cheap open models can match one frontier call, your client-facing pricing model for ongoing AI workflows should reflect that cost drop now, not later.",
+      "url": "https://cursor.com/blog/agent-swarm-model-economics"
     }
   ],
   "podcasts": [
     {
       "show": "AI & I by Every",
       "episode": "How a Writer Uses AI Without Losing His Voice",
-      "takeaway": "Craig Mod rebuilt his own newsletter tool with AI and cut a $7,000/year vendor bill to $150.",
+      "takeaway": "Craig Mod cut a $7,000/year newsletter tool bill to $150 by rebuilding it himself with AI.",
       "key_points": [
-        "He calls this a \"golden age of tool building\" where anyone can build software fitted exactly to their needs",
-        "He draws a hard line: uses AI to build tools, refuses to use it to write",
-        "Keeps a tech-free zone in the mornings specifically to protect deep thinking"
+        "Calls this the start of a **'golden age of tool building'** where anyone builds tools suited to their exact needs.",
+        "Still refuses to let AI write his actual prose, uses it only as a research assistant.",
+        "Keeps a **tech-free morning zone** deliberately to protect deep thinking."
       ],
-      "for_you": "This is almost exactly your micro-SaaS thesis, a solo builder replacing an expensive SaaS subscription with a custom AI-built tool, worth listening for the specific build decisions he made, not just the inspiration.",
+      "for_you": "This is the exact pitch for your micro-SaaS instincts: rebuild a specific tool an SMB currently overpays for (booking, invoicing, CRM) at a fraction of the SaaS cost, then sell the build, not a subscription.",
       "signal": "🟢",
       "url": "https://youtube.com/watch?v=7ND0lQmLJlA",
       "video": {
         "id": "7ND0lQmLJlA",
         "title": "How a Writer Uses AI Without Losing His Voice"
+      }
+    },
+    {
+      "show": "Latent Space",
+      "episode": "RL with Verifiable Rewards, but the Verifier is a Lab — Lila Sciences",
+      "takeaway": "Lila Sciences trains one general model on lab-verified experimental data instead of scraped internet text.",
+      "key_points": [
+        "Frames the wet lab as an **'infinite token generator'**, the lab isn't the product, the model is.",
+        "One general model trained across biology, chemistry, and materials **beats domain-specific ones**.",
+        "Describes a **'zero-FTE startup'** business model built entirely around this loop."
+      ],
+      "for_you": "No direct action here, filed for awareness, this is a science-infra story far outside your current bets, but the 'verifier as business model' framing is worth remembering if you ever build a vertical AI product with a real feedback loop.",
+      "signal": "💡",
+      "url": "https://youtube.com/watch?v=2wIxPWK6nCs",
+      "video": {
+        "id": "2wIxPWK6nCs",
+        "title": "RL with Verifiable Rewards, but the Verifier is a Lab — Lila Sciences"
       }
     }
   ],
@@ -155,183 +169,183 @@
     {
       "name": "TechCrunch",
       "role": "RSS source",
-      "hook": "Apple's trade secrets lawsuit against OpenAI could **derail its hardware plans** entirely.",
-      "key_point": "Legal letters already sent to dozens of OpenAI employees, story escalating from awareness to real business risk for OpenAI's device ambitions.",
-      "for_you": "No direct action here, filed for awareness, but worth watching if you ever build on OpenAI's hardware roadmap for a client.",
+      "hook": "Anthropic's $1.5B copyright settlement gets court approval.",
+      "key_point": "Settlement resolves claims over unlicensed training data use, one of the largest AI copyright payouts to date.",
+      "for_you": "Sets a cost benchmark for training-data licensing risk, relevant if you ever advise PT SMB clients on using AI tools trained on unclear data provenance.",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/07/19/can-an-apple-lawsuit-derail-openais-hardware-plans/"
+        "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2025/05/portrait.jpg?w=1000"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/Claude-photo.jpg?w=1024",
+      "video": {
+        "id": "Vo1VGDwF6Q0",
+        "title": "Court approves the largest copyright payout in history — $1.5B from Anthropic #Shorts"
+      }
     },
     {
       "name": "TechCrunch",
       "role": "RSS source",
-      "hook": "Netflix paid **$587M** for Ben Affleck's AI filmmaking startup.",
-      "key_point": "Signals major studios now treat AI filmmaking tooling as core infrastructure worth acquiring, not just a feature.",
-      "for_you": "No direct action here, filed for awareness, adjacent to nothing in your current bets but useful market signal on AI-content M&A pricing.",
-      "signal": "🟡",
+      "hook": "MCP, AI's most important protocol, gets an easier-to-use update.",
+      "key_point": "Improvements target friction points developers hit when connecting agents to external tools and data.",
+      "for_you": "If MCP tooling gets simpler, it lowers the integration cost for the agent-based client dashboards you'd build for PT SMBs, worth a quick look before your next client build.",
+      "signal": "🟢",
       "urls": [
-        "https://techcrunch.com/2026/07/19/netflix-paid-587m-for-ben-afflecks-ai-filmmaking-startup/"
+        "https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/03/Ben-Affleck_0309_R1_c.jpg?resize=1200,675",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/10/getty-perplexity.jpg?resize=1200,800",
       "video": {
-        "id": "-YwqHzpTzlw",
-        "title": "Netflix paid $587M for Ben Affleck’s AI #Shorts"
+        "id": "7CHr0qwTcJw",
+        "title": "MCP Protocol Is Changing Everything | The Secret Behind Scalable AI Agents #MCP #AiAgent #LLM"
       }
     },
     {
-      "name": "Ars Technica",
+      "name": "TechCrunch",
       "role": "RSS source",
-      "hook": "Healthcare industry can't agree if AI **fixes or worsens** insurance prior-authorization delays.",
-      "key_point": "Debate centers on whether automation speeds up denials as much as approvals, no consensus yet.",
-      "for_you": "No direct action here, filed for awareness.",
+      "hook": "Google is building a new AI chip specifically to make Gemini cheaper to run.",
+      "key_point": "Effort targets inference efficiency rather than raw training power, following the industry-wide push toward cheaper serving.",
+      "for_you": "Cheaper Gemini inference eventually flows into lower API costs for whatever model you standardize on for agency client tools.",
       "signal": "🟡",
       "urls": [
-        "https://arstechnica.com/ai/2026/07/will-ai-fix-prior-authorization-or-make-it-worse/"
+        "https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/"
       ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-2264310821-2560x1440.jpg"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/Screenshot-2026-07-01-at-10.00.27-AM.jpg?resize=1200,611"
     },
     {
       "name": "The Verge",
       "role": "RSS source",
-      "hook": "A Suno-made song is good enough that a Verge writer admits he **doesn't hate it**.",
-      "key_point": "Reviewer's reluctant admission signals AI music quality is crossing a credibility threshold for casual listeners, not just novelty.",
-      "for_you": "If the yoga/meditation platform ever needs background music or soundscapes, Suno is worth a direct test this week instead of licensing stock audio.",
-      "signal": "🟢",
+      "hook": "Sony sues Udio over 30,000 songs allegedly used without license.",
+      "key_point": "Lawsuit lists specific track counts, marking one of the largest music AI copyright actions to date.",
+      "for_you": "No direct action here, filed for awareness, relevant only if a client ever asks about AI music tools for marketing content.",
+      "signal": "🟡",
       "urls": [
-        "https://www.theverge.com/entertainment/967678/1010benja-semiramis-dream-suno-ai-music"
+        "https://www.theverge.com/tech/968375/sony-udio-lawsuit-songs-ai-copyright"
       ],
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/Screenshot-2026-07-19-at-1.30.30-PM.png?quality=90&amp;strip=all&amp;crop=0%2C3.7236463698791%2C100%2C53.407996633678&amp;w=1200"
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK467_AI_MUSIC_CVirginia_A.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200"
     },
     {
       "name": "TechCrunch",
       "role": "RSS source",
-      "hook": "Christopher Nolan calls AI an obvious **\"Trojan horse\"** in a new interview.",
-      "key_point": "High-profile filmmaker pushback comes the same week Netflix pays $587M for an AI filmmaking startup, sharpening the industry's AI-adoption tension.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "💡",
+      "hook": "Trump's latest AI czar resigns almost immediately after appointment.",
+      "key_point": "Continues a pattern of instability in US federal AI policy leadership this year.",
+      "for_you": "No direct action here, filed for awareness, but reinforces that US AI export/procurement policy (relevant to your open-model choices) remains unstable and worth rechecking before locking in a stack.",
+      "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/07/19/odyssey-director-christopher-nolan-calls-ai-an-obvious-trojan-horse/"
+        "https://techcrunch.com/2026/07/20/trumps-latest-ai-czar-has-already-resigned/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-2285660756.jpg?w=1024",
-      "video": {
-        "id": "N9npHwkDOso",
-        "title": "‘Odyssey’ director Christopher Nolan calls AI an obvious ‘Trojan horse’"
-      }
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-2286058347.jpg?w=1024"
     }
   ],
   "pt_news": [
     {
-      "headline": "Cirsa espanhola compra Casino da Figueira",
-      "hook": "Operação reforça presença da Cirsa em Portugal sete meses após entrada no mercado.",
-      "for_you": "Sinal de que capital estrangeiro continua a apostar em consolidação de setores tradicionais portugueses, um possível nicho de clientes PME para automação e analytics.",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/07/20/espanhola-cirsa-compra-casino-da-figueira-e-reforca-presenca-em-portugal/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/07/cropped-42937394-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Euribor a 3 meses sobe para máximo desde março 2025",
-      "hook": "Taxa avança para 2,493%, ainda abaixo das taxas a 6 e 12 meses.",
-      "for_you": "Custo de crédito a subir aperta margens de PMEs portuguesas, argumento extra para vender automação como forma de cortar custos operacionais.",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/07/20/euribor-sobe-a-tres-meses-para-novo-maximo-desde-marco-de-2025-2/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/07/cropped-26448953-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Portugal cresce acima da média da UE em inovação",
-      "hook": "País mantém-se como \"inovador moderado\" mas com evolução superior à média europeia.",
-      "for_you": "Contexto macro favorável para posicionar a agência como parte da onda de modernização das PMEs portuguesas.",
-      "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/portugal-continua-entre-os-inovadores-moderados-mas-cresce-acima-da-media-da-uniao-europeia/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/07/kvalifik-5Q07sS54D0Q-unsplash-1-1024x768.jpg"
-    },
-    {
-      "headline": "Apple e Google intimadas a remover apps de nudificação por IA",
-      "hook": "Procurador de São Francisco exige remoção de 13 apps que geraram 120 milhões de dólares.",
-      "for_you": "Lembrete direto de compliance: qualquer produto de IA generativa de imagem que a agência venda a clientes precisa de salvaguardas explícitas contra uso indevido.",
+      "headline": "Regras de transparência para uso de IA entram em vigor a 2 de agosto",
+      "hook": "Novas orientações obrigam sites e serviços a declarar quando usam IA a partir de agosto.",
+      "for_you": "Isto afeta diretamente qualquer produto que construas para clientes PME, os teus dashboards e chatbots vão precisar de aviso de transparência antes do prazo.",
       "signal": "🔴",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/apple-e-google-foram-intimadas-a-remover-apps-de-nudificacao-por-ia-que-geraram-120-milhoes-de-dolares-em-receitas/",
+      "url": "https://tek.sapo.pt/extras/site-do-dia/artigos/o-site-ou-servico-esta-a-usar-ia-regras-obrigam-a-declaracao-aos-utilizadores/",
       "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/14cb458afd1c7476e185741a834a4a6ebb3df67d.jpg"
+      "image": "https://cdn.teknoticias.pt/uploads/40ea6e53c8112d4ffcadd9d04ef6c5ae1e482dad.jpg"
     },
     {
-      "headline": "Lucro da Ryanair afunda 34% no segundo trimestre",
-      "hook": "Subida do preço do jet fuel penaliza resultado líquido apesar do aumento de passageiros.",
-      "for_you": "Sem ação direta aqui, apenas registo.",
+      "headline": "China pondera limitar exportação de tecnologias de IA e semicondutores",
+      "hook": "Pequim estuda reforçar controlos de exportação de IA para travar avanços estratégicos em mãos ocidentais.",
+      "for_you": "Se isto avançar, reforça a incerteza sobre depender de modelos abertos chineses (Kimi, GLM) numa stack de agência de longo prazo.",
       "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/empresas/transportes/aviacao/detalhe/subida-do-preco-do-jet-fuel-leva-lucro-da-ryanair-a-afundar-34-no-segundo-trimestre",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-07/img_1200x676uu2026-07-20-10-36-16-526900.jpg"
+      "url": "https://eco.sapo.pt/2026/07/21/china-pondera-limites-a-exportacao-de-tecnologias-de-ia-e-semicondutores/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2023/03/cropped-doc-20230313-40454498-10520425.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Hacker destrói base de dados do registo predial romeno após extorsão falhada",
+      "hook": "Atacante já visado noutros portais governamentais europeus apagou tudo após recusa de resgate.",
+      "for_you": "Lembrete direto para reforçar backups e segurança em qualquer sistema que construas ou geras para clientes PME, um incidente destes é irreversível sem backup automatizado.",
+      "signal": "🔴",
+      "url": "https://tek.sapo.pt/noticias/internet/artigos/hacker-apagou-toda-a-base-de-dados-do-registo-predial-da-romenia-apos-tentativa-de-extorsao-falhada/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/07/Romedia-sem-registos-prediais.jpg"
+    },
+    {
+      "headline": "Bugalho acusa PS de tentar sabotar a governação",
+      "hook": "Porta-voz do PSD nega crise política apesar de tensões entre Governo e oposição.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://eco.sapo.pt/2026/07/21/bugalho-acusa-ps-de-tentar-sabotar-a-governacao-e-rejeita-cenario-de-crise-politica/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2024/05/cropped-doc-20240509-42827427-ca_calm5207-3.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "WhatsApp vai substituir número por nome de utilizador",
+      "hook": "Meta abre reservas de nomes de utilizador no WhatsApp para esconder números de telefone.",
+      "for_you": "Vale reservar já um nome de utilizador para a marca da agência antes que outra empresa o faça, é branding gratuito.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/how-to/artigos/whatsapp-vai-trocar-o-seu-numero-de-telefone-por-um-nome-de-utilizador-saiba-como-reservar-ja-o-seu/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/06/WhatsApp-Nomes.jpg",
+      "video": {
+        "id": "RV9yGYNW0_c",
+        "title": "Mudou de número no WhatsApp? Como avisar aos amigos"
+      }
     }
   ],
   "world_news": [
     {
-      "headline": "Andy Burnham becomes UK's 59th prime minister",
-      "hook": "Takes over from Keir Starmer just two years after Labour's landslide win.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "🟡",
-      "url": "https://www.aljazeera.com/news/liveblog/2026/7/20/live-andy-burnham-to-become-uk-pm-deliver-first-speech-at-10-downing",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/07/ap_6a5d16db77651-1784485595.jpg?resize=1920%2C1440",
-      "video": {
-        "id": "ZefDQycv_eo",
-        "title": "When could Andy Burnham become the prime minister?"
-      }
-    },
-    {
-      "headline": "Russia launches major ballistic missile attack on Ukraine",
-      "hook": "Eight people die and dozens injured as several cities are hit overnight.",
+      "headline": "US launches fresh strikes on Iran, Houthis blockade Saudi Arabia",
+      "hook": "Iran hits ships in the Strait of Hormuz as the US warns of further retaliation.",
       "for_you": "No direct action here, filed for awareness.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/c2el7xpnzrpo?at_medium=RSS&at_campaign=rss",
+      "url": "https://www.bbc.co.uk/news/articles/cx25wg2x26do?at_medium=RSS&at_campaign=rss",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/856a/live/4c968bc0-8346-11f1-9454-a31108ec7e77.png",
-      "video": {
-        "id": "DK0KY3hb70g",
-        "title": "Russia Launches Major Missile Attack on Ukraine"
-      }
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ae7d/live/d48c2a30-84c7-11f1-b976-0b9c15b0ccfc.jpg"
     },
     {
-      "headline": "US strikes continue into ninth night against Iran",
-      "hook": "Rubio says US remains \"open to diplomacy\" despite continued bombing.",
+      "headline": "Trump slaps 50% tariffs on Canada",
+      "hook": "Carney vows to intensify trade talks after a major US tariff escalation.",
       "for_you": "No direct action here, filed for awareness.",
       "signal": "🔴",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/7/20/rubio-us-open-to-diplomacy-after-ninth-night-of-bombing-iran",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/07/thumb-1784536779.jpg?resize=1920%2C1440",
+      "url": "https://www.bbc.co.uk/news/articles/cg4dzq3x3e1o?at_medium=RSS&at_campaign=rss",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/a06b/live/1dd117f0-84dc-11f1-b976-0b9c15b0ccfc.jpg",
       "video": {
-        "id": "sR-vXvbAglo",
-        "title": "Iran: US & Iran Exchange Strikes for 9th Night 🚨"
+        "id": "yQAlWa6YhqY",
+        "title": "BREAKING: TRUMP SLAPS CANADA WITH 50% TARIFFS"
       }
     },
     {
-      "headline": "Tate brothers arrested in US, UK charges reach 59",
-      "hook": "CPS requests extradition from the US as lawyer maintains their innocence.",
+      "headline": "Tate brothers appear in US court for extradition",
+      "hook": "Arrested Saturday after UK adds dozens of new charges including rape and trafficking.",
       "for_you": "No direct action here, filed for awareness.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cwymly9yd33o?at_medium=RSS&at_campaign=rss",
+      "url": "https://www.bbc.co.uk/news/articles/c6294y87wk6o?at_medium=RSS&at_campaign=rss",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f7d3/live/9a3779e0-8308-11f1-926f-c90d1bcfbc84.jpg",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6301/live/65d8f040-848c-11f1-b976-0b9c15b0ccfc.jpg",
       "video": {
-        "id": "xASCm9s8bA8",
-        "title": "Andrew Tate Just Got Arrested"
+        "id": "50AU9Yno03Y",
+        "title": "Tate brothers appear in U.S. court for extradition proceedings"
       }
     },
     {
-      "headline": "Spain beats Argentina 1-0 to win World Cup 2026",
-      "hook": "Ferran Torres scores the winning goal as Madrid erupts in celebration.",
+      "headline": "Farage and Reform face crypto donor scandal",
+      "hook": "Revelations of substantial crypto donations put Farage's political standing at risk.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://www.aljazeera.com/news/2026/7/21/farage-reform-in-trouble-as-uk-braces-for-crypto-influence-in-politics?traffic_source=rss",
+      "source_name": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/07/afp_6a50e6969972-1783686806.jpg?resize=1920%2C1440",
+      "video": {
+        "id": "UaHFlrP56w8",
+        "title": "Cathy Newman questions Reform UK leader Nigel Farage over £5m gift from party donor"
+      }
+    },
+    {
+      "headline": "Uganda pushes to lift Ebola travel restrictions",
+      "hook": "Country starts 42-day countdown to being declared Ebola-free after last patient discharged.",
       "for_you": "No direct action here, filed for awareness.",
       "signal": "🟢",
-      "url": "https://www.aljazeera.com/video/2026/7/20/video-world-cup-2026-highlights",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/07/AP26200792471382-1784526480.jpg?resize=1920%2C1440"
+      "url": "https://www.theguardian.com/global-development/2026/jul/16/uganda-travel-restrictions-last-ebola-patient-discharged",
+      "source_name": "The Guardian World",
+      "image": "https://i.guim.co.uk/img/media/cb79530341aecc46d4b7e9071501688efb68c5f1/83_0_2731_2186/master/2731.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e5dcaa1fa66e694cefdb56a129c2e426"
     }
   ],
-  "since_yesterday": "Kimi K3 demand escalated from \"impressive open model\" to Moonshot outright suspending new subscriptions, the strongest real-world signal yet that Chinese open weights are hitting genuine frontier-level demand, not just benchmark hype.",
+  "since_yesterday": null,
   "health": {
     "x": {
       "attempted": 15,
