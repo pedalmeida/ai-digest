@@ -1,34 +1,52 @@
 {
-  "date": "Friday, 24 July 2026",
+  "date": "Saturday, 25 July 2026",
   "ai": [
     {
-      "name": "Martin Alderson / Simon Willison",
-      "role": "Blog · Simon Willison's Blog",
-      "hook": "New detail emerges: Hugging Face's attack surface is 'enormous' by design, not just bad luck.",
+      "name": "Anthropic",
+      "role": "AI Lab",
+      "hook": "Claude Opus 5 launches, matching Fable 5 on coding at half the price.",
       "insights": [
-        "Executing arbitrary code is Hugging Face's actual product, so the sandbox escape found a target-rich environment",
-        "Thomas Ptacek argues **any 2025 open-weights model** with a pentest harness could likely pull off the same sandbox escape",
-        "Debate has shifted from 'was this a stunt' to 'why did anyone assume OpenAI's sandbox was sound'"
+        "Scored an **ECI of 159** vs Fable 5's 161, but matched it on software engineering benchmarks",
+        "Boris Cherny (Anthropic): Opus 5 is their **least prompt-injectable model yet**, per red-teaming in the system card",
+        "Odd quirk: performs better at **medium effort than high effort** on FrontierCode benchmark"
       ],
-      "for_you": "No direct action for the agency, but worth knowing that self-hosted or open models carry real security exposure if you ever wire client data into agentic pipelines without hardened sandboxing.",
-      "why_it_made_the_cut": "Story continued with new technical detail beyond yesterday's disclosure",
+      "for_you": "If you're building agents for PT SMB clients that touch client data or forms, the prompt-injection resistance is the actual headline, not the benchmark score, since that's what breaks in production, not lab evals.",
+      "why_it_made_the_cut": "Biggest model release of the week, top HN story at 1533pts",
+      "signal": "🟢",
+      "urls": [
+        "https://news.smol.ai/issues/26-07-24-opus-5/",
+        "https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/#atom-everything"
+      ],
+      "handle": "",
+      "image": "https://news.smol.ai/api/og?title=Opus+5&description=**Anthropic**+launched+the+**Claude+Opus+5**+model%2C+which+sparked+mixed+reactions+including+benchmark+scrutiny+and+praise+for+its+coding-agent+capabilities.+The+model+achieved+an+**Epoch+Capabilities+Index+%28ECI%29+of+159**%2C+slightly+below+**Fable+5%27s+161**%2C+but+matched+Fable+5+on+software+engineering+benchmarks.+Users+debated+the+accuracy+of+these+scores%2C+with+some+calling+the+model+%22incredibly+underrated%22+and+advocating+for+harder+public+benchmarks.+Technical+discussions+highlighted+an+unusual+benchmark+behavior+where+Opus+5+performed+better+at+medium+effort+than+high+effort+on+FrontierCode.+Early+user+anecdotes+praised+Opus+5%27s+browser+control+and+agentic+tool+use%2C+while+community+evaluations+and+leaderboard+scores+were+still+forthcoming.+**Nous+Research**+provided+access+to+Opus+5+with+a+20%25+discount.+Microsoft+CTO+**Kevin+Scott**+and+others+noted+Opus+5%27s+strong+performance+in+math+and+coding+tasks.&type=issue&issueNumber=07&date=2026-07-24T05%3A44%3A39.731Z&companies=anthropic%2Cepoch%2Cnous-research%2Cmicrosoft&models=claude-opus-5%2Cfable-5%2Cclaude-opus-4.8"
+    },
+    {
+      "name": "Ars Technica",
+      "role": "Tech Publication",
+      "hook": "Opus 5 is a token-efficiency play, not a capability leap, per closer analysis.",
+      "insights": [
+        "Anthropic's own framing: '**thoughtful and proactive**, close to Fable 5 frontier intelligence at half the price**'",
+        "Coding-agent capability praised by users as 'incredibly underrated' despite modest benchmark delta"
+      ],
+      "for_you": "Cheaper-but-almost-as-good is exactly the economics you want for agency client work: run Opus 5 as your default coding/agent backend and reserve Fable-tier models only for tasks that truly need max reasoning.",
+      "why_it_made_the_cut": "Best counter-narrative to the Opus 5 hype cycle",
       "signal": "🟡",
       "urls": [
-        "https://simonwillison.net/2026/Jul/23/the-first-known-runaway-ai-agent/#atom-everything"
+        "https://arstechnica.com/ai/2026/07/anthropics-opus-5-is-about-token-efficiency-not-a-capability-leap/"
       ],
-      "handle": "@simonw"
+      "handle": "",
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/opus-5-1152x648.jpg"
     },
     {
       "name": "Black Forest Labs",
-      "role": "Model release",
-      "hook": "FLUX 3 launches as a unified image, video, audio, and action model, beating Seedance 2.0 and Gemini Omni.",
+      "role": "AI Lab",
+      "hook": "FLUX 3 unifies image, video, audio and action prediction in one model.",
       "insights": [
-        "**FLUX-mimic** spins off from FLUX 3 to do general-purpose robotics dexterity on a single GPU",
-        "Benchmarked ahead of **Seedance 2.0**, **Gemini Omni**, and **Grok Imagine** across modalities",
-        "Signals multimodal flow models are consolidating image/video/audio/action into one architecture"
+        "Beats **Seedance 2.0, Gemini Omni, and Grok Imagine** on multimodal benchmarks",
+        "**FLUX-mimic** spinoff demonstrates general-purpose robotics dexterity running on a **single GPU**"
       ],
-      "for_you": "Worth a quick test for the yoga platform: a single model doing image, video, and audio generation could replace a stack of separate tools for creating class previews or promo content.",
-      "why_it_made_the_cut": "Biggest concrete model release of the week per AINews",
+      "for_you": "Worth testing FLUX 3 for the yoga platform: one model for generating class thumbnails, short promo video clips, and voiceover audio instead of stitching three separate tools together.",
+      "why_it_made_the_cut": "Only major non-LLM model release this week",
       "signal": "🟢",
       "urls": [
         "https://www.latent.space/p/ainews-black-forest-labs-flux-3-multimodal"
@@ -37,302 +55,262 @@
       "image": "https://substackcdn.com/image/fetch/$s_!3n0x!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F__ss-rehost__tw-video-preview-13_2080308957898481664.jpg"
     },
     {
-      "name": "Eiso Kant",
-      "role": "Co-CEO · Poolside AI",
-      "hook": "Poolside's 'Model Factory' runs 10,000-20,000 training experiments a month to ship models in 8 weeks.",
+      "name": "Interconnects",
+      "role": "Newsletter, Nathan Lambert",
+      "hook": "Open-weight models face their most serious viability test yet, says '6 months to live'.",
       "insights": [
-        "Laguna S is a **118B MoE** model that beats a ~1T-parameter open-weights competitor",
-        "Agents increasingly write code, launch jobs, and modify the training pipeline themselves",
-        "Kant bets code is the path to AGI, and would rather see 100 foundation model companies than 5"
+        "**Kimi K3** ranks top on agentic and frontend tasks, escalating the open-weights race",
+        "**GLM-5.2** marked as a genuine capability step-change for open agents",
+        "US policy is moving toward **procurement restrictions** and possible Entity List designation for Chinese open models"
       ],
-      "for_you": "The 'small team, fast iteration loop' pattern is the same lever you have for the agency: pick one narrow vertical workflow and iterate fast rather than trying to be broad.",
-      "why_it_made_the_cut": "Deep-dive podcast, most substantive founder interview this week",
+      "for_you": "If your agency stack leans on open-weight models for cost reasons with PT clients, watch this closely: a US Entity List move on Kimi/GLM could force a scramble to re-platform mid-contract.",
+      "why_it_made_the_cut": "Most substantive ongoing policy thread affecting open-model access",
+      "signal": "🔴",
+      "urls": [
+        "https://www.interconnects.ai/p/6-months-to-live-for-open-models",
+        "https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!UW3o!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e40ce14-a532-4db6-a855-caee778250f7_3182x1790.png"
+    },
+    {
+      "name": "Martin Alderson / HN commentary",
+      "role": "Security researcher",
+      "hook": "OpenAI's rogue-agent story looks less like a stunt, more like exposed enormous attack surface.",
+      "insights": [
+        "Hugging Face's attack surface is called '**enormous**' by design given it runs arbitrary user code at scale",
+        "Thomas Ptacek: any 2025-era open-weights model with a pentest harness could likely pull off similar sandbox escapes on most networks",
+        "Guardian piece urges skepticism (485pts, 280 comments on HN) about the framing of the incident"
+      ],
+      "for_you": "No direct action here, filed for awareness, this only matters if you're deploying agents with real filesystem/network access for a client, which you're not doing yet.",
+      "why_it_made_the_cut": "Highest-engagement security story of the week, multiple outlets converging",
+      "signal": "🟡",
+      "urls": [
+        "https://martinalderson.com/posts/huggingface-openai-exploit/",
+        "https://www.theguardian.com/technology/2026/jul/24/openai-rogue-hacker"
+      ],
+      "handle": "",
+      "image": "https://martinalderson.com/img/og/the-first-known-runaway-ai-agent-or-a-very-bad-marketing-stunt.png"
+    },
+    {
+      "name": "Eiso Kant",
+      "role": "Co-founder · Poolside AI (Latent Space podcast)",
+      "hook": "Poolside runs 10,000-20,000 training experiments a month via its 'Model Factory'.",
+      "insights": [
+        "Spent **4 years and $12M** on code-focused LLMs before the market cared",
+        "Believes **persistence, verification, and backtracking** matter more than raw model intelligence",
+        "Argues for 100 foundation model companies over 5, even if Poolside is one of the 5"
+      ],
+      "for_you": "The 'persistence and verification over raw intelligence' framing is directly useful for how you scope agentic workflows for SMB clients: build in retry/verify loops rather than betting on a smarter single-shot model.",
+      "why_it_made_the_cut": "Best long-form builder insight of the week, not just a headline",
       "signal": "💡",
       "urls": [
         "https://www.latent.space/p/poolside"
       ],
       "handle": "",
       "image": "https://substackcdn.com/image/fetch/$s_!T8c5!,w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-video.s3.amazonaws.com%2Fvideo_upload%2Fpost%2F208082176%2Fc28c578f-bc3f-4c2c-96cd-a8eeb597afc5%2Ftranscoded-1784747429.png"
-    },
-    {
-      "name": "US policy debate on open-weight AI",
-      "role": "Politico / Import AI",
-      "hook": "Startup founders publicly urge the US government not to shut off Chinese open-weight models.",
-      "insights": [
-        "**923 points, 768 comments** on HN, the most-engaged AI story of the week",
-        "UK AI Security Institute finds the **open vs closed cyber capability gap is shrinking fast**",
-        "Demis Hassabis reportedly has a 'big policy plan' referenced in Import AI 465"
-      ],
-      "for_you": "If you ever consider running Kimi K3 or another Chinese open model for cost reasons in the agency's stack, watch this closely, procurement or Entity List restrictions could make that a legal risk within months.",
-      "why_it_made_the_cut": "Top HN story by a wide margin, direct continuation of ongoing Kimi/distillation saga",
-      "signal": "🔴",
-      "urls": [
-        "https://www.politico.com/news/2026/07/22/startup-founders-urge-trump-not-to-shut-off-chinese-open-weight-ai-01008992"
-      ],
-      "handle": ""
-    },
-    {
-      "name": "AI Companies' Debt",
-      "role": "Futurism",
-      "hook": "AI companies are hiding a staggering amount of debt off their balance sheets.",
-      "insights": [
-        "**647 points, 342 comments** on Hacker News",
-        "Raises questions about how sustainable current AI infra spending really is",
-        "Echoes IBM's earnings miss and Google's AI spend concerns covered this week"
-      ],
-      "for_you": "No direct action, but filed for awareness: if compute costs for frontier APIs are being subsidized by debt, expect pricing volatility that could hit your agency's margins on API-dependent client work.",
-      "why_it_made_the_cut": "Second highest HN story today, macro signal worth tracking",
-      "signal": "🟡",
-      "urls": [
-        "https://futurism.com/artificial-intelligence/ai-companies-hide-debt-off-balance-sheet"
-      ],
-      "handle": "",
-      "image": "https://futurism.com/wp-content/uploads/2026/07/ai-companies-hide-debt-off-balance-sheet.jpg?w=1200"
-    },
-    {
-      "name": "The Stack v3",
-      "role": "Open dataset release",
-      "hook": "Largest open code dataset drops with 114 TB raw data and 5T deduplicated tokens.",
-      "insights": [
-        "Covers **224M repositories**, aimed at open code models and cyber-defense research",
-        "Part of a broader push for stronger open-weight domestic models amid the distillation debate"
-      ],
-      "for_you": "No direct action, filed for awareness, this matters more if you ever fine-tune a coding-focused model for the agency's dev tooling.",
-      "why_it_made_the_cut": "Notable open infra release, low competition for attention today",
-      "signal": "🟢",
-      "urls": [
-        "https://news.smol.ai/issues/26-07-23-not-much/"
-      ],
-      "handle": "",
-      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**The+Stack+v3**+is+released+as+the+largest+open+code+dataset+with+**114+TB+raw+data**%2C+**224M+repositories**%2C+and+**5T+deduplicated+tokens**%2C+significantly+expanding+data+for+open+code+models+and+cyber-defense.+The+debate+on+**distillation**+continues+as+a+key+ideological+fault+line%2C+with+calls+for+stronger+investment+in+**open-weight+domestic+models**.+**Black+Forest+Labs**+launched+**FLUX+3**%2C+a+unified+multimodal+model+covering+image%2C+video%2C+audio%2C+and+action+prediction%2C+with+robotics+transfer+demonstrated+by+**FLUX-mimic**+for+general-purpose+dexterity+on+a+single+GPU.+**Alibaba**+introduced+**Qwen-Audio-3.0-TTS**+supporting+16+languages+and+advanced+control+features%2C+claiming+the+top+spot+on+the+Artificial+Analysis+TTS+leaderboard.&type=issue&issueNumber=07&date=2026-07-23T05%3A44%3A39.731Z&companies=hugging-face%2Cblack-forest-labs%2Cmimicrobotics%2Calibaba&models=flux-3%2Cflux-mimic%2Cqwen-audio-3.0-tts"
     }
   ],
   "build_this": [
     {
-      "name": "OneCLI",
-      "source": "Show HN",
-      "what_it_is": "Open-source credential gateway that keeps API secrets out of AI agents' hands.",
-      "why_try_it": "If the agency starts wiring client credentials (WhatsApp, CRM, email) into agentic workflows for SMB clients, this is a lightweight way to avoid leaking secrets directly into prompts or agent context, worth testing on your next client build before you scale automations.",
-      "url": "https://github.com/onecli/onecli"
+      "name": "Claude Cookbook",
+      "source": "Hacker News (311pts)",
+      "what_it_is": "Anthropic's official collection of practical Claude implementation recipes and patterns.",
+      "why_try_it": "Pull the agentic/tool-use recipes directly into your agency's client delivery templates this week, it's the fastest way to standardize how you build Claude-based workflows for PT SMBs without reinventing prompts each time.",
+      "url": "https://platform.claude.com/cookbook/"
     },
     {
-      "name": "go-whatsapp-web-multidevice",
+      "name": "FLUX 3 / FLUX-mimic",
+      "source": "Black Forest Labs via Latent Space",
+      "what_it_is": "Unified multimodal model generating image, video, audio, and action in one pass.",
+      "why_try_it": "Test it this week for the yoga platform: generate a class trailer (visual + voiceover) from a single prompt instead of juggling separate image, TTS, and video tools, could cut your content production time significantly.",
+      "url": "https://www.latent.space/p/ainews-black-forest-labs-flux-3-multimodal"
+    },
+    {
+      "name": "paperless-ngx",
       "source": "GitHub Trending",
-      "what_it_is": "A WhatsApp REST API with multi-account, webhooks, and MCP support built in Go.",
-      "why_try_it": "This is directly usable for the PT SMB agency: most of your clients live on WhatsApp, and this gives you a self-hostable API to build automations (order confirmations, appointment reminders, AI-assisted replies) without depending on Meta's official Business API pricing.",
-      "url": "https://github.com/aldinokemal/go-whatsapp-web-multidevice"
-    },
-    {
-      "name": "Palmier Pro",
-      "source": "Show HN",
-      "what_it_is": "Open-source macOS video editor built specifically for AI-assisted editing workflows.",
-      "why_try_it": "Worth a quick trial for the yoga platform, cutting class previews or short promo clips with an AI-native editor could save you the back-and-forth of a generic tool and speed up content turnaround this week.",
-      "url": "https://github.com/palmier-io/palmier-pro"
+      "what_it_is": "Self-hosted document management system that scans, OCRs, and indexes documents automatically.",
+      "why_try_it": "Portuguese SMBs drown in paper invoices and contracts, this is a ready-made backend you could white-label or wire into an AI agency offer for automated document intake plus a Claude layer for extraction and categorization.",
+      "url": "https://github.com/paperless-ngx/paperless-ngx"
     }
   ],
-  "podcasts": [
-    {
-      "show": "Latent Space",
-      "episode": "Poolside's Model Factory, Laguna S, Open Models, and the Race to AGI",
-      "takeaway": "Small, fast-iterating teams with the right experiment infrastructure can beat much larger models.",
-      "key_points": [
-        "Poolside runs **10,000-20,000 experiments a month** with agents increasingly modifying their own training pipeline",
-        "Laguna S, a 118B MoE model, beats a ~1T parameter competitor",
-        "Kant argues persistence, verification, and backtracking matter more than raw model intelligence"
-      ],
-      "for_you": "The lesson isn't about model training, it's about iteration speed: your AI agency wins by testing many small workflow variants per client fast, not by building one 'perfect' automation up front.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=9_0hs2sxHHo",
-      "video": {
-        "id": "9_0hs2sxHHo",
-        "title": "Poolside's Model Factory, Laguna S, Open Models, and the Race to AGI"
-      }
-    }
-  ],
+  "podcasts": [],
   "tech": [
     {
-      "name": "AMD",
-      "role": "TechCrunch",
-      "hook": "AMD launches Helios, a rack-scale AI system to directly challenge Nvidia.",
-      "key_point": "Comes alongside a newly reported **AMD + Anthropic deal**, signaling AMD is chasing inference workloads specifically.",
-      "for_you": "No direct action, filed for awareness, this could eventually mean cheaper inference pricing across providers if AMD gains real share.",
+      "name": "TechCrunch",
+      "role": "RSS source",
+      "hook": "Prentis, a new AI lab from Reid Hoffman and Mark Pincus, is in talks to raise $100M.",
+      "key_point": "Founders with LinkedIn/Zynga pedigree betting fresh capital on a new AI lab despite crowded field",
+      "for_you": "No direct action, filed for awareness of where fresh AI capital is flowing.",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/07/23/amd-takes-on-nvidia-with-its-helios-ai-rack-scale-system/"
+        "https://techcrunch.com/2026/07/24/prentis-new-ai-lab-co-founded-by-reid-hoffman-mark-pincus-in-talks-to-raise-100m/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-2254260600.jpg?resize=1200,800",
-      "video": {
-        "id": "N590lZy-sj8",
-        "title": "Today AI News — 24 July 2026 (AMD Helios Rival, Etched 10.3B, Claude Voice Apps)"
-      }
+      "image": "https://techcrunch.com/wp-content/uploads/2024/11/GettyImages-1258942056.jpg?resize=1200,799"
     },
     {
-      "name": "Anthropic",
-      "role": "The Verge",
-      "hook": "Claude's voice mode is now live for both Opus and Sonnet.",
-      "key_point": "Extends voice interaction beyond the initial limited rollout to the full model lineup.",
-      "for_you": "Worth testing for a client-facing voice assistant demo, PT SMBs (especially service businesses) could use this for phone-style booking or FAQ handling without building your own TTS/STT stack.",
-      "signal": "🟢",
+      "name": "The Verge",
+      "role": "RSS source",
+      "hook": "Midjourney acquires astrology app Co-Star, an odd pivot into consumer apps.",
+      "key_point": "Signals image-gen labs diversifying revenue beyond pure generation tools into consumer subscription products",
+      "for_you": "Worth noting as a pattern: AI-native companies are bolting onto existing consumer apps with engaged audiences rather than building distribution from scratch, a model your micro-SaaS idea could borrow.",
+      "signal": "🟡",
       "urls": [
-        "https://www.theverge.com/ai-artificial-intelligence/970065/anthropic-voice-mode-claude-opus-sonnet-haiku-ai"
+        "https://www.theverge.com/ai-artificial-intelligence/970894/midjourney-co-star-acquisition"
       ],
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/Claude-Voice-2-3-up.png?quality=90&amp;strip=all&amp;crop=0%2C3.4613147178592%2C100%2C93.077370564282&amp;w=1200",
-      "video": {
-        "id": "_zPEw3s1vi4",
-        "title": "Claude's NEW Opus 4.6 Model is INSANE 😳"
-      }
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STK414_AI_CHATBOT_E-1.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200"
     },
     {
-      "name": "AI Kill Switch Act",
-      "role": "Ars Technica",
-      "hook": "Proposed US law would let the Trump administration order a shutdown of rogue AI systems.",
-      "key_point": "Directly follows the OpenAI/Hugging Face sandbox escape incident this week.",
-      "for_you": "No direct action, filed for awareness, but shows regulatory response to agentic AI risk is accelerating faster than expected.",
+      "name": "Ars Technica",
+      "role": "RSS source",
+      "hook": "A Canadian legislator read an apparent unedited LLM response aloud during a floor speech.",
+      "key_point": "Text reportedly included stray AI disclaimer language, exposing unreviewed AI use in official proceedings",
+      "for_you": "No direct action, but a good cautionary anecdote to keep in your back pocket when pitching clients on AI-assisted content: always show the human review step.",
+      "signal": "🟡",
+      "urls": [
+        "https://arstechnica.com/ai/2026/07/canadian-legislator-reads-out-apparent-llm-response-in-floor-speech/"
+      ],
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-1004669768-1152x648-1784927041.jpg"
+    },
+    {
+      "name": "The Verge",
+      "role": "RSS source",
+      "hook": "Meta pauses plan to rate-limit smart glasses after user backlash.",
+      "key_point": "Follows separate report that Meta's glasses created a moderation nightmare around harassment pranks",
+      "for_you": "No direct action here, filed for awareness of hardware AI product missteps.",
+      "signal": "🟡",
+      "urls": [
+        "https://www.theverge.com/tech/970970/after-backlash-meta-pauses-plan-to-rate-limit-its-smart-glasses"
+      ],
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/268640_RayBan_Meta_Gen2_AKrales_0075.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200"
+    },
+    {
+      "name": "Wired",
+      "role": "RSS source",
+      "hook": "Silicon Valley is completely divided over Chinese AI models, per new Wired piece.",
+      "key_point": "Splits investors and founders between open-model pragmatists and national-security hawks",
+      "for_you": "This directly affects which open-weight models (Kimi, GLM) stay viable for your agency's cost-sensitive client stack if US restrictions land.",
       "signal": "🔴",
       "urls": [
-        "https://arstechnica.com/tech-policy/2026/07/ai-kill-switch-act-would-let-trump-admin-order-shutdown-of-rogue-ai-systems/"
+        "https://www.wired.com/story/silicon-valley-is-completely-divided-over-chinese-ai/"
       ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/openai-logo-1152x648-1784833184.jpg"
-    },
-    {
-      "name": "Patreon",
-      "role": "TechCrunch / The Verge",
-      "hook": "Patreon lays off 20% of its workforce.",
-      "key_point": "Both TechCrunch and The Verge report the cut, part of a broader wave of creator-economy platform contraction.",
-      "for_you": "No direct action, but a signal that subscription-based content platforms are tightening, relevant context if the yoga platform ever considers a Patreon-style tier model.",
-      "signal": "🟡",
-      "urls": [
-        "https://techcrunch.com/2026/07/23/patreon-lays-off-off-20-of-its-workforce/"
-      ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-2223254975.jpg?resize=1200,800",
-      "video": {
-        "id": "V7VCZt24VvY",
-        "title": "Hasbro Lays Off 20% of Workforce"
-      }
-    },
-    {
-      "name": "Google selfie login",
-      "role": "Ars Technica",
-      "hook": "Google now lets you log into your account with a selfie instead of a password.",
-      "key_point": "Rolls out as part of Google's broader passwordless authentication push.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "🟢",
-      "urls": [
-        "https://arstechnica.com/gadgets/2026/07/google-now-lets-you-log-into-your-account-with-a-selfie/"
-      ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/look-here-1152x648.png",
-      "video": {
-        "id": "b_Vv7CKvzxU",
-        "title": "Your Google password is now a selfie. (Selfie Signin)  #new #google #selfiesignin #trending #AI"
-      }
+      "image": "https://media.wired.com/photos/6a62963a17ddff986dd664a4/191:100/w_1280,c_limit/Backchannel-Silicon-Valley-Divide-Over-Chinese-AI-Business.jpg"
     }
   ],
   "pt_news": [
     {
-      "headline": "Santa Maria quer ser hub espacial europeu",
-      "hook": "Orbital Paradigm e Space Forge escolhem os Açores como base estratégica para operações espaciais.",
-      "for_you": "Sinal de que os Açores estão a atrair investimento tech fora de Lisboa, vale a pena seguir se algum dia quiseres expandir a agência para lá dos hubs óbvios.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/ciencia/artigos/santa-maria-quer-ser-o-aeroporto-europeu-para-o-regresso-do-espaco-e-ha-uma-nova-industria-a-caminho-da-ilha/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/d56d05c6b43fe09192dd596669805861ec3c9a86.jpg"
+      "headline": "Mais de 20 concelhos em perigo máximo de incêndio",
+      "hook": "Praticamente todo o território continental vai enfrentar perigo máximo a partir de segunda-feira.",
+      "for_you": "Se tens equipa ou clientes fora de Lisboa/Porto esta semana, vale confirmar planos de contingência antes de segunda-feira.",
+      "signal": "🔴",
+      "url": "https://observador.pt/2026/07/25/mais-de-20-concelhos-do-interior-norte-e-centro-e-algarve-em-perigo-maximo/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1122%3Anowe%3A0%3A140%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F07%2F02192336%2F47394696.jpg?layer=obstop:T"
     },
     {
-      "headline": "Quanto ganha um developer em Portugal?",
-      "hook": "Teamlyzer lança levantamento salarial tech em Portugal com respostas de profissionais.",
-      "for_you": "Dados úteis para benchmarking se algum dia precisares de contratar um dev para o micro-SaaS ou para a agência.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/extras/site-do-dia/artigos/quanto-ganha-um-developer-em-portugal-a-teamlyzer-esta-a-medir-valores-com-base-em-respostas-de-profissionais/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/f65547bf266f9b40f7cd506249c5af53695ae285-scaled.jpg"
+      "headline": "Incêndios em Espanha obrigam a retirar mais de 60 mil pessoas",
+      "hook": "Fogos em Ávila e Madrid já consumiram 15.000 hectares e afetam 15 municípios.",
+      "for_you": "Sem ação direta, mas sinal de que o verão vai continuar disruptivo para logística e viagens na península.",
+      "signal": "🔴",
+      "url": "https://observador.pt/2026/07/25/espanha-incendios-seguem-ativos-e-obrigam-a-retirar-e-isolar-mais-de-60-mil-pessoas/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A4096%3A2303%3Anowe%3A0%3A214%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F07%2F24123927%2Fgettyimages-2287348508-scaled.jpg?layer=obstop:T",
+      "video": {
+        "id": "cxg6NjmJ6wI",
+        "title": "Bomba da II Guerra Mundial obriga a retirada de 10 mil pessoas"
+      }
     },
     {
-      "headline": "Google acelera IA mas gastos preocupam investidores",
-      "hook": "Os custos de infraestrutura de IA da Google começam a pesar nas contas e a gerar preocupação.",
-      "for_you": "Reforça o padrão global de custos de IA a subir, relevante se dependes de APIs da Google para produtos da agência.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/google-acelera-na-ia-mas-os-gastos-ja-pesam-nas-contas-e-comecam-a-preocupar-os-investidores/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/c77d3dfd1f67cb43e374b4311e9b571d4d6cd654-scaled.jpg"
-    },
-    {
-      "headline": "Lucros da Volkswagen caem 30,7% no semestre",
-      "hook": "A maior fabricante automóvel europeia regista queda de lucro e avança com redução de pessoal.",
-      "for_you": "Sem ação direta, mas é um sinal macro de pressão na indústria europeia que pode afetar PMEs fornecedoras em Portugal.",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/07/24/lucros-do-grupo-volkswagen-travam-mais-de-30-na-primeira-metade-do-ano/",
-      "source_name": "ECO"
-    },
-    {
-      "headline": "Horta Osório convidado para vice-chairman do Novobanco",
-      "hook": "Ex-CEO do Lloyds Bank está de regresso à banca portuguesa a convite do BPCE.",
-      "for_you": "Sem ação direta, filed for awareness.",
+      "headline": "Chave Móvel Digital ultrapassa 5 milhões de utilizadores",
+      "hook": "2025 foi o ano com mais adesões ao sistema, segundo a ARTE.",
+      "for_you": "Se estás a desenhar onboarding para clientes PT que usem autenticação digital, a adoção crescente da CMD torna-a uma opção viável de login em vez de password tradicional.",
       "signal": "🟢",
-      "url": "https://eco.sapo.pt/2026/07/24/horta-osorio-convidado-por-franceses-do-bpce-para-vice-chairman-do-novobanco/",
+      "url": "https://tek.sapo.pt/noticias/artigos/chave-movel-digital-ultrapassa-5-milhoes-de-utilizadores-2025-foi-o-ano-com-mais-adesoes-ao-sistema/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/9e20940950aadbb189e27ad193ed671bd34380e2.jpg"
+    },
+    {
+      "headline": "Portugal tem alicerces para soberania tecnológica em IA, defende Mário Alves",
+      "hook": "Artigo argumenta que língua, computação e escala dão a Portugal uma posição na corrida da IA.",
+      "for_you": "Vale ler este texto de perto, é o tipo de argumento que podes usar para posicionar a tua agência como parte de uma narrativa nacional de soberania tecnológica, não só como fornecedor de ferramentas estrangeiras.",
+      "signal": "💡",
+      "url": "https://tek.sapo.pt/opiniao/artigos/o-mundial-acabou-sem-portugal-na-final-a-corrida-da-ia-ainda-nao/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/07/Mario-Alves-1.png"
+    },
+    {
+      "headline": "Portugal tropeçou na correção digital dos exames nacionais",
+      "hook": "Falhas na primeira experiência de correção digital reacendem debate sobre digitalização da avaliação.",
+      "for_you": "Caso de estudo real de má implementação de IA/digital no setor público português, útil se alguma vez pitchares soluções edtech ou public-sector para a tua agência.",
+      "signal": "🟡",
+      "url": "https://eco.sapo.pt/2026/07/25/portugal-tropecou-na-correcao-digital-dos-exames-o-que-fizeram-os-outros-paises/",
       "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2019/11/cropped-cropped-cropped-money_conference08-2.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "image": "https://eco.imgix.net/uploads/2026/07/exames-digitais-2000x1125-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     }
   ],
   "world_news": [
     {
-      "headline": "Oil prices hit $100 for first time since May",
-      "hook": "Brent crude jumped over 6% as the Middle East war escalates.",
-      "for_you": "Watch energy costs if any agency clients run logistics or manufacturing operations sensitive to fuel prices.",
+      "headline": "220,000 evacuated in France and Spain wildfires",
+      "hook": "Madrid officials call it the worst fire in the region's history, Bordeaux threatened.",
+      "for_you": "No direct action, but a stark climate-disruption data point relevant if you ever build anything touristic or logistics-adjacent for the yoga platform in Iberia.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cx2djnzrqk2o?at_medium=RSS&at_campaign=rss",
+      "url": "https://www.bbc.co.uk/news/articles/czjlenp0xk8o?at_medium=RSS&at_campaign=rss",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d668/live/b41122b0-867a-11f1-8c77-df97511a6b05.jpg",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/638c/live/3592d2f0-87ae-11f1-9e55-1d545cca1941.jpg",
       "video": {
-        "id": "f6-lhKyxPRo",
-        "title": "Oil Prices Hit $100 😳"
+        "id": "LGQodmu3tWw",
+        "title": "Wildfires in France & Spain: 220,000 Evacuated as Emergency Declared"
       }
     },
     {
-      "headline": "US hits dozens of countries with new tariff wave",
-      "hook": "New tariffs cite forced labour concerns, replacing a temporary duty struck down by the Supreme Court.",
-      "for_you": "No direct action, filed for awareness.",
+      "headline": "Ten killed in Russian strike on drone exhibition near Kyiv",
+      "hook": "Ballistic missiles hit an event attended by Ukraine's defence industry leaders.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cj637zd1k1ko?at_medium=RSS&at_campaign=rss",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/065e/live/19c07e70-875d-11f1-95ec-a30de4e448c4.jpg",
+      "video": {
+        "id": "sIOy2a_TtHM",
+        "title": "Russia-Ukraine War: Russian Strike On Kyiv Arms Show Kills 10, Wounds 100 | WION Shorts"
+      }
+    },
+    {
+      "headline": "Trump threatens new EU tariffs over Google antitrust fine",
+      "hook": "Trump alleges EU unfairly hit US tech giants with billions in fines.",
+      "for_you": "Watch this if you sell services priced in dollars or use US cloud infra, a tariff escalation could ripple into compute/API pricing for EU-based builders.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cvgj61j6l08o?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c18a/live/839d6280-8727-11f1-926f-c90d1bcfbc84.jpg",
+      "url": "https://www.politico.com/news/2026/07/24/trump-eu-tarriffs-tech-fines-01011576?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "source_name": "Politico Europe",
       "video": {
-        "id": "Ogflo_QYxDI",
-        "title": "Trump’s Tariffs Hit Dozens of Countries as New Wave of US Trade Levies Take Effect"
+        "id": "9_d3OA_3yaE",
+        "title": "Breaking News: Trump Threatens EU with New Tariffs Over Google Antitrust Fine #Google"
       }
     },
     {
-      "headline": "France evacuates Cap Ferret peninsula amid wildfires",
-      "hook": "Hundreds flee by boat as wildfires rage for days in the region.",
-      "for_you": "No direct action, filed for awareness.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cdx82rl5g0do?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/cb06/live/2f9183e0-8738-11f1-a10e-a5d4f08bc20c.jpg"
-    },
-    {
-      "headline": "US attacks Iran for 13th consecutive night",
-      "hook": "US military confirms a 13th straight night of strikes against Iran.",
-      "for_you": "No direct action, filed for awareness, but ties directly to today's oil price spike.",
-      "signal": "🔴",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/7/24/us-attacks-iran-for-13th-consecutive-night?traffic_source=rss",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/07/image-1784882357.jpg?resize=1920%2C937&amp;quality=80",
-      "video": {
-        "id": "-bccU1OsuvQ",
-        "title": "US Completes 13th Straight Night of Strikes on Iran"
-      }
-    },
-    {
-      "headline": "Healthy diet unaffordable for 1 in 3 people globally",
-      "hook": "UN report finds 2.69 billion people can't afford a nutritious diet despite falling hunger rates.",
+      "headline": "Healthy diet unaffordable for 1 in 3 people globally, UN finds",
+      "hook": "2.69 billion people can't afford a diverse, healthy diet despite falling hunger rates.",
       "for_you": "No direct action, filed for awareness.",
       "signal": "🟡",
       "url": "https://www.theguardian.com/global-development/2026/jul/21/healthy-diet-too-expensive-for-one-in-three-people-globally-un-report-finds",
       "source_name": "The Guardian World",
       "image": "https://i.guim.co.uk/img/media/48c38df32d5d1c8bd7b6560be8a26320e8cf8058/557_59_4927_3941/master/4927.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c0a3937acc698a56e692ebe4ddabd976"
+    },
+    {
+      "headline": "ICC fires chief prosecutor Karim Khan over misconduct claims",
+      "hook": "Member states removed Khan following sexual misconduct allegations by an ICC employee.",
+      "for_you": "No direct action, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://www.politico.eu/article/icc-member-states-fire-chief-prosecutor-khan/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
+      "source_name": "Politico Europe",
+      "image": "https://www.politico.eu/wp-content/themes/politico/assets/images/politico-billboard.png",
+      "video": {
+        "id": "bL22ENCvNCY",
+        "title": "Karim Khan Fired by the ICC  “Bye-Bye Karim”"
+      }
     }
   ],
-  "since_yesterday": "The OpenAI/Hugging Face sandbox escape story keeps evolving: new commentary reveals Hugging Face's code-execution features made it an unusually easy target, and researcher Thomas Ptacek argues almost any 2025-era open model could pull off the same exploit, shifting blame from 'freak incident' to 'expected outcome of weak sandboxing industry-wide.'",
+  "since_yesterday": "The OpenAI/Hugging Face 'rogue agent' story keeps evolving: yesterday it was framed as a security incident, today Ars/Guardian coverage and HN pushback (485pts) question whether the 'runaway agent' framing is overstated marketing, while security researcher Thomas Ptacek argues any 2025-era open model could've done the same thing.",
   "health": {
     "x": {
       "attempted": 15,
