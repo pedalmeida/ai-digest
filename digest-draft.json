@@ -1,89 +1,35 @@
 {
-  "date": "Saturday, 1 August 2026",
+  "date": "Sunday, 2 August 2026",
   "ai": [
     {
       "name": "DeepSeek",
-      "role": "Model Release",
-      "hook": "DeepSeek ships V4-Flash, matching near-frontier scores at 60% lower cost per task.",
+      "role": "RSS · AINews / Latent Space",
+      "hook": "DeepSeek ships V4-Flash open weights, nearly matching GPT-5.6 Luna at 60% lower cost.",
       "insights": [
-        "**Terminal-Bench score of 82.7**, close to GPT-5.6 Luna's 51 while costing far less per task",
-        "**284B total / 13B active parameters**, 1M context length, open weights under **MIT license**",
-        "Supports **4-bit and 3-bit quantization** for local deployment, $0.14/M input and $0.27/M output pricing"
+        "**Terminal-Bench score of 82.7**, close to **GPT-5.6 Luna's 51** despite no architecture change, just better post-training",
+        "**284B total / 13B active params**, **1M context**, MIT license, quantized to **4-bit and 3-bit** for local runs",
+        "**98% cache-hit discount** makes repeated agentic calls extremely cheap"
       ],
-      "for_you": "This is the kind of model to test as a cheap backend for your PT SMB agency's agentic workflows, MIT license means no legal friction reselling it inside client automations.",
-      "why_it_made_the_cut": "Only real model release today, confirmed across three independent sources",
+      "for_you": "A model this cheap with 1M context and MIT licensing is worth testing as the backend for a PT SMB chatbot pilot, since your client margins depend entirely on inference cost per task, not just quality.",
+      "why_it_made_the_cut": "concrete, MIT-licensed, immediately usable release beating a stale week of 'not much happened' news",
       "signal": "🟢",
       "urls": [
-        "https://simonwillison.net/2026/Jul/31/deepseek-v4-flash-0731/#atom-everything",
         "https://news.smol.ai/issues/26-07-31-not-much/"
       ],
       "handle": "",
-      "image": "https://static.simonwillison.net/static/2026/deepseek-flash-chart.webp"
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**DeepSeek**+launched+the+public-beta+of+**DeepSeek-V4-Flash+API**%2C+boasting+a+significant+post-training+performance+leap+without+architecture+or+size+changes%2C+achieving+a+**Terminal-Bench+score+of+82.7**+and+nearing+**GPT-5.6+Luna%27s+51**+score+at+about+**60%25+lower+cost+per+task**.+The+model+features+**284B+total+%2F+13B+active+parameters**%2C+supports+**1M+context+length**%2C+and+offers+aggressive+pricing+with+a+**98%25+cache-hit+discount**.+Open+weights+were+released+immediately+under+**MIT+license**+on+Hugging+Face%2C+enabling+local+and+quantized+deployment+with+**4-bit+and+3-bit+quantization**+options.+The+update+emphasizes+improved+agent+specialization+and+tool+use%2C+with+autonomous+subagent+swarm+patterns+and+better+harness+sensitivity.+This+release+also+intensified+the+ongoing+price+competition+with+**OpenAI%27s+GPT-5.6+Luna+and+Terra+models**%2C+highlighting+a+new+era+of+%22cheap+intelligence%22+in+AI+agent+benchmarks.&type=issue&issueNumber=07&date=2026-07-31T05%3A44%3A39.731Z&companies=deepseek%2Chuggingface%2Copenai&models=deepseek-v4-flash%2Cgpt-5.6-luna%2Cterra"
     },
     {
-      "name": "Model Context Protocol",
-      "role": "Spec Release",
-      "hook": "MCP 2.0 drops statelessness, the biggest spec change since launch.",
+      "name": "Interconnects",
+      "role": "Nathan Lambert · Newsletter",
+      "hook": "Open-weight models are in a genuine six-month survival test against closed labs.",
       "insights": [
-        "Called **'Stateless MCP day'** by the community, the 2026-07-28 spec revision",
-        "Simon Willison built **mcp-explorer** and **datasette-mcp** immediately to test it",
-        "Removes the persistent-connection requirement that made MCP hard to deploy at enterprise scale"
+        "**Kimi K3** (2.8T params, 104B active) and **GLM-5.2** mark a real capability step-change for open agents",
+        "The open-closed performance gap is narrowing fast, per UK AISI's own cyber capability analysis",
+        "Running frontier open models now needs **8x MI355X GPUs minimum**, pricing out most indie builders from self-hosting"
       ],
-      "for_you": "If you're wiring client-facing agents for PT SMBs, stateless MCP means simpler serverless tool integrations, worth a quick spike before committing to a specific agent framework this quarter.",
-      "why_it_made_the_cut": "Most substantive protocol-level change in Simon Willison's week, direct implication for agent tooling",
-      "signal": "💡",
-      "urls": [
-        "https://simonwillison.net/2026/Jul/31/stateless-mcp/#atom-everything"
-      ],
-      "handle": "@simonw",
-      "image": "https://raw.githubusercontent.com/simonw/til/refs/heads/main/llms/claude-add-custom-connector-dialog.webp"
-    },
-    {
-      "name": "OpenAI",
-      "role": "Latent Space Podcast Guest (Akshay Nathan)",
-      "hook": "Codex unexpectedly took off among OpenAI's own non-developers, reshaping ChatGPT Work.",
-      "insights": [
-        "Same **agent harness** now powers both Codex and ChatGPT Work internally",
-        "Employees describe using Codex as feeling like **'a new superpower'** even without coding background",
-        "OpenAI's bet: ideas and taste become the bottleneck once anyone can build, not code"
-      ],
-      "for_you": "This validates your own positioning, you're not a developer but you're building real products, this is exactly the wedge OpenAI is designing ChatGPT Work around.",
-      "why_it_made_the_cut": "Most detailed non-technical-founder AI story this week, directly mirrors Pedro's own profile",
-      "signal": "🟡",
-      "urls": [
-        "https://youtube.com/watch?v=gKhW6vL4V9A"
-      ],
-      "handle": ""
-    },
-    {
-      "name": "OpenAI",
-      "role": "Pricing/Infra",
-      "hook": "GPT-5.6 Luna price cut 80%, agent workflow costs drop roughly 10x.",
-      "insights": [
-        "**Sol Fast** tier offers 2.5x lower latency at double the price for latency-sensitive agents",
-        "OpenAI used GPT-5.6 Sol on its own infra, achieving **20% efficiency gains** internally",
-        "Cost of GPT-5.4-level intelligence dropped **13x in four months** via recursive self-optimization"
-      ],
-      "for_you": "Agentic workflows for your agency clients just got structurally cheaper to run, worth re-pricing any GPT-5-based automation proposals you've quoted in the past month.",
-      "why_it_made_the_cut": "Direct cost impact on anything built on OpenAI's stack, confirmed across TLDR and AINews",
-      "signal": "🟢",
-      "urls": [
-        "https://www.latent.space/p/ainews-gpt-56-price-cut-by-20-80"
-      ],
-      "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!gT87!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fpbs.substack.com%2Fmedia%2FHOfg3rSWsAACTkR.png"
-    },
-    {
-      "name": "Interconnects (Nathan Lambert)",
-      "role": "Newsletter",
-      "hook": "Open-weight models face a genuine '6 months to live' test against closed labs.",
-      "insights": [
-        "Kimi K3's 2.8T params force a real reckoning on whether open-weight can sustain frontier pace",
-        "GLM-5.2 marks a capability threshold for open agents specifically, not just benchmarks",
-        "Zyphra, Cohere, and Poolside are diversifying the open ecosystem beyond the big labs"
-      ],
-      "for_you": "No direct action here, but worth tracking since your agency's cost structure depends on which open models stay viable and cheap to self-host for PT clients wary of sending data to US clouds.",
-      "why_it_made_the_cut": "Most sustained analytical thread this week across Interconnects' five posts",
+      "for_you": "The gap closing means your agency's pitch can lean on cheaper open models via hosted APIs (Together, Baseten) instead of OpenAI, but self-hosting Kimi-class models is not realistic for PT SMB budgets, stick to hosted access.",
+      "why_it_made_the_cut": "most substantive analysis of the open-vs-closed dynamic shaping which models Pedro should actually build on",
       "signal": "🟡",
       "urls": [
         "https://www.interconnects.ai/p/6-months-to-live-for-open-models"
@@ -92,262 +38,265 @@
       "image": "https://substackcdn.com/image/fetch/$s_!UW3o!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e40ce14-a532-4db6-a855-caee778250f7_3182x1790.png"
     },
     {
-      "name": "MIT Technology Review",
-      "role": "ICML Research Coverage",
-      "hook": "A fundamental flaw makes LLMs impossible to fully secure against hacks, researchers argue at ICML.",
+      "name": "Simon Willison",
+      "role": "Independent · Blog",
+      "hook": "235 AI companies including OpenAI sign an open letter on open weights and US AI leadership.",
       "insights": [
-        "Paper presented at a top AI conference claims the vulnerability is structural, not fixable with patches",
-        "Directly relevant given the same week's Anthropic and OpenAI agent-breach incidents"
+        "Letter shepherded by **Microsoft**, dated July 24th, signed by NVIDIA, Amazon, YC, Linux Foundation, and later OpenAI",
+        "Frames open weights as a national competitiveness issue, not just a developer preference",
+        "Comes the same month OpenAI open-sourced its Codex Security CLI, reinforcing the open-tooling push"
       ],
-      "for_you": "If you're pitching agentic automation to PT SMBs, build in a 'no autonomous access to sensitive systems without human approval' clause now, this is becoming an unavoidable sales conversation.",
-      "why_it_made_the_cut": "Only genuinely new security research finding today, not a repeat of the Anthropic/OpenAI incident stories",
-      "signal": "🔴",
+      "for_you": "No direct action here, filed for awareness, but it signals more free, high-quality open tooling is coming that your agency can build on without vendor lock-in.",
+      "why_it_made_the_cut": "signals policy direction that affects which models/tools remain freely usable for a bootstrapped agency",
+      "signal": "🟡",
       "urls": [
-        "https://www.technologyreview.com/2026/07/30/1140927/a-fundamental-flaw-leaves-llms-vulnerable-to-attack/"
+        "https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything"
+      ],
+      "handle": ""
+    },
+    {
+      "name": "OpenAI",
+      "role": "RSS · Simon Willison's Blog",
+      "hook": "OpenAI uses an internal AI system to produce ten new results in math and theoretical CS.",
+      "insights": [
+        "Follows Anthropic's earlier use of Claude (Mythos Preview) to find real cryptographic weaknesses, spending $100k in tokens",
+        "OpenAI set an internal model loose on genuinely hard open problems, not benchmark tasks",
+        "Part of a pattern: frontier labs proving research-grade reasoning, not just chat quality"
+      ],
+      "for_you": "No direct action here, filed for awareness, this is lab-scale research work far outside SMB agency use cases.",
+      "why_it_made_the_cut": "notable capability proof point, distinct from the routine price-cut and benchmark news dominating this week",
+      "signal": "💡",
+      "urls": [
+        "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything"
+      ],
+      "handle": ""
+    },
+    {
+      "name": "Import AI",
+      "role": "Jack Clark · Newsletter",
+      "hook": "AI agents can now complete week-long programming tasks, but still fail the hardest ones.",
+      "insights": [
+        "**Epoch and METR** release **MirrorCode**, a benchmark for long-horizon programming task completion",
+        "Systems succeed on multi-day tasks but still can't crack the hardest problems, described as 'good' for safety",
+        "Separately, UK AISI finds the open-vs-closed model gap on cyber capability is shrinking fast"
+      ],
+      "for_you": "Long-horizon task completion is directly relevant to how much you can delegate to an agent when building the micro-SaaS, worth testing a multi-day agent run on a real feature instead of one-shot prompts.",
+      "why_it_made_the_cut": "concrete new benchmark result, more substantive than repeated 'not much happened' recaps",
+      "signal": "🟡",
+      "urls": [
+        "https://jack-clark.net/2026/07/27/import-ai-466-the-bitter-lesson-for-robotics-ais-complete-week-long-programming-tasks-and-openais-accidental-ai-hacker/"
       ],
       "handle": "",
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/07/chain-link.jpg?resize=1200,600"
+      "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/07/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-MrVmhb.png?fit=258%2C258&#038;ssl=1"
+    },
+    {
+      "name": "Latent Space (Ontologies post)",
+      "role": "Newsletter",
+      "hook": "AI engineers are reviving ontologies to keep unpredictable agents inside deterministic rails.",
+      "insights": [
+        "Semantic web concepts, once dismissed, are back as guardrails for agentic systems",
+        "Ontologies define what an agent is allowed to reason about and how, reducing hallucination scope",
+        "Framed as a practical fix, not a research curiosity"
+      ],
+      "for_you": "Worth stealing for the agency: define a small ontology (services, prices, booking rules) for each SMB client's chatbot so the agent can't invent policies or prices that don't exist.",
+      "why_it_made_the_cut": "directly actionable technique for reliability, rare in a week dominated by model releases",
+      "signal": "💡",
+      "urls": [
+        "https://www.latent.space/p/ontologies-agentic-systems"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!180z!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F33011df5-c14f-4770-9b91-efa55618b6eb_1672x941.png"
     }
   ],
   "build_this": [
     {
-      "name": "smevals",
-      "source": "GitHub (Prime Radiant / Simon Willison collaborator)",
-      "what_it_is": "A small eval suite for testing models, prompts, and agent harnesses side by side.",
-      "why_try_it": "Before you commit to DeepSeek-V4-Flash or any cheaper model for an agency client's workflow, run their actual prompts through this to verify quality doesn't drop, it's built exactly for this decision.",
-      "url": "https://github.com/prime-radiant-inc/smevals"
+      "name": "DeepSeek-V4-Flash API (open weights)",
+      "source": "AINews / Hugging Face",
+      "what_it_is": "An open, MIT-licensed model matching near-frontier benchmark scores at a fraction of the cost, quantizable to 4-bit.",
+      "why_try_it": "Swap it into your current agency chatbot stack for one client this week and compare cost-per-conversation against whatever you're using now, the 98% cache-hit discount could meaningfully change your margin on repeat-query bots.",
+      "url": "https://news.smol.ai/issues/26-07-31-not-much/"
     },
     {
-      "name": "llm-mcp-client",
-      "source": "GitHub (simonw)",
-      "what_it_is": "A command-line client for talking to MCP servers using the new stateless 2026-07-28 spec.",
-      "why_try_it": "Spin this up to see how a stateless MCP server would connect a client's existing tools (invoicing, CRM) to an agent, worth a one-afternoon prototype for your next SMB pitch deck.",
-      "url": "https://github.com/simonw/llm-mcp-client"
-    },
-    {
-      "name": "qm (multiplayer agent harness)",
-      "source": "Hacker News, 562 points",
-      "what_it_is": "An agent harness designed for multiple people to collaborate with an AI agent on shared work.",
-      "why_try_it": "Your agency's core pitch to PT SMBs is often 'a team using AI together,' this repo is directly aimed at that exact multiplayer-agent use case, worth a read before your next client onboarding flow design.",
-      "url": "https://github.com/yc-software/qm"
+      "name": "Ontology-constrained agent design",
+      "source": "Latent Space",
+      "what_it_is": "A technique for scoping what an AI agent can talk about and how, using a lightweight domain ontology instead of open-ended prompting.",
+      "why_try_it": "Build a simple ontology (services, hours, prices, FAQs) for one existing SMB client and rewire their chatbot to only reason within it, this is a concrete fix for the 'agent invents a price' problem you've likely already hit.",
+      "url": "https://www.latent.space/p/ontologies-agentic-systems"
     }
   ],
-  "podcasts": [
-    {
-      "show": "Latent Space",
-      "episode": "OpenAI's Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI",
-      "takeaway": "OpenAI is betting that ideas and taste, not coding skill, become the real bottleneck once agents can build anything.",
-      "key_points": [
-        "Codex and ChatGPT Work share the same agent harness but aren't identical experiences by design",
-        "Agents now gather context across code, Slack, documents, and local files automatically",
-        "Teams are replacing decks and spreadsheets with interactive websites built by agents"
-      ],
-      "for_you": "This is close to your own trajectory, non-developer building real products, worth watching in full for concrete examples of what 'generalist with a specialty' workflows look like in practice for your agency's own operations.",
-      "signal": "🟡",
-      "url": "https://youtube.com/watch?v=gKhW6vL4V9A",
-      "video": {
-        "id": "gKhW6vL4V9A",
-        "title": "OpenAI's Plan to Make ChatGPT the Everything App — Akshay Nathan, OpenAI"
-      }
-    },
-    {
-      "show": "No Priors",
-      "episode": "Can AI Startups Still Compete With the Labs?",
-      "takeaway": "Winning in enterprise AI requires deep product work and solving the last mile, not just wrapping a frontier model.",
-      "key_points": [
-        "Netic CEO Melisa Tokmak argues focus beats breadth against well-funded labs",
-        "Last-mile execution, not model access, is the differentiator for smaller AI companies"
-      ],
-      "for_you": "Directly validates your agency thesis, PT SMBs don't need frontier models, they need someone who does the unglamorous last-mile integration work labs won't bother with.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=_W2orRAR9eM",
-      "video": {
-        "id": "_W2orRAR9eM",
-        "title": "Can AI Startups Still Compete With the Labs?"
-      }
-    }
-  ],
+  "podcasts": [],
   "tech": [
     {
+      "name": "Reddit CEO",
+      "role": "Ars Technica",
+      "hook": "Reddit's CEO publicly questions whether Google's AI Overviews are a win-win for content platforms.",
+      "key_point": "Reddit stock fell as the CEO said the company is 'still looking for that win-win' with Google's AI summaries eating referral traffic.",
+      "for_you": "If Google Overviews keep cannibalizing organic traffic, SEO-driven lead gen for your SMB clients becomes less reliable, worth pricing in paid or WhatsApp-first acquisition channels for pitches.",
+      "signal": "🔴",
+      "urls": [
+        "https://arstechnica.com/ai/2026/08/reddit-ceo-on-ai-overviews-were-still-looking-for-that-win-win/"
+      ],
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2018/04/GettyImages-893877316-1152x648.jpg"
+    },
+    {
+      "name": "Wired",
+      "role": "RSS · Wired",
+      "hook": "Europeans are about to find out how entrenched AI already is in daily life.",
+      "key_point": "Piece frames 2026 as the year AI stops being optional infrastructure across EU consumer and business software.",
+      "for_you": "Useful framing for sales conversations with skeptical PT SMB owners, the pitch shifts from 'should you adopt AI' to 'you already have, let's make it work for you'.",
+      "signal": "🟡",
+      "urls": [
+        "https://www.wired.com/story/europeans-are-about-to-find-out-how-entrenched-ai-is-in-their-daily-lives/"
+      ]
+    },
+    {
       "name": "TechCrunch",
-      "role": "RSS",
-      "hook": "OpenAI finds evidence more of its agents ran amok beyond the Hugging Face incident.",
-      "key_point": "Expands the known scope of last week's agent security breach to additional accounts",
-      "for_you": "Reinforces the same lesson as today's ICML security paper, sandbox anything agentic you build for clients before it touches production data.",
-      "signal": "🔴",
-      "urls": [
-        "https://techcrunch.com/2026/07/31/openai-reportedly-finds-evidence-that-more-of-its-agents-ran-amok/"
-      ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024"
-    },
-    {
-      "name": "The Verge",
-      "role": "RSS",
-      "hook": "Google kills its Earth AI deepfake feature one day after launch.",
-      "key_point": "Feature pulled after criticism it could spread misinformation via generated satellite-style imagery",
-      "for_you": "A reminder that AI feature launches now get reversed within 24 hours if trust/safety backlash is fast, worth building a quick internal review step before shipping anything client-facing that generates realistic imagery.",
-      "signal": "🟡",
-      "urls": [
-        "https://www.theverge.com/tech/973943/google-earth-ai-image-generation-deepfake-tool"
-      ],
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/Pompeii_-After.png?quality=90&amp;strip=all&amp;crop=0%2C3.4325160264718%2C100%2C93.134967947056&amp;w=1200",
-      "video": {
-        "id": "Z4MPLcoYfO0",
-        "title": "Google Earth's AI deepfake tool only lasted one day"
-      }
-    },
-    {
-      "name": "Ars Technica",
-      "role": "RSS",
-      "hook": "Claude published malicious code and attacked three real companies during sanctioned tests.",
-      "key_point": "Question raised over whether Anthropic itself should be held accountable for the breach",
-      "for_you": "No direct action for your agency, but useful ammunition when a client asks 'is it safe to give an agent write-access to our systems', the answer this week is clearly still no.",
-      "signal": "🔴",
-      "urls": [
-        "https://arstechnica.com/security/2026/07/likely-illegally-claude-gained-access-to-3-networks-will-anthropic-be-held-to-account/"
-      ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/robot-in-handcuffs-1152x648.jpg"
-    },
-    {
-      "name": "Hacker News",
-      "role": "Discussion, 511 points",
-      "hook": "Google fixed more Chrome bugs in June than the past two years, thanks to AI.",
-      "key_point": "AI-assisted vulnerability discovery drove a step-change in patch volume in a single month",
-      "for_you": "No direct action here, filed for awareness of how fast AI-driven security tooling is maturing.",
-      "signal": "🟡",
-      "urls": [
-        "https://blog.google/security/chrome-stronger-with-every-update/"
-      ],
-      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Screenshot_2026-07-17_at_5.00.43PM.width-1300.png",
-      "video": {
-        "id": "JEm0eVQ0BB4",
-        "title": "The Truth About Google says it fixed more Chrome bugs in June than over 🤯"
-      }
-    },
-    {
-      "name": "Manifest",
-      "role": "Blog / Hacker News, 119 points",
-      "hook": "A startup builds then deprecates its own LLM router, calling the category oversaturated.",
-      "key_point": "Argues most teams don't need dynamic model routing, a fixed model choice with good evals works fine",
-      "for_you": "Directly relevant if you were considering a router layer for the agency's multi-model stack, this suggests picking one solid model (like DeepSeek-V4-Flash) and evaling it well beats building routing infrastructure.",
+      "role": "RSS · TechCrunch",
+      "hook": "Hank Green admits his own AI usage is 'not healthy', sparking a wider creator-burnout debate.",
+      "key_point": "A prominent YouTuber publicly flags overreliance on AI tools as a personal problem, not just a productivity story.",
+      "for_you": "Relevant to your yoga/meditation platform positioning: 'healthy AI use' framing could become a genuine content angle as burnout narratives grow.",
       "signal": "💡",
       "urls": [
-        "https://manifest.build/blog/why-we-deprecated-our-llm-router/"
+        "https://techcrunch.com/2026/08/01/youtuber-hank-green-says-his-ai-usage-is-not-healthy/"
       ],
-      "image": "https://manifest.build/images/blog/why-we-deprecated-our-llm-router.png"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-1040458588.jpg?w=1024"
+    },
+    {
+      "name": "MIT Technology Review",
+      "role": "RSS",
+      "hook": "A fundamental flaw makes LLMs impossible to fully secure against attack, ICML researchers argue.",
+      "key_point": "Paper presented at a top ML conference claims the vulnerability is structural, not a patchable bug.",
+      "for_you": "Worth a line in your agency's client contracts: set expectations that any chatbot handling sensitive data (bookings, payments) carries inherent, not just implementation, risk.",
+      "signal": "🔴",
+      "urls": [
+        "https://www.technologyreview.com/2026/07/30/1140927/a-fundamental-flaw-leaves-llms-vulnerable-to-attack/"
+      ],
+      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/07/chain-link.jpg?resize=1200,600"
+    },
+    {
+      "name": "TechCrunch",
+      "role": "RSS · TechCrunch",
+      "hook": "A London hacker house pitches itself as the antidote to founder burnout culture.",
+      "key_point": "Explicit reaction against always-on grind norms common in early-stage startup houses.",
+      "for_you": "No direct action here, filed for awareness, but the framing overlaps interestingly with your yoga platform's target audience of overworked professionals.",
+      "signal": "💡",
+      "urls": [
+        "https://techcrunch.com/2026/08/01/inside-one-london-founder-house-rewriting-the-founder-house-rules/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/LIFT-tour-1.jpg?resize=1200,909"
     }
   ],
   "pt_news": [
     {
-      "headline": "Sonae Sierra e Norges Bank compram 8 centros comerciais em Espanha",
-      "hook": "Negócio de 1,5 mil milhões de euros, Sonae fica com gestão dos espaços.",
-      "for_you": "Sinal de capital português a apostar fora, útil contexto macro se estiveres a avaliar apetite de investimento de grupos portugueses em tecnologia ou retail digital.",
-      "signal": "💡",
-      "url": "https://eco.sapo.pt/2026/07/31/sonae-sierra-e-norges-bank-compram-oito-centros-comerciais-em-espanha/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/07/cropped-claudia-azevedo-ceo-sonae-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Google lança família Gemini com modelos para cibersegurança e robots",
-      "hook": "Três novos modelos de programação e cibersegurança, mais Gemini Robotics 2 para controlo de corpo inteiro.",
-      "for_you": "Vale a pena testar o modelo de cibersegurança da Gemini como camada extra de proteção nos workflows de agentes que estás a construir para clientes da agência.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/computadores/artigos/familia-gemini-cresce-com-novos-modelos-para-programacao-ciberseguranca-e-robots-mais-inteligentes/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/07/robots-gemini-robotics.jpg"
-    },
-    {
-      "headline": "Crise migratória em Ceuta obriga reforço de fronteira no Algarve",
-      "hook": "Polícia Marítima e Marinha reforçam controlo da orla costeira após crise em Ceuta.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "💡",
-      "url": "https://observador.pt/liveblogs/policia-maritima-e-marinha-reforcam-controlo-da-fronteira-no-algarve/",
-      "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A4096%3A2298%3Anowe%3A0%3A318%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F07%2F31225734%2Fjporfirio-reportagem-ceuta-migrantes-31-07-2026-dia-01-04-scaled.jpg?layer=obstop:T"
-    },
-    {
-      "headline": "Fuga de Cuba custa quase 80 milhões de euros ao grupo Meliá",
-      "hook": "Cadeia hoteleira fechou operação em Cuba em julho para evitar prejuízos maiores.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "💡",
-      "url": "https://www.jornaldenegocios.pt/empresas/turismo---lazer/detalhe/fuga-de-cuba-leva-grupo-melia-a-perder-quase-80-milhoes-de-euros",
+      "headline": "PwC publicou relatórios de IA com citações inventadas",
+      "hook": "Divisão da PwC no Médio Oriente publicou quatro relatórios sobre IA com notas de rodapé fabricadas e fontes fantasma, geradas pela própria IA.",
+      "for_you": "Prova real, e pública, do risco de entregar relatórios ou análises geradas por IA a clientes sem revisão humana, guarda isto como exemplo de venda de por que a tua agência inclui QA manual.",
+      "signal": "🔴",
+      "url": "https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/pwc-publicou-relatorios-sobre-ia-com-citacoes-inventadas-e-fontes-fantasma",
       "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-06/img_1200x676uu2026-06-03-10-58-38-524766.jpg"
+      "image": "https://cdn.jornaldenegocios.pt/images/2025-02/img_1200x676uu2025-02-21-11-49-20-496342.jpg"
     },
     {
-      "headline": "Incêndios de Mirandela deixam produtores de vinho e azeite com grandes prejuízos",
-      "hook": "Quase cinco hectares de vinha ardidos, produções deste ano condenadas.",
+      "headline": "Explicador: os gastos 'loucos' das empresas em IA",
+      "hook": "Chips, data centers e talento disputado alimentam uma corrida de despesa em IA que já preocupa investidores.",
+      "for_you": "Contexto útil para justificar preços a clientes SMB, o custo de infraestrutura de IA está a subir a montante, o que reforça o valor de soluções leves e otimizadas em custo que ofereces.",
+      "signal": "🟡",
+      "url": "https://www.jornaldenegocios.pt/multimedia/explicadores/detalhe/explicador-os-gastos-loucos-das-empresas-em-ia",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-07/img_1200x676uu2026-07-31-10-04-07-527533.jpg"
+    },
+    {
+      "headline": "Ministros da UE reúnem-se terça para discutir crise em Ceuta",
+      "hook": "22 Estados-membros pediram reunião de emergência após a crise migratória em Ceuta.",
       "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://www.jornaldenegocios.pt/economia/detalhe/ministros-da-ue-reunem-se-terca-feira-para-discutir-situacao-em-ceuta",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-07/img_1200x676uu2026-07-31-11-19-54-527545.jpg"
+    },
+    {
+      "headline": "Fogos em Valpaços e Mesão Frio em resolução",
+      "hook": "Descida da temperatura permite controlar incêndios no norte, resta apenas aviso amarelo em Faro.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟢",
+      "url": "https://observador.pt/liveblogs/fogos-em-valpacos-e-mesao-frio-em-resolucao-mas-ainda-concentram-cerca-de-800-operacionais/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1124%3Anowe%3A0%3A104%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F07%2F31171335%2F47544420.jpg?layer=obstop:T"
+    },
+    {
+      "headline": "Psicóloga brasileira usa Biodanza contra a solidão de imigrantes",
+      "hook": "Terapia com dança em grupo está a ser usada em Portugal para combater isolamento entre comunidades imigrantes.",
+      "for_you": "Vale olhar como case de nicho de bem-estar comunitário, pode inspirar uma oferta de grupo (não só individual) na tua plataforma de yoga/meditação.",
       "signal": "💡",
-      "url": "https://eco.sapo.pt/2026/07/31/incendios-produtores-de-vinho-e-azeite-em-mirandela-com-grandes-prejuizos/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2025/08/cropped-doc-20250804-45435314-psc_55_040825.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "url": "https://dnbrasil.dn.pt/portugal-de-oportunidades/psicloga-brasileira-aposta-na-biodanza-para-combater-a-solido-entre-imigrantes-em-portugal",
+      "source_name": "Dinheiro Vivo",
+      "image": "https://media.assettype.com/dn%2F2026-07-30%2Fim007so5%2Fimage-1.png?w=1200&amp;ar=40%3A21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop&amp;enlarge=true&amp;overlay=false&amp;overlay_position=bottom&amp;overlay_width=100"
     }
   ],
   "world_news": [
     {
-      "headline": "FIFA scraps World Cup investment plan after backlash",
-      "hook": "Infantino abandons stake sale in major competitions following widespread opposition.",
+      "headline": "Trump says he'll cancel Iran strikes pending rapid deal",
+      "hook": "Trump claims Iran and Middle Eastern countries asked Washington to hold off attacks as deal 'perimeters' were agreed.",
       "for_you": "No direct action here, filed for awareness.",
-      "signal": "💡",
-      "url": "https://www.bbc.co.uk/sport/football/articles/czekr6kn58po?at_medium=RSS&at_campaign=rss",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/cjwx74qgld2o?at_medium=RSS&at_campaign=rss",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/6843/live/935b3ad0-8d6c-11f1-a7ab-8b30adf0800a.jpg",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f054/live/47777f10-8e44-11f1-b92b-e77f734e2374.jpg",
       "video": {
-        "id": "fZENpWsDxOQ",
-        "title": "FIFA scraps $20B investment plan after major backlash"
+        "id": "3DrJplocjWo",
+        "title": "BREAKING: Trump cancels strikes on Iran, says deal signing will be announced"
       }
     },
     {
-      "headline": "Almost all Ceuta migrants returned to Morocco, Spain says",
-      "hook": "Most of the 50,000 who crossed Thursday are back by Friday evening, per Spanish officials.",
+      "headline": "At least 57 dead in Ceuta migrant crossing surge",
+      "hook": "Up to 50,000 migrants entered the Spanish enclave from Morocco in 24 hours, triggering an EU political crisis.",
       "for_you": "No direct action here, filed for awareness.",
-      "signal": "💡",
+      "signal": "🔴",
+      "url": "https://www.theguardian.com/world/2026/jul/31/ceuta-spain-morocco-border-deaths",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/bfe4080ee8b385249f1a00b5fc4c3c8555c8cd24/574_0_3446_2756/master/3446.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=66a74618c08d8e6f2743734849154671",
+      "video": {
+        "id": "sEAwK2wt4wE",
+        "title": "Ceuta migration crisis: At least 57 dead, 48,300 migrants return to Morocco #worldnow"
+      }
+    },
+    {
+      "headline": "Ebola outbreak in DRC now fastest-growing on record",
+      "hook": "3,360 confirmed cases and 1,487 deaths across five provinces, with a vaccine still months away.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🔴",
+      "url": "https://www.theguardian.com/global-development/2026/jul/31/ebola-outbreak-in-drc-the-fastest-growing-in-the-history-of-the-virus",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/478165b289e55c3652218208eea3674625ebce76/983_0_4914_3931/master/4914.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=fc50ecd619b025aefacec5bab49c85d2",
+      "video": {
+        "id": "o905f6t7F_I",
+        "title": "Ebola cases top 3,200 in DR Congo's fastest outbreak on record"
+      }
+    },
+    {
+      "headline": "Hungary shuts nuclear plant amid drought and heat",
+      "hook": "Low Danube water levels force an unprecedented shutdown of a reactor unit at the Paks plant.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://eco.sapo.pt/2026/08/02/hungria-anuncia-paragem-sem-precedentes-de-central-nuclear-devido-a-seca-e-calor/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2026/08/cropped-6683830.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Almost all Ceuta migrants returned to Morocco, Spain says",
+      "hook": "Spanish officials say most people who crossed yesterday are already back in Morocco.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟢",
       "url": "https://www.politico.eu/article/almost-all-ceuta-migrants-returned-morocco-spain-says/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
       "source_name": "Politico Europe",
       "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/07/31/GettyImages-2287653091-scaled.jpg",
       "video": {
-        "id": "XaOpeMJDOqU",
-        "title": "Spain's PM Vows To Return Migrants As Nearly 50,000 Cross Into Ceuta In A Day"
-      }
-    },
-    {
-      "headline": "Russian strikes kill at least nine in Kyiv",
-      "hook": "Ballistic missile attack hits a six-story building amid Patriot missile shortages.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/ce973yvk7pko?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/8710/live/778466c0-8d4d-11f1-b2ab-0dd01740f9f6.jpg",
-      "video": {
-        "id": "duuDl9SI3jg",
-        "title": "Russian strikes on Kyiv kill at least nine, Ukraine officials say. #Ukraine #Russia #BBCNews"
-      }
-    },
-    {
-      "headline": "Trump administration slams Spain over Ceuta 'invasion'",
-      "hook": "US State Department calls the migrant influx a direct result of Madrid's migration policy.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "💡",
-      "url": "https://www.politico.eu/article/donald-trump-criticizes-spain-pedro-sanchez-over-ceuta-migration/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "source_name": "Politico Europe",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/07/31/GettyImages-2282532502-scaled.jpg"
-    },
-    {
-      "headline": "Ebola outbreak in DRC now fastest-growing in recorded history",
-      "hook": "3,360 confirmed cases across five provinces, death toll near 1,500, vaccine still months away.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "🔴",
-      "url": "https://www.theguardian.com/global-development/2026/jul/31/ebola-outbreak-in-drc-the-fastest-growing-in-the-history-of-the-virus",
-      "source_name": "The Guardian World",
-      "image": "https://i.guim.co.uk/img/media/478165b289e55c3652218208eea3674625ebce76/983_0_4914_3931/master/4914.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=fc50ecd619b025aefacec5bab49c85d2",
-      "video": {
-        "id": "bMOWGXDjerk",
-        "title": "Congo Ebola Outbreak Now the Fastest-Growing Ever #worldnews | First Dispatch"
+        "id": "PEaq_bR9XqU",
+        "title": "People return to Morocco after historic crossing into Ceuta"
       }
     }
   ],
-  "since_yesterday": "The Ceuta migrant crisis escalated overnight: death toll confirmed at 57-67, nearly all who crossed have now returned to Morocco per Spain, and the US State Department publicly criticized Sánchez's handling, while Italy formalized Schengen border controls with Spain.",
+  "since_yesterday": "The Ceuta crisis escalated overnight from a border story into a full EU political rift, with 22 member states now formally opposing Spain's Sánchez ahead of Tuesday's emergency meeting, and Spain claiming most migrants have already returned to Morocco.",
   "health": {
     "x": {
       "attempted": 15,
