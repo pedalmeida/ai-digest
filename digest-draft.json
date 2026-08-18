@@ -1,36 +1,54 @@
 {
-  "date": "Monday, 17 August 2026",
+  "date": "Tuesday, 18 August 2026",
   "ai": [
     {
-      "name": "Z.ai",
-      "role": "Model release · Interconnects / AINews",
-      "hook": "GLM-5.3 targets coding and cybersecurity, jumping on agentic benchmarks through post-training, not a bigger model.",
+      "name": "Stripe / OpenRouter",
+      "role": "RSS · Stratechery / Latent Space",
+      "hook": "Stripe buys OpenRouter for $7B, betting the AI model layer aggregates like payments did.",
       "insights": [
-        "Big gains came from **scaled post-training**, not a larger base model, a cheaper playbook than pretraining races",
-        "Focused specifically on **agentic and security benchmarks**, not general chat quality",
-        "Part of a wider China open-model wave alongside **Qwen3.8**, **DeepSeek V4-Pro**, and RedNote's **dots3-note**"
+        "Deal frames OpenRouter as an **Aggregator play**: routing, pricing, and distribution across every model provider.",
+        "Coincides with fresh **OpenRouter and Vercel price cuts**, intensifying the routing-layer price war.",
+        "Ben Thompson frames it as Stripe **flipping its business model** from payments infra to AI infra."
       ],
-      "for_you": "Post-training over pretraining is the exact lever available to you: a fine-tuned or well-prompted open model for PT SMB workflows (invoicing, customer replies) beats chasing frontier model size.",
-      "why_it_made_the_cut": "clearest concrete technique story of the week, confirmed by Interconnects deep-dive",
+      "for_you": "This is now covered three days running, worth noting only because it confirms model access/routing is becoming its own commoditized layer, exactly where a thin wrapper agency has zero moat; the agency's value has to sit in workflow and vertical knowledge, not model choice.",
+      "why_it_made_the_cut": "Biggest confirmed M&A story of the week, still developing across sources",
       "signal": "🟡",
       "urls": [
-        "https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride",
-        "https://news.smol.ai/issues/26-08-14-cursor-xai/"
+        "https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/",
+        "https://www.latent.space/p/ainews-stripe-buys-openrouter-for"
       ],
       "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!_6Y2!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49ade27f-0d84-40f3-840a-3c919e0bb8af_4239x2504.webp"
+      "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ"
     },
     {
-      "name": "Qwen (Alibaba)",
-      "role": "Model release · Simon Willison's Blog",
-      "hook": "Qwen 3.8 27B is Apache 2.0, vision-capable, and runs on a laptop, but overthinks everything.",
+      "name": "Google DeepMind",
+      "role": "RSS · AINews (smol.ai)",
+      "hook": "Gemini 3.7 Flash ships three weeks after 3.6, with a 50% price cut.",
       "insights": [
-        "**27B parameters**, ideal size for a reasonably specced laptop or M-series Mac",
-        "Simon Willison confirms it's genuinely strong but **defaults to excessive reasoning chains** even on simple prompts",
-        "262K native context, extendable to **1M**, aimed at real coding and office workflows"
+        "Targets coding, web dev, and agentic workflows; **DeepSWE 65.3%**, Code Arena Elo **1588**.",
+        "Already live in Gemini API and Android Studio at launch.",
+        "Release cadence (3 weeks between Flash versions) signals Google is now shipping at frontier-lab speed."
       ],
-      "for_you": "This is the model to test locally for a client-facing agent you don't want sending data to a US API, Apache 2.0 license means you can self-host and resell it inside your agency stack without licensing headaches.",
-      "why_it_made_the_cut": "hands-on verified take from a trusted independent source, not just a benchmark press release",
+      "for_you": "A cheap, fast, coding-capable Flash model is exactly the tier to test for agency client work like automating quotes or CRM logic where cost per call matters more than raw intelligence.",
+      "why_it_made_the_cut": "Fastest model iteration cycle seen this year, directly usable for cheap agentic tasks",
+      "signal": "🟢",
+      "urls": [
+        "https://news.smol.ai/issues/26-08-13-not-much/"
+      ],
+      "handle": "",
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**Google**+rapidly+released+**Gemini+3.7+Flash**+just+three+weeks+after+3.6+Flash%2C+targeting+coding%2C+web+development%2C+knowledge+work%2C+and+agentic+workflows+with+a+50%25+introductory+price+cut+and+improved+benchmark+scores+like+**DeepSWE+65.3%25**+and+**Code+Arena+Elo+1588**.+The+update+quickly+integrated+across+multiple+platforms+including+Gemini+API+and+Android+Studio%2C+with+independent+benchmarks+confirming+performance+gains.+Meanwhile%2C+**DeepSeek**+open-sourced+**DeepSeek+Harness**+under+MIT+license+as+a+developer+preview%2C+focusing+on+architecture+innovations+like+KV-cache-aware+append-only+history+semantics+and+treating+the+harness+as+an+OS%2Fruntime+substrate+for+recursive+improvement.+**Arcee**+also+open-sourced+**NAC**+under+Apache+2.0%2C+designed+for+long-running+asynchronous+tasks+and+powering+significant+code+pipelines%2C+enabling+orchestration+from+phones+or+delegation+via+Codex%2FClaude.&type=issue&issueNumber=08&date=2026-08-13T05%3A44%3A39.731Z&companies=google-deepmind%2Cgoogle%2Cdeepseek%2Carcee&models=gemini-3.7-flash"
+    },
+    {
+      "name": "Alibaba Qwen team",
+      "role": "RSS · Simon Willison's Blog",
+      "hook": "Qwen3.8 27B scores 52 on Intelligence Index, matching models 20x its size.",
+      "insights": [
+        "Apache 2.0 license, vision-capable, runs on a **reasonably specced laptop**.",
+        "Scores tie GPT-5.6 Luna and sit one point behind 753B GLM-5.2 and 1.6B-param DeepSeek V4 Pro.",
+        "Simon Willison flags it **overthinks everything by default**, needs prompt tuning to stop rambling."
+      ],
+      "for_you": "This is the local model to actually download and test this week: a 27B Apache-licensed vision model you can self-host means client demos or a micro-SaaS prototype with zero API cost and no PT data leaving your machine, a real selling point for SMBs worried about data residency.",
+      "why_it_made_the_cut": "Only genuinely self-hostable frontier-tier model release this week",
       "signal": "🟢",
       "urls": [
         "https://simonwillison.net/2026/Aug/16/qwen-38-27b/"
@@ -39,129 +57,105 @@
       "image": "https://static.simonwillison.net/static/2026/qwen-thinking-bicycle-27b.jpg"
     },
     {
-      "name": "Stripe",
-      "role": "Acquisition · TechCrunch",
-      "hook": "Stripe reportedly buys AI gateway startup OpenRouter for $7B+.",
+      "name": "OpenAI",
+      "role": "RSS · AINews (smol.ai)",
+      "hook": "OpenAI locks in 4+ GW of Nvidia capacity and an 8 GW Ohio campus through 2032.",
       "insights": [
-        "OpenRouter is the layer that lets apps switch between GPT, Claude, Gemini, and open models via one API",
-        "Payments infrastructure buying model-routing infrastructure signals **billing and model access are converging**"
+        "Vertical integration push spans **power, data centers, and chips**, not just model training.",
+        "Comes alongside reports OpenAI **disbanded its AI preparedness team** (covered yesterday) and Nvidia trimming financing guarantees.",
+        "Signals infrastructure lock-in is now the real competitive battleground, not just model benchmarks."
       ],
-      "for_you": "If you build multi-model agent workflows for clients, expect OpenRouter pricing/terms to shift under Stripe ownership, worth locking in current rates or diversifying routing before any integration changes land.",
-      "why_it_made_the_cut": "biggest AI infra M&A story today, direct relevance to anyone building on top of model APIs",
+      "for_you": "No direct action here for the agency, filed for awareness: it just confirms compute costs at the frontier will keep dropping for smaller players like you as capacity scales, good for margins on API-based client work.",
+      "why_it_made_the_cut": "Largest capital commitment story of the week, sets the macro backdrop for model pricing",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/"
+        "https://news.smol.ai/issues/26-08-17-not-much/"
       ],
       "handle": "",
-      "image": "https://techcrunch.com/wp-content/uploads/2024/04/Stripe-resized.webp?resize=1200,674",
-      "video": {
-        "id": "Wubzp24x59k",
-        "title": "Stripe will reportedly acquire AI gateway startup OpenRouter #DeepTech"
-      }
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**OpenAI**+is+advancing+its+power-and-compute+infrastructure+with+a+**4%2B+GW+NVIDIA**+capacity+commitment+and+an+**8+GW+Ohio+campus**+buildout+through+**2032**%2C+emphasizing+vertical+integration+across+power%2C+data+centers%2C+and+chips.+The+model+access+and+routing+API+layer+is+becoming+a+competitive+pricing+battlefield%2C+highlighted+by+the+**Stripe%E2%80%93OpenRouter+deal**+and+recent+price+cuts+by+**OpenRouter**+and+**Vercel**.+**Cursor**+launched+**Origin**%2C+an+AI-native+IDE+aiming+for+full+control+over+coding+workflows%2C+signaling+a+shift+toward+agentic+coding+platforms.+Multi-agent+orchestration+is+evolving+from+demos+to+operational+patterns+with+specialized%2C+persistent-context+agents%2C+as+seen+in+projects+by+**Hermes+Desktop**%2C+**Bot+Mode**%2C+and+**Codex**+orchestration.+Evaluation+tools+like+**Hamel+Husain%E2%80%99s+eval-skills+plugin**+and+**Agent+Arena**+are+advancing+harness-level+measurement+with+data+from+over+**1.7M+sessions**.+Enterprise+agent+tooling+is+improving+with+sandboxed%2C+permissioned+execution+environments+from+**Vanta**+and+**LangChain**.+Open+models+like+**Qwen3.8-27B**+are+compressing+the+capability+frontier%2C+reaching+performance+comparable+to+**DeepSeek+V4-Pro**+and+**GPT-5.6+Luna**+on+the+Artificial+Analysis+Intelligence+Index%2C+marking+a+milestone+for+local+models.&type=issue&issueNumber=08&date=2026-08-17T05%3A44%3A39.731Z&companies=openai%2Cnvidia%2Cstripe%2Copenrouter%2Cvercel%2Ccursor%2Clangchain%2Cvanta%2Cdeepseek&models=qwen3.8-27b%2Cdeepseek-v4-pro%2Cgpt-5.6-luna"
     },
     {
-      "name": "Anthropic",
-      "role": "Research · Anthropic / Hacker News",
-      "hook": "Anthropic publishes patterns and failure modes for multi-agent systems in production.",
+      "name": "Cursor",
+      "role": "RSS · AINews (smol.ai) / Latent Space",
+      "hook": "Cursor launches Origin, a fully agentic AI-native IDE, days after a reported $60B SpaceXAI acquisition.",
       "insights": [
-        "Documents recurring problems: coordination overhead, error propagation across agents, and **debugging opacity**",
-        "183 points, 130 comments on HN, active practitioner debate about whether multi-agent adds value over a single strong agent"
+        "Origin aims for **full control over agentic coding workflows**, not just autocomplete.",
+        "Latent Space reports the **$60B Cursor acquisition by SpaceXai has closed**.",
+        "Signals coding tools are consolidating into full development platforms, not point products."
       ],
-      "for_you": "Before adding a second or third agent to any client automation, read this to see which coordination patterns Anthropic flags as failure-prone, directly applicable if you're building multi-step WhatsApp or CRM agents for SMBs.",
-      "why_it_made_the_cut": "top HN AI story today with direct build relevance, not just a launch announcement",
+      "for_you": "Worth a spin for prototyping the micro-SaaS idea this week; an agentic IDE could let you go from spec to working demo without writing every line yourself, which is exactly the gap in your current technical fluency.",
+      "why_it_made_the_cut": "Most significant coding-tool product launch this week",
+      "signal": "🟢",
+      "urls": [
+        "https://news.smol.ai/issues/26-08-17-not-much/",
+        "https://www.latent.space/p/ainews-cursors-60b-acquisition-by"
+      ],
+      "handle": "",
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**OpenAI**+is+advancing+its+power-and-compute+infrastructure+with+a+**4%2B+GW+NVIDIA**+capacity+commitment+and+an+**8+GW+Ohio+campus**+buildout+through+**2032**%2C+emphasizing+vertical+integration+across+power%2C+data+centers%2C+and+chips.+The+model+access+and+routing+API+layer+is+becoming+a+competitive+pricing+battlefield%2C+highlighted+by+the+**Stripe%E2%80%93OpenRouter+deal**+and+recent+price+cuts+by+**OpenRouter**+and+**Vercel**.+**Cursor**+launched+**Origin**%2C+an+AI-native+IDE+aiming+for+full+control+over+coding+workflows%2C+signaling+a+shift+toward+agentic+coding+platforms.+Multi-agent+orchestration+is+evolving+from+demos+to+operational+patterns+with+specialized%2C+persistent-context+agents%2C+as+seen+in+projects+by+**Hermes+Desktop**%2C+**Bot+Mode**%2C+and+**Codex**+orchestration.+Evaluation+tools+like+**Hamel+Husain%E2%80%99s+eval-skills+plugin**+and+**Agent+Arena**+are+advancing+harness-level+measurement+with+data+from+over+**1.7M+sessions**.+Enterprise+agent+tooling+is+improving+with+sandboxed%2C+permissioned+execution+environments+from+**Vanta**+and+**LangChain**.+Open+models+like+**Qwen3.8-27B**+are+compressing+the+capability+frontier%2C+reaching+performance+comparable+to+**DeepSeek+V4-Pro**+and+**GPT-5.6+Luna**+on+the+Artificial+Analysis+Intelligence+Index%2C+marking+a+milestone+for+local+models.&type=issue&issueNumber=08&date=2026-08-17T05%3A44%3A39.731Z&companies=openai%2Cnvidia%2Cstripe%2Copenrouter%2Cvercel%2Ccursor%2Clangchain%2Cvanta%2Cdeepseek&models=qwen3.8-27b%2Cdeepseek-v4-pro%2Cgpt-5.6-luna"
+    },
+    {
+      "name": "Nathan Lambert",
+      "role": "Interconnects",
+      "hook": "Nvidia is pushing enterprises to train their own models instead of just buying tokens from Anthropic or OpenAI.",
+      "insights": [
+        "Framed as Nvidia teaching customers **'to fish for tokens'** rather than sell them fish.",
+        "Part of a broader shift where **owning fine-tuned open models** becomes a viable alternative to API dependency.",
+        "Coincides with GLM-5.3 analysis showing Chinese labs match frontier capability via post-training, not bigger base models."
+      ],
+      "for_you": "Directly relevant to the agency's positioning: if Nvidia is pushing SMB-adjacent customers toward owning small fine-tuned models, that's a service line you could sell, 'we fine-tune a small open model on your business data' instead of just wrapping GPT calls.",
+      "why_it_made_the_cut": "Strategic framing shift most relevant to Pedro's build-vs-buy decision for the agency",
       "signal": "💡",
       "urls": [
-        "https://www.anthropic.com/research/multiagent-systems"
+        "https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens"
       ],
       "handle": "",
-      "image": "https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg"
+      "image": "https://substackcdn.com/image/fetch/$s_!JGky!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb8608bb9-bf33-46e6-8ffe-dcf75a851f9b_3182x1790.png"
     },
     {
-      "name": "Dario Amodei",
-      "role": "CEO · Anthropic",
-      "hook": "Amodei says AI backlash is 'fundamentally a crisis of trust', not fear-mongering by AI leaders.",
+      "name": "Alex Krentsel",
+      "role": "Podcast · Latent Space",
+      "hook": "Exo agent harness can see and rewrite its own code, prompts, and memory to self-improve.",
       "insights": [
-        "Argues public distrust of AI stems from decades of distrust in companies and governments generally, not AI-specific messaging",
-        "Comes alongside Anthropic's controversial new **watermarking feature** in Claude, criticized on HN (184 points) as degrading writing quality"
+        "Architected so evolution happens **incrementally**, cloning itself into a managed lineage.",
+        "Only the **event log stays immutable**, preventing recursive loop failures.",
+        "Reflects a broader shift from model weights to agent harness as the real product surface."
       ],
-      "for_you": "Worth knowing if you're pitching AI-written content or automation to PT SMB owners, the trust objection you'll hit is generic distrust of tech, not AI literacy, so your pitch should lead with control and transparency, not capability.",
-      "why_it_made_the_cut": "sets context for the watermarking backlash story, most-discussed AI ethics thread today",
-      "signal": "🟡",
-      "urls": [
-        "https://simonwillison.net/2026/Aug/16/dario-amodei/",
-        "https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/"
-      ],
-      "handle": ""
-    },
-    {
-      "name": "Fred Schott",
-      "role": "Creator · Flue (Latent Space interview)",
-      "hook": "Astro's creator brings React-style hooks to his agent harness, Flue 2.",
-      "insights": [
-        "Argues agents are defined by their **harness**, not their model, mirrors the Exo/OpenClaw framing this week",
-        "Hooks let you intercept and modify agent behavior mid-execution, same mental model as React lifecycle hooks"
-      ],
-      "for_you": "If your agency is building repeatable agent templates for clients, a hooks-based harness pattern is worth stealing conceptually, it's how you'll add per-client customization without rewriting the whole agent each time.",
-      "why_it_made_the_cut": "concrete architecture idea for agent builders, not just another model launch",
+      "for_you": "No direct build here yet, filed for awareness: the harness-over-model framing matters for the agency though, since your differentiator with SMB clients is the workflow/harness you wrap around any model, not the model itself.",
+      "why_it_made_the_cut": "Deepest technical concept this week on where agent value actually lives",
       "signal": "💡",
       "urls": [
-        "https://www.latent.space/p/flue-2"
+        "https://youtube.com/watch?v=5lFD-34dhqE"
       ],
-      "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!Osie!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F131d402d-63bf-4895-b5e7-b8990972a14c_1280x720.png"
+      "handle": "@AlexKrentsel"
     }
   ],
   "build_this": [
     {
-      "name": "Qwen 3.8 27B (local, via LM Studio)",
-      "source": "Hugging Face / Simon Willison",
-      "what_it_is": "An Apache 2.0 vision-capable 27B model you can run entirely on a MacBook or NVIDIA DGX Spark.",
-      "why_try_it": "Spin it up in LM Studio this week and test it against a real agency task, drafting Portuguese customer replies or summarizing SMB docs, to see if a self-hosted model can replace an API call and cut per-client marginal cost to zero.",
+      "name": "Qwen 3.8 27B via LM Studio",
+      "source": "Simon Willison's Blog / Hugging Face",
+      "what_it_is": "An Apache 2.0, vision-capable 27B model that runs locally on a good laptop with a 262K context window.",
+      "why_try_it": "Download it via LM Studio this week and test it against one real agency client task (invoice extraction, contract summarization); if it holds up, you have a zero-marginal-cost, data-stays-local pitch for PT SMBs nervous about sending data to US APIs.",
       "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
     },
     {
-      "name": "CORS Chat",
-      "source": "Simon Willison's Blog",
-      "what_it_is": "A tiny web UI for testing any OpenAI-Responses-compatible chat endpoint, including local LM Studio servers.",
-      "why_try_it": "Use this as a fast client demo shell, point it at a locally-run Qwen model in a client meeting to show 'your AI agent, running on hardware you control' as a trust/privacy pitch for PT SMBs wary of sending data to US clouds.",
-      "url": "https://tools.simonwillison.net/cors-chat"
-    },
-    {
-      "name": "go-whatsapp-web-multidevice (GOWA)",
-      "source": "GitHub Trending",
-      "what_it_is": "A WhatsApp REST API with webhook and MCP support, multi-account, built in Go.",
-      "why_try_it": "This is directly your stack: most PT SMBs live on WhatsApp for customer service, wire this up as the channel layer for an agent you build this week instead of paying for a commercial WhatsApp API wrapper.",
-      "url": "https://github.com/aldinokemal/go-whatsapp-web-multidevice"
+      "name": "AI;DR (AI; Didn't Read)",
+      "source": "Hacker News, 814pts",
+      "what_it_is": "A tool/approach for summarizing AI-heavy content so people can skip the noise and get the actual signal.",
+      "why_try_it": "The underlying pattern, condensing long AI-adjacent content into decision-ready snippets, is the exact mechanic this morning brief already runs on; worth reading the HN discussion for prompt or pipeline tricks you could steal for a client-facing 'AI news digest' micro-product for PT SMB owners.",
+      "url": "https://www.rickmanelius.com/p/aidr-ai-didnt-read"
     }
   ],
   "podcasts": [
     {
-      "show": "Latent Space",
-      "episode": "Exo: Harnesses should see their own code and logs",
-      "takeaway": "The next wave of agent design gives the agent visibility into its own code and logs so it can self-improve safely.",
-      "key_points": [
-        "Exo can clone itself and manage a lineage of clones, but an immutable event log prevents it from erasing its own history",
-        "Framed as a shift in the ML stack: from **model weights mattering most** to **agent harness design mattering most**",
-        "Distinguishes implicit self-improvement (memory updates) from explicit (rewriting its own prompts, tools, or policy)"
-      ],
-      "for_you": "No direct action here for the agency this week, but the harness-over-weights framing is the right mental model to keep evaluating vendor claims: a client doesn't need GPT-6, they need a well-designed harness around whatever model you pick.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=5lFD-34dhqE",
-      "video": {
-        "id": "5lFD-34dhqE",
-        "title": "Exo: Harnesses should see their own code and logs"
-      }
-    },
-    {
       "show": "AI & I by Every",
       "episode": "Why the Next Hit AI Product Will Be Social (Best of the Pod)",
-      "takeaway": "Sarah Tavel thinks the next big consumer AI win comes from adding social and network effects to single-player AI tools.",
+      "takeaway": "Consumer AI's next wave needs social DNA, status and network effects, not just a better chatbot.",
       "key_points": [
-        "Technical founders win early in a platform shift, product-minded founders win later once the primitive is established",
-        "ChatGPT's biggest gap: no way for users to learn from how others actually use it",
-        "Real network effects vs. a slide with a flywheel diagram: the test is whether usage compounds, not whether you drew an arrow"
+        "Sarah Tavel (Benchmark) argues **technical founders win early, product-minded founders win later** in a platform shift.",
+        "ChatGPT's biggest weakness: no way for users to **learn from how others use it**.",
+        "Real network effects are provable, not a **flywheel diagram on a slide**."
       ],
-      "for_you": "For the yoga/meditation platform specifically, this is your differentiation lever: a purely single-player AI meditation guide is commoditized, but letting users see or learn from how others structure their practice could be your actual moat.",
+      "for_you": "Relevant only if the micro-SaaS idea has any multiplayer angle (shared templates, community prompts); for the PT SMB agency and yoga platform, which are single-user tools by nature, this is a filed-for-awareness listen, not an action item.",
       "signal": "💡",
       "url": "https://youtube.com/watch?v=dlI-5W7d7uU",
       "video": {
@@ -172,204 +166,185 @@
   ],
   "tech": [
     {
-      "name": "Stripe",
+      "name": "Anthropic",
       "role": "TechCrunch",
-      "hook": "Stripe reportedly acquires AI model-routing startup OpenRouter for over $7B.",
-      "key_point": "OpenRouter is the shared API layer many indie AI builders route requests through across GPT, Claude, and open models.",
-      "for_you": "Anything you've built on OpenRouter's routing or pricing should get a contingency check this month in case terms shift post-acquisition.",
-      "signal": "🟡",
+      "hook": "Anthropic's annualized revenue surges to $65B.",
+      "key_point": "Growth continues despite ongoing criticism over its new text watermarking feature.",
+      "for_you": "Confirms enterprise AI spend keeps climbing even amid trust concerns, a tailwind for selling AI adoption services to PT SMBs who are still on the sidelines.",
+      "signal": "🟢",
       "urls": [
-        "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/"
+        "https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2024/04/Stripe-resized.webp?resize=1200,674",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2278736523.jpeg?resize=1200,798",
       "video": {
-        "id": "j1CT2Qwezlc",
-        "title": "Stripe acquires OpenRouter for $7B"
+        "id": "WYGp7bfX_0A",
+        "title": "Anthropic Hits $65B Revenue"
       }
     },
     {
-      "name": "OpenAI",
-      "role": "The Verge",
-      "hook": "OpenAI reportedly disbanded its AI preparedness team.",
-      "key_point": "The team was responsible for assessing catastrophic and frontier model risks before release.",
-      "for_you": "No direct build action, but relevant if you're pitching clients on 'safe AI' positioning, it's a data point that even frontier labs are deprioritizing safety review as competition speeds up.",
+      "name": "Relay",
+      "role": "TechCrunch",
+      "hook": "AI automation startup Relay shuts down, staff absorbed by Google Chrome team.",
+      "key_point": "Another AI automation/agent startup fails to find a standalone business model despite acqui-hire outcome.",
+      "for_you": "A reminder that generic 'AI automation' as a product category is brutally competitive; the agency's edge has to stay in vertical PT SMB knowledge and relationships, not a horizontal automation tool.",
       "signal": "🔴",
       "urls": [
-        "https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team"
+        "https://techcrunch.com/2026/08/17/ai-automation-startup-relay-shuts-down-staff-joins-googles-chrome-team/"
       ],
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/08/STK149_AI_01.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
-      "video": {
-        "id": "Uc1kI_ySVRY",
-        "title": "OpenAI reportedly disbanded its preparedness team"
-      }
+      "image": "https://techcrunch.com/wp-content/uploads/2022/10/JacobBank_founder_headshot-e1665566816221.jpg?resize=1200,674"
     },
     {
-      "name": "Nvidia",
-      "role": "Hacker News / Reuters",
-      "hook": "Nvidia dramatically reduces the OpenAI infrastructure financing it may guarantee.",
-      "key_point": "Reuters reports Nvidia scaled back a reported $250B data center guarantee for OpenAI.",
-      "for_you": "A signal that the AI infra capex cycle is tightening even for the biggest labs, worth remembering next time a client asks why AI compute costs haven't dropped as fast as expected.",
-      "signal": "🟡",
-      "urls": [
-        "https://www.reuters.com/business/nvidia-scales-back-250-billion-openai-data-center-guarantee-wsj-reports-2026-08-14/"
-      ],
-      "video": {
-        "id": "oxr1YmPPZKo",
-        "title": "OpenAI Reportedly Plans $20B+ Cerebras Deal, May Receive Equity Stake"
-      }
-    },
-    {
-      "name": "Ars Technica",
-      "role": "RSS",
-      "hook": "A vulnerability giving attackers full control of Macs is under active exploitation.",
-      "key_point": "The flaw allows remote full-system compromise and is already being exploited in the wild, not just theoretical.",
-      "for_you": "If you or clients run agent workflows locally on Mac hardware (like testing Qwen 3.8 today), patch immediately before doing any more local model experimentation this week.",
+      "name": "Wiz Research",
+      "role": "Hacker News, 356pts",
+      "hook": "AI-generated GitHub Copilot 'autofix' suggestion led to a compromise of Snowflake's Jira.",
+      "key_point": "The vulnerability came from an AI-suggested code fix that itself introduced a security hole in CI/CD.",
+      "for_you": "Direct warning for any agentic coding tool (Cursor Origin included) used on client codebases: never auto-apply AI security fixes without manual review, especially for SMB clients with no security team to catch it.",
       "signal": "🔴",
       "urls": [
-        "https://arstechnica.com/security/2026/08/vulnerability-giving-attackers-full-control-of-macs-is-under-active-exploitation/"
+        "https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug"
       ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/macbook-pro-1152x648.jpg",
+      "image": "https://www.datocms-assets.com/75231/1786964856-image.png?fm=webp",
       "video": {
-        "id": "X-lOL-rWT8Q",
-        "title": "Vulnerability giving attackers full control of Macs is under active exploitation - Ars Tec | NEWS-MO"
+        "id": "HmRiI1ZVsWA",
+        "title": "AI-Generated GitHub Copilot \"Autofix\" Allowed Compromise of Snowflake's Jira #Shorts"
       }
     },
     {
-      "name": "TechCrunch",
-      "role": "RSS",
-      "hook": "Reports say people aren't buying Zuckerberg's AI vision for Meta's future.",
-      "key_point": "Public skepticism is growing around Meta's AI-first product direction despite heavy investment.",
-      "for_you": "No direct action, filed for awareness as a market-sentiment signal.",
+      "name": "Apple spyware alert",
+      "role": "TechCrunch",
+      "hook": "'Unprecedented' number of Apple users received a recent spyware alert.",
+      "key_point": "Investigators flag the scale of the alert wave as unusually large compared to past incidents.",
+      "for_you": "No direct action here, filed for awareness.",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future/"
+        "https://techcrunch.com/2026/08/17/unprecedented-number-of-apple-users-received-recent-spyware-alert-say-investigators/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2239280474.jpg?resize=1200,800",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/iphone-spyware-alert-2024.jpg?resize=1200,800",
       "video": {
-        "id": "oDVeqLsJh1I",
-        "title": "Why Your Meta Ads AREN’T Showing Up on Instagram and How to Fix It"
+        "id": "_OQ5f1dbVaM",
+        "title": "The iPhone Spyware Alert You Can't Ignore"
       }
+    },
+    {
+      "name": "Roboflow",
+      "role": "Hacker News, 332pts",
+      "hook": "GPT-5.6 Sol is called the best vision model OpenAI has shipped, right after a 50% price cut.",
+      "key_point": "Benchmarks reportedly show strong gains specifically on real-world vision tasks, not just synthetic tests.",
+      "for_you": "Worth testing for any agency client work involving document or receipt scanning, since a price-cut vision model could make an OCR-style automation offer cheap enough to sell as a standalone SMB service.",
+      "signal": "🟢",
+      "urls": [
+        "https://blog.roboflow.com/openai-gpt-5-6/"
+      ],
+      "image": "https://storage.ghost.io/c/2c/8d/2c8d8c0d-1c15-4b6d-825e-02b78d61d40a/content/images/2026/07/img-blog-gpt-5-6-sol-best-vision-model-to-date.jpg"
     }
   ],
   "pt_news": [
     {
-      "headline": "Salários reais crescem ao ritmo mais baixo em três anos",
-      "hook": "Salários reais subiram apenas 1,8% no segundo trimestre, o abrandamento mais forte desde 2023.",
-      "for_you": "Um poder de compra mais apertado nas PMEs portuguesas pode tornar a tua proposta de valor de automação de custos ainda mais convincente, foca a mensagem em poupança operacional, não em inovação.",
+      "headline": "Estado pode ter administrador na REN após entrada no capital",
+      "hook": "Com participação acima de 10%, o Estado português poderá nomear pelo menos um dos 15 administradores da REN.",
+      "for_you": "Relevante só como pano de fundo político, não afeta diretamente a construção de produtos digitais.",
       "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/economia/emprego/mercado-de-trabalho/detalhe/salarios-reais-crescem-ao-ritmo-mais-baixo-em-tres-anos",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2024-12/img_1200x676uu2024-12-05-13-34-10-491434.jpg"
+      "url": "https://eco.sapo.pt/2026/08/18/hoje-nas-noticias-ren-setor-automovel-e-coaching-de-saude/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2020/02/cropped-cropped-revista_nacional_partilha-1-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     },
     {
-      "headline": "Megawatts não chegam para construir uma economia de IA",
-      "hook": "Opinião argumenta que atrair data centers para Portugal não é o mesmo que ter uma política de IA.",
-      "for_you": "Confirma o que já suspeitas: o ecossistema de IA em Portugal ainda não tem tração institucional, o teu terreno de venda continua a ser PME a PME, não à espera de incentivos estatais.",
+      "headline": "Taiwan propõe 'dividendo da IA' de 271 euros por pessoa",
+      "hook": "William Lai anuncia plano de distribuir ganhos do boom da IA diretamente aos cidadãos.",
+      "for_you": "Sinal de como o crescimento económico ligado a IA está a gerar políticas públicas concretas, útil para argumentar valor da IA junto de clientes PME céticos.",
       "signal": "💡",
-      "url": "https://www.jornaldenegocios.pt/opiniao/detalhe/megawatts-nao-chegam-para-construir-uma-economia-de-ia",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-08/img_394x514uu2026-08-14-10-43-30-528192.png"
+      "url": "https://eco.sapo.pt/2026/08/18/taiwan-propoe-dividendo-da-ia-de-271-euros-por-pessoa/",
+      "source_name": "ECO",
+      "image": "https://ecoonline.s3.amazonaws.com/uploads/2017/02/logo_eco-07.png"
     },
     {
-      "headline": "MyLens usa IA para criar apresentações interativas",
-      "hook": "Ferramenta portuguesa em destaque gera apresentações a partir de documentos, vídeos e imagens.",
-      "for_you": "Vale a pena testar como referência de UX para qualquer entregável visual que ofereças a clientes de PMEs, é o tipo de ferramenta que podes recomendar ou integrar num workflow de conteúdo.",
+      "headline": "Q-Day Conference volta a debater agentes de IA em Portugal",
+      "hook": "Conferência da Quidgest junta Administração Pública, empresas e universidades para discutir agentes de IA e competitividade.",
+      "for_you": "Vale a pena verificar a data e inscrever-se: é exatamente o tipo de evento para gerar leads B2B para a agência junto de decisores portugueses.",
       "signal": "🟢",
-      "url": "https://tek.sapo.pt/extras/site-do-dia/artigos/crie-apresentacoes-interativas-a-partir-de-documentos-imagens-e-videos-com-a-mylens/",
+      "url": "https://tek.sapo.pt/expert/artigos/q-day-conference-esta-de-regresso-para-debater-a-nova-era-dos-agentes-de-ia-e-o-futuro-das-organizacoes/",
       "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/08/pessoas-computador-apresentacao-graficos-1024x576.jpg"
+      "image": "https://cdn.teknoticias.pt/uploads/2026/08/Quidgest-Q-Day-2026.png"
     },
     {
-      "headline": "Incêndios: mais de 750 bombeiros combatem quatro focos no norte",
-      "hook": "Portugal enfrenta quatro incêndios simultâneos no norte do país com mobilização de mais de 750 bombeiros.",
-      "for_you": "Sem ação direta, mas relevante se algum cliente teu opera na região norte, vale confirmar se há impacto logístico antes de agendar deslocações esta semana.",
-      "signal": "🔴",
-      "url": "https://www.dn.pt/sociedade/incndios-mais-de-750-bombeiros-combatem-quatro-incndios-no-norte-do-pas",
-      "source_name": "Dinheiro Vivo",
-      "image": "https://media.assettype.com/dn%2Fimport%2Fdncxpgxxypnfpero%2Fu2b171etsvsf.jpg?w=1200&amp;ar=40%3A21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop&amp;enlarge=true&amp;overlay=false&amp;overlay_position=bottom&amp;overlay_width=100",
-      "video": {
-        "id": "Tt2drbNvMQg",
-        "title": "Bombeiros combatem incêndio em caminhão na BR-282 27/03/2017"
-      }
+      "headline": "Lei dos Solos gerou apenas 27 pedidos de reclassificação",
+      "hook": "Desde 2025, só 27 procedimentos foram pedidos para converter solo rústico em urbano, muito abaixo do esperado.",
+      "for_you": "Sem ação direta aqui, arquivado para contexto sobre burocracia em Portugal.",
+      "signal": "🟡",
+      "url": "https://eco.sapo.pt/2026/08/18/lei-dos-solos-so-gerou-27-pedidos-para-reclassificacao-de-rustico-em-urbano/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2025/07/cropped-doc-20210520-31742061-nv0920210520.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     },
     {
-      "headline": "Lisboa acorda no verde com impulso das construtoras e energia",
-      "hook": "Bolsa de Lisboa abre em terreno positivo, liderada por construtoras e energia.",
-      "for_you": "Sem ação direta, filed for awareness.",
-      "signal": "🟢",
-      "url": "https://www.jornaldenegocios.pt/mercados/bolsa/detalhe/lisboa-acorda-no-verde-com-impulso-das-construtoras-e-da-energia-ren-com-ganhos-modestos",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2025-09/img_1200x676uu2025-09-02-15-05-15-508477.jpg"
+      "headline": "Cibersegurança pode passar para tutela dos serviços secretos",
+      "hook": "Proposta de mover a cibersegurança nacional para as 'Secretas' levanta preocupações sobre falta de debate público.",
+      "for_you": "Vale monitorizar se isto afeta regras de compliance para clientes PME que lidam com dados sensíveis via produtos de IA.",
+      "signal": "🟡",
+      "url": "https://tek.sapo.pt/opiniao/artigos/ciberseguranca-sob-tutela-das-secretas-uma-decisao-demasiado-importante-para-que-fique-apenas-num-gabinete/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/8788ca460a193bf5907c00efd15805d2487dd8fc.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "Ebola outbreak in DR Congo becomes deadliest in country's history",
-      "hook": "Over 2,325 dead across 4,945 cases, surpassing the 2018-20 outbreak, now spread to a sixth province.",
-      "for_you": "No direct action, filed for awareness.",
+      "headline": "Ebola outbreak in DRC spreads to sixth province, deadliest ever",
+      "hook": "Death toll passes 2,325 as the outbreak surpasses the previous historic peak.",
+      "for_you": "No direct action here, filed for awareness.",
       "signal": "🔴",
       "url": "https://www.theguardian.com/world/2026/aug/17/ebola-outbreak-drc-democratic-republic-of-congo-deadliest-in-history",
       "source_name": "The Guardian",
       "image": "https://i.guim.co.uk/img/media/a393063cc2d82e5b3b20c44e22654a645b95ab37/581_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=01a5dd5d8d86bc2efe5aced65507cdaa",
       "video": {
-        "id": "Q-5sZ-XD8Z8",
-        "title": "Deadly Ebola outbreak in Congo is second-largest in history"
+        "id": "9et1dPvMyBA",
+        "title": "Ebola outbreak on track to be deadliest ever, WHO chief says. #Ebola #DRC #BBCNews"
       }
     },
     {
-      "headline": "Kushner in Israel for rare Hamas talks on Gaza peace plan",
-      "hook": "Trump's envoy meets Netanyahu Monday after unusual direct talks with Hamas on a peace plan.",
-      "for_you": "No direct action, filed for awareness.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/c77gg5vn44yo?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c31f/live/48688550-99f6-11f1-b2ab-0dd01740f9f6.jpg",
-      "video": {
-        "id": "OThSP168G_Q",
-        "title": "Jared Kushner Meets Egypt President Sisi | Middle East Talks"
-      }
-    },
-    {
-      "headline": "Trump scales back US-South Korea military drills",
-      "hook": "Trump cites relationship with North Korea's leader in downsizing joint exercises with South Korea.",
-      "for_you": "No direct action, filed for awareness.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cx2lll7zvn0o?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/8304/live/fde5dbb0-99c6-11f1-b604-2bfb19ba7385.jpg",
-      "video": {
-        "id": "eiGv1jiTVrw",
-        "title": "Trump Moves To Scale Back US–South Korea Military Drills"
-      }
-    },
-    {
-      "headline": "Zimbabwe boat accident death toll rises to 68",
-      "hook": "22 more bodies recovered after an overloaded ferry capsized on Lake Kariba, including 18 children.",
-      "for_you": "No direct action, filed for awareness.",
+      "headline": "Vessel hit by unknown projectile in Strait of Hormuz",
+      "hook": "UKMTO reports one casualty and engine room damage from the incident.",
+      "for_you": "Watch for shipping/oil price ripple effects if this escalates, relevant to any client in logistics or import-heavy sectors.",
       "signal": "🔴",
-      "url": "https://www.theguardian.com/world/2026/aug/15/more-bodies-recovered-after-zimbabwe-boat-accident",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/b14768a4016a3eb7461634532d5a9f3c7c039c61/668_0_4853_3883/master/4853.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=939691c8f4d550b04dd39b99734e4b52",
+      "url": "https://www.aljazeera.com/news/2026/8/18/vessel-hit-by-unknown-projectile-in-strait-of-hormuz-ukmto-says",
+      "source_name": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/08/getty_6a83dd487a-1787026760.jpg?resize=1920%2C1440",
       "video": {
-        "id": "KzT-yFoGdis",
-        "title": "Zimbabwean boat accident death toll rises to 68 as more bodies recovered"
+        "id": "9QdH9GQldzc",
+        "title": "Iran Israel War: Container Ship Hit by Projectile Off UAE Coast in Strait of Hormuz, Traffic Halted"
       }
     },
     {
-      "headline": "Japan's economy slows, missing growth forecasts",
-      "hook": "GDP rose just 0.3% in Q2 as consumption and capital spending weakened.",
-      "for_you": "No direct action, filed for awareness.",
-      "signal": "🟡",
-      "url": "https://www.aljazeera.com/economy/2026/8/17/japans-economy-slows-missing-growth-forecasts?traffic_source=rss",
+      "headline": "Russia says 600+ drones targeted Moscow region",
+      "hook": "Attacks injured at least three people and damaged a Wildberries warehouse.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🔴",
+      "url": "https://www.aljazeera.com/news/2026/8/18/russia-says-more-than-600-drones-targeted-moscow-region",
       "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/08/2026-07-28T082141Z_42050299_RC2TMMAEQ1YT_RTRMADP_3_JAPAN-ECONOMY-1786938604.jpg?resize=1920%2C1440",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/08/ap_6a83f80097f61-1787033600.jpg?resize=1920%2C1440"
+    },
+    {
+      "headline": "Trump says North Korea's Kim responded to talks request",
+      "hook": "Trump calls conversations with Kim 'positive' while criticizing Seoul over Iran war stance.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://www.aljazeera.com/news/2026/8/18/trump-says-n-koreas-kim-has-responded-to-his-request-for-a-conversation",
+      "source_name": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/08/2019-06-30T165750Z_1405655631_RC1E2FD82A00_RTRMADP_3_NORTHKOREA-USA-SOUTHKOREA-1787028454.jpg?resize=1920%2C1440",
       "video": {
-        "id": "re-8hSno1TY",
-        "title": "UPDATE: Japan's Economy Slows Further Amid Rising Costs"
+        "id": "D-arGZ7UByQ",
+        "title": "Trump: North Korea threats will be met with fury"
       }
+    },
+    {
+      "headline": "China's Arctic 'Ice Silk Road' could bypass Middle East chokepoints",
+      "hook": "A melting Arctic route to Europe may reduce China's exposure to Middle East shipping tensions.",
+      "for_you": "Interesting for macro context on global trade shifts, no direct action for Pedro's bets.",
+      "signal": "🟡",
+      "url": "https://www.aljazeera.com/news/2026/8/18/can-chinas-new-arctic-sea-route-to-europe-replace-middle-east-chokepoints",
+      "source_name": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2022/01/AP22026430342032.jpg?resize=1920%2C1440"
     }
   ],
-  "since_yesterday": null,
+  "since_yesterday": "The Stripe-OpenRouter deal keeps generating fresh analysis, now framed by Stratechery as an Aggregation bet, while Nvidia quietly trims financing guarantees to OpenAI, both signs the compute/model layer is entering a genuine price and consolidation war.",
   "health": {
     "x": {
       "attempted": 15,
