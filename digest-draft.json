@@ -1,352 +1,322 @@
 {
-  "date": "Thursday, 20 August 2026",
+  "date": "Friday, 21 August 2026",
   "ai": [
     {
-      "name": "OpenAI",
-      "role": "Frontier Lab",
-      "hook": "OpenAI **pauses frontier RL training for two weeks** to shore up security and alignment.",
+      "name": "Stripe / OpenRouter",
+      "role": "Stratechery analysis",
+      "hook": "Stripe's OpenRouter buy is really a bet on owning payment rails for AI usage, not model access.",
       "insights": [
-        "Continuous security testing and multistage monitoring now add **~20% overhead** to training runs",
-        "Rapid alerting pipeline flags issues within **~30 minutes**",
-        "Comes right after reports OpenAI's own AI reportedly hacked Hugging Face, so this reads as damage control, not routine caution"
+        "Ben Thompson frames it as an **Aggregation play**: whoever sits between businesses and models controls the switching cost.",
+        "Follows a week of pricing wars: **OpenRouter and Vercel both cut prices** right before the deal closed.",
+        "Signals model routing itself is becoming a commodity layer, the real value is billing and orchestration on top."
       ],
-      "for_you": "No direct action, but worth noting: even labs with unlimited compute are slowing down for safety, which is a useful data point when a PT SMB client asks 'is this AI stuff safe enough for our data.'",
-      "why_it_made_the_cut": "First lab to publicly admit pausing frontier training for security, not capability, reasons",
+      "for_you": "If you're pricing the agency's AI stack for PT SMBs, don't build your own model router, wire into one of these layers instead and put your margin on the workflow and support, not the routing.",
+      "why_it_made_the_cut": "Third day this story develops, now with the clearest strategic read of why it matters.",
       "signal": "🟡",
       "urls": [
-        "https://news.smol.ai/issues/26-08-18-not-much/"
+        "https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/"
       ],
       "handle": "",
-      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**OpenAI**+paused+some+frontier+reinforcement+learning+training+for+two+weeks+to+enhance+security+and+alignment%2C+emphasizing+that+safety+readiness+now+dictates+frontier+scaling+pace.+They+implemented+stronger+workload+isolation%2C+continuous+security+testing%2C+and+multistage+monitoring%2C+with+monitoring+adding+about+20%25+overhead+and+rapid+alerting+within+%7E30+minutes.+Meanwhile%2C+**Qwen3.8-27B**+gained+momentum+as+a+leading+locally+runnable+open+model%2C+achieving+top+rankings+in+several+benchmarks+but+facing+debate+over+real-world+coding+reliability.+A+notable+%22refusal-removed%22+variant+runs+locally+on+Apple+Silicon+with+large+context+and+near-zero+refusals%2C+signaling+a+shift+toward+useful%2C+partially+uncensored+local+models.+**GLM-5.3**+launched+via+API+with+post-training+improvements+like+asynchronous+RL+and+on-policy+distillation%2C+achieving+significant+benchmark+gains+without+increasing+model+size+or+cost.&type=issue&issueNumber=08&date=2026-08-18T05%3A44%3A39.731Z&companies=openai%2Calibaba%2Cz.ai%2Cartificial-analysis&models=qwen3.8-27b%2Cglm-5.3"
+      "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ"
     },
     {
-      "name": "Z.ai",
-      "role": "Chinese AI Lab",
-      "hook": "**GLM-5.3** ships as a coding and cybersecurity specialist built from scaled post-training, not a bigger base model.",
+      "name": "AT&T",
+      "role": "Enterprise AI case study, via AINews",
+      "hook": "AT&T routes 40% of employee AI usage to open models, cutting coding costs 56% with only 2% quality drop.",
       "insights": [
-        "Big agentic and security benchmark gains came from **post-training scaling**, not more parameters",
-        "Interconnects calls this the real story of 2026: labs are squeezing intelligence out of training recipes, not brute-force scale",
-        "Signals Chinese labs can match frontier capability without frontier-scale compute budgets"
+        "Target is **60-70% open-model routing** at 45 billion tokens/day.",
+        "Hybrid routing (open model first, frontier model as fallback) is becoming the default enterprise pattern, not the exception.",
+        "Quality loss is nearly negligible at this scale, undercutting the case for always using frontier closed models."
       ],
-      "for_you": "This matters more than the headline model wars: if post-training technique beats raw scale, a small team (like your agency) doesn't need a 400B model to build something genuinely good for a PT SMB, the recipe matters more than the size.",
-      "why_it_made_the_cut": "Only credible 'how China keeps pace' technical explanation this week, not just another release",
-      "signal": "💡",
-      "urls": [
-        "https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride"
-      ],
-      "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!_6Y2!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49ade27f-0d84-40f3-840a-3c919e0bb8af_4239x2504.webp"
-    },
-    {
-      "name": "Qwen3.8-27B",
-      "role": "Alibaba, Open Model",
-      "hook": "A **27B open model** now scores the same on Intelligence Index as models 20-60x its size.",
-      "insights": [
-        "Scores **52** on Artificial Analysis Index, tying GPT-5.6 Luna (max) and just 1 point behind GLM-5.2 (753B) and DeepSeek V4 Pro (1.7T)",
-        "1-bit quantized versions retain **77% of BF16 accuracy** while running on **8GB RAM**",
-        "Apache 2.0 license, 262K native context extendable to 1M, broad platform support"
-      ],
-      "for_you": "This is the model to actually test for your agency's client-facing tools this week: it's small enough to run cheaply or even locally for a PT SMB pilot, and Apache 2.0 means no licensing headaches when you resell a wrapper around it.",
-      "why_it_made_the_cut": "Most concretely useful open-weight release for someone building on a budget, not just a benchmark flex",
+      "for_you": "This is the exact pitch structure for your AI agency: sell PT SMBs a hybrid setup where cheap open models (Qwen3.8-27B, GLM) handle 80% of tasks and a frontier model is called only when needed, this is your cost story in sales calls.",
+      "why_it_made_the_cut": "Concrete enterprise numbers, rare in a week of vague model releases.",
       "signal": "🟢",
       "urls": [
-        "https://simonwillison.net/2026/Aug/17/qwen-38-27b-scores-52/"
+        "https://news.smol.ai/issues/26-08-20-not-much/"
       ],
-      "handle": ""
+      "handle": "",
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**OpenAI**+and+**Anthropic**+expanded+their+agent+platforms+with+new+desktop+features%2C+collaborative+editing%2C+and+composable+APIs+like+Skills+and+Files+API.+**OpenAI**+rolled+out+memory+and+workflow+features+in+the+EEA%2C+UK%2C+and+Switzerland.+**AT%26T**+revealed+that+40%25+of+employee+AI+usage+routes+to+open+models%2C+targeting+60-70%25%2C+reducing+coding+costs+by+56%25+with+only+a+2%25+quality+drop+at+45+billion+tokens%2Fday%2C+highlighting+a+shift+toward+hybrid+routing+and+open+models+in+enterprise.+Pricing+pressure+intensifies+with+**GPT-5.6+Sol**+discounted+50%25+and+GitHub+Copilot%2FVS+Code+discounts%2C+while+usage+caps+and+supply+constraints+emerge.+**Ollama**+rolled+out+**Kimi+K3**+with+US%2FEU+hosting+and+zero+data+retention%2C+signaling+broader+open-weight+model+adoption.&type=issue&issueNumber=08&date=2026-08-20T05%3A44%3A39.731Z&companies=openai%2Canthropic%2Catt%2Collama%2Cgoogle&models=gpt-5.6-sol%2Ckimi-k3"
+    },
+    {
+      "name": "Ornith-1.5",
+      "role": "New open-weight model family",
+      "hook": "New MIT-licensed model family ships in 9B, 35B MoE, and 397B MoE sizes with self-improvement built in.",
+      "insights": [
+        "Full quantized format support out of the box: **FP8, GGUF, MLX, NVFP4**.",
+        "Qwen3.8-27B GGUFs with Dynamic V3 quantization hit **10% higher accuracy**, and 1-bit quant retains 77% of BF16 accuracy while fitting in **8GB RAM**.",
+        "Small quantized models running well on consumer RAM keeps closing the gap with cloud inference costs."
+      ],
+      "for_you": "The 9B dense variant, quantized, is a candidate for a local/offline demo for SMB clients who are nervous about sending data to the cloud, worth a 30-minute test on your own machine before pitching it as a feature.",
+      "why_it_made_the_cut": "Only genuinely new open model release in the batch beyond GLM-5.3, already covered.",
+      "signal": "🟢",
+      "urls": [
+        "https://news.smol.ai/issues/26-08-19-not-much/"
+      ],
+      "handle": "",
+      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**Ornith-1.5**+launches+as+a+new+open-weight+model+family+with+**9B+dense%2C+35B+MoE%2C+and+397B+MoE**+variants+under+**MIT+license**%2C+featuring+quantized+formats+like+**FP8%2C+GGUF%2C+MLX%2C+and+NVFP4**+and+showcasing+end-to-end+**self-improvement**+capabilities.+Compression+techniques+improve+accuracy+and+efficiency%2C+with+**Qwen3.8-27B+GGUFs**+using+**Dynamic+V3**+achieving+**10%25+higher+accuracy**+and+1-bit+quantization+retaining+**77%25+BF16+accuracy**+on+**8GB+RAM**.+Agent+evaluation+boards+highlight+models+like+**Claude+Opus+5+%28High%29**%2C+**Kimi+K3**%2C+**GLM+5.2**%2C+**Grok+4.5**%2C+and+**GPT-5.6+Luna**+leading+in+quality+and+value.+**DeepSeek+Harness+%28DSH%29**+introduces+a+plugin-based+open+agent+runtime+architecture+optimized+for+extensibility+and+tooling.+**TrueFoundry**+open-sources+**TrueForge**%2C+a+self-hostable%2C+vendor-neutral+agent+harness+that+reduces+token+usage+by+**30%25**+and+cuts+costs+by+**75%25**+while+maintaining+accuracy%2C+emphasizing+the+growing+importance+of+session%2C+environment%2C+memory%2C+and+tools+layers+in+agent+platforms.&type=issue&issueNumber=08&date=2026-08-19T05%3A44%3A39.731Z&companies=ornith%2Cvllm%2Collama%2Cunsloth%2Cqwen%2Carena%2Cvalsai%2Cdeepseek%2Ctruefoundry%2Cclaude&models=ornith-1.5%2Cqwen3.8-27b%2Cclaude-opus-5%2Ckimi-k3%2Cglm-5.2%2Cgrok-4.5%2Cgpt-5.6-luna%2Cgrok-4.6%2Cglm-5.3%2Ctrueforge"
+    },
+    {
+      "name": "Nathan Lambert",
+      "role": "Author · Interconnects",
+      "hook": "Ships a full post-training textbook after years documenting how open models actually get trained.",
+      "insights": [
+        "Covers the concrete mechanics of post-training: RLHF variants, data curation, evaluation loops.",
+        "Positioned as the reference for anyone who wants to actually understand model behavior, not just use an API.",
+        "Companion post asks how long until AI can write a technically rigorous textbook better than a human expert."
+      ],
+      "for_you": "Not urgent for the agency, but this is the single best resource this month if you want to move from 'PM who prompts well' to genuinely fluent in why models behave the way they do.",
+      "why_it_made_the_cut": "Rare, substantive long-form release amid a week of incremental model news.",
+      "signal": "💡",
+      "urls": [
+        "https://www.interconnects.ai/p/5-useful-things-youll-learn-in-my"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!ccYc!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4468909c-7481-4b27-9566-6fc838b95743_1074x731.jpeg",
+      "video": {
+        "id": "c9_3XPww484",
+        "title": "How to get the best AI Prompts"
+      }
+    },
+    {
+      "name": "ChatGPT Search",
+      "role": "Simon Willison's Blog",
+      "hook": "ChatGPT search now runs site:operator queries at scale, quietly becoming a real search engine.",
+      "insights": [
+        "New 'GEO' (Generative Engine Optimization) industry is forming around tracking how sites appear in chatbot answers.",
+        "Promptwatch and similar tools now publish aggregate reports on brand visibility inside ChatGPT/Claude/Gemini responses.",
+        "This mirrors early SEO, but the ranking signal is now an LLM's retrieval behavior, not a search index."
+      ],
+      "for_you": "Worth testing this week: search how your agency and your clients' businesses show up when prompted inside ChatGPT, this could become a real service line (GEO audits for PT SMBs) before anyone local is offering it.",
+      "why_it_made_the_cut": "Emerging channel with a concrete, sellable angle nobody local is touching yet.",
+      "signal": "🟡",
+      "urls": [
+        "https://simonwillison.net/2026/Aug/20/chatgpt-search-now-uses-the-siteoperator-at-scale/"
+      ],
+      "handle": "",
+      "video": {
+        "id": "_y5qtnAKKc8",
+        "title": "ChatGPT now has a search engine?!🚀📈 #ai #chatgpt #seo #aiautomation #artificialintelligence"
+      }
     },
     {
       "name": "Alex Krentsel",
-      "role": "UC Berkeley / Google Research · Latent Space Podcast",
-      "hook": "**Exo** is an agent harness that can rewrite its own prompts, memory, and tooling live.",
+      "role": "UC Berkeley / Google Research · Latent Space podcast",
+      "hook": "Exo agent can see its own code and logs, letting it clone and improve itself incrementally.",
       "insights": [
-        "Unlike typical agents that only tweak memory, Exo can clone itself and manage a **lineage of clones**",
-        "The only thing it can't touch is its own event log, a guardrail against recursive loops",
-        "Frames the real 2026 shift as moving from **model weights to agent harnesses** as the unit of improvement"
+        "Unlike most agents that only update memory, Exo can rewrite prompts, tooling, and its own harness policy.",
+        "It maintains a canonical event log it cannot alter, preventing recursive improvement loops from spiraling.",
+        "Framed as a systems approach to recursive self-improvement, not just a smarter chatbot wrapper."
       ],
-      "for_you": "This is the conceptual frame for what you're doing with your agency's agent stack: the harness (prompts, memory, tools) is now the product, not the underlying model, so invest your build time there instead of chasing whichever model is 'best' this week.",
-      "why_it_made_the_cut": "Clearest articulation this week of the harness-over-model thesis that's shaping how agentic products get built",
+      "for_you": "No direct action for the agency this week, this is research-grade infrastructure, but worth watching as the pattern (agents that log and audit their own changes) will likely become the safety standard you'll need to explain to cautious SMB clients.",
+      "why_it_made_the_cut": "Deepest technical explainer on a story that's been trending three days running.",
       "signal": "💡",
       "urls": [
         "https://youtube.com/watch?v=5lFD-34dhqE"
       ],
       "handle": "@AlexKrentsel"
-    },
-    {
-      "name": "Jeremy Morrell",
-      "role": "Developer · Blog post via Simon Willison",
-      "hook": "LLMs make it cheap to let users **extend your app themselves**, not just use it.",
-      "insights": [
-        "Thesis: sandbox primitives are now good enough to safely let LLM-authored extensions run inside your core product",
-        "Build a **solid accountable core**, then let users (or their own AI agents) fill in the missing pieces",
-        "Reframes 'extensibility' as a new product category enabled specifically by cheap LLM authoring plus modern sandboxing"
-      ],
-      "for_you": "Directly relevant to a micro-SaaS bet: instead of building every feature a PT SMB client asks for, ship a thin extensible core and let an LLM generate the client-specific customization on top, cutting your dev time per client.",
-      "why_it_made_the_cut": "Most actionable product idea in the feed today, beats generic 'AI agents' takes",
-      "signal": "💡",
-      "urls": [
-        "https://simonwillison.net/2026/Aug/19/jeremy-morrell/"
-      ],
-      "handle": ""
-    },
-    {
-      "name": "MIT Technology Review",
-      "role": "RSS · The Download",
-      "hook": "Nobody, not even Anthropic or OpenAI, can independently verify how people actually use AI chatbots.",
-      "insights": [
-        "Labs only publish the usage data they choose to release, with no independent corroboration",
-        "Stanford researcher Anka Reuel: **'There is no independent source to corroborate it'**",
-        "Recursive self-improvement (RSI) is also proving slower and messier than the industry's boldest promise suggested"
-      ],
-      "for_you": "Useful pushback when pitching AI to skeptical PT SMB owners: the 'everyone's using AI for X' stats you see are marketing, not verified data, so ground your pitch in what you've actually tested with their business, not industry usage reports.",
-      "why_it_made_the_cut": "Rare critical, non-hype piece questioning the industry's own narrative",
-      "signal": "🟡",
-      "urls": [
-        "https://www.technologyreview.com/2026/08/19/1140195/the-download-ai-recursive-self-improvement-problem-heatwave-causes/"
-      ],
-      "handle": "",
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/08/research-target2a.jpg?resize=1200,600"
     }
   ],
   "build_this": [
     {
-      "name": "fx",
-      "source": "Hacker News, 244 pts",
-      "what_it_is": "A tiny, open, native coding agent you can run locally without a heavy framework.",
-      "why_try_it": "Worth a 30-minute spin this week as a lightweight alternative to Cursor/Claude Code for quick client-facing prototypes, since it's small enough to fully understand and modify for your agency's specific workflows instead of fighting a black-box tool.",
-      "url": "https://fx.sh"
+      "name": "Vomit",
+      "source": "GitHub / Hacker News",
+      "what_it_is": "A small tool that pipes noisy Claude Code token output through a second cheap LLM to clean it up before you read it.",
+      "why_try_it": "You're using Claude Code daily to get more technically fluent, this could cut the noise-reading tax and is a 20-minute install to test on your own agency codebase this week.",
+      "url": "https://github.com/zachahn/vomit"
     },
     {
-      "name": "Qwen3.8-27B (local, Apache 2.0)",
-      "source": "Simon Willison's Blog / Artificial Analysis",
-      "what_it_is": "A 27B open model matching 20x-larger models on benchmarks, runnable locally even on modest hardware via quantized GGUF/MLX builds.",
-      "why_try_it": "Pull this into a proof-of-concept this week for a PT SMB client who's nervous about sending data to OpenAI, run it locally or on cheap infra and show them a working demo without per-token API costs eating your margin.",
-      "url": "https://artificialanalysis.ai/models/qwen3-8-27b"
+      "name": "MIDI Autocomplete (125M on-device model)",
+      "source": "Hacker News, 547pts",
+      "what_it_is": "A tiny 125M parameter model trained to autocomplete piano playing, runs entirely on-device.",
+      "why_try_it": "Not for the agency, but directly relevant to the yoga/meditation platform: it's a working example of a small, cheap, purpose-trained model for a creative/wellness domain, worth reading the writeup as a template if you ever want a bespoke small model (e.g. breath-pattern or pose feedback) instead of calling a frontier API.",
+      "url": "https://simedw.com/2026/08/20/midi-autocomplete/"
     },
     {
-      "name": "prompts.chat (f/prompts.chat)",
+      "name": "PostHog",
       "source": "GitHub Trending",
-      "what_it_is": "Open-source, self-hostable community prompt library, formerly Awesome ChatGPT Prompts.",
-      "why_try_it": "Fork and self-host a private version for your agency as a starter prompt library for onboarding new PT SMB clients quickly, cheap way to look more polished on client calls than pasting raw prompts.",
-      "url": "https://github.com/f/prompts.chat"
+      "what_it_is": "Open-source product analytics platform with AI observability, session replay, and an MCP interface you can steer from Slack or the web.",
+      "why_try_it": "Worth self-hosting or trialing on the yoga platform or a micro-SaaS this week to get real usage data before you build more features blind, its MCP support also means you could let an agent query your own product analytics directly.",
+      "url": "https://github.com/PostHog/posthog"
     }
   ],
-  "podcasts": [
-    {
-      "show": "Latent Space",
-      "episode": "Exo: Harnesses should see their own code and logs",
-      "takeaway": "The agent harness, not the model, is becoming the real product surface in AI.",
-      "key_points": [
-        "Exo can rewrite its own prompts, tools, and memory incrementally and safely",
-        "It keeps an immutable event log so it can't get stuck in infinite self-improvement loops",
-        "Compares directly to OpenClaw as a next-gen alternative architecture"
-      ],
-      "for_you": "Listen on your next commute: the framing here (invest in the harness, treat the model as swappable) is exactly the architecture decision you'll face when deciding how to structure your agency's agent stack for PT clients.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=5lFD-34dhqE",
-      "video": {
-        "id": "5lFD-34dhqE",
-        "title": "Exo: Harnesses should see their own code and logs"
-      }
-    },
-    {
-      "show": "No Priors",
-      "episode": "The Model that Taught Itself Antibodies",
-      "takeaway": "A model trained purely on protein structure spontaneously learned antibody design without ever seeing antibody data.",
-      "key_points": [
-        "ESMFold folded and predicted structures for **1.1 billion proteins**",
-        "Hit state-of-the-art on every benchmark thrown at it, despite never training on antibodies specifically",
-        "Lab experiments that used to require screening millions of antibodies can now run on a computer"
-      ],
-      "for_you": "No direct action for your bets, filed for awareness, but it's a strong example of emergent generalization you can cite when explaining to clients why 'the model wasn't trained for X but does it anyway' is a real phenomenon, not a fluke.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=yK682jTa7Dc",
-      "video": {
-        "id": "yK682jTa7Dc",
-        "title": "The Model that Taught Itself Antibodies"
-      }
-    }
-  ],
+  "podcasts": [],
   "tech": [
     {
       "name": "TechCrunch",
-      "role": "RSS",
-      "hook": "Stripe's OpenRouter buy isn't about AGI, it's about owning the payment rails for AI usage.",
-      "key_point": "TechCrunch pushes back on the 'singularity' framing, the real bet is aggregating billing across every model provider",
-      "for_you": "If your agency ends up billing clients per AI usage across multiple model providers, watch this space, Stripe consolidating the plumbing could simplify how you invoice PT clients for token costs.",
+      "role": "RSS source",
+      "hook": "OpenAI is closing the gap with Anthropic on business users, new data shows.",
+      "key_point": "Comes days after Anthropic's reported $65B revenue run rate, suggesting the enterprise AI market is still wide open, not settled.",
+      "for_you": "Worth knowing which model your agency defaults to for client work is increasingly a business-positioning choice, not just a technical one, as both labs court the same SMB/enterprise buyers you're selling into.",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/08/19/stripe-didnt-really-buy-openrouter-because-of-the-singularity/"
+        "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2019/09/GettyImages-527013168.jpg?resize=1200,801"
+      "image": "https://techcrunch.com/wp-content/uploads/2025/09/GettyImages-2214107176.jpg?resize=1200,800"
     },
     {
       "name": "TechCrunch",
-      "role": "RSS",
-      "hook": "OpenAI adds new customer privacy protections, directly countering Anthropic's positioning.",
-      "key_point": "Move comes right after OpenAI's own security pause and reports of an AI-driven hack incident",
-      "for_you": "Worth checking the specifics before your next enterprise PT client conversation, data privacy guarantees are becoming a genuine competitive lever you can point to when picking a model provider for sensitive SMB data.",
-      "signal": "🟡",
+      "role": "RSS source",
+      "hook": "ChatGPT can now send iMessage texts for you via a new Apple Messages plug-in.",
+      "key_point": "First native ChatGPT integration that takes a real-world action (sending a message) rather than just generating text.",
+      "for_you": "A small signal for the agency: clients will increasingly expect AI tools to act, not just answer, worth building at least one 'AI that does something' demo (send a WhatsApp, update a sheet) into your pitch deck.",
+      "signal": "🟢",
       "urls": [
-        "https://techcrunch.com/2026/08/19/openai-seeks-to-one-up-anthropic-with-new-customer-privacy-protections/"
+        "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2236544149.jpg?resize=1200,800"
-    },
-    {
-      "name": "The Verge",
-      "role": "RSS",
-      "hook": "Google Gemini launches a dedicated student hub, pushing further into education.",
-      "key_point": "Follows a broader pattern of AI labs carving out vertical-specific products rather than one general assistant",
-      "for_you": "Relevant lens for your yoga/meditation platform: verticalized AI hubs (education, wellness, etc.) are becoming the norm, worth studying Gemini's student hub UX for ideas on packaging your own vertical AI features.",
-      "signal": "🟡",
-      "urls": [
-        "https://www.theverge.com/ai-artificial-intelligence/982425/google-gemini-student-hub"
-      ],
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/Screenshot-2026-08-19-at-2.05.46-PM.png?quality=90&amp;strip=all&amp;crop=0%2C9.6095766582019%2C100%2C80.780846683596&amp;w=1200",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-1831275897.jpg?resize=1200,800",
       "video": {
-        "id": "ThRDJTzx-mU",
-        "title": "Google Gemini Pro at no cost for 1 year if you’re a student #student #gemini #google #ai #studying"
+        "id": "9ihc6MsJ-T4",
+        "title": "ChatGPT Now Sends Texts Via Apple Messages Plug-In"
       }
     },
     {
       "name": "TechCrunch",
-      "role": "RSS",
-      "hook": "Travis Kalanick says '1% of VCs are helpful,' reigniting founder-vs-VC debate.",
-      "key_point": "Comes amid a wave of founder skepticism toward traditional VC value-add in the AI funding boom",
-      "for_you": "No direct action, filed for awareness, useful context if you're weighing bootstrapped growth for the agency versus chasing outside capital.",
-      "signal": "💡",
+      "role": "RSS source",
+      "hook": "Nevada approves Tesla, Uber, and Waymo to all run thousands of robotaxis.",
+      "key_point": "First state to greenlight three separate robotaxi operators simultaneously, rather than granting exclusivity.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/08/19/travis-kalanick-kicks-off-another-round-of-vc-bashing-1-are-helpful/"
+        "https://techcrunch.com/2026/08/20/tesla-uber-and-waymo-all-get-the-ok-to-operate-thousands-of-robotaxis-in-nevada/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/08/travis-kalanick-fii.jpg?resize=1200,800"
+      "image": "https://techcrunch.com/wp-content/uploads/2025/06/GettyImages-2220872848.jpg?resize=1200,801"
     },
     {
-      "name": "TechCrunch",
-      "role": "RSS",
-      "hook": "Waymo's cheaper next-gen robotaxi opens to all riders in three more cities.",
-      "key_point": "Signals autonomous vehicle economics are improving enough to expand beyond pilot markets",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "🟢",
+      "name": "The Verge",
+      "role": "RSS source",
+      "hook": "Google Discover gets an AI chatbot-tuned feed, blending search and chat further.",
+      "key_point": "Continues Google's pattern of pushing conversational AI into passive content surfaces, not just active search.",
+      "for_you": "Reinforces the GEO angle from today's AI section: if Discover starts favoring chatbot-style content, it's another surface where how you write client website copy for AI legibility will matter.",
+      "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/08/19/waymos-cheaper-next-gen-robotaxi-is-now-open-to-all-riders-in-these-three-cities/"
+        "https://www.theverge.com/tech/983088/google-discover-ai-chatbot-feed"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/08/waymo-ojai.jpg?resize=1200,675"
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/Screenshot-2026-08-20-at-5.37.35-PM.png?quality=90&amp;strip=all&amp;crop=0%2C3.2683225395565%2C100%2C93.463354920887&amp;w=1200"
+    },
+    {
+      "name": "Ars Technica",
+      "role": "RSS source",
+      "hook": "US distributor of China's most popular humanoid robots pivots after import ban.",
+      "key_point": "Forces a fast business-model change for a company that had built its entire supply chain around one banned product line.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🔴",
+      "urls": [
+        "https://arstechnica.com/gadgets/2026/08/us-distributor-of-chinas-most-popular-humanoid-robots-pivots-after-us-ban/"
+      ],
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/Robo-Inc-1152x648.jpeg"
     }
   ],
   "pt_news": [
     {
-      "headline": "Fisco cobra 12,2 milhões em impostos sobre barragens da EDP",
-      "hook": "A Autoridade Tributária antecipou-se ao Ministério Público e já liquidou parte do Imposto de Selo do negócio.",
-      "for_you": "Sem ação direta para o teu negócio, mas mostra que o Fisco português está a apertar o cerco em negócios de grande escala, vale a pena garantir que a contabilidade da agência está sempre em dia.",
+      "headline": "Empresas aceleram em IA mas cloud não acompanha",
+      "hook": "Apenas 14% das empresas portuguesas têm maturidade cloud elevada, mesmo com a pressão da IA a crescer.",
+      "for_you": "Este é literalmente o teu cliente ideal: PME que quer IA mas cuja infraestrutura não aguenta, é o gancho de venda para auditorias rápidas de prontidão antes de qualquer projeto de IA.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/computadores/artigos/empresas-aceleram-na-inteligencia-artificial-mas-cloud-ainda-nao-acompanha-o-ritmo/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/03/cloud-storage-background-remixed-from-public-domain-by-nasa-1024x683.jpg"
+    },
+    {
+      "headline": "HP Portugal destaca aposta das empresas em Edge AI",
+      "hook": "Diretor-geral da HP Portugal diz que organizações estão mais ávidas de inovação para acomodar IA junto dos colaboradores.",
+      "for_you": "Confirma que o discurso de vendas de 'IA local/edge para dados sensíveis' já está a ser feito por players grandes, precisas de posicionar a agência antes que isto vire commodity de fornecedores de hardware.",
       "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/08/20/at-ja-comecou-a-cobrar-impostos-sobre-a-venda-das-barragens-da-edp/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2023/11/cropped-13891786-scaled-4.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "A IA na prática clínica: o que ninguém vê, mas que transforma tudo",
-      "hook": "Médico português descreve como a análise diagnóstica assistida por IA mudou a relação com os pacientes.",
-      "for_you": "Vale a pena ler como case study: é exatamente o tipo de história de transformação (não a tecnologia em si, mas a mudança relacional) que podes usar para vender IA a clínicas e consultórios como clientes da tua agência.",
-      "signal": "🟢",
-      "url": "https://tek.sapo.pt/opiniao/artigos/a-ia-na-pratica-clinica-o-que-ninguem-ve-mas-que-transforma-tudo/",
+      "url": "https://tek.sapo.pt/noticias/computadores/artigos/entrevista-notamos-que-as-organizacoes-estao-mais-avidas-de-inovacao-e-de-poder-acomodar-a-entrada-da-ia-junto-dos-colaboradores/",
       "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/08/Pedro_creditos-MadalenaEsteves_ClinicaMalo-3884.jpg",
-      "video": {
-        "id": "ZF8Tck07NBo",
-        "title": "ChatGPT como terapeuta? 🧠💬 A verdade que ninguém te contou!"
-      }
+      "image": "https://cdn.teknoticias.pt/uploads/2026/08/PEDRO-COELHO-HP_20.jpg"
     },
     {
-      "headline": "Cientistas portugueses ajudam a descobrir estrela recorde",
-      "hook": "Equipa com astrónomos portugueses identifica estrela a orbitar buraco negro a 25.000 km/s.",
-      "for_you": "Sem ação direta para o teu negócio.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/ciencia/artigos/cientistas-portugueses-ajudam-a-descobrir-estrela-que-orbita-buraco-negro-a-velocidade-recorde/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/08/Gemini_Generated_estrelas-perto-de-um-buraco-negro.jpg"
-    },
-    {
-      "headline": "GNR regista mais de 50 mortes em acidentes de mota no 1º semestre",
-      "hook": "Santarém, Faro e Aveiro lideram distritos com mais vítimas mortais em acidentes de motociclos.",
-      "for_you": "Sem ação direta para o teu negócio.",
+      "headline": "Site de pesquisa de pessoas expõe 9 milhões de fotos",
+      "hook": "ClarityCheck deixou base de dados de 450GB, com imagens de crianças, exposta sem proteção na internet.",
+      "for_you": "Se algum dia construíres uma feature com fotos ou dados pessoais de clientes de PME, este é o exemplo concreto para levar a sério segurança básica de storage desde o dia um.",
       "signal": "🔴",
-      "url": "https://observador.pt/2026/08/20/gnr-mais-de-50-mortos-em-acidentes-com-motociclos-no-primeiro-semestre/",
-      "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1124%3Anowe%3A0%3A104%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2025%2F01%2F13093026%2F42594126.jpg?layer=obstop:T"
+      "url": "https://tek.sapo.pt/noticias/internet/artigos/site-de-pesquisa-por-pessoas-deixa-mais-de-9-milhoes-de-fotos-expostas-base-de-dados-incluia-imagens-de-criancas/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/08/rostos-pessoas-fotografias-1024x683.jpg"
     },
     {
-      "headline": "Este link é seguro? Site da ESET testa antes de clicar",
-      "hook": "Ferramenta gratuita ajuda a verificar links suspeitos à medida que fraudes online crescem em Portugal.",
-      "for_you": "Ferramenta simples que podes recomendar a clientes PME menos tecnológicos como parte de uma checklist básica de segurança digital que a tua agência oferece junto com os serviços de IA.",
-      "signal": "🟢",
-      "url": "https://tek.sapo.pt/extras/site-do-dia/artigos/este-link-e-realmente-seguro-site-permite-testar-antes-de-clicar/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/08/Utilizador-computador-desconfiado-pexels-helenalopes.jpg"
+      "headline": "Mini-SEF completa um ano com falhas nos aeroportos",
+      "hook": "Unidade Nacional de Estrangeiros e Fronteiras da PSP continua a enfrentar constrangimentos, sobretudo em Lisboa.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://observador.pt/2026/08/21/primeiro-ano-da-unidade-de-estrangeiros-e-fronteiras-da-psp-marcado-por-constrangimentos-nos-aeroportos/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1124%3Anowe%3A0%3A104%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2024%2F02%2F07150123%2F42249673-1.jpg?layer=obstop:T"
+    },
+    {
+      "headline": "Galp paga hoje 21,7 milhões ao Estado em lucros",
+      "hook": "Dividendo intercalar da petrolífera começa a ser pago aos acionistas esta sexta-feira, com a Amorim Energia à cabeça.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://www.jornaldenegocios.pt/mercados/bolsa/dividendos/detalhe/galp-entrega-hoje-ao-estado-21-7-milhoes-dos-lucros-que-o-governo-quer-taxar",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2025-10/img_1200x676uu2025-10-21-17-27-18-511653.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "At least 12 killed in Kyiv as air defence runs short",
-      "hook": "Massive Russian attack hits apartment blocks and warehouses in Kyiv on Thursday.",
+      "headline": "Israel re-establishes closed West Bank settlement",
+      "hook": "Thirty 'pioneer families' move in as five European countries and Canada condemn the move.",
       "for_you": "No direct action here, filed for awareness.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/c98vzmden5yo?at_medium=RSS&at_campaign=rss",
+      "url": "https://www.bbc.co.uk/news/articles/cn7n0l4p0kzo?at_medium=RSS&at_campaign=rss",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/6d90/live/3ec0fe10-9c53-11f1-aed2-8d6da8d75094.jpg"
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/4659/live/0c7bbc90-9cdc-11f1-8c2c-67800657f112.jpg",
+      "video": {
+        "id": "09jSSlqy5DI",
+        "title": "Israel announces 22 new settlements in occupied West Bank"
+      }
     },
     {
-      "headline": "Evergrande founder sentenced to life in prison",
-      "hook": "Hui Ka Yan's sentencing closes a key chapter in China's property market collapse.",
+      "headline": "US deports first 20 of 1,200 migrants to Liberia",
+      "hook": "Largest third-country deportation deal of the Trump administration begins moving people to Monrovia.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🔴",
+      "url": "https://www.theguardian.com/us-news/2026/aug/20/liberia-deportation-agreement",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/e1640f0d7c0f429d968c7c729f4d6ea957a531f0/218_0_4284_3426/master/4284.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f25a8263193c86b4c6189eb9188aee52",
+      "video": {
+        "id": "tB2P_0pMuOU",
+        "title": "US: First US Deportees Arrive in Liberia Under New Deal"
+      }
+    },
+    {
+      "headline": "Spain lets 500 migrant children in Ceuta reach mainland",
+      "hook": "Madrid reverses stance after most of the 70,000 who crossed in July already returned to Morocco.",
       "for_you": "No direct action here, filed for awareness.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cd0x9mjjmgjo?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/576f/live/42ba6840-9c52-11f1-b275-a98fc45a1940.jpg",
-      "video": {
-        "id": "K5gVwM9E4wo",
-        "title": "🚨 Evergrande Founder Hui Ka Yan Sentenced to Life in Prison"
-      }
-    },
-    {
-      "headline": "Trump vows tougher economic measures on Iran",
-      "hook": "60-day ceasefire expired Monday with no diplomatic or military off-ramp in sight.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/c2k7e83ynj4o?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/725b/live/5ef21940-9c2a-11f1-aa8e-d328e95deb46.jpg",
-      "video": {
-        "id": "WNHNc_wbM20",
-        "title": "Trump Gives Iran 10 Days to Strike Nuclear Deal"
-      }
-    },
-    {
-      "headline": "Over 100 dead after goldmine collapse in Central African Republic",
-      "hook": "Landslide buries artisanal miners in the village of Zamboye near the Cameroon border.",
-      "for_you": "No direct action here, filed for awareness.",
-      "signal": "🔴",
-      "url": "https://www.theguardian.com/world/2026/aug/20/gold-mine-collapse-deadly-landslide-central-african-republic",
+      "url": "https://www.theguardian.com/world/2026/aug/19/spain-allows-500-migrant-minors-in-ceuta-to-relocate-to-the-mainland-in-u-turn",
       "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/34be23302ee16b159f4f8f4198d738ec90cd0139/0_272_577_462/master/577.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=eb7577c6820ed63fd05de328acd7cceb",
+      "image": "https://i.guim.co.uk/img/media/069f8257b36e5d24f0a347c57a8c64391082621d/82_0_3328_2664/master/3328.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=994ff355594b49b9ae2fa98fcf4eb2c4"
+    },
+    {
+      "headline": "Hong Kong Tiananmen activists found guilty",
+      "hook": "Three activists convicted under China-imposed national security law for inciting subversion.",
+      "for_you": "No direct action here, filed for awareness.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/c1l10mdrld5o?at_medium=RSS&at_campaign=rss",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d436/live/0a8eae40-9d0b-11f1-8a23-b9fc4847a391.jpg",
       "video": {
-        "id": "f5J6ez79ZjA",
-        "title": "More than 100 dead after mine collapse in Central Africa"
+        "id": "MQ9ZR_ll0_I",
+        "title": "Hong Kong activists front court over Tiananmen Square vigil"
       }
     },
     {
-      "headline": "Five Americans among seven killed in Kenya safari helicopter crash",
-      "hook": "Crash victims include a Telemundo executive and Ecuador's intelligence chief.",
+      "headline": "El Niño set to be strongest in living memory",
+      "hook": "Met Office calls the pattern unprecedented, warns 2027 likely the hottest year on record.",
       "for_you": "No direct action here, filed for awareness.",
-      "signal": "🔴",
-      "url": "https://www.theguardian.com/world/2026/aug/19/kenya-helicopter-safari-crash",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/9fdcdc66a749e2c2d744573e77ae9530705a5893/47_0_1505_1204/master/1505.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=aeffdd09cc38a327ab748663726e6102",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/weather/articles/c3ekg93vjz9o?at_medium=RSS&at_campaign=rss",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_weather/1200/cpsprodpb/e42a/live/e1f0da90-9cc3-11f1-9182-d13e1a2797dc.jpg",
       "video": {
-        "id": "gYhOyjgrfhg",
-        "title": "Former Telemundo executive among Americans killed in Kenya helicopter crash"
+        "id": "qXf_GlHWK1w",
+        "title": "BREAKING: El Nino Set to Be Strongest in Living Memory, Warns Met Office"
       }
     }
   ],
-  "since_yesterday": null,
+  "since_yesterday": "The OpenAI/Anthropic enterprise race, Stripe-OpenRouter deal, and Ebola/West Bank stories continue: today adds a clearer strategic read (Aggregation theory) on Stripe's move and confirms OpenAI is now gaining, not just competing, on business users.",
   "health": {
     "x": {
       "attempted": 15,
