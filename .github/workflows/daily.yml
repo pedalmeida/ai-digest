@@ -30,6 +30,35 @@ jobs:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
         run: node scripts/fetch-my-feed.js
 
+      # Optional enrichment: /last30days engagement sweep (Reddit, HN, GitHub,
+      # Polymarket). Gated on the LAST30DAYS_ENABLED repo variable so it can be
+      # switched off without a code change, and non-fatal so a bad run on a
+      # third-party engine can never cost Pedro his morning digest.
+      - name: Set up Python (last30days engine)
+        if: vars.LAST30DAYS_ENABLED == '1'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check out last30days engine
+        if: vars.LAST30DAYS_ENABLED == '1'
+        uses: actions/checkout@v4
+        with:
+          repository: mvanhorn/last30days-skill
+          ref: v3.21.1          # pinned: never track a moving default branch
+          path: .last30days
+
+      - name: Enrich feed with community signal
+        if: vars.LAST30DAYS_ENABLED == '1'
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          LAST30DAYS_ENABLED: '1'
+          LAST30DAYS_ENGINE: .last30days/skills/last30days/scripts/last30days.py
+          LAST30DAYS_DOMAINS: ${{ vars.LAST30DAYS_DOMAINS || 'AI agents' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-last30days.js
+
       - name: Debug feed contents
         run: |
           node -e "

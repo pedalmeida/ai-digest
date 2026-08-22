@@ -286,6 +286,21 @@ process.stdin.on('end', async () => {
   }
   if (buildLines.length > 0) sections.push(`=== BUILD_THIS_CANDIDATES ===\n${buildLines.join('\n\n')}`);
 
+  // Community signal (/last30days sweep: topics ranked by real cross-source
+  // engagement). Optional — the key is absent unless fetch-last30days.js ran.
+  const l30dLines = [];
+  for (const sweep of (data.last30days || [])) {
+    const topics = (sweep.topics || []).map(t => {
+      const eng = Object.entries(t.engagement || {})
+        .map(([src, m]) => `${src}: ${Object.entries(m).map(([k, v]) => `${v} ${k}`).join(', ')}`)
+        .join(' | ');
+      const comment = t.topComment ? `\n    Top comment: "${t.topComment}"` : '';
+      return `  \u2022 [velocity ${Math.round(t.velocityScore || 0)}, ${t.momentum || 'unknown'}, ${t.corroborationCount || 0} corroborating sources] ${t.topic}\n    Why: ${t.whySpiking}\n    Engagement: ${eng || 'n/a'}${comment}\n    Evidence: ${(t.evidenceUrls || []).join(' , ')}`;
+    }).join('\n');
+    if (topics) l30dLines.push(`--- /last30days sweep: ${sweep.domain} ---\n${topics}`);
+  }
+  if (l30dLines.length > 0) sections.push(`=== COMMUNITY_SIGNAL ===\n${l30dLines.join('\n\n')}`);
+
   // Tech strip (thin)
   const techLines = [];
   xTech.forEach(b => techLines.push(formatBuilder(b)));
@@ -383,6 +398,7 @@ RULES:
 - Include only sections that have actual content. Omit empty arrays entirely.
 - ai: this is the CORE section, be generous here — 5 to 8 entries when the sources support it. Prioritize actual news (model releases, technique breakthroughs, notable launches) over generic takes. One X builder's best tweet = one entry; do not create an entry for a builder whose tweets are trivial today, skip them instead of padding.
 - build_this: pick 2-3 the MOST concretely actionable items from the BUILD_THIS_CANDIDATES section — favor things Pedro could actually try or ship from this week, not just interesting reads. If nothing is genuinely actionable, return an empty array rather than forcing it.
+- COMMUNITY_SIGNAL (only when present): a /last30days sweep ranking topics by real interaction counts across Reddit, Hacker News, GitHub and Polymarket. This is the only Reddit signal in the whole feed, so mine it. Its topic LABELS are machine-extracted and frequently mangled: never print a label verbatim, read Why/Evidence and write a proper name yourself. Fold the good ones into ai and build_this, never create a separate section. Cite an evidence URL, and when the engagement numbers are strong cite them in why_it_made_the_cut.
 - tech, pt_news, world_news: exactly 5 items each (fewer only if the sources genuinely don't have 5 distinct stories today). Pick the 5 most important/relevant. Still scannable, but each item should carry a real supporting detail, not just a headline.
 - Never repeat a story already in ALREADY COVERED unless it has genuinely developed — then say what's new in for_you, and consider using since_yesterday.
 - Deduplicate the same underlying story across multiple sources — pick the best single version, cite the best source.
@@ -398,6 +414,15 @@ RULES:
 Produce the JSON digest for these sources:
 
 ${sections.join('\n\n')}${memoryBlock}`;
+
+  // REMIX_DRY_RUN=1 prints the assembled prompt and stops before the API call.
+  // Used to diff what the model actually sees with and without an optional
+  // enrichment stage, without spending a Sonnet call or touching digest-draft.
+  if (process.env.REMIX_DRY_RUN === '1') {
+    process.stdout.write(userPrompt + '\n');
+    process.stderr.write(`remix-digest: dry run, ${sections.length} sections, no API call\n`);
+    process.exit(0);
+  }
 
   process.stderr.write(`remix-digest: sections built (${sections.length}), errors=${JSON.stringify(data.health || {})}, calling ${MODEL}...\n`);
 
