@@ -2,7 +2,7 @@
 /**
  * remix-digest.js
  * Reads my-feed.json from stdin.
- * Calls Claude (Sonnet 5) to produce the structured digest:
+ * Calls Claude (Haiku 4.5 by default) to produce the structured digest:
  *   ai (deep-dive), build_this, podcasts, then a thin pt_news/world_news/tech strip.
  * Dedupes against state/seen.json (rolling 7-day memory) before synthesis,
  * and updates it after.
@@ -17,6 +17,8 @@ import os from 'os';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { loadState, saveState, buildSeenContext, normalizeUrl } from './digest-state.js';
+import { digestModel } from './model-config.js';
+import { filterUngroundedDigest } from './grounding.js';
 
 // Load .env
 const envPath = path.join(os.homedir(), '.follow-builders', '.env');
@@ -34,7 +36,7 @@ if (!apiKey) {
 }
 
 const client = new Anthropic({ apiKey });
-const MODEL = 'claude-sonnet-5';
+const MODEL = digestModel();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
@@ -430,6 +432,11 @@ ${sections.join('\n\n')}${memoryBlock}`;
     const responseText = textBlock?.text;
     process.stderr.write(`remix-digest: response length=${responseText?.length}\n`);
     remixed = extractJSON(responseText);
+    const grounding = filterUngroundedDigest(remixed, data);
+    remixed = grounding.digest;
+    if (grounding.removed > 0) {
+      process.stderr.write(`remix-digest: removed ${grounding.removed} item(s) with unsupported citations\n`);
+    }
   } catch (e) {
     process.stderr.write(`remix-digest: error — ${e.message}\n${e.stack || ''}\n`);
     process.exit(1);

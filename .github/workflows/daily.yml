@@ -38,7 +38,7 @@ jobs:
             console.log(JSON.stringify(d.health));
           "
 
-      - name: Generate digest (Claude Sonnet 5)
+      - name: Generate digest (Claude Haiku 4.5)
         env:
           ANTHROPIC_API_KEY:     ${{ secrets.ANTHROPIC_API_KEY }}
           GOOGLE_SEARCH_API_KEY: ${{ secrets.GOOGLE_SEARCH_API_KEY }}
