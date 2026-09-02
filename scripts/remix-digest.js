@@ -19,6 +19,14 @@ import { fileURLToPath } from 'url';
 import { loadState, saveState, buildSeenContext, normalizeUrl } from './digest-state.js';
 import { digestModel } from './model-config.js';
 import { filterUngroundedDigest } from './grounding.js';
+import {
+  inspectApiKey,
+  classifyRemixError,
+  formatDigestError,
+  withRetries,
+  summarizeHealth,
+  compactSourceErrors,
+} from './claude-request.js';
 
 // Load .env
 const envPath = path.join(os.homedir(), '.follow-builders', '.env');
@@ -29,11 +37,21 @@ if (fs.existsSync(envPath)) {
   }
 }
 
-const apiKey = process.env.ANTHROPIC_API_KEY;
-if (!apiKey) {
+const keyInfo = inspectApiKey(process.env.ANTHROPIC_API_KEY);
+if (!keyInfo.present) {
   process.stderr.write('remix-digest: ANTHROPIC_API_KEY is not set\n');
+  process.stderr.write('::error::ANTHROPIC_API_KEY is empty. Add it under Settings → Secrets and variables → Actions.\n');
   process.exit(1);
 }
+if (keyInfo.hadWhitespace) {
+  process.stderr.write('remix-digest: trimmed leading/trailing whitespace from ANTHROPIC_API_KEY (common GitHub secret paste issue)\n');
+}
+if (!keyInfo.looksLikeAnthropic) {
+  process.stderr.write(`remix-digest: warning — ANTHROPIC_API_KEY prefix "${keyInfo.prefix}" does not look like a Console key (expected sk-ant-)\n`);
+}
+process.env.ANTHROPIC_API_KEY = keyInfo.trimmed;
+const apiKey = keyInfo.trimmed;
+process.stderr.write(`remix-digest: API key length=${keyInfo.length} prefix=${keyInfo.prefix}\n`);
 
 const client = new Anthropic({ apiKey });
 const MODEL = digestModel();
@@ -41,6 +59,18 @@ const MODEL = digestModel();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
 const DRAFT_PATH = path.join(REPO_ROOT, 'digest-draft.json');
+const ERROR_PATH = path.join(REPO_ROOT, '.digest-error.txt');
+
+function failDigest(err) {
+  const info = err?.digestError || classifyRemixError(err);
+  process.stderr.write(formatDigestError(info, err, keyInfo));
+  if (err?.stack) process.stderr.write(`${err.stack}\n`);
+  process.stderr.write(`::error title=Generate digest failed::${info.summary}\n`);
+  try {
+    fs.writeFileSync(ERROR_PATH, `${info.summary}\n${info.hint || ''}\n`);
+  } catch { /* best-effort for the Telegram failure step */ }
+  process.exit(1);
+}
 
 // ── News enrichment (images) ──────────────────────────────────────
 const ENRICH_TIMEOUT_MS = 10_000;
@@ -206,11 +236,16 @@ process.stdin.on('data', c => { raw += c; });
 process.stdin.on('end', async () => {
   let data;
   try { data = JSON.parse(raw); }
-  catch (e) { process.stderr.write('remix-digest: invalid JSON\n'); process.exit(1); }
+  catch (e) {
+    process.stderr.write('remix-digest: invalid JSON on stdin (my-feed.json is missing or corrupt)\n');
+    process.stderr.write(`::error::remix-digest stdin was not valid JSON: ${e.message}\n`);
+    process.exit(1);
+  }
 
-  const today = new Date().toLocaleDateString('en-GB', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-  });
+  try {
+    const today = new Date().toLocaleDateString('en-GB', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
 
   const state = await loadState(REPO_ROOT);
   const { seenUrls, seenHeadlines } = buildSeenContext(state);
@@ -401,7 +436,10 @@ Produce the JSON digest for these sources:
 
 ${sections.join('\n\n')}${memoryBlock}`;
 
-  process.stderr.write(`remix-digest: sections built (${sections.length}), errors=${JSON.stringify(data.health || {})}, calling ${MODEL}...\n`);
+  process.stderr.write(`remix-digest: sections built (${sections.length}), source_health=${summarizeHealth(data.health)}, calling ${MODEL}...\n`);
+  for (const line of compactSourceErrors(data.health)) {
+    process.stderr.write(`remix-digest: source warning — ${line}\n`);
+  }
 
   // If all sources failed and we have nothing to summarise, write a fallback digest
   // so generate-slides still has valid input and the pipeline doesn't crash.
@@ -413,8 +451,7 @@ ${sections.join('\n\n')}${memoryBlock}`;
     process.exit(0);
   }
 
-  let remixed;
-  try {
+  const remixedRaw = await withRetries(async (attempt) => {
     const msg = await client.messages.create({
       model: MODEL,
       max_tokens: 8000,
@@ -430,16 +467,17 @@ ${sections.join('\n\n')}${memoryBlock}`;
     }
     const textBlock = msg.content.find(b => b.type === 'text');
     const responseText = textBlock?.text;
-    process.stderr.write(`remix-digest: response length=${responseText?.length}\n`);
-    remixed = extractJSON(responseText);
-    const grounding = filterUngroundedDigest(remixed, data);
-    remixed = grounding.digest;
-    if (grounding.removed > 0) {
-      process.stderr.write(`remix-digest: removed ${grounding.removed} item(s) with unsupported citations\n`);
+    process.stderr.write(`remix-digest: response length=${responseText?.length} (attempt ${attempt})\n`);
+    if (!responseText) {
+      throw new Error('Claude returned no text block');
     }
-  } catch (e) {
-    process.stderr.write(`remix-digest: error — ${e.message}\n${e.stack || ''}\n`);
-    process.exit(1);
+    return extractJSON(responseText);
+  }, { classify: classifyRemixError });
+
+  const grounding = filterUngroundedDigest(remixedRaw, data);
+  const remixed = grounding.digest;
+  if (grounding.removed > 0) {
+    process.stderr.write(`remix-digest: removed ${grounding.removed} item(s) with unsupported citations\n`);
   }
 
   // Enrich every card type with a real image (best-effort, og:image first,
@@ -489,4 +527,7 @@ ${sections.join('\n\n')}${memoryBlock}`;
   process.stderr.write('remix-digest: state/seen.json updated\n');
 
   process.stdout.write(JSON.stringify(output) + '\n');
+  } catch (e) {
+    failDigest(e);
+  }
 });
