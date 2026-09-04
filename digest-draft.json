@@ -1,399 +1,297 @@
 {
-  "date": "Thursday, 3 September 2026",
+  "date": "Friday, 4 September 2026",
   "ai": [
     {
-      "name": "Anthropic",
-      "role": "Claude Fable 5.1 and Claude Mythos 5.1 release",
-      "hook": "Claude Fable 5.1 sets new SOTA for coding and science, cache reads cut 75% to $0.25/MTok.",
+      "name": "OpenAI",
+      "role": "Product Launch",
+      "hook": "GPT-6 Astra ships today: $10/MTok input, $50/MTok output, rivals Fable on benchmarks.",
       "insights": [
-        "**75% cache-read price cut** to $0.25/MTok; shared base weights with Mythos 5.1 but differ in safeguards and routing",
-        "Strong benchmarks on coding/science: **52.6% on Terminal-Bench-Science 0.1** (up from 24.7% for Fable 5)",
-        "Hated **data retention policy removed entirely**; Enterprise Frontier Safeguards frame aggressive safety triggers for enterprise deployments"
+        "Rolling out to ChatGPT Plus/Pro/Business/Enterprise and AWS API immediately",
+        "Scores higher than Fable 5.1 on multiple evals; same price tier as Claude Fable 5/5.1",
+        "Positioned as **frontier model** with stronger computer use and coding than prior GPT versions"
       ],
-      "for_you": "For your PT SMB agency: the 75% cache price cut makes **longer context and iterative workflows** dramatically cheaper. Fable 5.1's coding strength + cache efficiency = fast turnaround on technical content generation and code review tasks for clients. Test this on a customer knowledge-base chat project this week.",
-      "why_it_made_the_cut": "Largest model launch this week, direct cost/capability win for agents and long-running tasks.",
+      "for_you": "Astra's $50/MTok output pricing means **agentic tasks cost ~1–2x more per token than Fable**, but faster inference may offset. Test it this week on your Portuguese SMB automation demos (e.g. customer intake, document triage) and compare cost-per-task to Fable 5.1 before recommending to clients.",
+      "why_it_made_the_cut": "Largest model launch of the week; direct competitive pressure on your current AI stack.",
       "signal": "🟢",
       "urls": [
-        "https://www.anthropic.com/claude-fable-and-mythos-5-1",
-        "https://stratechery.com/2026/fable-5-1-enterprise-frontier-safeguards/"
+        "https://openai.com/index/gpt-6-astra/",
+        "https://www.latent.space/p/astra"
       ],
-      "handle": "",
-      "image": "https://cdn.sanity.io/images/4zrzovbb/website/932ca7d6f414ca22fd5a26dcc131410575b9b3e5-1200x630.jpg"
+      "handle": ""
     },
     {
-      "name": "Google",
-      "role": "Gemini 3.8 Flash and 3.8 Flash Cyber release",
-      "hook": "Google ships Gemini 3.8 Flash with low/medium/high thinking levels, third Flash model in six weeks.",
+      "name": "Jack Clark",
+      "role": "Import AI Newsletter",
+      "hook": "Hugging Face security and policy exposure; space mining and Five Eyes AI oversight emerge as near-term risks.",
       "insights": [
-        "**Third Flash variant in six weeks** signals aggressive model iteration cadence, competing directly on latency and cost",
-        "**Thinking levels** (low/medium/high) allow tuning reasoning depth vs. speed tradeoff for different workloads",
-        "Available in llm-gemini 0.34 plugin, expanding ecosystem adoption"
+        "**Open-weight LLMs + self-replicating virus harness = persistent AI malware** now demonstrated; self-sustaining attack vectors no longer theoretical",
+        "Five Eyes governments tightening AI export controls and alignment monitoring; policy lag vs. capability gap widening",
+        "Space mining and automated resource extraction AI systems entering policy blind spot"
       ],
-      "for_you": "Gemini's thinking-level tuning is useful for your agency: low thinking = fast client demo responses, high thinking = deeper analysis for proposal writing. Test on a real client workflow to compare quality/speed vs. Fable 5.1.",
-      "why_it_made_the_cut": "Only other major model launch this week; competitive pressure on reasoning cost.",
-      "signal": "🟡",
-      "urls": [
-        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
-        "https://simonwillison.net/2026/Sep/2/llm-gemini/"
-      ],
-      "handle": "",
-      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-8_flash__blog__header__16-9__light.width-1300.png"
-    },
-    {
-      "name": "Sean Lie (Cerebras CTO)",
-      "role": "Podcast guest · Latent Space",
-      "hook": "Cerebras pushing inference beyond 4,000 tokens/sec; CS5 targets 10,000 TPS, effectively sold out on CS4.",
-      "insights": [
-        "**100–200 tokens/sec becoming the new 'batch mode'** — real-time inference is table stakes now",
-        "**Cerebras' wafer-scale architecture** runs frontier models at up to **5,000 TPS**, effectively **sold out of current capacity**",
-        "Partnership with OpenAI on **Jalapeño chip** + model-hardware co-design; CS5 in development targeting 10,000 TPS"
-      ],
-      "for_you": "No direct action here for your agency this week, but filed for awareness: inference speed is becoming the new competitive moat. If your SMB clients start asking for real-time agentic workflows (not batch), you'll need to track which providers have fast inference by end-Q4.",
-      "why_it_made_the_cut": "Best-informed source on frontier inference stack today; Sean's data on speed-as-moat is rare.",
-      "signal": "💡",
-      "urls": [
-        "https://youtube.com/watch?v=3uSI8q_RN-o"
-      ],
-      "handle": "",
-      "image": "https://i.ytimg.com/vi/3uSI8q_RN-o/maxresdefault.jpg"
-    },
-    {
-      "name": "OpenAI",
-      "role": "Jalapeño custom inference chip announcement",
-      "hook": "Jalapeño custom chip shows **1.5–1.9× efficiency, 1.7–3.6× lower latency** vs NVIDIA GB200/GB300; Gen 2/3 in development.",
-      "insights": [
-        "Runs at **700W but stayed below 550W in tests**; deployment starts by year-end",
-        "**Model-assisted kernel optimization** using GPT-Astra + Codex improved performance **1.5–1.8×**",
-        "Signals shift in **inference stack economics**, reducing NVIDIA's dominance in inference-heavy deployments"
-      ],
-      "for_you": "OpenAI's vertical integration (chip + model + API) means pricing pressure on inference coming fast. For your agency, negotiate API pricing NOW if you're on large monthly commitments; third-party inference providers (Lambda, Together, RunPod) may offer better rates within weeks.",
-      "why_it_made_the_cut": "Only real infrastructure breakout this week; changes the cost basis for inference at scale.",
+      "for_you": "If you're building agent-based automation for Portuguese SMBs, **data sovereignty and local deployment** become selling points. Consider offering Hugging Face open-weight models on-premise or EU-hosted as compliance edge vs. US-hosted APIs.",
+      "why_it_made_the_cut": "Systemic risk landscape shift affecting where/how to deploy; directly impacts your agency's risk profile with clients.",
       "signal": "🔴",
       "urls": [
-        "https://stratechery.com/2026/apple-updates-mini-and-studio-ai-computers-openai-jalapeno/"
+        "https://jack-clark.net/2026/08/31/import-ai-471-why-hugging-face-worries-me-space-mining-five-eyes-on-ai/"
       ],
-      "handle": "",
-      "image": "https://stratechery.com/wp-content/uploads/2026/08/new-macs-1.png"
+      "handle": "@jackclarkSF",
+      "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/08/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-K1ytNB.png?fit=258%2C258&#038;ssl=1"
     },
     {
-      "name": "Z.ai / Qwen / Alibaba",
-      "role": "GLM-5.3-Flash model release",
-      "hook": "GLM-5.3-Flash: 320B total / 18B active params, 1M context, MIT License, rivals Claude Opus on code.",
+      "name": "Interconnects",
+      "role": "Newsletter / Analysis",
+      "hook": "NVIDIA pivots from selling chips to enabling you to train your own models; Anthropic/OpenAI no longer the default buyers.",
       "insights": [
-        "**1M-token context window, natively multimodal**, available open-source on Hugging Face + via API",
-        "**MIT License** + runs on Chinese AI chips; early support from CoreWeave, Baseten",
-        "**57 on Artificial Analysis Intelligence benchmark**; positioned as price-competitive successor to GLM-5.2"
+        "**NVIDIA now funding and advising customers on model training**, not just selling H100/H200 capacity",
+        "Democratizes frontier model access; shifts economics from cloud monopoly to distributed training",
+        "Reduces moat for Anthropic/OpenAI if customers can train competitive models in-house"
       ],
-      "for_you": "GLM-5.3-Flash is the cheapest open model with 1M context right now. For your agency: test it on long-document summarization or contract review tasks for PT SMBs. Cost will be much lower than Claude Fable 5.1 at scale; serve it via self-hosted Hugging Face or Together.ai for client privacy.",
-      "why_it_made_the_cut": "First open-weight 1M-context model at production quality; Chinese labs confirmed keeping pace with frontier.",
-      "signal": "🟢",
-      "urls": [
-        "https://news.smol.ai/issues/26-08-26-not-much/",
-        "https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride"
-      ],
-      "handle": "",
-      "image": "https://news.smol.ai/api/og?title=not+much+happened+today&description=**Z.ai**+launched+**GLM-5.3-Flash**%2C+a+natively+multimodal+model+with+a+**1M-token+context+window**%2C+**320B+total+parameters+%2F+18B+active+parameters**%2C+under+the+**MIT+License**.+It+is+positioned+as+a+price-competitive+successor+to+GLM-5.2+and+claims+performance+on+par+with+**Claude+Opus+4.8**+on+coding+tasks.+The+model+is+available+via+weights+on+**Hugging+Face**%2C+API%2C+chat%2C+coding+plan%2C+and+AutoClaw%2C+and+runs+entirely+on+Chinese+AI+chips.+Early+third-party+support+includes+**CoreWeave**+and+**Baseten**.+Independent+evaluation+by+Artificial+Analysis+scored+GLM-5.3-Flash+**57+on+their+Intelligence+Index**.+Community+reactions+highlight+its+potential+as+a+best+intelligence-per-dollar+option%2C+though+some+critique+its+vision+capabilities.&type=issue&issueNumber=08&date=2026-08-26T05%3A44%3A39.731Z&companies=z.ai%2Chuggingface%2Ccoreweave%2Cbaseten&models=glm-5.3-flash%2Cglm-5.2%2Cclaude-3-opus"
-    },
-    {
-      "name": "Meta",
-      "role": "Muse Spark 1.3 release",
-      "hook": "Muse Spark 1.3 matches GPT-5.6-Sol; Meta confirmed as newest Frontier Lab, >90% discount for training.",
-      "insights": [
-        "**Performance parity with GPT-5.6-Sol** on key benchmarks, validating Meta Superintelligence as frontier-grade",
-        "**>90% discount for training** signals aggressive scaling economics and willingness to undercut OpenAI/Anthropic on training access",
-        "Marks epic comeback story for Meta in foundational AI after Llama sequence"
-      ],
-      "for_you": "Meta's training cost advantage is real. If you're building a custom fine-tuned model for a large PT SMB client (e.g., banking, legal), explore Meta's training APIs now — likely 10x cheaper than OpenAI's fine-tuning and results may be better than Fable 5.1 on your domain.",
-      "why_it_made_the_cut": "Meta re-entering frontier model race with credible performance and pricing discipline; reshapes competitive landscape.",
-      "signal": "🟢",
-      "urls": [
-        "https://www.latent.space/p/ainews-muse-spark-13-matches-gpt"
-      ],
-      "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!vyuW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff20254a9-6670-4842-b0c9-89101011f15c_2342x984.jpeg"
-    },
-    {
-      "name": "Katie Parrott (Every staff writer)",
-      "role": "AI & I by Every podcast guest",
-      "hook": "Professional writer codified **Compound Writing** system: context files + Claude Projects = autonomous content agency.",
-      "insights": [
-        "**Compound Writing plugin** enables brainstorming, drafting, editing workflows entirely within Claude Projects",
-        "Built after 2-year habit of feeding AI high-quality context; now pluginized for any writer",
-        "Borrowed Vonnegut/Hitchcock/Sorkin voice templates; used AI as career coach after crypto job loss"
-      ],
-      "for_you": "Katie's Compound Writing plugin is DIRECTLY applicable to your yoga platform: build a context library of your teaching style, create a Claude Project that writes meditation scripts + product copy, run it weekly for new content drops. This saves your SMB clients 3–4 hours/week on content. Test with a yoga studio client who wants monthly newsletter content.",
-      "why_it_made_the_cut": "Rare concrete example of agency-of-one workflow that an SMB can replicate immediately.",
-      "signal": "🟢",
-      "urls": [
-        "https://youtube.com/watch?v=vey_dBnDTAU"
-      ],
-      "handle": "",
-      "image": "https://i.ytimg.com/vi/vey_dBnDTAU/maxresdefault.jpg"
-    },
-    {
-      "name": "NVIDIA",
-      "role": "Strategic shift: teaching everyone to build models, not just buy",
-      "hook": "NVIDIA pivots from chip sales to enabling customer model training; wants you building, not buying from Anthropic/OpenAI.",
-      "insights": [
-        "Realigns hardware roadmap around **open-model training economies** rather than consolidating inference",
-        "Positions NVIDIA as infrastructure enabler for decentralized model development, reducing dependence on API-based giants",
-        "Reflects longer-term shift in AI economics: marginal cost of training on NVIDIA chips + open weights undercuts API pricing"
-      ],
-      "for_you": "This is a 6-month signal, not immediate action. But file it: if NVIDIA's model-training support tier matures, your PT SMB clients who need specialized domain models (insurance underwriting, medical imaging) will prefer to train on NVIDIA gear than use Claude API. Start conversations with forward-thinking clients about domain-specific fine-tuning roadmaps.",
-      "why_it_made_the_cut": "Structural shift in AI economics; NVIDIA is betting against API consolidation.",
+      "for_you": "Your agency doesn't need to bet on a single API long-term. **Explore NVIDIA's training grants or subsidized capacity** for building a proprietary small language model fine-tuned on Portuguese SMB workflows. Cheaper per task, higher retention, and defensible IP for your agency.",
+      "why_it_made_the_cut": "Shifts the economic game for building; directly threatens the 'API-only' business model.",
       "signal": "🟡",
       "urls": [
         "https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens"
       ],
       "handle": "",
       "image": "https://substackcdn.com/image/fetch/$s_!JGky!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb8608bb9-bf33-46e6-8ffe-dcf75a851f9b_3182x1790.png"
+    },
+    {
+      "name": "Interconnects",
+      "role": "Newsletter / Analysis",
+      "hook": "Chinese labs (GLM-5.3) keep pace with frontier not via distillation—via **different training approaches and architectural choices**.",
+      "insights": [
+        "GLM-5.3-Flash: 320B params (18B active), 1M-token context, MIT License, rivals Claude Opus on code",
+        "Proves **open-weight models can match proprietary performance** with alternative post-training strategies, not just scale",
+        "Geopolitical signal: China's AI capability gap narrowing despite US chip export controls"
+      ],
+      "for_you": "Open-weight models now credibly substitute for Fable/GPT-6. Test GLM-5.3-Flash on your Portuguese language tasks this week—MIT License means commercial use is clean, and cost is 70%+ lower than proprietary APIs.",
+      "why_it_made_the_cut": "Validates open models as viable production choice; directly affects your cost structure and vendor risk.",
+      "signal": "🟢",
+      "urls": [
+        "https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!_6Y2!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49ade27f-0d84-40f3-840a-3c919e0bb8af_4239x2504.webp"
+    },
+    {
+      "name": "Simon Willison",
+      "role": "AI & Dev Tools Analyst",
+      "hook": "Gemini 3.8 Flash + reasoning levels; Claude system prompts now fully public and versioned; Astra rollout was 'messy'.",
+      "insights": [
+        "Google ships **Gemini 3.8 Flash with low/medium/high thinking levels**—third Flash variant in six weeks; architecture iteration accelerating",
+        "Anthropic publishes **all Claude system prompts** (current + historical); rare transparency into guardrail evolution",
+        "OpenAI's Astra rollout locked out paying users; Sam Altman apologized for execution issues"
+      ],
+      "for_you": "Anthropic's system prompt transparency is gold for **understanding what guardrails changed and why**—use this to tune your own agent prompts and reassure Portuguese clients on consistency. Google's thinking levels suggest reasoning is becoming a pricing/latency dial, not a binary feature.",
+      "why_it_made_the_cut": "Operational transparency shift; affects how you tune and trust models in production.",
+      "signal": "🟡",
+      "urls": [
+        "https://simonwillison.net/2026/Sep/4/august-newsletter/",
+        "https://simonwillison.net/2026/Sep/3/gpt6-astra/",
+        "https://simonwillison.net/2026/Sep/2/claudes-new-system-prompt/"
+      ],
+      "handle": "@simonw"
+    },
+    {
+      "name": "Latent Space",
+      "role": "AI News & Analysis",
+      "hook": "GPT-6 Astra: 2.5x pricier per token but **way cheaper per task** thanks to speed and code/computer use gains.",
+      "insights": [
+        "Analyzed 20B+ Astra tokens; demonstrates **agentic tasks cost ~$6/hour equivalent** vs. prior $50–100+ on Fable for similar work",
+        "Faster inference and better tool use reduce token overhead; effective cost per solved task drops despite higher per-token rate",
+        "Less monitorable (longer reasoning chains, less explainability) vs. Fable"
+      ],
+      "for_you": "Build a **cost-per-task calculator** for your Portuguese SMB clients comparing Astra, Fable 5.1, and GLM-5.3-Flash. Astra likely wins on document processing and customer service workflows despite higher token pricing—test on your agency's live projects this week.",
+      "why_it_made_the_cut": "Reframes the cost conversation for agentic work; directly affects your pitch to clients.",
+      "signal": "🟢",
+      "urls": [
+        "https://www.latent.space/p/ainews-gpt-6-astra-openais-biggest",
+        "https://www.latent.space/p/astra"
+      ],
+      "handle": "@latentspacepod",
+      "image": "https://substackcdn.com/image/fetch/$s_!75mH!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3e58156f-49e2-48e8-af49-ce5edd8e68b6_1118x1118.png"
+    },
+    {
+      "name": "Latent Space",
+      "role": "AI News & Analysis",
+      "hook": "Meta's Muse Spark 1.3 matches GPT-5.6-Sol; Meta confirmed as newest Frontier Lab with >90% training cost discount.",
+      "insights": [
+        "**Muse Spark 1.3 = SOTA parity with OpenAI's GPT-5.6-Sol** on benchmarks",
+        "Meta's training cost for Muse is >90% cheaper than comparable frontier models",
+        "Validates Meta's Superintelligence team as credible third frontier lab alongside OpenAI/Anthropic"
+      ],
+      "for_you": "Meta's emergence as a frontier lab with cheaper training costs signals **open-weight competitive options will accelerate**. File this as evidence to explore fine-tuning Muse Spark on Portuguese-specific tasks if your clients demand cost control or local deployment.",
+      "why_it_made_the_cut": "Shifts competitive landscape; validates multi-lab frontier ecosystem.",
+      "signal": "🟡",
+      "urls": [
+        "https://www.latent.space/p/ainews-muse-spark-13-matches-gpt"
+      ],
+      "handle": "@latentspacepod",
+      "image": "https://substackcdn.com/image/fetch/$s_!vyuW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff20254a9-6670-4842-b0c9-89101011f15c_2342x984.jpeg"
     }
   ],
   "build_this": [
     {
-      "name": "Khoj: Your AI second brain",
+      "name": "coolify",
       "source": "GitHub Trending",
-      "what_it_is": "Self-hostable AI agent that answers from web or your docs, builds custom agents, schedules automations, runs on any local/online LLM.",
-      "why_try_it": "For your yoga platform: Khoj can ingest your class notes, retreat materials, student testimonials — then auto-generate personalized meditation recommendations or class schedules on demand. Self-hosted means you own your students' data. Build a demo this week: load 3–5 yoga class scripts, ask Khoj to suggest poses for anxiety relief.",
-      "url": "https://github.com/khoj-ai/khoj"
+      "what_it_is": "Open-source, self-hostable PaaS: deploy apps, databases, and services on your own servers without Vercel/Heroku/Netlify vendor lock-in.",
+      "why_try_it": "Your Portuguese SMB agency clients fear vendor lock-in and data residency. **Deploy your demo agents + yoga platform backend on a single Coolify instance** (DigitalOcean / Hetzner EU) and show clients they own their infrastructure. Cuts hosting costs ~60% vs. managed platforms and is a differentiator in Portugal's compliance-conscious market.",
+      "url": "https://github.com/coollabsio/coolify"
     },
     {
-      "name": "f/prompts.chat: Share and discover prompts",
+      "name": "changedetection.io",
       "source": "GitHub Trending",
-      "what_it_is": "Open-source prompt library and sharing platform, self-hostable for organizations with complete privacy.",
-      "why_try_it": "Your PT SMB agency can build a private prompt library for clients: standardized templates for common tasks (email writing, proposal generation, FAQ drafting). Self-hosting means you control IP, no data leaking to third parties. Clients pay a small monthly fee for access. Test with 2–3 early customers this week.",
-      "url": "https://github.com/f/prompts.chat"
-    },
-    {
-      "name": "WebLLM: high-performance in-browser LLM inference",
-      "source": "Hacker News",
-      "what_it_is": "JavaScript library for running LLMs directly in the browser using WebGPU/WebAssembly, no server required.",
-      "why_try_it": "For your yoga platform: run a small meditation chatbot (Mistral 7B or Llama 2 7B) directly in users' browsers. Zero backend cost, no data leaves their device, instant latency. Build a proof-of-concept this week: embed a 'Ask a yoga question' widget on your platform homepage, collect feedback.",
-      "url": "https://github.com/mlc-ai/web-llm"
+      "what_it_is": "Open-source website change detection and monitoring; triggers on price drops, content updates, restock alerts, or any page change.",
+      "why_try_it": "Your Portuguese SMB clients (e.g., e-commerce, service providers) need to **monitor competitor pricing, supplier updates, and market changes**. Deploy changedetection.io on Coolify, wrap it in a simple UI, and offer it as a micro-SaaS add-on to your agency. Runs for near-zero cost; high-margin upsell.",
+      "url": "https://github.com/dgtlmoon/changedetection.io"
     }
   ],
-  "podcasts": [
-    {
-      "show": "Latent Space",
-      "episode": "The Inference Frontier: from 100 to 10,000 tokens per second — Sean Lie, Cerebras CTO",
-      "takeaway": "Speed is becoming the new moat: **100–200 tokens/sec is now 'batch mode'**, and real-time inference at 4,000+ TPS is reshaping how agentic AI can work.",
-      "key_points": [
-        "Cerebras CS4 pushes **5,000 tokens/sec** on frontier models; **effectively sold out** due to demand",
-        "**CS5 targets 10,000 TPS**; model-hardware co-design with OpenAI is key",
-        "NVIDIA, Groq, AMD, Etched all racing inference speed; **heterogeneous stack is inevitable**"
-      ],
-      "for_you": "For your agency: clients will soon expect sub-100ms latency for agentic workflows. By end-2026, inference speed (not model quality alone) will be a selling point. Start tracking which providers (OpenAI, Cerebras, Together, Lambda) offer the fastest inference; offer speed as a service tier to premium clients.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=3uSI8q_RN-o",
-      "video": {
-        "id": "3uSI8q_RN-o",
-        "title": "The Inference Frontier: from 100 to 10,000 tokens per second — Sean Lie, Cerebras CTO"
-      }
-    },
-    {
-      "show": "No Priors",
-      "episode": "Redefining Chip Architecture with Arm CEO Rene Haas",
-      "takeaway": "Arm is moving from IP licensing to physical chip manufacturing; CPU remains crucial for AI workloads despite GPU hype.",
-      "key_points": [
-        "Arm transitioned from **pure IP licensing to producing physical chips** like Arm AGI CPU for Meta",
-        "**CPUs still critical for AI execution** (orchestration, data movement) not just GPUs",
-        "US semiconductor manufacturing independence is strategic bottleneck; SoftBank's capital strategy enabling Arm ecosystem expansion"
-      ],
-      "for_you": "No direct action for your immediate agency work, but good framing: remind PT clients that inference isn't just GPU — CPUs + memory architecture matter. If they're evaluating inference providers, ask about CPU specs too.",
-      "signal": "🟡",
-      "url": "https://youtube.com/watch?v=85Y6h_jbRfs",
-      "video": {
-        "id": "85Y6h_jbRfs",
-        "title": "Redefining Chip Architecture with Arm CEO Rene Haas"
-      }
-    },
-    {
-      "show": "AI & I by Every",
-      "episode": "How a Professional Writer Writes With AI",
-      "takeaway": "Katie Parrott's **Compound Writing** system (context files + Claude Projects) turns a solo writer into a content agency.",
-      "key_points": [
-        "Codified brainstorm → draft → edit workflow inside Claude Projects; borrowed style templates from Vonnegut, Hitchcock, Sorkin",
-        "High-quality context is the key: feeding AI good 'ingredients' compounds over time into better outputs",
-        "Started after crypto job loss with $20/month ChatGPT; now a pluginized system any writer can use"
-      ],
-      "for_you": "IMMEDIATELY applicable to your yoga platform: replicate Katie's system for meditation script generation. Build a Claude Project with your teaching voice (examples from 10 classes), run it weekly to generate new scripts + social posts. Test with one cohort of students, measure engagement vs. manually written content.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=vey_dBnDTAU",
-      "video": {
-        "id": "vey_dBnDTAU",
-        "title": "How a Professional Writer Writes With AI"
-      }
-    }
-  ],
+  "podcasts": [],
   "tech": [
     {
-      "name": "Ben Thompson (Stratechery)",
-      "role": "Analysis · Stratechery",
-      "hook": "Fable 5.1's cache pricing win and data retention removal reshape enterprise AI economics.",
-      "key_point": "**75% cache price cut** makes **repeated queries on long contexts** dramatically cheaper for enterprises; removal of data retention policy eliminates a major friction point that competitors exploited.",
-      "for_you": "Cache pricing efficiency means your agency's workflows for SMB document analysis (contracts, emails, knowledge bases) cost 75% less per iteration now — pass savings to clients or improve margins.",
-      "signal": "🟢",
-      "urls": [
-        "https://stratechery.com/2026/fable-5-1-enterprise-frontier-safeguards/"
-      ],
-      "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ"
-    },
-    {
-      "name": "Rene Haas (Arm CEO)",
-      "role": "CEO · Arm",
-      "hook": "Arm moving from IP licensing to chip manufacturing; CPUs remain essential for AI orchestration.",
-      "key_point": "**Arm now produces physical chips** (Arm AGI CPU for Meta) rather than just licensing IP; CPU is not optional in AI infrastructure, only overlooked by GPU-focused engineers.",
-      "for_you": "When evaluating inference providers for clients, ask about CPU specs and memory architecture — not just GPU FLOPS. A poorly architected CPU can bottleneck even fast GPUs.",
+      "name": "Crusoe Energy",
+      "role": "AI Infrastructure Startup",
+      "hook": "Crusoe raises $3B at $30B valuation, betting on **low-cost compute via stranded/wasted energy**.",
+      "key_point": "Infrastructure-as-commodity strategy: converts waste energy (oil flares, wind curtailment, solar overproduction) into dirt-cheap AI compute, undercutting NVIDIA pricing.",
+      "for_you": "As inference cost becomes key, watch Crusoe's pricing. If they launch a European presence or partner with a Portuguese utility, it could halve your agent hosting costs and make on-premise fine-tuning more viable.",
       "signal": "🟡",
       "urls": [
-        "https://youtube.com/watch?v=85Y6h_jbRfs"
+        "https://techcrunch.com/2026/09/03/crusoe-reportedly-raises-3b-at-a-30b-valuation/"
       ],
-      "image": "https://i.ytimg.com/vi/85Y6h_jbRfs/maxresdefault.jpg"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2245923419.jpg?resize=1200,800"
     },
     {
-      "name": "Jack Clark (Import AI)",
-      "role": "Editor · Import AI newsletter",
-      "hook": "METR research shows AI accelerating some types of progress but not others; agent harnesses emerging as key optimization focus.",
-      "key_point": "Traditional skill benchmarks **poorly predict agent usefulness** — NVIDIA's **'Skill Lift' metric** and persistent/self-modifying agent architectures (Headlong, exo) show durability and rollback matter more than raw reasoning.",
-      "for_you": "For your agency: don't hire agents based on benchmark scores alone. Test agents on actual SMB workflows (invoice processing, email triage, content moderation) — a model with lower benchmarks but better persistence + error recovery will outperform in production.",
-      "signal": "💡",
-      "urls": [
-        "https://jack-clark.net/2026/08/24/import-ai-470-no-rights-for-machines-automating-environment-generation-with-spade-and-building-better-gpu-kernels-with-hawkeye/"
-      ],
-      "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/08/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-Fauq8x.png?fit=258%2C258&#038;ssl=1"
-    },
-    {
-      "name": "Simon Willison",
-      "role": "Developer & Blogger · Simon Willison's Blog",
-      "hook": "Claude's new system prompt removes song lyric reproduction guardrails; Anthropic publishes and versions all system prompts publicly.",
-      "key_point": "**Anthropic publishes system prompts + version history** for Claude.ai and mobile apps; new version tightens IP guardrails on lyrics but loosens elsewhere — transparency into model behavior is rare.",
-      "for_you": "For your agency: monitor Anthropic's public system prompt changes. If new guardrails affect your workflows (content generation, code synthesis), you'll know within 24 hours. Use Fable 5.1's system prompt baseline for your own instruction tuning.",
+      "name": "Microsoft",
+      "role": "Product Team",
+      "hook": "Project Zenith: 'distraction-free Windows' for developers, streamlines IDE/terminal/debugging workflow.",
+      "key_point": "Purpose-built OS mode for developer productivity; signals shift away from general-purpose OS bloat toward **role-specific interfaces**.",
+      "for_you": "Zenith's philosophy (focused interface = higher productivity) applies to your agent UX. Test whether **minimal, task-specific agent interfaces** (vs. ChatGPT-style general chat) improve Portuguese SMB adoption on repetitive workflows like invoice processing or order entry.",
       "signal": "🟡",
       "urls": [
-        "https://simonwillison.net/2026/Sep/2/claudes-new-system-prompt/"
+        "https://www.theverge.com/news/990051/microsoft-project-zenith-windows-developers"
       ],
-      "image": "https://static.simonwillison.net/static/2026-09-01/IMG_7797.jpeg"
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/projectzenith.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.435506901475%2C100%2C79.128986197049&amp;w=1200"
     },
     {
-      "name": "TechCrunch",
-      "role": "Technology news · TechCrunch",
-      "hook": "OpenAI's new reasoning technique alarms AI safety experts; raises concerns about black-box reasoning depth.",
-      "key_point": "**Safety experts worry about opaque reasoning chains** in OpenAI's latest approach; interpretability of model decision-making is becoming a regulatory/trust issue.",
-      "for_you": "For enterprise clients (banking, legal): emphasize Claude Fable 5.1's transparency over OpenAI's new reasoning model. Fable's safety guardrails are well-documented; clients want auditable AI decisions.",
-      "signal": "🔴",
+      "name": "Sam Altman / OpenAI",
+      "role": "CEO, OpenAI",
+      "hook": "Altman apologizes for 'messy' Astra rollout; execution friction highlights scaling challenges at frontier.",
+      "key_point": "Astra locked out paying ChatGPT Plus users during launch; mass API errors; redemption narrative still forming.",
+      "for_you": "This is a reminder: **proprietary APIs have uptime risk**. If you're betting on Astra for a client demo, have a fallback (Fable 5.1 or GLM-5.3-Flash) ready. Also use this moment to pitch open-weight models as 'your data stays yours, no launch-day surprises.'",
+      "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/"
+        "https://www.theverge.com/ai-artificial-intelligence/990060/altman-apologizes-messy-astra-rollout"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-in-Seoul.jpg?w=1024"
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2285138968.jpg?quality=90&amp;strip=all&amp;crop=0%2C12.219817290162%2C100%2C75.560365419677&amp;w=1200"
+    },
+    {
+      "name": "TechCrunch / Industry",
+      "role": "News",
+      "hook": "**AI-generated food looks weird**: sameness, color saturation, impossible geometry signal training data collapse and loss of human intuition.",
+      "key_point": "Visual homogeneity in AI-generated images (especially food) shows models are pattern-matching training distribution, not learning underlying physics or taste.",
+      "for_you": "If a Portuguese SMB client wants AI-generated menu photos or marketing imagery, **warn them upfront**: current image models produce 'uncanny valley' food. Recommend human photography + AI copywriting as the better ROI. This is a selling point for human-in-loop workflows.",
+      "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/09/03/the-sameness-problem-behind-those-unappetizing-ai-generated-menus/",
+        "https://www.theverge.com/ai-artificial-intelligence/989376/ai-generated-food-why-does-it-look-like-that"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/09/Cheeseburger-stack.png?resize=1200,800"
     }
   ],
   "pt_news": [
     {
-      "headline": "Aralab de Sintra compra empresa britânica, acelera internacionalização",
-      "hook": "Fabricante de câmaras climáticas Aralab adquiriu 100% da britânica Alphatech; segunda aquisição de 2026.",
-      "for_you": "Aralab é um bom case estudo para sua agência: empresa portuguesa que usa aquisições para entrar em mercados. Ofereça-lhe automação de marketing B2B para o UK (LinkedIn ads, webinars em inglês, email nurture de prospects industriais) — mercados de exportação querem conteúdo em escala.",
-      "signal": "💡",
-      "url": "https://eco.sapo.pt/2026/09/03/aralab-de-sintra-acelera-internacionalizacao-e-compra-empresa-no-reino-unido/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/02/cropped-aralab22.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Volkswagen quer acabar com marca Seat em 2029, reforça Cupra",
-      "hook": "Grupo alemão vai descontinuar a marca espanhola após profundo plano de reestruturação para ganhar rentabilidade.",
-      "for_you": "Volkswagen em Portugal tem concessionaários que vendem Seat — potencial entrada para sua agência: automação de gestão de leads, chatbots de pós-venda em PT, conteúdo de transição de Seat para Cupra.",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/09/03/volkswagen-quer-acabar-com-marca-seat-para-se-focar-no-cupra/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2025/09/cropped-seat-leon-black-edition-01.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "NOS contrata seis criadores de conteúdo para acompanhar futebol",
-      "hook": "NOS vai jogar a época com equipa própria de seis criadores de conteúdos para Benfica e Sporting.",
-      "for_you": "NOS está a estruturar conteúdo de forma sistemática — oportunidade para sua agência: propor geração automatizada de conteúdo pós-jogo (resumos, highlights descritivos, gráficos de performance) usando Compound Writing workflow. Teste com um clube de menor dimensão primeiro.",
-      "signal": "💡",
-      "url": "https://eco.sapo.pt/2026/09/03/nos-contrata-seis-reforcos-para-a-nova-epoca-de-futebol/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/09/cropped-reforcos-benfica-nos-1.png?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Tailândia reduz isenção de visto de 60 para 30 dias para portugueses",
-      "hook": "Português que viaja para Tailândia passa a poder permanecer durante até 30 dias sem visto, a partir de 15 de setembro.",
-      "for_you": "Mudança de política pode impactar agências de viagem e escolas de yoga em Portugal que promovem retiros na Tailândia. Se tem clientes neste setor, a redução de dias sem visto é um talking point para novos retiros (ajustar datas, promoção de vistos rápidos).",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/09/03/tailandia-reduz-de-60-para-30-dias-isencao-de-visto-para-portugueses/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2019/01/cropped-tailandia.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Luís Montenegro rejeita moção de censura, Governo mantém estabilidade",
-      "hook": "Primeiro-ministro recusa que moção apresentada pelo Chega tem razão de ser, argumentando não haver justificação para interromper trabalho do Governo.",
-      "for_you": "Estabilidade governamental é fundo positivo para clientes B2B que planejam aquisições/investimentos. Frame sua agência como partner na aprovação de clientes durante períodos de segurança política.",
+      "headline": "Portugal estuda requisitos para atrair data centres com condições claras",
+      "hook": "EDP CEO pede ao Governo definição antecipada de condições (ambientais, laborais, financeiras) para atrair centros de dados; Portugal e Espanha têm vantagens, mas concorrência com outros países é acirrada.",
+      "for_you": "Oportunidade: **data centre regulation é uma porta para pilotos de AI infrastructure em Portugal**. Se o Governo cria incentivos para data centres, possibilita-se treino de modelos em solo português com segurança de dados. Contacte câmaras de comércio em Lisboa/Porto para antecipar requisitos e posicionar a tua agência como especialista em EU-compliant AI.",
       "signal": "🟢",
-      "url": "https://eco.sapo.pt/2026/09/03/mocao-de-censura-nao-faz-sentido-diz-montenegro-nao-ha-nenhuma-razao-que-justifique-interromper-o-trabalho-do-governo/",
+      "url": "https://eco.sapo.pt/2026/09/04/portugal-tem-de-definir-de-forma-clara-e-antecipada-condicoes-para-atrair-centros-de-dados-alerta-ceo-da-edp/",
       "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/07/cropped-47453657-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "image": "https://eco.imgix.net/uploads/2022/06/cropped-edp03.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Nova lei da contratação pública entra em vigor a 1 de outubro",
+      "hook": "Governo publica aumento de limiares para ajuste direto, flexibilização de concursos e maior poder das entidades adjudicantes. Alarga margem para contratação sem concurso.",
+      "for_you": "**Grandes oportunidades para vender automação de procurement às PMEs**: simplificação de regras públicas significa agências/empresas podem usar IA para preencher formulários de concurso, rastrear licitações, e automatizar compliance. Isto é um caso de venda para a tua agência—target CFOs que gerem licitações públicas.",
+      "signal": "🟢",
+      "url": "https://eco.sapo.pt/2026/09/04/governo-alarga-margem-para-contratar-sem-concurso-e-da-mais-poder-as-entidades-publicas-novas-regras-em-vigor-a-1-de-outubro/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2026/01/cropped-doc2025073145416377-aps4095.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200",
+      "video": {
+        "id": "-6K1HQbknno",
+        "title": "Nova lei de domingos e feriados: Como funciona para trabalhadores? ⚖️ #DireitosTrabalhistas"
+      }
+    },
+    {
+      "headline": "Gasolina e gasóleo aumentam próxima semana (11,5 e 13,5 cêntimos)",
+      "hook": "Efeitos da guerra no Médio Oriente continuam a pressionar preços: gasolina sobe para €2,137/litro, gasóleo para €2,154/litro.",
+      "for_you": "Inflação de combustíveis afecta custos operacionais de PMEs. **Posiciona automação de rota/logística como ROI rápido**: IA que otimiza entregas (menos quilómetros, menos consumo) é venda fácil neste contexto. Cria case study com 1–2 clientes logísticos portugueses.",
+      "signal": "🟡",
+      "url": "https://www.jornaldenegocios.pt/empresas/detalhe/gasolina-aumenta-11-5-centimos-gasoleo-sobe-13-5-na-proxima-semana",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2024-12/img_1200x676uu2024-12-07-22-14-18-491705.jpg"
+    },
+    {
+      "headline": "IFA 2026: Berlim abre portas com foco em IA e robótica",
+      "hook": "Maior feira europeia de electrónica começa hoje com grande ênfase em IA, robótica, IoT e automação doméstica. TCL, Hisense, Samsung anunciam novos TVs com IA integrada.",
+      "for_you": "IFA é o termómetro de inovação europeia. **Analisa os anúncios (especialmente automação doméstica + IA)** para ver que features tricklam para o consumidor português em 6–12 meses. Isto informa o roadmap da tua plataforma de yoga/meditação (e.g., integração com smart home para ambientes personalizados).",
+      "signal": "🟡",
+      "url": "https://tek.sapo.pt/multimedia/artigos/ifa-2026-feira-de-berlim-abre-portas-com-muitos-gadgets-e-inovacao-com-foco-na-ia-e-robotica/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/09/IFA-2026-2.png"
+    },
+    {
+      "headline": "Ministério das Finanças aprova documento para contratar enfermeiros",
+      "hook": "Aprovação permite aos hospitais avançar com contratação de profissionais de saúde; responde a alertas da Ordem dos Enfermeiros.",
+      "for_you": "Saúde é um sector com **alto potencial para automação administrativa (agendamento, triagem, relatórios)**. Se há contratações em curso nos hospitais, há também pressão por eficiência. Contacta 1–2 hospitais portugueses para pilotar um agente de intake de pacientes ou assistente de triagem—sector está aberto a inovação agora.",
+      "signal": "🟡",
+      "url": "https://eco.sapo.pt/2026/09/04/ministerio-das-financas-aprovou-documento-que-permite-contratacao-de-enfermeiros/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2026/09/cropped-14639851-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     }
   ],
   "world_news": [
     {
-      "headline": "UN warns of 'supersized' El Niño as countries prepare for impact",
-      "hook": "WMO warns natural weather phenomenon could bring major disruption to global economies.",
-      "for_you": "Climate disruptions affect supply chains your SMB clients depend on (agriculture, logistics, energy). Offer AI forecasting and scenario planning tools to help clients hedge climate risk.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/c17jqp0xzpzo?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/067c/live/99ebc3c0-a70b-11f1-b109-879e35c24276.jpg",
-      "video": {
-        "id": "2EIXXbM4PKg",
-        "title": "UN warns of supersized El Nino as countries prepare for impact"
-      }
-    },
-    {
-      "headline": "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies",
-      "hook": "Millions exposed to smog from wildfires; over 12,000 children suffering respiratory issues.",
-      "for_you": "Health crises create demand for medical chatbots and triage automation. If you have clients in healthcare or wellness sectors in SE Asia, offer localized AI support infrastructure.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/clyqw44w142o?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/4952/live/e2983d40-a77b-11f1-b2d5-535b3b3d379f.jpg"
-    },
-    {
-      "headline": "Feminist activist and journalist Gloria Steinem dies, aged 92",
-      "hook": "Gloria Steinem, pioneering feminist voice and writer, passed away peacefully in New York City.",
-      "for_you": "No direct action for your builds, but cultural milestone worth noting for content strategy on gender equity themes if your yoga platform targets women's wellness.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/clyeq3ngwe4o?at_medium=RSS&at_campaign=rss",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/23c8/live/cf91da40-a784-11f1-b2d5-535b3b3d379f.jpg",
-      "video": {
-        "id": "m8nYAaJ3pFE",
-        "title": "Gloria Steinem, feminist and journalist, dies at age 92"
-      }
-    },
-    {
-      "headline": "Almost half of world's farmers poisoned by pesticides annually; 11,000 killed yearly",
-      "hook": "Study finds **402–433 million cases** of unintentional pesticide poisoning per year; India accounts for 60% of fatalities.",
-      "for_you": "Agricultural tech is a growing sector for AI interventions (pest detection, dosage optimization). If you have contacts in AgTech, this data is a powerful problem statement for agentic solutions.",
-      "signal": "🔴",
-      "url": "https://www.theguardian.com/environment/2026/sep/02/50-per-cent-world-farmers-poisoned-pesticides-every-year-experts",
+      "headline": "UN votes on equal-earth map to show Africa's true scale",
+      "hook": "Togo sponsors resolution to phase out Mercator projection in favor of equal-area map; African Union backing.",
+      "for_you": "Symbolic but tells a story: **global tech/data narratives are shifting away from Western-centric defaults**. If you're building AI products for Portuguese markets, this reinforces value of **local, culturally-attuned models** (not just US-centric GPT/Claude). File this as evidence for Portuguese clients that AI sovereignty matters.",
+      "signal": "💡",
+      "url": "https://www.theguardian.com/world/2026/sep/04/un-vote-world-map-mercator-equal-earth-africa",
       "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/52efe842cca5785b2f13b82605be6d0460ca734c/741_0_5600_4480/master/5600.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d69ce62d17a56d379dbf41f200a6861a"
+      "image": "https://i.guim.co.uk/img/media/71b8b31a0e418f2093686dd8f0ce5c843b3989ca/0_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e4bf8b0c1c010e49c5b5d60a55e13c35"
     },
     {
-      "headline": "Poland calls for stricter EU visa controls on Russian citizens",
-      "hook": "Poland urges tighter scrutiny following hybrid attacks and drone incursions across Europe.",
-      "for_you": "Geopolitical fragmentation means tighter data residency and compliance rules. Ensure your AI agency infrastructure respects EU data sovereignty — becomes a selling point for clients in regulated sectors.",
-      "signal": "🟡",
-      "url": "https://www.politico.eu/article/poland-radoslaw-sikorski-calls-for-stricter-russia-visa-restrictions-eu/?utm_source=RSS_Feed&utm_medium=RSS&utm_campaign=RSS_Syndication",
-      "source_name": "Politico Europe",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/09/03/GettyImages-2292722993-scaled.jpg",
+      "headline": "US diesel prices hit all-time high amid Iran conflict",
+      "hook": "Fuel costs soar since Iran conflict began in late February; ripple effects widening across agriculture and transport.",
+      "for_you": "Global inflation backdrop is real. Portuguese SMBs reliant on transport/logistics are squeezed. **Automation of supply chain (route optimization, demand forecasting, inventory) becomes urgent cost-cutting tool**, not nice-to-have. Use this moment to pitch urgency in your agency pitches.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/c7903r0grx0o",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f9ea/live/aaff4f90-a843-11f1-b3a7-d5de760fef6e.jpg",
       "video": {
-        "id": "lS-VrAx6K7s",
-        "title": "EU calls Schengen area to lift internal border controls ASAP"
+        "id": "5nZi-BCQ4tk",
+        "title": "Diesel prices hit record high in US amid Iran war"
       }
+    },
+    {
+      "headline": "Spain's PM says no evidence Morocco facilitated Ceuta border breach",
+      "hook": "Pedro Sánchez defends Morocco despite police report claiming border forces aided ~70,000 crossings in July.",
+      "for_you": "Geopolitical stability in Iberia remains fragile. If you're planning expansion into Spain, monitor this closely—border/migration policy can affect hiring and operational permits. No direct action, filed for awareness.",
+      "signal": "🟡",
+      "url": "https://www.theguardian.com/world/2026/sep/03/spain-pm-evidence-morocco-ceuta-border-breach",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/be4269b2ddb583217b97a8b9039e26613d47630f/706_0_4809_3847/master/4809.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ca3d78412f7d58bdedde7a4f543215a3"
+    },
+    {
+      "headline": "Argentina's Milei threatens sanctions, refocuses on Falklands",
+      "hook": "Argentine president escalates territorial claims as geopolitical tensions rise; UK reaffirms support for British overseas territory.",
+      "for_you": "No direct impact on Portugal/your business, but signals broader geopolitical fragmentation. **Decentralized AI infrastructure and data residency become competitive advantages** as countries tighten control. File for strategic context.",
+      "signal": "🟡",
+      "url": "https://www.aljazeera.com/news/2026/9/4/argentinas-milei-threatens-sanctions-as-he-refocuses-on-falklands/",
+      "source_name": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/09/2026-09-03T151203Z_1445866080_RC2QBNAIZ0FG_RTRMADP_3_CHILE-MADRID-FORUM-1788503982.jpg?resize=1920%2C1440"
     }
   ],
-  "since_yesterday": "Fable 5.1 cache pricing confirmed at $0.25/MTok (75% cut); data retention policy removal now live on Claude.ai. Gemini 3.8 Flash and 3.8 Flash Cyber shipped with thinking-level tuning. Meta Muse Spark 1.3 performance parity with GPT-5.6-Sol was just disclosed. All three represent real cost/capability shifts — test all three on a real SMB workflow by EOW.",
+  "since_yesterday": "OpenAI's Astra rollout execution issues deepened (Sam Altman apology); Cerebras' sold-out CS4 capacity confirmed—supply constraints are real, not hype. Muse Spark 1.3 parity with GPT-5.6-Sol now official, validating Meta's frontier status.",
   "health": {
     "x": {
       "attempted": 15,
@@ -423,8 +321,10 @@
     },
     "rss": {
       "attempted": 22,
-      "ok": 22,
-      "errors": []
+      "ok": 21,
+      "errors": [
+        "AINews (smol.ai): HTTP 402"
+      ]
     },
     "hackernews": {
       "attempted": 1,
