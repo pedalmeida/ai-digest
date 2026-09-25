@@ -39,12 +39,24 @@ jobs:
           "
 
       - name: Generate digest (Claude Haiku 4.5)
+        timeout-minutes: 10
         env:
           ANTHROPIC_API_KEY:     ${{ secrets.ANTHROPIC_API_KEY }}
           GOOGLE_SEARCH_API_KEY: ${{ secrets.GOOGLE_SEARCH_API_KEY }}
           GOOGLE_SEARCH_CX:      ${{ secrets.GOOGLE_SEARCH_CX }}
           YOUTUBE_API_KEY:       ${{ secrets.YOUTUBE_API_KEY }}
-        run: cat my-feed.json | node scripts/remix-digest.js
+        run: |
+          set -o pipefail
+          trimmed_key="$(printf '%s' "$ANTHROPIC_API_KEY" | tr -d '[:space:]')"
+          if [ -z "$trimmed_key" ]; then
+            echo "::error::ANTHROPIC_API_KEY is empty. Add/rotate it under Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+          echo "ANTHROPIC_API_KEY is set (length ${#ANTHROPIC_API_KEY})"
+          if [ -z "$GOOGLE_SEARCH_API_KEY" ] || [ -z "$GOOGLE_SEARCH_CX" ]; then
+            echo "::warning::GOOGLE_SEARCH_API_KEY / GOOGLE_SEARCH_CX are empty; image fallback search will be skipped"
+          fi
+          cat my-feed.json | node scripts/remix-digest.js
 
       - name: Build reading page
         run: node scripts/generate-slides.js
@@ -69,7 +81,11 @@ jobs:
       - name: Send Telegram notification (failure)
         if: failure()
         run: |
-          curl -s -X POST \
+          {
+            echo "⚠️ Daily Digest failed today."
+            if [ -f .digest-error.txt ]; then cat .digest-error.txt; fi
+            echo "Run: https://github.com/pedalmeida/ai-digest/actions/runs/${{ github.run_id }}"
+          } | head -c 3500 | curl -s -X POST \
             "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-            --data-urlencode "text=⚠️ Daily Digest failed today. Run: https://github.com/pedalmeida/ai-digest/actions/runs/${{ github.run_id }}" || true
+            --data-urlencode text@- || true
