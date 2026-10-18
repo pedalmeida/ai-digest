@@ -57,19 +57,49 @@ jobs:
           git diff --staged --quiet || git commit -m "digest: $(date +%Y-%m-%d)"
           git push
 
-      - name: Send Telegram notification (success)
+      - name: Send Slack notification (success)
         if: success()
+        env:
+          SLACK_OPS_BOT_TOKEN: ${{ secrets.SLACK_OPS_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
         run: |
           MSG=$(node scripts/build-telegram-message.js)
-          curl -s -X POST \
-            "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-            --data-urlencode "text=$MSG" || true
+          node - "$MSG" <<'NODE'
+          const [,, text] = process.argv;
+          const https = require('https');
+          const body = JSON.stringify({ channel: process.env.SLACK_CHANNEL_ID, text, unfurl_links: false, unfurl_media: false });
+          const req = https.request('https://slack.com/api/chat.postMessage', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${process.env.SLACK_OPS_BOT_TOKEN}`, 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
+          }, res => {
+            let data = ''; res.on('data', c => data += c); res.on('end', () => {
+              const result = JSON.parse(data);
+              if (!result.ok) { console.error(data); process.exit(1); }
+            });
+          });
+          req.on('error', err => { console.error(err); process.exit(1); });
+          req.write(body); req.end();
+          NODE
 
-      - name: Send Telegram notification (failure)
+      - name: Send Slack notification (failure)
         if: failure()
+        env:
+          SLACK_OPS_BOT_TOKEN: ${{ secrets.SLACK_OPS_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
         run: |
-          curl -s -X POST \
-            "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
-            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
-            --data-urlencode "text=⚠️ Daily Digest failed today. Run: https://github.com/pedalmeida/ai-digest/actions/runs/${{ github.run_id }}" || true
+          node - <<'NODE'
+          const https = require('https');
+          const text = `⚠️ Daily Digest failed today. Run: https://github.com/pedalmeida/ai-digest/actions/runs/${process.env.GITHUB_RUN_ID}`;
+          const body = JSON.stringify({ channel: process.env.SLACK_CHANNEL_ID, text, unfurl_links: false, unfurl_media: false });
+          const req = https.request('https://slack.com/api/chat.postMessage', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${process.env.SLACK_OPS_BOT_TOKEN}`, 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
+          }, res => {
+            let data = ''; res.on('data', c => data += c); res.on('end', () => {
+              const result = JSON.parse(data);
+              if (!result.ok) { console.error(data); process.exit(1); }
+            });
+          });
+          req.on('error', err => { console.error(err); process.exit(1); });
+          req.write(body); req.end();
+          NODE
