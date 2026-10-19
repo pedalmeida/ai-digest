@@ -327,6 +327,8 @@ function renderAiSlide(s, idx) {
         <div class="card-index">${String(idx).padStart(2,'0')}</div>
       </div>
       <div class="card-right">
+        ${s.thread_title ? `<div class="thread-box"><div class="thread-label">Story thread · ${esc(s.thread_state || 'developing')}</div><div class="thread-title">${esc(s.thread_title)}</div>${s.context ? `<p>${richText(s.context)}</p>` : ''}</div>` : ''}
+        ${s.what_changed ? `<div class="right-section"><div class="section-label">What changed</div><p>${richText(s.what_changed)}</p></div>` : ''}
         ${insightsHTML ? `
         <div class="right-section">
           <div class="section-label">Key signals</div>
@@ -336,6 +338,7 @@ function renderAiSlide(s, idx) {
           <div class="for-you-label">What this means for you</div>
           <p class="for-you-text">${richText(s.for_you || '')}</p>
         </div>
+        ${s.action ? `<div class="right-section"><div class="section-label">Recommended action</div><p>${richText(s.action)}</p></div>` : ''}
         ${s.why_it_made_the_cut ? `<p class="why-cut">Why this made the cut: ${esc(s.why_it_made_the_cut)}</p>` : ''}
         ${urlsHTML ? `<div class="url-row">${urlsHTML}</div>` : ''}
       </div>

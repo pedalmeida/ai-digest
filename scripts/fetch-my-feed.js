@@ -10,7 +10,8 @@ const SCRIPT_DIR = decodeURIComponent(new URL('.', import.meta.url).pathname);
 const SOURCES_PATH = join(SCRIPT_DIR, 'my-sources.json');
 const OUTPUT_PATH = join(SCRIPT_DIR, '..', 'my-feed.json');
 const MAX_TWEETS_PER_USER = 10;
-const PODCAST_LOOKBACK_HOURS = 336; // 14 days — podcasts publish weekly/biweekly
+const LOOKBACK_HOURS = 168; // 7 days, enough for the twice-daily feed
+const PODCAST_LOOKBACK_HOURS = 168;
 const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504]);
 const FETCH_TIMEOUT_MS = 15_000;
 const MAX_RATE_LIMIT_WAIT_MS = 90_000;
@@ -60,12 +61,16 @@ async function fetchOneRSS(parser, feed) {
     }
     const xml = await response.text();
     const result = await parser.parseString(xml);
-    const items = (result.items || []).slice(0, 5).map(item => ({
+    const cutoff = Date.now() - LOOKBACK_HOURS * 60 * 60 * 1000;
+    const items = (result.items || []).slice(0, 10).map(item => ({
       title: item.title || '',
       link: item.link || '',
       pubDate: item.pubDate || item.isoDate || '',
       contentSnippet: (item.contentSnippet || item.summary || item.content || '').slice(0, 600)
-    }));
+    })).filter(item => {
+      const published = Date.parse(item.pubDate);
+      return !Number.isFinite(published) || published >= cutoff;
+    });
     warning(`rss: fetched ${items.length} items from ${feed.name}`);
     health.rss.ok += 1;
     return {

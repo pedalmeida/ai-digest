@@ -12,6 +12,8 @@
  */
 
 import Anthropic from '@anthropic-ai/sdk';
+import { execFile } from 'child_process';
+import { promisify } from 'util';
 import path from 'path';
 import os from 'os';
 import fs from 'fs';
@@ -30,17 +32,23 @@ if (fs.existsSync(envPath)) {
 }
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
-if (!apiKey) {
+const USE_HERMES = process.env.DIGEST_ENGINE === 'hermes';
+if (!apiKey && !USE_HERMES) {
   process.stderr.write('remix-digest: ANTHROPIC_API_KEY is not set\n');
   process.exit(1);
 }
 
-const client = new Anthropic({ apiKey });
+const client = apiKey ? new Anthropic({ apiKey }) : null;
+const execFileAsync = promisify(execFile);
 const MODEL = digestModel();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
 const DRAFT_PATH = path.join(REPO_ROOT, 'digest-draft.json');
+const PROFILE_PATH = path.join(REPO_ROOT, 'profile.md');
+const EDITORIAL_PROFILE = fs.existsSync(PROFILE_PATH)
+  ? fs.readFileSync(PROFILE_PATH, 'utf8')
+  : '';
 
 // ── News enrichment (images) ──────────────────────────────────────
 const ENRICH_TIMEOUT_MS = 10_000;
@@ -316,16 +324,18 @@ process.stdin.on('end', async () => {
   const systemPrompt = `You are Pedro's chief of staff for AI and building. You write his daily morning brief.
 
 WHO PEDRO IS (bias every judgment call to this, not a generic founder):
-- Portuguese Product Manager, UX + product strategy background, learning to be technically fluent — not yet a developer, but building real products.
-- Actively building and selling: an AI agency for Portuguese SMBs (his main bet), a yoga/meditation educational platform, a possible micro-SaaS.
-- Reads this at 8am to decide what to pay attention to and what to go BUILD today.
-- He wants to feel plugged into AI and ready to build, not caught up on news. AI + hands-on building must dominate. PT/world/tech news is a thin scannable strip, present but secondary.
+${EDITORIAL_PROFILE || '- Portuguese Product Manager building an AI agency and real products.'}
+
+The profile above is the editorial contract. Apply it as a ranking and rejection policy, not as decoration.
 
 OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
 
 {
   "ai": [
     {
+      "thread_id": "stable-kebab-case-topic-id",
+      "thread_title": "Human-readable persistent topic name",
+      "thread_state": "new|developing|monitoring|stalled|resolved|closed",
       "name": "Person, show, or source name",
       "role": "Title · Company, or 'Podcast', or RSS source name",
       "hook": "One punchy sentence on what actually happened. Max 15 words.",
@@ -335,6 +345,10 @@ OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
         "Third (optional)"
       ],
       "for_you": "1-2 sentences, SPECIFIC to Pedro's AI agency for PT SMBs or his other bets. Must fail the 'swap test': if this sentence could apply to any random founder anywhere, cut it or make it specific. It is OK to write 'No direct action here, filed for awareness' rather than pad.",
+      "context": "For a new thread only: concise orientation so Pedro understands the subject without searching elsewhere. Omit when already established.",
+      "what_changed": "What changed since the previous thread update. For a new thread, state the concrete current development.",
+      "action": "test|watch|investigate|use_now|ignore, followed by one short sentence explaining why",
+      "evidence_level": "confirmed|reported|early_signal|speculative",
       "why_it_made_the_cut": "One short phrase: why this beat other candidates today (e.g. 'most-engaged post from Karpathy this week' or 'only real model release today').",
       "signal": "exactly one emoji, no label text: 🔴 or 🟡 or 🟢 or 💡",
       "urls": ["url1"],
@@ -386,8 +400,11 @@ RULES:
 - ai: this is the CORE section, be generous here — 5 to 8 entries when the sources support it. Prioritize actual news (model releases, technique breakthroughs, notable launches) over generic takes. One X builder's best tweet = one entry; do not create an entry for a builder whose tweets are trivial today, skip them instead of padding.
 - build_this: pick 2-3 the MOST concretely actionable items from the BUILD_THIS_CANDIDATES section — favor things Pedro could actually try or ship from this week, not just interesting reads. If nothing is genuinely actionable, return an empty array rather than forcing it.
 - tech, pt_news, world_news: exactly 5 items each (fewer only if the sources genuinely don't have 5 distinct stories today). Pick the 5 most important/relevant. Still scannable, but each item should carry a real supporting detail, not just a headline.
-- Never repeat a story already in ALREADY COVERED unless it has genuinely developed — then say what's new in for_you, and consider using since_yesterday.
-- Deduplicate the same underlying story across multiple sources — pick the best single version, cite the best source.
+- Never repeat a story already in ALREADY COVERED unless it has genuinely developed, then say what's new in for_you, and consider using since_yesterday.
+- Group related developments into persistent threads using thread_id. The first appearance must orient Pedro with context; later appearances must lead with what_changed and must not repeat the full background.
+- Assign evidence_level honestly. A single X post is an early_signal unless independently supported.
+- action must be one of test, watch, investigate, use_now or ignore, with a brief reason. Never invent an action just to fill the field.
+- Deduplicate the same underlying story across multiple sources, pick the best single version, cite the best source.
 - hook/insights: punchy, present tense, no jargon, no "X announced that Y" — write "X does Y".
 - Bold key phrases with **double asterisks** — max 2 per bullet.
 - for_you fields are the most important field in the whole digest. Every one must pass the swap test. Never write generic advice ("consider using AI to..."). If you can't be specific, omit the sentence or say there's no direct action.
@@ -415,21 +432,35 @@ ${sections.join('\n\n')}${memoryBlock}`;
 
   let remixed;
   try {
-    const msg = await client.messages.create({
-      model: MODEL,
-      max_tokens: 8000,
-      thinking: { type: 'disabled' },
-      system: systemPrompt,
-      messages: [
-        { role: 'user', content: userPrompt },
-      ],
-    });
-
-    if (msg.stop_reason === 'max_tokens') {
-      process.stderr.write('remix-digest: warning — response hit max_tokens, output may be truncated\n');
+    let responseText;
+    if (USE_HERMES) {
+      const promptPath = path.join(os.tmpdir(), `ai-digest-${process.pid}.prompt`);
+      fs.writeFileSync(promptPath, `${systemPrompt}\n\n${userPrompt}`);
+      try {
+        const result = await execFileAsync('hermes', [
+          'chat', '--oneshot', '--provider', 'openai-codex', '-m', 'gpt-5.6-luna',
+          '--reasoning', 'medium', '--query-file', promptPath, '-Q', '--in', REPO_ROOT,
+        ], { maxBuffer: 20 * 1024 * 1024, timeout: 8 * 60 * 1000 });
+        responseText = result.stdout;
+      } finally {
+        fs.rmSync(promptPath, { force: true });
+      }
+    } else {
+      const msg = await client.messages.create({
+        model: MODEL,
+        max_tokens: 8000,
+        thinking: { type: 'disabled' },
+        system: systemPrompt,
+        messages: [
+          { role: 'user', content: userPrompt },
+        ],
+      });
+      if (msg.stop_reason === 'max_tokens') {
+        process.stderr.write('remix-digest: warning — response hit max_tokens, output may be truncated\n');
+      }
+      const textBlock = msg.content.find(b => b.type === 'text');
+      responseText = textBlock?.text;
     }
-    const textBlock = msg.content.find(b => b.type === 'text');
-    const responseText = textBlock?.text;
     process.stderr.write(`remix-digest: response length=${responseText?.length}\n`);
     remixed = extractJSON(responseText);
     const grounding = filterUngroundedDigest(remixed, data);

@@ -3,6 +3,7 @@ name: Daily AI Digest
 on:
   schedule:
     - cron: '0 7 * * *'  # 7am UTC = 8am Lisbon (WEST, UTC+1, Apr-Oct)
+    - cron: '0 17 * * *' # 5pm UTC = 6pm Lisbon (WEST, UTC+1, Apr-Oct)
   workflow_dispatch:       # manual "Run workflow" button in GitHub UI
 
 jobs:
@@ -38,7 +39,7 @@ jobs:
             console.log(JSON.stringify(d.health));
           "
 
-      - name: Generate digest (Claude Opus 5)
+      - name: Generate digest (Haiku fallback, Luna trial locally)
         env:
           ANTHROPIC_API_KEY:     ${{ secrets.ANTHROPIC_API_KEY }}
           GOOGLE_SEARCH_API_KEY: ${{ secrets.GOOGLE_SEARCH_API_KEY }}
