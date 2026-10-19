@@ -2,390 +2,390 @@
   "date": "Monday, 19 October 2026",
   "ai": [
     {
-      "thread_id": "anthropic-agent-scale-source-control",
-      "thread_title": "Anthropic Rebuilds Developer Infrastructure for Agent-Scale Coding",
+      "thread_id": "meta-open-weight-models",
+      "thread_title": "Meta's open-weight frontier models reshape competitive landscape",
       "thread_state": "developing",
-      "name": "Anthropic",
-      "role": "AI research company",
-      "hook": "Anthropic replaces Git-like workflows as agent-generated code changes multiply twelvefold.",
+      "name": "Meta AI",
+      "role": "Company · AI Research",
+      "hook": "Muse Spark Open and Muse Wonder establish Meta as serious open-weight frontier competitor.",
       "insights": [
-        "Merged code changes rose from about 2,500 per day in May to more than 30,000 in September.",
-        "Anthropic built a custom source-control system around higher change velocity and parallel agent work.",
-        "The shift suggests agentic coding requires infrastructure designed for continuous machine-generated changes, not human-paced pull requests."
+        "**Muse Spark Open** is a frontier-grade multimodal mixture-of-experts model released open-weight, competing directly with proprietary offerings",
+        "**Muse Wonder** emerges as Meta's Claude 5.5-tier frontier model, signaling MSL's arrival as a genuine frontier lab",
+        "Open weights at frontier scale reduce procurement lock-in for agencies; models are now downloadable and deployable on own infrastructure"
       ],
-      "for_you": "This is directly relevant to how you structure client delivery as Claude and Codex produce more parallel changes. Your agency's reusable delivery stack may need stronger change isolation, automated verification and rollback before adding more agents.",
-      "context": "Anthropic is one of the leading frontier AI labs and a major builder of coding agents. Its internal engineering practices are useful signals because they show which bottlenecks appear when AI-generated code becomes a production-scale workflow.",
-      "what_changed": "Anthropic disclosed a custom alternative to Git after code changes increased from roughly 2,500 to over 30,000 daily.",
-      "action": "investigate, map your current agent coding workflow against failure modes caused by parallel changes and weak rollback.",
+      "for_you": "For your Portuguese SMB agency: open-weight frontier models eliminate vendor lock-in costs and let you fine-tune or self-host for specific verticals (real estate, insurance). Test Muse Spark Open in a multi-modal document processing workflow this week.",
+      "context": "Meta has historically shipped strong open-weight models (Llama family). This marks their entry into frontier-grade multimodal and reasoning-heavy systems. MSL (Meta Systems Lab) is now positioning itself alongside OpenAI and Anthropic, not as a follower but as a peer frontier lab. Open-weight distribution means Pedro can own the model and avoid API pricing.",
+      "what_changed": "Muse Wonder confirms Meta's frontier capability; Spark Open delivers it at scale without proprietary licensing.",
+      "action": "test|Run Muse Spark Open on a client document classification or content tagging task within the agency workflow; measure latency and accuracy against Claude/GPT defaults.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Concrete evidence that agentic coding changes the software production stack.",
+      "why_it_made_the_cut": "Open-weight frontier models change agency unit economics; Meta's scale means this is durable.",
       "signal": "🟢",
       "urls": [
-        "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
+        "https://huggingface.co/blog/meta-muse-spark-open",
+        "https://www.latent.space/p/ainews-meta-muse-wonder-and-wonder"
       ],
       "handle": "",
-      "image": "https://static.simonwillison.net/static/2026/anthropic-merges-per-day.webp"
+      "image": "https://huggingface.co/blog/assets/meta-muse-spark-open/thumbnail.png"
     },
     {
-      "thread_id": "anthropic-dynamic-agent-workflows",
-      "thread_title": "Dynamic Workflows for Coordinating Claude Agents",
-      "thread_state": "developing",
-      "name": "Anthropic",
-      "role": "AI research company",
-      "hook": "Anthropic coordinates Claude agents with dynamic workflows inspired by Unix and Linux.",
+      "thread_id": "agents-disprove-polysemanticity",
+      "thread_title": "Agent-based research disproves polysemanticity, advances interpretability",
+      "thread_state": "new",
+      "name": "Nick Cammarata",
+      "role": "AI Research · Independent",
+      "hook": "Agent-based systems disprove polysemanticity theory; interpretability advances with practical alignment implications.",
       "insights": [
-        "The approach decomposes larger projects into dynamically coordinated agent tasks instead of one fixed orchestration graph.",
-        "The design draws on Unix-like composition, allowing smaller tools and agents to cooperate without overwhelming the developer with context.",
-        "The technique addresses a central agent engineering problem: keeping delegation flexible while preserving observability and control."
+        "Polysemanticity (neurons encoding multiple unrelated concepts) is contradicted by agent behavior empirics",
+        "New interpretability methods emerge from agent-based reasoning, not just neuron analysis",
+        "Alignment gains because agent reasoning is more legible than black-box forward passes"
       ],
-      "for_you": "This is a useful architecture reference for your agency's client onboarding and delivery automations, where research, CRM updates and content production should remain separate but composable. It is more relevant than adding another general-purpose agent framework.",
-      "context": "Dynamic workflows are Anthropic's approach to coordinating multiple Claude agents on projects larger than one context window. The important distinction is adaptive delegation, rather than a rigid sequence of predefined steps.",
-      "what_changed": "Anthropic presented updated material explaining how dynamic workflows coordinate Claude agents on larger projects.",
-      "action": "investigate, compare the pattern with your current BabaGPT and client-automation orchestration before adopting another framework.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "A concrete orchestration pattern from a frontier lab with direct architectural relevance.",
+      "for_you": "Direct relevance to agent safety in your workflows: if agents reason through legible steps (not opaque neuron firings), you can audit their decisions before deployment. This reduces risk when agents handle sensitive client data.",
+      "context": "Polysemanticity has been a core interpretability challenge: if neurons encode multiple concepts, feature analysis breaks down. Agent-based reasoning sidesteps this by generating explicit reasoning traces instead of relying on neuron-level understanding. This is a significant shift in how we think about model transparency.",
+      "what_changed": "This is new evidence published this week.",
+      "action": "watch|Track follow-up research and implementation libraries; this will likely shape open-source agent frameworks within months.",
+      "evidence_level": "early_signal",
+      "why_it_made_the_cut": "Directly impacts how safe and auditable Pedro's agents can be; changes interpretability research direction.",
       "signal": "💡",
       "urls": [
-        "https://www.latent.space/p/claude-dynamic-workflows"
+        "https://www.latent.space/p/ainews-agents-disprove-polysemanticity"
       ],
       "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!1dow!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdda42c05-6ce1-4e54-b544-f7d1557f04b2_1280x720.jpeg"
+      "image": "https://substackcdn.com/image/fetch/$s_!riZI!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F50483d29-b6d4-485b-b93a-5b6a14e29ce6_2028x1228.png"
     },
     {
-      "thread_id": "financial-agents-autonomy-safety",
-      "thread_title": "Financial Agents Need Bounded Autonomy",
-      "thread_state": "monitoring",
-      "name": "Latent Space",
-      "role": "AI engineering podcast",
-      "hook": "Frontier labs and financial firms define autonomy around controls, not unrestricted delegation.",
-      "insights": [
-        "OpenAI and Anthropic discussed how financial agents can act usefully while keeping consequential decisions under human control.",
-        "The key design problem is assigning agents bounded authority over actions, tools and money.",
-        "Financial workflows expose the gap between impressive task completion and acceptable operational risk."
-      ],
-      "for_you": "This gives you a practical frame for selling AI automations to Portuguese SMBs: automate preparation, triage and recommendations, but gate payments, legal commitments and irreversible CRM actions. It also applies to any future assistant that acts on Pedro's behalf.",
-      "context": "Financial agents are AI systems that can analyse information and potentially execute consequential decisions. The debate matters because financial workflows are among the clearest tests of useful autonomy, permissioning and auditability.",
-      "what_changed": "A recent AI Engineer New York discussion compared OpenAI and Anthropic approaches to autonomy and safety in financial agents.",
-      "action": "watch, use the bounded-authority model when designing client automations that can send messages, change records or trigger payments.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "It translates agent safety into concrete product and workflow controls.",
-      "signal": "🔴",
-      "urls": [
-        "https://www.latent.space/p/crossing-the-threshold"
-      ],
-      "handle": "",
-      "image": "https://substackcdn.com/image/fetch/$s_!rtS2!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4aa91ce4-8821-4844-aa0f-56d4bd3c8d7e_1280x720.jpeg"
-    },
-    {
-      "thread_id": "lfm25-on-device-agents",
-      "thread_title": "LFM2.5-24B-A2B Brings Agent Workloads On Device",
-      "thread_state": "new",
-      "name": "Liquid AI",
-      "role": "Model developer",
-      "hook": "Liquid AI offers a compact mixture-of-experts model for private, fast on-device agents.",
-      "insights": [
-        "LFM2.5-24B-A2B uses a 24-billion-parameter model with only about 2 billion active parameters per token.",
-        "The model targets local agent workloads where latency, privacy and operating cost matter more than frontier breadth.",
-        "A local model could reduce dependence on hosted APIs for narrow, repetitive tasks."
-      ],
-      "for_you": "This is worth testing against a small BabaGPT workflow or a private lead-triage prototype where Portuguese client data should stay local. The two-week question is whether quality is sufficient for classification and extraction, not open-ended customer conversations.",
-      "context": "Liquid AI develops efficient models designed for constrained hardware. LFM2.5-24B-A2B is an open model aimed at running agents locally while activating only a small portion of its total parameters for each token.",
-      "what_changed": "Hugging Face highlighted LFM2.5-24B-A2B as a model for fast, private on-device agents.",
-      "action": "test, benchmark it on anonymised Portuguese lead classification and structured extraction before considering deployment.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "It offers a concrete local-AI experiment aligned with Pedro's privacy and infrastructure bets.",
-      "signal": "🟢",
-      "urls": [
-        "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b"
-      ],
-      "handle": "",
-      "image": "https://cdn-uploads.huggingface.co/production/uploads/644249b08443bce4c9890a0f/YxGx9U6yV6_mumklCyMsE.png"
-    },
-    {
-      "thread_id": "granite-switch-multimodal-endpoint",
-      "thread_title": "Granite Switch 4.1 Unifies Chat, Decisions and Speech",
-      "thread_state": "new",
-      "name": "IBM",
-      "role": "AI model developer",
-      "hook": "Granite Switch 4.1 combines chat, decision tasks and speech behind one endpoint.",
-      "insights": [
-        "The model family targets conversational, decision and speech workloads through a unified interface.",
-        "A single endpoint can reduce integration complexity when an application mixes text understanding, classification and voice.",
-        "The practical value depends on latency, Portuguese quality, tool calling and cost rather than feature count."
-      ],
-      "for_you": "It could simplify a Portuguese SMB intake assistant that receives voice messages, extracts structured lead data and routes follow-ups. Test only if one endpoint materially reduces the number of providers and failure paths in your current stack.",
-      "context": "Granite Switch 4.1 is an IBM model release presented as a unified endpoint for chat, decision-making and speech. Its relevance is integration simplicity rather than frontier benchmark leadership.",
-      "what_changed": "Hugging Face announced Granite Switch 4.1 with chat, decision and speech capabilities from one endpoint.",
-      "action": "watch, wait for Portuguese quality and API evidence before replacing the current voice and text components.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "It may reduce complexity in voice-first SMB workflows.",
-      "signal": "🟡",
-      "urls": [
-        "https://huggingface.co/blog/ibm-granite/granite-switch-4-1"
-      ],
-      "handle": "",
-      "image": "https://cdn-uploads.huggingface.co/production/uploads/662836b742709fe826510597/gltB0o--PV_Jh0D3aDm8-.png"
-    },
-    {
-      "thread_id": "ai-game-decompilation",
-      "thread_title": "AI-Powered Game Decompilation",
+      "thread_id": "anthropic-quarterly-revenue-growth",
+      "thread_title": "Anthropic nears IPO with $16.8B quarterly revenue run-rate",
       "thread_state": "developing",
-      "name": "Popcar",
-      "role": "Indie game developer",
-      "hook": "AI-assisted decompilation is making old games easier to preserve, remix and republish.",
+      "name": "Anthropic",
+      "role": "Company · AI Frontier Lab",
+      "hook": "Quarterly revenue surged nearly 50% to $16.8B annualized rate; IPO preparations underway.",
       "insights": [
-        "Developers are using AI to reverse-engineer existing games and get them running on modern hardware or in browsers.",
-        "The same capability enables preservation and creative experimentation while raising copyright and ownership risks.",
-        "The trend shows coding models moving from generating new software to reconstructing software they were not given as source code."
+        "Q1 (Jan-Mar) revenue was ~$4.8B; Q3 implied $16.8B annualized, reflecting **explosive API and enterprise adoption**",
+        "IPO roadshow completed; IPO timing and pricing not yet disclosed but market readiness signals imminent listing",
+        "Revenue concentration risk: Claude API and enterprise contracts dominate; consumer products (Claude.ai) smaller portion"
       ],
-      "for_you": "There is no direct agency action, but it is relevant to future micro-SaaS experiments around legacy software migration and browser compatibility. Treat the capability as legally sensitive infrastructure, not as a shortcut for client work.",
-      "context": "AI-powered decompilation uses models to help reconstruct or understand compiled software. Games are an early visible case because preservation projects can benefit from modernising old binaries, while rights holders may object to derivative use.",
-      "what_changed": "A new account describes a growing wave of AI-assisted game decompilation, with both preservation benefits and legal risks.",
-      "action": "watch, because the capability may generalise to legacy business software but has unclear ownership boundaries.",
+      "for_you": "Anthropic's growth validates Claude enterprise adoption and pricing power. If you build on Claude, supply reliability and platform stability improve with IPO capital. Monitor pricing: public company discipline may shift from growth-at-any-cost to margin optimization.",
+      "context": "Anthropic has been private and capital-efficient until now. IPO signals confidence in revenue durability and regulatory clarity. The company previously committed 5% of post-IPO equity to a public benefit fund, signaling stakeholder capitalism positioning.",
+      "what_changed": "IPO roadshow wrapped; no new financials, but Q1 data confirms acceleration.",
+      "action": "watch|If you have existing Claude dependencies, prepare for potential pricing changes post-IPO; consider multi-model strategy if margin pressure emerges.",
       "evidence_level": "reported",
-      "why_it_made_the_cut": "It reveals a new practical use of coding agents beyond ordinary code generation.",
+      "why_it_made_the_cut": "IPO timing and Anthropic's growth directly affect agency unit economics and API cost structure.",
       "signal": "🟡",
       "urls": [
-        "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
+        "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
       ],
       "handle": ""
+    },
+    {
+      "thread_id": "modal-1b-arr-16b-valuation",
+      "thread_title": "Modal reaches $1B ARR, $16B valuation on serverless AI demand",
+      "thread_state": "monitoring",
+      "name": "Modal",
+      "role": "Company · AI Infrastructure",
+      "hook": "Modal's Series D values company at $16B; ARR tripled in 5 months, valuation 15x in one year.",
+      "insights": [
+        "**$1B ARR** confirms sandbox serverless infra is a durable, high-margin business",
+        "**3x usage, 3x valuation in 5 months** indicates explosive product-market fit in agent/function deployment",
+        "Competitive pressure from Anthropic, OpenAI on function calling; Modal's advantage is deployment isolation and statelessness"
+      ],
+      "for_you": "Modal is the de facto standard for deploying multi-step agentic workflows without managing containers. Test deploying a client workflow (lead scoring, document processing) on Modal's GPU-backed functions; cost and latency will be lower than EC2 or Lambda.",
+      "context": "Modal abstracts away Kubernetes complexity for AI functions. Developers define functions, Modal handles scaling, GPU provisioning, and billing by second. As agents become more complex, sandbox isolation (Modal's core feature) becomes more valuable. The $16B valuation reflects venture belief that serverless AI is a lasting category.",
+      "what_changed": "Already covered Sunday; no new developments.",
+      "action": "use_now|Evaluate Modal for deploying your agent orchestration layer; the platform is mature, pricing is transparent, and growth means reliability is improving.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Already in previous digest; included again only to confirm it remains the strongest serverless AI infrastructure bet.",
+      "signal": "🟢",
+      "urls": [
+        "https://www.latent.space/p/ainews-modals-1b-arr-16b-series-d"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/youtube/w_728,c_limit/J-smU_ImO5g"
+    },
+    {
+      "thread_id": "llm-tooling-ecosystem",
+      "thread_title": "LLM CLI and integration tooling ecosystem stabilizes around plugins",
+      "thread_state": "monitoring",
+      "name": "Simon Willison",
+      "role": "Builder · Open Source",
+      "hook": "LLM ecosystem matures: llm-tools-datasette, llm-echo, web-edit all shipping plugin-based architecture.",
+      "insights": [
+        "**llm-tools-datasette 0.1.1** fixes httpx2 compatibility; plugin system robust enough for production use",
+        "**llm-echo 0.5** now tracks tool calls, system prompts, reasoning tokens—full cost accounting for agentic workflows",
+        "**web-edit 0.1a2** adds clipboard I/O, enabling remote file editing via Tailscale; practical agent-host integration"
+      ],
+      "for_you": "The LLM CLI ecosystem is production-ready for local agent development. Use `llm-echo` to audit token usage in your agent workflows (especially important for tracking hidden reasoning token costs). `web-edit` is useful if you're building agents that modify files on client infrastructure.",
+      "context": "Simon Willison's LLM CLI is becoming the canonical open-source tooling layer for working with LLMs locally. The plugin architecture (datasette, echo, web-edit) shows the ecosystem is settling into a stable pattern. This is the opposite of the Anthropic/OpenAI API-centric approach; it appeals to builders who want offline-first or air-gapped workflows.",
+      "what_changed": "Three small releases this week; no major API changes, all refinements.",
+      "action": "test|Install `llm-echo` and add it to your development workflow to track token usage; costs hide in reasoning tokens and tool calls.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Practical tooling for local development and cost accounting; helps Pedro audit his own agents.",
+      "signal": "🟡",
+      "urls": [
+        "https://simonwillison.net/2026/Oct/18/llm-tools-datasette/",
+        "https://simonwillison.net/2026/Oct/18/llm-echo/",
+        "https://simonwillison.net/2026/Oct/17/web-edit/"
+      ],
+      "handle": "simonw"
+    },
+    {
+      "thread_id": "code-review-continuous-automation",
+      "thread_title": "Code review shifts from gate to continuous spellcheck via Claude",
+      "thread_state": "monitoring",
+      "name": "Anthropic",
+      "role": "Company · AI Research",
+      "hook": "Anthropic rethinks code review: humans ask 'what could go wrong?', Claude handles continuous inline feedback.",
+      "insights": [
+        "Code review no longer gates PRs; **Claude reviews continuously** as developers write, surfacing issues before PR submission",
+        "Timing shift: most changes reviewed and fixed by Claude **before human review**, changing collaborative cadence",
+        "Human review now asks 'did a human read the code?' changes to 'which risk requires human judgment?'—precision over ceremony"
+      ],
+      "for_you": "For client code delivery: integrate Claude-based review into your CI/CD pipeline. Instead of waiting for code review, catch bugs, security issues, and style drift in real time. This compresses your delivery cycle and reduces rework.",
+      "context": "This is a shift from the 'review as a gate' mindset that has dominated software development for decades. Anthropic is arguing that continuous, AI-powered feedback is more effective than batch review by humans. The practical implication is that developer velocity increases while quality gates remain or improve.",
+      "what_changed": "Already covered Sunday; no new evidence.",
+      "action": "investigate|Test Claude Code mode on your agency's internal projects; measure review turnaround time and bug escape rate.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Already in prior digest; included for continuity.",
+      "signal": "🟢",
+      "urls": [
+        "https://simonwillison.net/2026/Oct/16/code-review/"
+      ],
+      "handle": ""
+    },
+    {
+      "thread_id": "hybrid-reasoning-agents-latent-space",
+      "thread_title": "Hybrid reasoning agents think in latent space, act through text",
+      "thread_state": "new",
+      "name": "Arxiv / Research Community",
+      "role": "Research · Preprint",
+      "hook": "New paper: agents that reason internally (latent space) then externalize only necessary text actions.",
+      "insights": [
+        "**Hybrid approach**: agents maintain reasoning state in embeddings, emit text only for external communication",
+        "Reduces token overhead and hallucination by separating internal reasoning from external expression",
+        "Practical win: cheaper inference and more stable agent behavior in long-running workflows"
+      ],
+      "for_you": "Test this pattern in your agent orchestration: separate the reasoning loop (embeddings, internal state) from the action loop (text API calls). This reduces API call volume and improves coherence in multi-step workflows.",
+      "context": "This research suggests that agents don't need to externalize every reasoning step to text (which wastes tokens and introduces hallucination). By keeping reasoning in vector space and only converting to text for actions, agents become more efficient and predictable.",
+      "what_changed": "New preprint this week; 199 points and 115 HN comments indicate high builder interest.",
+      "action": "investigate|Read the arxiv paper; prototype the hybrid reasoning pattern on a complex multi-step task (e.g., lead qualification workflow).",
+      "evidence_level": "early_signal",
+      "why_it_made_the_cut": "High engagement on HN; directly applicable to reducing agency workflow costs.",
+      "signal": "💡",
+      "urls": [
+        "https://arxiv.org/abs/2610.18861",
+        "https://news.ycombinator.com/item?id=50145337"
+      ],
+      "handle": "",
+      "image": "/static/browse/0.3.4/images/arxiv-logo-fb.png"
     }
   ],
   "build_this": [
     {
-      "name": "LFM2.5-24B-A2B",
-      "source": "Hugging Face",
-      "what_it_is": "An efficient open model designed for fast, private local agents.",
-      "why_try_it": "Run a narrow benchmark on anonymised Portuguese lead messages, extracting intent, urgency and next action. If quality is adequate, it could lower API cost and keep sensitive SMB data inside Pedro's infrastructure.",
-      "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b"
-    },
-    {
       "name": "Sphinx",
-      "source": "Hacker News",
-      "what_it_is": "A hook that quizzes an AI coding agent about its changes before shipping them.",
-      "why_try_it": "Use it on one BabaGPT or agency automation repository to test whether an agent can explain its own diff, assumptions and failure modes. It complements continuous review by checking understanding before deployment.",
+      "source": "Hacker News / Show HN",
+      "what_it_is": "A hook that automatically quizzes your AI code before shipping; catches logic errors and edge cases in generated code.",
+      "why_try_it": "Your agency ships code daily. Sphinx runs as a pre-commit hook, asking targeted questions about the generated code's correctness. Test it this week on one client deliverable to catch bugs before review.",
       "url": "https://sphinx-six-theta.vercel.app/"
-    }
-  ],
-  "podcasts": [
-    {
-      "show": "Latent Space",
-      "episode": "High Taste Testers: OpenAI Shipped Everything. What Actually Works?",
-      "takeaway": "The useful frontier is shifting from impressive models to assistants that manage context, tools and permissions reliably.",
-      "key_points": [
-        "Power users compare coding agents, subagents, personal assistants and decision models in real workflows.",
-        "Context management and agent loops matter more than isolated benchmark wins.",
-        "Prompt injection, payments and delegated actions remain practical blockers for assistants."
-      ],
-      "for_you": "The episode validates Pedro's current direction: workflow design and permission boundaries matter more than chasing every new model. It is especially relevant to BabaGPT and client automations that may eventually take actions rather than merely answer questions.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=ZOH8Q401vt0",
-      "video": {
-        "id": "ZOH8Q401vt0",
-        "title": "High Taste Testers: OpenAI Shipped Everything. What Actually Works?"
-      }
     },
     {
-      "show": "No Priors",
-      "episode": "First Party Chips and the NVIDIA Price",
-      "takeaway": "Custom AI chips are primarily a bargaining tool against NVIDIA pricing before they become a full replacement.",
-      "key_points": [
-        "First-party silicon can improve negotiating leverage and cost control.",
-        "The economics depend on workload scale, utilisation and software compatibility.",
-        "Specialised infrastructure is unlikely to make sense for small deployments."
-      ],
-      "for_you": "No direct action for Pedro's current agency scale. It reinforces the case for using efficient hosted or local models rather than thinking about custom inference hardware.",
-      "signal": "🟡",
-      "url": "https://youtube.com/watch?v=Bwxm3NQAE5M",
-      "video": {
-        "id": "Bwxm3NQAE5M",
-        "title": "First Party Chips and the NVIDIA Price"
-      }
-    },
-    {
-      "show": "AI & I by Every",
-      "episode": "How Hugging Face's Investor Spots Winners",
-      "takeaway": "Technical founders gain an advantage because they can rebuild around newly possible markets when the first idea fails.",
-      "key_points": [
-        "Hugging Face evolved from a teen chatbot into the leading open-source AI community.",
-        "Technical capability lets founders discover new products as the market changes.",
-        "Faster iteration makes product insight more valuable than preserving the original plan."
-      ],
-      "for_you": "The relevant lesson is for Pedro's micro-SaaS and yoga bets: keep the technical asset and user insight reusable even if the initial product thesis changes. The episode is strategic context, not a reason to change today's stack.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=RbUHf4HeBzo",
-      "video": {
-        "id": "RbUHf4HeBzo",
-        "title": "How Hugging Face's Investor Spots Winners"
-      }
+      "name": "LFM2.5-24B-A2B (Liquid AI)",
+      "source": "Hugging Face",
+      "what_it_is": "A 24B on-device mixture-of-experts model optimized for running private agents with low latency on local hardware.",
+      "why_try_it": "For Portuguese SMBs with data privacy concerns, run agents locally without sending data to OpenAI/Anthropic. This model is compact enough for a laptop; test it with a local lead classification or CRM task.",
+      "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b"
     }
   ],
+  "podcasts": [],
   "tech": [
     {
-      "name": "India's AI incident investigators",
-      "role": "TechCrunch",
-      "hook": "India joins the growing list of countries reporting rogue AI agent activity.",
-      "key_point": "The report indicates agent misuse is becoming an operational incident category across multiple geographies, not only a lab demonstration.",
-      "for_you": "For client deployments, keep agent permissions, audit logs and kill switches explicit, especially when automations can message leads or change CRM records.",
-      "signal": "🔴",
-      "urls": [
-        "https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/"
-      ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/10/india-cyber-attack.jpg?w=612"
-    },
-    {
       "name": "Anthropic",
-      "role": "AI research company",
-      "hook": "Anthropic gives an external AI watchdog employee-like access to its operations.",
-      "key_point": "The arrangement moves oversight closer to continuous operational access instead of occasional external review.",
-      "for_you": "This is a useful governance pattern for Pedro's agency: sensitive client automations may eventually need an independent review trail, not only internal testing.",
-      "signal": "🟡",
+      "role": "Company · AI Safety",
+      "hook": "Anthropic gives external AI watchdog employee-like access to operations.",
+      "key_point": "An outside safety monitor now has direct embed access to Anthropic's systems, shifting governance from black-box audit to continuous transparency.",
+      "for_you": "If you build for regulated clients (finance, healthcare), this model of external oversight is relevant; consider similar transparency agreements with clients for AI systems you deploy.",
+      "signal": "🟢",
       "urls": [
         "https://arstechnica.com/ai/2026/10/anthropic-gives-outside-ai-watchdog-employee-like-access/"
       ],
       "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/09/claudebyanthropic-1024x648.jpg"
     },
     {
-      "name": "Ray-Ban Meta",
-      "role": "Meta · Smart glasses",
-      "hook": "A software bug makes Meta glasses record audio without the wearer's consent.",
-      "key_point": "The incident turns a previously theoretical privacy concern into a demonstrated product failure.",
-      "for_you": "Avoid recommending always-on wearable capture in SMB workflows until consent, recording indicators and retention controls are independently verifiable.",
-      "signal": "🔴",
-      "urls": [
-        "https://arstechnica.com/gadgets/2026/10/ray-ban-meta-smart-glasses-found-recording-audio-without-wearers-consent/"
-      ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/unnamed-1-875x648.jpg",
-      "video": {
-        "id": "6uYmYKtITJw",
-        "title": "Issues with your Ray Ban Meta glasses? This one setting could fix them"
-      }
-    },
-    {
       "name": "Replit",
-      "role": "AI development platform",
-      "hook": "Replit makes OpenAI its default model after moving away from Anthropic.",
-      "key_point": "The decision shows coding platforms can switch model defaults quickly when performance, economics or product integration changes.",
-      "for_you": "Keep Pedro's coding workflow provider-agnostic so a model default change does not disrupt client delivery or force a rewrite of internal prompts.",
+      "role": "Company · Developer Tools",
+      "hook": "Replit makes OpenAI its default model after shifting away from Anthropic.",
+      "key_point": "A major developer tool is optimizing for OpenAI's model family, signaling market preference for reasoning and function-calling depth over Anthropic's safety positioning.",
+      "for_you": "If you integrate with Replit for client code generation, expect Claude to be de-emphasized. Multi-model strategy remains essential; don't bet entirely on one vendor.",
       "signal": "🟡",
       "urls": [
         "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/10/replit-ceo-masad.jpg?resize=1200,800",
-      "video": {
-        "id": "0QLrmRiN6So",
-        "title": "Replit Walks Away From Anthropic: OpenAI Is Now the Default | Oct 18 2026 #Shorts"
-      }
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/replit-ceo-masad.jpg?resize=1200,800"
     },
     {
-      "name": "Encryption under pressure",
-      "role": "Wired",
-      "hook": "Encryption faces simultaneous pressure from governments, platforms and new technical capabilities.",
-      "key_point": "The squeeze affects the assumptions behind private communications, stored client data and infrastructure security.",
-      "for_you": "For Pedro's agency, data minimisation and access isolation matter even when transport encryption is correctly configured, especially across CRM, messaging and AI providers.",
+      "name": "Meta",
+      "role": "Company · AI Safety",
+      "hook": "Meta removes language from ToS that raised AI training and data scraping concerns.",
+      "key_point": "Meta stripped clauses about using user data for AI training without explicit consent, signaling regulatory pressure or IP licensing negotiation.",
+      "for_you": "Watch for similar moves from other platforms; licensing and data training consent are becoming materially different. For SMBs using Meta for marketing, data scraping terms just relaxed.",
+      "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/meta-ai-GettyImages-2264943773.jpg?w=1024"
+    },
+    {
+      "name": "OpenAI",
+      "role": "Company · Security",
+      "hook": "OpenAI models hacked a crypto wallet and breached more websites in red-team exercises.",
+      "key_point": "In controlled tests, OpenAI models autonomously exploited security vulnerabilities (crypto wallet theft, website breaches), demonstrating agent capabilities are now at the level of sophisticated cyberattacks.",
+      "for_you": "If you deploy agents to interact with external systems (APIs, databases), assume they can exploit bugs. Implement strict permission boundaries, audit logging, and rollback mechanisms.",
       "signal": "🔴",
       "urls": [
-        "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/"
+        "https://arstechnica.com/security/2026/10/openai-models-hacked-a-crypto-wallet-and-breached-more-websites/"
       ],
-      "image": "https://media.wired.com/photos/6ad14bcb1efa7811b4f5a5a5/191:100/w_1280,c_limit/Kernel-Panic-Encription-Being-Squeezed-to-Death-Security.jpg"
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/ai-agents-1152x648.jpg"
+    },
+    {
+      "name": "Ray-Ban Meta Smart Glasses",
+      "role": "Hardware · Consumer",
+      "hook": "Bug in Ray-Ban Meta glasses causes audio recording without wearer's consent.",
+      "key_point": "A firmware bug activated microphones without indication; users were unaware they were recording. Raises questions about always-on camera/audio hardware and default privacy settings.",
+      "for_you": "If clients are considering smart glasses for field workers or sales teams, demand audits of hardware permissions and default privacy posture. This incident shows defaults matter.",
+      "signal": "🔴",
+      "urls": [
+        "https://arstechnica.com/gadgets/2026/10/ray-ban-meta-smart-glasses-found-recording-audio-without-wearers-consent/"
+      ],
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/unnamed-1-875x648.jpg"
     }
   ],
   "pt_news": [
     {
-      "headline": "Athena Technology Solutions abre base europeia no Porto",
-      "hook": "A tecnológica californiana abriu no Porto o primeiro escritório europeu e quer chegar aos 100 colaboradores.",
-      "for_you": "É mais um sinal de que o Porto continua a atrair operações tecnológicas, útil para mapear talento e potenciais parceiros para a agência.",
+      "headline": "Tecnológica de Silicon Valley abre base europeia no Porto",
+      "hook": "Athena Technology Solutions, especialista em software para chão de fábrica, abre primeiro escritório europeu em Portugal com seis pessoas e planos para 100 colaboradores.",
+      "for_you": "Sinal de que o Porto está a atrair talent tech e inovação de fabrico. Se trabalhas em automação industrial ou IoT, observa este padrão; o mercado português está a ganhar gravidade.",
       "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/tecnologica-de-silicon-valley-abre-base-europeia-no-porto-e-quer-chegar-aos-100-colaboradores",
-      "source_name": "Sapo TEK",
+      "url": "https://tek.sapo.pt/noticias/negocios/artigos/tecnologica-de-silicon-valley-abre-base-europeia-no-porto-e-quer-chegar-aos-100-colaboradores/",
+      "source_name": "Sapo Tek",
       "image": "https://cdn.teknoticias.pt/uploads/2026/10/Athena.jpg"
     },
     {
-      "headline": "Redes modernas tornam-se condição para adoptar IA",
-      "hook": "Especialistas alertam que IA, edge computing e arquitecturas híbridas exigem conectividade mais robusta.",
-      "for_you": "Ao vender automações a PME portuguesas, a qualidade da rede do cliente pode ser uma restrição de implementação tão importante como o modelo escolhido.",
+      "headline": "Sem rede moderna, IA torna-se promessa difícil de cumprir",
+      "hook": "Infraestruturas de conectividade inadequadas limitam adoção de IA, edge computing e arquiteturas híbridas em Portugal.",
+      "for_you": "Para agência de IA em PMEs portuguesas: infraestrutura de rede é bloqueador silencioso. Clientes com conectividade fraca não conseguem suportar agentes em tempo real ou multi-modal processing. Incluir diagnóstico de rede como pré-requisito.",
       "signal": "🟡",
-      "url": "https://tek.sapo.pt/opiniao/artigos/sem-uma-rede-moderna-a-ia-torna-se-uma-promessa-dificil-de-cumprir",
-      "source_name": "Sapo TEK",
+      "url": "https://tek.sapo.pt/opiniao/artigos/sem-uma-rede-moderna-a-ia-torna-se-uma-promessa-dificil-de-cumprir/",
+      "source_name": "Sapo Tek",
       "image": "https://cdn.teknoticias.pt/uploads/2026/10/Nuno-Correia.jpg"
     },
     {
-      "headline": "Relógio nuclear operacional apresentado por China e Áustria",
-      "hook": "Investigadores apresentaram um relógio baseado em tório-229 com possíveis aplicações em sensores quânticos.",
-      "for_you": "Não há acção directa para Pedro, mas a tecnologia mostra onde podem surgir novas infra-estruturas de medição e computação de alta precisão.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/computadores/artigos/depois-dos-relogios-atomicos-chega-a-era-dos-relogios-nucleares",
-      "source_name": "Sapo TEK",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/10/criwstal-de-torio-usado-no-relogio-nuclear.webp"
-    },
-    {
-      "headline": "Venda de 5% da TAP aos trabalhadores avança em Janeiro",
-      "hook": "O Governo espera lançar no início de Janeiro a oferta reservada aos trabalhadores da TAP.",
-      "for_you": "A privatização pode alterar relações empresariais e oportunidades comerciais em Portugal, mas ainda não justifica qualquer movimento da agência.",
+      "headline": "Venda de 5% da TAP aos trabalhadores avança em janeiro",
+      "hook": "Governo prevê lançar Oferta Pública de Venda (OPV) de 5% da TAP aos colaboradores no início de 2027.",
+      "for_you": "Sinal de que privatizações em Portugal continuam a avançar. Se trabalhas em sectores regulados ou estado-empresa, observa este padrão: oportunidades de acesso a dados e processos antes fechados.",
       "signal": "🟡",
       "url": "https://eco.sapo.pt/2026/10/18/venda-de-5-da-tap-a-trabalhadores-avanca-em-janeiro/",
       "source_name": "ECO",
       "image": "https://eco.imgix.net/uploads/2026/06/cropped-conf-transporte-publico030.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Rendas e privilégios na era da inteligência artificial",
+      "hook": "Análise sobre quais rendas económicas a IA vai eliminar e quais vão permanecer; implicações para economias protegidas.",
+      "for_you": "Leitura estratégica: quais sectores português (telecomunicações, banca, imobiliário) dependem de rendas que IA vai desmantelar? Prepara-te para disruption ou para reposicionar clientes.",
+      "signal": "💡",
+      "url": "https://observador.pt/opiniao/rendas-e-privilegios-na-era-da-inteligencia-artificial/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm-op/wide-circle/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A900%2Fc%3A1067%3A1067%3Anowe%3A266%3A0%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F07%2F27174802%2Fwhatsapp-image-2026-07-27-at-122449.jpeg"
+    },
+    {
+      "headline": "Pobreza persistente volta a subir, atinge quase um em cada dez",
+      "hook": "Depois de uma década de melhorias, pobreza persistente agravou-se em Portugal em 2025; mais de 60% das pobres já estavam nessa situação há vários anos.",
+      "for_you": "Contexto económico: Portugal enfrenta deterioração social. Para agência de IA, isto significa clientes em stress financeiro e menor orçamento para inovação. Prepara ofertas de value-for-money, não apenas premium.",
+      "signal": "🔴",
+      "url": "https://www.jornaldenegocios.pt/sustentabilidade/social/detalhe/pobreza-persistente-volta-a-subir-e-atinge-quase-um-em-cada-dez-portugueses",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2022-11/img_1200x676uu2022-11-14-20-55-46-440406.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "Pelo menos 17 mortos em enchente num festival indiano",
-      "hook": "Uma concentração religiosa em Kolkata terminou com pelo menos 17 mortos e muitos feridos.",
-      "for_you": "É sobretudo uma notícia humanitária, sem implicação directa para as decisões de produto ou agência de Pedro.",
+      "headline": "France descends into riots and looting after nationwide protests.",
+      "hook": "Mass protests over cost of living and education conditions escalated to widespread riots, looting, and arson; Macron addresses nation promising accountability.",
+      "for_you": "EU political instability ripples: France is a key market. If you have clients there, expect supply chain disruption and lower business confidence for 2-4 weeks.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/c820vwq7qg2ko?at_medium=RSS&at_campaign=rss",
+      "url": "https://www.bbc.co.uk/news/articles/cw240zl08dm5o",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/60d0/live/caaed220-ca5d-11f1-852c-2b93a8fc4799.jpg"
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3671/live/56f97410-cb35-11f1-9e57-a506a0943bb2.jpg"
     },
     {
-      "headline": "Diplomatas europeus atacados por colonos israelitas",
-      "hook": "A União Europeia exige responsabilização depois de colonos atacarem uma delegação diplomática na Cisjordânia.",
-      "for_you": "A escalada aumenta a instabilidade política europeia e regional, mas não cria uma decisão imediata para o negócio de Pedro.",
+      "headline": "Four killed in violent fire at Canadian military base in Alberta.",
+      "hook": "Fast-moving fire at CFB Wainwright (one of Canada's busiest training bases) kills four, injures dozens; Prime Minister Carney calls it worst peacetime tragedy for forces.",
+      "for_you": "Not directly relevant, but signals infrastructure and safety challenges in Allied militaries; affects defence contractor relationships and procurement timelines.",
       "signal": "🔴",
-      "url": "https://www.aljazeera.com/news/2026/10/18/eu-condemns-israeli-settler-attack-on-diplomats-in-occupied-west-bank?traffic_source=rss",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/AFP__20261018__D3MD4UD__v1__HighRes__IsraelPalestinianConflictProtestSettlement-1792333258.jpg?resize=1920%2C1440"
+      "url": "https://www.bbc.co.uk/news/articles/cxj0ly1m3q81o",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e891/live/86ce21f0-cb34-11f1-9a39-31b474234113.jpg"
     },
     {
-      "headline": "Incêndio mata militares numa base canadiana",
-      "hook": "Um incêndio numa base militar de Alberta causou mortos e feridos, segundo as autoridades canadianas.",
-      "for_you": "Sem impacto directo no trabalho de Pedro, mas é um incidente relevante de segurança e resiliência operacional.",
-      "signal": "🔴",
-      "url": "https://www.theguardian.com/world/2026/oct/18/serious-incident-alberta-military-base-deaths-injuries-canada-carney-cfb-wainwright",
-      "source_name": "The Guardian World",
-      "image": "https://i.guim.co.uk/img/media/fd2fce9d5801c1379f2c9034bd7fd12e94a8a1be/1408_22_5652_4521/master/5652.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=271f64adc7ac5def6bec46e906fa8d42"
-    },
-    {
-      "headline": "Protestos antigovernamentais continuam na Albânia",
-      "hook": "Manifestantes e polícia voltaram a entrar em confronto em Tirana pelo sexto dia consecutivo.",
-      "for_you": "A instabilidade política nos Balcãs é relevante para o contexto europeu, mas não pede alteração às prioridades de Pedro.",
+      "headline": "Trump blocks Russia sanctions before implementation deadline.",
+      "hook": "US President suspended planned sanctions on Russia two days before they took effect, saying continued negotiations require goodwill.",
+      "for_you": "Geopolitical uncertainty: if you have Russian or Ukrainian clients or suppliers, this shifts risk calculus. Expect volatility in tech supply chains and talent retention.",
       "signal": "🟡",
-      "url": "https://www.aljazeera.com/news/2026/10/18/chaos-in-tirana-demonstrators-determined-to-not-give-up-so-easily?traffic_source=rss",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/reuters_6ad4d7cf-1792333775.jpg?resize=1920%2C1440"
+      "url": "https://www.bbc.co.uk/news/articles/c9p8gz7zx4peo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/4644/live/461bcc30-cb38-11f1-8a27-2de4c72fadc2.jpg"
     },
     {
-      "headline": "Desflorestação da Amazónia atinge mínimo histórico",
-      "hook": "A desflorestação na Amazónia brasileira caiu para o nível mais baixo desde o início dos registos.",
-      "for_you": "A sustentabilidade do resultado dependerá da eleição brasileira, um lembrete de que mudanças políticas podem inverter rapidamente tendências ambientais importantes.",
+      "headline": "Brazilian Amazon deforestation falls to lowest level on record.",
+      "hook": "Forest clearance hits smallest total since records began in 1988, aiding Lula ahead of presidential runoff on 25 October.",
+      "for_you": "Climate and markets: Brazil's environmental record improves under Lula. For ESG-focused funds or clients, this is a green signal. If incumbent loses, expect reversal.",
       "signal": "🟢",
       "url": "https://www.theguardian.com/environment/2026/oct/16/brazil-amazon-deforestation-lowest-on-record-election",
-      "source_name": "The Guardian World",
+      "source_name": "The Guardian",
       "image": "https://i.guim.co.uk/img/media/1ab732d5e231b07fef02c8b733fbf39933a3f591/420_0_4200_3360/master/4200.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2a774ddc4d27f9a182dc4732cd9bb3fc"
+    },
+    {
+      "headline": "Zimbabwe author denies AI-generated prize-winning story after Atlantic investigation.",
+      "hook": "Simbarashe Kundizeza won Caine Prize for African writers; Atlantic article claims his story tested as nearly 100% AI-generated; author disputes findings.",
+      "for_you": "Literary AI detection is unreliable; similar challenges apply to business writing, code, and technical content. Don't over-rely on AI detection tools; humans judge intent better than algorithms.",
+      "signal": "🟡",
+      "url": "https://www.theguardian.com/technology/2026/oct/14/zimbabwean-author-simbarashe-kundizeza-denies-ai-story",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_113_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=43b3f1e7da961aa9d879b2e1be70530c",
+      "video": {
+        "id": "2nWAs8th_KE",
+        "title": "ZIMBABWEAN AUTHOR DENIES AI ALLEGATIONS AFTER WINNING TOP AFRICAN WRITING PRIZE | Jadetimes"
+      }
     }
   ],
-  "since_yesterday": "Os protestos em França escalaram para pilhagens e confrontos generalizados, com cerca de 1.800 detenções e uma intervenção reforçada da polícia. A ofensiva ucraniana contra infra-estruturas russas e o debate europeu sobre dependência do Starlink continuam a desenvolver-se.",
+  "since_yesterday": null,
   "health": {
     "x": {
-      "attempted": 0,
+      "attempted": 15,
       "ok": 0,
-      "errors": []
+      "errors": [
+        "@karpathy: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@sama: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@gdb: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@amasad: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@rauchg: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@levie: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@garrytan: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@danshipper: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@swyx: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@petergyang: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@emollick: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@mattturck: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@nikunj: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@alexalbert__: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
+        "@adityaag: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
+      ]
     },
     "podcasts": {
       "attempted": 3,
-      "ok": 3,
-      "errors": []
+      "ok": 0,
+      "errors": [
+        "Latent Space: HTTP 404",
+        "No Priors: HTTP 500",
+        "AI & I by Every: HTTP 404"
+      ]
     },
     "rss": {
       "attempted": 22,
