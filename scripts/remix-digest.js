@@ -450,20 +450,36 @@ ${sections.join('\n\n')}${memoryBlock}`;
     try {
       remixed = extractJSON(responseText);
     } catch (parseError) {
-      if (USE_HERMES) throw parseError;
       process.stderr.write(`remix-digest: first JSON parse failed (${parseError.message}), retrying compact response\n`);
-      const retry = await client.messages.create({
-        model: MODEL,
-        max_tokens: 6000,
-        thinking: { type: 'disabled' },
-        system: `${systemPrompt}\n\nCOMPACT RETRY: Return valid JSON only. Keep ai to at most 5 items, build_this to at most 2, and tech, pt_news and world_news to at most 3 each. Keep every field concise. Do not use markdown fences or explanatory text.`,
-        messages: [
-          { role: 'user', content: userPrompt },
-        ],
-      });
-      const retryText = retry.content.find(b => b.type === 'text')?.text;
-      process.stderr.write(`remix-digest: compact retry response length=${retryText?.length}\n`);
-      remixed = extractJSON(retryText);
+      const compactInstruction = `${systemPrompt}\n\nCOMPACT RETRY OVERRIDE: Ignore earlier item-count guidance. Return valid JSON only. Keep ai to at most 5 items, build_this to at most 2, and tech, pt_news and world_news to at most 3 each. Keep every field concise. Do not use markdown fences or explanatory text.`;
+      if (USE_HERMES) {
+        const retryPromptPath = path.join(os.tmpdir(), `ai-digest-${process.pid}-retry.prompt`);
+        fs.writeFileSync(retryPromptPath, `${compactInstruction}\n\n${userPrompt}`);
+        try {
+          const retry = await execFileAsync('hermes', [
+            'chat', '--oneshot', '--provider', 'openai-codex', '-m', 'gpt-5.6-luna',
+            '--reasoning', 'medium', '--query-file', retryPromptPath, '-Q', '--in', REPO_ROOT,
+          ], { maxBuffer: 20 * 1024 * 1024, timeout: 8 * 60 * 1000 });
+          responseText = retry.stdout;
+        } finally {
+          fs.rmSync(retryPromptPath, { force: true });
+        }
+        process.stderr.write(`remix-digest: compact retry response length=${responseText?.length}\n`);
+        remixed = extractJSON(responseText);
+      } else {
+        const retry = await client.messages.create({
+          model: MODEL,
+          max_tokens: 6000,
+          thinking: { type: 'disabled' },
+          system: compactInstruction,
+          messages: [
+            { role: 'user', content: userPrompt },
+          ],
+        });
+        const retryText = retry.content.find(b => b.type === 'text')?.text;
+        process.stderr.write(`remix-digest: compact retry response length=${retryText?.length}\n`);
+        remixed = extractJSON(retryText);
+      }
     }
     const grounding = filterUngroundedDigest(remixed, data);
     remixed = grounding.digest;
