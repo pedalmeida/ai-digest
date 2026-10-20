@@ -21,6 +21,7 @@ import { fileURLToPath } from 'url';
 import { loadState, saveState, buildSeenContext, normalizeUrl } from './digest-state.js';
 import { digestModel } from './model-config.js';
 import { filterUngroundedDigest } from './grounding.js';
+import { extractJSON } from './json-extract.js';
 
 // Load .env
 const envPath = path.join(os.homedir(), '.follow-builders', '.env');
@@ -191,22 +192,6 @@ async function enrichVideos(output, apiKey) {
   }
 
   return { attempted: targets.length + (output.podcasts || []).length, found };
-}
-
-// Walk the response character by character to find the outermost balanced {} object.
-// Handles cases where Claude emits trailing prose or a '}' appears inside a string value.
-function extractJSON(text) {
-  let depth = 0, inString = false, escape = false, start = -1;
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i];
-    if (escape) { escape = false; continue; }
-    if (ch === '\\' && inString) { escape = true; continue; }
-    if (ch === '"') { inString = !inString; continue; }
-    if (inString) continue;
-    if (ch === '{') { if (depth++ === 0) start = i; }
-    else if (ch === '}') { if (--depth === 0 && start !== -1) return JSON.parse(text.slice(start, i + 1)); }
-  }
-  throw new SyntaxError('No complete JSON object found in Claude response');
 }
 
 let raw = '';
@@ -448,7 +433,7 @@ ${sections.join('\n\n')}${memoryBlock}`;
     } else {
       const msg = await client.messages.create({
         model: MODEL,
-        max_tokens: 8000,
+        max_tokens: 9000,
         thinking: { type: 'disabled' },
         system: systemPrompt,
         messages: [
@@ -456,13 +441,30 @@ ${sections.join('\n\n')}${memoryBlock}`;
         ],
       });
       if (msg.stop_reason === 'max_tokens') {
-        process.stderr.write('remix-digest: warning — response hit max_tokens, output may be truncated\n');
+        process.stderr.write('remix-digest: warning, response hit max_tokens, output may be truncated\n');
       }
       const textBlock = msg.content.find(b => b.type === 'text');
       responseText = textBlock?.text;
     }
     process.stderr.write(`remix-digest: response length=${responseText?.length}\n`);
-    remixed = extractJSON(responseText);
+    try {
+      remixed = extractJSON(responseText);
+    } catch (parseError) {
+      if (USE_HERMES) throw parseError;
+      process.stderr.write(`remix-digest: first JSON parse failed (${parseError.message}), retrying compact response\n`);
+      const retry = await client.messages.create({
+        model: MODEL,
+        max_tokens: 6000,
+        thinking: { type: 'disabled' },
+        system: `${systemPrompt}\n\nCOMPACT RETRY: Return valid JSON only. Keep ai to at most 5 items, build_this to at most 2, and tech, pt_news and world_news to at most 3 each. Keep every field concise. Do not use markdown fences or explanatory text.`,
+        messages: [
+          { role: 'user', content: userPrompt },
+        ],
+      });
+      const retryText = retry.content.find(b => b.type === 'text')?.text;
+      process.stderr.write(`remix-digest: compact retry response length=${retryText?.length}\n`);
+      remixed = extractJSON(retryText);
+    }
     const grounding = filterUngroundedDigest(remixed, data);
     remixed = grounding.digest;
     if (grounding.removed > 0) {
