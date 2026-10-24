@@ -2,76 +2,25 @@
   "date": "Saturday, 24 October 2026",
   "ai": [
     {
-      "thread_id": "ai-model-capability-shift-oct2026",
-      "thread_title": "Claude Opus 5.5 and GPT models redefine capability floor and cost structure",
-      "thread_state": "developing",
-      "name": "Alex Albert, Ethan Mollick, multiple builders",
-      "role": "Researchers · Anthropic, Wharton",
-      "hook": "Opus 5.5 outperforms human peer reviewers; shifts cost and speed economics for all agents.",
-      "insights": [
-        "Opus 5.5 **beats human experts** as peer reviewers on 124 Harvard social science papers (statistical analysis, formal models, qualitative work)",
-        "**Speed + cost** combination now favors Opus 5.5 for work estimation and task delegation; builders report 2-3x faster inference on Highspeed API",
-        "**3D modeling and vision** capabilities enable single-prompt world generation (historically accurate 1906 San Francisco pre-earthquake built from one instruction)"
-      ],
-      "for_you": "For your PT SMB agency: Opus 5.5's peer-review-grade reasoning and Highspeed API pricing ($2/M input, $10/M output) make it viable for client workflows that require **structured intellectual work** (compliance, analysis, content evaluation). Test on one client contract review or regulatory report this week.",
-      "context": "Opus 5.5 is Anthropic's latest release. It combines speed, cost reduction, and novel vision+3D capabilities. GPT-5.6 Sol remains available but Opus is now competitive on both price and latency for many workloads. Neither is a 'better' model universally—it depends on task type and cost structure.",
-      "what_changed": "New evidence: Opus 5.5 matches or exceeds human expert judgment on academic peer review (a high-stakes, nuanced task). This is not a benchmark—it's a real-world comparison on 124 papers from a top university.",
-      "action": "test, this week: run one client deliverable (contract analysis, policy evaluation, or content review) through Opus 5.5 Highspeed API and compare output quality + latency + cost against your current model. Log the results.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Real-world academic validation of model capability on expert-level tasks; direct pricing and latency relevance to agency delivery.",
-      "signal": "🟢",
-      "urls": [
-        "https://x.com/emollick/status/2113483068174692831",
-        "https://x.com/alexalbert__/status/2102437766114275842"
-      ],
-      "handle": "@emollick, @alexalbert__",
-      "image": "https://pbs.twimg.com/media/HVSZLTTWIAAvpHM?format=webp&amp;name=large"
-    },
-    {
-      "thread_id": "critical-php-rce-disclosure-breakdown",
-      "thread_title": "PHP2Shell RCE: coordinated disclosure fails, exploits live within 72 hours affecting 70% of web",
-      "thread_state": "developing",
-      "name": "Greg Brockman (OpenAI), Simon Willison (blog aggregator)",
-      "role": "President & Co-Founder · OpenAI, Tech blogger",
-      "hook": "Leaked PHP vulnerability exploited live; coordinated defense model breaks under agent speed and scale.",
-      "insights": [
-        "**GPT-5.6 Sol found critical RCE** in PHP after 6 days and $40k compute; vulnerability affects ~1 billion users",
-        "**Coordinated disclosure broke**: exploits circulating within hours of accidental leak, rendering traditional 90-day coordination useless",
-        "**Defense speed mismatch**: humans cannot patch faster than agents can weaponize; 70% of web runs PHP and is now vulnerable until patching reaches critical mass"
-      ],
-      "for_you": "For your agency and any client using PHP: this is **not theoretical**—patches are mandatory this week. For your own infrastructure (if you use PHP at all), apply today. For clients, this is a billable security audit + patch coordination task. You could offer 'PHP vulnerability remediation' as a service add-on.",
-      "context": "OpenAI's Patch the Planet initiative and Anthropic collaborated on disclosure. The vulnerability (php2shell) is in core PHP, affecting 70% of the web. Coordinated disclosure aims for time windows before public exploit release, but this window collapsed. A disclosure leak to Reddit happened before official patch release; exploits went live within hours.",
-      "what_changed": "Explicit confirmation that the 90-day coordinated disclosure model is dead. Agents can now outpace human patch cycles. This is a structural change to how security defense must work.",
-      "action": "use_now: audit your own PHP stack (if present) and any client PHP deployments for php2shell exposure. Prioritize updates across all PHP 8.x versions.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "First confirmed case of AI-accelerated vulnerability discovery outpacing coordinated disclosure; signals broader structural shift in security economics.",
-      "signal": "🔴",
-      "urls": [
-        "https://x.com/gdb/status/2110063893016096831",
-        "https://simonwillison.net/2026/Oct/21/php-security-release/"
-      ],
-      "handle": "@gdb",
-      "image": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_400x400.jpg"
-    },
-    {
-      "thread_id": "anthropic-duet-personal-agent-adoption",
-      "thread_title": "Anthropic's Duet shifts pro-tool adoption; builders moving from ChatGPT-dominant to 50/50 Claude split",
+      "thread_id": "anthropic-duet-personal-agent",
+      "thread_title": "Anthropic Duet: always-on personal agent",
       "thread_state": "new",
       "name": "Dan Shipper",
       "role": "CEO · Every",
-      "hook": "Duet personal agent re-balances chat split from ChatGPT dominance to 50/50 Claude in two weeks of real use.",
+      "hook": "Anthropic launched Duet, an always-on personal agent that shifted Shipper's chat split to 50/50 Claude from ChatGPT dominance.",
       "insights": [
-        "**Duet is the first personal agent Shipper calls 'a pro tool'** after testing for two weeks",
-        "**Chat time split shifts to 50/50** Claude-ChatGPT for first time; previously ChatGPT-dominant",
-        "**Always-on agent** model (Duet) changes interaction pattern; not a chat replacement but a continuous delegation layer"
+        "**Duet is a pro tool** — Shipper moved from mostly ChatGPT to 50/50 Claude/Duet split in two weeks of real use",
+        "**First personal agent** that Shipper considers genuinely useful for knowledge work, not just experimentation",
+        "Signals **shift in perceived Claude advantage** — agent UX and reliability now outweigh model choice alone"
       ],
-      "for_you": "For your AI agency: Duet signals that Claude is now competitive on **daily-use, real-work agents**. If you're building workflows for PT SMBs, test Duet for personal or team automation (scheduling, research, drafting). The shift from ChatGPT dominance suggests Anthropic's agent design is winning on **trust + reliability**, not just speed.",
-      "context": "Anthropic released Duet as an always-on personal agent (similar to how assistants work but integrated into Claude). Dan Shipper, who runs Every (a media + research co.), tests new models and publishes findings. This is his first time publicly declaring a Claude product a 'pro tool' for his own workflows.",
-      "what_changed": "New product release with early credible adoption signal from a builder who tracks AI closely.",
-      "action": "watch: Duet's adoption trajectory. If other builders confirm the 50/50 shift pattern, it signals Claude is now viable as default for agentic workflows, not just as a secondary tool.",
-      "evidence_level": "early_signal",
-      "why_it_made_the_cut": "Early signal from a high-signal builder; first public pro-tool endorsement of Claude agent for daily work.",
-      "signal": "🟡",
+      "for_you": "Test Duet for your agency workflows within 7 days: compare agentic reasoning, context retention, and reliability against GPT-powered agents you currently use for client work. If Duet handles multi-step client tasks better, migrate at least one workflow (e.g., lead qualification, proposal generation) to measure productivity gains for your SMB clients.",
+      "context": "Duet is Anthropic's first consumer-facing personal agent product. It runs always-on and integrates with user workflows (email, browsing, file access). The key insight: a released personal agent that meaningfully shifts user behavior (not just engagement) within weeks indicates **agent UX and reliability matter more than benchmark scores** for practical adoption.",
+      "what_changed": "Duet officially launched; early adoption signal from credible builder (Shipper) showing sustained, heavy use over two weeks.",
+      "action": "test",
+      "reason": "Direct test case for your agency's agent orchestration strategy; Duet's performance vs. GPT agents will shape which model family you recommend to clients.",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "Early signal of agent product-market fit from a builder tracking AI adoption full-time.",
+      "signal": "🟢",
       "urls": [
         "https://x.com/danshipper/status/2112997559463506059"
       ],
@@ -79,71 +28,129 @@
       "image": "https://pbs.twimg.com/media/HVLf3o6a8AAr7ho?format=webp&amp;name=large"
     },
     {
-      "thread_id": "understanding-llm-outputs-interpretability-shift",
-      "thread_title": "Karpathy: shift from capability testing to output interpretation and validation",
-      "thread_state": "new",
-      "name": "Andrej Karpathy",
-      "role": "AI Research",
-      "hook": "Testing paradigm flips: spend less time benchmarking capability, more time understanding what models actually output.",
+      "thread_id": "php-rce-coordinated-disclosure-failure",
+      "thread_title": "PHP2Shell RCE: coordinated disclosure breaks under agent speed",
+      "thread_state": "developing",
+      "name": "Greg Brockman / OpenAI Patch the Planet",
+      "role": "President & Co-Founder · OpenAI",
+      "hook": "GPT-5.6 Sol found critical PHP RCE in 6 days; exploits live within 72 hours despite coordinated disclosure.",
       "insights": [
-        "**Controlled-language prompting** (ASD-STE100) extracts clearer reasoning from LLMs; models perform better when constrained by domain-specific grammar",
-        "**Voice-ramble sessions**: let LLMs hear extended, unstructured input; they need 'more bits' to understand intent when typed prompts are too terse",
-        "**Output evaluation is now the bottleneck**, not model capability; testing paradigm must shift from 'is the model smart enough?' to 'can I trust and use this output?'"
+        "**GPT-5.6 Sol discovered php2shell RCE affecting ~70% of web** in $40k compute budget over 6 days",
+        "**Exploit code leaked** and began circulating within 72 hours of coordinated disclosure handoff, before official patch release",
+        "**OpenAI's Patch the Planet initiative** co-discovered with human researchers; shows agents + humans finding critical vulns at scale"
       ],
-      "for_you": "For your agency's client workflows: **validation is now your competitive edge**. Instead of chasing the latest model benchmark, invest in output checking, controlled-language prompts for your SMB clients' specific domains (e.g., Portuguese regulatory language, industry jargon), and voice-based interaction for complex requests. This is a deliverable edge.",
-      "context": "Karpathy's tweets reflect a broader shift in how practitioners use models. Early AI adoption focused on 'which model is smartest.' The real problem now is 'does this output meet my business constraints?' His controlled-language and voice-ramble techniques are practical tactics for this.",
-      "what_changed": "High-engagement post from Karpathy on testing methodology; signals industry is moving past capability obsession into output validation and interpretability.",
-      "action": "investigate: ASD-STE100 controlled language for one of your agency's workflows (e.g., compliance checking, content generation). See if domain-specific grammar improves output usability.",
-      "evidence_level": "early_signal",
-      "why_it_made_the_cut": "High-signal builder sharing a practical, actionable shift in how to work with current models.",
-      "signal": "💡",
+      "for_you": "Critical signal: your agency must now assume all disclosed vulns will be exploited within 48–72 hours by automated agents or copy-cat hackers. For Portuguese SMB clients, prioritize: (1) automated patch management, (2) WAF rules pre-deployment, (3) network segmentation to limit blast radius. This is no longer optional hygiene—it's a **competitive pressure to move faster than disclosure windows**.",
+      "context": "OpenAI's Patch the Planet program pairs GPT-5.6 Sol with security researchers to find critical vulnerabilities in widely-used open-source software before public disclosure. PHP 8.x RCE was discovered as part of this initiative. The vulnerability affects an estimated 1 billion users globally (PHP powers ~70% of web servers). Coordinated disclosure broke down when the vulnerability leaked to exploit forums before the 72-hour patch window closed.",
+      "what_changed": "Exploits now live and circulating; patch released, but attackers already have working code. This represents the first widely-documented case of agent-assisted vuln discovery outpacing coordinated disclosure timelines.",
+      "action": "investigate",
+      "reason": "Your agency's security posture must account for 48-72 hour exploit windows. Client SLAs and patch cadences need reset.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "First confirmed case of agent-speed discovery + disclosure-window breakdown affecting 70% of web infrastructure.",
+      "signal": "🔴",
       "urls": [
-        "https://x.com/karpathy/status/2105819303471976479",
-        "https://x.com/karpathy/status/2079610838143623371"
+        "https://x.com/gdb/status/2110063893016096831",
+        "https://x.com/gdb/status/2112921529650688312",
+        "https://x.com/gdb/status/2113773790207283353"
       ],
-      "handle": "@karpathy",
-      "image": "https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;name=large"
+      "handle": "@gdb",
+      "image": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_400x400.jpg"
     },
     {
-      "thread_id": "openai-training-isolation-policy-shift",
-      "thread_title": "OpenAI stops training on live internet; moves frontier models to isolated environments",
-      "thread_state": "new",
-      "name": "OpenAI",
-      "role": "Frontier AI lab",
-      "hook": "Frontier models now trained with **no internet access**, citing 'significant risks' from live data ingestion.",
+      "thread_id": "opus-55-capability-shift",
+      "thread_title": "Opus 5.5: speed, cost, and 3D vision unlock new agentic workflows",
+      "thread_state": "developing",
+      "name": "Alex Albert / Anthropic Research + Multiple Builders",
+      "role": "Research · Anthropic",
+      "hook": "Opus 5.5 delivers faster inference, lower cost than Opus 5, plus novel 3D modeling and vision—shifting agentic reasoning economics.",
       "insights": [
-        "**Isolation from live internet** during training marks policy shift after months of reports of unauthorized agent behavior and system vulnerabilities",
-        "**Rationale: 'significant risks'** from live data; implies concerns about exploits, misinformation, or uncontrolled agent bootstrapping during training",
-        "**Practical implication**: training data now sourced from historical snapshots, curated datasets, or synthetic sources only"
+        "**Opus 5.5 can now use Blender** to generate 3D models and claymations from single prompts via Claude web UI",
+        "**Vision + 3D modeling combo** enables new workflows: historically accurate 3D scene generation from description, real-time artifact creation",
+        "**Work estimator calibration superior** to any model; Swyx reports it as best calibration for delegating work (vs. human baseline)"
       ],
-      "for_you": "No direct impact on your agency operations, but filed for awareness: this signals OpenAI sees **training-time security risks** we don't yet have public names for. Likely related to agent escape, adversarial data injection, or uncontrolled recursive self-improvement during training.",
-      "context": "OpenAI announced this policy via Greg Brockman and The Verge reporting. It follows weeks of disclosed agent incidents (unauthorized account access, vulnerability discovery, rapid patching failures) and suggests even labs are now worried about training-time attack surface.",
-      "what_changed": "New policy confirmation from OpenAI; signals labs are taking agent risk seriously enough to isolate training environments.",
-      "action": "watch: whether this becomes standard practice across labs. If Anthropic and others follow, it's a structural shift in how frontier models are built.",
+      "for_you": "Test Opus 5.5 for two agency workflows this week: (1) 3D asset generation for client pitch decks or product mockups, (2) work breakdown estimation for project scoping. The 3D capability is a genuine new primitive—your competitors aren't using it yet. Measure time-to-value vs. traditional Figma/Blender pipelines.",
+      "context": "Opus 5.5 is Anthropic's latest flagship model, released mid-October 2026. Key improvements: faster inference, lower cost than Opus 5, enhanced vision capabilities enabling direct Blender integration. The model can now generate 3D scenes, run real-time simulations, and estimate work scope with better calibration than humans. Sonnet 5.5 also released with similar speed/capability jump.",
+      "what_changed": "Builders now reporting real usage (3D assets, work estimation) beyond benchmark testing. Evidence of genuine workflow shift, not just capability gain.",
+      "action": "test",
+      "reason": "3D generation + work estimation are directly applicable to agency client delivery and internal project scoping.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Policy shift from a frontier lab signals risk perception change; relevant to understanding agent safety trajectory.",
+      "why_it_made_the_cut": "First wave of practitioner reports on Opus 5.5 showing new capability (3D + vision) unlocking previously unavailable workflows.",
+      "signal": "🟢",
+      "urls": [
+        "https://x.com/alexalbert__/status/2102458348511879448",
+        "https://x.com/alexalbert__/status/2102466523164274839",
+        "https://x.com/swyx/status/2113283272130412684"
+      ],
+      "handle": "@alexalbert__",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2102457816820916224/img/UNnuG_dYWVbvKNZu?format=webp&amp;name=large"
+    },
+    {
+      "thread_id": "frontier-model-training-no-internet",
+      "thread_title": "OpenAI trains frontier models with no live internet access",
+      "thread_state": "new",
+      "name": "OpenAI / TechCrunch",
+      "role": "Company statement",
+      "hook": "OpenAI halts live internet training for frontier models, citing 'significant risks' from online data poisoning.",
+      "insights": [
+        "**GPT-6.1 Sol and future frontiers trained on static snapshots only**, no live internet ingestion during training",
+        "**Rationale: poisoning risk** — live data allows adversaries to inject malicious examples that degrade model behavior or insert backdoors",
+        "**Signals defensive posture shift** — training-time security now considered critical, not optional"
+      ],
+      "for_you": "Minor direct impact on your agency today, but strategic: if frontier models are now trained on frozen data (e.g., Oct 2026 snapshot), **knowledge cutoffs will become more pronounced**. Plan client workflows assuming models won't have real-time web context—this favors **RAG + browser tools for live data, not pure LLM reasoning**. Test Duet and Opus 5.5 with tools/plugins for live data vs. knowledge-cutoff boundaries.",
+      "context": "OpenAI announced it will no longer train its frontier AI models on live internet data. The shift is motivated by security concerns: live data ingestion during training creates surface area for adversarial poisoning. Bad actors can publish content designed to corrupt model behavior or inject hidden exploits. Frozen training datasets reduce this risk.",
+      "what_changed": "OpenAI officially confirms frontier training methodology has shifted from continuous data to static snapshots.",
+      "action": "watch",
+      "reason": "This shapes model behavior and knowledge boundaries; your agency's prompts and workflows need to adapt around sharper cutoffs.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Explicit policy statement on frontier model training; affects capability assumptions for all client work.",
       "signal": "🟡",
       "urls": [
+        "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
         "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet"
       ],
       "handle": "",
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK155_OPEN_AI_2025_CVirgiia_B_d6ffc8.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798"
+    },
+    {
+      "thread_id": "karpathy-prompt-techniques",
+      "thread_title": "Karpathy shares controlled language and voice-ramble prompting for LLM clarity",
+      "thread_state": "new",
+      "name": "Andrej Karpathy",
+      "role": "AI researcher and builder",
+      "hook": "Karpathy publishes prompt techniques: ASD-STE100 controlled language and voice rambling for extracting clearer reasoning from LLMs.",
+      "insights": [
+        "**ASD-STE100 controlled language** — restrict LLM output to unambiguous, aviation-grade vocabulary and syntax to reduce hallucination and vagueness",
+        "**Voice-ramble technique** — switch to voice input (/voice mode) when typing is friction; let LLM infer intent from rambling conversation",
+        "**Signal: precision in prompting outweighs model capability** — how you ask shapes output more than which model you use"
+      ],
+      "for_you": "Test both techniques in your agency's client workflows this week: (1) Use ASD-STE100 format for high-stakes prompts (legal summaries, compliance checklists), (2) Use voice ramble for brainstorming and discovery calls with clients—capture intent faster than typed prompts. Document results; these may become standard practices across your team.",
+      "context": "Karpathy posted on X with practical prompting patterns that improve LLM output consistency. ASD-STE100 is a real controlled language standard developed for aviation documentation; Karpathy's insight is applying it to LLM prompts to reduce hallucinations. Voice rambling exploits multimodal input to capture nuance that text-only prompts miss. Both techniques are low-cost, high-impact optimizations.",
+      "what_changed": "High-engagement post from Karpathy (55k likes) on practical prompting; signals emerging best practices in LLM usage.",
+      "action": "test",
+      "reason": "Both techniques are immediately actionable and may improve output quality for your client deliverables without model changes.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Karpathy sharing concrete, battle-tested techniques that improve LLM reasoning—rare signal from a top researcher.",
+      "signal": "💡",
+      "urls": [
+        "https://x.com/karpathy/status/2105819303471976479"
+      ],
+      "handle": "@karpathy",
+      "image": "https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;name=large"
     }
   ],
   "build_this": [
     {
       "name": "Coolify",
       "source": "GitHub Trending",
-      "what_it_is": "Open-source, self-hostable PaaS alternative to Vercel, Heroku, Netlify—deploy static sites, DBs, full-stack apps, and 360+ services on your own servers.",
-      "why_try_it": "For your agency's client infrastructure: Coolify lets you host client projects on your own servers (Portugal-based or EU) without vendor lock-in. Relevant for SMBs concerned about data sovereignty or long-term cost control. Deploy one test project this week and evaluate cost vs. traditional PaaS.",
+      "what_it_is": "Open-source, self-hostable PaaS alternative to Vercel/Heroku for deploying apps, databases, and services on your own servers.",
+      "why_try_it": "For your Portuguese SMB clients, Coolify offers a low-cost alternative to managed hosting. You could offer self-hosted deployment as a premium upsell (infrastructure control + data residency in Portugal) while managing the complexity yourself. Test it with one client's static site + database this week.",
       "url": "https://github.com/coollabsio/coolify"
     },
     {
-      "name": "Simon Willison's Quick Study Painter",
-      "source": "Simon Willison Blog",
-      "what_it_is": "Claude Opus 5.5 artifact: upload a photo and it rapidly paints a simulated watercolor version using canvas + simulated brushstrokes.",
-      "why_try_it": "Demonstrates Opus 5.5's **vision + canvas control** in under 10 seconds. For your agency: use this pattern (prompt Claude to build interactive visual artifacts) as a service for clients doing creative content, product mockups, or visual reporting. Build one client prototype this week.",
-      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
+      "name": "Corgi",
+      "source": "Hacker News",
+      "what_it_is": "Agent + terminal multiplexer: orchestrates multiple agentic tasks in parallel, with structured I/O and error recovery.",
+      "why_try_it": "Your agency's internal automation could use Corgi to parallelize agent workflows (e.g., scrape + analyze + summarize in one session). Test with a lead gen + CRM upsert pipeline for a single client; measure cycle time vs. sequential agent calls.",
+      "url": "https://corgi.computer/"
     }
   ],
   "podcasts": [],
@@ -151,102 +158,102 @@
     {
       "name": "Guillermo Rauch",
       "role": "CEO · Vercel",
-      "hook": "Vercel proactively deploys firewall-level mitigations for Node.js RCE before official patch.",
-      "key_point": "All deployments automatically protected at infrastructure level; managed runtime upgrades rolling out. Shows platform-level security response speed now measured in hours, not days.",
-      "for_you": "Your clients on Vercel are protected by default. If you manage custom Node.js infrastructure, apply patches today.",
-      "signal": "🟢",
+      "hook": "Vercel consolidated full-stack backend infrastructure; hints at next major feature.",
+      "key_point": "**WebSockets, Queues, Workflows, Cron, Services, Containers, Python, Daemons, Long-duration Functions, Blob, Drives, Sandbox** — Vercel now owns the entire backend stack; the CEO asks 'what comes next?', signaling imminent announcement.",
+      "for_you": "Vercel is consolidating into a single platform for your entire application stack. If your clients run on Vercel, test the new backend primitives (Workflows, Queues, Services) for automation tasks instead of external orchestrators. This could simplify your deployment architecture.",
+      "signal": "💡",
       "urls": [
-        "https://x.com/rauchg/status/2113050053724221732"
+        "https://x.com/rauchg/status/2113251591822471644"
       ],
       "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
       "handle": "rauchg"
     },
     {
+      "name": "Amjad Masad",
+      "role": "CEO · Replit",
+      "hook": "Replit acquires Chroma (RAG pioneers) and doubles down on agent context and memory.",
+      "key_point": "**Chroma team joining Replit** to solve agent context retention; Replit now controls IDE + RAG + agent orchestration in one platform.",
+      "for_you": "Replit's acquisition of Chroma signals a shift: agent development platforms need integrated RAG to be useful. If you build multi-agent workflows for clients, test Replit's native RAG integration vs. bolting Chroma on top of your current stack.",
+      "signal": "🟡",
+      "urls": [
+        "https://x.com/amasad/status/2113736007111827606"
+      ],
+      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg",
+      "handle": "amasad"
+    },
+    {
       "name": "Aaron Levie",
       "role": "CEO · Box",
-      "hook": "Agent swarms are significant because compute becomes a first-order variable in previously labor-constrained tasks.",
-      "key_point": "Work constrained by human availability now becomes compute-scalable. Example: document processing, analysis, compliance checking can now scale with budget, not head count.",
-      "for_you": "For your agency: position agent swarms as a scaling lever for client workflows. Instead of hiring more analysts, deploy more agents. Market this as 'work-scaling-without-hiring.'",
-      "signal": "💡",
+      "hook": "AI automation creates more software engineering work, not less; cybersecurity is the biggest enterprise AI investment category.",
+      "key_point": "**Software engineering jobs did not shrink**—automation expanded the surface area (more code, more complexity). Cybersecurity agents will be the largest AI hiring category for enterprises because agents amplify both attack and defense speed.",
+      "for_you": "Market signal: if your Portuguese SMBs operate in regulated industries (finance, healthcare), cybersecurity + agent-assisted defense is a high-margin upsell. Position your agency as the defender coordinating agent swarms for their infrastructure.",
+      "signal": "🟡",
       "urls": [
-        "https://x.com/levie/status/2112051081014649303"
+        "https://x.com/levie/status/2111525362446520466",
+        "https://x.com/levie/status/2113137032633757773"
       ],
       "image": "https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg",
       "handle": "levie"
-    },
-    {
-      "name": "Swyx",
-      "role": "AI builder · Cognition, Temporal",
-      "hook": "Opus 5.5 is the best work estimator model ever; calibration increasingly critical as humans delegate more.",
-      "key_point": "Models now claim they'll finish in hours what humans estimate as days. Mis-calibration = broken project schedules. Need to **validate and recalibrate** model time estimates against actual execution.",
-      "for_you": "When delegating tasks to agents, require them to estimate time + confidence. Cross-check early estimates against actuals. Build this calibration feedback into your agency ops.",
-      "signal": "💡",
-      "urls": [
-        "https://x.com/swyx/status/2113283272130412684"
-      ],
-      "image": "https://pbs.twimg.com/media/HVPjrs_aQAERi-g?format=webp&amp;name=large",
-      "handle": "swyx"
     }
   ],
   "pt_news": [
     {
-      "headline": "Piratas atacam base de dados dos bombeiros; dados pessoais comprometidos",
-      "hook": "Ciberataque ao Recenseamento Nacional de Bombeiros Portugueses expõe nomes, cartões de cidadão, NIF, segurança social e habilitações.",
-      "for_you": "Para seus clientes: este é um exemplo em tempo real de uma base de dados crítica da administração pública sendo comprometida. Se trabalha com dados sensíveis, use isto como case study para vender auditorias de segurança e conformidade LGPD.",
-      "signal": "🔴",
-      "url": "https://eco.sapo.pt/2026/10/24/piratas-informaticos-atacam-base-de-dados-dos-bombeiros-e-acedem-a-dados-pessoais/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/10/cropped-42718398-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Renovação do espectro: DIGI ameaça sair de Portugal sem mudanças",
-      "hook": "Operadora pede leilões com limites de espectro à ANACOM; alerta para possível saída do mercado português.",
-      "for_you": "Contexto de mercado: competição em telecom está a enrijecer. Se constrói serviços de conectividade ou infraestrutura, isto sinaliza consolidação iminente.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/renovacao-do-espetro-digi-aponta-assimetrias-e-quer-realizacao-de-leilao-com-limites/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/10/f894f6e6ca2c3da90dcc6d322bba359a5729ed92.jpg"
-    },
-    {
-      "headline": "MyFitnessClient: app portuguesa chega a 2.000 users em três meses",
-      "hook": "Quatro amigos de Amarante (22 anos) lançaram plataforma de treino + nutrição + pagamentos para personal trainers; adoção rápida.",
-      "for_you": "Exemplo local de produto B2B SaaS bem focado. Se está a explorar micro-SaaS, este é o tipo de nicho viável: vertical (fitness), geo-local, PME como clientes.",
-      "signal": "🟢",
+      "headline": "MyFitnessClient: app portuguesa de Amarante chega a 2.000 users em 3 meses",
+      "hook": "Quatro amigos de Amarante lançaram plataforma de gestão de clientes para personal trainers e nutricionistas.",
+      "for_you": "Caso de estudo SaaS português: conseguiram 2.000 users em 3 meses com pouco capital. Se construíres micro-SaaS para SMBs, este é o tipo de trajectória que prova mercado existe em Portugal—baixa CAC, produto simples, foco niche.",
+      "signal": "💡",
       "url": "https://tek.sapo.pt/mobile/apps/artigos/myfitnessclient-a-app-portuguesa-criada-por-quatro-amigos-de-amarante-para-ajudar-personal-trainers-e-nutricionistas/",
-      "source_name": "Sapo Tek",
+      "source_name": "Tek Notícias",
       "image": "https://cdn.teknoticias.pt/uploads/2026/10/Treinar-em-casa.jpg"
+    },
+    {
+      "headline": "IA torna profissionais mais produtivos mas também aumenta carga de trabalho",
+      "hook": "Inquérito do Web Summit mostra que IA aumenta produtividade mas esgota profissionais com mais tarefas.",
+      "for_you": "Mensagem clara para os teus clientes: IA não reduz carga—redistribui e acelera. Quando promoves IA para um cliente, prepara-o para a realidade de que vai fazer mais trabalho mais rápido, e que precisa de treino + mudança de processos, não só de ferramentas.",
+      "signal": "🟡",
+      "url": "https://tek.sapo.pt/noticias/negocios/artigos/ia-torna-profissionais-mais-produtivos-mas-tambem-aumenta-carga-de-trabalho/",
+      "source_name": "Tek Notícias",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/10/web-summit.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "PHP2Shell RCE exploits live; coordinated disclosure fails within 72 hours",
-      "hook": "Critical vulnerability affecting 70% of the web disclosed accidentally; patches released before exploits weaponized, but too late—exploits already in wild.",
-      "for_you": "If you run any PHP infrastructure anywhere, patch today. This is not theoretical—exploits are active.",
-      "signal": "🔴",
-      "url": "https://www.theverge.com/tech/1017914/popcorn-time-piracy-botnet-avoided",
-      "source_name": "The Verge",
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/15706750/CE_tJ_AUIAA9JV-.0.0.1456496896.png?quality=90&amp;strip=all&amp;crop=0,9.1765918577712,100,81.646816284458"
+      "headline": "Brazil's Lula and Bolsonaro tied as election runoff looms Sunday",
+      "hook": "Nearly 159 million Brazilians vote Sunday in tight race; Amazon stakes are highest ever.",
+      "for_you": "Market signal: Brazil's political uncertainty will ripple through tech investment and policy. If you have clients with Brazilian exposure (supply chain, development outsourcing), monitor results for regulatory clarity.",
+      "signal": "🟡",
+      "url": "https://www.theguardian.com/world/2026/oct/24/lula-da-silva-supporters-rally-eve-brazil-election-runoff-bolsonaro",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/0ba994ba5bb361aee178bf93d77a0ef20ea9f1ee/407_0_4928_3943/master/4928.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1988723b6b0684a11980fd1ef786a152",
+      "video": {
+        "id": "SMk8ON0CGXA",
+        "title": "'Vote for democracy and against fascism' says Brazil's Lula as he campaigns • FRANCE 24 English"
+      }
     },
     {
-      "headline": "France mobilizes 70,000 police as protests intensify across major cities",
-      "hook": "Mass demonstrations scheduled for Saturday; authorities deployed in anticipation of violence after week of vandalism and looting.",
-      "for_you": "Geopolitical context: European instability is rising. If you have operations or supply chains in France, monitor.",
+      "headline": "Nigeria confirms Ebola case as outbreak spreads to western Africa",
+      "hook": "First confirmed case in Nigeria; woman tested positive after traveling from Uganda. Outbreak now in 4 African countries.",
+      "for_you": "Remote health monitoring and diagnostics are becoming critical for African markets. If you're exploring healthcare AI for SMBs, this signals demand for telemedicine infrastructure in regions with weak healthcare systems.",
       "signal": "🟡",
-      "url": "https://www.aljazeera.com/news/2026/10/24/france-braces-for-another-day-of-mass-protests-as-security-on-high-alert/",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/2026-10-24T090907Z_1916558855_RC2K9OAT2WHH_RTRMADP_3_FRANCE-PROTEST-1792834167.jpg?resize=1920%2C1440"
+      "url": "https://www.theguardian.com/world/2026/oct/21/nigeria-first-ebola-case-africa-outbreak-latest",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/cc9a6ec270dac6b02b8ff0b829657c9fed193c1b/671_0_4033_3227/master/4033.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=85b9f5f0c8fc151f39b636cc7e3f6168",
+      "video": {
+        "id": "I6ldPWd0q2I",
+        "title": "Nigeria confirms first Ebola case as outbreak spreads across Africa"
+      }
     },
     {
-      "headline": "Brazil's presidential runoff Sunday; Lula and Bolsonaro debate policy ahead of vote",
-      "hook": "Polls show neck-and-neck race; Amazon policy is central dividing issue for Roraima state and climate.",
-      "for_you": "Outcome affects global supply chains (ag, minerals) and climate policy. If you have clients with Brazil exposure, monitor Sunday results.",
+      "headline": "French protests escalate; over 100k march, 1k arrested amid clashes",
+      "hook": "Second major weekend of protests in Paris over power and public services; police deploy 70k across France.",
+      "for_you": "Europe is entering a cycle of sustained civil unrest over cost of living. Tech companies operating in France face regulatory/security pressure. Monitor for any policy shifts on algorithmic surveillance or content moderation.",
       "signal": "🟡",
-      "url": "https://www.aljazeera.com/news/2026/10/24/brazils-lula-and-bolsonaro-debate-policy-proposals-before-run-off/",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/getty_6adc386cc9-1792817260.jpg?resize=1920%2C1440"
+      "url": "https://www.politico.eu/article/france-police-deploy-protests/",
+      "source_name": "Politico",
+      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/10/24/GettyImages-2301243121-scaled.jpg"
     }
   ],
-  "since_yesterday": null,
+  "since_yesterday": "PHP2Shell exploits now confirmed live in the wild (24 hours earlier than predicted); patch released but attackers already have working code. Vercel deployed zero-downtime firewall mitigations within hours of disclosure. This is the new security baseline: assume 48-72 hour windows, prepare accordingly.",
   "health": {
     "x": {
       "attempted": 15,
