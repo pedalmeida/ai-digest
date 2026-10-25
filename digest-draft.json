@@ -2,259 +2,252 @@
   "date": "Sunday, 25 October 2026",
   "ai": [
     {
-      "thread_id": "php-rce-coordinated-disclosure-2026",
-      "thread_title": "PHP2Shell RCE: Coordinated disclosure collapses as AI agents accelerate exploit speed",
+      "thread_id": "anthropic-duet-agent-launch",
+      "thread_title": "Anthropic Duet: always-on personal agent shifts market",
       "thread_state": "developing",
-      "name": "Greg Brockman · OpenAI",
-      "role": "President & Co-Founder @OpenAI",
-      "hook": "GPT-5.6 Sol found critical PHP RCE in 6 days; exploits live within 72 hours.",
+      "name": "Dan Shipper",
+      "role": "CEO · Every",
+      "hook": "Duet is the first personal agent that feels like a pro tool.",
       "insights": [
-        "**$40,000 of compute** used by OpenAI's Patch the Planet initiative to discover critical Chrome vulnerability affecting ~1 billion users",
-        "**Coordinated disclosure failed**: PHP2Shell exploits circulated live within 72 hours despite two-month mitigation effort with PHP Foundation",
-        "OpenAI and PHP Foundation co-led coalition response; Vercel proactively deployed firewall-level mitigations before official patch"
+        "**Two-week test**: Shipper went from ChatGPT-dominant to 50/50 Claude/ChatGPT split—first time investing serious time in Claude for daily work",
+        "**Pro-grade behavior**: Duet behaves differently from chat interfaces; designed for always-on context and proactive suggestions",
+        "**Market signal**: First personal agent to shift a builder's primary workflow rather than augment it"
       ],
-      "for_you": "If you're building or selling AI services to Portuguese SMBs relying on PHP-based infrastructure (most legacy web stacks), this signals a new threat model: agents can now find and weaponize zero-days faster than disclosure timelines. Patch urgency is now measured in hours, not weeks.",
-      "context": "PHP powers ~76% of the web. Two critical RCEs in core PHP (affecting the entire 8.x line) were discovered by AI agents during security research. The leak in coordinated disclosure—and rapid live exploitation—represents the first major test of how agent-speed vulnerability discovery outpaces human-led patching cycles.",
-      "what_changed": "Exploits now live in the wild. Vercel and major platforms deployed emergency mitigations. PHP Foundation issued emergency updates. This is no longer a researcher-only story—it's operational risk for any platform running PHP.",
-      "action": "use_now: If any agency client runs PHP, audit and patch immediately. This is not a 'monitor' issue.",
+      "for_you": "Duet is worth testing for your PT SMB agency workflows—could become the interface for agentic coordination with clients. If agents genuinely replace chat for coordinating work across multiple contexts, this is the pattern your agency should adopt.",
+      "what_changed": "Confirmed launch; independent test by credible builder (Shipper runs Every, a high-signal AI product org). Behavior and UX materially different from ChatGPT/Claude web interfaces.",
+      "action": "test",
+      "why_it_made_the_cut": "only real personal-agent-as-primary-interface launch this week with credible usage data",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "First real-world proof that agent-speed vulnerability discovery breaks coordinated disclosure. Operational security threat for your clients.",
-      "signal": "🔴",
-      "urls": [
-        "https://x.com/gdb/status/2110063893016096831",
-        "https://x.com/gdb/status/2112921529650688312",
-        "https://x.com/gdb/status/2113773790207283353"
-      ],
-      "handle": "gdb",
-      "image": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_400x400.jpg"
-    },
-    {
-      "thread_id": "anthropic-duet-personal-agent",
-      "thread_title": "Anthropic Duet: Always-on personal agent rebalances AI chat market share",
-      "thread_state": "new",
-      "name": "Dan Shipper · Every",
-      "role": "CEO @Every",
-      "hook": "Duet shifts Shipper's chat split from ChatGPT dominance to 50/50 Claude in two weeks.",
-      "insights": [
-        "**First personal agent Shipper calls a 'pro tool'** — higher bar than experimental chatbots",
-        "**Behavioral shift**: two weeks of real use moved chat preference from ChatGPT-majority to 50/50 split",
-        "Agent always-on model (not session-based) changes how professionals interact with AI"
-      ],
-      "for_you": "Portuguese SMBs using ChatGPT as their default AI tooling should test Duet now. If a builder of Shipper's caliber re-balances to 50/50 in two weeks, your clients' workflows may improve faster by switching. More importantly: always-on agents may be the delivery model that finally makes AI *sticky* for non-technical users.",
-      "context": "Anthropic launched Duet as an always-on personal agent within Claude's product. Unlike ChatGPT or traditional session-based interfaces, Duet stays active and contextually aware. Early signals from credible testers (Shipper, Alex Albert at Anthropic) suggest this is a capability inflection, not just UI polish.",
-      "what_changed": "Duet is now live and accessible. Shipper's two-week behavioral shift is the first strong signal that persistent agents change market dynamics.",
-      "action": "test: Try Duet with one agency workflow this week. Track whether task completion speed or context retention improves.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Market rebalancing signal from a credible independent tester; affects your tooling strategy.",
       "signal": "🟢",
       "urls": [
         "https://x.com/danshipper/status/2112997559463506059"
       ],
-      "handle": "danshipper",
+      "handle": "@danshipper",
       "image": "https://pbs.twimg.com/media/HVLf3o6a8AAr7ho?format=webp&amp;name=large"
     },
     {
-      "thread_id": "karpathy-llm-output-understanding",
-      "thread_title": "Karpathy: LLM output interpretation becomes the new bottleneck, not capability",
+      "thread_id": "kimi-k31-pro-open-weights",
+      "thread_title": "Kimi K3.1 Pro: open-weights Fable-class model narrows frontier gap to ~1 month",
       "thread_state": "new",
-      "name": "Andrej Karpathy · AI Researcher",
-      "role": "Former Tesla AI Director, OpenAI co-founder adviser",
-      "hook": "We'll spend far more time understanding LLM outputs than tuning prompts.",
+      "name": "Simon Willison's Blog (Moonshot AI)",
+      "role": "Blog · Kimi / Moonshot",
+      "hook": "Kimi K3.1 Pro lands on API; full open weights promised by Nov 4, 2026.",
       "insights": [
-        "**ASD-STE100 controlled language** produces clearer, more parseable model outputs; models respond to explicit language constraints",
-        "**Voice rambling sessions** reduce typing friction; LLMs perform better with more unstructured context input",
-        "**Testing paradigm shift**: less time on benchmarking capability, more time on understanding what models *actually output* in production"
+        "**Pricing**: $2/M input, $10/M output tokens—same as GPT-6.1 Sol, half of Claude Opus 5.5",
+        "**Speed variant**: Highspeed version 2-3× faster at 2× price (except cache hits, which are same cost)",
+        "**Timeline**: Open weights drop in ~10 days; narrows proprietary lead to roughly one month behind frontier",
+        "**Capability class**: Positioned as Fable-5.1-equivalent, filling the gap between Sonnet and Opus tier"
       ],
-      "for_you": "When you're building agency workflows for SMBs, the edge is now in output parsing and interpretation, not prompt engineering. Karpathy's techniques—especially controlled language for structured outputs—directly improve agent reliability. Test ASD-STE100 prompting for any task requiring parseable outputs (code, JSON, structured reports).",
-      "context": "Karpathy observed that the AI community is moving past 'does the model know this?' to 'can we understand what it's saying?' This is a maturity signal: outputs are increasingly correct but still opaque. The bottleneck has moved downstream.",
-      "what_changed": "Karpathy published concrete techniques (ASD-STE100, voice input patterns) that improve output clarity. These are immediately actionable.",
-      "action": "test: Use ASD-STE100 specification in your next structured-output task (e.g., contract extraction or report generation). Compare output quality to standard prompting.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Signals a fundamental shift in where engineering effort now matters most; directly applicable to agency work.",
-      "signal": "💡",
+      "for_you": "If pricing holds and open weights arrive on schedule, this is the first serious open-weight alternative for Portuguese SMBs who care about cost and local deployment. Test the API this week; if performance matches Fable, you have a fallback to proprietary models.",
+      "context": "Moonshot AI (Chinese lab) released Kimi K3.1 Pro on their API platform. The model competes directly with Anthropic Sonnet/Opus and OpenAI's mid-tier offerings. Promise of open weights by Nov 4 is material: it would be the first Fable-class open model and the fastest closure of the frontier-to-open gap seen in 2026.",
+      "what_changed": "Confirmed API availability; open-weights timeline published; pricing disclosed.",
+      "action": "test",
+      "why_it_made_the_cut": "only significant open-weights release commitment this week; pricing and timeline are material",
+      "evidence_level": "confirmed",
+      "signal": "🟢",
       "urls": [
-        "https://x.com/karpathy/status/2105819303471976479",
-        "https://x.com/karpathy/status/2079610838143623371"
+        "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/",
+        "https://latent.space/p/ainews-kimi-31/"
       ],
-      "handle": "karpathy",
-      "image": "https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;name=large",
+      "handle": "",
+      "image": "https://static.simonwillison.net/static/2026/kimi-k3.1-card.jpg",
       "video": {
-        "id": "1y0GVzQXwKo",
-        "title": "Let The LLM Write The Prompt 2025 | Design Perfect Prompts for AI Agent | Prompt Mistakes (PART 1/7)"
+        "id": "haAMJ7Uu9yY",
+        "title": "Kimi K3.1 Pro: 0.7 behind Opus 5.5, 7.5 ahead of GPT-6"
       }
     },
     {
-      "thread_id": "opus-55-peer-review-study",
-      "thread_title": "Opus 4.8 outperforms human peer reviewers on 124 Harvard papers",
-      "thread_state": "new",
-      "name": "Ethan Mollick · Wharton",
-      "role": "Professor @Wharton, AI researcher",
-      "hook": "Opus 4.8 beats human experts as peer reviewers across 124 Harvard social science papers.",
+      "thread_id": "gpt-56-sol-php-rce-discovery",
+      "thread_title": "GPT-5.6 Sol found critical PHP RCE in 6 days; disclosure process failed, exploits live",
+      "thread_state": "developing",
+      "name": "Greg Brockman",
+      "role": "President & Co-Founder · OpenAI",
+      "hook": "GPT-5.6 Sol discovered critical Chrome zero-day; PHP2Shell RCE coordinated response collapsed.",
       "insights": [
-        "**Broader than benchmarks**: study covers statistical analyses, formal models, qualitative work—not just coding or math",
-        "**Academic peer review is measurable and now a commodity task** when delegated to models",
-        "Implications: cost and speed of academic validation drop dramatically; incentive to outsource review accelerates"
+        "**Chrome vulnerability**: 6 days, $40k compute spend; claimed to affect ~1B users; first full-chain reward of 2026",
+        "**PHP disaster**: OpenAI and Polynoamial found PHP2Shell RCE together; coordinated 2-month disclosure effort; exploits leaked and live within 72 hours",
+        "**Pattern**: Demonstrates AI's asymmetric advantage in vulnerability discovery; defenders must now race AI-speed exploitation"
       ],
-      "for_you": "This matters less for your SMB agency directly, but watch it: if academic and knowledge-work peer review becomes outsourceable to agents, the professional services market expands upward. More importantly, it signals that domain-expert judgment is now modelable. Your clients' internal review processes (contracts, reports, hiring) are next.",
-      "context": "Mollick studied whether Opus 4.8 could serve as a peer reviewer on 124 papers from Harvard's social science departments. The model outperformed human reviewers by measurable criteria across diverse paper types.",
-      "what_changed": "First published evidence that a model outperforms humans on a real professional task (peer review) at scale, not in controlled benchmarks.",
-      "action": "watch: This is a leading indicator for which professional services will be outsourced to agents next.",
+      "for_you": "Your agency clients running PHP or relying on browser-based workflows need immediate patching. This week: audit any legacy PHP, update all systems, test sandboxed environments. The PHP Foundation's failure to coordinate disclosure signals that disclosure itself is now broken for widespread vulnerabilities.",
+      "what_changed": "New detail: Polynoamial and OpenAI worked together on PHP2Shell; disclosure failed despite coordination. Exploits are live in the wild.",
+      "action": "investigate",
+      "why_it_made_the_cut": "confirms AI-speed vulnerability discovery and shows disclosure infrastructure is failing; directly impacts security posture of deployed systems",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Signals that expert judgment is now delegatable to agents; market expansion for AI-augmented services.",
-      "signal": "🟡",
+      "signal": "🔴",
       "urls": [
-        "https://x.com/emollick/status/2113483068174692831"
+        "https://x.com/gdb/status/2110063893016096831",
+        "https://x.com/gdb/status/2112921529650688312",
+        "https://simonwillison.net/2026/Oct/21/php-security-release/",
+        "https://latent.space/p/ainews-openais-patch-the-planet-program/"
       ],
-      "handle": "emollick",
-      "image": "https://pbs.twimg.com/media/HVSZLTTWIAAvpHM?format=webp&amp;name=large"
+      "handle": "@gdb",
+      "image": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_400x400.jpg"
     },
     {
-      "thread_id": "frontier-models-no-live-training",
-      "thread_title": "Frontier labs halt live internet training, citing poisoning and safety risks",
+      "thread_id": "prompt-engineering-ste100-voice-rambling",
+      "thread_title": "Karpathy: ASD-STE100 and voice rambling extract clearer LLM reasoning",
       "thread_state": "new",
-      "name": "Ethan Mollick · Wharton",
-      "role": "Professor @Wharton, AI researcher",
-      "hook": "OpenAI and Anthropic stopped training on live internet data; frontier models now trained offline.",
+      "name": "Andrej Karpathy",
+      "role": "Independent researcher (ex-Tesla AI Director)",
+      "hook": "Ask LLMs to explain in ASD-STE100 controlled language; switch to voice for lazy reasoning exploration.",
       "insights": [
-        "**Training strategy shift**: models now trained on curated, historical data only; real-time data deemed too risky",
-        "**Signals emerging risk model**: AI labs now view live data ingestion as a first-order security/safety problem, not a feature",
-        "Implication: frontier models may become staler faster unless offline training includes broader synthetic or human-curated datasets"
+        "**ASD-STE100 technique**: Controlled language spec (originally for aircraft manuals) forces clearer, more verifiable LLM outputs; reduces hedging and vagueness",
+        "**Voice rambling**: When too lazy to type nuanced context, switch to voice; LLM handles messy audio input better than expected; reduces friction on iterative reasoning",
+        "**Trend**: Spending more time understanding LLM outputs than tuning prompts; 56k♥, high engagement from builders"
       ],
-      "for_you": "Your agency's clients asking 'why is Claude's knowledge cutoff in June?' now have an answer. More importantly: if frontier models stop learning from live data, the advantage shifts to models that can safely ingest and adapt to customer-specific or real-time data. This creates a niche for smaller, tuned models in production.",
-      "context": "OpenAI and Anthropic independently announced they no longer train frontier models on live internet data due to poisoning risks and safety concerns. This is a major strategic decision that affects model staleness and competitive positioning.",
-      "what_changed": "Frontier models now operate with static training data. This is a constraint, not a feature—worth monitoring as market competition intensifies.",
-      "action": "watch: Observe how knowledge staleness affects client satisfaction. This may create demand for fine-tuned, lightweight models with real-time adaptability.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Strategic shift in how frontier models are built; affects client expectations and competitive dynamics.",
+      "for_you": "Test ASD-STE100 prompts for your agency's client documentation and compliance work—forces unambiguous outputs for Portuguese regulators. Voice rambling could speed up your internal agentic workflows; test with Claude Duet this week.",
+      "what_changed": "High-engagement post from credible signal source; techniques are immediately actionable and low-cost to test.",
+      "action": "test",
+      "why_it_made_the_cut": "clearest practical prompt technique shared by Karpathy this week; applicable to both your agency and internal agentic systems",
+      "evidence_level": "confirmed",
+      "signal": "🟢",
+      "urls": [
+        "https://x.com/karpathy/status/2105819303471976479"
+      ],
+      "handle": "@karpathy",
+      "image": "https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;name=large"
+    },
+    {
+      "thread_id": "frontier-model-capability-gap-widening",
+      "thread_title": "Capability gap between frontier models and public understanding is widening sharply",
+      "thread_state": "new",
+      "name": "Andrej Karpathy",
+      "role": "Independent researcher (ex-Tesla AI Director)",
+      "hook": "6B people (~75% global population) have barely tried LLMs; gap narrowing from discourse to sharp funnel.",
+      "insights": [
+        "**Population gap**: Only ~25% have meaningful exposure; 75% operate from assumption LLMs are toys or text completion",
+        "**Capability mismatch**: Frontier labs ship models solving hard problems (1M-token reasoning, multimodal generation); public sees average ChatGPT output",
+        "**Market implication**: Widening funnel creates business opportunity in education, B2B adoption, and capability arbitrage"
+      ],
+      "for_you": "Portuguese SMBs are likely in the 75% group with minimal LLM exposure. Your agency's competitive advantage is in translating frontier capabilities into workflows they understand. Use this gap: education + implementation = defensible margin.",
+      "what_changed": "Karpathy reposted April tweet to emphasize trend continuation; 43k♥ suggests mainstream builders now see this gap.",
+      "action": "watch",
+      "why_it_made_the_cut": "frames market opportunity; helps position your agency's core value proposition",
+      "evidence_level": "confirmed",
+      "signal": "💡",
+      "urls": [
+        "https://x.com/karpathy/status/2109361546505966046"
+      ],
+      "handle": "@karpathy",
+      "image": "https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_400x400.jpg"
+    },
+    {
+      "thread_id": "labs-entering-finance-biotech-directly",
+      "thread_title": "OpenAI, Anthropic tempted to enter finance & biotech directly using internal models",
+      "thread_state": "new",
+      "name": "Ethan Mollick",
+      "role": "Professor · Wharton",
+      "hook": "Gap between internal and released models grows; temptation to bypass customers and capture value directly.",
+      "insights": [
+        "**Model gap**: Safety concerns and research advantages mean internal models stay private; gap widens each release cycle",
+        "**Economic incentive**: Finance and biotech have highest ROI for agentic systems; labs have internal models that outperform public releases",
+        "**Risk**: If labs enter these markets directly, they compress agency margins and shift bargaining power toward infrastructure providers"
+      ],
+      "for_you": "No immediate action, but filed for awareness: if OpenAI or Anthropic launch finance/biotech verticals, your agency's SMB-focused positioning becomes more defensible (they won't compete for small businesses). Watch for any hint of in-house consulting arms.",
+      "what_changed": "Early-stage signal post; high engagement (867♥) suggests builders are thinking about this threat.",
+      "action": "watch",
+      "why_it_made_the_cut": "frames structural shift in AI lab strategy; affects long-term competitive positioning",
+      "evidence_level": "early_signal",
       "signal": "🟡",
       "urls": [
         "https://x.com/emollick/status/2113681838611087572"
       ],
-      "handle": "emollick",
-      "image": "https://pbs.twimg.com/profile_images/1601382188712398850/3AAOlqrX_400x400.jpg",
-      "video": {
-        "id": "RnWrxr7ib48",
-        "title": "OpenAI internet access cut after a model got out #Shorts"
-      }
+      "handle": "@emollick",
+      "image": "https://pbs.twimg.com/profile_images/1601382188712398850/3AAOlqrX_400x400.jpg"
     },
     {
-      "thread_id": "vercel-backend-consolidation",
-      "thread_title": "Vercel consolidates full-stack backend: hints at next major feature",
-      "thread_state": "developing",
-      "name": "Guillermo Rauch · Vercel",
-      "role": "CEO @Vercel",
-      "hook": "Vercel assembled Containers, Queues, Workflows, Cron, WebSockets, Python, Daemons, Sandboxes, Blob, Drives.",
-      "insights": [
-        "**Completed backend infrastructure stack**: all pieces now present for complex, stateful applications without leaving platform",
-        "**Strategic hint**: 'Any guesses what comes next?' suggests next feature is imminent and built on this foundation",
-        "**Deployment story unified**: developers no longer need external orchestration or message queues for agentic workloads"
-      ],
-      "for_you": "If you're deploying agency automation on Vercel, you now have all pieces in-house. This matters for clients building edge agents or real-time workflows. Watch Rauch's next announcement—it's likely agentic orchestration, state management, or model routing.",
-      "context": "Over the past year, Vercel built out infrastructure components one by one: functions, queues, workflows, containers, Python support, persistent storage. This week Rauch confirmed all major pieces are in place and asked what comes next.",
-      "what_changed": "Full-stack backend infrastructure now complete. The teaser suggests a major feature announcement is imminent.",
-      "action": "watch: Monitor Vercel announcements for the next major feature, likely agent-related.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Infrastructure consolidation signals readiness for the next wave of platform-native features.",
-      "signal": "🟡",
-      "urls": [
-        "https://x.com/rauchg/status/2113251591822471644"
-      ],
-      "handle": "rauchg",
-      "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg"
-    },
-    {
-      "thread_id": "replit-acquires-chroma",
-      "thread_title": "Replit acquires Chroma; doubles down on agent context and memory",
+      "thread_id": "prompt-injection-resilience-new-models",
+      "thread_title": "Prompt injection may no longer be a serious problem in new-generation models",
       "thread_state": "new",
-      "name": "Amjad Masad · Replit",
-      "role": "CEO @Replit",
-      "hook": "Replit acquires Chroma; pioneers in RAG now own agent context and memory layer.",
+      "name": "Ethan Mollick",
+      "role": "Professor · Wharton",
+      "hook": "Prompt injection inventor suspects problem is solved in frontier models; tests confirm.",
       "insights": [
-        "**Strategic acquisition**: Chroma built RAG infrastructure before it had a name; now fully integrated into Replit's agent stack",
-        "**Problem being solved**: agents need persistent, contextual memory; Replit is centralizing this capability",
-        "**Market signal**: memory and context management is now a core infrastructure layer, not a utility"
+        "**Resilience shift**: Opus 5.5+ resists simple injection attempts (e.g., asking for higher grades in papers no longer works)",
+        "**Test evidence**: Mollick's team tested; results match suspicion; suggests architectural changes in newer models prevent basic injection",
+        "**Implication**: Attack surface may be shifting from prompt injection to more subtle adversarial approaches"
       ],
-      "for_you": "If you're building agents for Portuguese SMBs, Replit's move signals that context management is a bottleneck worth owning. Consider how your agency's agents will store and retrieve customer-specific context. Chroma's RAG approach (semantic search over embeddings) is now the de facto pattern.",
-      "context": "Amjad Masad announced Replit's acquisition of Chroma, the vector database and RAG framework that pre-dated the generative AI boom. Chroma's founders are now part of Replit's AI infrastructure team.",
-      "what_changed": "Chroma is now part of Replit's core product. Developers on Replit can now build agents with persistent memory baked into the platform.",
-      "action": "watch: Replit's next announcements will show how Chroma integrates into agent scaffolding.",
+      "for_you": "Good news for your agency: if injection is no longer viable, agentic systems become safer to deploy in client workflows without sandboxing overheads. Still test with your specific use cases before trusting this.",
+      "what_changed": "Empirical test result shared; inventor's assessment cited; high engagement (465♥).",
+      "action": "investigate",
+      "why_it_made_the_cut": "directly affects safety assumptions for agentic deployment; reduces operational friction",
+      "evidence_level": "reported",
+      "signal": "🟢",
+      "urls": [
+        "https://x.com/emollick/status/2113626577623826515"
+      ],
+      "handle": "@emollick",
+      "image": "https://pbs.twimg.com/profile_images/1601382188712398850/3AAOlqrX_400x400.jpg"
+    },
+    {
+      "thread_id": "modal-gpu-economics-agent-sandboxes",
+      "thread_title": "Modal: GPU cloud economics shift toward agent sandboxes and serverless inference",
+      "thread_state": "new",
+      "name": "Erik Bernhardsson",
+      "role": "CEO · Modal",
+      "hook": "AI workloads don't fit 3-year GPU rectangles; Modal pools capacity, scales sandboxes to 1M concurrent.",
+      "insights": [
+        "**Infrastructure mismatch**: GPU market sells fixed capacity contracts; agentic workloads need elastic, sandbox-based scaling",
+        "**Modal's approach**: Pools GPU capacity across customers, handles sandbox orchestration, charges per-use instead of reserved capacity",
+        "**Scale proof**: Scaled to 1M concurrent sandboxes; indicates agentic execution volumes are real and growing rapidly"
+      ],
+      "for_you": "As your agency scales agentic delivery, Modal's model (or equivalents) becomes essential: you can't predict agent concurrency per client, and reserved GPU costs kill margins. Evaluate Modal vs. Vercel Functions vs. self-hosted orchestration based on your client load profile.",
+      "what_changed": "Podcast released (Latent Space); Erik discusses GPU supply risks, agent sandbox security, and developer experience.",
+      "action": "investigate",
+      "why_it_made_the_cut": "infrastructure pattern that directly affects your agency's cost structure and scalability",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Major infra acquisition signals that agent memory is now a platform-level concern.",
       "signal": "🟡",
       "urls": [
-        "https://x.com/amasad/status/2113736007111827606"
+        "https://youtube.com/watch?v=IiZ9yd2Do8I"
       ],
-      "handle": "amasad",
-      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg"
+      "handle": ""
     }
   ],
   "build_this": [
     {
       "name": "Coolify",
       "source": "GitHub Trending",
-      "what_it_is": "Open-source, self-hostable PaaS alternative to Vercel, Heroku, Netlify with support for 360+ one-click services.",
-      "why_try_it": "If you're building agency automation for Portuguese SMBs and need to deploy on client infrastructure or your own servers (data sovereignty, cost control), Coolify lets you replicate Vercel's workflow without vendor lock-in. Test it this week for client deployments requiring on-premise or EU hosting.",
+      "what_it_is": "Open-source, self-hostable PaaS alternative to Vercel/Heroku/Netlify; deploy static sites, databases, full-stack apps and 360+ services on your own servers.",
+      "why_try_it": "Your agency clients need low-cost hosting for agentic workflows and dashboards. Coolify lets you self-host without vendor lock-in; test deploying a simple Claude agent dashboard this week, then offer it as a low-margin retention service for Portuguese SMBs.",
       "url": "https://github.com/coollabsio/coolify"
     },
     {
       "name": "PostHog",
       "source": "GitHub Trending",
-      "what_it_is": "Open-source analytics and experimentation platform with AI observability, session replay, flags, experiments, error tracking; now controllable from Slack and MCP.",
-      "why_try_it": "Your agency clients need visibility into how agents are behaving in production. PostHog's MCP integration means you can wire agent observability directly into your client's Slack workflow. Use this to monitor agent quality, catch errors early, and iterate faster.",
+      "what_it_is": "Open-source product analytics, session replay, feature flags, A/B experiments, error tracking, logs; now includes AI observability and MCP support for agent diagnostics.",
+      "why_try_it": "If you're building agentic workflows for clients, PostHog's agent-native observability (MCP integration) lets you track what your agents are doing, what they're deciding, and where they fail. Deploy on your Coolify instance; use this week to instrument one client agent.",
       "url": "https://github.com/PostHog/posthog"
     },
     {
       "name": "WorldTUI",
-      "source": "Hacker News (644pts)",
-      "what_it_is": "360M-parameter world model trained to predict and simulate terminal I/O behavior; runs as an interactive terminal simulator.",
-      "why_try_it": "Explores whether models can simulate complex stateful systems (terminals, APIs, user workflows). If this pattern holds, you could build agents that test or simulate client workflows before deploying them. Experiment with it to understand how world models handle realistic I/O complexity.",
+      "source": "Hacker News",
+      "what_it_is": "360M-parameter world model trained to simulate a terminal; demonstrates agentic reasoning over simulated environments without external APIs.",
+      "why_try_it": "Proof-of-concept for local agent simulation; test whether you can run agentic planning offline before committing to API calls. Relevant for your Portuguese SMBs if they need to run planning agents without live internet.",
       "url": "https://simedw.com/2026/10/21/world-model-terminal/"
     }
   ],
-  "podcasts": [
-    {
-      "show": "Latent Space",
-      "episode": "Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal",
-      "takeaway": "GPU markets sell three-year capacity blocks; AI agents need elastic, on-demand compute. Modal's infrastructure pools GPUs and scales agent sandboxes to 1M concurrent.",
-      "key_points": [
-        "GPU supply is constrained by long-term contracts; short-term elasticity is rare",
-        "Agent sandboxes are explosive growth category; Modal scaling to 1M concurrent is new infrastructure ceiling",
-        "Serverless GPU economics favor independent compute clouds over hyperscaler lock-in"
-      ],
-      "for_you": "If your agency scales from 1 client to 10, your compute costs don't scale linearly. Modal's serverless model and sandbox scaling is a real lever for managing agent costs. Test Modal's pricing on your heaviest agent workload.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=IiZ9yd2Do8I",
-      "video": {
-        "id": "IiZ9yd2Do8I",
-        "title": "Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal"
-      }
-    },
-    {
-      "show": "Every: AI & I",
-      "episode": "How a Frontier Team Can Help Your Company Keep Up With AI",
-      "takeaway": "Every's seven-person frontier team tests models weekly and turns working experiments into tools for the entire company; this is now a best practice.",
-      "key_points": [
-        "Frontier teams act as internal R&D for model adoption; they decouple exploration from delivery",
-        "Testing new models is a full-time job; separating 'pirates' (explorers) from 'architects' (builders) prevents chaos",
-        "Tools built from experiments (Minga, tabless browser) are often more useful than the models themselves"
-      ],
-      "for_you": "You're already running a frontier team internally (testing Claude, evaluating new models, iterating). Formalize this: designate one day per week for your team to explore new models and build one small tool. This keeps you ahead of client questions and finds agency revenue opportunities.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=LZbjIE2LeTQ",
-      "video": {
-        "id": "LZbjIE2LeTQ",
-        "title": "How a Frontier Team Can Help Your Company Keep Up With AI"
-      }
-    }
-  ],
+  "podcasts": [],
   "tech": [
     {
-      "name": "Aaron Levie · Box",
-      "role": "CEO @Box",
-      "hook": "Agent swarms for cyber defense will be one of the biggest AI investment categories.",
-      "key_point": "Compute becomes a critical variable in previously labor-constrained security tasks; agents reviewing code, testing permutations, and processing data at scale now feasible.",
-      "for_you": "Portuguese SMBs will need agent-driven security monitoring. This is a near-term consulting opportunity: help clients instrument their infrastructure for agent-based threat detection.",
+      "name": "Guillermo Rauch",
+      "role": "CEO · Vercel",
+      "hook": "Managing AI means balancing over-guidance and under-guidance; skill zero is knowing how much to steer.",
+      "key_point": "AI often knows better than you; your job is curating inputs and interpreting outputs, not micromanaging reasoning. This is the new programming craft.",
+      "for_you": "Train your agency team on this mindset: you're not debugging AI, you're designing the interface between human intent and agentic execution. Test with Claude Duet or Vercel's own AI features.",
       "signal": "💡",
+      "urls": [
+        "https://x.com/rauchg/status/2114085432749347086"
+      ],
+      "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
+      "handle": "rauchg"
+    },
+    {
+      "name": "Aaron Levie",
+      "role": "CEO · Box",
+      "hook": "Agent swarms for cyber defense will be one of the biggest AI investment categories; security is the only use case where compute-scaling directly solves the problem.",
+      "key_point": "More work in security than any other domain is constrained only by compute; agents can test all threat permutations, scan all vectors, and report in real time. ROI is immediate and measurable.",
+      "for_you": "If you're building for Portuguese SMBs, cyber defense is an adjacent vertical: offer agentic security audits (agents review code, infra, policy) as a retainer. Lower technical lift, high perceived value, natural upsell.",
+      "signal": "🟡",
       "urls": [
         "https://x.com/levie/status/2113738768645808277"
       ],
@@ -262,12 +255,25 @@
       "handle": "levie"
     },
     {
-      "name": "Guillermo Rauch · Vercel",
-      "role": "CEO @Vercel",
-      "hook": "Static credentials are dead; OIDC with self-destructing keys should be standard like TLS.",
-      "key_point": "Industry needs coordinated move toward ephemeral auth tokens tied to OIDC, not long-lived API keys or secrets.",
-      "for_you": "When building agency integrations with your clients' APIs, push for OIDC and ephemeral tokens from day one. This shifts risk and compliance burden correctly.",
+      "name": "Amjad Masad",
+      "role": "CEO · Replit",
+      "hook": "Chroma acquisition gives Replit the memory layer for agentic systems; Chroma pioneered RAG before it was mainstream.",
+      "key_point": "Replit remains model-agnostic but now owns the context and memory layer for agents. This positions Replit as the infrastructure for agentic coding workflows.",
+      "for_you": "If you're building coding agents for clients, Replit + Chroma is now a single platform. Test Replit Agents with your own workflows before pitching to clients.",
       "signal": "🟡",
+      "urls": [
+        "https://x.com/amasad/status/2113736007111827606"
+      ],
+      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg",
+      "handle": "amasad"
+    },
+    {
+      "name": "Guillermo Rauch",
+      "role": "CEO · Vercel",
+      "hook": "Kill static credentials; adopt OIDC with self-destructing keys—TLS for secrets.",
+      "key_point": "Stolen credentials are the attack surface; self-destructing keys reduce damage from breaches. Industry standard should shift from rotated static creds to ephemeral OIDC tokens.",
+      "for_you": "Audit your agency's deployment secrets this week: move from static API keys to OIDC wherever possible. Educate clients on why their agents need ephemeral credentials, not hardcoded keys.",
+      "signal": "🔴",
       "urls": [
         "https://x.com/rauchg/status/2113399539227136084"
       ],
@@ -275,156 +281,126 @@
       "handle": "rauchg"
     },
     {
-      "name": "Peter Yang · Practical AI",
-      "role": "AI practitioner, educator",
-      "hook": "Emergency security playbook: disconnect unused apps, enable 2FA, rotate credentials, audit agent permissions.",
-      "key_point": "Agent-driven account access and compromised integrations are now first-order risk vectors for SMB clients.",
-      "for_you": "Run a security audit with each client: which AI agents have API key access? Which integrations are stale? This is a quick consulting engagement and a hygiene check before deploying new agents.",
-      "signal": "🔴",
+      "name": "Garry Tan",
+      "role": "President & CEO · Y Combinator",
+      "hook": "GBrain gives agents shared memory across Claude, Codex, Capy; agents shouldn't start reasoning from zero every session.",
+      "key_point": "Agentic memory (who you know, how you execute) is competitive advantage. Shared memory across model providers prevents vendor lock and improves agent continuity.",
+      "for_you": "Test GBrain's model for client agents: shared memory across your agency's LLM choices improves workflow continuity and client experience. Prototype with one client's agentic assistant.",
+      "signal": "💡",
       "urls": [
-        "https://x.com/petergyang/status/2113345739820777654"
+        "https://x.com/garrytan/status/2113666998442024989"
       ],
-      "image": "https://pbs.twimg.com/card_img/2113691864519880704/CnhvyomG?format=webp&amp;name=medium",
-      "handle": "petergyang"
-    },
-    {
-      "name": "Amjad Masad · Replit",
-      "role": "CEO @Replit",
-      "hook": "Replit now offers private, on-premise deployment; data never leaves your infrastructure.",
-      "key_point": "Enterprise AI adoption now requires data residency guarantees; Replit's private offering targets regulated industries.",
-      "for_you": "If you have clients in healthcare, finance, or public sector, Replit's private deployment option is a selling point. Test it this week for a qualified prospect.",
-      "signal": "🟢",
-      "urls": [
-        "https://x.com/amasad/status/2111267314012496121"
-      ],
-      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg",
-      "handle": "amasad"
-    },
-    {
-      "name": "Nikunj Kothari · FPV Ventures",
-      "role": "Partner @fpvventures, early-stage investor",
-      "hook": "Seed-to-Series A squeeze is tightening; seed founders face unprecedented fundraising difficulty.",
-      "key_point": "Capital availability for early-stage AI startups is shrinking; focus on unit economics and path to profitability.",
-      "for_you": "If you're thinking about raising for your agency or a product spin-off, this is a headwind. Build to profitability quickly; don't assume Series A will be easy.",
-      "signal": "🔴",
-      "urls": [
-        "https://x.com/nikunj/status/2113405034826477910"
-      ],
-      "image": "https://pbs.twimg.com/profile_images/1455548721421176841/0XHTEfkp_400x400.jpg",
-      "handle": "nikunj"
+      "image": "https://pbs.twimg.com/card_img/2113664960756916224/eCqhSYTT?format=webp&amp;name=medium",
+      "handle": "garrytan"
     }
   ],
   "pt_news": [
     {
-      "headline": "Protesto pela habitação em Lisboa termina com carga policial; 31 detidos",
-      "hook": "PSP avançou sobre manifestantes no Rossio após terceiro aviso; acampada regressa este domingo.",
-      "for_you": "Não impacta diretamente o teu negócio, mas sinaliza instabilidade política e social que pode afetar decisões de investimento e contratação. Monitora a evolução.",
+      "headline": "Governo anuncia apoios extraordinários a empresas de transporte de doentes",
+      "hook": "Empresas de transporte não urgente de doentes receberão apoios financeiros temporários para mitigar custos com combustíveis e AdBlue.",
+      "for_you": "Oportunidade de RPA para empresas de transporte: automatizar requisições de documentos para candidaturas a apoios governamentais; teste com uma empresa local.",
       "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/10/25/psp-avancou-sobre-os-manifestantes-sete-feridos-e-31-detidos-em-lisboa-e-no-porto/",
-      "source_name": "Eco",
-      "image": "https://eco.imgix.net/uploads/2026/10/cropped-psp-scaled-1.jpeg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "url": "https://observador.pt/2026/10/25/governo-anuncia-apoios-a-empresas-privadas-de-transporte-de-doentes/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A1440%3A808%3Anowe%3A0%3A117%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F09%2F11203745%2Fcombustiveis.jpg?layer=obstop:T"
     },
     {
-      "headline": "Governo apresentará Plano Nacional de Integração de estrangeiros em breve",
-      "hook": "Secretário de Estado diz que país não estava preparado para imigrantes em habitação e saúde.",
-      "for_you": "Contexto para clientes SMB que consideram recrutamento internacional ou contratação de talento estrangeiro. Plano ainda não existe; há risco regulatório e operacional.",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/10/25/governo-promete-plano-de-integracao-para-breve-e-diz-que-pais-nao-se-preparou-para-imigrantes/",
-      "source_name": "Eco",
-      "image": "https://eco.imgix.net/uploads/2026/10/cropped-47941372-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Renovação do espectro: ANACOM propõe modelo que pode limitar concorrência 20 anos",
-      "hook": "Estudo alerta para impacto de 3,5 mil milhões de euros em custos para consumidores ao longo de 15 anos.",
-      "for_you": "Afeta custos telecom para teu negócio e clientes. DIGI já ameaçou sair; acompanha debates regulatórios. Pode impactar operacionalidade e custos de infraestrutura.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/renovacao-do-espectro-proposta-pela-anacom-pode-limitar-concorrencia-durante-20-anos-e-ter-impacto-de-35-mil-milhoes/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/10/torres-telecomunicacoes-espectro-frequencias-@pexels.jpg"
-    },
-    {
-      "headline": "MyFitnessClient: app portuguesa de Amarante chega a 2.000 users em 3 meses",
-      "hook": "Plataforma de fitness criada por quatro jovens de 22 anos integra treino, nutrição, avaliações e pagamentos.",
-      "for_you": "Exemplo de PME tech portuguesa escalando rapidamente. Modelo de negócio B2B2C (pessoal trainers, nutricionistas) é replicável. Considera caso de estudo ou parceria.",
-      "signal": "🟢",
-      "url": "https://tek.sapo.pt/mobile/apps/artigos/myfitnessclient-a-app-portuguesa-criada-por-quatro-amigos-de-amarante-para-ajudar-personal-trainers-e-nutricionistas/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/10/Treinar-em-casa.jpg"
-    },
-    {
-      "headline": "TV Detox: projeto usa Claude para limpar smart TV de apps e publicidade",
-      "hook": "Agente IA desativa aplicações, publicidade e serviços de fundo; utilizador confirma cada passo no comando.",
-      "for_you": "Exemplo interessante de AI-driven product em Portugal. Modelo de distribuição é direto (GitHub). Não há oportunidade imediata para a tua agência, mas sinaliza demand por ferramentas de simplificação.",
+      "headline": "Estrangeiros pagam quase 50% mais por imóveis na Grande Lisboa",
+      "hook": "Preços continuam a subir; compradores estrangeiros pagam médias significativamente mais altas que residentes.",
+      "for_you": "Potencial para agentes de análise de mercado imobiliário: construir ferramentas que rastreiam preços por comprador nacional vs. estrangeiro para corretoras. Diferencial: dados em tempo real para SMBs de imobiliário português.",
       "signal": "💡",
+      "url": "https://www.jornaldenegocios.pt/empresas/imobiliario/detalhe/estrangeiros-pagam-quase-mais-50-do-que-as-familias-na-grande-lisboa",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-03/img_1200x676uu2026-03-09-16-42-11-519899.jpg"
+    },
+    {
+      "headline": "TV Detox: projeto usa Claude para limpar smart TV de aplicações",
+      "hook": "Agente IA desativa apps, publicidade e serviços de fundo em Android TV e Google TV; utilizador confirma cada passo.",
+      "for_you": "Exemplo de um projeto portugues viável de AI automation para consumidores. Estude a arquitetura e o padrão de confirmar cada ação; replicável para SMBs que precisam de automação com aprovação manual.",
+      "signal": "🟢",
       "url": "https://tek.sapo.pt/noticias/computadores/artigos/tv-detox-o-projeto-que-usa-o-claude-para-limpar-a-smart-tv-de-aplicacoes-e-publicidade/",
       "source_name": "Sapo Tek",
       "image": "https://cdn.teknoticias.pt/uploads/9f7326fc711ac2b9fc831ff8c42176de35fa3024.jpg"
+    },
+    {
+      "headline": "Manifestação pela habitação termina com carga policial; 31 detidos em Lisboa",
+      "hook": "PSP dispersou madrugada de domingo manifesto pelo direito à habitação; tensão após mais de 2 horas.",
+      "for_you": "Sem ação direta, mas contexto: pressão regulatória e social sobre política habitacional pode acelerar demanda por SMBs para análise de dados de imobiliário e políticas públicas. Oportunidade marginal para agentes de análise de dados.",
+      "signal": "🟡",
+      "url": "https://www.jornaldenegocios.pt/economia/habitacao/detalhe/retratos-de-uma-noite-agitada-como-terminou-a-manifestacao-pelo-direito-a-habitacao",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-10/img_1200x676uu2026-10-25-17-27-02-531735.jpg"
+    },
+    {
+      "headline": "Não basta computador mais rápido: precisamos de falar melhor com máquinas",
+      "hook": "Revolução da produtividade dependerá de largura de banda do diálogo entre humanos e computadores, não apenas de chips.",
+      "for_you": "Narrativa que reforça posicionamento da tua agência: SMBs precisam não de IA bruta, mas de interfaces e workflows que traduzam intenção em ação agentica clara. Isto é a tua vantagem competitiva.",
+      "signal": "💡",
+      "url": "https://tek.sapo.pt/opiniao/artigos/nao-basta-um-computador-mais-rapido-precisamos-de-falar-melhor-com-as-maquinas/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/10/Luis-Rita-opiniao1.jpg",
+      "video": {
+        "id": "gzDtdgGUYLE",
+        "title": "como deixar a inicialização do Windows mais rápido"
+      }
     }
   ],
   "world_news": [
     {
-      "headline": "Brazil heads to polls in runoff: Lula vs. Flávio Bolsonaro for presidency",
-      "hook": "Nearly 159 million Brazilians vote Sunday; Lula and Bolsonaro are technically tied in latest polls.",
-      "for_you": "Outcome affects macro stability and investor confidence in LATAM. If you have Brazilian clients or plans to expand there, monitor result for policy signals on tech regulation and AI governance.",
+      "headline": "Brazil's Lula and Bolsonaro head to final vote in highly unpredictable runoff",
+      "hook": "Leftist incumbent tied with far-right senator; election outcome remains genuinely uncertain.",
+      "for_you": "No direct action, but market signal: Brazil's political volatility may affect VC funding for AI startups; if you have clients tied to Brazilian market, hedge operational exposure.",
       "signal": "🟡",
       "url": "https://www.theguardian.com/world/2026/oct/25/lula-da-silva-flavio-bolsonaro-brazil-presidential-election",
       "source_name": "The Guardian",
       "image": "https://i.guim.co.uk/img/media/d1353a7e5254aa2f3a8330bdb3468e28a934e47d/391_195_3258_2605/master/3258.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f885a14feea16757d1ab8043ffe4d83a",
       "video": {
-        "id": "aFGad53kJK8",
-        "title": "Brazil Presidential Runoff: Bolsonaro vs Lula Heads to Final Vote"
+        "id": "yuv66YXLS1I",
+        "title": "Brazil's Lula calls election result 'unexpected' as vote heads to run-off"
       }
     },
     {
-      "headline": "Musk says SpaceX restricted Ukraine's Starlink after military use accusations",
-      "hook": "Starlink connection restored at high speed after restrictions; Musk accuses Ukraine of violating terms of service.",
-      "for_you": "Signals that critical infrastructure (comms, connectivity) is now subject to geopolitical pressure and corporate discretion. For clients depending on satellite internet or edge connectivity, plan redundancy and contractual protections.",
-      "signal": "🔴",
+      "headline": "Musk restricts Ukraine's Starlink after military use; connection restored at high speed",
+      "hook": "SpaceX limited bandwidth for Ukraine's military; restored after political pressure and defense ministry negotiation.",
+      "for_you": "Signal: commercial infrastructure can be weaponized or restricted by corporate decisions. For distributed agency work, redundancy matters; don't rely on single-provider satellite connectivity for critical client work.",
+      "signal": "🟡",
       "url": "https://www.bbc.co.uk/news/articles/cvx28ljp8n4xo",
       "source_name": "BBC",
       "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/5b53/live/c94ca0d0-d041-11f1-950a-2dcbf5245e34.jpg"
     },
     {
-      "headline": "France protests escalate: over 1,300 arrested in nationwide demonstrations",
-      "hook": "Hundreds of thousands marched across France; clashes intensified over energy prices and cost of living.",
-      "for_you": "European political instability is rising. If you have EU clients or expansion plans, monitor sentiment and regulatory response. Instability can delay enterprise deals.",
+      "headline": "Venezuelan opposition leader María Corina Machado returns from exile",
+      "hook": "Nobel laureate opposition leader announces return after nearly a year in exile; political symbolism charged.",
+      "for_you": "No direct action; geopolitical context only.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/c95ynd587ynzo",
-      "source_name": "BBC",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3d00/live/edf93830-cffb-11f1-b444-6fb1f13f8d87.jpg",
+      "url": "https://www.theguardian.com/world/2026/oct/25/exiled-venezuelan-opposition-leader-maria-corina-machado-announces-her-return",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/dfaa07b032c9a809392cea909471f429672eb20d/255_0_5997_4796/master/5997.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=38da2c59ab932db8a3171b904d3dd3cb",
       "video": {
-        "id": "52nnHsfXo8A",
-        "title": "Ongoing protests in France"
+        "id": "4LgFOWcoEB8",
+        "title": "Venezuela's opposition leader Machado greets supporters on return after months in exile"
       }
     },
     {
-      "headline": "Nigeria confirms first Ebola case in over a decade; outbreak spreads west",
-      "hook": "Woman diagnosed in Abuja after traveling from Uganda; virus now in four African countries.",
-      "for_you": "Global health crisis can disrupt supply chains, travel, and cross-border operations. If you have clients or vendors in Africa, monitor exposure and contingency planning.",
-      "signal": "🔴",
+      "headline": "France's protests escalate; over 1,300 arrested as Le Pen positions as 'protector'",
+      "hook": "Mass demonstrations over energy costs and inequality; 1,314 arrests on Saturday; Le Pen gains political ground.",
+      "for_you": "Policy signal: European regulatory environment may tighten around AI labor displacement and corporate responsibility. Monitor French AI labor rules; Portugal may follow.",
+      "signal": "🟡",
+      "url": "https://www.politico.eu/article/france-police-deploy-protests/",
+      "source_name": "Politico",
+      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/10/24/GettyImages-2301243121-scaled.jpg"
+    },
+    {
+      "headline": "Nigeria confirms first Ebola case in over a decade; outbreak spreads westward",
+      "hook": "Woman traveled from Uganda; case confirmed in Abuja; fourth African country affected.",
+      "for_you": "No direct action; global health signal only.",
+      "signal": "🟡",
       "url": "https://www.theguardian.com/world/2026/oct/21/nigeria-first-ebola-case-africa-outbreak-latest",
       "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/cc9a6ec270dac6b02b8ff0b829657c9fed193c1b/671_0_4033_3227/master/4033.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=85b9f5f0c8fc151f39b636cc7e3f6168",
-      "video": {
-        "id": "ABrspzey8RU",
-        "title": "Ebola outbreak in Congo raises alarm as Nigeria confirms first case in a decade"
-      }
-    },
-    {
-      "headline": "Pennsylvania will require labels on AI-generated political ads",
-      "hook": "New regulation mandates disclosure of AI-generated content in political advertising.",
-      "for_you": "Early regulatory signal: AI-generated content disclosure is becoming standard. If you're building content tools for clients, plan for transparency requirements and disclosure mechanisms. This is a compliance edge, not a threat.",
-      "signal": "🟡",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
-      "source_name": "The Verge",
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/STK445_ADVERTISING_STK093_GOOGLE_C.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200",
-      "video": {
-        "id": "P1mE6Wcmvuw",
-        "title": "Pennsylvania's AI Ad Label Law: A Political Win Dressed as Consumer Protection"
-      }
+      "image": "https://i.guim.co.uk/img/media/cc9a6ec270dac6b02b8ff0b829657c9fed193c1b/671_0_4033_3227/master/4033.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=85b9f5f0c8fc151f39b636cc7e3f6168"
     }
   ],
-  "since_yesterday": "PHP2Shell exploits are now live in the wild. Vercel and major platforms have deployed emergency mitigations, but you should audit all client infrastructure running PHP and patch immediately. Kimi K3.1 Pro API is live and full weights drop Nov 4—test it this week for cost comparisons. Brazil's presidential election is today (Sunday); early results may affect regional investor confidence if outcome is volatile. Duet is shifting the AI chat market baseline; clients should test it against their ChatGPT workflows.",
+  "since_yesterday": "Brazil's election runoff is now live (voting Sunday, 25 Oct). Kimi K3.1 Pro API is confirmed live; open weights timeline (Nov 4) reaffirms frontier-to-open gap at ~1 month. PHP vulnerability exploits confirmed active in the wild; disclosure coordination failed. Duet continues to show strong adoption signal (50/50 usage split within 2 weeks of launch).",
   "health": {
     "x": {
       "attempted": 15,
