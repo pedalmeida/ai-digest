@@ -2,440 +2,225 @@
   "date": "Monday, 26 October 2026",
   "ai": [
     {
-      "thread_id": "anthropic-s1-filing",
-      "thread_title": "Anthropic IPO: S-1 filed with SEC, ticker ANT on Nasdaq",
+      "thread_id": "anthropic-s1-ipo-2026",
+      "thread_title": "Anthropic S-1 filing and path to public markets",
       "thread_state": "developing",
       "name": "Anthropic",
-      "role": "AI Company, Filing for Public Listing",
+      "role": "AI Safety & Products · Company",
       "hook": "Anthropic files S-1 prospectus with SEC for Nasdaq listing under ticker ANT.",
       "insights": [
-        "**S-1 officially filed** on 26 October 2026; first true AI company IPO, not just an AI-enabled software player",
-        "**No doomsday language**: S-1 notably omits 'AI might kill everyone' disclaimer that had appeared in prior Anthropic communications—Dan Shipper noted this as a policy win",
-        "Company plans to use capital for compute, research, and scaling inference; no explicit revenue target disclosed in early reports"
+        "Revenue up 1,300% YoY in H1 2026; **GAAP operating profitable** with 85% gross margin",
+        "80% of revenue from models released in last 6 months; **900% revenue retention** signals enterprise stickiness",
+        "$265.6B compute purchase commitments + $321.4B future leases = $587B infrastructure bet through 2030s",
+        "Prospectus flags **catastrophic risk scenarios** for AGI; first pure-play AI company IPO signals investor confidence despite existential framing"
       ],
-      "for_you": "If Anthropic succeeds in public markets and demonstrates unit economics at scale, it validates the AI agency model and improves financing options for AI-native SMB service providers like your agency. Watch their disclosure for inference cost structure and margin targets.",
-      "context": "Anthropic, founded 2021, is the maker of Claude (Opus, Sonnet, Haiku series). The company has raised ~$7B+ in private funding and is now moving to public markets. This is a landmark moment: no pure-play AI company has gone public yet. The S-1 is the company's formal disclosure to regulators and investors.",
-      "what_changed": "S-1 filed; prospectus now public and subject to SEC scrutiny. Language around AI risk has softened or been removed compared to prior communications.",
-      "action": "watch, because a successful Anthropic IPO signals investor appetite for AI infrastructure and validates the market. Filing details will reveal pricing, burn rate, and unit economics—critical for understanding when frontier model inference becomes profitable at SMB scale.",
+      "for_you": "Anthropic's 1,300% YoY growth and compute scale show the agency model is working at enterprise. Their gross margin structure (85%) means API pricing power remains strong even as model costs drop. Watch their customer concentration: if 80% revenue is recent models, churn risk rises if competitors close the capability gap.",
+      "context": "Anthropic, founded 2021, builds Claude models and agent infrastructure. Now filing to go public at a moment of hypergrowth and intense competition. The S-1 reveals both financial health and risk positioning.",
+      "what_changed": "S-1 filed Monday, Oct 26; first true AI-native company seeking public markets. Detailed compute commitments and revenue retention metrics now public.",
+      "action": "investigate|Read the S-1 prospectus (100 pages of risks alone); model pricing/contract terms will shape agency unit economics",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "First pure-play AI company IPO filing; directly shapes financing landscape for AI products and services.",
-      "signal": "🟡",
-      "urls": [
-        "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
-        "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec"
-      ],
-      "handle": ""
-    },
-    {
-      "thread_id": "kimi-k31-pro-release",
-      "thread_title": "Kimi K3.1 Pro: Moonshot closes open-weight gap, pricing and speed parity with frontier",
-      "thread_state": "developing",
-      "name": "Moonshot AI",
-      "role": "Chinese AI Labs, Kimi API Release",
-      "hook": "Kimi K3.1 Pro ships on API; full open weights promised by Nov 4, 2026.",
-      "insights": [
-        "**API pricing parity**: $2/M input, $10/M output—same as GPT-6.1 Sol, half the price of prior Kimi releases",
-        "**Highspeed variant**: 2–3× faster inference at 2× cost, except for cached input tokens (same price)",
-        "**Open weights promised**: Full model weights due Nov 4, 2026—within 9 days of this brief, narrowing the closed-model lead to ~1 month across frontier labs"
-      ],
-      "for_you": "If Kimi's open weights ship on schedule and match Sonnet 5.5 capability, you can run reasoning on your own servers, reduce inference costs further, and decouple from API rate limits for your agency's agent workflows. Test the API this week; monitor Nov 4 release.",
-      "context": "Moonshot AI is a Chinese AI lab founded 2023. Kimi is their flagship reasoning model. K3.1 Pro is their latest release, available via API first, with open weights to follow. This closes the gap between closed-frontier and open-weight capabilities faster than expected.",
-      "what_changed": "K3.1 Pro now live on API; open weights date confirmed as Nov 4, 2026.",
-      "action": "test, because if performance holds, Kimi open weights eliminate frontier model dependency and enable self-hosted inference for SMB workflows within weeks.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Open-weight timeline collapse; frontier capability within months of becoming deployable locally.",
+      "why_it_made_the_cut": "Largest AI company IPO; public financials shift market understanding of LLM business viability",
       "signal": "🟢",
       "urls": [
-        "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
+        "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
       ],
       "handle": "",
-      "image": "https://static.simonwillison.net/static/2026/kimi-k3.1-card.jpg",
       "video": {
-        "id": "Wg3p1TwxVJg",
-        "title": "Kimi K3.1 Pro: 3T total, 104B active, 1M context #AI #Model #opensource"
+        "id": "cUL6ijAWB-M",
+        "title": "Anthropic IPO: Claude maker files to go public (what we know)"
       }
     },
     {
-      "thread_id": "php-security-rce-gpt-patch",
-      "thread_title": "PHP RCE (php2shell) exploited live; GPT-5.6 Sol found it in 6 days, coordinated disclosure failed",
-      "thread_state": "monitoring",
-      "name": "OpenAI, PHP Foundation",
-      "role": "AI Security Discovery, Open Source Security Incident",
-      "hook": "PHP2Shell RCE affects 70% of web; GPT-5.6 Sol discovered it in 6 days; exploits live within 72 hours.",
+      "thread_id": "gpt-5-6-sol-chrome-vuln",
+      "thread_title": "GPT-5.6 Sol vulnerability discovery and security implications",
+      "thread_state": "developing",
+      "name": "OpenAI / Greg Brockman",
+      "role": "President & Co-Founder · OpenAI",
+      "hook": "GPT-5.6 Sol found critical Chrome zero-day in 6 days; PHP2Shell RCE live within 72 hours.",
       "insights": [
-        "**Exploit timeline**: Vulnerability found → disclosure → leak → active exploitation within 72 hours; coordinated response collapsed",
-        "**GPT-5.6 Sol capability**: $40k compute, 6 days to find critical RCE in Chrome; same model finding vulnerabilities in core PHP affecting 1B+ users",
-        "**PHP Foundation confirmation**: Two RCE holes across PHP 8.x line; urgent patching required; exploits in the wild"
+        "**6 days, $40k compute**: Model discovered full-chain Chrome exploit affecting ~1B users",
+        "**PHP2Shell RCE**: Affects 70% of web (integrated in major downstream projects); coordinated disclosure collapsed when exploit leaked",
+        "Models now effective at **offensive security research** at scale; defenders must match speed or lose advantage",
+        "OpenAI's Patch the Planet initiative shifted from hypothetical to urgent: vulnerability discovery outpaces patching capability"
       ],
-      "for_you": "Your clients' servers are likely vulnerable right now. If you manage infrastructure for any Portuguese SMBs running PHP, this is a hard stop: patch all PHP instances immediately. Use this as a sales moment—offer managed patching and vulnerability scanning. Consider whether your agency should adopt AI-driven code auditing for client risk assessment.",
-      "context": "OpenAI's Patch the Planet initiative uses frontier models to discover zero-days. This one was found by GPT-5.6 Sol. Coordinated disclosure required months of coordination but a leak occurred, leading to active exploitation. PHP powers 77% of all websites with a known server-side language.",
-      "what_changed": "Exploit availability confirmed; coordinated disclosure process broke down. Active threat now, not theoretical.",
-      "action": "use_now, patch all PHP instances immediately and audit your clients' codebases for similar patterns.",
+      "for_you": "This signals that models can find exploits faster than you can patch. For PT SMBs: update PHP immediately (patches released Oct 21). For your agency: AI-powered security scanning becomes table-stakes; clients will ask whether you're using agents to harden their code. Reframe as competitive advantage.",
+      "context": "GPT-5.6 Sol is OpenAI's latest reasoning model. Chrome and PHP vulnerabilities are both real, discovered and/or exploited in Oct 2026. Disclosure coordination is now broken due to exploit leaks.",
+      "what_changed": "PHP2Shell exploits now publicly used; Chrome patch urgent. Models are actively discovering new vectors. This is not theoretical.",
+      "action": "use_now|Audit your infrastructure and client systems for PHP updates; consider offering AI-powered code/infra scanning as service",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Live threat to 70% of the web; demonstrates both AI capability (finding the bug) and the risk (disclosure failure).",
+      "why_it_made_the_cut": "Shifts security posture from reactive to urgent; models weaponized for offense",
       "signal": "🔴",
       "urls": [
-        "https://simonwillison.net/2026/Oct/21/php-security-release/",
-        "https://latent.space/p/ainews-openais-patch-the-planet-program/"
+        "https://x.com/gdb/status/2110063893016096831"
       ],
-      "handle": ""
+      "handle": "@gdb",
+      "image": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_400x400.jpg"
     },
     {
-      "thread_id": "ai-reasoning-and-math",
-      "thread_title": "Frontier models now solve mathematics at scale; pattern emerging for predicting next solvable class",
-      "thread_state": "developing",
-      "name": "Latent Space / Research Signal",
-      "role": "Analysis, Research Community",
-      "hook": "AI models solving more math problems; pattern emerges for predicting which classes it'll solve next.",
-      "insights": [
-        "**Capability jump**: Frontier models (Opus 5.5, Sonnet 5.5, GPT-6.1 Sol) now handle advanced mathematics reliably",
-        "**Predictive pattern**: Researchers identifying meta-pattern in which problem types get solved as models scale—suggests systematic frontier improvement path, not random capability jumps",
-        "**Implication**: Math-heavy workflows (physics simulation, financial modeling, optimization) shifting from human-only to AI-augmented within predictable windows"
-      ],
-      "for_you": "If your agency builds tools for technical domains (engineering, finance, biotech), this signals that reasoning-heavy automation is becoming reliable. Test Opus 5.5 or Sonnet 5.5 on your client's math-heavy workflows this week; capability floor is rising fast.",
-      "context": "Math was historically a weakness for LLMs. Reasoning models (o1, Opus 5.5) changed that. The discovery here is that there's a predictable order to capability unlocks—not chaos.",
-      "what_changed": "Pattern for predicting next solvable mathematical problem class now documented; no longer just 'models got better.'",
-      "action": "investigate, test frontier models on client quantitative workflows to map where AI substitution becomes viable.",
-      "evidence_level": "early_signal",
-      "why_it_made_the_cut": "Signals systematic frontier progress; useful for roadmapping AI-driven workflow transformation.",
-      "signal": "💡",
-      "urls": [
-        "https://latent.space/p/ai-is-getting-good-at-math/"
-      ],
-      "handle": "",
-      "image": "https://latent.space/og/card/post/ai-is-getting-good-at-math/81d5ad0c4d69fdf1e50b3e421806a0b816e1e19166d1c828fddd82ddafc35e6a.png",
-      "video": {
-        "id": "y7W80Q8YtU4",
-        "title": "OpenAI solves 377 math problems."
-      }
-    },
-    {
-      "thread_id": "mistral-le-chonk-open-model",
-      "thread_title": "Mistral Le Chonk: Western open-model comeback with massive parameter count",
-      "thread_state": "new",
-      "name": "Mistral AI",
-      "role": "French AI Lab, Open-Weight Model Release",
-      "hook": "Mistral releases Le Chonk, largest Western open model; Beam, Muse, Nemotron join open-weight renaissance.",
-      "insights": [
-        "**Le Chonk scale**: Significantly larger parameter count than prior Mistral releases; competing on frontier model territory",
-        "**Western open-model surge**: Meta Muse, Nvidia Nemotron, Mistral Le Chonk, and others closing gap to closed models faster than expected",
-        "**Inference economics**: Open models now viable for production inference; deployment options multiply"
-      ],
-      "for_you": "Open-weight alternatives to frontier models keep improving. If Le Chonk performs at Sonnet 5.5 class, you can self-host for agency workflows and eliminate API dependency. Test Le Chonk on your automation frameworks once it ships; benchmark against current Claude baseline.",
-      "context": "Mistral is a European AI lab founded 2023, backed by French government. Le Chonk is their latest push to compete with frontier labs by releasing large, capable open models. This is part of a broader Western push to democratize LLM capability.",
-      "what_changed": "Le Chonk details now public; part of broader Western open-model competitive surge.",
-      "action": "watch, benchmark once available; open-weight option that can run on-premise reduces long-term API costs.",
-      "evidence_level": "early_signal",
-      "why_it_made_the_cut": "Western open-model momentum; direct cost and independence play for agency infrastructure.",
-      "signal": "🟡",
-      "urls": [
-        "https://x.com/mattturck/status/2113311361639829673"
-      ],
-      "handle": "@MistralAI",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2113306386675171329/img/7Yx4yPg33dGIzGQR?format=webp&amp;name=large"
-    },
-    {
-      "thread_id": "andrej-karpathy-llm-outputs",
-      "thread_title": "Karpathy: We'll spend far more time understanding LLM outputs than tuning prompts",
+      "thread_id": "llm-output-understanding",
+      "thread_title": "Understanding LLM outputs becomes the new bottleneck",
       "thread_state": "new",
       "name": "Andrej Karpathy",
-      "role": "AI Research, Tesla/Founder · AI Researcher",
-      "hook": "Understanding LLM outputs becomes the bottleneck; prompt engineering is the easy part.",
+      "role": "AI Researcher · Independent",
+      "hook": "Understanding LLM outputs is now harder than prompting; controlled languages and reasoning traces are the frontier.",
       "insights": [
-        "**Shift in focus**: From 'what do I ask the model' to 'what is the model actually doing when it responds'",
-        "**Controlled language for clarity**: Testing ASD-STE100 (aviation standard) to get LLMs to explain in constraint-driven specs; works better than natural language for debugging",
-        "**Voice ramble sessions**: When lazy, switch to voice input and ramble—LLM uses extra context to infer intent better than a typed prompt"
+        "**ASD-STE100 controlled language** improves LLM clarity; ask models to explain in restricted vocabularies",
+        "**Voice ramble sessions** work better than precise prompts when exploration is the goal; let models think through messy ideas",
+        "Models can now handle **million-token contexts** ($10 budgets); prompt engineering is no longer the bottleneck",
+        "Gap widening: 6B people (75% of global population) have barely tried LLMs; those who have split into two groups with fundamentally different understanding of capability"
       ],
-      "for_you": "This is a workflow shift: your agency should invest in interpretability tools and LLM output validation before investing in prompt engineering. Build client workflows that include **human review checkpoints** for LLM outputs, not just automation. Test ASD-STE100 prompts for client-facing automations that require clarity.",
-      "context": "Karpathy is tracking how practitioners actually use frontier models. This tweet is based on hands-on experience with Opus, Claude, and GPT models at scale. The pattern: as models get better, the constraint moves from model capability to human ability to verify and control outputs.",
-      "what_changed": "Karpathy publicly signals that interpretability and output validation are now higher-leverage than prompt tuning.",
-      "action": "test, adopt ASD-STE100 or similar controlled-language prompting for client workflows that require explainability.",
+      "for_you": "For agency work: switch your prompt templates from 'be concise' to 'explain in controlled language' or 'ramble and explore.' Your clients' SMBs need workflows that extract reasoning, not just final answers. The 75% gap also means market expansion is still massive for PT.",
+      "context": "Karpathy tweets high-engagement observations on LLM usability and capability gaps. These are practitioner patterns from heavy use.",
+      "what_changed": "Karpathy's latest batch shifts focus from prompting tactics to output interpretation and reasoning exploration.",
+      "action": "test|Add controlled-language prompts and voice-based reasoning to one client workflow this week",
       "evidence_level": "early_signal",
-      "why_it_made_the_cut": "Signals workflow inversion: interpretation > tuning; actionable for agency practice.",
+      "why_it_made_the_cut": "Shifts engineering focus from inputs to outputs; signals maturation of prompting as a solved problem",
       "signal": "💡",
       "urls": [
-        "https://x.com/karpathy/status/2105819303471976479"
+        "https://x.com/karpathy/status/2105819303471976479",
+        "https://x.com/karpathy/status/2079610838143623371"
       ],
       "handle": "@karpathy",
       "image": "https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;name=large"
-    },
-    {
-      "thread_id": "ethan-mollick-frontier-teams",
-      "thread_title": "Frontier teams: Small groups testing new models, turning experiments into org-wide tools",
-      "thread_state": "new",
-      "name": "Ethan Mollick",
-      "role": "Professor at Wharton, AI Practitioner",
-      "hook": "Best companies dedicate small frontier teams to model testing; turns new capability into org-wide leverage.",
-      "insights": [
-        "**Frontier team structure**: 2–7 person teams testing new models weekly, experimenting with prompt patterns, building tools that scale to whole org",
-        "**Pirates and architects**: Optimal mix is pirates (iterate fast, break things) + architects (build durable systems)",
-        "**Ambition loop**: Ask 'how do I make what I'm doing more ambitious?' until you hit a wall or discover the model can do more than you thought"
-      ],
-      "for_you": "Your agency **needs a frontier team**. Dedicate 1–2 people to testing new Claude/OpenAI releases weekly, building client-ready templates from working experiments. This is how you stay ahead of client expectations and ship higher-margin custom AI work faster than competitors.",
-      "context": "Mollick is tracking organizational patterns in how fast-moving AI companies stay competitive. Every frontier lab (OpenAI, Anthropic, etc.) has internal frontier teams. Now it's spreading to enterprises. This is the playbook for keeping your agency current.",
-      "what_changed": "Mollick formalizing frontier team structure as a repeatable org pattern.",
-      "action": "use_now, hire or assign 1–2 people to a weekly frontier team; test Sonnet 5.5, Opus 5.5, GPT-6.1 Sol on client problems, ship the best workflows back to the rest of the team.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Directly applicable org design for staying current with frontier models.",
-      "signal": "🟢",
-      "urls": [
-        "https://x.com/emollick/status/2114503849826549842",
-        "https://youtube.com/watch?v=LZbjIE2LeTQ"
-      ],
-      "handle": "@emollick",
-      "image": "https://pbs.twimg.com/profile_images/1601382188712398850/3AAOlqrX_400x400.jpg"
-    },
-    {
-      "thread_id": "replit-chroma-acquisition",
-      "thread_title": "Replit acquires Chroma; RAG pioneers now own agent memory layer",
-      "thread_state": "monitoring",
-      "name": "Replit, Chroma",
-      "role": "AI Developer Platform, Vector DB Company",
-      "hook": "Replit acquires Chroma; brings RAG/memory infrastructure into developer platform.",
-      "insights": [
-        "**Strategic fit**: Chroma built RAG before the term existed; now becomes memory layer for Replit agents",
-        "**Agent memory**: Agents need context and historical state; Chroma provides semantic search and retrieval for agent decision-making",
-        "**Integration**: Chroma API embedded in Replit workflows; developers can now build stateful agents without separate DB infrastructure"
-      ],
-      "for_you": "If you build agentic systems for Portuguese SMBs using Replit, this integration means simpler agent memory management. Test Replit + Chroma for client workflows that require multi-turn reasoning or conversation history. One less infrastructure piece to manage.",
-      "context": "Chroma was founded 2022, pioneered vector DB for LLM retrieval before RAG became mainstream. Replit is an IDE + deployment platform for developers. Acquisition integrates memory into agent workflows directly.",
-      "what_changed": "Acquisition confirmed; integration now part of Replit platform roadmap.",
-      "action": "watch, test once Chroma is fully integrated into Replit's agent orchestration.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Simplifies agent infrastructure for developers; reduces friction for stateful agentic systems.",
-      "signal": "🟡",
-      "urls": [
-        "https://x.com/amasad/status/2113736007111827606"
-      ],
-      "handle": "@replit",
-      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg"
     }
   ],
   "build_this": [
     {
-      "name": "Replit Private Cloud (On-Premise Deployment)",
-      "source": "Replit",
-      "what_it_is": "Deploy Replit to your own infrastructure; data never leaves your network.",
-      "why_try_it": "If you're building automations for regulated Portuguese SMBs (healthcare, finance), on-premise deployment removes data residency concerns and unlocks higher-trust enterprise deals. Test this week with one client's compliance team.",
-      "url": "https://x.com/amasad/status/2111267314012496121"
-    },
-    {
-      "name": "Claude Opus 5.5 for Code Review and Explanation (Controlled Language)",
-      "source": "Simon Willison / Karpathy Signal",
-      "what_it_is": "Use ASD-STE100 controlled-language prompts to get Claude to explain code and logic in constraint-driven, verifiable format.",
-      "why_try_it": "For client code audits and client-facing documentation, controlled-language explanations are clearer and more trustworthy than free-form Claude output. Test on one client's codebase this week; build a reusable audit template.",
-      "url": "https://x.com/karpathy/status/2105819303471976479"
+      "name": "Coolify",
+      "source": "GitHub Trending",
+      "what_it_is": "Open-source, self-hostable PaaS alternative to Vercel, Heroku, Netlify for deploying static sites, databases, and 360+ services.",
+      "why_try_it": "If you're building micro-SaaS products or hosting client workflows, Coolify lets you deploy on your own infrastructure with full control, no vendor lock-in. Portuguese hosting compliance also becomes easier. Spin up a test deployment this week for one of your side projects.",
+      "url": "https://github.com/coollabsio/coolify"
     }
   ],
   "podcasts": [
     {
       "show": "Latent Space",
-      "episode": "Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal",
-      "takeaway": "AI workloads don't fit 3-year GPU purchase cycles; serverless sandbox pooling is the new model.",
+      "episode": "An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio",
+      "takeaway": "Scientific agents can now traverse complex experimental spaces; models differ sharply in reasoning and learning from prior experiments.",
       "key_points": [
-        "Modal pools GPU capacity across customers; agents scale to 1M concurrent sandboxes without pre-purchase",
-        "GPU pricing risk: If prices fall 50%, Modal hedges; owned infrastructure breaks financials",
-        "Developer experience: Optional code review, sandbox security isolation, and auto-scaling reduce operational burden"
+        "Huge action spaces explored by reasoning agents; medicinal chemistry is forcing function for broad decision-making",
+        "Leash released Minos framework with pre-measured experimental worlds and agent transcripts for benchmarking",
+        "Agents weren't ready to do this a year ago; massive capability jump in one year"
       ],
-      "for_you": "If your agency is scaling agentic automation for SMBs, Modal's sandbox model eliminates GPU capex risk and scales pay-per-use. Evaluate this week for cost comparison against in-house GPU cluster.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=IiZ9yd2Do8I",
+      "for_you": "If you're exploring agent hiring for PT SMB research, design, or knowledge work, this shows you where models stand on multi-step reasoning. The Minos transcripts reveal which models think vs which guess.",
+      "signal": "💡",
+      "url": "https://youtube.com/watch?v=vhPCo-8K78U",
       "video": {
-        "id": "IiZ9yd2Do8I",
-        "title": "Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal"
-      }
-    },
-    {
-      "show": "Every / AI & I",
-      "episode": "How to Actually Keep Your Company Ahead of AI",
-      "takeaway": "Frontier teams test new models weekly; best companies turn experiments into org-wide tools and workflows.",
-      "key_points": [
-        "Every's frontier team: 7 people testing Claude, OpenAI, custom models; experiments ship back to org",
-        "Pirates and architects: Mix of fast iterators and system builders makes frontier teams effective",
-        "From tabless browser to personal agents: Frontier team output becomes product differentiation"
-      ],
-      "for_you": "Build a frontier team in your agency now. 1–2 people testing Sonnet 5.5, Opus 5.5 weekly, building client-ready templates. This is how you stay ahead of competition and deliver higher-margin custom AI faster.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=LZbjIE2LeTQ",
-      "video": {
-        "id": "LZbjIE2LeTQ",
-        "title": "How to Actually Keep Your Company Ahead of AI"
+        "id": "vhPCo-8K78U",
+        "title": "An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio"
       }
     }
   ],
   "tech": [
     {
-      "name": "Amjad Masad",
-      "role": "CEO Replit",
-      "hook": "Model choice is less important than operator skill and partnership strength.",
-      "key_point": "Replit remains model-agnostic; OpenAI is preferred partner for Agents due to performance, cost, partnership depth—not lock-in.",
-      "for_you": "Don't bet your agency on a single model API. Maintain multi-model workflows; treat vendor selection as execution detail, not strategy.",
-      "signal": "💡",
-      "urls": [
-        "https://x.com/amasad/status/2111494912562888939"
-      ],
-      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg",
-      "handle": "amasad"
-    },
-    {
       "name": "Guillermo Rauch",
-      "role": "CEO Vercel",
-      "hook": "Managing AI leverage means balancing over-guidance and under-guidance; optimal steering is a learned skill.",
-      "key_point": "Best operators know when the model is smarter than them and when to steer it back. Skill zero is knowing how much guidance to give.",
-      "for_you": "Train your team on **when to trust the model** vs. **when to override it**. This is the gap between chaotic output and production-ready automation.",
-      "signal": "💡",
+      "role": "CEO · Vercel",
+      "hook": "Kill static credentials; adopt OIDC with self-destructing keys for every secret.",
+      "key_point": "Industry unified on TLS for HTTPS encryption; now must do same for token/credential lifecycle with auto-expiring OIDC tokens to prevent breach at rest.",
+      "for_you": "For agency client infrastructure: push them to rotate credentials to auto-expiring tokens. This becomes a competitive advantage when you can say 'your secrets expire in 1 hour, not stored.'",
+      "signal": "🟢",
       "urls": [
-        "https://x.com/rauchg/status/2114085432749347086"
+        "https://x.com/rauchg/status/2113399539227136084"
       ],
       "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
       "handle": "rauchg"
     },
     {
       "name": "Aaron Levie",
-      "role": "CEO Box",
-      "hook": "Cybersecurity will be the biggest AI investment category; agents can scale work that was compute-limited.",
-      "key_point": "Agent swarms for threat detection, code review, infrastructure scanning—security is the use case where compute scaling directly solves the problem.",
-      "for_you": "Cybersecurity is a high-margin upsell for SMBs. Build agent-driven security audit tools for your clients; position as managed security service powered by agentic automation.",
-      "signal": "🟢",
+      "role": "CEO · Box",
+      "hook": "Agent swarms for cybersecurity will be one of biggest AI categories; compute makes formerly-constrained work feasible.",
+      "key_point": "Security teams historically limited by labor; agents can test every permutation of risk at scale, scale code review, process threat data 24/7.",
+      "for_you": "For PT SMBs: bundle AI-powered security audits (code, infra, access) as part of your agency retainer. Agents running continuous scans is a new service tier.",
+      "signal": "🟡",
       "urls": [
         "https://x.com/levie/status/2113738768645808277"
       ],
       "image": "https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg",
-      "handle": "levie"
+      "handle": "levie",
+      "video": {
+        "id": "_eIMwdRBBfQ",
+        "title": "One Security Practitioner, Daily AI Agent Use — Here's What That Changes About How You Think"
+      }
     },
     {
-      "name": "Garry Tan",
-      "role": "CEO Y Combinator",
-      "hook": "Agents shouldn't start from zero every session; shared memory across tools improves leverage.",
-      "key_point": "GBrain: personal context layer for founders that Claude, Codex, Capy share. Agents with persistent context are more useful than stateless chains.",
-      "for_you": "Build context layers for your clients' agents. SMB workflows benefit from stateful automation that remembers client relationships, past decisions, and patterns.",
+      "name": "Amjad Masad",
+      "role": "CEO · Replit",
+      "hook": "Software ate the world; now it's learning to run it—agents are about to upend firm architecture.",
+      "key_point": "Hierarchies of people in departments coordinated by bureaucracy are the old model; self-driving companies with AI agents + human judgment are the new frontier.",
+      "for_you": "Your agency position: you're helping PT SMBs become self-driving companies. Reframe projects as 'automation layers' not 'one-off solutions.' Agent infrastructure becomes the long-term contract.",
       "signal": "💡",
       "urls": [
-        "https://x.com/garrytan/status/2113666998442024989"
+        "https://x.com/amasad/status/2114760898225299721"
       ],
-      "image": "https://pbs.twimg.com/card_img/2113664960756916224/eCqhSYTT?format=webp&amp;name=medium",
-      "handle": "garrytan"
-    },
-    {
-      "name": "Simon Willison",
-      "role": "AI Practitioner, Datasette Creator",
-      "hook": "Open-source agent standards (Agent Skills) now donated to Agentic AI Foundation; vendor lock-in risk decreases.",
-      "key_point": "Anthropic donated Agent Skills to AAIF (Linux Foundation); joins open standards alongside MCP. Vendor-neutral agentic tooling is now the default.",
-      "for_you": "Build client automations on open standards (MCP, Agent Skills) instead of vendor-specific APIs. Reduces switching cost and future-proofs client workflows.",
-      "signal": "🟡",
-      "urls": [
-        "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
-      ]
+      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg",
+      "handle": "amasad"
     }
   ],
   "pt_news": [
     {
-      "headline": "Anthropic avança no processo de entrada em bolsa com S-1 apresentado ao regulador SEC",
-      "hook": "Gigante de IA apresenta prospeto ao SEC para negociação no Nasdaq com ticker ANT.",
-      "for_you": "Sucesso de IPO da Anthropic valida o modelo de negócio de IA e melhora opções de financiamento para empresas de serviços de IA em Portugal. Monitorize a estrutura de margens de inferência da empresa.",
+      "headline": "Microsoft oferece saídas voluntárias a 60 mil trabalhadores",
+      "hook": "Microsoft propõe acordos de rescisão a 60 mil funcionários (1 em cada 4) com condições semelhantes a indemnizações, acelerando investimentos em IA.",
+      "for_you": "Sinal de consolidação: grandes tech acceleram IA, reduzem overhead. Para PT: talento em software/cloud pode estar disponível; oportunidade para recrutar especialistas saídos da Microsoft em projetos de automação e agentes.",
       "signal": "🟡",
-      "url": "https://observador.pt/2026/10/26/ia-anthropic-avanca-no-processo-de-entrada-em-bolsa-com-apresentacao-de-prospeto/",
+      "url": "https://observador.pt/2026/10/26/microsoft-propoe-novo-plano-de-saidas-voluntarias-a-60-mil-trabalhadores/",
       "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A4096%3A2303%3Anowe%3A0%3A214%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F09%2F09193018%2Fgettyimages-2270583457-scaled.jpg?layer=obstop:T"
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1123%3Anowe%3A0%3A125%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2024%2F06%2F25133619%2F42783020.jpg?layer=obstop:T"
     },
     {
-      "headline": "Google Gemini disponibiliza plataforma com ferramentas para microempresas",
-      "hook": "Tecnológica norte-americana lança suite de ferramentas de IA dirigida especificamente a pequenos empreendedores.",
-      "for_you": "Concorrência direta à sua proposta de valor: Google agora oferece automação de IA genérica a microempresas portuguesas. Diferencie-se com especialização vertical e consultoria de implementação; compete em resultados mensuráveis, não em acesso a modelos.",
-      "signal": "🔴",
-      "url": "https://eco.sapo.pt/2026/10/26/gemini-disponibiliza-plataforma-com-ferramentas-para-microempresas/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/10/cropped-47257758-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200",
-      "video": {
-        "id": "gbKQQH1ZzmM",
-        "title": "2 GB expand from Google Gemini Ai pro#shorts #gemini #google"
-      }
-    },
-    {
-      "headline": "Oferta de IA ganha força em Portugal mas adoção continua abaixo da média europeia",
-      "hook": "Mais empresas a preparar soluções de IA; custos, falta de conhecimento e integração comprometem salto da oferta para utilização.",
-      "for_you": "Opportunity flag: mercado português de IA está numa fase de lacuna entre oferta e adoção. Posicione-se como translator entre vendedores de IA e utilizadores finais; forme consultores internos de clientes em como usar IA operacionalmente.",
+      "headline": "Wall Street impulsionada por tecnológicas; IPO Anthropic move mercado",
+      "hook": "Bolsa norte-americana em alta com ajuda de tecnológicas; IPO da Anthropic (criadora do Claude) impulsiona setor.",
+      "for_you": "Anthropic IPO confirma viabilidade de empresa AI pura. PT: procura por agências de IA e SaaS vai crescer em 2027 quando capital europeu e português segue tendência.",
       "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/oferta-de-ia-ganha-forca-em-portugal-mas-adocao-continua-abaixo-da-media-europeia/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/9b96560242bd8dc4850b2567c0e84760886aff93-scaled.jpg"
+      "url": "https://www.jornaldenegocios.pt/mercados/bolsa/detalhe/wall-street-no-verde-com-ajuda-das-tecnologicas-ipo-da-anthropic-impulsiona-setor",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-06/img_1200x676uu2026-06-29-14-32-16-525829.jpg"
     },
     {
-      "headline": "Tekever ganha contrato com Comando de Operações Especiais dos Estados Unidos",
-      "hook": "Unicórnio português vende drones autónomos a USSOCOM após programa de validação bem-sucedido.",
-      "for_you": "Modelo de negócio complementar: exportação de tecnologia IA portuguesa a mercados norte-americanos funciona. Explore parcerias com labs de IA portuguesa para expandir oferta além de serviços locais.",
-      "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/computadores/artigos/tekever-ganha-contrato-com-comando-de-operacoes-especiais-dos-estados-unidos/",
+      "headline": "Quando o talento não cabe no algoritmo: IA em recrutamento",
+      "hook": "Márcia Patrício avisa para riscos de usar IA na avaliação de talento; algoritmos podem deixar de fora competências que não fazem pattern match.",
+      "for_you": "Para agência: se vão oferecer serviços de automação RH, esclareça que IA é filtro inicial, não decisor final. PT SMBs desconfiam de black-box hiring; transparência é venda.",
+      "signal": "💡",
+      "url": "https://tek.sapo.pt/opiniao/artigos/quando-o-talento-nao-cabe-no-algoritmo/",
       "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/10/TEKEVER_logos_systems_2.jpg"
-    },
-    {
-      "headline": "Benfica, Sporting e FC Porto iniciam caminho na Taça com entrada em 4.ª eliminatória",
-      "hook": "Sorteio da Taça de Portugal coloca grandes equipas em confrontos desde fase de grupos.",
-      "for_you": "Sem relevância para negócio de IA em Portugal.",
-      "signal": "⚪",
-      "url": "https://observador.pt/2026/10/26/sorteio-da-taca-de-portugal-benfica-defronta-campeao-em-titulo-torreense-fc-porto-e-sporting-comecam-em-casa/",
-      "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2781%3A1560%3Anowe%3A0%3A46%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F05%2F24164837%2Fdoc2026052347164101ma-05686.jpg?layer=obstop:T"
+      "image": "https://cdn.teknoticias.pt/uploads/2026/10/Marcia-Patricio.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "Lula wins historic fourth non-consecutive term as Brazil's president over Bolsonaro",
-      "hook": "Leftist incumbent stages dramatic comeback after first-round loss to defeat far-right challenger in runoff.",
-      "for_you": "Political stability matters for cross-border hiring and talent retention. Lula's victory signals continued regional openness to tech and startup ecosystems in Brazil; relevant if you're building distributed teams.",
+      "headline": "Lula wins historic fourth non-consecutive term as Brazil president.",
+      "hook": "Lula defeats Flávio Bolsonaro in runoff with 51.79% after losing first round; first candidate to win after first-round loss.",
+      "for_you": "Geopolitical stabilization in Americas; markets favour Lula's economic continuity over Bolsonaro's radical shift. No direct action, filed for awareness on Brazil market stability.",
       "signal": "🟡",
-      "url": "https://www.theguardian.com/world/2026/oct/26/lula-wins-brazil-election",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/1ea33b8c8e9c3cb14fb6e86ce190326d4d4868d4/19_0_4778_3823/master/4778.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=30859316d2f3328f2784b61942776350",
+      "url": "https://www.bbc.co.uk/news/articles/ckm23y3mg1yyo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/eab1/live/a6b767f0-d15c-11f1-a701-fddedf244c16.jpg",
       "video": {
         "id": "1wWgat144E8",
         "title": "Lula wins historic fourth term, vows to govern for all Brazilians"
       }
     },
     {
-      "headline": "Anthropic files S-1 for Nasdaq listing, first pure-play AI company IPO",
-      "hook": "Anthropic formally seeks SEC approval to list under ticker ANT, signaling frontier AI economics are venture-scale.",
-      "for_you": "IPO validates the AI infrastructure business model. Watch valuation and unit economics in S-1; if Anthropic demonstrates profitable inference at scale, it signals the entire AI service economy is accelerating toward profitability.",
+      "headline": "Serbia's student-led movement ousts 12-year leader Vučić.",
+      "hook": "Populist Aleksandar Vučić loses election to student-led protest movement; describes result as 'clear' defeat.",
+      "for_you": "Regional EU realignment; Serbia moving centrist/democratic. Longer-term: tech investment flows to more stable democracies. No immediate action.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cq398p1wd1evo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/746e/live/6e0550b0-cec4-11f1-b9e0-e5f0da03dc7f.jpg",
-      "video": {
-        "id": "UZ4nQvLFltA",
-        "title": "Will OpenAI or Anthropic IPO first?"
-      }
-    },
-    {
-      "headline": "Venezuelan opposition leader María Corina Machado returns after months in exile",
-      "hook": "Nobel peace prize winner returns to Venezuela after nearly a year abroad, signaling shifting political dynamics.",
-      "for_you": "No direct impact on Portuguese AI economy.",
-      "signal": "⚪",
-      "url": "https://www.theguardian.com/world/2026/oct/25/exiled-venezuelan-opposition-leader-maria-corina-machado-announces-her-return",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/b76716fc922183868270c55ef67ee72294490554/313_0_4560_3648/master/4560.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=cdfa0bc3b59eb2a1670022459854998b",
-      "video": {
-        "id": "4LgFOWcoEB8",
-        "title": "María Corina Machado returns to Venezuela after months in exile"
-      }
-    },
-    {
-      "headline": "Mistral releases Le Chonk, largest Western open-weight model; open-model surge accelerates",
-      "hook": "French AI lab joins Nvidia, Meta in releasing massive open models; frontier capability now widely deployable.",
-      "for_you": "Open-weight competition intensifies. If Le Chonk performs at Sonnet class, your agency can self-host and eliminate API dependency. Test once available; benchmark against current Claude baseline for cost and inference speed.",
-      "signal": "🟡",
-      "url": "https://x.com/mattturck/status/2113311361639829673",
-      "source_name": "Latent Space (via X)",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2113306386675171329/img/7Yx4yPg33dGIzGQR?format=webp&amp;name=large"
-    },
-    {
-      "headline": "Serbia's student-led movement ousts 12-year leader Vučić in surprise election result",
-      "hook": "Populist right-wing president loses after student protest movement mobilizes opposition vote.",
-      "for_you": "No direct impact on Portuguese tech or AI sector.",
-      "signal": "⚪",
       "url": "https://www.bbc.co.uk/news/articles/cw5yn3xlprpmo",
       "source_name": "BBC World",
       "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f0c7/live/712973e0-d110-11f1-b441-2b33b063138f.jpg"
+    },
+    {
+      "headline": "Anthropic warns of catastrophic risk to humankind in IPO filing.",
+      "hook": "Anthropic's S-1 prospectus flags existential AGI risks while company prepares for public markets; first true AI company IPO.",
+      "for_you": "Public companies must now disclose AI risk. Market is pricing in capability + risk. For PT: this normalizes AI safety as a business concern, not fringe; clients will expect you to address it.",
+      "signal": "🟢",
+      "url": "https://www.bbc.co.uk/news/articles/cq398p1wd1evo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e394/live/7affbe60-d147-11f1-93e1-3b657b665bcf.jpg",
+      "video": {
+        "id": "bkU8inXALC0",
+        "title": "📰 Anthropic warns investors of AI’s \"existential risk to humanity\" in IPO prospectus,..."
+      }
     }
   ],
   "since_yesterday": null,
