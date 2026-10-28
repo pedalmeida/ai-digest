@@ -2,418 +2,295 @@
   "date": "Wednesday, 28 October 2026",
   "ai": [
     {
-      "thread_id": "anthropic-s1-ipo-filing",
-      "thread_title": "Anthropic S-1: Revenue, Margins, Compute Constraints",
+      "thread_id": "anthropic-s1-filing",
+      "thread_title": "Anthropic S-1 IPO filing and market implications",
       "thread_state": "developing",
       "name": "Anthropic",
-      "role": "Public company filing · AI safety and frontier models",
-      "hook": "Anthropic files S-1 revealing 1,300% YoY revenue growth, 85% gross margin, GAAP operating profit.",
+      "role": "Public filing · SEC",
+      "hook": "Anthropic files S-1 with 1,300% YoY growth, 85% margin, $587B compute commitments binding.",
       "insights": [
-        "**Revenue up 1,300% YoY** in H1 2026; **85% gross margin**, 900% net revenue retention",
-        "**$587B in compute commitments and leases** ($265.6B purchase commitments + $321.4B future leases) — growth is now compute-constrained, not demand-constrained",
-        "80% of revenue from models released in last 6 months; **Opus 5.5 dominates the frontier**, widely recognized as best-in-class",
-        "Amazon partnership deepens: VCs make billions, but Amazon positioned to make substantially more from compute margin and equity upside"
+        "**Revenue up 1,300% YoY in H1 2026**; GAAP operating profitable with 85% gross margin",
+        "**$587B in compute commitments and leases** not yet started — this is the scaling constraint, not demand",
+        "**80% of revenue from models released in last 6 months**; platform velocity and model refresh cycles drive economics",
+        "**48% of revenue through cloud partners** (AWS, GCP); distribution dependency is material"
       ],
-      "for_you": "Anthropic's compute spend ceiling directly shapes the market for AI agency services. If Anthropic can only scale at compute-contract speed, the window for Portuguese SMBs to adopt mature, cost-effective models widens. Watch compute pricing and Anthropic's capacity constraints — they set the floor for your agency margins.",
-      "context": "Anthropic, founded in 2021 by ex-OpenAI researchers, has grown to near parity with OpenAI in frontier model capability. The S-1 filing (made 28 Oct 2026) reveals how the company monetized safety research and built a defensible business on model quality and alignment. The filing also shows that capital and compute access, not product-market fit, are now the binding constraints.",
-      "what_changed": "S-1 filed publicly, revealing that Anthropic's **compute spend is pre-committed for years**; this is both a moat (competitors need equal capital) and a risk (capital intensity locks in a few players). The revenue scale and unit economics suggest AI services for SMBs will remain a volume play unless agencies can extract markup from model performance gains.",
-      "action": "watch",
-      "reason": "Anthropic's compute constraints and margin structure set pricing expectations for enterprise AI. If Anthropic can only serve so much demand, downstream pricing for agency services could improve; if they undercut via scale, margins compress.",
+      "for_you": "For your PT SMB agency: Anthropic's economics prove **API model scaling is margin-positive at scale**. The compute commitment numbers show frontier labs are betting on multi-year demand. If you're building agentic workflows, model refresh cycles (6-month half-life evident in Anthropic data) mean client workflows need architectural flexibility to swap models without rewrite. Watch Anthropic's managed agent pricing — it could reshape how you price agent delivery.",
+      "context": "Anthropic, founded by ex-OpenAI safety researchers, has grown from stealth to a $65B+ IPO candidate in 4 years. The S-1 discloses financials, compute strategy, and risk factors across 335 pages. Key tension: is the business fundamentally margin-positive (85% GM suggests yes) or do frontier compute costs eventually consume all gains? The $587B commitment figure is a signal of confidence in sustained demand but also a bet that inference will remain expensive.",
+      "what_changed": "S-1 now public with full financial detail. Previously rumors; now confirmed: revenue retention at 900%, platform concentration risk with three major partners, and the fact that **newest models drive majority of revenue** — older model economics deteriorate fast.",
+      "action": "watch, because compute economics and platform dependency will shape your client's ROI on agentic workflows. If pricing pressure hits, model refresh cycles could accelerate further.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "S-1 is primary source; most comprehensive market signal on frontier AI economics to date",
-      "signal": "🔴",
-      "urls": [
-        "https://latent.space/p/ainews-anthropic-s1/",
-        "https://x.com/danshipper/status/2114714881312305542",
-        "https://stratechery.com/2026/anthropic-s-1-the-cost-of-compute-who-is-paying/"
-      ],
-      "handle": "@danshipper",
-      "image": "https://latent.space/og/card/post/ainews-anthropic-s1/688e4ae000846c5307adf1fb9a20b87c783c2df43e41746cad307c28bc888038.png"
-    },
-    {
-      "thread_id": "gpt-6-1-terra-computer-use",
-      "thread_title": "GPT-6.1 Terra: Visual Reasoning and Computer Use",
-      "thread_state": "monitoring",
-      "name": "OpenAI",
-      "role": "Frontier AI lab · Model provider",
-      "hook": "GPT-6.1 Terra emphasizes visual reasoning and computer use; Greg Brockman reports it 'feels faster at using a computer than what I can do unassisted.'",
-      "insights": [
-        "**Computer use qualitative threshold crossed**: agents now faster at screen navigation and task execution than unassisted humans",
-        "Visual reasoning + precise computer use are release priorities, not raw capability metrics — signals shift from benchmark optimization to agentic deployment",
-        "Model prioritizes **'clearer, more natural writing'** alongside tool use — suggests OpenAI optimizing for agent interpretability and human oversight"
-      ],
-      "for_you": "Computer use at this capability level means browser automation, CRM data entry, and client portal navigation become agency workflow staples, not edge cases. Test Terra for end-to-end client onboarding flows; this is where agency value compounds.",
-      "what_changed": "Brockman's direct claim that Terra beats unassisted human speed on computer tasks is new. Previous releases emphasized capability breadth; this signals OpenAI treating agent speed and reliability as primary delivery lever.",
-      "action": "test",
-      "reason": "If Terra can reliably handle multi-step browser and desktop tasks faster than manual work, it changes how you architect client workflows. Test on real Portuguese SMB processes (form filling, data export, integration triggering).",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "First credible claim of agent speed superiority over human baseline; directly actionable for agency workflows",
+      "why_it_made_the_cut": "Most material market signal this week; reshapes how to model LLM economics and pricing for client delivery.",
       "signal": "🟢",
       "urls": [
-        "https://x.com/gdb/status/2114814747254432243",
-        "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
+        "https://x.com/danshipper/status/2114714881312305542"
       ],
-      "handle": "@gdb",
-      "image": "https://pbs.twimg.com/media/HVlT4mLa4AAKD0a?format=webp&amp;name=large"
+      "image": "https://pbs.twimg.com/profile_images/1946219091305340928/_Ef-eDlc_400x400.jpg",
+      "handle": "danshipper"
     },
     {
-      "thread_id": "model-output-interpretation-frontier",
-      "thread_title": "Interpreting LLM Outputs: The New Frontier",
+      "thread_id": "gpt61-terra-release",
+      "thread_title": "OpenAI releases GPT-6.1 Terra with computer use focus",
+      "thread_state": "developing",
+      "name": "OpenAI",
+      "role": "Model release",
+      "hook": "GPT-6.1 Terra prioritizes visual reasoning and computer use; Brockman: feels faster than unassisted work.",
+      "insights": [
+        "**Computer use crossed qualitative threshold** — agent feels faster than human at the same task",
+        "**Visual reasoning and natural writing** emphasized over benchmark scores",
+        "Released as a **fast, efficient model**, positioning between Opus-class (most capable) and Sonnet-class (speed)"
+      ],
+      "for_you": "For your agency: **computer use reliability is now production-grade**. If you're billing clients for RPA-style automation or browser-based workflows, GPT-6.1 Terra is the model to test this week. Brockman's benchmark is subjective speed parity — that's the new bar. Your workflows should stress-test against task breadth (visual PDFs, multi-tab navigation, form-filling under variance).",
+      "what_changed": "From previous versions: OpenAI is **no longer leading with capability benchmarks**. They're leading with **practical speed and reliability for agentic work**. This signals a market shift from raw capability to predictable task execution.",
+      "action": "test, immediately. Computer use is table-stakes for agency delivery; if Terra passes your visual+navigation smoke tests, it becomes your default model for client automation.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Most actionable model release this week; directly impacts your delivery stack.",
+      "signal": "🟢",
+      "urls": [
+        "https://x.com/gdb/status/2114814747254432243"
+      ],
+      "image": "https://pbs.twimg.com/media/HVlT4mLa4AAKD0a?format=webp&amp;name=large",
+      "handle": "gdb"
+    },
+    {
+      "thread_id": "output-interpretation-frontier",
+      "thread_title": "LLM output interpretation emerges as new frontier",
       "thread_state": "new",
       "name": "Andrej Karpathy",
-      "role": "AI researcher and educator · Founding member Tesla Autopilot, former OpenAI",
-      "hook": "**Understanding LLM outputs is harder than prompting.** Karpathy highlights controlled languages and reasoning traces as the frontier for reliability.",
+      "role": "Builder · Tesla/OpenAI veteran",
+      "hook": "Understanding LLM outputs is now the bottleneck. Controlled languages and reasoning traces key.",
       "insights": [
-        "Gap in shared understanding of LLM capability is **widening into a sharp funnel**: ~75% of global population barely interact with LLMs; expert users diverge into debugging output quality",
-        "**ASD-STE100** (controlled language spec for aircraft manuals) works as a prompt constraint to force clearer, more parseable model outputs",
-        "**Long ramble sessions** with voice input unlock hidden context when users are 'too lazy to type'—suggests friction in context transfer is the limiting factor, not model capability"
+        "**Output interpretation is harder than prompting**; gap in capability understanding is widening",
+        "**Ask models to explain in ASD-STE100** (controlled language) to improve reliability",
+        "**Reasoning traces and chain-of-thought** are moving from debugging tools to production guardrails",
+        "**Hidden reasoning separates brain (understanding) from hands (action)**; this split is structural, not accidental"
       ],
-      "for_you": "For Portuguese SMB workflows, this means: (1) don't assume the model's top answer is correct—build verification steps into agentic flows; (2) test voice-based ramble sessions for client discovery calls (reduce transcription friction, let agent extract context); (3) structured outputs and controlled languages will be table stakes for reliable agent orchestration.",
-      "context": "Karpathy's focus on output interpretation reflects a shift in the field: raw capability (benchmark scores) is saturating; the real problem is making model outputs **trustworthy and actionable** in production systems. This is especially acute for agents making decisions or taking actions on behalf of clients.",
-      "what_changed": "Karpathy's recent tweets signal a move from 'how do I prompt better' to 'how do I trust the output.' This is the next maturity phase for agencies deploying agents at scale.",
-      "action": "investigate",
-      "reason": "Output verification and controlled languages are not yet standard in Portuguese SMB tool stacks. If Karpathy is highlighting this, it's a signal to move these techniques from research to production.",
+      "for_you": "For your Portuguese SMB clients: if you're building agent workflows, **don't assume the model's answer is correct just because it's confident**. Karpathy's insight means **you need to ask the agent to 'show its work' in plain language before executing any action**. For a client like a real estate agency using agents, request the model output its reasoning in simple language before it fills a CRM field or sends an email. This is the edge between 'agent sometimes breaks things' and 'agent reliable enough to delegate to.'",
+      "context": "Karpathy, who shaped Tesla's autopilot and led OpenAI's safety research, has been posting patterns he finds effective with LLMs at scale. This thread is part of a broader observation that as models get more capable, the *interpretation gap* between what the model computed and what humans need grows. His suggestion to use controlled languages (ASD-STE100 is a specification for unambiguous English) is a practical counter: force the model into a narrow, verifiable output format.",
+      "what_changed": "From earlier hype: capability is no longer the constraint. **Reliability of interpretation** is. This reframes the role of the engineer from 'prompt better' to 'design for auditability.'",
+      "action": "watch and investigate. If you're shipping agents to clients, test output interpretation strategies (controlled language prompts, reasoning traces) this week. This could be the difference between 'demo works, production fails' and 'production-grade automation.'",
       "evidence_level": "early_signal",
-      "why_it_made_the_cut": "Highest-engagement post from Karpathy this week; signals directional shift in how top researchers think about LLM deployment",
+      "why_it_made_the_cut": "High-signal builder perspective from someone who shaped the frontier; contradicts 'just prompt better' narrative.",
       "signal": "💡",
       "urls": [
-        "https://x.com/karpathy/status/2105819303471976479",
-        "https://x.com/karpathy/status/2079610838143623371"
+        "https://x.com/karpathy/status/2105819303471976479"
       ],
-      "handle": "@karpathy",
-      "image": "https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;name=large"
+      "image": "https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;name=large",
+      "handle": "karpathy"
     },
     {
-      "thread_id": "open-weights-competitive-gap",
-      "thread_title": "Open-Weights Models Falling Further Behind Frontier",
-      "thread_state": "developing",
-      "name": "Artificial Analysis + Ethan Mollick",
-      "role": "Independent benchmarking · AI research",
-      "hook": "Artificial Analysis moves to **closed benchmarks**, finds **open-weight models falling further behind** frontier. No Fable-class open model in recent releases.",
+      "thread_id": "frontier-compute-saturation",
+      "thread_title": "Frontier compute shifting from coding to discovery",
+      "thread_state": "new",
+      "name": "Amjad Masad",
+      "role": "CEO · Replit",
+      "hook": "Coding and knowledge work saturating; frontier compute moving to medicine and science.",
       "insights": [
-        "Shift from **GDPval-AA (open benchmarks) to closed benchmarks** reduces gaming; open models now show larger competency gaps than previously measured",
-        "**Fable-class open model MIA**: last strong open release was months ago; frontier gap widening despite Mistral and Moonshot efforts",
-        "Implication: **open-source strategy may split**: utility models for fine-tuning and edge deployment vs. frontier models staying behind closed APIs"
+        "**Sub-frontier models now handle 80% of coding tasks**; diminishing returns on frontier compute for knowledge work",
+        "**Medicine and scientific discovery** are the new frontier applications; these have unbounded upside",
+        "If investing in frontier AI, **underwrite mostly on new discovery, not incremental coding improvements**"
       ],
-      "for_you": "For agency workflows targeting Portuguese SMBs, this matters: (1) open-weight models remain viable for fine-tuned domain tasks (billing, compliance docs); (2) for general agentic reasoning, you'll depend on closed API providers (Anthropic, OpenAI, Kimi); (3) build for API-first, open-weights as fallback for edge cases or cost-sensitive batch jobs.",
-      "what_changed": "Artificial Analysis's benchmarking methodology shift is significant. Previous measures may have overestimated open-weight capability. Closed benchmarks are harder to game but less transparent; this is a trade-off in the industry.",
-      "action": "watch",
-      "reason": "If open-weight models stall, your agency's architecture should assume API dependency for reasoning tasks. Plan for cost management through caching, batching, and selective use of smaller models for retrieval and classification.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Changes benchmarking methodology and shows measurable capability gap; affects build/buy decisions for agency tech stack",
+      "for_you": "For your agency: this means **don't compete on pure coding automation**. Your edge is in **domain-specific workflows for Portuguese SMBs** (real estate, legal, HR, logistics). Frontier models will eat generic coding agents; your defensibility is in **client-specific context and integration**, not in who can write the most code fastest. Watch where Anthropic and OpenAI are directing compute spend — it will signal which verticals are about to see commoditized solutions.",
+      "what_changed": "From 2025 hype: coding agents were the 'killer app.' Now they're table-stakes. Frontier labs are already moving capital away from coding toward discovery. This is a market signal that the 'coding agent gold rush' is ending.",
+      "action": "watch, to inform your product roadmap. If coding is saturating, your agency's long-term value is in **vertical specialization** (e.g., Portuguese real estate agents with agentic deal scoring) not horizontal tooling.",
+      "evidence_level": "early_signal",
+      "why_it_made_the_cut": "CEO-level market thesis from someone shipping agents at scale; contradicts most builder hype.",
       "signal": "🟡",
       "urls": [
-        "https://www.interconnects.ai/p/artificial-analysis-v5-and-the-benchmarkers",
-        "https://x.com/emollick/status/2115277286123704654"
+        "https://x.com/amasad/status/2115207856496480261"
       ],
-      "handle": "@emollick",
-      "image": "https://substackcdn.com/image/fetch/$s_!6u4S!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6a847075-78be-45e9-b554-ae9abc6f9296_3182x1790.png"
+      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg",
+      "handle": "amasad"
     },
     {
-      "thread_id": "genie-4-generative-environments",
-      "thread_title": "Genie 4: Real-time Generative Game Worlds",
-      "thread_state": "monitoring",
-      "name": "Ethan Mollick",
-      "role": "Wharton professor, AI practitioner",
-      "hook": "Genie 4 generates game-like environments **in real-time**, accepts natural language steering, **adds NPCs and objects iteratively.**",
+      "thread_id": "genie4-vibe-game-dev",
+      "thread_title": "Genie 4: real-time game world generation crosses usability threshold",
+      "thread_state": "developing",
+      "name": "Google DeepMind / Ethan Mollick observation",
+      "role": "Model release / Practitioner signal",
+      "hook": "Genie 4 generates game-like worlds in real-time; Mollick: 'Neogothic brutalist city inhabited by robots and horses' in one minute.",
       "insights": [
-        "User inputs: 'Neogothic brutalist city inhabited by robots and horses' → generated in ~1 minute; users then add dragons, friendly otter NPC—all in realtime without restart",
-        "**Qualitative shift**: not just image-to-image or 3D model generation—full environment coherence maintained across additions",
-        "Imperfect but useful: signals generative environments are entering playable territory, not just research novelty"
+        "**Real-time generation** of interactive game-like environments from text",
+        "**Iterative steering works**: add dragons, add friendly otter NPC, all persist and cohere",
+        "Simon Willison flags this as an **inflection point for 'vibe coding'** — similar to Nov 2025 coding agent threshold"
       ],
-      "for_you": "Not a direct fit for Portuguese SMB workflows today, but monitor for: (1) if Genie or similar tools drop to lower latency, they could power interactive product demos and client presentations; (2) training data visualization for ML workflows; (3) customer scenario simulation for UX testing. File as 'emerging capability to track.'",
-      "what_changed": "Genie 4 is faster and more responsive than prior versions. Realtime steering suggests the model can maintain context across multiple user interruptions—a threshold for user-facing applications.",
-      "action": "watch",
-      "reason": "Early signal that generative simulation is maturing. Not immediately actionable, but worth tracking for future product applications.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Highest engagement from Mollick this week; shows qualitative capability jump in generative environments",
-      "signal": "💡",
-      "urls": [
-        "https://x.com/emollick/status/2115120818116334084"
-      ],
-      "handle": "@emollick",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2115120566482931712/img/0eTKXu-tfoIqWMG0?format=webp&amp;name=large"
-    },
-    {
-      "thread_id": "covert-cpu-communication",
-      "thread_title": "CPU-Chat: Covert Communication via Timing Channels",
-      "thread_state": "new",
-      "name": "Guillermo Rauch",
-      "role": "Vercel CEO · Infrastructure engineer",
-      "hook": "Built **cpu-chat**: covert communication between CPU cores using timing side-channels, **no internet or shared memory required.**",
-      "insights": [
-        "Reproduced OpenAI's timing-channel findings on generic hosts (2+ Firecracker microVMs), works on x86 and Apple Silicon (M5)",
-        "**3 separate communication mechanisms** via CPU: cache timing, branch prediction, speculative execution",
-        "Practical implication: **sandboxed agents can leak data via CPU side-channels** despite network isolation"
-      ],
-      "for_you": "Critical for agency infrastructure: if you're running agent sandboxes on shared cloud infrastructure (AWS, Azure, etc.), timing-channel attacks could exfiltrate client data or API keys. When deploying agents for Portuguese SMBs, (1) isolate critical agents to dedicated instances; (2) monitor for anomalous CPU patterns; (3) never co-locate multiple clients' agents on same physical host without air-gapped network.",
-      "context": "This is a practical demonstration of a known theoretical risk (Spectre-class attacks). Rauch's work shows it's reproducible and weapon-ready, not just academic.",
-      "what_changed": "OpenAI published findings; Rauch independently reproduced on commodity hardware. This moves the threat from 'research' to 'operational risk.'",
-      "action": "investigate",
-      "reason": "If you're building multi-tenant agent infrastructure, you need to understand and mitigate timing-channel risks. This is not optional for production systems handling client credentials or proprietary data.",
+      "for_you": "Not a direct application for Portuguese SMB agencies. File for awareness: if game dev and interactive content become **accessible to non-technical teams**, your clients may want to produce video marketing, product demos, or training content without hiring studios. Watch Genie 4 adoption; if it sticks, expect clients to ask 'can our agent make product videos?'",
+      "what_changed": "From previous generative media: **coherence and real-time iteration is now workable**. Earlier tools required many iterations; Genie 4 maintains state and responds to steering. This is the UX threshold for production use.",
+      "action": "watch, for product expansion ideas. Not urgent this week, but if your agency expands into content production or client marketing, Genie 4 is a tool to test by Q1 2027.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Transforms a research paper into a reproducible, deployable attack. Critical for infrastructure decisions.",
-      "signal": "🔴",
+      "why_it_made_the_cut": "Signals the start of a new vibe-driven development wave; ecosystem implications are broad.",
+      "signal": "🟡",
       "urls": [
-        "https://x.com/rauchg/status/2114770919436808572"
+        "https://x.com/emollick/status/2115120818116334084",
+        "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
       ],
-      "handle": "@rauchg",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2114770494595760128/img/RfkLhO59NgPTFvOE?format=webp&amp;name=large"
-    },
-    {
-      "thread_id": "math-agent-breakthroughs",
-      "thread_title": "AI Breakthroughs in Mathematics, Physics, Computer Science",
-      "thread_state": "monitoring",
-      "name": "Greg Brockman",
-      "role": "President & Co-Founder OpenAI",
-      "hook": "**Three major scientific discoveries announced**: harmonic analysis (math), complexity theory (CS), quantum field theory (physics).",
-      "insights": [
-        "Discoveries in **harmonic analysis** and **complexity theory** suggest AI is now contributing novel proofs, not just verification",
-        "**P vs NP remains open**: Brockman's quip 'p still probably doesn't equal np' signals the complexity theory result doesn't solve the millennium problem, but advances understanding",
-        "Pattern: AI starting to improve human understanding of foundational science, not just engineering applications"
-      ],
-      "for_you": "No direct action for Portuguese SMB services today. File as evidence that frontier compute is shifting from language/vision toward scientific discovery. This affects long-term hiring and positioning: if AI research becomes central to OpenAI/Anthropic/Google roadmaps, their deployment timelines for commercial agents may extend.",
-      "what_changed": "OpenAI is now claiming scientific contribution at top venues (mathematics, physics). This is a maturity milestone but doesn't change product roadmaps in the near term.",
-      "action": "watch",
-      "reason": "Scientific breakthroughs are PR and strategic positioning. They don't alter the trajectory of commercial AI products for SMBs, but they signal OpenAI's focus on defending frontier moat via scientific output.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Rare public claim of scientific discovery; signals high confidence in model generalization",
-      "signal": "💡",
-      "urls": [
-        "https://x.com/gdb/status/2114837059462627533"
-      ],
-      "handle": "@gdb",
-      "image": "https://pbs.twimg.com/card_img/2114901006894891009/76gw82CE?format=webp&amp;name=medium"
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2115120566482931712/img/0eTKXu-tfoIqWMG0?format=webp&amp;name=large",
+      "handle": "emollick"
     }
   ],
   "build_this": [
     {
-      "name": "n8n (with native AI capabilities)",
+      "name": "n8n",
       "source": "GitHub Trending",
-      "what_it_is": "Fair-code workflow automation platform with native AI capabilities; visual building, self-host or cloud, 400+ integrations.",
-      "why_try_it": "Portuguese SMBs need affordable automation that integrates CRM, email, and spreadsheets without custom code. n8n's new AI capabilities (prompt nodes, agent-like orchestration) let you wire Claude or OpenAI into workflows without building infrastructure. Test it for: (1) lead qualification pipelines (summarize prospect emails → score → route to sales); (2) invoice processing (OCR + classification + data entry); (3) customer service intake (parse ticket → assign → draft response).",
+      "what_it_is": "Fair-code workflow automation platform with native AI capabilities; 400+ integrations, visual builder with custom code.",
+      "why_try_it": "For your PT SMB agency: n8n is the backbone for **agentic workflow delivery**. You can build client automations (CRM updates, email sequences, API calls) without coding, wire LLM calls directly into workflows, and host self-hosted or cloud. This week, test a simple workflow: **SMS trigger → Claude → CRM update** for one of your test clients. n8n handles the orchestration, you focus on the agent logic.",
       "url": "https://github.com/n8n-io/n8n"
-    },
-    {
-      "name": "Survival LLM",
-      "source": "Hacker News",
-      "what_it_is": "AI assistant and emergency library that runs offline on your own computer; no cloud dependency, runs Ollama models locally.",
-      "why_try_it": "For clients concerned about data residency or compliance, Survival LLM is a proof-of-concept: show them a local agent that handles document Q&A, task scheduling, and simple automation without cloud APIs. Good for pilots with Portuguese financial services or healthcare clients who have strict data governance. Test it this week with a sample client document library (contracts, policies) and see if local inference speed is acceptable for their use case.",
-      "url": "https://www.brangus.io/survival-llm"
     }
   ],
   "podcasts": [
     {
       "show": "Latent Space",
-      "episode": "How Anthropic ships the #1 LLM in the World — with Katelyn Lesse and Angela Jiang",
-      "takeaway": "Anthropic separates agent 'brain' (model) from 'hands' (execution environment); sandboxes can die without killing the agent.",
+      "episode": "Why Agents Love Supabase — Paul Copplestone and Ant Wilson",
+      "takeaway": "Agents choose Supabase because compute beside the database eliminates round-trips and state management complexity.",
       "key_points": [
-        "Managed Agents architecture: model inference isolated from execution, credentials kept outside sandboxes",
-        "Session state and environment isolation protect agents from cascade failures; one failed tool call doesn't break the session",
-        "Opus 5.5 rebuilt with Rust (from Python) using Claude itself; verified with shadow traffic—eating own dogfood at infrastructure scale"
+        "Compute beside the database is the inflection point for agent backends — reduces latency, improves reliability",
+        "Open-source, fully remote company grew from Firebase alternative in 2020 to $10B valuation in 6 years",
+        "Agent-ready local development and product-led sales are driving adoption; meme-driven community marketing works"
       ],
-      "for_you": "This is the production architecture you should copy for Portuguese SMB agent deployments. Separate your inference layer from your execution layer; never embed client credentials in the agent sandbox; design for graceful degradation when tools fail. The Managed Agents design is battle-tested at Anthropic's scale.",
+      "for_you": "For your agency: if you're building multi-agent systems for clients, Supabase eliminates the 'state sync nightmare' that kills production agents. Test it this week as your conversation history and context store.",
       "signal": "🟢",
-      "url": "https://youtube.com/watch?v=MRQTlwcW-aQ",
+      "url": "https://youtube.com/watch?v=zHG6sAss_kE",
       "video": {
-        "id": "MRQTlwcW-aQ",
-        "title": "How Anthropic ships the #1 LLM in the World — with Katelyn Lesse and Angela Jiang"
-      }
-    },
-    {
-      "show": "No Priors",
-      "episode": "Why AI Attacks Will Get Harder to Spot",
-      "takeaway": "AI is collapsing the pyramid of cybersecurity threats; what once required nation-state resources now needs only frontier LLMs.",
-      "key_points": [
-        "George Kurtz (CrowdStrike): 'Agent state' actors can now conduct sophisticated attacks previously limited to nation states",
-        "Threat pyramid inversion: AI lowers the bar for complex attack chains; cybercriminals now match nation-state capability"
-      ],
-      "for_you": "For clients running agents on their infrastructure or APIs, this is existential: agents that can read logs, access internal tools, or iterate on attack chains are a new threat class. Build: (1) audit logging for all agent actions; (2) rate limiting on dangerous APIs; (3) human approval gates for irreversible actions. Train your clients to treat agent compromise the same way they treat insider threats.",
-      "signal": "🔴",
-      "url": "https://youtube.com/watch?v=2FN80GTzhSI",
-      "video": {
-        "id": "2FN80GTzhSI",
-        "title": "Why AI Attacks Will Get Harder to Spot"
+        "id": "zHG6sAss_kE",
+        "title": "Why Agents Love Supabase — Paul Copplestone and Ant Wilson"
       }
     }
   ],
   "tech": [
     {
-      "name": "Aaron Levie",
-      "role": "CEO Box · Enterprise content AI",
-      "hook": "Cybersecurity will be **the biggest AI investment category**; agents will scale work previously compute-limited.",
-      "key_point": "**Agent swarms for cyber defense** are a natural fit because security is an optimization problem: test permutations of risk, process data gobs, iterate without human loop latency. Fortune 500 companies spend <0.1% of expenses on AI tools today; no penetration relative to opportunity.",
-      "for_you": "If you're building for Portuguese SMBs, cybersecurity agents (automated threat detection, compliance scanning, vulnerability assessment) are a near-term revenue driver. Clients already pay for security; agents let you upsell automation on top of existing budgets.",
-      "signal": "🟡",
+      "name": "Guillermo Rauch",
+      "role": "CEO · Vercel",
+      "hook": "Built cpu-chat: covert communication between CPU cores via timing side-channels, no shared memory.",
+      "key_point": "Demonstrated proof-of-concept on generic hosts (x86 and M5 chip) with Firecracker microVMs; three separate communication mechanisms work.",
+      "for_you": "Security concern for enterprise AI deployments: if agents run in shared cloud environments, CPU side-channels could leak data between isolated workloads. File this for awareness when advising clients on deployment security.",
+      "signal": "🔴",
       "urls": [
-        "https://x.com/levie/status/2113137032633757773",
+        "https://x.com/rauchg/status/2114770919436808572"
+      ],
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2114770494595760128/img/RfkLhO59NgPTFvOE?format=webp&amp;name=large",
+      "handle": "rauchg"
+    },
+    {
+      "name": "CrowdStrike CEO George Kurtz",
+      "role": "CEO · CrowdStrike (on No Priors podcast)",
+      "hook": "AI is closing the gap between hacktivists and nation-state attackers; 'agent state' is emerging threat.",
+      "key_point": "Pyramid of pain (hacktivists → cybercriminals → nation-states) is flattening; AI lowers the skill floor for sophisticated attacks.",
+      "for_you": "For your clients: cybersecurity will be the biggest AI investment category this year. If you're selling to enterprises, position agents as **security risk multiplier** and emphasize audit, monitoring, and credential management.",
+      "signal": "🔴",
+      "urls": [
+        "https://youtube.com/watch?v=2FN80GTzhSI"
+      ]
+    },
+    {
+      "name": "Aaron Levie",
+      "role": "CEO · Box",
+      "hook": "Enterprise agent adoption is <1% deployed; vast majority of workflows untouched by agentic automation.",
+      "key_point": "Average Fortune 500 spends <0.1% of expenses on Anthropic; there's room for 100x growth without saturation.",
+      "for_you": "Market signal: enterprise AI spend is still in early innings. Your Portuguese SMB clients are actually *ahead* of this curve if you're deploying agents now. Position this as 'you're early, not late.'",
+      "signal": "🟢",
+      "urls": [
         "https://x.com/levie/status/2115305369799110905"
       ],
       "image": "https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg",
       "handle": "levie"
     },
     {
-      "name": "Amjad Masad",
-      "role": "CEO Replit · Build and run",
-      "hook": "**Coding and knowledge work are saturating** with sub-frontier models. Frontier compute is shifting to **new discovery and applications** (medicine, science).",
-      "key_point": "If you're investing in frontier AI, bet on applications (drug discovery, materials science) not on coding tools. Coding is already solved; the margin game is gone. New discovery is where differentiation lies.",
-      "for_you": "For Portuguese SMB agencies, this validates your positioning: sell agent services for domain-specific workflows (logistics, finance, compliance) not generic coding. Coding is a commodity; domain expertise is the moat.",
+      "name": "Ethan Mollick",
+      "role": "Professor · Wharton AI",
+      "hook": "Artificial Analysis moves to closed benchmarks; open-weight models falling further behind frontier.",
+      "key_point": "No Fable-class open model released recently; gap between open and closed is widening despite hype.",
+      "for_you": "For your agency: if you're building with open-weight models (Llama, Mistral, Kimi), you're now on a clearly visible performance cliff. Test GPT-6.1 Terra or Claude Opus 5.5 this week; the performance gap is real and matters for client reliability.",
       "signal": "🟡",
       "urls": [
-        "https://x.com/amasad/status/2115207856496480261",
-        "https://x.com/amasad/status/2114769129282601053"
+        "https://x.com/emollick/status/2115277286123704654"
       ],
-      "image": "https://pbs.twimg.com/profile_images/1897858917507776512/TRVTyKFk_400x400.jpg",
-      "handle": "amasad"
+      "image": "https://pbs.twimg.com/profile_images/1601382188712398850/3AAOlqrX_400x400.jpg",
+      "handle": "emollick"
     },
     {
-      "name": "Garry Tan",
-      "role": "President & CEO Y Combinator · Founder acceleration",
-      "hook": "**Agent drafts every customer support reply, call recap, and 'what went wrong' note.** Founder just reads and hits send; CRM + bug filing automated.",
-      "key_point": "Highest ROI AI use case for founders: let agents handle customer support triage, sentiment analysis, and action items. Frees founder attention for strategy; improves response quality.",
-      "for_you": "This is a quick win for early-stage Portuguese SaaS founders you work with. Implement: (1) agent drafts support replies (pull context from Zendesk/Intercom); (2) call recap + sentiment summary (voice-to-text → Claude → structured output); (3) auto-route urgent tickets to founder. Most founders don't have support bandwidth; agents bridge the gap.",
-      "signal": "🟢",
-      "urls": [
-        "https://x.com/garrytan/status/2115141652344078597"
-      ],
-      "image": "https://pbs.twimg.com/card_img/2115141294234411008/jk4mXKAT?format=webp&amp;name=medium",
-      "handle": "garrytan"
-    },
-    {
-      "name": "Guillermo Rauch",
-      "role": "CEO Vercel · Edge and serverless",
-      "hook": "**Static credentials are obsolete.** Design for self-destructing keys and OIDC-based access; industry should build 'green locks' encryption for credentials like TLS did for HTTPS.",
-      "key_point": "Timing-channel attacks and key theft are converging; credential rotation and short-lived tokens are now table stakes for agent infrastructure.",
-      "for_you": "If you're deploying agents with API keys (Zapier, CRM, client APIs), never store permanent credentials. Use short-lived tokens, OIDC flows, and dynamic secret injection at runtime. This is not optional for client-facing agents.",
-      "signal": "🔴",
-      "urls": [
-        "https://x.com/rauchg/status/2113399539227136084",
-        "https://x.com/rauchg/status/2113462657059639505"
-      ],
-      "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
-      "handle": "rauchg"
-    },
-    {
-      "name": "Nikunj Kothari",
-      "role": "Partner Forge Ventures · Seed/A investor",
-      "hook": "Anthropic has **$587B in compute commitments**; this is the scaling constraint, not demand. VCs claiming founder quality trumps co-founder count are wrong (Anthropic and Databricks both have 7 co-founders).",
-      "key_point": "Founder composition advice is overfit to failed startups. Best teams have messy composition; focus on execution and capital access, not co-founder LinkedIn profiles.",
-      "for_you": "If you're raising capital for an AI agency, investors care about: (1) customer lock-in (recurring revenue); (2) margin defensibility (proprietary workflows or fine-tuned models); (3) capital efficiency (how much revenue per dollar of compute spent). Build your pitch around these, not founder titles.",
+      "name": "Dan Shipper",
+      "role": "CEO · Every",
+      "hook": "Video creation and game-making will become foundational knowledge work skills like docs and decks.",
+      "key_point": "Genie 4 and similar tools make interactive media creation accessible; this reshapes how teams communicate.",
+      "for_you": "For your clients: if Genie 4 and similar tools reach SMB adoption, clients will expect agents to produce video marketing and product demos. Start thinking about this as a service expansion for 2027.",
       "signal": "💡",
       "urls": [
-        "https://x.com/nikunj/status/2114761204333998427"
+        "https://x.com/danshipper/status/2115093098816745910"
       ],
-      "image": "https://pbs.twimg.com/media/HVkjsqpa4AE5x1Y?format=webp&amp;name=large",
-      "handle": "nikunj"
+      "image": "https://pbs.twimg.com/profile_images/1946219091305340928/_Ef-eDlc_400x400.jpg",
+      "handle": "danshipper"
     }
   ],
   "pt_news": [
     {
-      "headline": "Governo reforça incentivos a carros elétricos com 50M euros",
-      "hook": "Governo aumenta orçamento para veículos elétricos em 2027, com apoios até 80% para famílias carenciadas.",
-      "for_you": "Oportunidade para agência: clientes no setor automóvel (importadores, concessionários) precisam de automação para processar candidaturas aos incentivos, verificar elegibilidade, e gerar relatórios de conformidade. Teste um pipeline de processamento de formulários com Claude para acelerar a admissão de clientes.",
+      "headline": "Governo aprova dedução dupla em IRS a partir do 3º filho",
+      "hook": "Parlamento aprova aumento da dedução em IRS para famílias com três ou mais filhos; entra em vigor em 2028.",
+      "for_you": "Para teus clientes: se estão a contabilizar e a planear impostos, este regime afeta decisões de estrutura familiar. Não é tech, mas é negócio que pode influenciar o perfil de cliente que buscas (famílias com filhos podem ter maior estabilidade e horizonte de tempo).",
       "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/empresas/energia/detalhe/cheques-para-carros-eletricos-ascendem-a-50-milhoes-familias-carenciadas-com-apoios-ate-80",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-09/img_1200x676uu2026-09-07-23-18-09-529198.jpg"
-    },
-    {
-      "headline": "Habitação domina debate do OE2027; esquerda quer recuo na lei das rendas",
-      "hook": "Debate orçamental foca em crise habitacional; Bloco e Livre votam contra OE, PAN abstém-se; votação na generalidade esta quarta.",
-      "for_you": "Setor imobiliário em Portugal está sob pressão política. Agentes imobiliários e gestoras de propriedade enfrentam regulação crescente. Opportunity: automate rent compliance tracking, tenant communication, and regulatory reporting for real estate clients. This is a high-friction, compliance-heavy workflow that agencies can solve.",
-      "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/economia/financas-publicas/orcamento-do-estado/detalhe/recomeca-o-debate-do-orcamento-do-estado-para-2027-acompanhe-aqui",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-10/img_1200x676uu2026-10-28-10-46-02-531941.jpg"
-    },
-    {
-      "headline": "Asus ProArt P16 com RTX Spark: portátil como agente de IA",
-      "hook": "Novo portátil Asus ProArt P16 com GPU Nvidia RTX Spark marca categoria de máquinas otimizadas para agentes locais; custa ~7 mil euros.",
-      "for_you": "Sinalizador: equipamentos dedicados para agentes locais estão entrando no mercado. Para clientes com dados sensíveis ou requisitos offline, esse hardware pode permitir inferência local de modelos menores (Haiku, Mistral) sem depender de APIs externas. Não é viável hoje para SMBs, mas arquivo para quando custos descerem.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/analises/artigos/asus-proart-p16-com-rtx-spark-o-portatil-que-quer-ser-mais-um-agente-de-ia-do-que-um-pc/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/10/Asus-RTX-Spark-com-TEK.jpg",
-      "video": {
-        "id": "6W6ALGvfesw",
-        "title": "ASUS ProArt P16 with NVIDIA RTX Spark: First Look #laptop #asus #laptops"
-      }
-    },
-    {
-      "headline": "Taxa Euribor a 6 meses cai para 2,960%",
-      "hook": "Euribor a 6 meses (índice mais usado em Portugal para créditos à habitação) caiu em relação ao dia anterior.",
-      "for_you": "Taxas de juro mais baixas podem aumentar confiança de PMEs e famílias em investimento. Bancos e corretoras precisam de automação para recalcular simulações e notificar clientes. Opportunity to pitch agent-based customer communication workflows to financial services clients.",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/10/28/euribor-mantem-se-a-tres-meses-cai-a-seis-e-sobe-a-12-meses/",
+      "url": "https://eco.sapo.pt/2026/10/28/parlamento-aprova-aumento-da-deducao-em-irs-para-familias-com-tres-ou-mais-filhos/",
       "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/10/cropped-41424520-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "image": "https://eco.imgix.net/uploads/2026/10/cropped-familia-criancas.webp?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     },
     {
-      "headline": "guito simplifica gestão de finanças pessoais em plataforma única",
-      "hook": "Startup portuguesa guito lança app para gerir contas bancárias, investimentos, créditos e património num só lugar; 2.700 utilizadores registados desde janeiro.",
-      "for_you": "Sinal de que fintech local está a crescer. guito é um potencial cliente para agentes: automação de reconciliação bancária, classificação de transações, alertas de despesas. Se a plataforma cresce, pode precisar de escalabilidade via agentes para suportar volume de dados.",
+      "headline": "Habitação domina debate do OE2027 em Portugal",
+      "hook": "Acampada pela habitação continua no Rossio; governo e parlamento debatem política de habitação para 2027.",
+      "for_you": "Para a tua agência: se há clientes no setor imobiliário ou construção, a política de habitação está em jogo. Governo a considerar agravar IMI em prédios devolutos (10x) e incentivar construção acessível. Isto pode abrir oportunidades para agents que ajudem promotores a navegar compliance e scoring de projetos.",
       "signal": "💡",
-      "url": "https://tek.sapo.pt/mobile/apps/artigos/guito-quer-simplificar-a-gestao-das-financas-pessoais-numa-unica-plataforma/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/10/guito.png"
+      "url": "https://eco.sapo.pt/2026/10/28/porto-recebeu-33-milhoes-de-euros-desde-2021-em-compensacoes-pela-nao-construcao-de-habitacao-acessivel/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2026/06/cropped-doc2026050947071850mar-1449.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Startup portuguesa com IA para professores prepara expansão para Brasil",
+      "hook": "Startup portuguesa que usa IA para facilitar trabalho de professores está em expansão internacional.",
+      "for_you": "Sinal positivo: há precedente de PT startups com IA escalando. Se estás a pensar em modelo SaaS EdTech ou expansão internacional da tua agência, isto mostra que mercado brasileiro está aberto e disposto pagar por soluções de IA. Mas nota que é SaaS, não agência — modelos diferentes.",
+      "signal": "🟢",
+      "url": "https://dnbrasil.dn.pt/negcios-br/startup-portuguesa-que-usa-ia-para-facilitar-trabalho-de-professores-prepara-expanso-para-o-brasil",
+      "source_name": "Dinheiro Vivo",
+      "image": "https://media.assettype.com/dn%2F2026-10-23%2Fux9jlqnb%2FDSCF3947.jpg?w=1200&amp;ar=40%3A21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop&amp;enlarge=true&amp;overlay=false&amp;overlay_position=bottom&amp;overlay_width=100"
     }
   ],
   "world_news": [
     {
-      "headline": "Spain high-speed train collision kills at least 64 people in Toledo",
-      "hook": "Two high-speed trains collided in central Spain; deadliest rail incident in Spain since 2008; emergency rescue ongoing.",
-      "for_you": "No direct business impact. File as backdrop for European infrastructure fragility and cybersecurity risk: rail systems are increasingly networked; collision data suggests potential control system failure or human error under pressure. Agencies focusing on critical infrastructure should monitor.",
-      "signal": "🔴",
-      "url": "https://www.politico.eu/article/renfe-spain-urda-toledo-10-dead-second-serious-train-crash/",
-      "source_name": "Politico",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/10/28/GettyImages-2301860332-scaled.jpg",
-      "video": {
-        "id": "4xQ42xkMqnk",
-        "title": "High-speed train crash in Spain kills at least 64, injures 80"
-      }
-    },
-    {
-      "headline": "Flávio Bolsonaro flees Brazil, lands in Miami after election loss",
-      "hook": "Flávio Bolsonaro, far-right senator and son of ex-President Jair Bolsonaro, fled to the US after his father lost Sunday's election to Lula.",
-      "for_you": "No direct action. Political drama; signals Brazilian political instability may create volatility for SaaS and fintech companies with Brazil exposure. Watch for regulatory shifts if Lula consolidates power.",
+      "headline": "Flávio Bolsonaro flees Brazil, lands in Miami after election defeat",
+      "hook": "Bolsonaro's ally fled to US and claims to be 'true president' of Brazil; international observers endorsed Lula's victory.",
+      "for_you": "Market signal: political instability in key LatAm market. If you're considering Brazil expansion, note the risk profile. But also note: Lula won, institutions held. Tech investment tends to flow to stability winners.",
       "signal": "🟡",
       "url": "https://www.theguardian.com/world/2026/oct/28/flavio-bolsonaro-miami-us-fleeing-brazilian-election-defeat",
       "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/462bcec757fa420440f02c265b28228b6e961d1e/0_427_2101_1679/master/2101.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=fde3d8209b18ebb22d7a5c020f87919d"
-    },
-    {
-      "headline": "Luxury cruise passengers stranded in Cambodia due to fuel costs",
-      "hook": "Villa Vie Odyssey suspended voyage; passengers stuck in Cambodia as company works on 'temporary living arrangements' due to soaring fuel prices.",
-      "for_you": "Tangential: if your clients include travel/hospitality SMBs, this is a reminder of operational risk. Agents could help with cost forecasting, supplier hedging, and dynamic pricing. But no immediate action.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cwj342k62exyo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7eaf/live/69ded4d0-d26f-11f1-a4f1-4fff2e6cf5f3.jpg"
-    },
-    {
-      "headline": "Ebola outbreak in Africa reaches 10,000 cases; could spread to UK, warns health chief",
-      "hook": "Africa CDC director Jean Kaseya warns 'unprecedented' spread of Ebola could reach UK and other countries unless funding increases for containment and treatment.",
-      "for_you": "No direct business impact for Portuguese SMB agency. Global health crisis; monitor for if healthcare/pharma clients need rapid response workflows (data aggregation, reporting, supply chain alerts).",
-      "signal": "🟡",
-      "url": "https://www.theguardian.com/global-development/2026/oct/28/africa-ebola-outbreak-could-reach-uk-says-top-health-official",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/4c8a92421c88cf3bb5c2743cd8f6b4900e511a1f/538_0_4583_3667/master/4583.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=bfb124c256e54576249e81f1dfe63bac"
-    },
-    {
-      "headline": "Hackers target US campaign finance system days before midterm elections",
-      "hook": "FEC reports 'bad actor' attempted breach of campaign finance systems; US preparing for most expensive elections ever.",
-      "for_you": "Signal: critical infrastructure is under active attack. If you have clients in finance, compliance, or government-adjacent sectors, emphasize audit logging and agent-based threat detection. This validates the cybersecurity positioning from earlier in the brief.",
-      "signal": "🔴",
-      "url": "https://www.aljazeera.com/news/2026/10/28/hackers-target-us-campaign-finance-system-days-before-midterm-elections",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/05/reuters_6a0c54dc-1779193052.jpg?resize=1920%2C1440",
+      "image": "https://i.guim.co.uk/img/media/42124afb15a49939e6544c20b2c8ea9523ee7816/250_0_2500_2000/master/2500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d090f31db6238dff52202e1bdaa3f14d",
       "video": {
-        "id": "7CdsIGg0WQ8",
-        "title": "Hackers target US campaign finance system days before midterm elections"
+        "id": "fliS91ZE5rY",
+        "title": "Flávio Bolsonaro lands in Miami after fleeing Brazil following election defeat"
+      }
+    },
+    {
+      "headline": "Spain high-speed train collision kills at least 68 near Madrid",
+      "hook": "Deadliest train disaster in over a decade; two trains collided south of Madrid; investigation ongoing.",
+      "for_you": "Infrastructure failure. Not directly relevant to tech, but file for awareness: European rail safety standards are under scrutiny. If you have clients in transport or logistics, this signals a market opening for safety-focused automation (predictive maintenance, collision avoidance agents).",
+      "signal": "🟡",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/10/28/spain-demands-answers-after-deadliest-train-disaster-in-over-a-decade/",
+      "source_name": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/image-1793215961.jpg?resize=1920%2C1080&amp;quality=80",
+      "video": {
+        "id": "VV8xIAySux4",
+        "title": "68 dead in high-speed train collision, Spain’s 2nd deadly rail crash this year"
+      }
+    },
+    {
+      "headline": "Netanyahu's bloc leading Israel election; short of majority with partial results",
+      "hook": "85% of ballots counted; Likud and allies on track for 53 of 120 Knesset seats; coalition talks likely.",
+      "for_you": "Political risk for tech investment in Israel. But also note: Israeli tech ecosystem continues to attract global capital regardless of election cycles. If you have Israeli partners or clients, expect coalition formation delays in Q4 2026.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/cmdx3knq1xexo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3381/live/719a4410-d2f2-11f1-8d86-83eebc838351.jpg",
+      "video": {
+        "id": "xW9ihi0fIQ8",
+        "title": "Israel Election Deadlock: Netanyahu Leads But Falls Short of Majority"
       }
     }
   ],
-  "since_yesterday": "Flávio Bolsonaro situation evolved: confirmed he boarded private jet from Ecuador to Miami (was in Argentina briefly). Spanish train collision death toll risen to 64+ (updated from initial ~30). No material changes to AI story threads from yesterday—Anthropic S-1, GPT-6.1 Terra, and open-weights gap remain the dominant signals.",
+  "since_yesterday": null,
   "health": {
     "x": {
       "attempted": 15,
