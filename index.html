@@ -460,12 +460,16 @@ html, body {
     <div class="intro-card">
       <div class="intro-top">
         <span class="title-badge">Daily Briefing</span>
-        <details class="health-banner"><summary>Source health</summary><div class="health-rows"><span class="health-item health-bad">X/Twitter 0/15</span><span class="health-item">Podcasts 3/3</span><span class="health-item">RSS 22/22</span><span class="health-item">Hacker News 1/1</span><span class="health-item">GitHub Trending 1/1</span></div></details>
+        <details class="health-banner"><summary>Source health</summary><div class="health-rows"><span class="health-item health-bad">X/Twitter 0/15</span><span class="health-item health-bad">Podcasts 0/3</span><span class="health-item">RSS 22/22</span><span class="health-item">Hacker News 1/1</span><span class="health-item">GitHub Trending 1/1</span></div></details>
       </div>
-      <div class="intro-greeting">Good afternoon ☀️</div>
+      <div class="intro-greeting">Good evening ☀️</div>
       <h1 class="intro-headline">Daily<br><em>Digest</em></h1>
       <p class="intro-date">Monday, 2 November 2026</p>
       
+    <div class="since-yesterday">
+      <span class="since-label">Since yesterday</span>
+      <p>Anthropic's S-1 is now public (full financial picture confirmed). Independent benchmarking crisis (Artificial Analysis v5) signals that model comparisons are unreliable. Mistral Large 4 open-weight release makes local deployment viable. LLM latency limits (Realtime-Bench) and token accounting reckoning (agents burn 10-50x more tokens) both published—direct impacts to your pricing model and workflow scope.</p>
+    </div>
       
     <div class="signal-legend">
       <span class="legend-item"><span class="legend-dot signal-green"></span>Apply now</span>
@@ -479,103 +483,77 @@ html, body {
       
     <div class="intro-item">
       <button class="intro-item-body" data-goto="2">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/ldYO4Mr8FBs/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Anthropic files S-1 with $17B Q3 revenue, but competition may eat all profits.</span>
-          <span class="intro-item-summary"><strong>$17B revenue in Q3 2026</strong>, commitments totalling <strong>$895B in revised filing</strong></span>
-          <a class="intro-item-source" href="https://stratechery.com/2026/anthropic-s-1-the-cost-of-compute-who-is-paying/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Anthropic</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="3">
         <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&amp;#038;ssl=1" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">LLMs are very bad at low-latency tasks; Realtime-Bench proves it.</span>
-          <span class="intro-item-summary">New benchmark <strong>Realtime-Bench</strong> measures frontier models on live tasks: games, auctions, time-sensitive decisions</span>
+          <span class="intro-item-title">Realtime-Bench proves LLMs are catastrophically bad at low-latency tasks.</span>
+          <span class="intro-item-summary"><strong>LLMs cannot play games or run online auctions</strong> at speeds required for real-time interaction</span>
           <a class="intro-item-source" href="https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Import AI / Jack Clark</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="4">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/J8HWsYpiAgM/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <button class="intro-item-body" data-goto="3">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Gemini 4 Carbon tops independent benchmarks, access limited to cyber defenders.</span>
-          <span class="intro-item-summary"><strong>Gemini 4 Carbon leads independent evals</strong> (Latent Space reports top scores)</span>
-          <a class="intro-item-source" href="https://latent.space/p/ainews-gemini-4-carbon/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Google / DeepMind</a>
+          <span class="intro-item-title">Anthropic's S-1 shows $17B Q3 revenue and strong unit economics, but margin pressure is real.</span>
+          <span class="intro-item-summary"><strong>Core business is extremely profitable</strong> despite intense competition from OpenAI, Google, others</span>
+          <a class="intro-item-source" href="https://stratechery.com/2026/anthropic-s-1-the-cost-of-compute-who-is-paying/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Anthropic / SEC Filing</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="5">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://wp.technologyreview.com/wp-content/uploads/2026/10/iStock-2297734847.jpg?resize=1200,600" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <button class="intro-item-body" data-goto="4">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/gZiCUMaxEw0/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Agents burn 10-50x more tokens per task than chat; cost accounting must change.</span>
-          <span class="intro-item-summary"><strong>Single agent task spawns multiple calls</strong>: planning, code generation, test execution, retry loops, error correction</span>
+          <span class="intro-item-title">Agent-based tasks use 10 to 50 times more tokens than simple chat prompts.</span>
+          <span class="intro-item-summary"><strong>A single task involves planning, code generation, testing, iteration cycles</strong></span>
           <a class="intro-item-source" href="https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ MIT Technology Review</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="6">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://wp.technologyreview.com/wp-content/uploads/2026/10/MAIN-top.jpg?resize=1200,600" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <button class="intro-item-body" data-goto="5">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f13715b2-ed2d-4a14-bbf6-85f184b4b202/SCR-20261030-svzc.png?t=1793423031" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Tim Berners-Lee's 2001 Semantic Web vision now realized via autonomous agents.</span>
-          <span class="intro-item-summary"><strong>Autonomous agents can now reliably navigate web, fill forms, execute transactions</strong></span>
-          <a class="intro-item-source" href="https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ MIT Technology Review</a>
+          <span class="intro-item-title">Google admits its AI-powered Search mode is reducing ad clicks and revenue.</span>
+          <span class="intro-item-summary"><strong>Users get answers directly from AI without clicking ads</strong></span>
+          <a class="intro-item-source" href="https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Latent Space / TLDR AI</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="6">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://techcrunch.com/wp-content/uploads/2026/11/Recursive-Neural-Spiral-in-Circuitry.png?resize=1200,600" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Anthropic signals it's very close to recursive self-improvement (RSI) capabilities.</span>
+          <span class="intro-item-summary">RSI would mean AI systems can build, train, and improve themselves without human intervention</span>
+          <a class="intro-item-source" href="https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ TechCrunch</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="7">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://substackcdn.com/image/fetch/$s_!NQ70!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff51bb5d0-4390-4676-af4a-6bc8199412d5_2006x1362.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://huggingface.co/blog/assets/ml4/thumbnail.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">October 2026 onslaught of critical vulns proves open AI models enable real cyber risk.</span>
-          <span class="intro-item-summary"><strong>PHP2Shell, GitLab long-standing bug</strong>, and other critical disclosures in October 2026 dubbed 'Black October'</span>
-          <a class="intro-item-source" href="https://www.interconnects.ai/p/was-i-wrong-about-open-models-and" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Interconnects (Nathan Labenz)</a>
+          <span class="intro-item-title">Mistral releases Le Chonk, an open-weight model claiming frontier-class performance.</span>
+          <span class="intro-item-summary"><strong>Open-weight frontier model available for self-hosting and fine-tuning</strong></span>
+          <a class="intro-item-source" href="https://huggingface.co/blog/mistral-large4" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Hugging Face / Mistral</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="8">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://substackcdn.com/image/fetch/$s_!6u4S!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6a847075-78be-45e9-b554-ae9abc6f9296_3182x1790.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://wp.technologyreview.com/wp-content/uploads/2026/10/MAIN-top.jpg?resize=1200,600" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Benchmarking industry has fundamental blindspots; metrics don't measure what matters.</span>
-          <span class="intro-item-summary"><strong>Artificial Analysis v5 audit reveals metrics misalignment</strong>: high benchmark scores don't correlate with real-world utility</span>
-          <a class="intro-item-source" href="https://www.interconnects.ai/p/artificial-analysis-v5-and-the-benchmarkers" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Interconnects (Nathan Labenz) / Artificial Analysis</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="9">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://techcrunch.com/wp-content/uploads/2026/09/openai-getty.jpg?resize=1200,800" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">OpenAI unifies ChatGPT UI, ending Chat/Work tab separation.</span>
-          <span class="intro-item-summary"><strong>Chat and Work modes now merged</strong> into single interface</span>
-          <a class="intro-item-source" href="https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ OpenAI / TechCrunch</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    </div>
-    <div class="intro-group">
-      <div class="intro-group-label" style="color:#16A34A">🛠️ Build This Week</div>
-      
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="11">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">OpenCode: Offline coding agent</span>
-          <span class="intro-item-summary">Local, self-hosted coding agent using Qwen3.5 + Ollama; runs entirely offline with no external API calls.</span>
-          <a class="intro-item-source" href="https://latent.space/p/offline-coding/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Latent Space / GitHub</a>
+          <span class="intro-item-title">The internet is now navigable by autonomous AI agents, fulfilling 25-year-old vision.</span>
+          <span class="intro-item-summary"><strong>Agents can browse, understand, and act on web pages without human mediation</strong></span>
+          <a class="intro-item-source" href="https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ MIT Technology Review</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -585,23 +563,34 @@ html, body {
       <div class="intro-group-label" style="color:#7C3AED">🎙️ Podcasts</div>
       
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="13">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/KM3VQZKjpiY/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>🎙️</div>'"></span>
+      <button class="intro-item-body" data-goto="10">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><div class="intro-thumb intro-thumb-fallback">🎙️</div></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Using Agents for Long-Horizon Financial Work — Aman Singh, Arca</span>
-          <span class="intro-item-summary">Long-running agent workflows (days, not hours) require persistent memory, custom harnesses, and human approval gates.</span>
-          <a class="intro-item-source" href="https://youtube.com/watch?v=KM3VQZKjpiY" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Latent Space</a>
+          <span class="intro-item-title">Building AI for Lawyers: Jacob Lauritzen, CTO of Legora</span>
+          <span class="intro-item-summary">Legal agents can't see client data; how do you build and test an agent when traces are legally off-limits?</span>
+          <a class="intro-item-source" href="https://latent.space/p/building-ai-for-lawyers-jacob-lauritzen-cto-of-legora/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Latent Space</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="14">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://img.youtube.com/vi/79M2vFJ1JiQ/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>🎙️</div>'"></span>
+      <button class="intro-item-body" data-goto="11">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><div class="intro-thumb intro-thumb-fallback">🎙️</div></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">How Defenders Can Use AI to Fix Security Flaws</span>
-          <span class="intro-item-summary">OpenAI President Greg Brockman: AI can now reliably find and patch software vulnerabilities at scale.</span>
-          <a class="intro-item-source" href="https://youtube.com/watch?v=79M2vFJ1JiQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ No Priors</a>
+          <span class="intro-item-title">Why Agents Love Supabase: Paul Copplestone and Ant Wilson</span>
+          <span class="intro-item-summary">PostgreSQL-based backend (Supabase) is becoming the standard foundation for agent applications.</span>
+          <a class="intro-item-source" href="https://latent.space/p/supabase/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Latent Space</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="12">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><div class="intro-thumb intro-thumb-fallback">🎙️</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">How Anthropic Ships Claude with Claude: Separating Brain from Hands</span>
+          <span class="intro-item-summary">Anthropic uses Claude to help ship Claude; separating model reasoning (brain) from tool use (hands) is key architecture.</span>
+          <a class="intro-item-source" href="https://latent.space/p/opus55/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Latent Space</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -611,34 +600,56 @@ html, body {
       <div class="intro-group-label" style="color:#7C3AED">⚙️ Tech</div>
       
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="16">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://techcrunch.com/wp-content/uploads/2026/11/IMG_3572.jpeg?resize=1200,895" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <button class="intro-item-body" data-goto="14">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">42AI raises $62.5M claiming world model that predicts human behavior.</span>
-          <span class="intro-item-summary">Comes out of stealth with claimed <strong>world model</strong> (not just action prediction) that can model human behavior in complex environments.</span>
-          <a class="intro-item-source" href="https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ 42AI</a>
+          <span class="intro-item-title">Kyle Kingsbury warns: LLMs erode trust in software, documentation, and organizations that produce them.</span>
+          <span class="intro-item-summary">LLM-generated code and docs are easier to counterfeit than human-created work; quality signals that used to matter are now unreliable. Engineers will treat new projects with suspicion.</span>
+          <a class="intro-item-source" href="https://simonwillison.net/2026/Nov/1/kyle-kingsbury/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Simon Willison</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="15">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/HR_ZQnu1o30/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">OpenAI now offers $100-$500/month in free API credits for ChatGPT Pro/Max subscribers (matching Anthropic's recent offer).</span>
+          <span class="intro-item-summary">API credits benefit makes frontier models effectively cheaper for high-volume users; erodes pricing power for mid-market.</span>
+          <a class="intro-item-source" href="https://simonwillison.net/2026/Oct/29/api-credits/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Simon Willison</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="16">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Every product should be a headless MCP fed into an agent (except yours, which stays special).</span>
+          <span class="intro-item-summary">MCP (Model Context Protocol) is becoming the standard integration layer for agent-driven apps. Expect platforms to expose MCP servers instead of APIs.</span>
+          <a class="intro-item-source" href="https://simonwillison.net/2026/Oct/29/ben-hylak/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Ben Hylak</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="17">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://techcrunch.com/wp-content/uploads/2026/03/grok-getty.jpg?resize=1200,800" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&amp;#038;ssl=1" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Musk throttles Grok API limits due to unsustainably high inference costs.</span>
-          <span class="intro-item-summary"><strong>Grok bot limits reduced</strong> due to cost pressure; signals that even well-funded models struggle with token-cost sustainability at scale.</span>
-          <a class="intro-item-source" href="https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Elon Musk / X</a>
+          <span class="intro-item-title">Genie 4 (DeepMind) can generate game worlds from language; agents can now inhabit and modify them.</span>
+          <span class="intro-item-summary">Generative models + agent interaction = multi-step interactive environments possible without hard-coded game logic.</span>
+          <a class="intro-item-source" href="https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Import AI</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="18">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f13715b2-ed2d-4a14-bbf6-85f184b4b202/SCR-20261030-svzc.png?t=1793423031" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://substackcdn.com/image/fetch/$s_!NQ70!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff51bb5d0-4390-4676-af4a-6bc8199412d5_2006x1362.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Google admits AI Mode hurts Search revenue; $500B valuation hit, worst since 2004 IPO.</span>
-          <span class="intro-item-summary"><strong>Google's AI search feature cannibilizes traditional search ad revenue</strong> by ~15%; signals that AI-native search is a different business model.</span>
-          <a class="intro-item-source" href="https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Google / Alphabet</a>
+          <span class="intro-item-title">Black October: PHP2Shell, GitLab RCE, and other critical vulns prove open-source models enable real cyber risks.</span>
+          <span class="intro-item-summary">High-quality open-source vulnerabilities are becoming easier to discover, weaponize, and exploit with AI assistance. This isn't theoretical.</span>
+          <a class="intro-item-source" href="https://www.interconnects.ai/p/was-i-wrong-about-open-models-and" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Interconnects</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -649,33 +660,33 @@ html, body {
       
     <div class="intro-item">
       <button class="intro-item-body" data-goto="20">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://cdn.jornaldenegocios.pt/images/2026-02/img_1200x676uu2026-02-13-11-57-56-518484.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/oC3BDpnhmQ8/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Antropic fatura 17 mil milhões em Q3; prejuízo atinge 23,3 mil milhões</span>
-          <span class="intro-item-summary">Receitas da Anthropic disparam 12x num ano, mas empresa agravou prejuízo operacional.</span>
-          <a class="intro-item-source" href="https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/receitas-da-anthropic-disparam-12-vezes-num-ano-mas-empresa-agravou-prejuizo" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Jornal de Negócios</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="21">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/oC3BDpnhmQ8/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">AMALIA é instrumento de soberania digital, em uso na educação e defesa</span>
-          <span class="intro-item-summary">Governo português integra IA nas administrações públicas através de AMALIA.</span>
+          <span class="intro-item-title">AMALIA é instrumento de soberania digital em uso na educação e defesa</span>
+          <span class="intro-item-summary">Governo português reafirma que AMALIA (IA pública) já funciona na administração, educação e defesa.</span>
           <a class="intro-item-source" href="https://tek.sapo.pt/noticias/computadores/artigos/goncalo-matias-amalia-e-um-instrumento-de-soberania-digital-e-ja-esta-a-ser-usado-na-educacao-justica-e-defesa/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="22">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/11/Supermercado-compras-frigorificos-1024x683.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+      <button class="intro-item-body" data-goto="21">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://eco.imgix.net/uploads/2026/11/cropped-47929030-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Ciberataques afetam supermercados europeus; Portugal com sete lojas Intermarché atingidas</span>
-          <span class="intro-item-summary">Ataques contra sistemas de refrigeração em supermercados; autoria ainda desconhecida.</span>
-          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/internet/artigos/supermercados-europeus-voltam-a-ser-alvo-de-ciberataques-incidentes-afetam-frigorificos-e-congeladores-em-varios-paises/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
+          <span class="intro-item-title">Ciberataques afetam supermercados europeus; Portugal com sete lojas atingidas</span>
+          <span class="intro-item-summary">Sete supermercados Intermarché em Portugal foram alvo de ciberataques contra sistemas de refrigeração.</span>
+          <a class="intro-item-source" href="https://eco.sapo.pt/2026/11/02/ciberataque-atinge-sete-supermercados-intermarche-em-portugal/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ ECO</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="22">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/98df96e6d8379e91686fe920f6ef71f172c7b5c8.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">ANACOM vai atribuir 172 milhões para levar 5G a todo o território</span>
+          <span class="intro-item-summary">Governo português financia cobertura 5G nos últimos 2% do território nacional.</span>
+          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/anacom-vai-atribuir-172-milhoes-de-euros-para-levar-a-rede-5g-a-todo-o-territorio/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -684,8 +695,8 @@ html, body {
       <button class="intro-item-body" data-goto="23">
         <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/11/Project-Suncatcher-Google-Espaco.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Google satélite-protótipo responde primeira vez gerando poema em órbita</span>
-          <span class="intro-item-summary">Project Suncatcher: IA rodando diretamente em satélite; testes de radiação em 2027.</span>
+          <span class="intro-item-title">Satélite de IA da Google responde com poema gerado em órbita</span>
+          <span class="intro-item-summary">Project Suncatcher (satélite protótipo com IA) passa testes de comunicação; próximos testes em 2027.</span>
           <a class="intro-item-source" href="https://tek.sapo.pt/noticias/computadores/artigos/satelite-de-ia-da-google-quebra-o-silencio-e-responde-pela-primeira-vez-com-um-poema-gerado-em-orbita/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
         </span>
         <span class="intro-item-arrow">→</span>
@@ -693,11 +704,11 @@ html, body {
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="24">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/98df96e6d8379e91686fe920f6ef71f172c7b5c8.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://eco.imgix.net/uploads/2026/07/cropped-47257723-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Governo vai atribuir 172 milhões para levar 5G aos últimos 2% do território</span>
-          <span class="intro-item-summary">ANACOM liderará projeto de cobertura 5G universal; detalhe sobre prazos e origem do financiamento ainda por esclarecer.</span>
-          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/anacom-vai-atribuir-172-milhoes-de-euros-para-levar-a-rede-5g-a-todo-o-territorio/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
+          <span class="intro-item-title">Apple supera previsões mas decepciona na China; iPhone Duo em falta</span>
+          <span class="intro-item-summary">Apple Q4 fiscal acima das expectativas, mas mercado chinês abaixo do esperado; escassez de iPhone Duo continua.</span>
+          <a class="intro-item-source" href="https://eco.sapo.pt/2026/11/02/lucros-e-receitas-da-apple-superam-estimativas-no-primeiro-teste-de-john-ternus/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ ECO</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -708,44 +719,44 @@ html, body {
       
     <div class="intro-item">
       <button class="intro-item-body" data-goto="26">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/31c7/live/152ec730-d6c3-11f1-93e1-3b657b665bcf.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee1e/live/8480acc0-d6eb-11f1-a741-236ee91c2e25.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">European supermarket freezers hacked, temperatures raised to 50C remotely</span>
-          <span class="intro-item-summary">Coordinated cyberattacks across five countries, affecting refrigeration systems; no group claimed responsibility yet.</span>
-          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/cq1kd1nee80eo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
+          <span class="intro-item-title">Russian bombing kills 26 at Ukraine aid centre; Kyiv calls it 'utterly horrific'</span>
+          <span class="intro-item-summary">Nine 3,000kg aerial bombs hit southern Ukrainian village; high civilian casualties.</span>
+          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/cjy56dndlyz0o" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="27">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/NvdY7qDLQvM/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/31c7/live/152ec730-d6c3-11f1-93e1-3b657b665bcf.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Binance users withdraw $3.6B after $6.3B hack linked to North Korea</span>
-          <span class="intro-item-summary">Exchange frozen for 2.5 days; 95% of stolen funds restored, but users have lost confidence.</span>
-          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/cwj34gdmnly4o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
+          <span class="intro-item-title">Shop freezers in seven European countries hit by coordinated cyber-attack</span>
+          <span class="intro-item-summary">Temperatures in freezers raised to 50°C remotely; coordinated attack across multiple retailers.</span>
+          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/cq1kd1nee80eo" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="28">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/07ec/live/ca38c7e0-d6cb-11f1-b441-2b33b063138f.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/kEbbiXTrxnA/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Ukraine and Russia air alert apps hacked; fake nuclear warnings issued</span>
-          <span class="intro-item-summary">Both governments' air defense notification systems spoofed with false alerts; coordination suggests state-level actor.</span>
-          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/c51kdy1ew7zvo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
+          <span class="intro-item-title">US midterm elections Tuesday; Trump approval near record low at 32%</span>
+          <span class="intro-item-summary">Voter approval of Trump at 32% (historically weak for midterms); early voting sets records.</span>
+          <a class="intro-item-source" href="https://www.aljazeera.com/news/2026/11/2/trump-approval-rating-near-record-low-on-eve-of-us-midterm-elections-poll" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Al Jazeera</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="29">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e960/live/11376b60-d66d-11f1-856b-2f2ef225beb0.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7af5/live/6a1bb4a0-d67e-11f1-ac3d-edfeb9f7d0aa.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">US midterm elections: record-breaking early voting, election day Tuesday</span>
-          <span class="intro-item-summary">Over 50M votes cast early; Trump-era polarization continues to drive turnout.</span>
-          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/cq78pypg0800o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
+          <span class="intro-item-title">Australia High Court hears legal challenge to under-16 social media ban</span>
+          <span class="intro-item-summary">Human rights group argues world-leading social media age ban violates minors' right to free communication.</span>
+          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/ck79py02p1jlo" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -754,9 +765,9 @@ html, body {
       <button class="intro-item-body" data-goto="30">
         <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/02/GettyImages-2196254869-scaled.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Berlin unveils AI strategy to become sovereign AI nation by 2030</span>
-          <span class="intro-item-summary">Germany publishes blueprint for AI independence; emphasizes local compute, open models, and European supply chains.</span>
-          <a class="intro-item-source" href="https://www.politico.eu/article/berlin-unveil-blueprint-catch-up-ai-artificial-intelligence/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Politico Europe</a>
+          <span class="intro-item-title">Germany unveils AI strategy to become 'sovereign AI nation' by 2030</span>
+          <span class="intro-item-summary">Berlin releases blueprint for AI independence from US vendors by 2030.</span>
+          <a class="intro-item-source" href="https://www.politico.eu/article/berlin-unveil-blueprint-catch-up-ai-artificial-intelligence/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Politico Europe</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -780,42 +791,37 @@ html, body {
   <div class="slide" data-i="2">
     <div class="content-card">
       <div class="card-left">
-        
-    <div class="card-video" data-yt-id="ldYO4Mr8FBs">
-      <div class="card-video-frame"></div>
-      <a class="card-video-open" href="https://youtube.com/shorts/ldYO4Mr8FBs" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
-    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&amp;#038;ssl=1" alt="Realtime-Bench proves LLMs are catastrophically bad at low-latency tasks." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
           
           <div class="author-text">
-            <div class="author-name">Anthropic</div>
-            <div class="author-role">AI company, IPO filing</div>
+            <div class="author-name">Import AI / Jack Clark</div>
+            <div class="author-role">Newsletter · arXiv-driven AI research</div>
           </div>
         </div>
-        <p class="hook-text">Anthropic files S-1 with $17B Q3 revenue, but competition may eat all profits.</p>
+        <p class="hook-text">Realtime-Bench proves LLMs are catastrophically bad at low-latency tasks.</p>
         <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="card-index">02</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · developing</div><div class="thread-title">Anthropic S-1 filing: $17B Q3 revenue, $895B commitments, profitability questions</div><p>Anthropic, founded 2021, is one of two frontier AI labs (alongside OpenAI) that dominate consumer and enterprise AI. The S-1 shows actual business financials for the first time, revealing both strength (profitable core) and fragility (compute costs rising, competition intensifying). This matters because it sets expectations for the whole market: if frontier models can't sustain margins, smaller players (including AI agencies) face pressure.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>Filing released November 2, 2026; shows actual Q3 revenue ($17B) and revised total commitments ($895B). Confirms profitability of core model business but signals investors should expect long-term dilution as compute scales.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">LLMs fail real-time tasks; Realtime-Bench exposes the gap</div><p>Realtime-Bench is a new evaluation framework testing LLM performance on tasks that require fast inference and immediate decision-making: game play, online auctions, live trading. Previous benchmarks measured accuracy on static datasets. This one measures speed + correctness under latency pressure. Current frontier models fail badly.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>Benchmark published; shows concrete evidence that latency is a fundamental blocker, not a solved problem.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>$17B revenue in Q3 2026</strong>, commitments totalling <strong>$895B in revised filing</strong></span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Core business is very profitable, but <strong>intense competition may erode margins</strong></span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Investors set up for <strong>endless dilution</strong> as compute costs scale</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>LLMs cannot play games or run online auctions</strong> at speeds required for real-time interaction</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Benchmark specifically measures latency-sensitive workloads, not abstract reasoning</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Frontier models fail tasks that require sub-second decisions</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">If you're selling AI services to Portuguese SMBs, Anthropic's margin compression signals consolidation pressure across the entire agency ecosystem. Watch for price wars on Claude API access; your own agency margins depend on whether you can differentiate beyond model access.</p>
+          <p class="for-you-text">Your AI agency automation clients assume agents handle real-time workflows. They don't. This matters for any client who needs agents to act during user sessions, not in batch. File this as a hard constraint on what agent autonomy can do today.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>watch, because frontier model pricing and availability will shape your agency's unit economics over the next 18 months.</p></div>
-        <p class="why-cut">Why this made the cut: Most significant market signal this week: Anthropic IPO filing reveals entire business model and competitive pressure on margins.</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>watch</p></div>
+        <p class="why-cut">Why this made the cut: Concrete new benchmark with practical implications for agent scope</p>
         <div class="url-row">
-    <a class="source-url" href="https://stratechery.com/2026/anthropic-s-1-the-cost-of-compute-who-is-paying/" target="_blank" rel="noopener">↗ stratechery.com/2026/anthropic-s-1-the-cos</a>
-    <a class="source-url" href="https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html" target="_blank" rel="noopener">↗ www.cnbc.com/2026/11/02/anthropic-ant-s-1-</a></div>
+    <a class="source-url" href="https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/" target="_blank" rel="noopener">↗ jack-clark.net/2026/11/02/import-ai-479-sp</a></div>
       </div>
     </div>
   </div>
@@ -823,37 +829,37 @@ html, body {
   <div class="slide" data-i="3">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&amp;#038;ssl=1" alt="LLMs are very bad at low-latency tasks; Realtime-Bench proves it." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ" alt="Anthropic's S-1 shows $17B Q3 revenue and strong unit economics, but margin pressure is real." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/jackclarkSF" alt="" onerror="this.style.display='none'">
+          
           <div class="author-text">
-            <div class="author-name">Import AI / Jack Clark</div>
-            <div class="author-role">Newsletter editor, AI research</div>
+            <div class="author-name">Anthropic / SEC Filing</div>
+            <div class="author-role">IPO · Public disclosure</div>
           </div>
         </div>
-        <p class="hook-text">LLMs are very bad at low-latency tasks; Realtime-Bench proves it.</p>
+        <p class="hook-text">Anthropic's S-1 shows $17B Q3 revenue and strong unit economics, but margin pressure is real.</p>
         <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="card-index">03</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">LLMs fail at low-latency tasks: Realtime-Bench shows agents can't play games or do live auctions</div><p>Realtime-Bench is a new benchmark that tests frontier models (GPT-4, Claude, etc.) on tasks that require low-latency responses: playing live games, bidding in auctions, making time-sensitive decisions. The results show a hard architectural wall: LLMs cannot reliably respond fast enough for these scenarios. This is different from a 'not good enough yet' problem—it's a fundamental mismatch between how LLMs work (token-by-token generation) and what real-time systems require.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>New benchmark published; first concrete evidence that latency is a blocker for entire classes of agent use cases.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · developing</div><div class="thread-title">Anthropic S-1 filing: $17B Q3 revenue, profitability, but competition may erase margins</div><p>Anthropic filed its S-1 for IPO this week. The filing reveals Q3 2026 revenue of $17B, demonstrating extreme profitability on a per-unit basis. However, the company faces mounting pressure from OpenAI (whose models are cheaper and faster in some tasks) and Google (with free tier Gemini models). The unit economics are currently strong, but the filing warns that 'competition may eat all of the profits.'</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>S-1 now public. Investors and competitors can see the full financial picture. Pricing power is real today, but the trend is downward.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>New benchmark <strong>Realtime-Bench</strong> measures frontier models on live tasks: games, auctions, time-sensitive decisions</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Current LLMs <strong>perform far below human baseline</strong> on tasks requiring sub-second decisions</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Latency gap is architectural, not just scale</strong>: token generation speed fundamentally incompatible with real-time interaction</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Core business is extremely profitable</strong> despite intense competition from OpenAI, Google, others</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Competition may eat all profits</strong> as frontier model pricing races downward</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Investors are set up for endless dilution as compute costs rise and margins compress</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">For your agency, this means <strong>agent-based automation for Portuguese SMBs must exclude real-time trading, live customer interaction, or competitive gaming scenarios</strong>. Your sweet spot remains asynchronous workflows: overnight data processing, batch lead scoring, scheduled reporting. If a client asks for live agent-based trading or live customer support, you now have a concrete research-backed reason to decline.</p>
+          <p class="for-you-text">Your agency margins depend on Claude API pricing staying high enough to cover your overhead. Anthropic's filing signals pricing pressure is already here. Watch Claude's per-token cost trajectory closely. If it drops 50% in 12 months, your margin model breaks.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>investigate, to understand the latency profile of your own workflows and identify which client requests are realistic given this constraint.</p></div>
-        <p class="why-cut">Why this made the cut: First rigorous measurement of a real architectural limit; changes which agent use cases are viable.</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>investigate</p></div>
+        <p class="why-cut">Why this made the cut: Material to agency economics; IPO filing is definitive source</p>
         <div class="url-row">
-    <a class="source-url" href="https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/" target="_blank" rel="noopener">↗ jack-clark.net/2026/11/02/import-ai-479-sp</a></div>
+    <a class="source-url" href="https://stratechery.com/2026/anthropic-s-1-the-cost-of-compute-who-is-paying/" target="_blank" rel="noopener">↗ stratechery.com/2026/anthropic-s-1-the-cos</a></div>
       </div>
     </div>
   </div>
@@ -862,40 +868,40 @@ html, body {
     <div class="content-card">
       <div class="card-left">
         
-    <div class="card-video" data-yt-id="J8HWsYpiAgM">
+    <div class="card-video" data-yt-id="gZiCUMaxEw0">
       <div class="card-video-frame"></div>
-      <a class="card-video-open" href="https://youtube.com/shorts/J8HWsYpiAgM" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
-    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://latent.space/og/card/post/ainews-gemini-4-carbon/95760c867a2e9becf313c47b14f0386243bc4596c54259bb71809eb955f9dad9.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/gZiCUMaxEw0" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://wp.technologyreview.com/wp-content/uploads/2026/10/iStock-2297734847.jpg?resize=1200,600" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
           
           <div class="author-text">
-            <div class="author-name">Google / DeepMind</div>
-            <div class="author-role">Frontier AI lab</div>
+            <div class="author-name">MIT Technology Review</div>
+            <div class="author-role">Technology journalism</div>
           </div>
         </div>
-        <p class="hook-text">Gemini 4 Carbon tops independent benchmarks, access limited to cyber defenders.</p>
-        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <p class="hook-text">Agent-based tasks use 10 to 50 times more tokens than simple chat prompts.</p>
+        <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="card-index">04</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Google releases Gemini 4 Carbon: frontier model, leads benchmarks, limited to security defenders</div><p>Google is releasing Gemini 4 Carbon, a new frontier model that performs at or above Claude Opus 5.5 on independent benchmarks. Unlike previous Google releases, access is being gated: initial availability is restricted to security defenders and trusted enterprises. This is a shift from Google's earlier 'open, fast, cheap' positioning and signals they are now competing directly with Anthropic and OpenAI on the premium segment.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>Model released November 2, 2026; benchmarks published; gated access announced.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Agents burn 10-50x more tokens per task than chat; cost accounting must change</div><p>As agents become more sophisticated, they generate far more internal tokens than human-visible outputs. A single user request to an agent triggers planning, multiple code generation attempts, test runs, and self-correction loops. This hidden token consumption is invisible to clients but destroys margins if you're pricing by token.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>MIT piece published; makes explicit what builders are discovering: token counting is dead for agent pricing.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Gemini 4 Carbon leads independent evals</strong> (Latent Space reports top scores)</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Initial access restricted</strong> to trusted security defenders and enterprises, not general public</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Release pattern mirrors <strong>OpenAI/Anthropic playbook</strong>: frontier model → security/enterprise gating → gradual commercial rollout</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>A single task involves planning, code generation, testing, iteration cycles</strong></span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Token count is no longer the right metric for measuring agent costs or value</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>The more useful an agent becomes, the more expensive it gets per visible unit of work</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">No direct action yet. If you're building security-focused automation for Portuguese SMBs (e.g., vulnerability scanning, compliance monitoring), Gemini 4 Carbon may become available through enterprise channels within weeks. Watch for pricing and API availability; if it undercuts Claude Opus pricing, your agency model economics shift.</p>
+          <p class="for-you-text">Your agency likely quotes clients based on per-token pricing or fixed-scope projects. If agents require 20x more tokens to complete the same task, your cost structure is wrong. You need a new pricing model that counts 'tasks shipped' not 'tokens consumed.' This is urgent.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>watch, for API pricing and broader access timeline. Competitive pressure on Claude API pricing may benefit your agency margins.</p></div>
-        <p class="why-cut">Why this made the cut: Only new frontier model release this week; changes competitive landscape for agency tooling.</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>use_now</p></div>
+        <p class="why-cut">Why this made the cut: Direct financial impact on agency model</p>
         <div class="url-row">
-    <a class="source-url" href="https://latent.space/p/ainews-gemini-4-carbon/" target="_blank" rel="noopener">↗ latent.space/p/ainews-gemini-4-carbon</a></div>
+    <a class="source-url" href="https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/" target="_blank" rel="noopener">↗ www.technologyreview.com/2026/11/02/114770</a></div>
       </div>
     </div>
   </div>
@@ -903,37 +909,37 @@ html, body {
   <div class="slide" data-i="5">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://wp.technologyreview.com/wp-content/uploads/2026/10/iStock-2297734847.jpg?resize=1200,600" alt="Agents burn 10-50x more tokens per task than chat; cost accounting must change." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f13715b2-ed2d-4a14-bbf6-85f184b4b202/SCR-20261030-svzc.png?t=1793423031" alt="Google admits its AI-powered Search mode is reducing ad clicks and revenue." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
           
           <div class="author-text">
-            <div class="author-name">MIT Technology Review</div>
-            <div class="author-role">Technology publication</div>
+            <div class="author-name">Latent Space / TLDR AI</div>
+            <div class="author-role">AI news aggregator</div>
           </div>
         </div>
-        <p class="hook-text">Agents burn 10-50x more tokens per task than chat; cost accounting must change.</p>
+        <p class="hook-text">Google admits its AI-powered Search mode is reducing ad clicks and revenue.</p>
         <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="card-index">05</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Stop counting tokens, start counting what ships: agents use 10-50x more tokens per task</div><p>MIT Tech Review publishes analysis of how agent economics actually work: when developers delegate a task to an AI agent, the agent doesn't answer once. It plans, generates code, runs tests, encounters errors, retries, and iterates. Each step consumes tokens. The cumulative token cost for a single 'task' can be 10-50x higher than the same task executed as a simple chat prompt. This matters because token-based pricing (used by OpenAI, Anthropic, others) makes agent-based workflows look cheap on paper but expensive in practice.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>Article published November 2, 2026; first rigorous analysis of agent cost structures.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · developing</div><div class="thread-title">Google AI Mode hurts Search revenue; $500B valuation drop signals real cannibalization</div><p>In Google's latest earnings, executives acknowledged that AI Mode (which provides direct answers without traditional search results) is cannibalizing ad revenue. Investors reacted badly; Google lost $500B in market cap, its worst decline since going public in 2004.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>Google made explicit public statements about revenue cannibalization; this was previously implied but not admitted.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Single agent task spawns multiple calls</strong>: planning, code generation, test execution, retry loops, error correction</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Real-world agent workflows <strong>consume 10-50x more tokens</strong> than naive chat prompts</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Token-per-request pricing <strong>hides true cost</strong> of agentic workflows; builders must measure <strong>task completion cost</strong> instead</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Users get answers directly from AI without clicking ads</strong></span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Google's $500B market cap loss since Q3 signals investor concern about structural revenue risk</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Worst performance since 2004 IPO, per filing language</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Critical for your agency economics: when you price client contracts, you cannot use ChatGPT's token count as a proxy for cost. A 'simple' agent task (e.g., scrape leads, validate, format, store) will use far more tokens than appears. Start tracking <strong>cost per completed task</strong> (lead scored, document processed, automation iteration) instead of per-token. This is how you avoid margin compression when scaling.</p>
+          <p class="for-you-text">This is why Google is aggressively pushing Gemini agents and new distribution channels. They're losing search moat and need agent-powered UX to recapture value. If you're building on Google's APIs or assuming search-driven discovery, watch this closely. Google will likely shift pricing to favor enterprise agentic use over consumer search.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>use_now, to rebuild your pricing model for client contracts and understand true margins on agent-based delivery.</p></div>
-        <p class="why-cut">Why this made the cut: Directly impacts your agency's profitability and pricing strategy.</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>watch</p></div>
+        <p class="why-cut">Why this made the cut: Largest platform shift signal of the week</p>
         <div class="url-row">
-    <a class="source-url" href="https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/" target="_blank" rel="noopener">↗ www.technologyreview.com/2026/11/02/114770</a></div>
+    <a class="source-url" href="https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/" target="_blank" rel="noopener">↗ latent.space/p/ainews-google-admits-ai-mod</a></div>
       </div>
     </div>
   </div>
@@ -941,38 +947,37 @@ html, body {
   <div class="slide" data-i="6">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://wp.technologyreview.com/wp-content/uploads/2026/10/MAIN-top.jpg?resize=1200,600" alt="Tim Berners-Lee's 2001 Semantic Web vision now realized via autonomous agents." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://techcrunch.com/wp-content/uploads/2026/11/Recursive-Neural-Spiral-in-Circuitry.png?resize=1200,600" alt="Anthropic signals it's very close to recursive self-improvement (RSI) capabilities." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
           
           <div class="author-text">
-            <div class="author-name">MIT Technology Review</div>
-            <div class="author-role">Technology publication</div>
+            <div class="author-name">TechCrunch</div>
+            <div class="author-role">Technology journalism</div>
           </div>
         </div>
-        <p class="hook-text">Tim Berners-Lee's 2001 Semantic Web vision now realized via autonomous agents.</p>
-        <span class="signal-badge signal-green">🟢 Apply now</span>
+        <p class="hook-text">Anthropic signals it's very close to recursive self-improvement (RSI) capabilities.</p>
+        <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="card-index">06</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Agentic web is now live: autonomous agents navigating the web become standard</div><p>The 'agentic web' refers to a internet designed for autonomous software agents to navigate, not just humans. This was proposed by Berners-Lee in 2001 as the 'Semantic Web,' but the technical foundations (structured data, RDF, ontologies) never gained traction. However, modern LLMs + browser automation + MCP now make it possible for agents to navigate the real web (HTML, unstructured data, forms, interactive sites) directly. This is happening now, in production.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>MIT Technology Review published major feature on agentic web becoming mainstream. Signals industry inflection point.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Anthropic warns of imminent RSI capability: self-building AI systems possible soon</div><p>Anthropic disclosed in its S-1 filing that it views itself as being close to capabilities it calls 'RSI' (recursive self-improvement). This is the ability for an AI system to autonomously improve itself without human retraining. It's a major research milestone and a governance challenge.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>Anthropic made this warning public in S-1; signals internal confidence that RSI is achievable soon.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Autonomous agents can now reliably navigate web, fill forms, execute transactions</strong></span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Berners-Lee's 2001 Semantic Web vision <strong>finally materializes in 2026</strong>, 25 years later</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Browser automation and computer use agents</strong> are production-ready; MCP (Model Context Protocol) enables agent-web integration</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>RSI would mean AI systems can build, train, and improve themselves without human intervention</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Capability is not speculative; Anthropic sees path to it within months or years</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Major shift from current model where humans retain control over training loops</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">This is the core of your agency's competitive advantage for Portuguese SMBs. You can now reliably build workflows where agents autonomously handle web-based tasks: scraping competitor pricing, filling lead forms, pulling data from public APIs, triggering Zapier workflows. The tech moved from 'experimental' to 'standard' this month. Your next pitch to SMBs should emphasize autonomous web interaction as a primary use case.</p>
+          <p class="for-you-text">This is not directly actionable this week, but it signals Anthropic's true roadmap. If RSI arrives, the entire premise of 'managed AI agents' changes. Your agency model assumes you control the model versions and outputs. That assumption breaks if self-improving systems exist. File this as a long-term business risk to monitor.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>use_now, to identify new client workflows around autonomous web interaction. Prioritize lead generation, competitive intelligence, and data aggregation use cases.</p></div>
-        <p class="why-cut">Why this made the cut: Signals mainstream adoption of core technology for your agency's value proposition.</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>watch</p></div>
+        <p class="why-cut">Why this made the cut: Rare explicit warning from frontier lab about advanced capability timeline</p>
         <div class="url-row">
-    <a class="source-url" href="https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/" target="_blank" rel="noopener">↗ www.technologyreview.com/2026/11/02/114784</a>
-    <a class="source-url" href="https://www.technologyreview.com/2026/11/02/1147889/the-download-agentic-web-arrives-eliminating-traffic-deaths/" target="_blank" rel="noopener">↗ www.technologyreview.com/2026/11/02/114788</a></div>
+    <a class="source-url" href="https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/" target="_blank" rel="noopener">↗ techcrunch.com/2026/11/02/anthropic-warns-</a></div>
       </div>
     </div>
   </div>
@@ -980,37 +985,37 @@ html, body {
   <div class="slide" data-i="7">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://substackcdn.com/image/fetch/$s_!NQ70!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff51bb5d0-4390-4676-af4a-6bc8199412d5_2006x1362.png" alt="October 2026 onslaught of critical vulns proves open AI models enable real cyber risk." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://huggingface.co/blog/assets/ml4/thumbnail.png" alt="Mistral releases Le Chonk, an open-weight model claiming frontier-class performance." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/labenz" alt="" onerror="this.style.display='none'">
+          
           <div class="author-text">
-            <div class="author-name">Interconnects (Nathan Labenz)</div>
-            <div class="author-role">AI safety researcher, Interconnects blog</div>
+            <div class="author-name">Hugging Face / Mistral</div>
+            <div class="author-role">Open-source release · Model provider</div>
           </div>
         </div>
-        <p class="hook-text">October 2026 onslaught of critical vulns proves open AI models enable real cyber risk.</p>
-        <span class="signal-badge signal-red">🔴 Urgent</span>
+        <p class="hook-text">Mistral releases Le Chonk, an open-weight model claiming frontier-class performance.</p>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">07</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · developing</div><div class="thread-title">Black October: critical vulnerabilities in open-source (PHP2Shell, GitLab) materialize cyber risks</div><p>Interconnects piece examines whether the author was wrong to warn about open models increasing cyber risk. October 2026 saw a wave of critical vulnerability disclosures (PHP2Shell, GitLab RCE, and others). Evidence suggests some vulnerabilities were discovered and exploited using AI-assisted techniques, leveraging knowledge from open-weight models. This is the first major incident cluster that validates the 'open models enable cyber risk' thesis.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>Interconnects reassesses earlier position; incident data now supports thesis that open models materially increase cyber attack surface.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · monitoring</div><div class="thread-title">Mistral Large 4 ('Le Chonk') open-weight release claims frontier parity</div><p>Mistral released Le Chonk (Mistral Large 4) as an open-weight model, meaning clients can download and run it locally. Mistral claims it reaches frontier-class performance. This follows a pattern: open-weight models are catching up to closed APIs, pushing pricing down.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>Model is now available for download and local deployment; was previously only accessible via API.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>PHP2Shell, GitLab long-standing bug</strong>, and other critical disclosures in October 2026 dubbed 'Black October'</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Vulnerabilities exploited using <strong>knowledge from open-weight models</strong> and AI-assisted exploit development</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Cyber risks of AI models <strong>transitioning from theory to materially real incidents</strong></span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Open-weight frontier model available for self-hosting and fine-tuning</strong></span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Reduces dependence on closed APIs; enables local deployment for Portuguese SMBs with data sovereignty concerns</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Performance claims need independent verification; leaderboard positions currently unclear</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">If you're deploying agents in your own infrastructure or recommending them to clients, security posture matters. You cannot ignore that open-weight models (Mistral, Qwen, etc.) can be used to discover and exploit vulnerabilities in your codebase or client systems. Build a baseline: inventory dependencies, run security audits before deploying agents, and isolate agent execution from production systems.</p>
+          <p class="for-you-text">This is immediately relevant for your SMB clients who need on-premise deployment or data privacy. Le Chonk lets you offer locally-hosted agents without cloud vendor lock-in. Test it against Claude and GPT on your standard agency workflows this week. If it holds 80%+ parity at 1/10th the cost, it's a game-changer for margin.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>investigate, to understand which of your current deployments could be exploited via AI-discovered vulnerabilities. Prioritize patching, isolation, and monitoring.</p></div>
-        <p class="why-cut">Why this made the cut: First major incident cluster supporting cyber-risk thesis for open models; changes threat model for agent deployment.</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>test</p></div>
+        <p class="why-cut">Why this made the cut: Concrete new model with immediate deployment options</p>
         <div class="url-row">
-    <a class="source-url" href="https://www.interconnects.ai/p/was-i-wrong-about-open-models-and" target="_blank" rel="noopener">↗ www.interconnects.ai/p/was-i-wrong-about-o</a></div>
+    <a class="source-url" href="https://huggingface.co/blog/mistral-large4" target="_blank" rel="noopener">↗ huggingface.co/blog/mistral-large4</a></div>
       </div>
     </div>
   </div>
@@ -1018,114 +1023,42 @@ html, body {
   <div class="slide" data-i="8">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://substackcdn.com/image/fetch/$s_!6u4S!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6a847075-78be-45e9-b554-ae9abc6f9296_3182x1790.png" alt="Benchmarking industry has fundamental blindspots; metrics don't measure what matters." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://wp.technologyreview.com/wp-content/uploads/2026/10/MAIN-top.jpg?resize=1200,600" alt="The internet is now navigable by autonomous AI agents, fulfilling 25-year-old vision." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/labenz" alt="" onerror="this.style.display='none'">
+          
           <div class="author-text">
-            <div class="author-name">Interconnects (Nathan Labenz) / Artificial Analysis</div>
-            <div class="author-role">AI safety/metrics researcher; benchmark provider</div>
+            <div class="author-name">MIT Technology Review</div>
+            <div class="author-role">Technology journalism</div>
           </div>
         </div>
-        <p class="hook-text">Benchmarking industry has fundamental blindspots; metrics don't measure what matters.</p>
-        <span class="signal-badge signal-blue">💡 Learn</span>
+        <p class="hook-text">The internet is now navigable by autonomous AI agents, fulfilling 25-year-old vision.</p>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">08</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Artificial Analysis v5: benchmarking industry reveals gaps in how model performance is measured</div><p>Artificial Analysis publishes industry benchmarking review (v5). The meta-analysis reveals the benchmarking industry lacks rigor on what actually matters: agentic reliability, edge-case handling, and robustness. High scores on MMLU or HumanEval correlate weakly with real-world performance. This is a systemic problem: the benchmarks that drive model development are decoupled from what builders need.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>Artificial Analysis v5 published November 2, 2026; provides first comprehensive audit of benchmarking gaps.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Agentic web arrives: Tim Berners-Lee's 2001 Semantic Web vision now real via autonomous agents</div><p>In 2001, Tim Berners-Lee proposed the Semantic Web: an internet where software agents could understand and act on information autonomously. It failed because it required every website to tag content with machine-readable metadata. Now, 25 years later, the agentic web is arriving, but via a different path: frontier LLMs can understand human-readable web content, and tools like browser-use let agents interact with web UIs directly.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>MIT piece articulates what builders have been shipping for months: agents are now reliably using the web to accomplish real tasks.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Artificial Analysis v5 audit reveals metrics misalignment</strong>: high benchmark scores don't correlate with real-world utility</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>No standardized measurement for agentic behavior, reliability, edge cases</strong></span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Builders rely on <strong>weak proxies</strong> (MMLU, HumanEval scores) that optimize benchmarks, not actual capability</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Agents can browse, understand, and act on web pages without human mediation</strong></span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>MCP (Model Context Protocol) and browser-use APIs enable agent-to-web interaction at scale</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Semantic Web failed; agentic web succeeds because agents understand context implicitly</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">When evaluating models for your agency workflows, don't trust benchmarks blindly. Run your own evals on real tasks: how many times does Claude get 'stuck' retrying? How often does it hallucinate schema in data extraction? Benchmark scores tell you almost nothing about agent reliability. Build internal eval datasets based on actual client workflows.</p>
+          <p class="for-you-text">This is the infrastructure layer for your next wave of agency services. Clients will ask you to build agents that navigate their suppliers' APIs, monitor competitors, execute trades, schedule meetings. All of this is now possible. The tooling (browser-use, MCP servers) is real. You can build these workflows now.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>investigate, to build internal benchmarks for your own agency workflows and stop relying on published leaderboards.</p></div>
-        <p class="why-cut">Why this made the cut: Challenges assumptions about how to select models; forces pragmatic testing of actual use cases.</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>use_now</p></div>
+        <p class="why-cut">Why this made the cut: Marks inflection point in what AI agents can do productively</p>
         <div class="url-row">
-    <a class="source-url" href="https://www.interconnects.ai/p/artificial-analysis-v5-and-the-benchmarkers" target="_blank" rel="noopener">↗ www.interconnects.ai/p/artificial-analysis</a></div>
+    <a class="source-url" href="https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/" target="_blank" rel="noopener">↗ www.technologyreview.com/2026/11/02/114784</a></div>
       </div>
     </div>
   </div>
 
   <div class="slide" data-i="9">
-    <div class="content-card">
-      <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://techcrunch.com/wp-content/uploads/2026/09/openai-getty.jpg?resize=1200,800" alt="OpenAI unifies ChatGPT UI, ending Chat/Work tab separation." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="author-block">
-          
-          <div class="author-text">
-            <div class="author-name">OpenAI / TechCrunch</div>
-            <div class="author-role">AI company / tech media</div>
-          </div>
-        </div>
-        <p class="hook-text">OpenAI unifies ChatGPT UI, ending Chat/Work tab separation.</p>
-        <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="card-index">09</div>
-      </div>
-      <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">OpenAI merges ChatGPT Chat and Work tabs into unified interface</div><p>OpenAI removes distinction between ChatGPT's 'Chat' (consumer-facing, simple) and 'Work' (enterprise, file handling, integration) modes. They are now merged into a single interface. This simplifies onboarding but also signals that OpenAI no longer sees reason to gate features behind a consumer/enterprise boundary.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>UI change rolled out November 2, 2026.</p></div>
-        
-        <div class="right-section">
-          <div class="section-label">Key signals</div>
-          <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Chat and Work modes now merged</strong> into single interface</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Simplifies UX but <strong>signals OpenAI views boundary between consumer and enterprise as blurring</strong></span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Move mirrors Anthropic's strategy: single platform for all use cases</span></li></ul>
-        </div>
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">No immediate action, but signals that ChatGPT is moving upmarket to displace specialized tools. For your agency, this means client expectations for UI simplicity are rising. If you're building custom interfaces on top of Claude API, ensure they're simpler than ChatGPT, not more complex.</p>
-        </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>watch, for how this affects user perception of model capability boundaries between consumer and enterprise.</p></div>
-        <p class="why-cut">Why this made the cut: Small UI change, but signals OpenAI's product strategy shift.</p>
-        <div class="url-row">
-    <a class="source-url" href="https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/" target="_blank" rel="noopener">↗ techcrunch.com/2026/11/02/openai-is-finall</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="10">
-    <div class="section-card" style="--sec-color:#16A34A;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
-      <div class="section-card__inner">
-        <div class="section-emoji">🛠️</div>
-        <div class="section-chapter">Chapter</div>
-        <h2 class="section-title">Build This Week</h2>
-        <div class="section-rule"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="11">
-    <div class="content-card">
-      <div class="card-left">
-        <div class="author-block">
-          <div class="build-icon">🛠️</div>
-          <div class="author-text">
-            <div class="author-name">OpenCode: Offline coding agent</div>
-            <div class="author-role">Latent Space / GitHub</div>
-          </div>
-        </div>
-        <p class="hook-text">Local, self-hosted coding agent using Qwen3.5 + Ollama; runs entirely offline with no external API calls.</p>
-        <div class="card-index">11</div>
-      </div>
-      <div class="card-right">
-        <div class="for-you-box">
-          <div class="for-you-label">Try this</div>
-          <p class="for-you-text">For clients concerned about code privacy or operating in restricted environments, this is a path to local agent deployment. Test it against a small Python automation task (e.g., CSV processing) to understand latency and reliability vs. cloud models.</p>
-        </div>
-        <div class="url-row"><a class="source-url" href="https://latent.space/p/offline-coding/" target="_blank" rel="noopener">↗ Open link</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="12">
     <div class="section-card" style="--sec-color:#7C3AED;--sec-bg:#F5F3FF;--sec-border:#DDD6FE">
       <div class="section-card__inner">
         <div class="section-emoji">🎙️</div>
@@ -1136,75 +1069,97 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="13">
+  <div class="slide" data-i="10">
     <div class="content-card podcast-layout">
       <div class="card-left podcast-left">
         <div class="podcast-show">Latent Space</div>
-        <h2 class="podcast-episode">Using Agents for Long-Horizon Financial Work — Aman Singh, Arca</h2>
+        <h2 class="podcast-episode">Building AI for Lawyers: Jacob Lauritzen, CTO of Legora</h2>
         <div class="takeaway-box">
           <span class="takeaway-label">Takeaway</span>
-          <p class="takeaway-text">Long-running agent workflows (days, not hours) require persistent memory, custom harnesses, and human approval gates.</p>
+          <p class="takeaway-text">Legal agents can't see client data; how do you build and test an agent when traces are legally off-limits?</p>
         </div>
         
-        <a class="yt-thumb-link" href="https://youtube.com/watch?v=KM3VQZKjpiY" target="_blank" rel="noopener">
-          <img class="yt-thumb" src="https://img.youtube.com/vi/KM3VQZKjpiY/hqdefault.jpg" alt="Episode thumbnail">
-          <div class="yt-play"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
-        <div class="card-index">13</div>
+        <div class="card-index">10</div>
       </div>
       <div class="card-right">
         
         <div class="right-section">
           <div class="section-label">Key points</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Arca uses persistent memory to maintain agent context across multi-day financial workflows</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Custom harness routes tasks to specialized models; routing layer matters as much as the base model</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Approval workflows and compliance auditing are non-negotiable for financial agents; 'agents prompt people more than people prompt agents'</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Evals without traces: build evaluation frameworks that don't rely on seeing actual client work</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Million-cell tabular reviews: agents handling large-scale document review where you can only spot-check output</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Billable hour model breaking: if agents do the work in 10 minutes, how do you price it?</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">For multi-day workflows in Portuguese SMB agencies (e.g., lead nurturing over a week, iterative proposal refinement), Arca's architecture is a blueprint: persistent memory, human-in-loop approvals, internal benchmarking to measure improvement. Build this pattern into your own agent harnesses.</p>
+          <p class="for-you-text">Your SMB clients in finance, HR, and professional services face the same data privacy wall. This episode shows how to build production agents when you can't see the data flowing through them. Critical pattern for regulated industries.</p>
         </div>
-        <div class="url-row"><a class="source-url" href="https://youtube.com/watch?v=KM3VQZKjpiY" target="_blank" rel="noopener">↗ Watch/listen</a></div>
+        <div class="url-row"><a class="source-url" href="https://latent.space/p/building-ai-for-lawyers-jacob-lauritzen-cto-of-legora/" target="_blank" rel="noopener">↗ Watch/listen</a></div>
       </div>
     </div>
   </div>
 
-  <div class="slide" data-i="14">
+  <div class="slide" data-i="11">
     <div class="content-card podcast-layout">
       <div class="card-left podcast-left">
-        <div class="podcast-show">No Priors</div>
-        <h2 class="podcast-episode">How Defenders Can Use AI to Fix Security Flaws</h2>
+        <div class="podcast-show">Latent Space</div>
+        <h2 class="podcast-episode">Why Agents Love Supabase: Paul Copplestone and Ant Wilson</h2>
         <div class="takeaway-box">
           <span class="takeaway-label">Takeaway</span>
-          <p class="takeaway-text">OpenAI President Greg Brockman: AI can now reliably find and patch software vulnerabilities at scale.</p>
+          <p class="takeaway-text">PostgreSQL-based backend (Supabase) is becoming the standard foundation for agent applications.</p>
         </div>
         
-        <a class="yt-thumb-link" href="https://youtube.com/watch?v=79M2vFJ1JiQ" target="_blank" rel="noopener">
-          <img class="yt-thumb" src="https://img.youtube.com/vi/79M2vFJ1JiQ/hqdefault.jpg" alt="Episode thumbnail">
-          <div class="yt-play"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
-        </a>
-        <div class="card-index">14</div>
+        <div class="card-index">11</div>
       </div>
       <div class="card-right">
         
         <div class="right-section">
           <div class="section-label">Key points</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span>AI agents can autonomously identify security flaws in codebases and generate fixes</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Defender use case: identify, triage, patch vulnerabilities faster than manual review</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Scaling security fix deployment is now AI-native workflow, not manual process</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Agents need real-time state management; SQL is more reliable than vector DBs for transactional consistency</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Supabase's RLS (row-level security) handles multi-tenant agent apps natively</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Vector search is still useful but shouldn't be your source of truth for agent decisions</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">If you're building automation for Portuguese SMBs operating legacy codebases, vulnerability scanning and patch generation is a concrete, high-value agent use case. Offer this as a service: run agent-based code audit, identify risks, generate fixes, and present to client for approval.</p>
+          <p class="for-you-text">If you're building agent backends for clients, Supabase saves months of infrastructure work. It's the right choice for Portuguese SMBs who need local data storage and don't want to manage Kubernetes. Use this as your default data layer.</p>
         </div>
-        <div class="url-row"><a class="source-url" href="https://youtube.com/watch?v=79M2vFJ1JiQ" target="_blank" rel="noopener">↗ Watch/listen</a></div>
+        <div class="url-row"><a class="source-url" href="https://latent.space/p/supabase/" target="_blank" rel="noopener">↗ Watch/listen</a></div>
       </div>
     </div>
   </div>
 
-  <div class="slide" data-i="15">
+  <div class="slide" data-i="12">
+    <div class="content-card podcast-layout">
+      <div class="card-left podcast-left">
+        <div class="podcast-show">Latent Space</div>
+        <h2 class="podcast-episode">How Anthropic Ships Claude with Claude: Separating Brain from Hands</h2>
+        <div class="takeaway-box">
+          <span class="takeaway-label">Takeaway</span>
+          <p class="takeaway-text">Anthropic uses Claude to help ship Claude; separating model reasoning (brain) from tool use (hands) is key architecture.</p>
+        </div>
+        
+        <div class="card-index">12</div>
+      </div>
+      <div class="card-right">
+        
+        <div class="right-section">
+          <div class="section-label">Key points</div>
+          <ul class="insight-list">
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Brain-hands separation: use Opus for planning and reasoning, cheaper Haiku for tool execution</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Claude Platform (orchestration layer) is where real value sits, not in the model itself</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Tool calling and MCP integration are more important than raw model capability for agent applications</span></li></ul>
+        </div>
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">This is how you should architect your agency applications too. Don't let one model do all the work. Use Opus for strategy and planning, Haiku for execution. Saves cost and improves reliability. Latent Space episode goes deep on how Anthropic does this internally.</p>
+        </div>
+        <div class="url-row"><a class="source-url" href="https://latent.space/p/opus55/" target="_blank" rel="noopener">↗ Watch/listen</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="13">
     <div class="section-card" style="--sec-color:#7C3AED;--sec-bg:#F5F3FF;--sec-border:#DDD6FE">
       <div class="section-card__inner">
         <div class="section-emoji">⚙️</div>
@@ -1215,18 +1170,84 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="16">
+  <div class="slide" data-i="14">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://techcrunch.com/wp-content/uploads/2026/11/IMG_3572.jpeg?resize=1200,895" alt="42AI raises $62.5M claiming world model that predicts human behavior." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        
         <div class="author-block">
           
           <div class="author-text">
-            <div class="author-name">42AI</div>
-            <div class="author-role">Stealth startup, funding round</div>
+            <div class="author-name">Simon Willison</div>
+            <div class="author-role">Founder · Datasette</div>
           </div>
         </div>
-        <p class="hook-text">42AI raises $62.5M claiming world model that predicts human behavior.</p>
+        <p class="hook-text">Kyle Kingsbury warns: LLMs erode trust in software, documentation, and organizations that produce them.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">14</div>
+      </div>
+      <div class="card-right">
+        
+        
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Your clients will ask you to use AI to generate docs and code faster. Be aware that this erodes their credibility with their own teams. Quality and trust matter more than speed here.</p>
+        </div>
+        
+        
+        <div class="url-row">
+    <a class="source-url" href="https://simonwillison.net/2026/Nov/1/kyle-kingsbury/" target="_blank" rel="noopener">↗ simonwillison.net/2026/Nov/1/kyle-kingsbur</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="15">
+    <div class="content-card">
+      <div class="card-left">
+        
+    <div class="card-video" data-yt-id="HR_ZQnu1o30">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/HR_ZQnu1o30" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Simon Willison</div>
+            <div class="author-role">Founder · Datasette</div>
+          </div>
+        </div>
+        <p class="hook-text">OpenAI now offers $100-$500/month in free API credits for ChatGPT Pro/Max subscribers (matching Anthropic's recent offer).</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">15</div>
+      </div>
+      <div class="card-right">
+        
+        
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">If your clients have ChatGPT Pro subscriptions, they now have free API quota. This means your agency needs to justify value beyond raw API cost. Build for outcomes, not just cheaper tokens.</p>
+        </div>
+        
+        
+        <div class="url-row">
+    <a class="source-url" href="https://simonwillison.net/2026/Oct/29/api-credits/" target="_blank" rel="noopener">↗ simonwillison.net/2026/Oct/29/api-credits</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="16">
+    <div class="content-card">
+      <div class="card-left">
+        
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Ben Hylak</div>
+            <div class="author-role">Builder · AI</div>
+          </div>
+        </div>
+        <p class="hook-text">Every product should be a headless MCP fed into an agent (except yours, which stays special).</p>
         <span class="signal-badge signal-blue">💡 Learn</span>
         <div class="card-index">16</div>
       </div>
@@ -1236,12 +1257,12 @@ html, body {
         
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Claims are bold; no independent verification yet. If real, this is a step toward models that can simulate multi-agent scenarios (competitor behavior, customer churn dynamics). Watch for technical details, benchmarks, and actual product launch before building client workflows around it.</p>
+          <p class="for-you-text">Start building with MCP as your default integration pattern. It's becoming the universal agent interface. If your tools don't expose MCP servers, you're already behind.</p>
         </div>
         
         
         <div class="url-row">
-    <a class="source-url" href="https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/" target="_blank" rel="noopener">↗ techcrunch.com/2026/11/02/42ai-comes-out-o</a></div>
+    <a class="source-url" href="https://simonwillison.net/2026/Oct/29/ben-hylak/" target="_blank" rel="noopener">↗ simonwillison.net/2026/Oct/29/ben-hylak</a></div>
       </div>
     </div>
   </div>
@@ -1249,16 +1270,16 @@ html, body {
   <div class="slide" data-i="17">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://techcrunch.com/wp-content/uploads/2026/03/grok-getty.jpg?resize=1200,800" alt="Musk throttles Grok API limits due to unsustainably high inference costs." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&amp;#038;ssl=1" alt="Genie 4 (DeepMind) can generate game worlds from language; agents can now inhabit and modify them." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
           
           <div class="author-text">
-            <div class="author-name">Elon Musk / X</div>
-            <div class="author-role">Founder, X Corp</div>
+            <div class="author-name">Import AI</div>
+            <div class="author-role">Newsletter · Jack Clark</div>
           </div>
         </div>
-        <p class="hook-text">Musk throttles Grok API limits due to unsustainably high inference costs.</p>
-        <span class="signal-badge signal-red">🔴 Urgent</span>
+        <p class="hook-text">Genie 4 (DeepMind) can generate game worlds from language; agents can now inhabit and modify them.</p>
+        <span class="signal-badge signal-blue">💡 Learn</span>
         <div class="card-index">17</div>
       </div>
       <div class="card-right">
@@ -1267,12 +1288,12 @@ html, body {
         
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Another data point that frontier model inference costs are compressing margins across all players. Your agency's profitability depends on finding asymmetries (cheaper models, better routing, smarter prompt engineering) rather than relying on raw model access.</p>
+          <p class="for-you-text">This is interesting for demos and prototypes. Your clients may ask if you can build interactive simulations or training environments. Genie 4 makes this feasible without game dev expertise.</p>
         </div>
         
         
         <div class="url-row">
-    <a class="source-url" href="https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/" target="_blank" rel="noopener">↗ techcrunch.com/2026/11/02/elon-musk-thrott</a></div>
+    <a class="source-url" href="https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/" target="_blank" rel="noopener">↗ jack-clark.net/2026/11/02/import-ai-479-sp</a></div>
       </div>
     </div>
   </div>
@@ -1280,15 +1301,15 @@ html, body {
   <div class="slide" data-i="18">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f13715b2-ed2d-4a14-bbf6-85f184b4b202/SCR-20261030-svzc.png?t=1793423031" alt="Google admits AI Mode hurts Search revenue; $500B valuation hit, worst since 2004 IPO." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://substackcdn.com/image/fetch/$s_!NQ70!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff51bb5d0-4390-4676-af4a-6bc8199412d5_2006x1362.png" alt="Black October: PHP2Shell, GitLab RCE, and other critical vulns prove open-source models enable real cyber risks." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
           
           <div class="author-text">
-            <div class="author-name">Google / Alphabet</div>
-            <div class="author-role">Tech company, AI investment</div>
+            <div class="author-name">Interconnects</div>
+            <div class="author-role">Newsletter · Nathan Benaich</div>
           </div>
         </div>
-        <p class="hook-text">Google admits AI Mode hurts Search revenue; $500B valuation hit, worst since 2004 IPO.</p>
+        <p class="hook-text">Black October: PHP2Shell, GitLab RCE, and other critical vulns prove open-source models enable real cyber risks.</p>
         <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="card-index">18</div>
       </div>
@@ -1298,12 +1319,12 @@ html, body {
         
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Broader implication: AI features that improve user experience often destroy the business model of the original product. For your agency, this means don't assume that adding AI 'solves' client problems—it may cannibalize their existing revenue. Help clients think through margin implications when deploying AI features.</p>
+          <p class="for-you-text">If you're deploying open-source models or using open-source dependencies, assume your clients' systems are at higher risk. Budget for security audits and patching cycles. This is a real cost of open-source adoption.</p>
         </div>
         
         
         <div class="url-row">
-    <a class="source-url" href="https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/" target="_blank" rel="noopener">↗ latent.space/p/ainews-google-admits-ai-mod</a></div>
+    <a class="source-url" href="https://www.interconnects.ai/p/was-i-wrong-about-open-models-and" target="_blank" rel="noopener">↗ www.interconnects.ai/p/was-i-wrong-about-o</a></div>
       </div>
     </div>
   </div>
@@ -1322,19 +1343,23 @@ html, body {
   <div class="slide" data-i="20">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://cdn.jornaldenegocios.pt/images/2026-02/img_1200x676uu2026-02-13-11-57-56-518484.jpg" alt="Receitas da Anthropic disparam 12x num ano, mas empresa agravou prejuízo operacional." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Jornal de Negócios</div>
-        <h2 class="news-headline">Antropic fatura 17 mil milhões em Q3; prejuízo atinge 23,3 mil milhões</h2>
-        <p class="hook-text news-hook">Receitas da Anthropic disparam 12x num ano, mas empresa agravou prejuízo operacional.</p>
+        
+    <div class="card-video" data-yt-id="oC3BDpnhmQ8">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/oC3BDpnhmQ8" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://cdn.teknoticias.pt/uploads/dc95d97e73549c5c8fad208edceca82b89c40f56.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">Sapo Tek</div>
+        <h2 class="news-headline">AMALIA é instrumento de soberania digital em uso na educação e defesa</h2>
+        <p class="hook-text news-hook">Governo português reafirma que AMALIA (IA pública) já funciona na administração, educação e defesa.</p>
         <div class="card-index">20</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Sinal que modelo de negócios de IA é lucrativo no core, mas custos de infraestrutura (compute, R&amp;D) comem lucros. Implicação para agência PT: pressão competitiva em preços de API vai aumentar conforme Anthropic tenta sair da perda. Antecipe redução de margens em contratos baseados em token-cost.</p>
+          <p class="for-you-text">AMALIA é o seu competidor direto na administração pública portuguesa. Se o governo está a usar IA internamente, os seus clientes SMB vão perguntar por soberania de dados e IA nacional também. Posicione-se como complemento a AMALIA, não substituto.</p>
         </div>
-        <span class="signal-badge signal-red">🔴 Urgent</span>
-        <div class="url-row"><a class="source-url" href="https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/receitas-da-anthropic-disparam-12-vezes-num-ano-mas-empresa-agravou-prejuizo" target="_blank" rel="noopener">↗ Read article</a></div>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/computadores/artigos/goncalo-matias-amalia-e-um-instrumento-de-soberania-digital-e-ja-esta-a-ser-usado-na-educacao-justica-e-defesa/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1342,23 +1367,19 @@ html, body {
   <div class="slide" data-i="21">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        
-    <div class="card-video" data-yt-id="oC3BDpnhmQ8">
-      <div class="card-video-frame"></div>
-      <a class="card-video-open" href="https://youtube.com/shorts/oC3BDpnhmQ8" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
-    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://cdn.teknoticias.pt/uploads/dc95d97e73549c5c8fad208edceca82b89c40f56.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">AMALIA é instrumento de soberania digital, em uso na educação e defesa</h2>
-        <p class="hook-text news-hook">Governo português integra IA nas administrações públicas através de AMALIA.</p>
+        <div class="card-media"><img class="card-media-img" src="https://eco.imgix.net/uploads/2026/11/cropped-47929030-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="Sete supermercados Intermarché em Portugal foram alvo de ciberataques contra sistemas de refrigeração." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">ECO</div>
+        <h2 class="news-headline">Ciberataques afetam supermercados europeus; Portugal com sete lojas atingidas</h2>
+        <p class="hook-text news-hook">Sete supermercados Intermarché em Portugal foram alvo de ciberataques contra sistemas de refrigeração.</p>
         <div class="card-index">21</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Oportunidade: se AMALIA está a ser deployada em educação, justiça e defesa, há espaço para agências locais complementarem com automações específicas de SMB. O governo está a validar estratégia de IA estatal; aproveita o momentum para posicionar a tua agência como executor de IA privada para empresas que querem interoperabilidade com sistemas públicos.</p>
+          <p class="for-you-text">Isto demonstra que PMEs portuguesas (retalhistas, logística) são alvos reais de ciberataques coordenados. Seus clientes neste setor precisam de segurança e monitorização. É uma oportunidade de pitch para serviços de segurança de dados e agentes de monitorização.</p>
         </div>
-        <span class="signal-badge signal-green">🟢 Apply now</span>
-        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/computadores/artigos/goncalo-matias-amalia-e-um-instrumento-de-soberania-digital-e-ja-esta-a-ser-usado-na-educacao-justica-e-defesa/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <span class="signal-badge signal-red">🔴 Urgent</span>
+        <div class="url-row"><a class="source-url" href="https://eco.sapo.pt/2026/11/02/ciberataque-atinge-sete-supermercados-intermarche-em-portugal/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1366,19 +1387,19 @@ html, body {
   <div class="slide" data-i="22">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/Supermercado-compras-frigorificos-1024x683.jpg" alt="Ataques contra sistemas de refrigeração em supermercados; autoria ainda desconhecida." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/98df96e6d8379e91686fe920f6ef71f172c7b5c8.jpg" alt="Governo português financia cobertura 5G nos últimos 2% do território nacional." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">Ciberataques afetam supermercados europeus; Portugal com sete lojas Intermarché atingidas</h2>
-        <p class="hook-text news-hook">Ataques contra sistemas de refrigeração em supermercados; autoria ainda desconhecida.</p>
+        <h2 class="news-headline">ANACOM vai atribuir 172 milhões para levar 5G a todo o território</h2>
+        <p class="hook-text news-hook">Governo português financia cobertura 5G nos últimos 2% do território nacional.</p>
         <div class="card-index">22</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Operacional: se tens clientes em retail/supermercados, esto é alarme. Os ataques miram IoT e sistemas legados; se estás a propor automações, inclui auditoria de segurança básica. Também é validação que ciberrisco é real e crescente em PT—oportunidade para vender serviços de security monitoring via agents.</p>
+          <p class="for-you-text">Se os seus clientes estão em zonas rurais, 5G chega em breve. Isto abre oportunidades para agentes e IoT em locais que antes estavam desconectados. Prepare-se para pitch de automação em clientes agrícolas e rurais.</p>
         </div>
-        <span class="signal-badge signal-red">🔴 Urgent</span>
-        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/internet/artigos/supermercados-europeus-voltam-a-ser-alvo-de-ciberataques-incidentes-afetam-frigorificos-e-congeladores-em-varios-paises/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
+        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/anacom-vai-atribuir-172-milhoes-de-euros-para-levar-a-rede-5g-a-todo-o-territorio/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1386,16 +1407,16 @@ html, body {
   <div class="slide" data-i="23">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/Project-Suncatcher-Google-Espaco.jpg" alt="Project Suncatcher: IA rodando diretamente em satélite; testes de radiação em 2027." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/Project-Suncatcher-Google-Espaco.jpg" alt="Project Suncatcher (satélite protótipo com IA) passa testes de comunicação; próximos testes em 2027." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">Google satélite-protótipo responde primeira vez gerando poema em órbita</h2>
-        <p class="hook-text news-hook">Project Suncatcher: IA rodando diretamente em satélite; testes de radiação em 2027.</p>
+        <h2 class="news-headline">Satélite de IA da Google responde com poema gerado em órbita</h2>
+        <p class="hook-text news-hook">Project Suncatcher (satélite protótipo com IA) passa testes de comunicação; próximos testes em 2027.</p>
         <div class="card-index">23</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Sinal muito à frente, mas relevante se pensas em edge computing para clientes. Computação em satélite significa latência reduzida para PMEs rurais em PT. Não é acionável agora, mas watch: se Google/Amazon conseguem deployar IA em órbita com sucesso, abre porta a arquiteturas de agentes distribuídas com latência mínima.</p>
+          <p class="for-you-text">Google está a investir em IA distribuída em satélites. Isto é relevante se seus clientes precisam de IA sem latência de nuvem ou em locais remotos. Não há aplicação imediata para SMBs portugueses, mas arquivo para vigilância de longo prazo.</p>
         </div>
         <span class="signal-badge signal-blue">💡 Learn</span>
         <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/computadores/artigos/satelite-de-ia-da-google-quebra-o-silencio-e-responde-pela-primeira-vez-com-um-poema-gerado-em-orbita/" target="_blank" rel="noopener">↗ Read article</a></div>
@@ -1406,19 +1427,19 @@ html, body {
   <div class="slide" data-i="24">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/98df96e6d8379e91686fe920f6ef71f172c7b5c8.jpg" alt="ANACOM liderará projeto de cobertura 5G universal; detalhe sobre prazos e origem do financiamento ainda por esclarecer." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">Governo vai atribuir 172 milhões para levar 5G aos últimos 2% do território</h2>
-        <p class="hook-text news-hook">ANACOM liderará projeto de cobertura 5G universal; detalhe sobre prazos e origem do financiamento ainda por esclarecer.</p>
+        <div class="card-media"><img class="card-media-img" src="https://eco.imgix.net/uploads/2026/07/cropped-47257723-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="Apple Q4 fiscal acima das expectativas, mas mercado chinês abaixo do esperado; escassez de iPhone Duo continua." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">ECO</div>
+        <h2 class="news-headline">Apple supera previsões mas decepciona na China; iPhone Duo em falta</h2>
+        <p class="hook-text news-hook">Apple Q4 fiscal acima das expectativas, mas mercado chinês abaixo do esperado; escassez de iPhone Duo continua.</p>
         <div class="card-index">24</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Infraestrutura: quando a cobertura 5G chegar uniformemente a PT, latência para edge agents em pequenas cidades melhora. Isto abre porta a clientes em zonas rurais/de baixa densidade para adoptar automações que antes eram economicamente inviáveis. File para 12 meses: isto afeta mercado potencial para agência.</p>
+          <p class="for-you-text">A Apple está em transição (novo CEO John Ternus). Se seus clientes usam ecossistema Apple, haverá pressão sobre custos de chips de memória (155% suba em inventário). Isto pode impactar clientes que usam iPads/Macs para aplicações AI.</p>
         </div>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/anacom-vai-atribuir-172-milhoes-de-euros-para-levar-a-rede-5g-a-todo-o-territorio/" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://eco.sapo.pt/2026/11/02/lucros-e-receitas-da-apple-superam-estimativas-no-primeiro-teste-de-john-ternus/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1437,19 +1458,19 @@ html, body {
   <div class="slide" data-i="26">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/31c7/live/152ec730-d6c3-11f1-93e1-3b657b665bcf.jpg" alt="Coordinated cyberattacks across five countries, affecting refrigeration systems; no group claimed responsibility yet." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee1e/live/8480acc0-d6eb-11f1-a741-236ee91c2e25.png" alt="Nine 3,000kg aerial bombs hit southern Ukrainian village; high civilian casualties." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">European supermarket freezers hacked, temperatures raised to 50C remotely</h2>
-        <p class="hook-text news-hook">Coordinated cyberattacks across five countries, affecting refrigeration systems; no group claimed responsibility yet.</p>
+        <h2 class="news-headline">Russian bombing kills 26 at Ukraine aid centre; Kyiv calls it 'utterly horrific'</h2>
+        <p class="hook-text news-hook">Nine 3,000kg aerial bombs hit southern Ukrainian village; high civilian casualties.</p>
         <div class="card-index">26</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Signals IoT and SCADA systems are now prime targets for sabotage. If you're pitching agent-based monitoring to multinational clients with supply chains in Europe, emphasize real-time anomaly detection and automated escalation.</p>
+          <p class="for-you-text">Geopolitical backdrop for your work. If you have clients with Ukraine exposure or supply chains, this signals continued instability. Not actionable today, but context for long-term planning.</p>
         </div>
         <span class="signal-badge signal-red">🔴 Urgent</span>
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cq1kd1nee80eo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cjy56dndlyz0o" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1457,23 +1478,19 @@ html, body {
   <div class="slide" data-i="27">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        
-    <div class="card-video" data-yt-id="NvdY7qDLQvM">
-      <div class="card-video-frame"></div>
-      <a class="card-video-open" href="https://youtube.com/shorts/NvdY7qDLQvM" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
-    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3a7f/live/ad865b20-d64f-11f1-a701-fddedf244c16.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/31c7/live/152ec730-d6c3-11f1-93e1-3b657b665bcf.jpg" alt="Temperatures in freezers raised to 50°C remotely; coordinated attack across multiple retailers." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">Binance users withdraw $3.6B after $6.3B hack linked to North Korea</h2>
-        <p class="hook-text news-hook">Exchange frozen for 2.5 days; 95% of stolen funds restored, but users have lost confidence.</p>
+        <h2 class="news-headline">Shop freezers in seven European countries hit by coordinated cyber-attack</h2>
+        <p class="hook-text news-hook">Temperatures in freezers raised to 50°C remotely; coordinated attack across multiple retailers.</p>
         <div class="card-index">27</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Financial services security is critical. If you're building workflows involving crypto custody or trading, emphasize segregation of duties and human approval gates. Binance's incident is a textbook example of why agents alone aren't enough for high-stakes decisions.</p>
+          <p class="for-you-text">Demonstrates nation-state or organized crime-scale attacks on critical infrastructure. Your retail and logistics clients are targets. This is not a theoretical threat.</p>
         </div>
         <span class="signal-badge signal-red">🔴 Urgent</span>
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cwj34gdmnly4o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cq1kd1nee80eo" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1481,19 +1498,23 @@ html, body {
   <div class="slide" data-i="28">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/07ec/live/ca38c7e0-d6cb-11f1-b441-2b33b063138f.jpg" alt="Both governments' air defense notification systems spoofed with false alerts; coordination suggests state-level actor." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">Ukraine and Russia air alert apps hacked; fake nuclear warnings issued</h2>
-        <p class="hook-text news-hook">Both governments' air defense notification systems spoofed with false alerts; coordination suggests state-level actor.</p>
+        
+    <div class="card-video" data-yt-id="kEbbiXTrxnA">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/kEbbiXTrxnA" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6ae9074a7e41-1793656650.jpg?resize=1920%2C1440" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">Al Jazeera</div>
+        <h2 class="news-headline">US midterm elections Tuesday; Trump approval near record low at 32%</h2>
+        <p class="hook-text news-hook">Voter approval of Trump at 32% (historically weak for midterms); early voting sets records.</p>
         <div class="card-index">28</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Signals that critical infrastructure alerts can be spoofed. If you're building agent-based incident response systems for utilities or logistics, assume alert sources must be cryptographically verified. Don't trust a single notification channel.</p>
+          <p class="for-you-text">US policy uncertainty peaks this week. If you have US clients or USD revenue exposure, expect volatility. Not directly actionable for your AI work, but market-moving.</p>
         </div>
         <span class="signal-badge signal-red">🔴 Urgent</span>
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/c51kdy1ew7zvo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://www.aljazeera.com/news/2026/11/2/trump-approval-rating-near-record-low-on-eve-of-us-midterm-elections-poll" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1501,19 +1522,19 @@ html, body {
   <div class="slide" data-i="29">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/e960/live/11376b60-d66d-11f1-856b-2f2ef225beb0.jpg" alt="Over 50M votes cast early; Trump-era polarization continues to drive turnout." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7af5/live/6a1bb4a0-d67e-11f1-ac3d-edfeb9f7d0aa.jpg" alt="Human rights group argues world-leading social media age ban violates minors' right to free communication." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">US midterm elections: record-breaking early voting, election day Tuesday</h2>
-        <p class="hook-text news-hook">Over 50M votes cast early; Trump-era polarization continues to drive turnout.</p>
+        <h2 class="news-headline">Australia High Court hears legal challenge to under-16 social media ban</h2>
+        <p class="hook-text news-hook">Human rights group argues world-leading social media age ban violates minors' right to free communication.</p>
         <div class="card-index">29</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">No direct action, but geopolitical uncertainty is rising. If you have clients with US operations or exposure, factor in 2-3 weeks of potential market volatility post-election into project timelines.</p>
+          <p class="for-you-text">Signals global shift toward regulating AI and social media as utilities, not platforms. If you build consumer-facing AI products, assume age-gating and regulatory friction ahead.</p>
         </div>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cq78pypg0800o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/ck79py02p1jlo" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1521,19 +1542,19 @@ html, body {
   <div class="slide" data-i="30">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/02/GettyImages-2196254869-scaled.jpg" alt="Germany publishes blueprint for AI independence; emphasizes local compute, open models, and European supply chains." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/02/GettyImages-2196254869-scaled.jpg" alt="Berlin releases blueprint for AI independence from US vendors by 2030." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="news-source-tag">Politico Europe</div>
-        <h2 class="news-headline">Berlin unveils AI strategy to become sovereign AI nation by 2030</h2>
-        <p class="hook-text news-hook">Germany publishes blueprint for AI independence; emphasizes local compute, open models, and European supply chains.</p>
+        <h2 class="news-headline">Germany unveils AI strategy to become 'sovereign AI nation' by 2030</h2>
+        <p class="hook-text news-hook">Berlin releases blueprint for AI independence from US vendors by 2030.</p>
         <div class="card-index">30</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Geopolitical shift: EU is moving toward AI sovereignty to reduce US/China dependence. Implication for PT: if Portuguese government follows suit (likely), funding and regulation will favor local/EU-based AI companies. Positioning your agency as 'European-native, not US-dependent' may become a competitive advantage with public sector clients.</p>
+          <p class="for-you-text">EU is moving toward sovereign AI stacks. This may create opportunities for localized AI services in Europe. If you're positioning as a European alternative to US tech, this regulatory wind is at your back.</p>
         </div>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="url-row"><a class="source-url" href="https://www.politico.eu/article/berlin-unveil-blueprint-catch-up-ai-artificial-intelligence/?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://www.politico.eu/article/berlin-unveil-blueprint-catch-up-ai-artificial-intelligence/" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
