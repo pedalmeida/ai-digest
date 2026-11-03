@@ -1,25 +1,23 @@
 {
-  "date": "Monday, 2 November 2026",
+  "date": "Tuesday, 3 November 2026",
   "ai": [
     {
-      "thread_id": "low-latency-llm-limits",
-      "thread_title": "LLMs fail real-time tasks; Realtime-Bench exposes the gap",
-      "thread_state": "new",
-      "name": "Import AI / Jack Clark",
-      "role": "Newsletter · arXiv-driven AI research",
-      "hook": "Realtime-Bench proves LLMs are catastrophically bad at low-latency tasks.",
+      "thread_id": "llm-latency-constraints",
+      "thread_title": "LLMs are catastrophically bad at low-latency tasks",
+      "thread_state": "developing",
+      "name": "Jack Clark · Import AI",
+      "role": "Newsletter · Artefact Research",
+      "hook": "Realtime-Bench proves LLMs fail at tasks requiring sub-second responses.",
       "insights": [
-        "**LLMs cannot play games or run online auctions** at speeds required for real-time interaction",
-        "Benchmark specifically measures latency-sensitive workloads, not abstract reasoning",
-        "Frontier models fail tasks that require sub-second decisions"
+        "**Realtime-Bench benchmark** shows LLMs cannot play games or execute online auctions in real time due to inherent latency",
+        "Task classes like real-time strategy games, live financial trading, and interactive web tasks remain fundamentally incompatible with current model latency profiles",
+        "Architectural difference: agents need to act, not just reason; inference speed, not reasoning quality, is the bottleneck"
       ],
-      "for_you": "Your AI agency automation clients assume agents handle real-time workflows. They don't. This matters for any client who needs agents to act during user sessions, not in batch. File this as a hard constraint on what agent autonomy can do today.",
-      "context": "Realtime-Bench is a new evaluation framework testing LLM performance on tasks that require fast inference and immediate decision-making: game play, online auctions, live trading. Previous benchmarks measured accuracy on static datasets. This one measures speed + correctness under latency pressure. Current frontier models fail badly.",
-      "what_changed": "Benchmark published; shows concrete evidence that latency is a fundamental blocker, not a solved problem.",
-      "action": "watch",
-      "reason": "Shapes what kinds of agent workflows are actually viable in 2026. If a client asks you to build an agent for live customer service or real-time bidding, you now have hard data to say 'not ready.'",
+      "for_you": "Your Portuguese SMB agency relies on automation and agent orchestration. This reveals a hard constraint: agents cannot replace human decision-makers in **time-critical financial or operational workflows** (e.g., real-time bid management, live customer escalations). Plan around this, don't fight it.",
+      "what_changed": "First concrete benchmark data showing magnitude of latency gap; not theoretical, now measured.",
+      "action": "investigate|Understand which of your current or planned workflows would fail if latency is >500ms; avoid building agents there.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Concrete new benchmark with practical implications for agent scope",
+      "why_it_made_the_cut": "Hard architectural constraint on agent deployment; affects economic viability of certain use cases.",
       "signal": "🔴",
       "urls": [
         "https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/"
@@ -27,368 +25,374 @@
       "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&#038;ssl=1"
     },
     {
-      "thread_id": "anthropic-ipo-financials",
-      "thread_title": "Anthropic S-1 filing: $17B Q3 revenue, profitability, but competition may erase margins",
+      "thread_id": "cyber-risk-open-models",
+      "thread_title": "October 2026 vulnerability cascade proves open models enable real cyber risks",
       "thread_state": "developing",
-      "name": "Anthropic / SEC Filing",
-      "role": "IPO · Public disclosure",
-      "hook": "Anthropic's S-1 shows $17B Q3 revenue and strong unit economics, but margin pressure is real.",
+      "name": "Interconnects · AI Security Analysis",
+      "role": "Substack · AI Risk",
+      "hook": "PHP2Shell, GitLab RCE, and 9000+ threat signals tied to open-source AI models.",
       "insights": [
-        "**Core business is extremely profitable** despite intense competition from OpenAI, Google, others",
-        "**Competition may eat all profits** as frontier model pricing races downward",
-        "Investors are set up for endless dilution as compute costs rise and margins compress"
+        "**Black October** marked the moment when open AI models shifted from academic risk to operational threat—PHP2Shell exploit weaponizes AI-generated payloads in live production systems",
+        "GitLab long-standing RCE, combined with AI-accelerated exploitation, created a cascade effect: 9,000+ indexed threat signals across gaming platforms, social media, and infrastructure tools",
+        "Open-weight models enable faster, cheaper, more reliable payload generation; defenders lag attackers by months"
       ],
-      "for_you": "Your agency margins depend on Claude API pricing staying high enough to cover your overhead. Anthropic's filing signals pricing pressure is already here. Watch Claude's per-token cost trajectory closely. If it drops 50% in 12 months, your margin model breaks.",
-      "context": "Anthropic filed its S-1 for IPO this week. The filing reveals Q3 2026 revenue of $17B, demonstrating extreme profitability on a per-unit basis. However, the company faces mounting pressure from OpenAI (whose models are cheaper and faster in some tasks) and Google (with free tier Gemini models). The unit economics are currently strong, but the filing warns that 'competition may eat all of the profits.'",
-      "what_changed": "S-1 now public. Investors and competitors can see the full financial picture. Pricing power is real today, but the trend is downward.",
-      "action": "investigate",
-      "reason": "Direct impact on your agency's gross margin. You need to understand if Anthropic's pricing will hold or if you need to diversify to cheaper open-weight models.",
+      "for_you": "If you're deploying agents or automation for Portuguese SMBs, assume that **any exposed agent or code-generation system is a cyber liability**. Your clients (accountants, lawyers, small manufacturers) are high-value targets. Build airgapped systems, restrict code execution, and audit all agent outputs before deployment.",
+      "what_changed": "Concrete incident data now ties open models directly to attack surface expansion; theoretical risk became operational reality.",
+      "action": "watch|Monitor your agency's agent deployments for unintended code execution paths; consider mandatory human review gates.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Material to agency economics; IPO filing is definitive source",
+      "why_it_made_the_cut": "Changes how you should architect and deploy agent systems; liability risk is now measurable and real.",
       "signal": "🔴",
       "urls": [
-        "https://stratechery.com/2026/anthropic-s-1-the-cost-of-compute-who-is-paying/"
+        "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and"
       ],
-      "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ"
+      "image": "https://substackcdn.com/image/fetch/$s_!NQ70!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff51bb5d0-4390-4676-af4a-6bc8199412d5_2006x1362.png"
     },
     {
-      "thread_id": "agent-token-accounting",
-      "thread_title": "Agents burn 10-50x more tokens per task than chat; cost accounting must change",
-      "thread_state": "new",
-      "name": "MIT Technology Review",
-      "role": "Technology journalism",
-      "hook": "Agent-based tasks use 10 to 50 times more tokens than simple chat prompts.",
+      "thread_id": "agent-token-economics",
+      "thread_title": "Agent tasks burn 10–50× more tokens than chat; cost accounting must shift",
+      "thread_state": "developing",
+      "name": "MIT Technology Review · AI Economics",
+      "role": "Newsletter · Enterprise AI",
+      "hook": "Single agent task uses as many tokens as 10–50 independent chat requests.",
       "insights": [
-        "**A single task involves planning, code generation, testing, iteration cycles**",
-        "Token count is no longer the right metric for measuring agent costs or value",
-        "The more useful an agent becomes, the more expensive it gets per visible unit of work"
+        "Agent workflows (plan, generate, test, iterate, correct) multiply token consumption per task by 10–50x vs. single-turn chat",
+        "Cost-per-task, not cost-per-token, is the real unit of economics; ventures pricing per-token are lying to themselves",
+        "More capable the agent, more tokens it burns per task; value-per-token can improve but total task cost grows"
       ],
-      "for_you": "Your agency likely quotes clients based on per-token pricing or fixed-scope projects. If agents require 20x more tokens to complete the same task, your cost structure is wrong. You need a new pricing model that counts 'tasks shipped' not 'tokens consumed.' This is urgent.",
-      "context": "As agents become more sophisticated, they generate far more internal tokens than human-visible outputs. A single user request to an agent triggers planning, multiple code generation attempts, test runs, and self-correction loops. This hidden token consumption is invisible to clients but destroys margins if you're pricing by token.",
-      "what_changed": "MIT piece published; makes explicit what builders are discovering: token counting is dead for agent pricing.",
-      "action": "use_now",
-      "reason": "You must fix your pricing model this week if you're currently billing by tokens. Start tracking 'tasks delivered' or 'outcome quality' instead. If you don't, agents will look unprofitable even when they're valuable.",
+      "for_you": "If you're selling AI agency services to SMBs on a fixed-price or per-task model, **cost management per task is now your tightest constraint**. A 50x multiplication factor means you either accept margin compression, raise prices sharply, or constrain agent autonomy (e.g., fewer retries, less reasoning). This is the margin pressure Anthropic and OpenAI are feeling; you will too.",
+      "what_changed": "First explicit quantification of agent economics; not a rumor, measured in production.",
+      "action": "test|Run cost accounting on one live agent workflow—measure actual tokens burned vs. revenue per task. You may discover your margins are already negative.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Direct financial impact on agency model",
+      "why_it_made_the_cut": "Directly affects pricing, profitability, and product scope for your agency business model.",
       "signal": "🔴",
       "urls": [
         "https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/"
       ],
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/10/iStock-2297734847.jpg?resize=1200,600",
-      "video": {
-        "id": "gZiCUMaxEw0",
-        "title": "10 Insane AI Agent Use Cases in n8n! (steal these)"
-      }
+      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/10/iStock-2297734847.jpg?resize=1200,600"
     },
     {
-      "thread_id": "google-ai-mode-revenue-hit",
-      "thread_title": "Google AI Mode hurts Search revenue; $500B valuation drop signals real cannibalization",
-      "thread_state": "developing",
-      "name": "Latent Space / TLDR AI",
-      "role": "AI news aggregator",
-      "hook": "Google admits its AI-powered Search mode is reducing ad clicks and revenue.",
-      "insights": [
-        "**Users get answers directly from AI without clicking ads**",
-        "Google's $500B market cap loss since Q3 signals investor concern about structural revenue risk",
-        "Worst performance since 2004 IPO, per filing language"
-      ],
-      "for_you": "This is why Google is aggressively pushing Gemini agents and new distribution channels. They're losing search moat and need agent-powered UX to recapture value. If you're building on Google's APIs or assuming search-driven discovery, watch this closely. Google will likely shift pricing to favor enterprise agentic use over consumer search.",
-      "context": "In Google's latest earnings, executives acknowledged that AI Mode (which provides direct answers without traditional search results) is cannibalizing ad revenue. Investors reacted badly; Google lost $500B in market cap, its worst decline since going public in 2004.",
-      "what_changed": "Google made explicit public statements about revenue cannibalization; this was previously implied but not admitted.",
-      "action": "watch",
-      "reason": "Shows how AI is reshaping platform economics. If search advertising declines, enterprise AI pricing will likely rise. This affects your acquisition costs and pricing power.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Largest platform shift signal of the week",
-      "signal": "🔴",
-      "urls": [
-        "https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/"
-      ],
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f13715b2-ed2d-4a14-bbf6-85f184b4b202/SCR-20261030-svzc.png?t=1793423031"
-    },
-    {
-      "thread_id": "anthropic-rsi-warning",
-      "thread_title": "Anthropic warns of imminent RSI capability: self-building AI systems possible soon",
-      "thread_state": "new",
-      "name": "TechCrunch",
-      "role": "Technology journalism",
-      "hook": "Anthropic signals it's very close to recursive self-improvement (RSI) capabilities.",
-      "insights": [
-        "RSI would mean AI systems can build, train, and improve themselves without human intervention",
-        "Capability is not speculative; Anthropic sees path to it within months or years",
-        "Major shift from current model where humans retain control over training loops"
-      ],
-      "for_you": "This is not directly actionable this week, but it signals Anthropic's true roadmap. If RSI arrives, the entire premise of 'managed AI agents' changes. Your agency model assumes you control the model versions and outputs. That assumption breaks if self-improving systems exist. File this as a long-term business risk to monitor.",
-      "context": "Anthropic disclosed in its S-1 filing that it views itself as being close to capabilities it calls 'RSI' (recursive self-improvement). This is the ability for an AI system to autonomously improve itself without human retraining. It's a major research milestone and a governance challenge.",
-      "what_changed": "Anthropic made this warning public in S-1; signals internal confidence that RSI is achievable soon.",
-      "action": "watch",
-      "reason": "Existential long-term shift to the AI landscape. Not urgent this month, but essential to track.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Rare explicit warning from frontier lab about advanced capability timeline",
-      "signal": "🔴",
-      "urls": [
-        "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/"
-      ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Recursive-Neural-Spiral-in-Circuitry.png?resize=1200,600"
-    },
-    {
-      "thread_id": "mistral-large-4-open",
-      "thread_title": "Mistral Large 4 ('Le Chonk') open-weight release claims frontier parity",
+      "thread_id": "benchmarking-blindspots",
+      "thread_title": "Benchmarking industry has fundamental blindspots; metrics don't measure what ships",
       "thread_state": "monitoring",
-      "name": "Hugging Face / Mistral",
-      "role": "Open-source release · Model provider",
-      "hook": "Mistral releases Le Chonk, an open-weight model claiming frontier-class performance.",
+      "name": "Interconnects · Benchmark Analysis",
+      "role": "Substack · AI Evaluation",
+      "hook": "Artificial Analysis v5 review exposes missing metrics for real agent and tool workflows.",
       "insights": [
-        "**Open-weight frontier model available for self-hosting and fine-tuning**",
-        "Reduces dependence on closed APIs; enables local deployment for Portuguese SMBs with data sovereignty concerns",
-        "Performance claims need independent verification; leaderboard positions currently unclear"
+        "Standard benchmarks (MMLU, GSM8K) measure reasoning in isolation; they don't measure **agentic performance**, planning depth, tool use, or recovery from errors",
+        "No consensus metric for agent reliability, hallucination severity in production, or task completion under real constraints",
+        "Benchmarking industry conflates 'difficult' with 'useful'; easy tasks that ship are worth more than hard tasks that don't"
       ],
-      "for_you": "This is immediately relevant for your SMB clients who need on-premise deployment or data privacy. Le Chonk lets you offer locally-hosted agents without cloud vendor lock-in. Test it against Claude and GPT on your standard agency workflows this week. If it holds 80%+ parity at 1/10th the cost, it's a game-changer for margin.",
-      "context": "Mistral released Le Chonk (Mistral Large 4) as an open-weight model, meaning clients can download and run it locally. Mistral claims it reaches frontier-class performance. This follows a pattern: open-weight models are catching up to closed APIs, pushing pricing down.",
-      "what_changed": "Model is now available for download and local deployment; was previously only accessible via API.",
-      "action": "test",
-      "reason": "Directly impacts your delivery model and cost structure. Run it against your existing workflows to see if it can replace paid API calls.",
+      "for_you": "Don't trust model leaderboards when evaluating tools for your agency. **Always test agents on your actual workflows**, not on public benchmarks. A model that ranks #1 on MMLU might fail silently at multi-step document review or lead qualification. Build your own evals based on real client tasks.",
+      "what_changed": "Systemic critique of benchmarking; not new, but now explicitly framed as an industry-wide problem.",
+      "action": "watch|File this as a reason to build custom eval frameworks for each client use case, not rely on model rankings.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Concrete new model with immediate deployment options",
-      "signal": "🟢",
+      "why_it_made_the_cut": "Saves you from picking wrong models; affects build decisions.",
+      "signal": "💡",
       "urls": [
-        "https://huggingface.co/blog/mistral-large4"
+        "https://www.interconnects.ai/p/artificial-analysis-v5-and-the-benchmarkers"
       ],
-      "image": "https://huggingface.co/blog/assets/ml4/thumbnail.png"
+      "image": "https://substackcdn.com/image/fetch/$s_!6u4S!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6a847075-78be-45e9-b554-ae9abc6f9296_3182x1790.png"
     },
     {
-      "thread_id": "agentic-web-semantic-web-arrives",
-      "thread_title": "Agentic web arrives: Tim Berners-Lee's 2001 Semantic Web vision now real via autonomous agents",
+      "thread_id": "weight-space-programming",
+      "thread_title": "LLMs can now read and write neural network weights; cuts autoresearch loop",
       "thread_state": "new",
-      "name": "MIT Technology Review",
-      "role": "Technology journalism",
-      "hook": "The internet is now navigable by autonomous AI agents, fulfilling 25-year-old vision.",
+      "name": "Latent Space · AINews",
+      "role": "Newsletter · AI Research",
+      "hook": "Researchers edit model weights directly via LLM prompts to fix reasoning loops and performance.",
       "insights": [
-        "**Agents can browse, understand, and act on web pages without human mediation**",
-        "MCP (Model Context Protocol) and browser-use APIs enable agent-to-web interaction at scale",
-        "Semantic Web failed; agentic web succeeds because agents understand context implicitly"
+        "**Weight Space Programming** technique lets LLMs modify their own weight distributions in response to prompts; Qwen team reduced reasoning loop count by editing weights post-hoc",
+        "DeepSeek's super-agent prototype now operates in a loop where the agent observes its own parameter updates and adjusts strategy",
+        "Breaks the traditional pipeline: no longer train→deploy→freeze; now deploy→introspect→adapt"
       ],
-      "for_you": "This is the infrastructure layer for your next wave of agency services. Clients will ask you to build agents that navigate their suppliers' APIs, monitor competitors, execute trades, schedule meetings. All of this is now possible. The tooling (browser-use, MCP servers) is real. You can build these workflows now.",
-      "context": "In 2001, Tim Berners-Lee proposed the Semantic Web: an internet where software agents could understand and act on information autonomously. It failed because it required every website to tag content with machine-readable metadata. Now, 25 years later, the agentic web is arriving, but via a different path: frontier LLMs can understand human-readable web content, and tools like browser-use let agents interact with web UIs directly.",
-      "what_changed": "MIT piece articulates what builders have been shipping for months: agents are now reliably using the web to accomplish real tasks.",
-      "action": "use_now",
-      "reason": "This is the foundation for your next product offer. You can now build agents that handle multi-step workflows across web services without custom integrations.",
+      "for_you": "This is early-stage research, but it signals a major shift: **agents may soon self-tune without retraining**. If this matures, it means your deployed systems could adapt to client feedback in real time. File this for 6-month horizon; not actionable yet, but watch for open-source implementations.",
+      "what_changed": "Weight Space Programming moved from theory to working prototype; Qwen and DeepSeek both demonstrating it.",
+      "action": "watch|Track open-source implementations; if anyone releases a weight-editing framework, test it on a toy workflow.",
+      "evidence_level": "early_signal",
+      "why_it_made_the_cut": "Signals a potential sea change in how agents adapt; long-term strategic importance.",
+      "signal": "💡",
+      "urls": [
+        "https://latent.space/p/ainews-llms-can-read-write-neural-network-weights-weight-space-programming-cuts-autoresearch-out-of/"
+      ],
+      "image": "https://latent.space/og/card/post/ainews-llms-can-read-write-neural-network-weights-weight-space-programming-cuts-autoresearch-out-of/5aa34d964e38abf8c81931400cd491a277cc01e22318a0ba95414cfb0c56b96c.png"
+    },
+    {
+      "thread_id": "legal-agents-no-traces",
+      "thread_title": "Building legal agents when you can't see a single trace of what they do",
+      "thread_state": "new",
+      "name": "Jacob Lauritzen · Legora",
+      "role": "CTO · Legal Tech",
+      "hook": "Legora agents operate on client data with zero visibility; how do you build and test without seeing traces?",
+      "insights": [
+        "Client data is privileged; Legora cannot access even a single trace of what its agents do inside law firm databases",
+        "Solution: build test environments modeled on customer workflows (inspired by RL 'worlds'), run full evaluations offline, then push agents to production",
+        "Citation accuracy jumped from 70% to 99% after one release—**no data insight required**; quality improvements came from better prompting and model selection, not from trace-driven debugging"
+      ],
+      "for_you": "This is a **direct pattern for your SMB agency**. If you're handling sensitive client data (payroll, HR, legal documents), you cannot rely on production traces for debugging. Build offline test suites that mirror client workflows, use synthetic data, and run evaluations before deployment. Legora's approach—build worlds, not debugging panels—is the template.",
+      "context": "Legora is one of the fastest-growing legal tech startups; started in a Stockholm basement with ChatGPT and Swedish law. Today, lawyers use it to draft Word documents, review 10,000 contracts in a spreadsheet, and run due diligence. Agents coordinate work between lawyers, clients, and other agents.",
+      "what_changed": "First public deep-dive into how a production legal agent handles privacy constraints; gives you a working blueprint.",
+      "action": "investigate|If you're building agents for confidential client workflows, adopt Legora's 'worlds-based testing' approach. Build offline test suites before deployment.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Marks inflection point in what AI agents can do productively",
+      "why_it_made_the_cut": "Direct operational pattern for your agency; privacy-first agent design.",
       "signal": "🟢",
       "urls": [
-        "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/"
+        "https://latent.space/p/building_legal_agents_when_you_can_t_see_the_data_-_jacob_lauritzen_cto_of_legora/",
+        "https://youtube.com/watch?v=bJBEFzlKPoQ"
       ],
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/10/MAIN-top.jpg?resize=1200,600"
+      "image": "https://i.ytimg.com/vi/bJBEFzlKPoQ/maxresdefault.jpg"
+    },
+    {
+      "thread_id": "gemini-4-carbon-release",
+      "thread_title": "Gemini 4 Carbon tops independent evals; access limited to cyber defenders",
+      "thread_state": "monitoring",
+      "name": "Google DeepMind · Model Release",
+      "role": "Frontier AI Research",
+      "hook": "Google's new frontier model leads benchmarks; rolled out first to security practitioners, not general public.",
+      "insights": [
+        "**Gemini 4 Carbon** tops independent benchmarks (Artificial Analysis, LMSYS); outperforms Claude 4, GPT-6, Qwen3.5 on most reasoning tasks",
+        "Initial distribution: **cyber defenders only** (security practitioners, offensive security teams); staged rollout to general API in Q4 2026",
+        "Model size, architecture, and training approach deliberately kept opaque; Google prioritizing capability demonstration over reproducibility"
+      ],
+      "for_you": "Gemini 4 Carbon is not immediately available for your agency workflows. However, **watch for the general release in Q4**; it may be cheaper and faster than Claude for document analysis and lead qualification. File it as a model-switching candidate for early 2027.",
+      "what_changed": "Gemini 4 Carbon now public; leads benchmarks; still gated to defenders, but general access coming soon.",
+      "action": "watch|Plan to test Gemini 4 Carbon on your agency's top 3 workflows once general API access opens. May unlock better economics than Claude.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "New frontier model release; affects model selection for agency work in Q4–Q1 timeframe.",
+      "signal": "🟡",
+      "urls": [
+        "https://latent.space/p/ainews-gemini-4-carbon/"
+      ],
+      "image": "https://latent.space/og/card/post/ainews-gemini-4-carbon/95760c867a2e9becf313c47b14f0386243bc4596c54259bb71809eb955f9dad9.png"
+    },
+    {
+      "thread_id": "anthropic-no-coding-interviews",
+      "thread_title": "Anthropic eliminates coding interviews; signals that coding is 'solved'",
+      "thread_state": "new",
+      "name": "Anthropic Hiring · Internal Signal",
+      "role": "People Ops · AI Capability",
+      "hook": "Anthropic stops asking candidates to code; hunger and thinking ability matter more than coding skill.",
+      "insights": [
+        "Anthropic publicly ended coding interview loops, citing that **coding itself is now solved by AI**; they now hire on hunger, reasoning ability, and domain depth",
+        "Signal: frontier AI labs believe that coding ability is no longer a rare constraint; models can code well enough that human coding skill is a poor filter for 'can build AI systems'",
+        "Hiring shift: prioritize people who can define problems, evaluate AI outputs, and integrate systems—not people who can optimize algorithms by hand"
+      ],
+      "for_you": "This is a **mindset shift for your agency hiring**. If Anthropic has decided that coding interviews are obsolete, it means your most valuable team members going forward are **not necessarily the best coders**—they're the people who can architect workflows, evaluate agent outputs, and translate client problems into agent tasks. Adjust your hiring and team composition accordingly.",
+      "what_changed": "Anthropic formalized the signal that coding is no longer a bottleneck skill in AI-native companies.",
+      "action": "watch|Reflect on your hiring criteria. Are you selecting for coding skill or for AI-native problem-solving? You may be filtering out the people you actually need.",
+      "evidence_level": "early_signal",
+      "why_it_made_the_cut": "Signals a market-wide shift in what skills matter; affects hiring strategy.",
+      "signal": "💡",
+      "urls": [
+        "https://latent.space/p/ainews-anthropic-ends-coding-interviews-hunger-beats-tenure/"
+      ],
+      "image": "https://latent.space/og/card/post/ainews-anthropic-ends-coding-interviews-hunger-beats-tenure/c7f8e2dbe8139bba15d3c59987deb0b2ed5de83f9aded73244cc1febb17cee0c.png"
     }
   ],
   "build_this": [],
   "podcasts": [
     {
       "show": "Latent Space",
-      "episode": "Building AI for Lawyers: Jacob Lauritzen, CTO of Legora",
-      "takeaway": "Legal agents can't see client data; how do you build and test an agent when traces are legally off-limits?",
+      "episode": "Building Legal Agents When You Can't See the Data — Jacob Lauritzen, CTO of Legora",
+      "takeaway": "You can build production agents on sensitive client data without trace visibility; use offline test environments modeled on real workflows.",
       "key_points": [
-        "Evals without traces: build evaluation frameworks that don't rely on seeing actual client work",
-        "Million-cell tabular reviews: agents handling large-scale document review where you can only spot-check output",
-        "Billable hour model breaking: if agents do the work in 10 minutes, how do you price it?"
+        "Legora resisted model-picker UX for years; now added one because model selection impacts quality more than workflow changes",
+        "Models already do ~60% of legal work well; the remaining 40% requires frontier reasoning and domain-specific prompting",
+        "Test environments modeled on customer workflows (RL-style 'worlds') let you evaluate agents without ever seeing client data",
+        "Citation accuracy jumped from 70% to 99% after one release with no trace insights—quality improvements came from better model selection and prompting"
       ],
-      "for_you": "Your SMB clients in finance, HR, and professional services face the same data privacy wall. This episode shows how to build production agents when you can't see the data flowing through them. Critical pattern for regulated industries.",
+      "for_you": "**Direct operational pattern for confidential SMB workflows.** Legora's approach (offline worlds, no production traces, batch evaluation) is the blueprint if you're handling HR, payroll, or legal data. Steal this architecture.",
       "signal": "🟢",
-      "url": "https://latent.space/p/building-ai-for-lawyers-jacob-lauritzen-cto-of-legora/"
+      "url": "https://youtube.com/watch?v=bJBEFzlKPoQ",
+      "video": {
+        "id": "bJBEFzlKPoQ",
+        "title": "Building Legal Agents When You Can't See the Data — Jacob Lauritzen, CTO of Legora"
+      }
     },
     {
-      "show": "Latent Space",
-      "episode": "Why Agents Love Supabase: Paul Copplestone and Ant Wilson",
-      "takeaway": "PostgreSQL-based backend (Supabase) is becoming the standard foundation for agent applications.",
+      "show": "No Priors",
+      "episode": "How Defenders Can Use AI to Fix Security Flaws",
+      "takeaway": "OpenAI President Greg Brockman on using AI to find and fix vulnerabilities; AI is now part of the defender toolkit.",
       "key_points": [
-        "Agents need real-time state management; SQL is more reliable than vector DBs for transactional consistency",
-        "Supabase's RLS (row-level security) handles multi-tenant agent apps natively",
-        "Vector search is still useful but shouldn't be your source of truth for agent decisions"
+        "AI can accelerate vulnerability discovery and patch creation when constraints are well-defined (e.g., known CVE classes, API contracts)",
+        "Defenders who adopt AI-powered scanning and code repair earlier will outpace those who rely on manual review",
+        "Governance challenge: how to deploy agent-based security tools without accidentally introducing new vulnerabilities"
       ],
-      "for_you": "If you're building agent backends for clients, Supabase saves months of infrastructure work. It's the right choice for Portuguese SMBs who need local data storage and don't want to manage Kubernetes. Use this as your default data layer.",
-      "signal": "🟢",
-      "url": "https://latent.space/p/supabase/"
+      "for_you": "If you're building agents for Portuguese SMBs, this underscores the cyber-risk thread: agents will find and exploit vulnerabilities faster than defenders can patch. Prioritize airgapped deployments, code review gates, and security audits.",
+      "signal": "🟡",
+      "url": "https://youtube.com/watch?v=79M2vFJ1JiQ",
+      "video": {
+        "id": "79M2vFJ1JiQ",
+        "title": "How Defenders Can Use AI to Fix Security Flaws"
+      }
     },
     {
-      "show": "Latent Space",
-      "episode": "How Anthropic Ships Claude with Claude: Separating Brain from Hands",
-      "takeaway": "Anthropic uses Claude to help ship Claude; separating model reasoning (brain) from tool use (hands) is key architecture.",
+      "show": "AI & I by Every",
+      "episode": "Can You Use AI To Make Good Art? — With Fred Graver",
+      "takeaway": "AI can help with execution, iteration, and polish, but it cannot substitute for a writer's point of view; without something to say, AI makes work more average.",
       "key_points": [
-        "Brain-hands separation: use Opus for planning and reasoning, cheaper Haiku for tool execution",
-        "Claude Platform (orchestration layer) is where real value sits, not in the model itself",
-        "Tool calling and MCP integration are more important than raw model capability for agent applications"
+        "Fred Graver (Emmy-winning writer, AI Writer's Studio founder) uses AI as a collaborator, not a replacement—it speeds up drafting, editing, and rewriting",
+        "AI fails at generating character quirks, emotional depth, and originality; it excels at surface-level polish and variation",
+        "Every writer should maintain a 'who I am as a writer' document to keep AI outputs aligned with their voice"
       ],
-      "for_you": "This is how you should architect your agency applications too. Don't let one model do all the work. Use Opus for strategy and planning, Haiku for execution. Saves cost and improves reliability. Latent Space episode goes deep on how Anthropic does this internally.",
-      "signal": "🟢",
-      "url": "https://latent.space/p/opus55/"
+      "for_you": "If you're using AI to generate content for clients (sales collateral, documentation, marketing copy), remember that AI alone produces generic, forgettable work. **Your value is in the point of view, not the words.** Use agents to generate drafts, but inject client strategy, brand voice, and human judgment before shipping.",
+      "signal": "💡",
+      "url": "https://youtube.com/watch?v=lE-a6pNmTso",
+      "video": {
+        "id": "lE-a6pNmTso",
+        "title": "Can You Use AI To Make Good Art? — With Fred Graver"
+      }
     }
   ],
   "tech": [
     {
-      "name": "Simon Willison",
-      "role": "Founder · Datasette",
-      "hook": "Kyle Kingsbury warns: LLMs erode trust in software, documentation, and organizations that produce them.",
-      "key_point": "LLM-generated code and docs are easier to counterfeit than human-created work; quality signals that used to matter are now unreliable. Engineers will treat new projects with suspicion.",
-      "for_you": "Your clients will ask you to use AI to generate docs and code faster. Be aware that this erodes their credibility with their own teams. Quality and trust matter more than speed here.",
+      "name": "Garry Tan · Y Combinator",
+      "role": "Partner · Startup Accelerator",
+      "hook": "YC partner spends up to $200K annually on AI agent token costs.",
+      "key_point": "Garry Tan's personal agent usage ($200K/year in tokens) signals that **frontier founder adoption is real and expensive**; token economics are already a constraint at the high end of the market.",
+      "for_you": "If a YC partner is spending $200K/year on agents, your agency clients will need to budget for similar costs as they scale. Use this as a conversation starter: show clients the real cost of autonomous workflows, not just the upside.",
       "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/03/garry-tan-sxsw-getty.jpg?resize=1200,801"
+    },
+    {
+      "name": "Greg Brockman · OpenAI",
+      "role": "President · AI Safety & Product",
+      "hook": "OpenAI President discusses using AI to find and fix vulnerabilities; defenders now have AI-powered tools.",
+      "key_point": "AI-powered security scanning is no longer theoretical; it's deployed in production by leading labs. Expect acceleration in both attack and defense.",
+      "for_you": "Your agents will be targets. Plan your security architecture assuming attackers have AI-assisted discovery and payload generation. Airgap sensitive workflows, audit all code outputs, and treat agent access like admin access.",
+      "signal": "🔴",
+      "urls": [
+        "https://youtube.com/watch?v=79M2vFJ1JiQ"
+      ]
+    },
+    {
+      "name": "Kyle Kingsbury · Jepsen",
+      "role": "Distributed Systems Researcher · Jepsen",
+      "hook": "LLMs erode trust in documentation, software, and organizations; signals of maturity are now easier to counterfeit.",
+      "key_point": "When LLMs can generate plausible-sounding documentation and release notes, how do users know a system is actually mature? Trust markers (docs, changelogs, code comments) are now worthless as signals.",
+      "for_you": "This cuts both ways: your agency can use AI to generate better docs faster, but clients will (rightly) distrust them. **Invest in alternative trust signals: test results, audit logs, third-party reviews, transparent traces.** Don't rely on docs alone to prove your systems work.",
+      "signal": "💡",
       "urls": [
         "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/"
       ]
     },
     {
-      "name": "Simon Willison",
-      "role": "Founder · Datasette",
-      "hook": "OpenAI now offers $100-$500/month in free API credits for ChatGPT Pro/Max subscribers (matching Anthropic's recent offer).",
-      "key_point": "API credits benefit makes frontier models effectively cheaper for high-volume users; erodes pricing power for mid-market.",
-      "for_you": "If your clients have ChatGPT Pro subscriptions, they now have free API quota. This means your agency needs to justify value beyond raw API cost. Build for outcomes, not just cheaper tokens.",
-      "signal": "🟡",
-      "urls": [
-        "https://simonwillison.net/2026/Oct/29/api-credits/"
-      ],
-      "video": {
-        "id": "HR_ZQnu1o30",
-        "title": "ChatGPT Pro & Claude Max Now Include Monthly API Credits (Up to $500) #Shorts"
-      }
-    },
-    {
-      "name": "Ben Hylak",
-      "role": "Builder · AI",
-      "hook": "Every product should be a headless MCP fed into an agent (except yours, which stays special).",
-      "key_point": "MCP (Model Context Protocol) is becoming the standard integration layer for agent-driven apps. Expect platforms to expose MCP servers instead of APIs.",
-      "for_you": "Start building with MCP as your default integration pattern. It's becoming the universal agent interface. If your tools don't expose MCP servers, you're already behind.",
-      "signal": "💡",
-      "urls": [
-        "https://simonwillison.net/2026/Oct/29/ben-hylak/"
-      ]
-    },
-    {
-      "name": "Import AI",
-      "role": "Newsletter · Jack Clark",
-      "hook": "Genie 4 (DeepMind) can generate game worlds from language; agents can now inhabit and modify them.",
-      "key_point": "Generative models + agent interaction = multi-step interactive environments possible without hard-coded game logic.",
-      "for_you": "This is interesting for demos and prototypes. Your clients may ask if you can build interactive simulations or training environments. Genie 4 makes this feasible without game dev expertise.",
-      "signal": "💡",
-      "urls": [
-        "https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/"
-      ],
-      "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&#038;ssl=1"
-    },
-    {
-      "name": "Interconnects",
-      "role": "Newsletter · Nathan Benaich",
-      "hook": "Black October: PHP2Shell, GitLab RCE, and other critical vulns prove open-source models enable real cyber risks.",
-      "key_point": "High-quality open-source vulnerabilities are becoming easier to discover, weaponize, and exploit with AI assistance. This isn't theoretical.",
-      "for_you": "If you're deploying open-source models or using open-source dependencies, assume your clients' systems are at higher risk. Budget for security audits and patching cycles. This is a real cost of open-source adoption.",
+      "name": "Colsto · OSINT Research",
+      "role": "Security Researcher · Video Analysis",
+      "hook": "Doppler curves from plane sounds in video backgrounds reveal exact video location.",
+      "key_point": "Background noise (inaudible to humans) can leak precise geolocation; LLMs and audio analysis can extract this automatically. New privacy threat vector for video-based agent systems.",
+      "for_you": "If your agents process video or audio from clients (e.g., meeting recordings, surveillance footage), be aware that metadata (including ambient sounds) can leak sensitive location data. Sanitize or transcode all media before agent processing.",
       "signal": "🔴",
       "urls": [
-        "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and"
-      ],
-      "image": "https://substackcdn.com/image/fetch/$s_!NQ70!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff51bb5d0-4390-4676-af4a-6bc8199412d5_2006x1362.png"
+        "https://simonwillison.net/2026/Nov/3/a-sound-that-leaks-your-exact-location/"
+      ]
     }
   ],
   "pt_news": [
     {
-      "headline": "AMALIA é instrumento de soberania digital em uso na educação e defesa",
-      "hook": "Governo português reafirma que AMALIA (IA pública) já funciona na administração, educação e defesa.",
-      "for_you": "AMALIA é o seu competidor direto na administração pública portuguesa. Se o governo está a usar IA internamente, os seus clientes SMB vão perguntar por soberania de dados e IA nacional também. Posicione-se como complemento a AMALIA, não substituto.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/computadores/artigos/goncalo-matias-amalia-e-um-instrumento-de-soberania-digital-e-ja-esta-a-ser-usado-na-educacao-justica-e-defesa/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/dc95d97e73549c5c8fad208edceca82b89c40f56.jpg",
-      "video": {
-        "id": "oC3BDpnhmQ8",
-        "title": "Gonçalo Matias afirma que digitalização na Educação está resolvida e destaca uso de Amália na"
-      }
-    },
-    {
-      "headline": "Ciberataques afetam supermercados europeus; Portugal com sete lojas atingidas",
-      "hook": "Sete supermercados Intermarché em Portugal foram alvo de ciberataques contra sistemas de refrigeração.",
-      "for_you": "Isto demonstra que PMEs portuguesas (retalhistas, logística) são alvos reais de ciberataques coordenados. Seus clientes neste setor precisam de segurança e monitorização. É uma oportunidade de pitch para serviços de segurança de dados e agentes de monitorização.",
-      "signal": "🔴",
-      "url": "https://eco.sapo.pt/2026/11/02/ciberataque-atinge-sete-supermercados-intermarche-em-portugal/",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/11/cropped-47929030-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "ANACOM vai atribuir 172 milhões para levar 5G a todo o território",
-      "hook": "Governo português financia cobertura 5G nos últimos 2% do território nacional.",
-      "for_you": "Se os seus clientes estão em zonas rurais, 5G chega em breve. Isto abre oportunidades para agentes e IoT em locais que antes estavam desconectados. Prepare-se para pitch de automação em clientes agrícolas e rurais.",
+      "headline": "IA deverá afetar 40% do trabalho no mundo, avisa diretora do FMI",
+      "hook": "Kristalina Georgieva afirma que inteligência artificial é um tsunami que afetará 40% do trabalho globalmente, 60% nas economias avançadas.",
+      "for_you": "Mensagem global de autoridade (FMI) que valida a urgência de IA para PMEs portuguesas. Use isto em conversas de vendas: **não é especulação, é avaliação institucional.**",
       "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/anacom-vai-atribuir-172-milhoes-de-euros-para-levar-a-rede-5g-a-todo-o-territorio/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/98df96e6d8379e91686fe920f6ef71f172c7b5c8.jpg"
-    },
-    {
-      "headline": "Satélite de IA da Google responde com poema gerado em órbita",
-      "hook": "Project Suncatcher (satélite protótipo com IA) passa testes de comunicação; próximos testes em 2027.",
-      "for_you": "Google está a investir em IA distribuída em satélites. Isto é relevante se seus clientes precisam de IA sem latência de nuvem ou em locais remotos. Não há aplicação imediata para SMBs portugueses, mas arquivo para vigilância de longo prazo.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/computadores/artigos/satelite-de-ia-da-google-quebra-o-silencio-e-responde-pela-primeira-vez-com-um-poema-gerado-em-orbita/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Project-Suncatcher-Google-Espaco.jpg"
-    },
-    {
-      "headline": "Apple supera previsões mas decepciona na China; iPhone Duo em falta",
-      "hook": "Apple Q4 fiscal acima das expectativas, mas mercado chinês abaixo do esperado; escassez de iPhone Duo continua.",
-      "for_you": "A Apple está em transição (novo CEO John Ternus). Se seus clientes usam ecossistema Apple, haverá pressão sobre custos de chips de memória (155% suba em inventário). Isto pode impactar clientes que usam iPads/Macs para aplicações AI.",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/11/02/lucros-e-receitas-da-apple-superam-estimativas-no-primeiro-teste-de-john-ternus/",
+      "url": "https://eco.sapo.pt/2026/11/03/ia-devera-afetar-40-do-trabalho-em-todo-o-mundo-avisa-diretora-geral-do-fmi/",
       "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/07/cropped-47257723-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "image": "https://eco.imgix.net/uploads/2026/07/cropped-doc202604094690189712877983.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Telemóvel do ministro Nuno Melo foi atacado via WhatsApp",
+      "hook": "Ministro da Defesa confirma que aparelho foi comprometido para desviar comunicações e pedir dinheiro. Assessor identificou irregularidade.",
+      "for_you": "Incidente de segurança de alto perfil em Portugal; reforça a necessidade de segurança robusta em sistemas críticos. Relevante para conversas com clientes sobre proteção de dados e auditoria de sistemas.",
+      "signal": "🔴",
+      "url": "https://tek.sapo.pt/mobile/apps/artigos/telemovel-do-ministro-nuno-melo-foi-atacado-e-usado-para-pedir-dinheiro-no-whatsapp/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/09/whatsapp.jpg"
+    },
+    {
+      "headline": "PJ identifica mais de 9 mil ligações para conteúdos extremistas em plataformas gaming",
+      "hook": "Operação europeia coordenada pela Europol sinalizou 9 mil ligações para conteúdos extremistas violentos em plataformas de jogos online.",
+      "for_you": "Sinal de que ferramentas de IA estão a ser usadas para amplificar propaganda e recrutamento. Relevante se você está a construir sistemas de moderação ou monitoramento.",
+      "signal": "🔴",
+      "url": "https://tek.sapo.pt/noticias/internet/artigos/pj-ajuda-a-identificar-mais-de-9-mil-ligacoes-para-conteudos-extremistas-violentos-e-terroristas-em-plataformas-de-gaming/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/PJ.jpg"
+    },
+    {
+      "headline": "Google reforça ferramentas de IA para educação com Gemini Guided Learning",
+      "hook": "Google anuncia integração de Gemini Guided Learning no Classroom e pesquisa escolar; capacidades de aprendizagem personalizadas chegam às salas de aula.",
+      "for_you": "Oportunidade de posicionamento se você tem clientes em educação ou formação corporativa. Google está a validar IA em contextos estruturados; pode ser um argumento de segurança e conformidade para clientes.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/computadores/artigos/google-reforca-ferramentas-de-ia-para-a-educacao-aprendizagem-guiada-do-gemini-chega-as-salas-de-aula-virtuais-e-a-pesquisa/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/d1ac4540cf1e0d845abda9217ff39ddfb79c539b-scaled.jpg"
+    },
+    {
+      "headline": "Granter levanta 1.6 milhões para expandir em Europa e EUA",
+      "hook": "Startup portuguesa Granter (capital financeiro) angaria 1.6M em rodada para crescimento europeu, elevando total a 2M.",
+      "for_you": "Exemplo de startup portuguesa com AI que está a conseguir financiamento europeu. Prova de que mercado valoriza inovação localizada. Relevante como case study ou benchmark para PMEs.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/negocios/artigos/granter-levanta-16-milhoes-de-euros-para-apoiar-crescimento-e-acelerar-entrada-em-novos-mercados-na-europa-e-eua/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Bernardo-Seixas-CEO-e-Bernardo-Tavares-CTO--1024x780.png"
     }
   ],
   "world_news": [
     {
-      "headline": "Russian bombing kills 26 at Ukraine aid centre; Kyiv calls it 'utterly horrific'",
-      "hook": "Nine 3,000kg aerial bombs hit southern Ukrainian village; high civilian casualties.",
-      "for_you": "Geopolitical backdrop for your work. If you have clients with Ukraine exposure or supply chains, this signals continued instability. Not actionable today, but context for long-term planning.",
+      "headline": "Europe supermarket freezers hit by coordinated cyber-attacks in 10 countries",
+      "hook": "Supermarkets from Estonia to Italy report disruptions; many forced to discard food after freezer systems compromised.",
+      "for_you": "Large-scale supply-chain attack affecting critical infrastructure. Shows attackers are targeting operational systems, not data. If your clients operate logistics or retail, this reinforces the need for OT (operational technology) security.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cwy8lm1m59mvo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/a890/live/d92739f0-d778-11f1-9539-05485195b558.jpg"
+    },
+    {
+      "headline": "Russia bombs Ukraine aid centre; at least 31 killed, Kyiv says",
+      "hook": "Multiple aerial bombs including 3,000kg ordnance hit village in southern Ukraine; attack described as 'utterly horrific' by President Zelensky.",
+      "for_you": "Ongoing military escalation affecting humanitarian operations. Context for any discussions about data sovereignty or system resilience in conflict zones.",
       "signal": "🔴",
       "url": "https://www.bbc.co.uk/news/articles/cjy56dndlyz0o",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee1e/live/8480acc0-d6eb-11f1-a741-236ee91c2e25.png"
-    },
-    {
-      "headline": "Shop freezers in seven European countries hit by coordinated cyber-attack",
-      "hook": "Temperatures in freezers raised to 50°C remotely; coordinated attack across multiple retailers.",
-      "for_you": "Demonstrates nation-state or organized crime-scale attacks on critical infrastructure. Your retail and logistics clients are targets. This is not a theoretical threat.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cq1kd1nee80eo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/31c7/live/152ec730-d6c3-11f1-93e1-3b657b665bcf.jpg"
-    },
-    {
-      "headline": "US midterm elections Tuesday; Trump approval near record low at 32%",
-      "hook": "Voter approval of Trump at 32% (historically weak for midterms); early voting sets records.",
-      "for_you": "US policy uncertainty peaks this week. If you have US clients or USD revenue exposure, expect volatility. Not directly actionable for your AI work, but market-moving.",
-      "signal": "🔴",
-      "url": "https://www.aljazeera.com/news/2026/11/2/trump-approval-rating-near-record-low-on-eve-of-us-midterm-elections-poll",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6ae9074a7e41-1793656650.jpg?resize=1920%2C1440",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee1e/live/8480acc0-d6eb-11f1-a741-236ee91c2e25.png",
       "video": {
-        "id": "kEbbiXTrxnA",
-        "title": "Trump Approval 32%: Still Near Record Low as Democrats Lead 47-36 #Shorts"
+        "id": "5OwcfvDvrFA",
+        "title": "Russia Says Ukraine's Use of US Missiles Signals 'New Phase of War'"
       }
     },
     {
-      "headline": "Australia High Court hears legal challenge to under-16 social media ban",
-      "hook": "Human rights group argues world-leading social media age ban violates minors' right to free communication.",
-      "for_you": "Signals global shift toward regulating AI and social media as utilities, not platforms. If you build consumer-facing AI products, assume age-gating and regulatory friction ahead.",
+      "headline": "Two helicopters collide near Everest base camp; Indian tourist killed",
+      "hook": "Aircraft crashed metres from the ground while attempting to land at same spot.",
+      "for_you": "Operational safety incident. Not directly relevant to AI, but illustrates importance of safety systems and clear communication in high-stakes environments—principles that apply to agent orchestration.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/ck79py02p1jlo",
+      "url": "https://www.bbc.co.uk/news/articles/cmqlnx7z1549o",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7af5/live/6a1bb4a0-d67e-11f1-ac3d-edfeb9f7d0aa.jpg"
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/029f/live/4eb51590-d772-11f1-a701-fddedf244c16.jpg",
+      "video": {
+        "id": "xW3z0hIVz_o",
+        "title": "नेपाल में हवा में टकराए 2 हेलिकॉप्टर | Everest Base Camp Helicopter Crash Video | 1 Indian Killed"
+      }
     },
     {
-      "headline": "Germany unveils AI strategy to become 'sovereign AI nation' by 2030",
-      "hook": "Berlin releases blueprint for AI independence from US vendors by 2030.",
-      "for_you": "EU is moving toward sovereign AI stacks. This may create opportunities for localized AI services in Europe. If you're positioning as a European alternative to US tech, this regulatory wind is at your back.",
+      "headline": "Brazil publishes first global 'roadmap' for phasing out fossil fuels",
+      "hook": "COP30 host outlines steps to break dependence on coal, oil, gas; argues countries can grow economies while transitioning away from fossil fuels.",
+      "for_you": "Climate policy context. AI data centres consume enormous energy. If you're selling agent services, expect increasing regulatory pressure on energy usage and carbon footprint.",
       "signal": "🟡",
-      "url": "https://www.politico.eu/article/berlin-unveil-blueprint-catch-up-ai-artificial-intelligence/",
-      "source_name": "Politico Europe",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/02/GettyImages-2196254869-scaled.jpg"
+      "url": "https://www.theguardian.com/environment/2026/nov/03/brazil-first-global-roadmap-phasing-out-fossil-fuels",
+      "source_name": "The Guardian World",
+      "image": "https://i.guim.co.uk/img/media/adcc136be3a039cc686a97e706b24371222bb09e/0_0_2720_2175/master/2720.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b11504090f7788b05dec1d0cded339da"
+    },
+    {
+      "headline": "US midterm elections: voters shape Congress as Trump era begins",
+      "hook": "Americans voting to control House and one-third of Senate; outcome will shape policy on AI regulation, data privacy, and antitrust for next two years.",
+      "for_you": "US election outcome will ripple to EU and global policy. Watch for changes to AI regulation (state-by-state vs. federal), antitrust enforcement against model labs, and data-privacy rules that affect European SMBs.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/cx240mrm3g8vo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/935d/live/479e54b0-d745-11f1-b441-2b33b063138f.jpg"
     }
   ],
-  "since_yesterday": "Anthropic's S-1 is now public (full financial picture confirmed). Independent benchmarking crisis (Artificial Analysis v5) signals that model comparisons are unreliable. Mistral Large 4 open-weight release makes local deployment viable. LLM latency limits (Realtime-Bench) and token accounting reckoning (agents burn 10-50x more tokens) both published—direct impacts to your pricing model and workflow scope.",
+  "since_yesterday": null,
   "health": {
     "x": {
       "attempted": 15,
@@ -413,12 +417,8 @@
     },
     "podcasts": {
       "attempted": 3,
-      "ok": 0,
-      "errors": [
-        "Latent Space: HTTP 404",
-        "No Priors: HTTP 404",
-        "AI & I by Every: HTTP 404"
-      ]
+      "ok": 3,
+      "errors": []
     },
     "rss": {
       "attempted": 22,
