@@ -1,384 +1,421 @@
 {
-  "date": "Wednesday, 4 November 2026",
+  "date": "Thursday, 5 November 2026",
   "ai": [
     {
       "thread_id": "weight-space-programming",
       "thread_title": "LLMs can read and write neural network weights directly",
       "thread_state": "developing",
-      "name": "Rikiya Takehi et al.",
-      "role": "Researchers · Weight-Space Programming paper",
-      "hook": "Frontier models interpret raw ML weights as text, modify model behavior directly.",
+      "name": "Rikiya Takechi, Jayden Teoh, Alex Zhang, Omar Khattab",
+      "role": "Researchers · Stanford / Databricks",
+      "hook": "Frontier models interpret raw ML weights as text, enabling direct model editing.",
       "insights": [
-        "GPT-6 Astra can **read and write neural network weights** as if they were plain text—literally floating-point numbers in a description of model architecture",
-        "Enables **direct weight editing** without retraining: change reasoning loops, suppress behaviors, or add capabilities by modifying weights through text",
-        "Qwen 3.8 27B **replicates the capability** on consumer hardware, proving this is not frontier-only"
+        "GPT-6 Astra and Qwen 3.8 27B can both **read and modify** neural network weights expressed as floating-point numbers",
+        "Enables **weight-space programming**: edit model behavior without retraining, directly modify reasoning loops or capability gates",
+        "Simon Willison tested this on 27B open-weight Qwen; confirmed capability works on smaller models, not frontier-exclusive"
       ],
-      "for_you": "This cuts your cost to customize models for Portuguese SMB clients: instead of fine-tuning or retraining, prompt the model to edit its own weights to match domain needs. Test with Qwen 3.8 this week for agency clients who need fast model customization.",
-      "context": "Weight-space programming is a newly discovered capability where LLMs can directly interpret and modify the numerical weights that define a neural network's behavior. Researchers found frontier models like GPT-6 Astra can parse a text description of a model (including all its floating-point weights), understand what each weight does, and propose or execute modifications. This is not a documented feature—it emerged as a capability researchers discovered by testing. Qwen 3.8 27B replicates it, suggesting it's a general emergent property, not vendor-specific.",
-      "what_changed": "Simon Willison tested the capability on Qwen 3.8 27B running locally on his laptop and confirmed open-weight models can do this too. This means Pedro can build workflows without depending on closed-model APIs.",
-      "action": "test: Download Qwen 3.8 27B, test weight-space editing for a real agency task (e.g., customize a model's reasoning style for a Portuguese legal domain without retraining).",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Most practically important capability discovery this week—direct path to cheap model customization for agency clients.",
-      "signal": "🟢",
+      "for_you": "If you're shipping agent systems or fine-tuning workflows, this cuts the loop between prompt engineering and model surgery. Test whether you can edit agent reasoning depth or cost-quality trade-offs by modifying weights directly, rather than waiting for retraining.",
+      "context": "Frontier models now natively treat ML weight matrices as legible text. This bypasses the traditional edit-train-deploy cycle and lets builders probe, understand, and surgically modify model internals at inference time or via small interventions.",
+      "what_changed": "Confirmed working on open-weight 27B model; not exclusive to frontier. Practical implication: smaller, cheaper models now unlock the same capability.",
+      "action": "test",
+      "reason": "Directly applicable to cost and performance tuning in production agent workflows; test on a small model this week.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Shifts the model-editing paradigm; cuts autoresearch feedback loops out entirely.",
+      "signal": "💡",
       "urls": [
         "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/"
       ],
       "handle": ""
     },
     {
-      "thread_id": "realtime-bench-latency",
-      "thread_title": "LLMs fail hard at low-latency tasks; Realtime-Bench proves it",
-      "thread_state": "new",
-      "name": "Import AI (Jack Clark) / Realtime-Bench authors",
-      "role": "Newsletter & Benchmark researchers",
-      "hook": "LLMs unsuitable for sub-second decisions: games, auctions, live trading still out of reach.",
-      "insights": [
-        "**Realtime-Bench benchmark** tests LLM performance on tasks requiring **decisions in <1 second**: online games, real-time auctions, fast market moves",
-        "Frontier models **fail dramatically**—latency + reasoning loop overhead makes them unfit for any task where timing matters",
-        "Implication: **agents cannot autonomously operate** in real-time environments; humans must handle time-critical decisions"
-      ],
-      "for_you": "Do not promise clients autonomous agents for real-time tasks (e.g., live customer support, auto-bidding, high-frequency operations). Position agent workflows for batch/scheduled work instead. This is a hard technical limitation, not a tuning problem.",
-      "context": "Realtime-Bench is a new benchmark designed to measure LLM performance on tasks that demand fast responses. It includes game-like scenarios, online auctions, and time-sensitive decision-making. The benchmark found that even frontier models struggle because LLM inference itself introduces latency (typically 100ms–1s for a single token), and many tasks need planning or multiple reasoning steps. This rules out autonomous agent operation in real-time contexts.",
-      "what_changed": "This is the benchmark's public release and high-signal discussion in Import AI newsletter.",
-      "action": "watch: Use this benchmark result to set client expectations. Share with any client who asks about autonomous 24/7 agent operations.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Critical for agency positioning; prevents overpromising on agent capabilities.",
-      "signal": "🟡",
-      "urls": [
-        "https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/"
-      ],
-      "handle": "",
-      "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&#038;ssl=1"
-    },
-    {
-      "thread_id": "datasette-agent-release",
-      "thread_title": "Datasette Agent 0.5a0: multi-panel interface and database-backed app generation",
-      "thread_state": "new",
-      "name": "Simon Willison",
-      "role": "Creator · Datasette project",
-      "hook": "Datasette Agent now lets you chat, edit apps, and browse databases side-by-side in real time.",
-      "insights": [
-        "**Panel feature** allows agent chat window to sit **alongside live Datasette pages** (tables, queries, custom apps)",
-        "**Datasette Apps 0.3a0** integration: agents can generate **custom HTML applications** via chat; users tag apps with `#` to reference them in prompts",
-        "**Tight feedback loop**: modify a database, ask agent to build an app, edit it live—all in one interface"
-      ],
-      "for_you": "This is a working open-source stack for Portuguese SMB data teams: instant dashboards and tools built by agents, no coding required. Test with a client's data this week—host it locally or on a cheap VPS for full data privacy (no cloud dependency). Build an agency offer around 'AI-generated data apps'.",
-      "context": "Datasette is an open-source tool for publishing and querying data interactively. Simon Willison has built an agentic layer (Datasette Agent) that lets users chat with an AI to query, analyze, and now **generate custom applications** from data. The 0.5a0 release adds a 'panel' UI component that keeps chat and live data side-by-side, making the agent's work visible and interactive in real time.",
-      "what_changed": "Major release with panel interface (released Nov 3). Also: llm 0.37 and 0.37.1 are out with GPT-6.1-Sol and GPT-6.1-Terra support, plus datasette-llm 0.1a10 bugfix for model configuration.",
-      "action": "use_now: Clone the Datasette Agent repo, spin up a local instance with sample Portuguese data, build a quick dashboard prototype for a client. This is production-ready open-source; no SaaS lock-in.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Concrete, deployable tool for Pedro's agency; open-weight and self-hosted.",
-      "signal": "🟢",
-      "urls": [
-        "https://simonwillison.net/2026/Nov/3/datasette-agent/",
-        "https://simonwillison.net/2026/Nov/4/datasette-apps/"
-      ],
-      "handle": "@simonw",
-      "image": "https://static.simonwillison.net/static/2026/datasette-agent-panel.webp"
-    },
-    {
-      "thread_id": "black-october-open-model-cyber",
-      "thread_title": "Black October: open-model AI enables real cyberattacks; PHP2Shell, GitLab RCE confirmed",
+      "thread_id": "cyber-attacks-open-models",
+      "thread_title": "Open-model exploits now real: PHP2Shell, GitLab RCE power cyber attacks",
       "thread_state": "developing",
-      "name": "Interconnects (research)",
-      "role": "AI & open-model analysis newsletter",
-      "hook": "October's 9000+ vulnerability disclosures prove open-weight models power real cyber attacks.",
+      "name": "Interconnects · AI Security Research",
+      "role": "Research · Interconnects.ai",
+      "hook": "October's 9000+ vulnerability disclosures prove open-weight models directly enable real cyber attacks.",
       "insights": [
-        "**PHP2Shell** exploit and **long-standing GitLab RCE** were discovered and weaponized using open-model LLMs",
-        "Cyber risk of open models **materialized in October**; no longer theoretical—researchers call it **'Black October'**",
-        "Implication: open-model distribution now **directly enables threat actors** at scale"
+        "PHP2Shell and GitLab long-standing RCE **actively used in attacks**, not theoretical",
+        "**'Black October'** spike: 9000+ CVE disclosures in a single month; cyber risk from open models now **materially durable**",
+        "Interlinking: open models power threat research, threat actors immediately weaponize findings within days"
       ],
-      "for_you": "When selling agency services with open-weight models, clarify risk posture to clients. If you're running models locally for Portuguese SMBs, ensure security practices match the fact that your model can now be used to discover and exploit vulnerabilities. Consider this for enterprise clients especially.",
-      "context": "Interconnects published analysis of 'Black October,' a recent surge in critical vulnerability disclosures across software ecosystems. The research notes that open-weight AI models are now being used to discover and weaponize these vulnerabilities in real time. This marks a shift from abstract safety concerns to concrete security incidents linked to model availability.",
-      "what_changed": "Follow-up question: 'Was I wrong about open models & cyber risks?' appeared this week—Interconnects reconsidering the pace and severity of security threats from open-model distribution.",
-      "action": "watch: Monitor Interconnects' further analysis. If you deploy open models in client environments, factor in defense-in-depth practices.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Shapes risk calculus for agency delivery with open-weight models.",
+      "for_you": "Your AI agency clients running code generation or infrastructure automation need to isolate those workflows and add exploit scanning before deployment. This is no longer 'nice to have'—it's a liability issue for any agent touching production systems.",
+      "context": "Open-weight models like Mistral and Llama enable rapid, cheap security research and threat modeling. Attackers benefit equally. October 2026 marked the moment cyber risk materialized: critical RCE exploits were discovered and actively deployed in live campaigns.",
+      "what_changed": "No new incidents since Wednesday; pattern now **confirmed durable**, not a one-month spike. Expect sustained pace of disclosure-to-exploit compression.",
+      "action": "investigate",
+      "reason": "Critical for any agent dealing with infrastructure, APIs, or code. Map your exposure and add compliance gates.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "First material proof that open models create real, immediate cyber risk; not speculation.",
       "signal": "🔴",
       "urls": [
-        "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and"
+        "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and",
+        "https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/"
       ],
       "handle": "",
       "image": "https://substackcdn.com/image/fetch/$s_!NQ70!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff51bb5d0-4390-4676-af4a-6bc8199412d5_2006x1362.png"
     },
     {
-      "thread_id": "google-search-revenue-headwind",
-      "thread_title": "Google admits AI-first search mode cuts click-through rates and ad revenue",
+      "thread_id": "llm-low-latency-limits",
+      "thread_title": "LLMs unsuitable for sub-second decisions: RealTime-Bench proves gap",
       "thread_state": "monitoring",
-      "name": "Latent Space / Google (via earnings signals)",
-      "role": "Analysis & company disclosure",
-      "hook": "Google's AI mode reduces search ad clicks; first time company confirms revenue risk from AI-first strategy.",
+      "name": "Import AI / RealTime-Bench researchers",
+      "role": "Newsletter · arXiv",
+      "hook": "Realtime-Bench benchmark: frontier LLMs cannot make decisions faster than 500ms reliably.",
       "insights": [
-        "**15% click-through reduction** reported; translates to ~**$500B market cap impact** if sustained",
-        "**First explicit admission**: Google's AI Overview mode **cannibalizes ad clicks** by answering queries before users click through to sites",
-        "Earnings miss partly attributed to **AI mode adoption headwind**; stock market reacting negatively"
+        "Games, online auctions, live trading, real-time bidding all require **<500ms latency**; no frontier model yet qualified",
+        "Token planning, internal testing, retry loops all add overhead; **single-shot is not practical** for agentic reasoning",
+        "This is a **hard constraint**, not a soft performance gap; no amount of prompt engineering closes it"
       ],
-      "for_you": "Opportunity: client websites now compete with Google's own answers. Position SEO/content strategy around high-intent queries and branded search where Google's AI still directs traffic. Also: if you're building agent-based search alternatives for SMBs, this proves the market weakness in Google's model.",
-      "context": "Google's AI Overviews feature answers search queries directly on the search results page, reducing the incentive for users to click through to actual websites. For publishers and ad-dependent businesses, this is a major threat. Google's recent earnings revealed the company explicitly confirmed this revenue headwind for the first time, marking a rare moment of transparency about the business model risk of its own AI products.",
-      "what_changed": "Earnings call data now public; analysts and media covering the $500B market cap impact.",
-      "action": "investigate: Analyze how this affects your Portuguese SMB clients' search traffic and conversions. Build a mitigation strategy around high-intent, branded, and local queries.",
+      "for_you": "If you're pitching agent automation for trading, gaming, or high-frequency workflows, you need a hybrid: symbolic engine for speed + LLM for reasoning after the fact. Don't promise real-time agent autonomy on auction platforms or live markets.",
+      "context": "A new benchmark (RealTime-Bench) exposed a persistent limitation: frontier models handle latency-sensitive tasks poorly because inference + reasoning takes 200–500ms baseline, and agents add planning loops.",
+      "what_changed": "None since earlier this week; included for emphasis as it shapes feasible agent use cases.",
+      "action": "watch",
+      "reason": "Changes which agent workflows are viable. Affects your product roadmap and customer positioning.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Direct business model threat to search-dependent clients; agency must address proactively.",
-      "signal": "🔴",
-      "urls": [
-        "https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c/"
-      ],
-      "handle": "",
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f13715b2-ed2d-4a14-bbf6-85f184b4b202/SCR-20261030-svzc.png?t=1793423031"
-    },
-    {
-      "thread_id": "mistral-large-4-release",
-      "thread_title": "Mistral Large 4 open-weight release; new SOTA for agentic coding",
-      "thread_state": "new",
-      "name": "Mistral AI / Hugging Face",
-      "role": "Model publisher",
-      "hook": "Mistral Large 4 open-weights available; leads coding benchmarks, agentic reasoning improved.",
-      "insights": [
-        "**Mistral Large 4** (full weights released on Hugging Face) **outperforms closed models** on coding and reasoning tasks",
-        "**Open-weight agentic coding** now state-of-the-art: Ripple-65B (U.S. model) also claims SOTA; competition heating up",
-        "**Local inference viable**: run competitive coding agents on consumer hardware without API dependency"
-      ],
-      "for_you": "Drop this into your agency's codebase toolkit immediately. Mistral Large 4 open-weights means you can host a coding agent locally for client development work, no per-token cost, full data privacy. Test on a real Portuguese SMB project (e.g., internal tool automation) this week.",
-      "context": "Mistral AI released the full weights of Large 4, a frontier-class model, as open-source. This follows a pattern of frontier labs releasing competitive open-weight models. Mistral Large 4 performs well on coding tasks and reasoning benchmarks, making it viable for agentic workflows. Ripple-65B (a U.S.-based model) also claims state-of-the-art on agentic coding, suggesting a crowded, competitive market for open-weight agentic models.",
-      "what_changed": "Weights now available on Hugging Face; benchmarks and implementation details published.",
-      "action": "use_now: Download Mistral Large 4, integrate into agency's code-review and automation pipelines. Run side-by-side benchmark against current closed-model setup to measure cost/performance.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Concrete, immediate cost savings for agency; production-ready.",
-      "signal": "🟢",
-      "urls": [
-        "https://huggingface.co/blog/mistral-large4",
-        "https://www.ricursive.com/ripple"
-      ],
-      "handle": "",
-      "image": "https://huggingface.co/blog/assets/ml4/thumbnail.png"
-    },
-    {
-      "thread_id": "gemini-4-carbon-launch",
-      "thread_title": "Google Gemini 4 Carbon: new frontier model, limited defender-first rollout",
-      "thread_state": "new",
-      "name": "Google DeepMind",
-      "role": "Frontier model publisher",
-      "hook": "Gemini 4 Carbon tops independent benchmarks; access initially restricted to security defenders.",
-      "insights": [
-        "**Gemini 4 Carbon leads** latest independent evals (AlphaCode, reasoning, multimodal); outperforms GPT-6 on some tasks",
-        "**Defender-first access strategy**: Google limiting initial rollout to cybersecurity teams, not public API",
-        "Signals Google's **cautious deployment approach** for frontier capabilities; fear of misuse or rapid adoption risks"
-      ],
-      "for_you": "If you have Portuguese enterprise clients in cybersecurity or defense, this is high-value early access. For mainstream SMBs, this won't be available via API for months. Plan for closed-model strategy with Google for now; use open-weights (Mistral, Qwen) for autonomous deployment.",
-      "context": "Google released Gemini 4 Carbon, a new frontier model that achieves strong performance on reasoning and coding benchmarks. Unlike typical release strategy, Google is rolling it out first to cybersecurity defenders and enterprises rather than the general public, suggesting caution about capability and misuse risk.",
-      "what_changed": "Model launched mid-week; access limited to specific defenders and enterprise partners.",
-      "action": "watch: Track when public API access opens. For now, focus on open-weight alternatives for client work.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Signals frontier model deployment caution; affects agency roadmap for client capability access.",
+      "why_it_made_the_cut": "Clarifies the boundary between agentic and symbolic systems; shapes buildable products.",
       "signal": "🟡",
-      "urls": [
-        "https://latent.space/p/ainews-gemini-4-carbon/"
-      ],
-      "handle": "",
-      "image": "https://latent.space/og/card/post/ainews-gemini-4-carbon/95760c867a2e9becf313c47b14f0386243bc4596c54259bb71809eb955f9dad9.png",
-      "video": {
-        "id": "J8HWsYpiAgM",
-        "title": "Gemini 4 Carbon is #1 — and you can't use it | AI Evening Brief 🤖"
-      }
-    },
-    {
-      "thread_id": "genie-4-game-generation",
-      "thread_title": "Genie 4: agents generate and control infinite game worlds from text",
-      "thread_state": "monitoring",
-      "name": "Google DeepMind (Genie research)",
-      "role": "Research · AI behavior in generative environments",
-      "hook": "Genie 4 generates playable game worlds from prompts; agents control avatars, reshape environments.",
-      "insights": [
-        "**Genie 4** generates **infinite, interactive game worlds** from text descriptions in real time",
-        "**Agent control**: LLM agents can **play, modify, and reason about** generated game environments using only text prompts",
-        "Capability inflection: **worlds are consistent, controllable, and re-instantiable** from the same seed; no longer toy examples"
-      ],
-      "for_you": "This is research-stage but worth filing: if you're exploring education or gamification products, this shows a path to AI-generated interactive learning environments. No immediate client action, but monitor for when Genie moves from research to accessible tooling.",
-      "context": "Genie is Google DeepMind's research into generative models that produce interactive, game-like environments. Genie 4 is an advance showing that agents can meaningfully interact with these worlds, control avatars, and have their actions reflected in consistent, re-playable environments. This moves the capability from curiosity to potentially useful for interactive content, training simulations, and education.",
-      "what_changed": "Genie 4 showed improvements in consistency, agent control, and world complexity.",
-      "action": "watch: Monitor for public release or accessible API. If you build education products, this is a moat.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Relevant to education product exploration; capability inflection noted.",
-      "signal": "💡",
       "urls": [
         "https://jack-clark.net/2026/11/02/import-ai-479-spacewar-low-latency-tasks-versus-llms-genie-4/"
       ],
       "handle": "",
       "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-k8CSyA.png?fit=258%2C258&#038;ssl=1"
+    },
+    {
+      "thread_id": "open-model-market-size",
+      "thread_title": "How big is the open-model economy? Interconnects research note",
+      "thread_state": "new",
+      "name": "Interconnects · Open Models Research",
+      "role": "Research · Interconnects.ai",
+      "hook": "New research quantifies the open-model economy size and market share.",
+      "insights": [
+        "**Paid subscribers only**: Full analysis not yet public",
+        "Timing matters: published amid 'Black October' cyber risk and Kimi K3.1 Pro open-weights release",
+        "Open models now **material enough** to measure systematically"
+      ],
+      "for_you": "No direct action until the full piece is public. If you're evaluating whether open models are production-ready for Portuguese SMB workflows (e.g., local LLM for customer service, compliance workflows), this will provide market size and adoption data to guide your build-vs-buy decision.",
+      "context": "Interconnects is tracking whether open models have crossed the threshold from 'interesting' to 'material market force.' The fact they're publishing a dedicated research note suggests the answer is yes.",
+      "what_changed": "New development; filed for awareness.",
+      "action": "watch",
+      "reason": "Market-sizing data will guide investment in open vs. proprietary model stacks.",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "Signals a shift in how serious builders think about model strategy.",
+      "signal": "💡",
+      "urls": [
+        "https://www.interconnects.ai/p/how-well-can-we-measure-open-model"
+      ],
+      "handle": "",
+      "image": "https://substackcdn.com/image/fetch/$s_!hFZ7!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c5f2798-10bc-487a-8932-5f851ad61b24_1600x840.svg"
+    },
+    {
+      "thread_id": "datasette-agent-releases",
+      "thread_title": "Datasette Agent 0.5a0: panel UI lets chat and database edits happen side-by-side",
+      "thread_state": "developing",
+      "name": "Simon Willison · Datasette",
+      "role": "Creator · Datasette",
+      "hook": "Datasette Agent now lets you prompt, edit apps, and browse databases in real time.",
+      "insights": [
+        "**Panel feature**: agent chat sidebar + Datasette pages (table, query) displayed together; modify database-backed apps live",
+        "datasette-apps 0.3a0 adds **#-tagging** of apps in agent chat; lets agent reference and update specific apps mid-conversation",
+        "datasette-llm 0.1a10 and llm 0.37 add model configuration, bug fixes; **ecosystem is stabilizing**"
+      ],
+      "for_you": "Test this for your Portuguese SMB clients: you can now build custom internal dashboards, reports, or CRM-like tools by prompting Datasette Agent. It handles the scaffolding, data retrieval, and UI generation. Ship a prototype for a client workflow (e.g., lead tracking, invoice review) in a day or two.",
+      "context": "Datasette Agent is a self-contained agentic interface for building and modifying database-backed applications. The panel UI is the first major UX breakthrough: it makes the agent's reasoning and the user's data visible and editable at the same time.",
+      "what_changed": "Panel feature is new in 0.5a0; combined with datasette-apps tagging, this significantly lowers the barrier to building custom agent-driven tools.",
+      "action": "test",
+      "reason": "Direct fit for agency workflows: rapid prototyping of client-specific internal tools.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Shipping capability that shortens your time-to-working-prototype for custom automation.",
+      "signal": "🟢",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/3/datasette-agent/",
+        "https://simonwillison.net/2026/Nov/4/datasette-apps/",
+        "https://simonwillison.net/2026/Nov/4/datasette-llm/"
+      ],
+      "handle": "",
+      "image": "https://static.simonwillison.net/static/2026/datasette-agent-panel.webp"
+    },
+    {
+      "thread_id": "kimi-k31-pro-open-weights",
+      "thread_title": "Kimi K3.1 Pro model weights released; strong agentic reasoning",
+      "thread_state": "new",
+      "name": "Moonshot AI · Kimi",
+      "role": "Model Release · Hugging Face",
+      "hook": "Kimi K3.1 Pro open-weights available; high reasoning capability, agentic tasks.",
+      "insights": [
+        "**K3.1 Pro model weights now public** on Hugging Face; no license restrictions listed as highly limiting",
+        "Positioned for **agentic reasoning and code generation**; reasoning tokens enable long-horizon planning",
+        "Competes with Mistral Large 4 and Llama 3.1 on evals; **Chinese-English bilingual**"
+      ],
+      "for_you": "If you're building agents for Portuguese SMBs and want a high-quality open-weight model you can self-host or fine-tune, test Kimi K3.1 Pro. The reasoning capability should handle multi-step workflows (e.g., lead qualification, invoice processing). Check Hugging Face license and benchmark against your baseline before committing.",
+      "context": "Kimi K3.1 Pro is Moonshot AI's answer to the open-model race. It joins a growing cohort of capable open models suitable for production agentic systems.",
+      "what_changed": "Model weights just released; not yet widely benchmarked against your specific workflows.",
+      "action": "test",
+      "reason": "Open-weight option for self-hosted agent infrastructure.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "High-quality open model now available; affects your model selection for agent systems.",
+      "signal": "🟢",
+      "urls": [
+        "https://huggingface.co/moonshotai/Kimi-K3.1-Pro"
+      ],
+      "handle": "",
+      "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/moonshotai/Kimi-K3.1-Pro.png"
+    },
+    {
+      "thread_id": "ripple-65b-agentic-coding",
+      "thread_title": "Ripple-65B: U.S. open-weight SOTA on agentic coding tasks",
+      "thread_state": "new",
+      "name": "Ricursive · Ripple",
+      "role": "Model Release · Ricursive",
+      "hook": "Ripple-65B achieves state-of-the-art performance on coding agent benchmarks.",
+      "insights": [
+        "**U.S.-based model**, avoiding export control concerns; competitive with frontier on coding evals",
+        "Optimized for **agentic workflows**: handles multi-file edits, dependency resolution, test generation",
+        "Available as preview; full release timing TBD"
+      ],
+      "for_you": "If you're building code-generation agents for your Portuguese SMB clients (e.g., automating script generation, API integrations, schema design), Ripple-65B is worth a benchmark against your baseline. Strong U.S. compliance story if your clients care about data residency.",
+      "context": "Ripple-65B is a new entrant in the open-weight coding space. It's positioned as a U.S.-aligned alternative to Chinese or EU models, with strong benchmarks on agentic reasoning.",
+      "what_changed": "New model; preview status means limited production data yet.",
+      "action": "investigate",
+      "reason": "Top-tier coding model, open-weight, good for agency automation pipelines.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "High-performing coding agent model; useful for your technical workflows.",
+      "signal": "💡",
+      "urls": [
+        "https://www.ricursive.com/ripple"
+      ],
+      "handle": "",
+      "image": "https://framerusercontent.com/images/u4OXzV0utwAtaPgcVxQtTXmkg.png"
+    },
+    {
+      "thread_id": "texas-data-center-politics",
+      "thread_title": "Texas flips Democratic; AI data center buildout now in jeopardy",
+      "thread_state": "developing",
+      "name": "MIT Technology Review / TechCrunch",
+      "role": "Reporting · MIT Tech Review, TechCrunch",
+      "hook": "Democratic victories in Texas midterms threaten multi-billion dollar AI data center expansion.",
+      "insights": [
+        "Texas **fastest-growing U.S. data center market**; was ground zero for Big Tech AI buildouts",
+        "Democratic sweep includes governor, Senate seat, state legislature; **political alignment shifted**",
+        "Data center expansion tied to deregulation, tax incentives; new government **unlikely to prioritize** AI infrastructure over local concerns"
+      ],
+      "for_you": "No direct action unless you're considering U.S. infrastructure investment. But note: political risk to AI compute buildout is now **durable and material**. This is a second data point (after November's ballot initiatives nationwide) that grassroots opposition to data centers is politically viable.",
+      "context": "Texas was the centerpiece of Big Tech's U.S. AI compute strategy. A Democratic legislature and governor will likely deprioritize or slow data center approvals, and voters in other states have shown the same pattern.",
+      "what_changed": "Confirmed: Democratic gains in Texas mean policy headwind for data center expansion, not just voter sentiment.",
+      "action": "watch",
+      "reason": "Shapes long-term U.S. AI infrastructure availability and cost.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Political shift affecting compute economics for the next 2–4 years.",
+      "signal": "🟡",
+      "urls": [
+        "https://www.technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput/",
+        "https://www.technologyreview.com/2026/11/05/1144908/the-download-texas-fragile-ai-boom-us-energy-policy/"
+      ],
+      "handle": "",
+      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/GettyImages-2303431102.jpg?resize=1200,600"
     }
   ],
-  "build_this": [],
+  "build_this": [
+    {
+      "name": "Trivy (aquasecurity)",
+      "source": "GitHub / Aqua Security",
+      "what_it_is": "Vulnerability scanner for containers, code repos, and cloud resources; integrates with CI/CD pipelines.",
+      "why_try_it": "Before shipping any agent that touches code generation or infrastructure automation for a client, run Trivy in your pipeline. You need to catch exploitable patterns (PHP2Shell, RCE vulnerabilities) before they reach production. Set it up in your agency's standard deploy checklist.",
+      "url": "https://github.com/aquasecurity/trivy"
+    }
+  ],
   "podcasts": [
     {
       "show": "Latent Space",
-      "episode": "Behind Latent Space: A Rare Look Inside the Pod | AIEi Shanghai",
-      "takeaway": "Agents can rebuild SaaS tools and pass basic entry checks, but picking winners still needs someone with product taste and domain knowledge.",
+      "episode": "Behind Latent Space: Kill My SaaS, Jev & AI in 2026 | AIEi Shanghai",
+      "takeaway": "SaaS contest (Kill My SaaS) showed agents can rebuild tools and pass automated checks, but **product taste still requires human judgment** on what an organizer actually needs.",
       "key_points": [
-        "Kill My SaaS contest showed agents can generate functional software, but judges ultimately decide based on real business/product fit, not automation",
-        "OpenClaw adoption accelerating in China; local builders favor interaction models (Thinking Machines) that feel like natural conversation, not rigid API calls",
-        "AI Engineer community grew from blog to conference; conference itself is a dataset for understanding how builders approach problems"
+        "Agents can scaffold, rebuild, and pass entry criteria. Judges still evaluate usefulness, not just technical execution.",
+        "System One (Thinking Machines' interaction model) changes how builders should design agent interfaces: **align incentives so agents do what users want, not what instructions say**.",
+        "AIEi Shanghai conference was a dataset: builder mindsets vary by region; Chinese builders emphasize adoption speed; Western builders optimize for safety."
       ],
-      "for_you": "The 'Kill My SaaS' insight is crucial for your agency: agents can automate tool-building, but you still need to advise clients on which solutions matter. Position yourself as the taste/judgment layer on top of agent-generated code. Also: Thinking Machines interaction models (conversation-first) are worth testing for Portuguese SMB workflows.",
+      "for_you": "When you build agent tools for SMB clients, expect the agent to handle 80% of the scaffolding, but **you still need to decide if it solves the client's problem**. Don't assume a technically correct output is a useful output. Test with real users before shipping.",
       "signal": "💡",
       "url": "https://youtube.com/watch?v=QmDLDy3ZSNE",
       "video": {
         "id": "QmDLDy3ZSNE",
-        "title": "Behind Latent Space: A Rare Look Inside the Pod | AIEi Shanghai"
+        "title": "Behind Latent Space: Kill My SaaS, Jev & AI in 2026 | AIEi Shanghai"
+      }
+    },
+    {
+      "show": "No Priors",
+      "episode": "AI Agents for Traders",
+      "takeaway": "150,000+ people opened accounts for AI agents to trade for them; agents rebalance portfolios and hunt opportunities.",
+      "key_points": [
+        "Robinhood CEO Vlad Tenev discusses adoption of AI trading agents: real demand, real usage.",
+        "Agents handle rebalancing and opportunity detection; users retain control of execution.",
+        "Low-latency barrier (proven by RealTime-Bench) means agents can't execute live trades themselves; they recommend or prep execution."
+      ],
+      "for_you": "Your Portuguese SMB clients are not traders, but this signals that **agents for financial workflow** (reconciliation, forecasting, anomaly detection) are moving mainstream. Build that capability into your service offerings; it's an adjacent market to your core SMB agency work.",
+      "signal": "💡",
+      "url": "https://youtube.com/watch?v=vKCbFpy3cIQ",
+      "video": {
+        "id": "vKCbFpy3cIQ",
+        "title": "AI Agents for Traders"
       }
     }
   ],
   "tech": [
     {
-      "name": "Meta Conductor acquisition",
-      "role": "News · Meta acquires AI coding startup",
-      "hook": "Meta acquires Conductor, a coding automation startup, amid AI agent coding arms race.",
-      "key_point": "Meta adding specialized agentic coding capability in-house, signaling that coding agents are now a strategic acquisition category for Big Tech.",
-      "for_you": "Consolidation trend: Big Tech is buying specialized AI coding startups. If you're building coding agents for clients, differentiate on domain expertise (Portuguese SMB contexts, legacy systems) rather than trying to compete on general-purpose code generation.",
+      "name": "Box + Nvidia Nemotron",
+      "role": "Integration · Box / Nvidia",
+      "hook": "Box taps Nvidia's Nemotron for agent-first content retrieval system.",
+      "key_point": "Nemotron **optimized for agentic reasoning**: Box is building enterprise search that agents can call reliably, reducing hallucination on restricted docs.",
+      "for_you": "If your Portuguese SMB clients store sensitive data (contracts, invoices, compliance docs) and want to expose it to agents, this signals the infrastructure for safe, retrievable access is consolidating. Expect similar integrations from other enterprise platforms.",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/"
+        "https://techcrunch.com/2026/11/05/box-taps-nvidias-nemotron-for-new-agent-first-content-retrieval-system/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/09/mark-zuckerberg-ray-bans.png?resize=1200,653"
+      "image": "https://techcrunch.com/wp-content/uploads/2024/08/GettyImages-1178603809.jpg?w=1024",
+      "video": {
+        "id": "GetsTXLRHVo",
+        "title": "Today in AI: Apple slashes internal AI budgets, Box taps Nvidia’s Nemotron for new, Open #Shorts"
+      }
     },
     {
-      "name": "OpenAI Pierre Computer acquisition",
-      "role": "News · OpenAI acquires Pierre Computer",
-      "hook": "OpenAI acquires Pierre Computer, a compute/inference optimization company.",
-      "key_point": "OpenAI reinforcing its compute stack; suggests inference efficiency and model serving are strategic bottlenecks for scaled agentic deployment.",
-      "for_you": "If you're deploying high-volume agents for clients, pay attention to inference cost optimization. This acquisition hints that model serving cost will remain a competitive lever.",
+      "name": "Aina Smart Ring",
+      "role": "Hardware · Aina",
+      "hook": "Smart ring with screen, joystick, and mic for hands-free AI agent interaction.",
+      "key_point": "**First consumer-grade agent interface** combining voice, small screen, tactile input; designed for asynchronous agent tasks (reminders, notifications, quick queries).",
+      "for_you": "Not actionable for SMB workflows yet. But watch: if agents move off phones and onto wearables, your client interfaces need to adapt. Not urgent, but filed for trend awareness.",
+      "signal": "💡",
+      "urls": [
+        "https://techcrunch.com/2026/11/05/ainas-smart-ring-has-a-screen-a-joystick-and-a-mic-so-you-can-talk-to-ai-agents/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Aina-Ring-Hands.jpeg?resize=1200,805"
+    },
+    {
+      "name": "Qualcomm Cloud AI 100 Ultra",
+      "role": "Hardware · Qualcomm",
+      "hook": "150W AI accelerator card with 128GB memory at 548GB/s throughput.",
+      "key_point": "**Optimized for edge and data center inference**: fits between GPU and specialized chips; promising for local agent deployment.",
+      "for_you": "If you're considering self-hosting agent models for Portuguese SMB clients (e.g., local LLM for compliance reasons), Qualcomm's accelerator is a competitive option vs. GPUs. Reduces per-inference cost. File for investigation when you're ready to optimize inference economics.",
       "signal": "🟡",
       "urls": [
-        "https://openai.com/index/openai-to-acquire-pierre/"
-      ]
+        "https://www.qualcomm.com/data-center/products/cloud-ai-100-ultra"
+      ],
+      "image": "https://s7d1.scene7.com/is/image/dmqualcommprod/cloudai100_announcement"
     },
     {
-      "name": "Data center ballot measures fail",
-      "role": "News · Stratechery & MIT Technology Review analysis",
-      "hook": "US voters reject data center expansion across multiple states; opposition to AI buildout now politically durable.",
-      "key_point": "Texas (formerly AI infrastructure hub) flipped Democratic; voters in key states blocked data center zoning and subsidies, signaling anti-AI-buildout sentiment is structural, not temporary.",
-      "for_you": "If you're operating in Portugal and considering infrastructure costs, the US energy crunch and political headwinds may actually favor European players in the medium term. Watch for European infrastructure costs to stabilize while US compute becomes more constrained.",
+      "name": "ElevenLabs Audio Direct to SoundCloud",
+      "role": "Integration · ElevenLabs",
+      "hook": "ElevenLabs AI music can now be published directly to SoundCloud from the platform.",
+      "key_point": "**Distribution integration**: shortens cycle from generation to public release. Signals AI media tooling is maturing beyond creation into distribution.",
+      "for_you": "Not directly relevant to your core agency work, but if a Portuguese SMB client wants to produce audio content (podcasts, ads, training materials) at scale, this is a faster path than manual upload and publishing.",
+      "signal": "💡",
+      "urls": [
+        "https://techcrunch.com/2026/11/05/elevenlabs-now-lets-users-publish-ai-generated-music-directly-on-soundcloud/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/ElevenMusicxSoundcloud.jpg?resize=1200,675",
+      "video": {
+        "id": "3b3fo-ylXZ0",
+        "title": "You can post AI music straight to SoundCloud from ElevenLabs #shorts"
+      }
+    },
+    {
+      "name": "Instagram Edits on Desktop",
+      "role": "Product Update · Meta",
+      "hook": "Instagram brings AI-powered video editing (Edits) to desktop, competing with CapCut.",
+      "key_point": "**Consumer-facing agent UI**: drag, prompt, edit. Signals that non-technical users expect agentic interfaces for media creation.",
+      "for_you": "If any of your SMB clients produce marketing content or social media, they can now use Instagram's native tools instead of external editors. Reduces tool sprawl, but also means content creation workflows are consolidating on platform-owned tools.",
       "signal": "🟡",
       "urls": [
-        "https://stratechery.com/2026/ai-on-the-ballot/",
-        "https://www.technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput/"
+        "https://techcrunch.com/2026/11/05/instagram-brings-edits-to-desktop-to-take-on-capcut/"
       ],
-      "image": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvaTAud3AuY29tXC9zdHJhdGVjaGVyeS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMThcLzAzXC9jcm9wcGVkLWFuZHJvaWQtY2hyb21lLTUxMng1MTItMS5wbmc_Zml0PTUxMiUyQzUxMiZzc2w9MSIsInR4dCI6IlN0cmF0ZWNoZXJ5IGJ5IEJlbiBUaG9tcHNvbiIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxODgwNDM0MTV9.5VWck4PcKPWCTPe_HVznn3n3xsgn-G0b3d2OeiNNC7cMQ"
-    },
-    {
-      "name": "Binance crypto theft and social engineering",
-      "role": "News · Binance breach via AI-assisted social engineering",
-      "hook": "Binance hack used social engineering (fake job offer) + company's own AI tool to compromise employee credentials.",
-      "key_point": "Attacker weaponized Binance's AI assistant to craft convincing job offer; internal AI tools can become attack vectors.",
-      "for_you": "When deploying AI tools for Portuguese SMBs, include security training for employees: AI-generated messages are becoming indistinguishable from human communications. Brief clients on social engineering risk.",
-      "signal": "🔴",
-      "urls": [
-        "https://arstechnica.com/information-technology/2026/11/binance-says-hackers-who-stole-billions-in-crypto-spent-months-planning-heist/"
-      ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/10/binance-1024x648.jpg"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Introducing-Edits-on-desktop_.png?resize=1200,726",
+      "video": {
+        "id": "q2TJUmLQ3Bc",
+        "title": "How to edit your video to a beat in Capcut!"
+      }
     }
   ],
   "pt_news": [
     {
-      "headline": "Governo investe €41M em formação de professores de Matemática",
-      "hook": "Governo Fernando Alexandre quer tornar Matemática obrigatória até 12º ano; financiará formação de professores.",
-      "for_you": "Se você construir produtos de educação ou tutoria IA para Portugal, este é um sinal positivo: investimento público em STEM. Contacte secretarias de estado para oportunidades de integração em programas de formação.",
-      "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/11/04/oe2027-governo-vai-financiar-formacao-de-professores-em-41-milhoes-de-euros/",
-      "source_name": "Eco (SAPO)",
-      "image": "https://eco.imgix.net/uploads/2026/11/cropped-48069606-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "4 mil empresas registadas em plataforma de cibersegurança MyCiber",
-      "hook": "Regime Jurídico da Cibersegurança ganha tração; governo sublinha prioridade na área.",
-      "for_you": "Oportunidade: agências IA que ajudem PMEs a cumprir novo regime de cibersegurança (compliance, auditorias automatizadas, monitorização). Teu stack de segurança deve estar alignado com MyCiber.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/4-mil-empresas-ja-fizeram-o-registo-na-plataforma-do-regime-juridico-da-ciberseguranca/",
-      "source_name": "SAPO Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/06/CNCS_Resources.ComputerAndPhone_Homepage_m-1.jpg"
-    },
-    {
-      "headline": "EDP Renováveis multiplica por 4 lucros até setembro",
-      "hook": "EDPR totalizou 440M de euros de lucro; 'vento a favor' dos EUA e rotação de ativos.",
-      "for_you": "Portugal tem líderes em energias renováveis com apetite por dados e automação. Posiciona agentes IA para operações em energia renovável: previsão, otimização de portfólio, compliance ESG.",
+      "headline": "Dimensão dos escritórios de advogados condiciona adoção de IA na UE",
+      "hook": "Larger law firms adopt AI faster than solo practitioners; Portugal still lacks local adoption data.",
+      "for_you": "If you're exploring legal workflow automation for Portuguese law firms, expect faster adoption from bigger firms (10+ lawyers). Solo practitioners and small practices (2–5 lawyers) are slower to adopt. Tailor your pitch and pricing accordingly.",
       "signal": "💡",
-      "url": "https://eco.sapo.pt/2026/11/04/edp-renovaveis-multiplica-por-quatro-lucros-ate-setembro-com-vento-a-favor-dos-eua-e-rotacao-de-ativos/",
-      "source_name": "Eco (SAPO)",
-      "image": "https://eco.imgix.net/uploads/2026/11/cropped-42367339-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "url": "https://www.jornaldenegocios.pt/economia/justica/lex/detalhe/dimensao-dos-escritorios-de-advogados-condiciona-adocao-de-ia-na-ue",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2015-09/img_1200x676uu2015-09-28-21-32-00-264529.jpg"
     },
     {
-      "headline": "Crédit Mutuel Arkéa sofre ciberataque; perdas estimadas em €118M",
-      "hook": "Banco francês vítima de ataque; investigador independente estima danos de 118 milhões.",
-      "for_you": "Sinal de risco: bancos e instituições financeiras em Portugal/Europa são alvos prioritários. Se tens clientes neste setor, reforça defesas contra ataques IA-amplificados. Black October trend continua.",
+      "headline": "Web Summit teve impacto de €2,5B na economia portuguesa em 10 anos",
+      "hook": "Web Summit generated €250M per year in economic impact for Portugal; conference is a major tech hub anchor.",
+      "for_you": "The tech ecosystem in Portugal is real and growing. Use this to position your agency: 'building AI for Portuguese tech companies' becomes a genuine market narrative, not niche positioning.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/negocios/artigos/web-summit-teve-impacto-de-25-mil-milhoes-de-euros-na-economia-portuguesa-nos-ultimos-10-anos/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Paddy-Cosgrave-Web-Summit.jpeg"
+    },
+    {
+      "headline": "Telecomunicações: setor não gera retorno desde 2020 apesar do crescimento",
+      "hook": "Portuguese telecom operators face profitability crisis; data consumption up 12x, revenue growth only 5.9%.",
+      "for_you": "Telecom clients are under margin pressure and unlikely to invest in experimental AI projects. If you pitch to a telecom, focus on immediate cost reduction (automation of support, billing, network optimization) not long-term capability building.",
       "signal": "🔴",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/credit-mutuel-arkea-banco-frances-e-vitima-de-ciberataque-com-perdas-estimadas-em-118-milhoes-de-euros/",
-      "source_name": "SAPO Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Credit-Mutuel-Arkea-Ciberataque.jpg"
+      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/telecomunicacoes-sector-nao-gera-retorno-suficiente-para-compensar-o-investimento-desde-2020/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/c52e763f94f463e7851a0b7af5c4520b0e2ece31.jpg"
     },
     {
-      "headline": "Google expande ofertas de saída voluntária a trabalhadores globalmente",
-      "hook": "Google oferece pacotes de saída em múltiplos países; Microsoft fez o mesmo para 60k colaboradores.",
-      "for_you": "Big Tech em austeridade IA: contenção de custos face a investimentos recorde. Oportunidade para contratar talento português que sai de Big Tech; acelera recrutamento local.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/google-alarga-ofertas-de-saida-voluntaria-a-trabalhadores-de-cinco-paises-dias-depois-de-a-microsoft-propor-o-mesmo-a-60-mil-colaboradores/",
-      "source_name": "SAPO Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2e23c3280a810e657f8e5f542b22b018d304ad8b-scaled.jpg"
+      "headline": "Comissão Europeia lança plataforma de €525M para chips europeus",
+      "hook": "EU launches European Chip Design Platform to build indigenous chip capability; €525M funding.",
+      "for_you": "EU is pushing chip sovereignty. This affects long-term AI inference costs in Europe. If your agency scales, keeping model serving in-EU becomes politically viable and potentially cheaper than U.S. cloud.",
+      "signal": "🟡",
+      "url": "https://tek.sapo.pt/noticias/computadores/artigos/europa-lanca-plataforma-de-525-milhoes-de-euros-para-criar-uma-nova-geracao-de-empresas-de-chips/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/deb7a95756aafd97f90f38d364e97541ae6bf00c.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "Texas flips Democratic; AI data center buildout in jeopardy",
-      "hook": "Texas, cornerstone of US AI infrastructure expansion, elects Democratic governor; state-level opposition to mega data centers now credible.",
-      "for_you": "Long-term: US data center costs may rise; Europe and Portugal may benefit from stable regulatory environment. Short-term: less US AI infrastructure competition for spot inference pricing.",
+      "headline": "France, US clash over G7 AI safety proposal; White House calls it 'unnecessary bureaucracy'",
+      "hook": "France pushes for G7 AI oversight framework; U.S. opposes, citing regulatory overreach.",
+      "for_you": "If you're building AI products with EU customers, expect divergent regulatory pressure. U.S.-led models will face friction in EU markets; EU-built or EU-compliant models will have advantage. Not urgent, but shapes multi-year infrastructure decisions.",
       "signal": "🟡",
-      "url": "https://arstechnica.com/space/2026/11/elon-musk-moved-spacex-to-red-texas-now-its-blue-what-happens-next/",
-      "source_name": "Ars Technica",
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/elon-how-do-you-do-fellow-democrats-1152x648.jpg",
-      "video": {
-        "id": "D7-vokiiZG8",
-        "title": "Lifelong Republican breaks with party over Texas data center"
-      }
+      "url": "https://www.politico.eu/article/france-us-clash-ai-safety-talks-a-g7/?utm_source=RSS_Feed",
+      "source_name": "Politico Europe"
     },
     {
-      "headline": "British healthcare worker evacuated from DR Congo with Ebola",
-      "hook": "UK confirms evacuation of healthcare worker positive for Ebola; transfer to specialist UK infectious disease unit underway.",
-      "for_you": "No direct impact on AI work, but signals global health systems under stress. AI for pandemic preparedness and contact tracing may become investment priority.",
+      "headline": "Joshua Wong jailed 10 years under Hong Kong national security law",
+      "hook": "Prominent pro-democracy activist detained under controversial security law; hundreds of Hongkongers arrested.",
+      "for_you": "Not directly relevant to your work, but filed as context: AI builders operating globally should expect increasing regulatory fragmentation. Hong Kong's restrictions may foreshadow China's moves; Europe's may foreshadow similar policies elsewhere.",
       "signal": "🟡",
-      "url": "https://www.theguardian.com/world/2026/nov/04/british-healthcare-worker-ebola-evacuated-drc-to-uk-document-shows",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/22d88a4e5887695fa17d85593fd7c9e807599182/872_0_4800_3840/master/4800.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=cdc32f9f8280811c60ea7a1f55880905",
+      "url": "https://www.bbc.co.uk/news/articles/cwp9g3rlp8jlo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ff8f/live/68eb4bf0-d8e4-11f1-a701-fddedf244c16.jpg",
       "video": {
-        "id": "3-HTUARSSNU",
-        "title": "UK Health Worker Contracts Ebola in Congo — The Facts & How to Stay Safe"
+        "id": "D1NEVZcbpG0",
+        "title": "Hong Kong activist Joshua Wong gets 10 more years in jail"
       }
     },
     {
-      "headline": "Ukraine reports 40+ dead in Russian double-tap bombing of village",
-      "hook": "At least 40 killed; another 30 may be trapped under rubble after Monday attack on Zaporizhia region.",
-      "for_you": "Ongoing conflict and casualties. No direct action, but relevant if you're exploring AI for humanitarian logistics or casualty prediction models.",
-      "signal": "🔴",
-      "url": "https://www.aljazeera.com/news/2026/11/4/ukraine-raises-death-toll-from-russian-strike-on-zaporizhia-to-40-people",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6aeb7dae-1793818030.jpg?resize=1920%2C1440",
-      "video": {
-        "id": "UkDREs4kYpI",
-        "title": "Ukraine: 40 Dead After Russian Double-Tap Strike"
-      }
+      "headline": "Vance criticizes Trump over election loss; sharpest break by VP in recent memory",
+      "hook": "Vice President JD Vance issued scathing critique of Republican midterm defeat, blaming foreign policy.",
+      "for_you": "Political fracture in U.S. leadership. Affects data center and regulatory policy for the next 2 years. Uncertainty around U.S. AI infrastructure spending may accelerate your customers' interest in EU-based solutions.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/crz98zqkz7z0o",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3c74/live/1d4cf850-d8e5-11f1-a701-fddedf244c16.jpg"
     },
     {
-      "headline": "Brazil publishes first global roadmap for phasing out fossil fuels",
-      "hook": "Brazil (Cop30 host) releases roadmap for transition; signals commitment to climate action ahead of climate summits.",
-      "for_you": "Opportunity: AI for carbon accounting, ESG compliance, supply chain decarbonization. Portuguese companies exporting to Brazil/EU may need automated emissions tracking tools.",
-      "signal": "💡",
-      "url": "https://www.theguardian.com/environment/2026/nov/03/brazil-first-global-roadmap-phasing-out-fossil-fuels",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/adcc136be3a039cc686a97e706b24371222bb09e/0_0_2720_2175/master/2720.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b11504090f7788b05dec1d0cded339da",
+      "headline": "Typhoons batter East Asia as El Niño makes Pacific 'burn with fever'",
+      "hook": "Extreme weather across East Asia; climate impact on infrastructure and data center viability.",
+      "for_you": "If your agency considers Asia-Pacific regions for data center expansion or customer hosting, typhoon risk is rising. Factor environmental resilience into infrastructure planning.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/cw33kgj7nkemo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/30ea/live/eaa602a0-d75b-11f1-8f6b-d71817972456.jpg",
       "video": {
-        "id": "IvJ3hZdwmxI",
-        "title": "Brazil Unveils Global Roadmap to Phase Out Fossil Fuels 🌍"
+        "id": "w23GeUaPtjU",
+        "title": "Typhoons batter East Asia as El Niño makes Pacific 'burn with fever'"
       }
     }
   ],
-  "since_yesterday": "Weight-space programming confirmed on open models (Qwen 3.8 27B tested locally). Datasette Agent 0.5a0 released with panel UI for side-by-side chat + live data browsing. Google Gemini 4 Carbon launched with defender-first access model (no immediate public API). Mistral Large 4 weights now available on Hugging Face. 'Black October' cyber risk analysis ongoing at Interconnects—open models confirmed enabling real PHP2Shell and GitLab RCE exploits. No resolution or major reversals; development stage for all threads.",
+  "since_yesterday": null,
   "health": {
     "x": {
       "attempted": 15,
