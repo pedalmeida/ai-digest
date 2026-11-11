@@ -33,15 +33,39 @@ if (fs.existsSync(envPath)) {
 }
 
 const apiKey = process.env.ANTHROPIC_API_KEY;
+// Claude Code CLI on Pedro's subscription (OAuth token from `claude setup-token`); the API key is only a fallback.
+const oauthToken = process.env.CLAUDE_CODE_OAUTH_TOKEN;
 const USE_HERMES = process.env.DIGEST_ENGINE === 'hermes';
-if (!apiKey && !USE_HERMES) {
-  process.stderr.write('remix-digest: ANTHROPIC_API_KEY is not set\n');
+if (!apiKey && !oauthToken && !USE_HERMES) {
+  process.stderr.write('remix-digest: neither CLAUDE_CODE_OAUTH_TOKEN nor ANTHROPIC_API_KEY is set\n');
   process.exit(1);
 }
 
 const client = apiKey ? new Anthropic({ apiKey }) : null;
 const execFileAsync = promisify(execFile);
 const MODEL = digestModel();
+
+// Same shape as client.messages.create's result, so callers do not care which path ran.
+async function createMessage(params) {
+  if (!oauthToken) return client.messages.create(params);
+  const env = { ...process.env };
+  delete env.ANTHROPIC_API_KEY;
+  const alias = /haiku/.test(params.model) ? 'haiku' : /opus/.test(params.model) ? 'opus' : 'sonnet';
+  const child = execFile('claude', ['-p', '--model', alias, '--system-prompt', params.system,
+    '--tools', '', '--strict-mcp-config', '--no-session-persistence', '--output-format', 'json'],
+    { env, maxBuffer: 64 * 1024 * 1024, timeout: 10 * 60 * 1000 });
+  const out = new Promise((resolve, reject) => {
+    let stdout = '';
+    child.stdout.on('data', (c) => { stdout += c; });
+    child.on('error', reject);
+    child.on('close', () => resolve(stdout));
+  });
+  child.stdin.end(params.messages.map((m) => m.content).join('\n\n'));
+  let d = {};
+  try { d = JSON.parse(await out); } catch { /* handled below */ }
+  if (d.is_error || !d.result) throw new Error(`claude CLI: ${String(d.result || 'no output').slice(0, 300)}`);
+  return { content: [{ type: 'text', text: d.result }], stop_reason: d.stop_reason || 'end_turn' };
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
@@ -431,7 +455,7 @@ ${sections.join('\n\n')}${memoryBlock}`;
         fs.rmSync(promptPath, { force: true });
       }
     } else {
-      const msg = await client.messages.create({
+      const msg = await createMessage({
         model: MODEL,
         max_tokens: 9000,
         thinking: { type: 'disabled' },
@@ -467,7 +491,7 @@ ${sections.join('\n\n')}${memoryBlock}`;
         process.stderr.write(`remix-digest: compact retry response length=${responseText?.length}\n`);
         remixed = extractJSON(responseText);
       } else {
-        const retry = await client.messages.create({
+        const retry = await createMessage({
           model: MODEL,
           max_tokens: 6000,
           thinking: { type: 'disabled' },

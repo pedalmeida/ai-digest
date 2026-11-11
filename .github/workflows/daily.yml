@@ -39,8 +39,13 @@ jobs:
             console.log(JSON.stringify(d.health));
           "
 
-      - name: Generate digest (Haiku fallback, Luna trial locally)
+      - name: Install Claude Code CLI (digest runs on Pedro's subscription via OAuth, not API credit)
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate digest (Haiku via OAuth, Luna trial locally)
         env:
+          # OAuth token from `claude setup-token`; the API key is only used if this secret is missing.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           ANTHROPIC_API_KEY:     ${{ secrets.ANTHROPIC_API_KEY }}
           GOOGLE_SEARCH_API_KEY: ${{ secrets.GOOGLE_SEARCH_API_KEY }}
           GOOGLE_SEARCH_CX:      ${{ secrets.GOOGLE_SEARCH_CX }}
