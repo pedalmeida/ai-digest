@@ -29,46 +29,13 @@ if (fs.existsSync(envPath)) {
   }
 }
 
-// Prefer the Claude Code CLI on Pedro's subscription (CLAUDE_CODE_OAUTH_TOKEN, from `claude setup-token`);
-// the API key is only a fallback so the digest never spends API credit when the token is present.
-const oauthToken = process.env.CLAUDE_CODE_OAUTH_TOKEN;
 const apiKey = process.env.ANTHROPIC_API_KEY;
-if (!oauthToken && !apiKey) {
-  process.stderr.write('remix-digest: neither CLAUDE_CODE_OAUTH_TOKEN nor ANTHROPIC_API_KEY is set\n');
+if (!apiKey) {
+  process.stderr.write('remix-digest: ANTHROPIC_API_KEY is not set\n');
   process.exit(1);
 }
 
-const client = apiKey ? new Anthropic({ apiKey }) : null;
-
-function cliModel(model) {
-  return /haiku/.test(model) ? 'haiku' : /opus/.test(model) ? 'opus' : 'sonnet';
-}
-
-async function generate(systemPrompt, userPrompt) {
-  if (oauthToken) {
-    const { spawnSync } = await import('node:child_process');
-    const env = { ...process.env };
-    delete env.ANTHROPIC_API_KEY;
-    const r = spawnSync('claude', ['-p', '--model', cliModel(MODEL), '--system-prompt', systemPrompt,
-      '--tools', '', '--strict-mcp-config', '--no-session-persistence', '--output-format', 'json'],
-      { input: userPrompt, env, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, timeout: 900000 });
-    let d = {};
-    try { d = JSON.parse(r.stdout || '{}'); } catch { /* fall through */ }
-    if (d.is_error || !d.result) throw new Error(`claude CLI: ${String(d.result || r.stderr || r.error || '').slice(0, 300)}`);
-    return d.result;
-  }
-  const msg = await client.messages.create({
-    model: MODEL,
-    max_tokens: 8000,
-    thinking: { type: 'disabled' },
-    system: systemPrompt,
-    messages: [{ role: 'user', content: userPrompt }],
-  });
-  if (msg.stop_reason === 'max_tokens') {
-    process.stderr.write('remix-digest: warning — response hit max_tokens, output may be truncated\n');
-  }
-  return msg.content.find(b => b.type === 'text')?.text;
-}
+const client = new Anthropic({ apiKey });
 const MODEL = digestModel();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -473,7 +440,21 @@ ${sections.join('\n\n')}${memoryBlock}`;
 
   let remixed;
   try {
-    const responseText = await generate(systemPrompt, userPrompt);
+    const msg = await client.messages.create({
+      model: MODEL,
+      max_tokens: 8000,
+      thinking: { type: 'disabled' },
+      system: systemPrompt,
+      messages: [
+        { role: 'user', content: userPrompt },
+      ],
+    });
+
+    if (msg.stop_reason === 'max_tokens') {
+      process.stderr.write('remix-digest: warning — response hit max_tokens, output may be truncated\n');
+    }
+    const textBlock = msg.content.find(b => b.type === 'text');
+    const responseText = textBlock?.text;
     process.stderr.write(`remix-digest: response length=${responseText?.length}\n`);
     remixed = extractJSON(responseText);
     const grounding = filterUngroundedDigest(remixed, data);
