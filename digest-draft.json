@@ -1,376 +1,377 @@
 {
-  "date": "Wednesday, 11 November 2026",
+  "date": "Thursday, 12 November 2026",
   "ai": [
     {
-      "thread_id": "decision-models-category",
-      "thread_title": "Decision models consolidating as distinct API category",
-      "thread_state": "new",
-      "name": "Google AI",
-      "role": "Product Release",
-      "hook": "Google launches Gemini Decision 1, joining OpenAI and Jev in structured reasoning API.",
-      "insights": [
-        "Three vendors now offer **decision APIs** (yes/no, choice, rubric-scoring) with feature parity",
-        "Google reuses Jev's terminology and pricing structure—convergence signal",
-        "Priced at $0.10-0.20/1M tokens: same tier as Claude Haiku and GPT-6 Luna"
-      ],
-      "for_you": "Decision models let you offload **structured reasoning** (client scoring, lead routing, rubric evaluation) from agents to cheaper, faster APIs. Test for PT SMB client qualification and option-ranking tasks this week.",
-      "context": "Decision models are purpose-built for multi-step reasoning without generation. OpenAI released GPT-6 Luna with this feature in September; Jev followed; Google's public API standardizes the category. Three-vendor parity suggests durability.",
-      "what_changed": "Google's public API release moves decision models from OpenAI differentiation to documented multi-vendor category.",
-      "action": "test",
-      "reason": "Could replace or augment agent branching logic; test with a real client scoring task this week",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Three-vendor convergence signals category maturity; directly applicable to agency workflows.",
-      "signal": "🟡",
-      "urls": [
-        "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
-        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
-      ],
-      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini__decisions__blog-header_2784x1566.width-1300.png"
-    },
-    {
-      "thread_id": "small-models-agent-tasks",
-      "thread_title": "Sub-billion-parameter models normalizing agent backbone tasks",
+      "thread_id": "jensen-huang-nvidia-resignation",
+      "thread_title": "Jensen Huang Resigns as Nvidia CEO Amid Scandal",
       "thread_state": "developing",
-      "name": "Meta AI",
-      "role": "Model Release",
-      "hook": "Meta launches Muse Ember for agent tool-calls, extraction, routing—priced with Haiku and Luna.",
+      "name": "Jensen Huang",
+      "role": "Chief Executive Officer, Nvidia",
+      "hook": "Nvidia CEO resigns after affairs and alleged Chinese spy contact.",
       "insights": [
-        "Muse Ember is sub-billion parameters, optimized for **repetitive agent work**: routing, extraction, tool-calling",
-        "Identical pricing ($0.10/1M input) with Claude Haiku 5.5 and GPT-6 Luna for short prompts",
-        "Three vendors now price small models identically—cost structure for agent backbone is settling"
+        "Resigned after board meeting Nov 11 night; officially announced Nov 12 morning",
+        "CFO **Colette Kress** named interim CEO pending permanent successor search",
+        "Stock fell 12% in pre-market trading; Nvidia market cap drops below $4 trillion",
+        "Second alleged affair with Nvidia executive; first involved alleged Chinese intelligence contact"
       ],
-      "for_you": "Sub-$0.001 cost per agent step. For your agency, use **cheap backbone reasoning** for orchestration, expensive reasoning only for synthesis. Muse Ember could be your default for Portuguese SMB agent routing.",
-      "context": "Claude Haiku, GPT-6 Luna, and Muse Ember occupy the same niche: cheap, fast models for agent scaffolding. Pricing parity signals market has settled on cost structure.",
-      "what_changed": "Meta's entry and price-matching confirms small models as durable category; vendors are committing capex.",
-      "action": "test",
-      "reason": "Evaluate Muse Ember vs. Haiku for your most-repeated tasks; price-performance may shift your default model.",
+      "for_you": "GPU supply and pricing are critical to your agency's model serving costs. Leadership instability at Nvidia creates uncertainty around product roadmap, pricing, and availability. Monitor for supply chain friction that could affect client delivery timelines or inference costs.",
+      "context": "Nvidia is the world's dominant GPU supplier for AI model training and inference. Huang founded the company 32 years ago and has been its public face. The scandal combines personal conduct (affairs) with national security concerns (alleged Chinese intelligence). Colette Kress is a long-time CFO with financial credibility but limited public CEO experience.",
+      "what_changed": "Official resignation confirmed; governance crisis now real, not rumor. Board actively searching for permanent CEO.",
+      "action": "watch",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Three-vendor price convergence; directly applicable to agency unit economics.",
-      "signal": "🟢",
+      "why_it_made_the_cut": "Ecosystem risk signal; GPU supply and pricing are core to agency model serving.",
+      "signal": "🔴",
       "urls": [
-        "https://simonwillison.net/2026/Nov/10/muse-ember/"
+        "https://techcrunch.com/2026/11/12/nvidias-jensen-huang-resigns-chipmaker-names-cfo-colette-kress-as-interim-ceo/",
+        "https://www.theverge.com/ai-artificial-intelligence/1031689/jensen-huang-nvidia-ceo-resigns"
       ],
-      "image": "https://static.simonwillison.net/static/2026/muse-ember.webp",
+      "handle": "",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-2205210966.jpg?resize=1200,800",
       "video": {
-        "id": "lNxNiz_k_oM",
-        "title": "Meta Launches Muse Ember, a Low-Cost Model for AI Agents"
+        "id": "0f4OnS9UsDM",
+        "title": "Nvidia CEO Jensen Huang resigns amid affair allegations"
       }
     },
     {
-      "thread_id": "anthropic-ipo-market-signal",
-      "thread_title": "Anthropic IPO roadshow reveals multi-vendor compute strategy",
+      "thread_id": "decision-models-api-category",
+      "thread_title": "Decision Models Become Standard API Category",
       "thread_state": "developing",
-      "name": "Anthropic",
-      "role": "Company / IPO",
-      "hook": "Anthropic roadshow shows Claude trains on AWS Trainium, Google TPUs, NVIDIA and AMD GPUs—no lock-in.",
+      "name": "Google Gemini Decisions API",
+      "role": "Model Provider, API Category",
+      "hook": "Google launches Gemini Decision 1; three-way category now standard across platforms.",
       "insights": [
-        "**Multi-vendor compute strategy** across four chip manufacturers eliminates single-vendor dependency",
-        "Tom Brown's compute section highlighted to investors as technical moat",
-        "All seven founders participating in IPO liquidity (~$250M each)—founder confidence, not exit pressure"
+        "**Gemini Decision 1** supports yes/no, choice, and rubric-scoring decisions (matches Jev interface)",
+        "Reuses Jev's term 'Noul' for yes/no questions, priced same as GPT-6 Luna ($0.10/million input tokens for short prompts)",
+        "OpenAI released decisions API in October; Jev released in September. Google confirms this is a category, not anomaly.",
+        "Pattern: structured reasoning APIs now expected across tier-1 providers; reduces prompt engineering and hallucination risk for discrete decisions"
       ],
-      "for_you": "Anthropic's compute diversification and founder stake participation signal long-term commitment. Useful context if you're betting on Claude APIs for Portuguese SMB client infrastructure. No single-chip dependency = API stability.",
-      "context": "IPO roadshow videos typically sanitize messaging. Simon Willison's documentation of compute strategy is rare insight into how Claude scales. Founder liquidity signals confidence and generational wealth for founding team.",
-      "what_changed": "Previously private; roadshow now public on multi-GPU approach and founder stake participation.",
-      "action": "watch",
-      "reason": "Understand Anthropic's technical strategy and founder confidence before IPO pricing; context for long-term API reliability.",
+      "for_you": "Your agency automates client decisions (approval workflows, routing, classification). Decision APIs reduce prompt engineering and are cheaper than full model inference for simple tasks. Test Gemini Decision 1 this week for workflows currently using multi-turn reasoning, especially where clients audit decision logic.",
+      "context": "Decision models are APIs that take structured questions and return structured answers, designed for multi-choice or scoring scenarios without reasoning errors. They're cheaper and more reliable than prompting. Jev pioneered in September; OpenAI and Google followed. Each provider confirms pricing and interface standards.",
+      "what_changed": "Google's entry makes clear this is a category, not a one-off. Third major platform in three weeks confirms standardization.",
+      "action": "investigate",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Rare technical transparency; relevant to your bet on Claude APIs.",
+      "why_it_made_the_cut": "Direct tool for agency workflow automation; multiple platforms validate the pattern.",
       "signal": "🟡",
       "urls": [
-        "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/"
-      ]
+        "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/",
+        "https://latent.space/p/ainews-d-day-decision-models-day/"
+      ],
+      "handle": "",
+      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini__decisions__blog-header_2784x1566.width-1300.png"
     },
     {
-      "thread_id": "agent-reliability-market-friction",
-      "thread_title": "Agent deployment friction: bans, leaks, and approval loops emerge",
-      "thread_state": "new",
-      "name": "United Airlines",
-      "role": "Market Signal",
-      "hook": "United Airlines bans unauthorized AI agents from booking flights; liability becomes friction point.",
+      "thread_id": "anthropic-multi-vendor-chip-strategy",
+      "thread_title": "Anthropic Trains Across Four Chip Vendors; No Lock-In",
+      "thread_state": "monitoring",
+      "name": "Anthropic IPO Roadshow",
+      "role": "Model Provider, Strategic Communication",
+      "hook": "Roadshow reveals Claude trains on AWS Trainium, Google TPUs, Nvidia, AMD GPUs.",
       "insights": [
-        "United explicitly prohibits agents from customer booking transactions—first major carrier policy",
-        "Signal: enterprises want **approval loops** before agents transact on customer behalf",
-        "Follows API key leaks (Grok Build, Claude Code) that exposed agent security gaps"
+        "Tom Brown discusses 'Approach to compute' on IPO roadshow video released Nov 11",
+        "Training across 4 different architectures signals no single-vendor dependency",
+        "Strategy likely aims to avoid GPU shortage risk and vendor lock-in criticism pre-IPO",
+        "Suggests Anthropic can adapt to chip availability and cost variations across suppliers"
       ],
-      "for_you": "When pitching agent automation to Portuguese SMBs (flight booking, vendor management, customer actions), expect compliance questions. Include **approval-loop architecture** in your pitch. Enterprises view autonomous customer actions as liability.",
-      "context": "Earlier agent API key leaks exposed security gaps. United's ban escalates to trust/control. Enterprises may require explicit human approval before agents can transact.",
-      "what_changed": "First major corporation to publicly ban AI agents from booking; prior incidents were exploits, not policy.",
+      "for_you": "Multi-vendor training strategy = more stable pricing and availability for Claude access. If Anthropic shifts compute to cheaper chips (AMD, Trainium), pricing may stay competitive longer. Useful signal for projecting long-term model costs in your agency.",
+      "context": "Anthropic's IPO roadshow began Nov 9. This section reveals how they manage compute infrastructure. Training on multiple chips is unusual for labs (most pick one vendor for efficiency). It signals resilience and flexibility, both selling points for IPO investors.",
+      "what_changed": "Roadshow video released with previously unreleased compute strategy detail.",
       "action": "watch",
-      "reason": "Understanding where customers will and won't tolerate autonomous action affects pitch, compliance, and product design.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Market signal of customer resistance; affects agency positioning and liability conversation.",
-      "signal": "🔴",
-      "urls": [
-        "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
-        "https://www.theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents"
-      ],
-      "image": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/11/abfecdbe-5571-42df-95f8-6c22131067aa/thumbnail/1200x630/526b47f241e8e11c31cb47bc82f1f68c/gettyimages-2296986024-1.jpg"
-    },
-    {
-      "thread_id": "compute-infrastructure-shift",
-      "thread_title": "Compute infrastructure commoditizing: local testing, agent-written code, multi-vendor hedging",
-      "thread_state": "new",
-      "name": "AWS / Infrastructure",
-      "role": "Product Release / Market Signal",
-      "hook": "AWS releases official emulator for local testing; built entirely in Rust by agents (29,684 commits, 3 weeks).",
-      "insights": [
-        "**AWS Emulator** lets developers test code against local clones without paid API keys",
-        "Built by agents—practical proof agents generate maintainable production Rust code at scale",
-        "TSMC investing $1B in Anthropic and OpenAI signals foundry diversification away from NVIDIA"
-      ],
-      "for_you": "Reduce local development cost for client agent systems using AWS Emulator. TSMC's investment signals compute supply is diversifying—good news for your agency's client lock-in risk and future price competition.",
-      "context": "Cloud testing typically requires paid APIs. AWS Emulator removes friction. TSMC's $1B signals chipmakers hedging against NVIDIA dominance by backing multiple AI companies.",
-      "what_changed": "Official AWS emulator release + agent-written production code validation + TSMC's multi-vendor bet.",
-      "action": "test",
-      "reason": "Use AWS Emulator for local agent development this week to reduce infrastructure costs and spin up without paid resources.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Directly actionable tool plus market signal of cost reduction and diversification.",
+      "why_it_made_the_cut": "Strategic signal on model cost stability for your agency's Claude usage.",
       "signal": "🟢",
       "urls": [
-        "https://simonwillison.net/2026/Nov/11/aws-emulator/",
-        "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/"
-      ]
+        "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/",
+        "https://ipo.anthropic.com/us/#roadshow-video"
+      ],
+      "handle": ""
     },
     {
-      "thread_id": "ai-for-science-acceleration",
-      "thread_title": "AI shortening research cycles: specialized data becoming moat",
-      "thread_state": "monitoring",
-      "name": "Handshake AI",
-      "role": "Data Infrastructure / Startup",
-      "hook": "Handshake AI reached $1B valuation in one year by specializing in curated data for frontier labs.",
+      "thread_id": "ai-agent-deployment-liability",
+      "thread_title": "AI Agents Hit Real-World Liability and ToS Constraints",
+      "thread_state": "developing",
+      "name": "United Airlines, AI Agent Deployments",
+      "role": "Enterprise Platform, Legal Constraint",
+      "hook": "United Airlines bans unauthorized AI agents from booking flights on behalf of travelers.",
       "insights": [
-        "Frontier labs (OpenAI, Anthropic, DeepSeek) pay premium for **domain-specific datasets**",
-        "Finance, biology, and alignment evaluation datasets drive model capability breakthroughs",
-        "Data quality (not just scale) becoming competitive moat for research acceleration"
+        "Prohibition explicitly targets agents making bookings without explicit per-transaction approval",
+        "Reflects liability and customer support friction from agent-made reservations",
+        "First major carrier to formalize agent booking ban; likely to spread to other airlines, ticketing platforms",
+        "Signals platform operators are drawing hard lines around autonomous purchasing"
       ],
-      "for_you": "Not immediately actionable for your agency, but signals competitive edge: curated datasets unlock faster innovation. If Portuguese biotech or fintech clients later ask for 'private AI models' or internal training data, reference Handshake's model.",
-      "context": "Frontier labs increasingly depend on specialized training data, not just scale. Handshake's $1B in one year proves market will pay for domain-specific curation.",
-      "what_changed": "Handshake's valuation jump signals data specialization commands premium pricing from frontier labs.",
+      "for_you": "Your clients will hit ToS friction when deploying agents. High-stakes transactions (bookings, payments) increasingly blocked by platforms. Design agent workflows that ask for explicit approval before external API calls, or build client processes that stay inside their own systems (approvals, routing, extraction) without external automation.",
+      "context": "AI agents can now execute API calls autonomously. United's ban reflects real operational and liability concerns: agents making wrong bookings, creating customer support overhead, bypassing platform pricing controls. This is the first explicit carrier ban, but expect similar restrictions on Expedia, Kayak, and other ticketing platforms.",
+      "what_changed": "United formalized the ban this week after agents reportedly made unwanted bookings. This moves from anecdotal friction to written policy.",
       "action": "watch",
-      "reason": "Understand emerging data-as-moat dynamic for premium agency positioning.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Signals long-term shift in value capture; relevant for positioning premium services.",
-      "signal": "🟡",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Real deployment constraint for your agency; affects client expectations around agent autonomy.",
+      "signal": "🔴",
       "urls": [
-        "https://latent.space/p/handshake/"
+        "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/"
       ],
-      "image": "https://i.ytimg.com/vi/v5IJwVnTxzg/maxresdefault.jpg"
+      "handle": "",
+      "image": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/11/abfecdbe-5571-42df-95f8-6c22131067aa/thumbnail/1200x630/526b47f241e8e11c31cb47bc82f1f68c/gettyimages-2296986024-1.jpg",
+      "video": {
+        "id": "-zleRTSxjW0",
+        "title": "United Airlines just banned AI agents from booking your flight"
+      }
     },
     {
-      "thread_id": "throughput-claims-verification",
-      "thread_title": "NaiveAI claims 2,100 tokens/sec; independent hands-on test validates quality",
-      "thread_state": "new",
-      "name": "NaiveAI",
-      "role": "Model Provider",
-      "hook": "NaiveAI claims fastest inference speed (2,100 tokens/sec); Latent Space validates coding quality rivals DeepSeek.",
+      "thread_id": "third-party-platform-agent-security",
+      "thread_title": "Fireworks AI Breach Exposes Notion Chat Data",
+      "thread_state": "developing",
+      "name": "Fireworks AI, Cyberattack",
+      "role": "AI Inference Platform, Security Incident",
+      "hook": "Unauthorized access to Fireworks AI exposed Notion customers' chat transcripts.",
       "insights": [
-        "**2,100 tokens/second** would top Artificial Analysis speed rankings if verified at scale",
-        "Latent Space independent code evaluation shows **quality holds** against DeepSeek—not just fast, viable",
-        "Speed-quality trade-off less severe than historical pattern suggests"
+        "Attack gave hackers access to chat history from Notion users invoking Fireworks API",
+        "Notion integrates Fireworks for AI features; customers did not expect Notion chat to be stored on Fireworks servers",
+        "Data exposure is conversational context from productive work, not just model weights",
+        "Highlights risk of third-party inference platforms storing customer data without clear transparency"
       ],
-      "for_you": "If verified, NaiveAI becomes default for latency-sensitive agent tasks (real-time code generation, live customer assistance). Test their API this week on your most time-critical workflows; compare latency + cost to Claude/OpenAI.",
-      "context": "Latent Space's hands-on evaluation is credible independent evidence. NaiveAI not yet broadly available, but early access suggests serious vendor.",
-      "what_changed": "Latent Space published independent code quality evaluation supporting throughput claims.",
-      "action": "test",
-      "reason": "If latency is bottleneck, NaiveAI's speed-quality balance might shift your inference provider.",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Independent validation of throughput; relevant if latency is client requirement.",
-      "signal": "🟡",
+      "for_you": "If your agency runs agents on third-party inference platforms (Fireworks, Together, etc.), customer data may be exposed to platform security breaches. Test whether clients' sensitive workflows (internal processes, confidential strategies) should run on self-hosted or enterprise-only inference instead, especially for Portuguese SMB clients with strict data residency expectations.",
+      "context": "Fireworks AI is a popular inference platform for running open-weight models. The breach was discovered this week. This is not an isolated incident—platform security is a real constraint for agent deployment, especially for regulated or sensitive work.",
+      "what_changed": "Confirmed breach this week; exposes data storage risk for third-party platforms.",
+      "action": "investigate",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Platform security is a real deployment risk; affects which inference platforms your agency can recommend to clients.",
+      "signal": "🔴",
       "urls": [
-        "https://latent.space/p/naiveai/"
+        "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/"
       ],
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f3b4fd9f-a330-4090-a922-a912d25dcd7c/naiveai-feature2.png?t=1793721927"
+      "handle": "",
+      "image": "https://techcrunch.com/wp-content/uploads/2021/02/notion-glitch-hero.jpg?resize=1200,827",
+      "video": {
+        "id": "zgD_NhdqzHc",
+        "title": "ALERT: Fireworks AI Breach Exposed Secrets in Evaluation Jobs #Shorts"
+      }
+    },
+    {
+      "thread_id": "tsmc-ai-strategic-investment",
+      "thread_title": "TSMC Invests $1B in Anthropic and OpenAI",
+      "thread_state": "monitoring",
+      "name": "TSMC, Strategic Investment",
+      "role": "Semiconductor Foundry, Strategic Investor",
+      "hook": "Taiwan's TSMC commits $1B to Anthropic and OpenAI; signals foundry confidence in AI economics.",
+      "insights": [
+        "TSMC backing both Anthropic (Claude) and OpenAI (GPT) equally",
+        "Investment signals foundry sees AI model training and inference as profitable, long-term business",
+        "Likely tied to TSMC's effort to secure long-term chip orders from AI labs",
+        "Positions TSMC as strategic player in AI supply chain, not just foundry"
+      ],
+      "for_you": "Chip supply is stabilizing for AI labs. TSMC's investment in Anthropic and OpenAI suggests they expect sustained demand for training chips. Relevant for projecting long-term availability and pricing of Claude and GPT access; TSMC's backing reduces risk of supply shocks or capacity constraints.",
+      "context": "TSMC is the world's leading semiconductor foundry. Its willingness to back AI labs as equity investor signals confidence in AI economics. This is a strategic move to lock in long-term orders and hedge foundry revenue.",
+      "what_changed": "Investment announced this week (Nov 12).",
+      "action": "watch",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Supply chain signal affecting long-term availability and pricing of your core models.",
+      "signal": "🟢",
+      "urls": [
+        "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/"
+      ],
+      "handle": "",
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/TSMC-Fab-18-1152x648.jpg"
     }
   ],
-  "build_this": [],
+  "build_this": [
+    {
+      "name": "n8n",
+      "source": "GitHub / Open Source",
+      "what_it_is": "Fair-code workflow automation platform with 400+ integrations and native AI agent support; self-host or cloud-deployed, visual builder with custom code.",
+      "why_try_it": "Your Portuguese SMB clients need automation of repetitive tasks (data syncs, lead routing, approval workflows). n8n is a no-code platform where agents can be orchestrated visually, reducing engineering overhead. Self-hosting option gives you control over data residency—useful for Portuguese clients concerned about data leaving the country.",
+      "url": "https://github.com/n8n-io/n8n"
+    }
+  ],
   "podcasts": [
     {
-      "show": "No Priors",
-      "episode": "Why Closed Systems Can Be More Dangerous",
-      "takeaway": "Openness in encryption (1990s fight) parallels AI today: closed systems entrench power and invite regulatory backlash.",
+      "show": "Latent Space",
+      "episode": "Designing for Agents — Zeno Rocha, Resend",
+      "takeaway": "Agents pick APIs and configure services autonomously; design docs, pricing pages, and approval flows must be machine-readable.",
       "key_points": [
-        "Reflection CEO Misha Laskin argues open encryption won early battles against backdoors",
-        "Closed-source AI models invite government control and regulatory overkill",
-        "Open alternatives (open-weight models) may prove more resilient long-term"
+        "Claude Code opens PRs and selects email providers; Resend analyzed which it recommends across model versions",
+        "Agents read Markdown pricing, call DNS APIs, register accounts—product design must support agent workflows",
+        "Email safety: 80+ named MCP tools, tracking pixels mislead agents about opens, abusive senders affect shared infrastructure"
       ],
-      "for_you": "Relevant if evaluating open vs. closed models for agency infrastructure. Even if Claude/OpenAI stay closed, open-weight competitors gain trust and regulatory advantage over time.",
-      "signal": "🟡",
-      "url": "https://youtube.com/watch?v=jfTYHFoyUb0",
+      "for_you": "When you deploy agents for clients, assume they will read your documentation, pricing, and API surfaces. Make your own client dashboards, pricing pages, and onboarding flows agent-readable. Zeno's case study (Resend) shows how email integrations become an agent UX problem, not just a human one.",
+      "signal": "🟢",
+      "url": "https://youtube.com/watch?v=bdIoODXsu8k",
       "video": {
-        "id": "jfTYHFoyUb0",
-        "title": "Why Closed Systems Can Be More Dangerous"
+        "id": "bdIoODXsu8k",
+        "title": "Designing for Agents — Zeno Rocha, Resend"
       }
     }
   ],
   "tech": [
     {
-      "name": "OpenAI",
-      "role": "Financial Signal",
-      "hook": "OpenAI quarterly revenue crosses $10B for first time; enterprise adoption accelerating.",
-      "key_point": "**$10B annualized revenue** in single quarter signals market breadth (enterprise + consumer) at meaningful scale.",
-      "for_you": "Context for your own pricing: if OpenAI scales enterprise revenue this fast, Portuguese SMB clients are increasingly comfortable paying for AI services.",
+      "name": "Colette Kress",
+      "role": "CFO → Interim CEO, Nvidia",
+      "hook": "Nvidia's 30-year CFO becomes interim CEO after Jensen Huang resignation.",
+      "key_point": "Long-time finance executive with no public CEO experience; board is actively searching for permanent successor.",
+      "for_you": "Kress has managed Nvidia's finances but not product strategy or market communication. Watch for messaging stability and GPU supply announcements from her; may differ from Huang's style.",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/"
+        "https://www.wired.com/story/who-is-colette-kress-the-woman-who-could-succeed-jensen-huang/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2024/05/openAI-spiral-rose.jpg?resize=1200,675",
+      "image": "https://media.wired.com/photos/6af5c3ffec0d511a4648accf/191:100/w_1280,c_limit/111226-Colette%20Nvidia.jpg",
       "video": {
-        "id": "OncLwduahdU",
-        "title": "OpenAI Hits $10 Billion in Annual Revenue"
+        "id": "udO6OQxeGNo",
+        "title": "Jensen Huang Just Resigned. The End of an Era at Nvidia #Shorts"
       }
     },
     {
-      "name": "Google DeepMind",
-      "role": "AI Research",
-      "hook": "AlphaGenome 2 maps cellular roots of disease; genomics-scale AI research accelerates.",
-      "key_point": "Extends protein work to **genetic regulation**; AI moving upstream in biology discovery chain.",
-      "for_you": "If you later serve biotech clients, this signals AI's expanding footprint in their workflows. Genomics acceleration creates potential for AI-powered research services.",
+      "name": "Norwest Venture Partners",
+      "role": "VC Firm",
+      "hook": "Launches $4B new AI-focused fund; deepens LP commitment to frontier AI.",
+      "key_point": "Fund size signals continued LP confidence in AI economics; Norwest replicating winners from early AI wave.",
+      "for_you": "Market signal: VC funding for AI is still flowing despite recent governance turbulence. Relevant if you explore fundraising for education, yoga, or micro-SaaS products.",
+      "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/11/12/norwest-pushes-deeper-into-ai-with-new-4b-fund"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/norwest_team-partner-offsite-2026-1-copy.jpg?resize=1200,805"
+    },
+    {
+      "name": "Google, Warby Parker, Gentle Monster",
+      "role": "Tech / Consumer / Luxury",
+      "hook": "Android XR smart glasses launch with Gemini integration; Google and Samsung's answer to Apple Vision Pro.",
+      "key_point": "Wearable AI becomes mainstream; Gemini-powered glasses start at $395 (Warby), higher for Gentle Monster luxury frames.",
+      "for_you": "Wearable AI not immediately relevant to agency automation, but signals where consumer AI is heading. No use case for Portuguese SMB automation yet.",
       "signal": "💡",
       "urls": [
-        "https://www.theverge.com/ai-artificial-intelligence/1031524/google-deepmind-alphagenome-2-genetic-ai-model"
+        "https://www.wired.com/story/google-samsung-intelligent-eyewear-launch-warby-parker-gentle-monster-smart-glasses/"
       ],
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/alphagenome-atlas-cover__background.jpg?quality=90&amp;strip=all&amp;crop=0%2C3.4613147178592%2C100%2C93.077370564282&amp;w=1200"
+      "image": "https://media.wired.com/photos/6af47aa0e19a3e976bf95d8a/191:100/w_1280,c_limit/DSC_0094.jpg",
+      "video": {
+        "id": "aMXJipD_ZaQ",
+        "title": "🔥Google Glass Technology | Next Generation 🔥| Smart Glasses 2021"
+      }
     },
     {
-      "name": "Google Collaboration",
-      "role": "Product Release",
-      "hook": "Google Tabletop AI lets teams build custom collaboration apps; **agents** become coordination tools.",
-      "key_point": "Agents handling scheduling, docs, planning alongside team—not just execution.",
-      "for_you": "Signals product angle: teams + agents co-working in shared docs/boards. If clients later ask for 'agent-aware collaboration,' reference this as market validation.",
-      "signal": "🟡",
+      "name": "Apple HomeView",
+      "role": "Consumer Hardware",
+      "hook": "Apple's new smart display competes with Lenovo, Amazon Echo Show for home control.",
+      "key_point": "Face authentication without FaceID; HomeKit integration for home automation.",
+      "for_you": "Not directly relevant to your agency or Portuguese SMB focus.",
+      "signal": "💡",
       "urls": [
-        "https://www.theverge.com/tech/1031526/google-tabletop-ai-experiment-waitlist-availability"
+        "https://www.wired.com/story/apples-homeview-tries-face-authentication-without-faceid/"
       ],
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Google-Labs-Tabletop.jpg?quality=90&amp;strip=all&amp;crop=0%2C3.4613147178592%2C100%2C93.077370564282&amp;w=1200"
+      "image": "https://media.wired.com/photos/6af4fdf535927e964a65305d/191:100/w_1280,c_limit/Security_Apple%E2%80%99s%20HomeView%20Won%E2%80%99t%20Have%20FaceID.%20It%E2%80%99ll%20Have%20Something%20Worse_v1.jpg",
+      "video": {
+        "id": "l4OVP0ogOdE",
+        "title": "Unboxing in 10 Seconds - Lenovo Smart Display with Google Assistant"
+      }
     },
     {
-      "name": "Atuin (Infrastructure)",
-      "role": "Developer Tool",
-      "hook": "Atuin Threads syncs agent sessions across machines; centralized session history and state.",
-      "key_point": "**Multi-machine session persistence** for long-running agent orchestrations.",
-      "for_you": "If building distributed agent systems for Portuguese SMBs, Atuin Threads could be lightweight session layer. Worth testing for multi-location workflows.",
-      "signal": "🟡",
+      "name": "Anduril Industries",
+      "role": "Defense / Space",
+      "hook": "Demonstrates satellite night-vision sensor; can track adversary satellites in orbital darkness.",
+      "key_point": "Autonomous satellite tracking becomes possible with thermal/IR imaging.",
+      "for_you": "Not relevant to agency or Portuguese SMB work.",
+      "signal": "💡",
       "urls": [
-        "https://blog.atuin.sh/threads-agent-sessions/",
-        "https://news.ycombinator.com/item?id=50453637"
-      ]
-    },
-    {
-      "name": "CoreWeave",
-      "role": "Compute Infrastructure",
-      "hook": "CoreWeave shifts to customer prepayments and shorter contracts; cash-flow changes pricing model.",
-      "key_point": "Vendors shifting risk to customers (prepay) rather than traditional capex financing.",
-      "for_you": "If your agency scales compute, expect vendors to demand prepayment. Budget for this in client contracts and cash-flow planning.",
-      "signal": "🔴",
-      "urls": [
-        "https://techcrunch.com/2026/11/11/coreweave-turns-to-customer-prepayments-shorter-contracts-to-fund-ai-growth/"
+        "https://arstechnica.com/space/2026/11/anduril-demos-night-vision-sensor-for-tracking-satellites-in-darkness/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2304376406.jpg?w=1024"
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/longwaveirsensor-1152x648.jpg"
     }
   ],
   "pt_news": [
     {
-      "headline": "Worten sofre ataque cibernético que acede a dados de clientes",
-      "hook": "Retalhista portuguesa Worten foi alvo de acesso não autorizado a dados de clientes e prestadores de serviços.",
-      "for_you": "Se algum dos seus clientes PME usa Worten ou retalhistas portugueses similares como canal de pagamento, certifique-se de que conhecem a exposição. Se está a construir automação de agentes que toca em dados de clientes, isto sinaliza o calor regulatório e de segurança em Portugal.",
-      "signal": "🔴",
-      "url": "https://observador.pt/2026/11/11/worten-alvo-de-ciberataque-que-acedeu-a-dados-de-clientes-e-prestadores-de-servicos/",
-      "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1122%3Anowe%3A0%3A0%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2016%2F08%2F10135204%2F8196002.jpg?layer=obstop:T"
-    },
-    {
-      "headline": "Discord abre primeiro polo de engenharia fora dos EUA em Lisboa",
-      "hook": "Plataforma americana de comunicação escolheu Lisboa para seu primeiro centro de engenharia internacional.",
-      "for_you": "Sinal do mercado: empresas de tech dos EUA veem Lisboa como hub de talento. Sua agência pode recrutar engenheiros de classe mundial localmente; o posicionamento importa para retenção técnica.",
-      "signal": "🟢",
-      "url": "https://www.dn.pt/economia/discord-escolhe-lisboa-para-abrir-o-seu-primeiro-polo-de-engenharia-fora-dos-eua",
-      "source_name": "Dinheiro Vivo",
-      "image": "https://media.assettype.com/dn%2F2026-11-11%2Fx7luxeey%2F665643dd8c7ac752237b5cefDiscord-OG-1200x630.jpg?w=1200&amp;ar=40%3A21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop&amp;enlarge=true&amp;overlay=false&amp;overlay_position=bottom&amp;overlay_width=100"
-    },
-    {
-      "headline": "Universidade de Évora cria 'pacientes virtuais' para riscos crónicos",
-      "hook": "Investigadores desenvolvem modelos de doentes sintéticos com IA para antecipar complicações em doenças crónicas.",
-      "for_you": "Caso de uso português: dados sintéticos + IA para estratificação de risco. Se mais tarde servir clientes de saúde, cite Évora como prova de que instituições portuguesas constroem soluções IA-nativas.",
+      "headline": "BloodFlow: IA revoluciona análise de exames de sangue",
+      "hook": "Startup portuguesa finalista em competição GTI da KPMG usa IA para acelerar diagnósticos médicos.",
+      "for_you": "Oportunidade observar startup PTech em healthcare crescimento. Se explorares setor regulado (saúde, diagnóstico), BloodFlow é case referência local sobre como IA impacta workflows médicos.",
       "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/computadores/artigos/universidade-de-evora-cria-pacientes-virtuais-para-antecipar-riscos-em-doencas-cronicas/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2db3c9e579454664e0661bdd326a598b516a0568-scaled.jpg"
+      "url": "https://observador.pt/programas/palavra-de-inovador/bloodflow-a-inteligencia-artificial-renova-exames-de-sangue/",
+      "image": "https://bordalo.observador.pt/v2/rs:fill:770:403/c:1540:866:nowe:0:0/q:70/plain/https://s3.observador.pt/wp-content/uploads/2026/10/29115643/observador-x-kpmg-05-podcast-1540x866-1.jpg"
     },
     {
-      "headline": "Web Summit retoma quinta-feira com agenda expandida após tempestade",
-      "hook": "Depressão Charles forçou cancelamento de quarta; organizadores agora concentram quinta com palestras adicionais.",
-      "for_you": "Se está a frequentar Web Summit, a agenda de quinta pode ser sua única oportunidade de ver sessões-chave. Priorize; sexta não é garantida.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/web-summit-regressa-amanha-para-o-dia-mais-movimentado-de-sempre-ate-la-multiplicam-se-iniciativas-online/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/PXL_20261110_141252836.MP_-1024x769.jpg"
+      "headline": "Carevision vence PITCH do Web Summit 2026",
+      "hook": "Startup vencedora da competição Web Summit transforma câmara do telemóvel em 'scanner' de saúde digital.",
+      "for_you": "Mobile health tech é verticalmente interessante se visas consumer AI ou SMB saúde. Carevision mostra aplicação concreta de visão computacional + IA em smartphone.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/internet/artigos/carevision-vence-pitch-do-web-summit-2026-com-tecnologia-que-transforma-a-camara-do-telemovel-num-scanner-de-saude/",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Web-Summit-Pitch-Carevision.jpg"
     },
     {
-      "headline": "EU Digital Fairness Act takes effect; manipulative practices now regulated",
-      "hook": "Bruxelas introduces consumer protection rules against dark patterns, loot boxes, and hidden pricing.",
-      "for_you": "If building SaaS or subscription products for Portuguese SMBs, ensure compliance: transparent pricing, no dark patterns, easy cancellation. Affects product design.",
+      "headline": "Cyclon: smartphone com IA elimina toques e menus",
+      "hook": "Startup propõe smartphone onde IA age automaticamente em vez de apenas responder.",
+      "for_you": "Conceptualmente interessante: se telefone substitui cliques por ações, é exploração radical de agent UX. Observar se conseguem tração comercial.",
+      "signal": "💡",
+      "url": "https://tek.sapo.pt/mobile/equipamentos/artigos/cyclon-e-um-smartphone-com-ia-que-quer-acabar-com-os-toques-e-menus-dos-smartphones/",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Cyclon-AI-Phone-1.png"
+    },
+    {
+      "headline": "Humanos vence Road 2 Web Summit; defende engenharia sobre hype",
+      "hook": "Startup vencedora Startup Portugal enfatiza qualidade técnica e engenharia sobre 'pavões' fundadores.",
+      "for_you": "Sinal cultural: mercado português desvaloriza founder-driven hype, recompensa execução. Relevante se recrutas talento técnico; feedback pode atrair engenheiros que preferem substance.",
       "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/bruxelas-propoe-novas-regras-para-proteger-consumidores-e-combater-praticas-manipuladoras-nas-compras-online/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/fee60103a2a79674b4e14e7ff6341cdb76d78c95-scaled.jpg"
+      "url": "https://tek.sapo.pt/noticias/negocios/artigos/humanos-e-a-startup-vencedora-do-road-2-web-summit-2026-e-defende-mais-aposta-na-engenharia-e-menos-em-fundadores-pavoes/",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Vencedor-Road-2-Web-Summit-2026.jpeg"
+    },
+    {
+      "headline": "Alstom propõe fábrica de Guifões para comboios de alta velocidade",
+      "hook": "Alstom inclui montagem Avelia Stream em Guifões (Matosinhos) se vencer concurso CP.",
+      "for_you": "Infrastructure play, não relevante a agency AI. Sinal positivo que grandes tech continuam investir Portugal.",
+      "signal": "🟡",
+      "url": "https://eco.sapo.pt/2026/11/12/alston-inclui-montagem-de-comboios-de-alta-velocidade-em-matosinhos-na-proposta-para-a-cp/",
+      "image": "https://eco.imgix.net/uploads/2026/11/cropped-avelia-stream.jpeg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     }
   ],
   "world_news": [
     {
-      "headline": "Russia-Ukraine talks in Abu Dhabi show progress on prisoner swap and security framework",
-      "hook": "US, Ukraine, Russia negotiate major prisoner exchange and Europe's role in future talks.",
-      "for_you": "Geopolitical stability affects client supply chains. Progress on negotiations may ease European data sovereignty concerns; stalling may trigger stricter regulation.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/ck792we7zrz4o",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/8cf0/live/2eb174e0-ddef-11f1-b441-2b33b063138f.jpg",
+      "headline": "Ukraine reports Starlink military disruptions again this week",
+      "hook": "Zelenskyy says military units record 'significant disruptions' to Starlink speeds, similar to October restrictions.",
+      "for_you": "If your clients depend on satellite connectivity (remote work, field operations), Starlink stability becomes a deployment concern.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cwrkgmymk55zo?at_medium=RSS&at_campaign=rss",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0196/live/ef110310-de9c-11f1-a701-fddedf244c16.jpg",
       "video": {
-        "id": "lXR6JiEBAt0",
-        "title": "Russia Ukraine Prisoner Swap Breakthrough After U.S. Talks But Peace Deal Still Elusive |#shorts"
+        "id": "LwJs_1W9o58",
+        "title": "Starlink Back in Ukraine After Military Disruptions | Musk vs Kyiv #DotBallDaily #Ukraine #Starlink"
       }
     },
     {
-      "headline": "Democrat Scott Colom wins Mississippi Senate seat in historic victory",
-      "hook": "First Black senator from Mississippi in 140+ years; Democratic gains in conservative strongholds.",
-      "for_you": "US political trend: Democrats consolidating unexpected gains. If you serve US clients, market confidence in Democratic agenda may affect their tech spending.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cw7vppyr80eeo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/dc59/live/150d2fe0-ddde-11f1-b465-b9821c2582d4.jpg",
+      "headline": "Gaza hospital strike kills six Palestinians; surgical ward hit",
+      "hook": "Nasser hospital, Gaza's largest, struck by Israeli missile; surgical wards and ICUs damaged.",
+      "for_you": "Humanitarian crisis, not directly relevant to your work.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/ckzd9p7e4eqeo?at_medium=RSS&at_campaign=rss",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d247/live/940d6f30-de7e-11f1-b88b-3f1671ea859d.jpg",
       "video": {
-        "id": "2Es-T69B8kc",
-        "title": "Scott Colom DEFEATS Cindy Hyde-Smith in HISTORIC Mississippi Upset!"
+        "id": "jsHuDiO47Vc",
+        "title": "BREAKING: Israeli strike on Gaza hospital kills six Palestinians, health ministry says"
       }
     },
     {
-      "headline": "Schools across Italy, UK, Ireland hit by hoax bomb threats; suspected coordinated attack",
-      "hook": "Over 6,000 Italian schools targeted; no credible danger but coordination and scale signal risk.",
-      "for_you": "Signals automation can amplify harm at scale. If building agent security systems for clients, use this as cautionary case on uncontrolled agent escalation.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cwz0k79pr8z2o",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/80c9/live/fc093bd0-ddc7-11f1-9053-236ccb99630c.jpg"
-    },
-    {
-      "headline": "EU Digital Fairness Act targets loot boxes, dark patterns, addictive features in apps",
-      "hook": "Sweeping consumer protection rules now in effect; impacts global tech companies and Portuguese platforms.",
-      "for_you": "Confirmed: any SaaS, subscription, or recommendation product for European expansion must comply. Non-negotiable for market access.",
-      "signal": "🔴",
-      "url": "https://www.theverge.com/policy/1031575/digital-fairness-act-eu-dfa-consumer-protection",
-      "source_name": "The Verge",
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25319789/STK450_EU_E.jpg?quality=90&amp;strip=all&amp;crop=0%2C9.9676601489831%2C100%2C80.064679702034&amp;w=1200"
-    },
-    {
-      "headline": "Indonesia's vice president resigns amid fraying ruling coalition; political instability",
-      "hook": "Prabowo administration faces internal rifts; governance disruption signals elevated risk.",
-      "for_you": "If you have Indonesian clients or partners, political instability may increase regulatory risk or payment delays. Monitor developments.",
+      "headline": "Spain approves housing reforms after nationwide general strike",
+      "hook": "Parliament passes new laws limiting evictions; reforms follow strike over high housing costs.",
+      "for_you": "European cost-of-living pressures signal labor demand and wage inflation across EU. Relevant if you hire Portuguese engineers or expand operations.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cmvgxgz87qqro",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0e5a/live/8d137e10-dcf1-11f1-9ef0-4b5930e2f80e.jpg"
+      "url": "https://www.aljazeera.com/news/2026/11/12/spain-approves-housing-reforms-after-nationwide-strike-over-costs",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/epa_6af5c94bd7bf-1794492747.jpg?resize=1920%2C1440"
+    },
+    {
+      "headline": "Zimbabwean author cleared of AI authorship after Caine Prize investigation",
+      "hook": "Caine Prize (£10,000 for African writers) clears Kundizeza's 'The Blue Fighter' as human-written after month-long investigation.",
+      "for_you": "Signal: literary prizes now investigate AI authorship; detection methods exist but require effort. Relevant if you explore AI-assisted content creation for clients.",
+      "signal": "💡",
+      "url": "https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story",
+      "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b972955b073a4788451a5a67593d810"
+    },
+    {
+      "headline": "Italy hit by second day of school bomb hoax threats",
+      "hook": "Hundreds of Italian schools evacuated; bomb threats appear coordinated across the country.",
+      "for_you": "Not relevant to your work.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cr894w453e90o?at_medium=RSS&at_campaign=rss",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f53d/live/8b18a0e0-de90-11f1-b441-2b33b063138f.jpg",
+      "video": {
+        "id": "eaeU5dnAGUQ",
+        "title": "UPDATE: School bomb threats hit Italy for a second day | The World In Sixty"
+      }
     }
   ],
-  "since_yesterday": null,
+  "since_yesterday": "Jensen Huang's resignation confirmed this morning (Nov 12) after board meetings overnight Nov 11; stock dropped 12% in pre-market. Colette Kress (CFO) named interim CEO. Governance crisis at world's dominant GPU maker is now official. TSMC announced $1B investment in Anthropic and OpenAI this morning, signaling chip supply confidence for frontier labs.",
   "health": {
     "x": {
       "attempted": 15,
