@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * build-telegram-message.js
- * Reads digest-draft.json and prints a Telegram message (Markdown) to stdout:
- * top 3 AI headlines, a Build-this teaser, a source health line, and the link.
- * The workflow pipes this straight into the Telegram sendMessage curl call.
+ * Reads digest-draft.json and prints the Slack #feed card (mrkdwn) to stdout:
+ * verdict line, top 3 AI headlines, a Build-this teaser and the link to the full brief.
+ * The workflow posts it with chat.postMessage.
  */
 
 import fs from 'fs';
@@ -33,44 +33,33 @@ function healthLine(health) {
 
 function main() {
   if (!fs.existsSync(DRAFT_PATH)) {
-    process.stdout.write('⚠️ Digest generated but draft file missing, check the run.\n');
+    process.stdout.write('⚠️ *Digest de IA* · Falhou: o digest correu mas não ficou guardado.\n👉 Vitruvius vê a corrida.\n');
     process.exit(0);
   }
   const data = JSON.parse(fs.readFileSync(DRAFT_PATH, 'utf8'));
 
   if (data._fallback) {
-    process.stdout.write('⚠️ Daily Digest ran but every source failed. Check the run: https://github.com/pedalmeida/ai-digest/actions\n');
+    process.stdout.write('⚠️ *Digest de IA* · Falhou: nenhuma fonte respondeu hoje.\n_Detalhe_ 👉 <https://github.com/pedalmeida/ai-digest/actions|ver a corrida>\n');
     process.exit(0);
   }
 
+  // Executive card for Slack #feed (Pedro, 2026-11-12): verdict first, max 3 bullets,
+  // detail one click away on the reading page. Same shape as every other #feed post.
   const lines = [];
   const health = healthLine(data.health);
   const isDegraded = health && health.degraded.length > 0;
-
-  lines.push(isDegraded ? '⚠️ Your Daily Digest is ready (degraded run)' : '☀️ Your Daily Digest is ready');
-  lines.push('');
-
+  const clean = s => stripMd(s).replace(/\s*[—–]\s*/g, ', ').trim();
   const topAi = (data.ai || []).slice(0, 3);
-  if (topAi.length > 0) {
-    lines.push('🤖 AI today:');
-    for (const item of topAi) {
-      lines.push(`• ${stripMd(item.hook)}`);
-    }
-    lines.push('');
-  }
+
+  lines.push(isDegraded
+    ? `⚠️ *Digest de IA* · Pronto, mas sem a fonte ${health.degraded.join(', ')}: ${topAi.length} destaques`
+    : `☀️ *Digest de IA* · Tudo ok: ${topAi.length} destaques de hoje`);
+  for (const item of topAi) lines.push(`• ${clean(item.hook)}`);
 
   const build = (data.build_this || [])[0];
-  if (build) {
-    lines.push(`🛠️ Build this: ${build.name}, ${stripMd(build.what_it_is)}`);
-    lines.push('');
-  }
+  if (build) lines.push(`🛠️ Para construir: ${clean(build.name)}`);
 
-  if (health) {
-    lines.push(`Sources: ${health.summary}${isDegraded ? ` — degraded: ${health.degraded.join(', ')}` : ''}`);
-    lines.push('');
-  }
-
-  lines.push('Full brief: https://pealmeida.com/projects/ai-digest/');
+  lines.push('_Detalhe no digest_ 👉 <https://pealmeida.com/projects/ai-digest/|ler completo>');
 
   process.stdout.write(lines.join('\n') + '\n');
 }

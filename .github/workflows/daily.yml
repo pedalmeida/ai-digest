@@ -95,7 +95,7 @@ jobs:
         run: |
           node - <<'NODE'
           const https = require('https');
-          const text = `⚠️ Daily Digest failed today. Run: https://github.com/pedalmeida/ai-digest/actions/runs/${process.env.GITHUB_RUN_ID}`;
+          const text = `⚠️ *Digest de IA* · Falhou hoje, não há digest.\n_Detalhe_ 👉 <https://github.com/pedalmeida/ai-digest/actions/runs/${process.env.GITHUB_RUN_ID}|ver a corrida>`;
           const body = JSON.stringify({ channel: process.env.SLACK_CHANNEL_ID, text, unfurl_links: false, unfurl_media: false });
           const req = https.request('https://slack.com/api/chat.postMessage', {
             method: 'POST',
