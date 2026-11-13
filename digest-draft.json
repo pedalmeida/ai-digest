@@ -1,345 +1,326 @@
 {
-  "date": "Thursday, 12 November 2026",
+  "date": "Friday, 13 November 2026",
   "ai": [
     {
-      "thread_id": "anthropic-ipo-2026",
-      "thread_title": "Anthropic IPO: demand signal, compute strategy, multi-vendor infrastructure",
+      "thread_id": "gemini-4-series",
+      "thread_title": "Gemini 4 Tier Strategy and Pricing",
+      "thread_state": "developing",
+      "name": "Google DeepMind",
+      "role": "AI Company · Google",
+      "hook": "Google released Gemini 4 Hydrogen, completing its budget-to-enterprise tier strategy.",
+      "insights": [
+        "Gemini 4 Carbon released Nov 10 at $2/million input, $10/million output; now available to all users after cyber defender exclusivity period",
+        "Gemini 4 Hydrogen released Nov 12 as lowest-cost Gemini 4 option, pricing directly competitive with Claude Haiku and GPT-6 Luna",
+        "Tier structure signals Google's positioning: Carbon (frontier), Argon (mid), Hydrogen (budget), giving cost-conscious SMBs a native option"
+      ],
+      "for_you": "For your Portuguese SMB agency, this creates a clear pricing choice: Hydrogen for routine client tasks (routing, summarization), Carbon for complex reasoning. Test both on real client work to optimize margin per API call and refine proposals.",
+      "what_changed": "Hydrogen released Nov 12, completing the three-tier strategy. Previously only Carbon was available (Nov 10).",
+      "action": "test: Benchmark Hydrogen on Portuguese text generation and summarization for client work; compare cost-per-token against Claude Haiku.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Model release with direct pricing implications for agency unit economics.",
+      "signal": "🟡",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/12/llm-gemini/",
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+      ],
+      "image": "https://static.simonwillison.net/static/2026/gemini-4-card.jpg"
+    },
+    {
+      "thread_id": "claude-fable-52-code",
+      "thread_title": "Claude Fable 5.2 Code Ownership and Consolidation",
       "thread_state": "developing",
       "name": "Anthropic",
-      "role": "IPO roadshow · AI company",
-      "hook": "IPO demand surges to 6x oversubscription; roadshow reveals multi-vendor GPU strategy.",
+      "role": "AI Company · Frontier Models",
+      "hook": "Claude Fable 5.2 consolidates duplicate code when ownership is specified; makes related fixes proactively.",
       "insights": [
-        "Demand at 6x subscription rate signals strong institutional confidence in Claude economics",
-        "Tom Brown's roadshow details AWS Trainium, Google TPU, NVIDIA, AMD GPU mix—no vendor lock-in",
-        "Total raise planned at ~$90B ($64.4B offer + $26B private placement)"
+        "Anthropic testing shows Fable 5.2 consolidates duplicate code when prompted about code ownership, even making related fixes without explicit instruction",
+        "When code ownership was ambiguous or presented as someone else's, model tended to add to existing structure rather than optimize",
+        "Suggests model learned semantic understanding of whose codebase it is working on and optimizes for quality accordingly"
       ],
-      "for_you": "Multi-vendor infrastructure strategy reduces Claude pricing risk and dependency on single GPU supplier. Signals Anthropic will remain competitive on cost. Relevant if you're locking long-term compute decisions for SMB clients.",
-      "context": "Anthropic is in final stages of IPO roadshow after announcing $64.4B public offer + $26B private placement. This is the first major frontier AI lab IPO.",
-      "what_changed": "Roadshow video published with specific compute infrastructure details; demand signal now 6x oversubscription, not just rumor.",
-      "action": "watch: Affects Claude's long-term pricing power and your ability to predict client costs.",
+      "for_you": "For client agent implementations, specify ownership clearly in system prompts ('you are improving your own codebase'). This should reduce redundant code generation and improve quality of delivered automations.",
+      "what_changed": "New capability details on code ownership behavior published Nov 10. Previously only ranking change (Nov 9) was known.",
+      "action": "test: Try ownership language in prompts for agent code generation and refactoring work; measure if output quality improves.",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Most important market signal today; changes your model-selection strategy if pursuing long-term SMB contracts.",
+      "why_it_made_the_cut": "Capability detail directly affects code generation quality in agency delivery.",
+      "signal": "🟢",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52/"
+      ]
+    },
+    {
+      "thread_id": "decision-models-standard",
+      "thread_title": "Decision Models Becoming API Standard Across Vendors",
+      "thread_state": "developing",
+      "name": "Google DeepMind",
+      "role": "AI Company · Google",
+      "hook": "Google launched Gemini Decision 1; now OpenAI, Jev, and Google offer standardized deterministic output APIs.",
+      "insights": [
+        "Gemini Decision 1 supports yes/no (reusing Jev's term 'Noul'), multiple choice, and rubric-scoring queries with deterministic outputs",
+        "API design nearly identical to Jev's, suggesting vendor convergence on interface standard for agent decision-making",
+        "Pricing matches GPT-6 Luna tier, indicating competitive parity across all three vendors"
+      ],
+      "for_you": "Decision models are now standard across vendors. For your agents handling Portuguese SMB workflows (approvals, routing, risk assessment), switch from general-purpose models to decision models for reliability and cost reduction. Expect lower hallucination and token costs.",
+      "what_changed": "Google entry into category signals standardization. OpenAI and Jev already offered decision models; now all three major vendors aligned.",
+      "action": "investigate: When building next agent classifier or approval router for a client, evaluate decision models vs general-purpose LLM. Expect 30-50% cost reduction with higher reliability.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Platform-level standardization affects agent architecture choices and costs.",
       "signal": "🟡",
       "urls": [
-        "https://ipo.anthropic.com/us/#roadshow-video",
+        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
+      ]
+    },
+    {
+      "thread_id": "small-models-competitive-tier",
+      "thread_title": "Small Model Efficiency Tier Expands with Meta Entry",
+      "thread_state": "developing",
+      "name": "Meta AI",
+      "role": "AI Company · Meta",
+      "hook": "Meta released Muse Ember, entering the Claude Haiku/GPT-6 Luna tier with **agent-optimized design**.",
+      "insights": [
+        "Muse Ember priced at $0.10/million input for short prompts, matching Haiku 5.5 and Luna pricing exactly",
+        "Meta optimized Ember specifically for **agent repetitive work**: tool calls, coding subtasks, routing, extraction, long document parsing",
+        "Three vendors now competing directly in small-model tier suggests margin compression and performance convergence"
+      ],
+      "for_you": "For Portuguese SMB clients with high-frequency agent calls (daily routing, document classification, form processing), Muse Ember is a third option beside Claude Haiku. Benchmark it on your typical agent tasks to find the best cost-quality fit.",
+      "what_changed": "Muse Ember released Nov 10. Haiku and Luna tier existed previously; Meta entry adds competitive pressure.",
+      "action": "test: Compare Muse Ember output quality on Portuguese language routing and extraction tasks against Claude Haiku; track tokens consumed per task.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Third vendor entering small-model tier affects competitive positioning and cost structure.",
+      "signal": "🟡",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/10/muse-ember/"
+      ],
+      "image": "https://static.simonwillison.net/static/2026/muse-ember.webp"
+    },
+    {
+      "thread_id": "local-testing-infrastructure",
+      "thread_title": "AWS Emulator: Local Testing Without API Keys",
+      "thread_state": "new",
+      "name": "AWS",
+      "role": "Cloud Infrastructure · Amazon",
+      "hook": "AWS released official aws-emulator in Rust, allowing local testing of AWS services without provisioned credentials.",
+      "insights": [
+        "29,684 commits in first three weeks; majority built by agents, signaling industrial-scale AI-assisted infrastructure development",
+        "Covers AWS's full service portfolio, reducing friction for local development and integration testing before production deployment",
+        "Official AWS blessing means integration into standard developer workflows and long-term maintenance commitment"
+      ],
+      "for_you": "If you build agent workflows dependent on AWS (Lambda, S3, DynamoDB, SQS, SNS), this eliminates credential management friction during development. Test client automation locally before production, reducing breakage risk in client infrastructure.",
+      "context": "Follows local development tools pattern (LocalStack, Moto) but now officially supported by AWS, signaling this is a platform priority.",
+      "action": "use_now: Integrate aws-emulator into your agency development pipeline for testing client AWS integrations locally before deploying to production.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Concrete infrastructure tool directly applicable to agency build and deployment workflows.",
+      "signal": "🟢",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/11/aws-emulator/"
+      ]
+    },
+    {
+      "thread_id": "anthropic-infrastructure-strategy",
+      "thread_title": "Anthropic Reveals Multi-Vendor GPU Compute Strategy",
+      "thread_state": "new",
+      "name": "Anthropic",
+      "role": "AI Company · Frontier Models",
+      "hook": "Anthropic IPO roadshow revealed they train and serve Claude across AWS Trainium, Google TPUs, NVIDIA, and AMD GPUs.",
+      "insights": [
+        "Multi-vendor GPU strategy reduces lock-in to NVIDIA and diversifies supply chain risk, particularly relevant post-Jensen Huang resignation",
+        "Training on both NVIDIA and AMD hardware suggests vendor-agnostic optimization, unlike previous frontier labs tied to single GPU makers",
+        "AWS Trainium and Google TPU partnerships indicate Anthropic is not just buying spot capacity but building long-term infrastructure resilience"
+      ],
+      "for_you": "This signals Anthropic's structural independence from Nvidia's leadership chaos. Claude availability and pricing unlikely to be disrupted by Nvidia management crisis. Keep Claude as your default for agency work; the company engineered compute resilience.",
+      "context": "Revealed in official IPO roadshow video Nov 11, providing transparency about Anthropic's infrastructure strategy ahead of public markets.",
+      "action": "watch: Monitor whether Claude pricing and availability remain stable despite Nvidia turmoil. Use as leading indicator of broader AI company health.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Strategic infrastructure decision reveals Anthropic's risk management maturity and signals ecosystem stability.",
+      "signal": "🟢",
+      "urls": [
         "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/",
-        "https://www.jornaldenegocios.pt/mercados/bolsa/detalhe/procura-no-ipo-da-anthropic-supera-seis-vezes-a-oferta"
-      ],
-      "handle": "",
-      "image": "https://ipo.anthropic.com/assets/share-image-eAr8nJRP.jpg"
-    },
-    {
-      "thread_id": "inference-provider-competition",
-      "thread_title": "Inference infrastructure: new players, consolidation, pricing pressure",
-      "thread_state": "developing",
-      "name": "Nebius",
-      "role": "Founder-led GPU hosting · neocloud infrastructure",
-      "hook": "Nebius commits $40 billion to compete in GPU inference hosting and neocloud market.",
-      "insights": [
-        "Neocloud playbook: localized, founder-led inference platforms competing on speed + price vs cloud giants",
-        "$40B spending signals confidence that frontier labs will need alternatives to CoreWeave/Lambda",
-        "Follows CoreWeave's recent shift to customer prepayments and shorter contracts (margin compression)"
-      ],
-      "for_you": "For your Portuguese SMB clients, emergence of competing inference providers (Nebius, neocloud) keeps costs down. Watch which provider supports Claude multi-tenancy. Also relevant if you're deploying open-weight models—more options = lower egress costs.",
-      "what_changed": "Nebius publicly commits $40B (previously positioning); signals serious scaling play.",
-      "action": "watch: Track Nebius pricing/latency vs CoreWeave; affects cost model for agent inference at scale.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Only major new inference infrastructure player announcement this week; affects agency unit economics.",
-      "signal": "🟡",
-      "urls": [
-        "https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/"
-      ],
-      "handle": "",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2300447831.jpg?w=1024"
-    },
-    {
-      "thread_id": "structured-output-tools",
-      "thread_title": "Structured reasoning and reliable extraction: markup languages, decision APIs, validation",
-      "thread_state": "developing",
-      "name": "IBM (Granite) / Hugging Face",
-      "role": "Model · Research platform",
-      "hook": "LLMON markup language reduces hallucination in structured extraction; shipping in Granite 4.1 3B and 8B.",
-      "insights": [
-        "LLMON is LLM-native markup designed to improve structured output reliability and extraction accuracy",
-        "Already adopted in Granite 4.1 (both 3B and 8B weight versions); reduces need for post-processing validation",
-        "Complements decision models APIs (Jev, OpenAI Decisions, Google Decisions) as category for deterministic reasoning"
-      ],
-      "for_you": "For Portuguese SMB agent workflows, LLMON reduces hallucination in form extraction, routing decisions, and CRM data entry. Test Granite 4.1 if your clients need lightweight on-device extraction (3B/8B models run locally). Improves reliability without external APIs.",
-      "what_changed": "LLMON now shipping in production Granite models; adoption path clearer than when announced.",
-      "action": "test: Try Granite 4.1 3B for a client extraction task vs your current Claude approach; measure accuracy gain.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Practical tool for improving agent reliability; directly applicable to your agency workflows.",
-      "signal": "💡",
-      "urls": [
-        "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite"
-      ],
-      "handle": "",
-      "image": "https://cdn-uploads.huggingface.co/production/uploads/6484ca4d5ff9a3d2ee52a83b/6KFZDHIJkxpICiErHLqAw.gif"
-    },
-    {
-      "thread_id": "edge-agents-small-models",
-      "thread_title": "Sub-billion-parameter agents for on-device, private, low-latency inference",
-      "thread_state": "new",
-      "name": "Qualcomm / Hugging Face",
-      "role": "Research release · HF blog",
-      "hook": "BotPsy: on-device personal assistant with <1B parameters, full agentic capabilities.",
-      "insights": [
-        "BotPsy is sub-billion parameter agentic LLM designed for on-device deployment (privacy, latency, cost)",
-        "Runs locally; no cloud dependency; relevant for personal assistants, edge devices, privacy-sensitive SMB workflows",
-        "Signals shift toward local-first agents for enterprise (EU data protection, Portuguese privacy regulations)"
-      ],
-      "for_you": "For Portuguese SMBs in regulated sectors (healthcare, finance, law), on-device agents comply with data residency. Test BotPsy for local Portuguese language tasks—could enable offline client workflows without cloud vendor lock-in.",
-      "what_changed": "First production-ready sub-billion agentic model with full tooling capabilities now available.",
-      "action": "investigate: Test BotPsy against your heaviest client workload; if it handles 80%+ of queries, on-device deployment opens new market segments (healthcare, finance).",
-      "evidence_level": "early_signal",
-      "why_it_made_the_cut": "Only sub-billion agentic model released this week; shifts edge compute economics.",
-      "signal": "💡",
-      "urls": [
-        "https://huggingface.co/blog/qvac/botpsy"
-      ],
-      "handle": "",
-      "image": "https://cdn-uploads.huggingface.co/production/uploads/6468b319b2321e47d3267049/Emr86qw6NAueYLdIEiTTD.png",
-      "video": {
-        "id": "uS28UsRtuJs",
-        "title": "What a $500 AI Personal Assistant Actually Does (Full Automation)"
-      }
-    },
-    {
-      "thread_id": "ai-adoption-regulated-sectors",
-      "thread_title": "AI governance and adoption in critical infrastructure: regulatory precedent emerging",
-      "thread_state": "new",
-      "name": "Federal Aviation Authority (FAA)",
-      "role": "Regulator · US infrastructure",
-      "hook": "FAA expands AI recommendations across entire US airspace for air traffic congestion management.",
-      "insights": [
-        "FAA now using AI advisories for national air traffic management across full US airspace (previously limited pilots)",
-        "Signals regulatory acceptance of AI in safety-critical infrastructure when properly validated",
-        "Precedent for enterprise: AI can be adopted in regulated domains if testing, monitoring, and fallback protocols are clear"
-      ],
-      "for_you": "For your Portuguese SMB pitches in regulated sectors (banking, healthcare, supply chain), FAA precedent strengthens your credibility story: 'AI is trusted in the most critical infrastructure.' Cite this when clients raise governance concerns.",
-      "what_changed": "FAA expanded from limited pilot regions to national rollout.",
-      "action": "watch: File this precedent for your sales conversations; regulatory acceptance is growing despite caution.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Regulatory acceptance signal; helps you sell AI to conservative SMB decision-makers.",
-      "signal": "🟡",
-      "urls": [
-        "https://arstechnica.com/ai/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/"
-      ],
-      "handle": "",
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Pilots-during-DFW-departure-2560x1440.jpg"
+        "https://ipo.anthropic.com/us/"
+      ]
     }
   ],
   "build_this": [
     {
       "name": "n8n",
-      "source": "GitHub trending",
-      "what_it_is": "Fair-code workflow automation platform with native AI capabilities; self-host or cloud, 400+ integrations.",
-      "why_try_it": "Use this week to build a Portuguese SMB workflow template: client CRM → Claude agent → email/Slack notification. n8n handles the orchestration, cuts your integration dev time in half. Start with a billing automation flow for a test client.",
+      "source": "GitHub Trending · Open Source Workflow Automation",
+      "what_it_is": "Fair-code workflow automation with native AI capabilities, self-hosted or cloud, 400+ integrations.",
+      "why_try_it": "Build and test one client automation this week: Portuguese email form → CRM → agent classification → logging. This becomes a repeatable, re-sellable workflow you can package for 10+ SMBs at margin.",
       "url": "https://github.com/n8n-io/n8n"
-    }
-  ],
-  "podcasts": [
-    {
-      "show": "Latent Space",
-      "episode": "Designing for Agents — Zeno Rocha, Resend",
-      "takeaway": "Agents choose APIs differently than humans; design for agent discovery (MCP tools, clear pricing, one-click registration).",
-      "key_points": [
-        "Claude Code consistently picks Resend as email provider; Zeno traced why through MCP tool quality and documentation",
-        "Agent registration standard emerging (Auth-MD spec); agents need passwordless onboarding",
-        "80+ named tools available to agents; quality of tool descriptions (not just count) drives agent behavior"
-      ],
-      "for_you": "When building agent tools for your Portuguese SMB clients, treat agent discovery as a first-class design problem. Test whether your client's Zapier/API integrations are visible/discoverable to Claude Code. Include MCP tool metadata.",
-      "signal": "🟢",
-      "url": "https://youtube.com/watch?v=bdIoODXsu8k",
-      "video": {
-        "id": "bdIoODXsu8k",
-        "title": "Designing for Agents — Zeno Rocha, Resend"
-      }
     },
     {
-      "show": "No Priors",
-      "episode": "Why Drug Approvals Haven't Grown",
-      "takeaway": "Moore's Law doesn't apply to drug discovery; remaining problems are fundamentally harder, not just more computational.",
-      "key_points": [
-        "Max Jaderberg (Isomorphic Labs): drug approvals flat for 20 years despite AI investment",
-        "Low-hanging fruit (obvious compounds, simple targets) exhausted; remaining problems require structural biology breakthroughs",
-        "AI can accelerate within current paradigm but can't solve structural limits without new biology insights"
-      ],
-      "for_you": "Signals where AI is hitting real limits even with capital. When pitching AI to Portuguese SMBs in biotech/pharma, be honest about what AI can't do: it automates research speed within a scientific paradigm, not scientific breakthroughs. Manage expectations.",
-      "signal": "🟡",
-      "url": "https://youtube.com/watch?v=B5uVBqVxc20",
-      "video": {
-        "id": "B5uVBqVxc20",
-        "title": "Why Drug Approvals Haven't Grown"
-      }
-    },
-    {
-      "show": "AI & I by Every",
-      "episode": "A New Vision for Human Work After Automation",
-      "takeaway": "After automation, human judgment on 'non-consensus ideas' becomes the core value; benchmark charts miss this.",
-      "key_points": [
-        "Dan Shipper: AI makes intelligence cheap; what's rare is 'responsibility for a corner of the world' + perspective",
-        "Picking ideas (discovery) still requires humans; execution can be delegated to agents",
-        "Competitive advantage shifts from 'being smarter' to 'making better bets about what matters'"
-      ],
-      "for_you": "Frame your agency as 'non-consensus thinking + agent execution.' For Portuguese SMBs, your edge is understanding their business context better than generic AI. Agents handle the grinding; you pick what to automate and why. This is your positioning moat.",
-      "signal": "💡",
-      "url": "https://youtube.com/watch?v=WstNofgQF5Q",
-      "video": {
-        "id": "WstNofgQF5Q",
-        "title": "A New Vision for Human Work After Automation"
-      }
+      "name": "FAISS",
+      "source": "Meta Research · Vector Search Library",
+      "what_it_is": "Library for efficient similarity search and clustering of dense vectors; foundation for RAG pipelines.",
+      "why_try_it": "Prototype a knowledge-based agent for a Portuguese SMB this week: index their documents, build a retrieval pipeline, connect to Claude. This becomes a replicable architecture for document-heavy clients across your agency.",
+      "url": "https://github.com/facebookresearch/faiss"
     }
   ],
+  "podcasts": [],
   "tech": [
     {
-      "name": "Microsoft",
-      "role": "Service disruption · Global",
-      "hook": "Global Outlook, Teams, Copilot outage; unexpected server load caused hours of disruption.",
-      "key_point": "Outage spanned multiple regions including Portugal; users unable to access email, Teams, OneDrive, Copilot starting 12 Nov afternoon, gradual recovery.",
-      "for_you": "Your Portuguese SMB clients using Microsoft 365 were blind today. Use this to strengthen your resilience pitch: redundant AI tools, cloud-agnostic design, local caching for critical workflows. Do not rely on single cloud provider.",
+      "name": "Jensen Huang Resignation and Congressional Investigation",
+      "role": "Former CEO · NVIDIA",
+      "hook": "Huang faces Congressional testimony; concerns raised about successor confidence; third affair reported.",
+      "key_point": "Democrats launched investigation into alleged coordination with Trump administration on export controls; Huang did not show public confidence in interim CEO Colette Kress.",
+      "for_you": "Nvidia instability affects GPU sourcing and pricing. Anthropic's multi-vendor strategy reveals the alternative path; consider diversifying your infrastructure assumptions beyond Nvidia dependency.",
       "signal": "🔴",
       "urls": [
-        "https://www.wired.com/story/major-microsoft-outlook-outage-hits-365-customers-north-america/",
-        "https://eco.sapo.pt/2026/11/12/falhas-nos-servicos-da-microsoft-afetam-milhares-de-utilizadores/"
+        "https://www.bbc.co.uk/news/articles/cmq5vd1wdgz6o",
+        "https://stratechery.com/2026/the-jensen-huang-story-gets-worse-washington-vs-new-york-silicon-valley/"
       ],
-      "image": "https://media.wired.com/photos/6af61a41cf6e4fa5fe151116/191:100/w_1280,c_limit/Security_Microsoft365_OutOfService_v1.jpg"
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f66c/live/4f0358a0-def1-11f1-bb80-c5cef03337ce.jpg"
     },
     {
-      "name": "Nvidia",
-      "role": "Leadership crisis · GPU market",
-      "hook": "Jensen Huang resigns after alleged affairs, Chinese spy contact; CFO assumes interim leadership.",
-      "key_point": "30-year NVIDIA CFO Colette Kress becomes interim CEO; Huang's departure ends era of single-founder GPU dominance; governance questions for long-term stability.",
-      "for_you": "Leadership vacuum at Nvidia signals uncertainty in GPU supply/pricing for next 6 months. If clients depend on NVIDIA compute, now is the time to test alternatives (AMD MI300, AWS Trainium). Don't assume Huang's replacement will maintain his open-source commitment.",
+      "name": "Microsoft Global Outlook/Teams/Copilot Outage",
+      "role": "Cloud Services · Microsoft",
+      "hook": "Unexpected server load cascaded across regions; recovery failures extended disruption into Friday.",
+      "key_point": "Clients required to manually claim SLA credits; email, Teams, and Copilot down globally for hours. Server recovery attempts have not fully restored services.",
+      "for_you": "If your Portuguese SMB clients rely on Microsoft 365, this is a resilience wake-up call. For your agency, avoid building workflows entirely dependent on Microsoft infrastructure; design fallbacks.",
       "signal": "🔴",
       "urls": [
-        "https://techcrunch.com/2026/11/12/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/"
+        "https://www.bbc.co.uk/news/articles/cwvg238zrnm5o",
+        "https://www.theverge.com/tech/1032862/microsoft-outlook-down-outage"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/dddf/live/8578f720-df49-11f1-b441-2b33b063138f.jpg"
+    },
+    {
+      "name": "Claude Duet Agent Hands-On: Selecting APIs and Registering Services",
+      "role": "Tech Review · The Verge",
+      "hook": "Claude Code agent successfully selected email provider, reviewed pricing, set up account, and sent first email.",
+      "key_point": "Agent reasoned about Resend vs alternatives by integrating documentation quality, cost tier, and ease of setup; navigated registration without human intervention.",
+      "for_you": "This shows what frontier agent reasoning looks like on real workflows. Study how Claude Code weighed factors when choosing a tool. Use this pattern when designing agent decision flows for Portuguese SMBs.",
+      "signal": "🟢",
+      "urls": [
+        "https://www.theverge.com/ai-artificial-intelligence/1032518/claude-duet-ai-agent-hands-on"
+      ],
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/DSC04398_processed.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.723165084465%2C100%2C78.55366983107&amp;w=1200",
       "video": {
-        "id": "ya6JA9mONMM",
-        "title": "JENSEN HUANG HAS RESIGNED AS NVIDIA CEO 🚨"
+        "id": "N-pN8Mmo1UM",
+        "title": "Explaining Claude Code's Pricing Plan #claudecode #claude #pricing #explained #product"
       }
     },
     {
-      "name": "Nebius",
-      "role": "Infrastructure startup · GPU hosting",
-      "hook": "Nebius commits $40 billion to compete in neocloud GPU inference market; tests alternative to CoreWeave.",
-      "key_point": "Neocloud playbook: founder-led, localized inference platforms undercutting cloud giants on price + latency; CoreWeave already compressed margins with prepayment model.",
-      "for_you": "More inference providers = lower costs for your agent deployments. Watch Nebius European data center rollout; if they reach Portugal/EU with competitive pricing, your agency unit economics improve. Evaluate pricing vs CoreWeave Q1 2027.",
+      "name": "ElevenLabs Meeting Notes and Dictation App",
+      "role": "Product Launch · ElevenLabs",
+      "hook": "ElevenLabs released app combining real-time transcription, note-taking, and meeting summarization for teams.",
+      "key_point": "Captures audio, auto-transcribes, summarizes actions and decisions; integrates with ElevenLabs voice API ecosystem.",
+      "for_you": "Useful for agency operations: Record client calls, auto-extract action items, track decisions. Could also package as service offering for distributed Portuguese SMBs managing remote teams.",
+      "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-13-at-7.19.18-PM.jpg?resize=1200,774"
+    },
+    {
+      "name": "Nebius $40 Billion GPU Inference Market Entry",
+      "role": "GPU Infrastructure Startup · Nebius",
+      "hook": "Nebius commits $40 billion in planned spending to compete in neocloud GPU inference market.",
+      "key_point": "Signals emergence of alternative to Nvidia-dependent CoreWeave; tests vendor diversification in GPU-as-a-service.",
+      "for_you": "GPU inference costs are critical to agent unit economics. If Nebius succeeds, could reduce per-inference cost floor for client AI workflows. Monitor for alternative pricing tiers.",
       "signal": "🟡",
       "urls": [
         "https://techcrunch.com/2026/11/12/nebius-tests-the-neocloud-playbook-with-40-billion-in-planned-spending/"
       ],
       "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2300447831.jpg?w=1024"
-    },
-    {
-      "name": "Hugging Face",
-      "role": "CEO statement · Open-source defense",
-      "hook": "Hugging Face CEO commits to keeping open-source AI alive after Jensen Huang's exit; defends against closed-model consolidation.",
-      "key_point": "Huang's resignation removed a vocal open-source advocate within Nvidia; Hugging Face CEO explicitly pledges to 'keep fighting for open source' as alternative.",
-      "for_you": "For Portuguese SMB clients wary of vendor lock-in, open-source models (Llama, Mistral) remain viable with community commitment. Hugging Face credibility on this is now more important. Don't assume Nvidia will continue favoring open-weight models under new leadership.",
-      "signal": "🟡",
-      "urls": [
-        "https://techcrunch.com/2026/11/12/hugging-face-ceo-vows-to-keep-fighting-for-open-source-ai-after-jensen-huangs-exit/"
-      ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/Hugging-Face-CEO-Clem-Delangue.png?resize=1200,675"
-    },
-    {
-      "name": "Multiple sources",
-      "role": "Infrastructure security · Risk signal",
-      "hook": "Drone attacks on data centers in Ukraine; coordinated bomb hoax threats across Italy, UK, Ireland second consecutive day.",
-      "key_point": "Coordinated threat patterns emerging (bomb hoax replication across regions); physical infrastructure vulnerability to drone strikes signals data center security risks in geopolitical tensions.",
-      "for_you": "Data center geographic redundancy is now a security requirement, not luxury. For Portuguese SMBs with cross-border operations, ensure agent deployments span multiple data centers in stable regions. Geopolitical risk is real for infrastructure planning.",
-      "signal": "🔴",
-      "urls": [
-        "https://arstechnica.com/gadgets/2026/11/ars-live-can-the-cloud-survive-drone-strikes-on-data-centers/",
-        "https://www.bbc.co.uk/news/articles/cr894w453e90o"
-      ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Ukraine-data-center-under-attack-2560x1440.jpg"
     }
   ],
   "pt_news": [
     {
-      "headline": "Anthropic IPO oversubscribed 6x, angarará até 90 mil milhões de dólares",
-      "hook": "Procura no IPO da Anthropic é seis vezes superior à oferta; cria novo record de confiança em economias da IA.",
-      "for_you": "Sinal de mercado forte: Claude será prioridade de investimento corporativo. Para os seus clientes PME portuguesas, Claude terá suporte a longo prazo e fundos para R&D. Afeta decisões de lock-in de modelo.",
-      "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/mercados/bolsa/detalhe/procura-no-ipo-da-anthropic-supera-seis-vezes-a-oferta",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-06/img_1200x676uu2026-06-02-12-51-39-524740.jpg"
-    },
-    {
-      "headline": "Falha global na Microsoft afeta correio, Teams, Copilot em Portugal",
-      "hook": "Dezenas de milhares de utilizadores portugueses sem acesso ao Outlook e Microsoft 365; sobrecarga inesperada nos servidores.",
-      "for_you": "Risco operacional real para clientes PME que dependem de Microsoft 365. Use este incidente como argumento para redundância: caching local, ferramentas agnósticas, fallback workflows. Não confie em um único fornecedor cloud.",
+      "headline": "Web Summit contrato expira 2028; futuro incerto para Lisboa",
+      "hook": "Contrato da Web Summit termina daqui a dois anos; Paddy Cosgrave pode não manter Portugal no centro do ecossistema tech global.",
+      "for_you": "Web Summit é a semana mais importante de visibilidade internacional para founders portugueses. Seu encerramento removeria uma plataforma crítica. Prepara estratégia alternativa de visibilidade pós-2028.",
       "signal": "🔴",
-      "url": "https://eco.sapo.pt/2026/11/12/falhas-nos-servicos-da-microsoft-afetam-milhares-de-utilizadores/",
-      "image": "https://eco.imgix.net/uploads/2026/09/cropped-6p1a8105.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "url": "https://www.jornaldenegocios.pt/empresas/web-summit/detalhe/fim-da-web-summit-apos-2028-perde-se-uma-semana-de-portugal-no-centro-do-mundo-tecnologico",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2024-10/img_1200x676uu2024-10-30-07-45-00-488637.jpg"
     },
     {
-      "headline": "Web Summit 2026 encerra com edição mais 'condensada' e crítica de gentrificação",
-      "hook": "Manifestantes pedem afastamento do evento; crítica do impacto na crise da habitação de Lisboa. Cimeira tech com presença chinesa forte e debate sobre futuro de startups em Lisboa.",
-      "for_you": "Contexto local: ecossistema de startups de IA em Lisboa está a crescer (Carevision, Cyclon no PITCH), mas há pressão anti-tech/gentrificação. Posicione sua agência como 'IA para PME portuguesas', não como importação de trend californiano.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/web-summit-fecha-edicao-mais-condensada-de-sempre-sem-escapar-a-criticas-de-startups-e-parceiros/",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Abertura-Web-Summit-2026_-4.jpg"
-    },
-    {
-      "headline": "Suíça CTS expande fábricas em Viana do Castelo; 1.800 novos postos para data centers",
-      "hook": "Fabricante de componentes para 'data centers' vai construir três novas unidades após inauguração de primeiras duas (50M€, 200 trabalhadores).",
-      "for_you": "Sinal de infraestrutura: Portugal está a atrair investimento em capacidade de data centers. Isto melhora latência local para agentes e reduz custos de inferência para clientes portugueses. Oportunidade de localização.",
+      "headline": "Tekever inaugura fábrica em Cahors; fornecedora de drones para Exército francês",
+      "hook": "Unicórnio português abriu unidade fabril em França; já em produção de drones para Forças Armadas.",
+      "for_you": "Tekever é caso de estudo de como startup portuguesa escala para mercados europeus maiores. Agência segue padrão similar: provar modelo em Portugal, depois expandir para ES/FR.",
       "signal": "🟢",
-      "url": "https://www.jornaldenegocios.pt/empresas/industria/detalhe/suica-cts-vai-construir-mais-tres-fabricas-e-1-800-postos-de-trabalho-em-viana-do-castelo",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-09/img_1200x676uu2026-09-01-18-46-40-528983.png"
+      "url": "https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/tekever-inaugura-fabrica-em-cahors-e-vai-fornecer-drones-as-forcas-armadas-francesas",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2025-08/img_1200x676uu2025-08-04-07-43-00-506835.jpg"
     },
     {
-      "headline": "Carevision vence PITCH Web Summit 2026 com scanner de saúde via câmara",
-      "hook": "Startup portuguesa de saúde digital vence competição com tecnologia que transforma câmara do telemóvel em 'scanner' de saúde; startup de IA regulada consegue escala.",
-      "for_you": "Exemplo local: PME portuguesa consegue ganhar em competição internacional com IA em sector regulado (saúde). Arquivo como evidência de que Portugal tem talento e mercado para IA. Posicione sua agência como 'construímos isto local'.",
+      "headline": "Satélite CA-03 português envia primeiras imagens; tecnologia SAR noturna operacional",
+      "hook": "Menos de um mês após lançamento, satélite da Constelação do Atlântico a captar imagens. SAR permite imageamento mesmo à noite.",
+      "for_you": "Portugal tem competência em satellite technology; sinalizador de mercado de hard tech e oportunidades para AI aplicada a dados geoespaciais.",
       "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/carevision-vence-pitch-do-web-summit-2026-com-tecnologia-que-transforma-a-camara-do-telemovel-num-scanner-de-saude/",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Web-Summit-Pitch-Carevision.jpg"
+      "url": "https://tek.sapo.pt/noticias/ciencia/artigos/satelite-portugues-ca-03-esta-no-espaco-ha-menos-de-um-mes-e-ja-enviou-as-primeiras-imagens-para-a-terra",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Imagem-satelite-CA-03-Forca-Aerea-2.jpg"
+    },
+    {
+      "headline": "PwC certificará 85 mil profissionais em pensamento crítico para era da IA",
+      "hook": "Consultora investe 100+ milhões em programa de simulações para questionar e validar resultados da IA.",
+      "for_you": "Portugal terá massa crítica de profissionais treinados em IA literacy. Oportunidade para posicionar agência como fornecedora de ferramentas e automação para estes profissionais.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/pessoas-computador-trabalho-IA-1024x576.jpg"
+    },
+    {
+      "headline": "Global Scaling Up: programa acelera scaleups por Europa, Médio Oriente, USA, Brasil",
+      "hook": "Novo programa seleciona 12 scaleups para crescimento internacional. Parceiros: Unicorn Factory Lisboa, Hub71, Q-Branch.",
+      "for_you": "Se agência atinge PMF claro em Portugal, este programa acelera expansão pan-europeia e americana. Candidata quando modelo for repetível e tração provada.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/negocios/artigos/global-scaling-up-quer-acelerar-a-expansao-das-scaleups-na-europa-medio-oriente-estados-unidos-e-brasil/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Global-Scaling-Up-Web-Summit-2026.jpeg"
     }
   ],
   "world_news": [
     {
-      "headline": "COP31 climate talks: 1.5C target officially dead, leaders struggle to pivot",
-      "hook": "UN officials acknowledge 1.5C warming limit is unreachable; Antalya negotiations seek post-1.5C climate framework despite political reluctance to declare goal abandoned.",
-      "for_you": "Data center energy costs will rise as carbon pricing tightens. Factor EU energy policy shifts into long-term inference cost models for your Portuguese SMB clients.",
-      "signal": "🟡",
-      "url": "https://www.politico.eu/article/climate-science-1-5c-target-global-warming-dead/",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/12/GettyImages-2245828701-scaled.jpg"
-    },
-    {
-      "headline": "US envoys meet Zelensky after Moscow talks; Putin open to European peace negotiations",
-      "hook": "Trump emissary Steve Witkoff briefs Ukrainian leadership in Dublin after negotiating with Putin; Russia signals willingness to include Europe in future rounds.",
-      "for_you": "Geopolitical risk: if Ukraine peace talks accelerate, NATO/EU stability improves, reducing data center geographic concentration pressure. If talks stall, infrastructure redundancy becomes more critical for cross-border SMB operations.",
-      "signal": "🟡",
-      "url": "https://www.politico.eu/article/vladimir-putin-open-to-europe-joining-ukraine-peace-talks-steve-witkoff/",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/12/GettyImages-2304241136-2-scaled.jpg",
+      "headline": "Microsoft global outage affects email, Teams, Copilot; recovery ongoing",
+      "hook": "Unexpected server load cascaded across multiple regions; server recovery attempts have not fully restored services.",
+      "for_you": "Infrastructure fragility is real. Design client workflows to survive single-provider failures; diversify critical comms away from Microsoft dependency.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cwvg238zrnm5o",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/dddf/live/8578f720-df49-11f1-b441-2b33b063138f.jpg",
       "video": {
-        "id": "ki84Dt0wGpI",
-        "title": "U.S. Envoys Shift from Putin Meeting to Zelensky Talks"
+        "id": "dfLv3OJE6K4",
+        "title": "A global Microsoft outage took down Outlook, Teams and Copilot, and the first fixes did not hold."
       }
     },
     {
-      "headline": "Coordinated bomb hoax threats hit Italian schools second day in a row; coordinated attack suspected",
-      "hook": "Hundreds of Italian schools evacuated again; hoax threats replicated across Italy, UK, Ireland in apparent coordinated campaign. Pattern signals emerging coordinated threat infrastructure.",
-      "for_you": "Security signal: coordinated threat patterns are emerging. If your Portuguese SMB clients have distributed teams (cross-border), physical security/threat response should be part of your operational resilience playbook.",
+      "headline": "Jensen Huang summoned to Congressional testimony on Chinese spy affair",
+      "hook": "Ex-Nvidia CEO faces investigation into alleged Chinese spy contact and national security violations.",
+      "for_you": "GPU market leadership vacuum creates uncertainty in compute sourcing. Anthropic's multi-vendor strategy shows the path to independence from single GPU makers.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cr894w453e90o",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f53d/live/8b18a0e0-de90-11f1-b441-2b33b063138f.jpg"
+      "url": "https://www.bbc.co.uk/news/articles/cmq5vd1wdgz6o",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f66c/live/4f0358a0-def1-11f1-bb80-c5cef03337ce.jpg",
+      "video": {
+        "id": "n8FFjHe0xsE",
+        "title": "Nvidia opens probe into Jensen Huang's relationship to alleged Chinese spy"
+      }
     },
     {
-      "headline": "Zimbabwean author cleared of AI in Caine Prize after month-long investigation",
-      "hook": "Simbarashe Kundizeza's story determined 'human-written' after forensic analysis; Caine Prize reaffirms text authenticity and closes AI authorship concerns.",
-      "for_you": "Trustworthiness narrative: courts/institutions now have forensic tools to verify human authorship. This helps your pitch: 'AI-assisted but human-verified' work is credible. Trust in mixed human-AI workflows is reinforced.",
+      "headline": "North Korean hackers stole $400M in crypto via deepfake video call scheme",
+      "hook": "FBI reports 900+ victims over 18 months; FaceStealer used AI-generated video to social-engineer access to crypto platforms.",
+      "for_you": "Deepfake-based authentication bypass is a real threat. For sensitive agent operations (financial, compliance), never rely on video/audio identity alone. Require second factor or out-of-band verification.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cqdj1ellpd70o",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/c16a/live/65ee22f0-df02-11f1-b6e1-5b169363fed4.jpg",
+      "video": {
+        "id": "0dUzFXX58Ew",
+        "title": "Feds Say North Korea Used Fake Video Calls to Steal $400M"
+      }
+    },
+    {
+      "headline": "EU institutions survive Microsoft outage; Europe building vendor-independent infrastructure",
+      "hook": "European Commission and Parliament unaffected; EU pursuing strategy to reduce reliance on major US cloud providers.",
+      "for_you": "Strategic resilience lesson: EU institutions built vendor-neutral infrastructure. Design Portuguese SMB workflows to survive any single provider's failure.",
       "signal": "🟢",
-      "url": "https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story",
-      "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b972955b073a4788451a5a67593d810"
+      "url": "https://www.politico.eu/article/eu-institutions-survive-microsoft-outage-unscathed/",
+      "source_name": "Politico Europe",
+      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/13/GettyImages-2304372950-scaled.jpg"
     }
   ],
-  "since_yesterday": null,
+  "since_yesterday": "Jensen Huang saga deepened: Congressional testimony summoned, third affair reported, concerns raised about successor confidence in Kress. Microsoft outage persisted into Friday with server recovery failures ongoing. Both represent continuations of major Thursday disruption stories affecting GPU sourcing reliability and infrastructure vendor concentration risk.",
   "health": {
     "x": {
       "attempted": 15,
