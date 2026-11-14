@@ -2,316 +2,455 @@
   "date": "Saturday, 14 November 2026",
   "ai": [
     {
-      "thread_id": "karpathy-prompting-techniques",
-      "thread_title": "Prompting patterns for LLM reliability",
-      "thread_state": "new",
-      "name": "Andrej Karpathy",
-      "role": "AI researcher",
-      "hook": "Ask LLMs to explain in ASD-STE100 controlled language for precise, parseable output.",
+      "thread_id": "decision-models-category",
+      "thread_title": "Decision Models as Emerging Standard Category",
+      "thread_state": "developing",
+      "name": "Google AI / Simon Willison coverage",
+      "role": "Google Research | Blog aggregator",
+      "hook": "Google launches Gemini Decision 1, joining Jev and OpenAI in structured decision model category.",
       "insights": [
-        "**ASD-STE100** is a controlled natural language spec from aircraft maintenance; works for any LLM explanation task",
-        "Forces LLMs to reduce ambiguity and produce machine-readable output that downstream systems can parse reliably",
-        "Shifts from free-form prose to structured, constraint-aware explanations"
+        "**Gemini Decision 1** supports yes/no, choice, and rubric-scoring questions; reuses Jev's \"Noul\" terminology",
+        "Priced at **same cost as GPT-6 Luna** (~$0.10/M input tokens), suggesting commoditization",
+        "Three major labs (OpenAI, Anthropic via Jev, Google) now offering decision-specific models signals category maturity"
       ],
-      "for_you": "Test this with client stakeholder communication: when Claude needs to explain a technical recommendation to a non-technical SMB owner, ask it to use ASD-STE100 rules. Produces cleaner, more actionable output than vanilla LLM prose. Try this week on next client call.",
-      "context": "ASD-STE100 originated in aviation documentation to reduce ambiguity in critical systems. Karpathy suggests it as a general pattern for improving LLM output quality and parseability, not just aviation.",
-      "what_changed": "New pattern observation from top AI researcher, not a product release.",
-      "action": "test, on the next client explanation that needs clarity and structure",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "High-engagement builder signal with immediately practical application to Pedro's agency work",
-      "signal": "💡",
+      "for_you": "If your SMB agency builds agents that make structured decisions repeatedly (lead scoring, customer routing, workflow triage), decision models could reduce costs and improve reliability vs. using general-purpose models for the same task. Test one workflow that makes 100+ decisions/week.",
+      "context": "Decision models are purpose-built to output deterministic structured answers (yes/no/choice/score) rather than free-form text. This emerged ~Nov 11 with Jev, now Google and OpenAI have entered. It signals the model market is segmenting beyond general-purpose reasoning.",
+      "what_changed": "Google's entry confirms this is becoming a standard category, not a one-off from one lab.",
+      "action": "watch - Test with one SMB workflow that makes high-volume structured decisions. See if decision model beats general model on cost and consistency.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Only real model category entry today; signals market segmentation shift.",
+      "signal": "🟡",
       "urls": [
-        "https://x.com/karpathy/status/2105819303471976479"
+        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
       ],
-      "handle": "@karpathy",
-      "image": "https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;name=large"
+      "handle": ""
     },
     {
-      "thread_id": "agent-native-frameworks",
-      "thread_title": "Framework architecture for agent-first development",
+      "thread_id": "agent-commerce-capabilities",
+      "thread_title": "Agents Can Now Transact Autonomously",
       "thread_state": "new",
-      "name": "Guillermo Rauch",
-      "role": "CEO, Vercel",
-      "hook": "Frameworks must evolve: agents are builders now, not users of your components.",
+      "name": "Greg Brockman (OpenAI) / TechCrunch coverage",
+      "role": "President & Co-Founder @OpenAI | Technology reporter",
+      "hook": "ChatGPT Wallet and OpenAI Dots now integrated with payment networks for autonomous agent purchasing.",
       "insights": [
-        "**UI SDK becomes x86 instruction set** for agents to spontaneously compose UI components",
-        "Component libraries, frameworks, design systems must 'drill deeper' — delete unnecessary abstractions, optimize for agent composition",
-        "Shadcn-style component philosophy extends: agents pick components based on capability, not developer preference"
+        "**ChatGPT Wallet** lets agents shop and checkout for users across e-commerce",
+        "**OpenAI Dots** integrated with American Express, Mastercard, Visa for secure transactions",
+        "Signals trust model for agentic spending is now formalized and trusted by major payment networks"
       ],
-      "for_you": "When you design agent-facing APIs or integrations for SMB clients, treat agents as first-class builders, not users. Expose named, granular tools; prefer markdown-structured data over nested configs; allow agents to assemble and register autonomously. File this for your next product design.",
-      "context": "Rauch is rethinking React, Tailwind, and component libraries in an agents-first era. Rather than building for human developers, frameworks should support agents generating new UI dynamically and reliably.",
-      "what_changed": "New architectural perspective from platform leader.",
-      "action": "watch, as a design principle for future agent-facing tools and APIs",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Strategic framework thinking directly relevant to how Pedro's agents will interact with client systems",
-      "signal": "💡",
+      "for_you": "Portuguese SMBs can now have agents autonomously handle purchasing: office supplies reordering, vendor payments, subscriptions, reservations. This is a new service offering for your agency. Map which client workflows could benefit (e.g., e-commerce retailer restocking, service provider subscription management).",
+      "context": "Prior to this, agents could browse and research but not spend money. Autonomous transactions open new classes of agentic workflows. Payment networks' participation signals this is moving from experimental to production-safe.",
+      "what_changed": "Agents previously could assist with purchasing decisions; now they can execute transactions end-to-end with user-set limits.",
+      "action": "investigate - Map 3-5 SMB workflows where agent-driven autonomous purchasing would save time/cost. Prototype with one client by end of week.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "New capability unlocks new agent use cases; directly testable this week.",
+      "signal": "🟢",
       "urls": [
-        "https://x.com/rauchg/status/2120966768483262648"
+        "https://x.com/gdb/status/2121295213025194172",
+        "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/"
       ],
-      "handle": "@rauchg",
+      "handle": "gdb",
+      "image": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_400x400.jpg",
+      "video": {
+        "id": "6-kHIzfMhBw",
+        "title": "AI Agents: Now on Mobile! (OpenClaw & Hermes Agent)"
+      }
+    },
+    {
+      "thread_id": "aws-emulator-local-testing",
+      "thread_title": "AWS Emulator Released for Local Agent Testing",
+      "thread_state": "new",
+      "name": "AWS / Simon Willison coverage",
+      "role": "Amazon Web Services | Technical blogger",
+      "hook": "AWS officially released aws-emulator: run tests against AWS services locally without API keys or billing.",
+      "insights": [
+        "Written in Rust by **29,684 commits in three weeks** (agents generated most code)",
+        "Supports local clone of AWS services (S3, Lambda, CloudWatch, RDS, etc.) for testing",
+        "Removes friction from agent development that depends on AWS infrastructure"
+      ],
+      "for_you": "If you build agent workflows for SMBs that touch AWS (storage, compute, monitoring), you can now test locally and iterate faster without AWS billing or API key management. Speeds up iteration cycles. Include in your infrastructure setup for new agency projects.",
+      "context": "Previously, testing AWS integrations required provisioning real AWS resources, adding cost and latency to development. This is the first official AWS emulator.",
+      "what_changed": "New official tool available; agent-based development shows feasibility of massive code generation in short time.",
+      "action": "test - Integrate aws-emulator into one agency infrastructure template. Measure iteration speed improvement on one client project using AWS.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Only official AWS emulator; immediately useful for agency infrastructure.",
+      "signal": "🟢",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/11/aws-emulator/"
+      ],
+      "handle": ""
+    },
+    {
+      "thread_id": "llama-cpp-v1-local-ecosystem",
+      "thread_title": "llama.cpp Reaches v1.0: Local AI Foundation Mature",
+      "thread_state": "new",
+      "name": "GGML / Hugging Face coverage",
+      "role": "GGML Project | Hugging Face blog",
+      "hook": "llama.cpp v1.0 released: \"A stronger foundation for the local AI ecosystem.\"",
+      "insights": [
+        "V1.0 milestone signals **production-ready maturity** and API stability after years as experimental",
+        "Enables self-hosted, offline-capable agents for privacy-sensitive or air-gapped SMB deployments",
+        "Reduces dependency on cloud APIs; opens on-premise option for regulated sectors (healthcare, finance, government)"
+      ],
+      "for_you": "Portuguese SMBs in regulated sectors (fintech, health, government) can now justify on-premise AI. Messaging shifts from 'AI lives in cloud' to 'AI can run on your servers.' New sales angle: local-first AI for compliance and data residency. Test one quantized model on customer hardware this week.",
+      "context": "llama.cpp is the foundational local inference engine. V1.0 is a major stability/API guarantee milestone, not a new feature release.",
+      "what_changed": "Reaching v1.0 signals the project has moved from experimental to production-grade, suitable for commercial deployments.",
+      "action": "use_now - Test running a quantized model (3B-7B) via llama.cpp on one SMB's local infrastructure. Document setup and performance. Use as case study for privacy-first pitch.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Version milestone signals ecosystem maturity; opens new market positioning for agency.",
+      "signal": "🟢",
+      "urls": [
+        "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+      ],
+      "handle": "",
+      "image": "https://cdn-uploads.huggingface.co/production/uploads/63148d3b996c52bf0142cdbe/2PgU1GxpJX_LVORaP2RRy.png",
+      "video": {
+        "id": "RiugudzHwDI",
+        "title": "llama.cpp Hits 1.0: What It Means for Running AI Locally"
+      }
+    },
+    {
+      "thread_id": "vercel-workflows-orchestration",
+      "thread_title": "Vercel Workflows SDK 5: Latency and Security Hardened",
+      "thread_state": "new",
+      "name": "Guillermo Rauch (Vercel CEO)",
+      "role": "CEO @Vercel",
+      "hook": "Workflow SDK 5 improves time-to-first-step and step-between latency; security hardened; scale-proven.",
+      "insights": [
+        "**Time to first step and time between steps massively improved** (concrete numbers not given but Rauch signals material reduction)",
+        "**Security hardened** for production agent workloads",
+        "**Reliability proven at scale** across production customers"
+      ],
+      "for_you": "If deploying agents on Vercel's platform, this update means faster step execution (better end-user latency and UX) and production-grade security. If evaluating platforms for agent orchestration, this is a material improvement in Vercel's offer vs. Temporal/other options.",
+      "context": "Workflow orchestration latency directly impacts agent responsiveness. Security and scale proof are table-stakes for production.",
+      "what_changed": "Concrete infrastructure improvements to latency, security, and scale validation for workflow orchestration.",
+      "action": "watch - If using Vercel, benchmark the new SDK. If evaluating platforms, use this as comparison point vs. Temporal, Encore, others.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Concrete infrastructure improvements for workflow platforms; relevant if using Vercel.",
+      "signal": "🟡",
+      "urls": [
+        "https://x.com/rauchg/status/2121277727940776114"
+      ],
+      "handle": "rauchg",
       "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg"
     },
     {
-      "thread_id": "model-selection-evidence",
-      "thread_title": "Empirical model selection data for workflow decisions",
-      "thread_state": "developing",
-      "name": "Alex Albert & Aaron Levie",
-      "role": "Researcher, Anthropic; CEO, Box",
-      "hook": "Fable 5.2 delivers major capability jump; Gemini 4 Hydrogen surprises on accuracy, not just speed.",
+      "thread_id": "langchain-3b-valuation",
+      "thread_title": "LangChain Reaches $3B Valuation",
+      "thread_state": "new",
+      "name": "LangChain / TechCrunch",
+      "role": "Agent orchestration platform | Technology reporter",
+      "hook": "LangChain, agent orchestration platform, valued at $3B in latest funding round.",
       "insights": [
-        "**Fable 5.2 on open-ended work** (design review, strategy, debugging) feels like step beyond Opus 5.5 in reasoning quality, not incremental",
-        "**Gemini 4 Hydrogen +5pp accuracy** over Flash 3.8; fast models now competitive on quality, not just latency, for enterprise work",
-        "Model choice is now workflow-specific, not tier-based: pick Fable for reasoning, Hydrogen for efficiency, Opus for safety"
+        "Agent orchestration tools now reach **unicorn-class valuation** ($1B+)",
+        "Signals sustained capital and market confidence in tooling separate from model providers",
+        "LangChain likely to remain viable long-term; reduces platform lock-in risk"
       ],
-      "for_you": "Update your model selection rubric for client projects. Fable 5.2 should be default for strategy/analysis work; Hydrogen for cost-constrained automations; test both before committing to Opus for legacy projects. This shapes your pricing and SLA positioning.",
-      "context": "Practitioners are calibrating model choice based on real workflow evidence, not benchmarks. Levie and Albert provide feedback from enterprise testing, not lab results.",
-      "what_changed": "Concrete practitioner feedback on model differentiation; Hydrogen success signals competition in fast-model tier.",
-      "action": "use_now, in next model evaluation for a client RFP",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Direct evidence for model selection decisions that affect pricing and delivery timelines",
-      "signal": "🟢",
+      "for_you": "If building on LangChain, this valuation signals long-term viability and ongoing investment in ecosystem. Reduces risk of platform deprecation. Also signals strong venture demand for agent orchestration tools.",
+      "context": "LangChain is one of the main open-source agent orchestration platforms. Unicorn status validates the market exists.",
+      "what_changed": "New funding milestone; validates the market for agent orchestration platforms.",
+      "action": "watch - If on LangChain, this reduces platform risk. If evaluating, it signals LangChain is likely to remain a primary player.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Market validation signal; directly relevant if using LangChain.",
+      "signal": "🟡",
       "urls": [
-        "https://x.com/alexalbert__/status/2119869724247077229",
-        "https://x.com/levie/status/2120947988143198302"
+        "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
       ],
-      "handle": "@alexalbert__ @levie",
-      "image": "https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg"
+      "handle": "",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Raising-money.jpg?resize=1200,829"
     },
     {
-      "thread_id": "agent-self-improvement-patterns",
-      "thread_title": "Agents that recursively improve from their own use",
+      "thread_id": "openai-daybreak-cyber",
+      "thread_title": "OpenAI Launches Daybreak Cyber Products",
       "thread_state": "new",
-      "name": "Garry Tan",
-      "role": "CEO, Y Combinator",
-      "hook": "Built an idea-minder agent that refines itself as you use it, not static across sessions.",
+      "name": "Greg Brockman (OpenAI)",
+      "role": "President & Co-Founder @OpenAI",
+      "hook": "OpenAI announces Daybreak Defense Factory and Daybreak Red Team for frontier cyber capabilities.",
       "insights": [
-        "**Recursive self-improvement** pattern: agent retains conversation history and can modify its own instructions based on outcomes",
-        "Unlike one-shot agents, improvements compound over repeated use and feedback",
-        "Creates a form of localized adaptation: each user's agent becomes specialized to their domain and thinking patterns"
+        "**Two new products** putting frontier cyber capabilities to practical defense use",
+        "Signals OpenAI expanding product surface beyond chat/general agents into specialized domains",
+        "Likely targeting government/defense customers given cyber domain"
       ],
-      "for_you": "Offer this as a premium service tier for your SMB clients: 'Adaptive Agent' that learns client workflows over time and adjusts its prompts/tools accordingly. Requires multi-turn history + instruction-editing capability. Test with internal project first.",
-      "context": "Rather than retraining models or fine-tuning, Tan's approach uses conversation state to evolve agent behavior without code changes. Portable across models.",
-      "what_changed": "New agent design pattern from YC leader.",
-      "action": "investigate, whether your agent framework supports instruction-editing and persistent state",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Practical pattern for value-add agent product differentiation",
+      "for_you": "Not directly actionable unless you're building cyber defense tools. File as a signal: OpenAI is specializing frontier models into specific domains. May create defensive pressure to specialize your own agent offerings.",
+      "context": "Cyber is a natural first specialization: high-value market, government customers, clear ROI measurable.",
+      "what_changed": "New product category from OpenAI; signals model specialization strategy.",
+      "action": "ignore - Not your market unless pivoting to cyber defense. Monitor for patterns if OpenAI specializes further.",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "New OpenAI product line; signals strategy shift to specialization.",
+      "signal": "🟡",
+      "urls": [
+        "https://x.com/gdb/status/2121004237413142656"
+      ],
+      "handle": "gdb",
+      "image": "https://pbs.twimg.com/card_img/2120953672314372097/suxA-RXq?format=webp&amp;name=medium"
+    },
+    {
+      "thread_id": "competitive-agent-simulations",
+      "thread_title": "Competitive Agent Simulations Emerging as Design Pattern",
+      "thread_state": "new",
+      "name": "Dan Shipper (Every CEO)",
+      "role": "CEO @Every (AI newsletter)",
+      "hook": "Builder highlights emerging pattern: simulations with multiverse of competitive agents.",
+      "insights": [
+        "Dan Shipper calls @hammer_mt article on competitive agent simulations a **'banger'**",
+        "Pattern: organizations of competitive agents in simulated environments",
+        "Represents emerging architectural approach beyond single-agent systems"
+      ],
+      "for_you": "Interesting architectural pattern to understand, not yet immediately actionable. Could become relevant for testing decision-making agents, competitive scenarios, or organizational simulations. File as emerging design pattern to explore in Q4.",
+      "context": "This is still an exploratory signal from a builder, not yet mainstream. Hammer's article likely explores game theory, multi-agent coordination, or evolutionary dynamics.",
+      "what_changed": "New architecture pattern identified by high-signal builder.",
+      "action": "investigate - Read @hammer_mt's article on competitive agent simulations. Assess relevance to your testing/evaluation workflows.",
+      "evidence_level": "early_signal",
+      "why_it_made_the_cut": "Early signal from high-credibility builder on emerging pattern.",
       "signal": "💡",
       "urls": [
-        "https://x.com/garrytan/status/2121352628915593422"
+        "https://x.com/danshipper/status/2121024534228897995"
       ],
-      "handle": "@garrytan",
-      "image": "https://pbs.twimg.com/card_img/2121352617133735936/DOgo4I6L?format=webp&amp;name=medium"
-    },
-    {
-      "thread_id": "ai-productivity-quantification",
-      "thread_title": "Quantifying agent productivity for pricing and positioning",
-      "thread_state": "new",
-      "name": "Dan Shipper",
-      "role": "CEO, Every",
-      "hook": "Work done in spare time with Fable 5.2 equals $200K and 5 full-time staff.",
-      "insights": [
-        "**Order-of-magnitude productivity leverage**: customer survey analysis, internal tools, opportunity spotting in \"cracks of his week\"",
-        "Tasks that would require contractor hiring, project budget, or team coordination happen solo in spare time",
-        "This is repeatable, not one-off: pattern is systematic use of capable models on unstructured knowledge work"
-      ],
-      "for_you": "Use this ROI anchor in your agency pitch to SMBs. Formula: 'Work equivalent to hiring a $200K contractor role, done by one person in spare time.' Adjust for Portuguese market and client size. Test this messaging on your next proposal.",
-      "context": "Shipper is quantifying what 'autonomous collaborators' means in business terms. Not just feature parity with humans, but leverage.",
-      "what_changed": "Concrete productivity anchor from CEO running AI-native company.",
-      "action": "use_now, in next client ROI calculation and pitch",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Direct evidence for value messaging and pricing justification to SMB clients",
-      "signal": "🟢",
-      "urls": [
-        "https://x.com/danshipper/status/2120539547620790424"
-      ],
-      "handle": "@danshipper",
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2120488543948550145/img/xqMZitJQJrtQI9dT?format=webp&amp;name=large"
+      "handle": "danshipper",
+      "image": "https://pbs.twimg.com/card_img/2120972458270298112/NDhUvLJP?format=webp&amp;name=medium"
     }
   ],
   "build_this": [
     {
-      "name": "ElevenLabs Meeting App",
-      "source": "TechCrunch",
-      "what_it_is": "Team meeting tool combining live transcription and automatic note-taking with dictation support. Outputs structured meeting records.",
-      "why_try_it": "Use for your team's internal meetings first: test whether Claude can extract action items, decisions, and stakeholders from raw transcripts. If it works cleanly, become a distribution channel: offer this to SMB clients as a meeting-to-action-items pipeline, powered by your agent.",
-      "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/"
+      "name": "llama.cpp v1.0",
+      "source": "GGML Project / GitHub",
+      "what_it_is": "Production-ready local inference engine for running models on-premise without cloud APIs.",
+      "why_try_it": "Test one quantized model (3B-7B) on SMB customer hardware this week. Document setup, performance, compliance benefits for privacy-first pitch to regulated sectors.",
+      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+    },
+    {
+      "name": "Garry Tan's harness eval repo",
+      "source": "GitHub / X @garrytan",
+      "what_it_is": "Open-source standard prompt evaluation framework for testing agent/model performance across dimensions.",
+      "why_try_it": "Run evals on your current agent systems to establish baselines. Use as part of weekly model upgrade testing (run same harness on Fable 5.2 vs. Opus 5.5, etc.).",
+      "url": "https://x.com/garrytan/status/2121463161069228382"
     }
   ],
   "podcasts": [],
+  "x_top": [
+    {
+      "url": "https://x.com/gdb/status/2121004237413142656",
+      "handle": "gdb",
+      "why": "OpenAI president announces Daybreak cyber products and Dot commerce integration with payment networks."
+    },
+    {
+      "url": "https://x.com/emollick/status/2121328191755218946",
+      "handle": "emollick",
+      "why": "Concrete quantified signal: student projects now 10x further along than full team projects from 3 years ago."
+    },
+    {
+      "url": "https://x.com/rauchg/status/2121277727940776114",
+      "handle": "rauchg",
+      "why": "Vercel Workflows SDK 5: latency and security hardened, reliability proven at scale."
+    },
+    {
+      "url": "https://x.com/danshipper/status/2121024534228897995",
+      "handle": "danshipper",
+      "why": "Emerging pattern: multiverse simulations with competitive agents. Worth understanding."
+    },
+    {
+      "url": "https://x.com/garrytan/status/2121352628915593422",
+      "handle": "garrytan",
+      "why": "Personal agent that recursively self-improves as you use it: architectural pattern exploration."
+    },
+    {
+      "url": "https://x.com/levie/status/2120947988143198302",
+      "handle": "levie",
+      "why": "Gemini 4 Hydrogen: 5pp accuracy improvement over Flash. Enterprise Box testing on complex work."
+    },
+    {
+      "url": "https://x.com/adityaag/status/2120578134177464356",
+      "handle": "adityaag",
+      "why": "Two company types to build now: AI diffusion vs AI-native verticals. Strategic framework."
+    },
+    {
+      "url": "https://x.com/petergyang/status/2121286290629107967",
+      "handle": "petergyang",
+      "why": "Practitioner signal: Fable 5.2 and Opus as daily drivers. Five real use cases for model selection."
+    },
+    {
+      "url": "https://x.com/alexalbert__/status/2120983722182988206",
+      "handle": "alexalbert__",
+      "why": "Key insight: getting good Claude work is mostly about finding context gaps and closing them. Claude Meetings as one approach."
+    },
+    {
+      "url": "https://x.com/garrytan/status/2121463161069228382",
+      "handle": "garrytan",
+      "why": "Open-source harness eval repo. Standard framework for testing agent performance."
+    }
+  ],
   "tech": [
     {
-      "name": "Guillermo Rauch",
-      "role": "CEO, Vercel",
-      "hook": "Product creation still requires extraordinary human focus and attention span.",
-      "key_point": "Despite AI, builders need unbroken focus, motivation, and love for the work. AI amplifies human intent; doesn't replace it.",
-      "for_you": "Protect your agency team's focus time and autonomy. AI handles execution and iteration, but you and your team still need deep thinking time for strategy and design decisions. Don't automate that away.",
-      "signal": "💡",
+      "name": "OpenAI robotics team disbanded",
+      "role": "Fortune / Industry signal",
+      "hook": "OpenAI disbanded its robotics team as general models prove sufficient for robot control.",
+      "key_point": "Signals the **bitter lesson**: scale and compute beat hand-crafted, domain-specific engineering. Robotics no longer needs specialized team.",
+      "for_you": "If you're considering specialization vs. generalization for your agent products, this signals market is moving toward general models + adaptation, not specialized tools.",
+      "signal": "🟡",
       "urls": [
-        "https://x.com/rauchg/status/2120601000176439478"
+        "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/"
       ],
-      "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
-      "handle": "rauchg"
+      "image": "https://fortune.com/img-assets/wp-content/uploads/2026/11/GettyImages-2304572308-e1794587995495.jpg?resize=1200,600"
     },
     {
-      "name": "Aaron Levie",
-      "role": "CEO, Box",
-      "hook": "Autonomous collaborators now standard for knowledge work. Order-of-magnitude productivity shifts confirmed.",
-      "key_point": "Combination of coding, computer use, domain reasoning, and agent orchestration brings automation to areas thought impossible before.",
-      "for_you": "Pitch to SMBs: if they use knowledge workers (analysts, operators, coordinators), agents now handle that workload. Your agency's job is to teach them how to reshape the role, not replace the person.",
+      "name": "Floating ocean data centers",
+      "role": "TechCrunch / Startup coverage",
+      "hook": "Startup proposes floating data centers powered by ocean heat; investors already engaged.",
+      "key_point": "**Infrastructure innovation** for AI compute cooling and power: taps ocean thermal differentials for energy.",
+      "for_you": "File as infrastructure trend. Not immediately relevant to your agency unless you're building data-center-intensive services. Signals capital flowing into compute infrastructure for AI.",
+      "signal": "💡",
+      "urls": [
+        "https://techcrunch.com/2026/11/13/this-young-startup-wants-to-power-floating-data-centers-with-the-oceans-heat-and-investors-are-already-on-board/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/drogue-team.jpeg?resize=1200,900",
+      "video": {
+        "id": "sPGITtRfXfo",
+        "title": "Why India shouldn't bulid data centers  #economy"
+      }
+    },
+    {
+      "name": "FAA expanding AI advice for air traffic management",
+      "role": "Ars Technica / Operational deployment",
+      "hook": "FAA now uses AI to manage air traffic congestion across entire US airspace.",
+      "key_point": "**Production deployment** of AI in high-consequence domain (aviation). AI now making real-time routing decisions.",
+      "for_you": "Signal that AI is moving into critical infrastructure. If you're pitching AI agents to risk-averse sectors, this is proof of government acceptance at scale.",
       "signal": "🟢",
       "urls": [
-        "https://x.com/levie/status/2119987129204047894"
+        "https://arstechnica.com/features/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/"
       ],
-      "image": "https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg",
-      "handle": "levie"
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Pilots-during-DFW-departure-2560x1440.jpg",
+      "video": {
+        "id": "SaDnUydLTyw",
+        "title": "Pilot Accidentally Gives Passenger Announcement to Air Traffic Control | Funny ATC"
+      }
     },
     {
-      "name": "Nikunj Kothari",
-      "role": "Partner, FPV Ventures",
-      "hook": "44% of AI-native companies now use 2+ model providers, up from 33% in March.",
-      "key_point": "Multi-model strategy becoming standard. Builders no longer bet entire inference stack on one vendor.",
-      "for_you": "Build your agent infrastructure to swap models at runtime. This is now table stakes for competitive positioning: client wants to test Fable? Use it. Wants Gemini for cost? Switch it. Multi-model agility is a feature.",
+      "name": "OpenAI board member warns on AI takeover timeline",
+      "role": "Ars Technica / Governance signal",
+      "hook": "OpenAI board member warns AI 'takeover' of society could occur within months.",
+      "key_point": "**Governance signal**: boardroom concern about pace of capability vs. safety/alignment.",
+      "for_you": "Not directly actionable. File as governance/credibility concern. If you're pitching agents to SMBs, be prepared for questions about safety and control. Have clear answer on guardrails.",
       "signal": "🟡",
       "urls": [
-        "https://x.com/nikunj/status/2120669243918418237"
+        "https://arstechnica.com/ai/2026/11/ai-is-the-most-likely-reason-youll-die-openai-board-member-warns/"
       ],
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2120666837029625856/img/SNrPZKmrBfWgZ7dK?format=webp&amp;name=large",
-      "handle": "nikunj"
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/ai-destination-1152x648.jpg"
     },
     {
-      "name": "Alex Albert",
-      "role": "Researcher, Anthropic",
-      "hook": "Robotics will fall to the bitter lesson: scale and compute beat hand-crafted engineering.",
-      "key_point": "Same pattern as language models: massive data + end-to-end learning defeats specialized systems.",
-      "for_you": "Robotics clients (automation, manufacturing) should expect commodity robot APIs driven by frontier models, not proprietary stacks. Opportunity: position your agency as the integrator between robot APIs and their business logic.",
-      "signal": "💡",
-      "urls": [
-        "https://x.com/alexalbert__/status/2119869925288558799"
-      ],
-      "image": "https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg",
-      "handle": "alexalbert__"
-    },
-    {
-      "name": "Aditya Agarwal",
-      "role": "GP, SPC; co-founder, Bevel",
-      "hook": "Two company types to build now: diffusion of AI, or AI-native verticals.",
-      "key_point": "Diffusion plays (vertical SaaS, rollups, horizontal products) all converge: get AI into domain-specific workflows. Alternative: build AI-native from scratch in an unserved category.",
-      "for_you": "Your Portuguese SMB AI agency is a diffusion play: you're retrofitting AI into existing business workflows. Viable and valuable, but know your lane. Don't try to be both diffusion player and AI-native founder simultaneously.",
+      "name": "Nvidia chip tracking feasibility confirmed",
+      "role": "MIT Technology Review / Regulatory signal",
+      "hook": "Nvidia privately confirmed feasibility of anti-smuggling chip tracking to Congress.",
+      "key_point": "**Supply chain regulation** is moving from discussion to implementation. Nvidia sees tracking as technically feasible.",
+      "for_you": "If building for customers in regulated sectors or dependent on specific GPU allocations, track chip tracking/serialization requirements. May affect procurement workflows.",
       "signal": "🟡",
       "urls": [
-        "https://x.com/adityaag/status/2120578134177464356"
+        "https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/"
       ],
-      "image": "https://pbs.twimg.com/profile_images/1445089558161334279/0nZjx6qu_400x400.jpg",
-      "handle": "adityaag"
+      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/foster-huang2a.jpg?resize=1200,600"
     }
   ],
   "pt_news": [
     {
-      "headline": "FAA ground stop resolved; cascading US flight cancellations Saturday.",
-      "hook": "5+ hour nationwide suspension Friday due to air traffic comm system overload; software issue, not cyber-attack.",
-      "for_you": "If your SMB clients depend on US supply chains or have traveling teams, expect cascading delays Saturday. Brief them on backup logistics. Not directly AI-relevant but operational impact on project timelines.",
-      "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/empresas/transportes/aviacao/detalhe/descolagens-nos-eua-suspensas-fbi-nao-acredita-em-ciberataque-problema-de-software-podera-ser-a-causa",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-11/img_1200x676uu2026-11-13-22-11-49-532911.jpg"
-    },
-    {
-      "headline": "Microsoft outage fully resolved; Portuguese systems recovered.",
-      "hook": "Day-long global disruption to Outlook, Teams, Copilot; Portuguese government, health, business systems were offline.",
-      "for_you": "Reinforces concentration risk for your clients: many Portuguese SMBs run entirely on Microsoft 365. Pitch resilience: multi-cloud architecture, data export, agent failover. Make this incident your sales case study.",
-      "signal": "🔴",
-      "url": "https://eco.sapo.pt/2026/11/13/apagao-da-microsoft-mostra-impacto-de-se-depender-de-um-unico-fornecedor",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2025/10/cropped-45840691-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
-    },
-    {
-      "headline": "Satélite português CA-03 envia primeiras imagens da Terra.",
-      "hook": "Portuguese Constellation Atlantic satellite operational; SAR imaging works day/night and in any weather.",
-      "for_you": "Portugal now has indigenous imaging satellite capability. Not immediate, but filed for awareness: government and geo-data companies may soon need AI for image analysis pipelines. Positioning opportunity for future contracts.",
+      "headline": "Investigadores portugueses desenvolvem protótipo para redes 6G",
+      "hook": "Espelho inteligente controlador de sinais sem fios pode tornar futuras redes móveis mais eficientes.",
+      "for_you": "Sinal de que Portugal tem investigação avançada em infraestrutura de redes. Relevante se considerando parcerias com instituições de investigação para innovação em conectividade de agentes.",
       "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/ciencia/artigos/satelite-portugues-ca-03-esta-no-espaco-ha-menos-de-um-mes-e-ja-enviou-as-primeiras-imagens-para-a-terra",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Imagem-satelite-CA-03-Forca-Aerea-2.jpg"
+      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/investigadores-portugueses-desenvolvem-prototipo-que-pode-ajudar-a-tornar-redes-6g-mais-eficientes",
+      "source_name": "SAPO Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/6G_-Superficie-inteligente-a-redirecionar-sinais-1024x576.png"
     },
     {
-      "headline": "PwC vai certificar 85 mil profissionais em pensamento crítico na era da IA.",
-      "hook": "€100M+ investment in simulations teaching professionals to audit and question AI outputs, not replace human judgment.",
-      "for_you": "PwC sees market for 'critical thinking about AI' training. Your agency could offer similar workshops: 'How SMBs Use AI Responsibly' for client teams. B2B2B revenue stream. Partner or build this.",
+      "headline": "Starlink Mini 2 com bateria amovível e Wi-Fi 6 chega aos EUA",
+      "hook": "Antena portátil nova com bateria até 4,5h, design mais leve e Wi-Fi 6. Pré-venda por $999 nos EUA.",
+      "for_you": "Relevante para cenários de agentes offline ou em locais sem conectividade fiável. Portugal ainda sem preço/data, mas sinal da evolução de hardware móvel.",
       "signal": "🟡",
+      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/starlink-mini-2-chega-com-bateria-amovivel-e-wi-fi-6-pre-vendas-ja-abriram-nos-eua-mas-so-por-convite",
+      "source_name": "SAPO Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Starlink-Mini-2_02.jpg"
+    },
+    {
+      "headline": "BrickLink recupera após ciberataque; Lego confirma dados expostos",
+      "hook": "Mercado online de peças Lego voltou online após mais de uma semana offline. Nomes utilizador e IP expostos, mas senhas protegidas.",
+      "for_you": "Sinal de segurança/resiliência em plataformas de e-commerce. Se construindo marketplace para SMBs, use como case study de resposta a incidente.",
+      "signal": "🟡",
+      "url": "https://tek.sapo.pt/noticias/internet/artigos/bricklink-ja-regressou-depois-de-um-ciberataque-lego-confirma-acesso-a-nomes-de-utilizador-ip-e-alguns-emails",
+      "source_name": "SAPO Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/e469042db3a20def31f05cdda30e6f9de237302e.jpg"
+    },
+    {
+      "headline": "PwC vai certificar 85 mil profissionais em pensamento crítico na era da IA",
+      "hook": "Consultora investe mais de $100M em programa de simulações para treinar capacidade de questionar resultados de IA.",
+      "for_you": "Oportunidade: modelo de educação corporativa em IA. Se desenvolvendo programas de capacitação para SMBs, use isto como benchmark de investimento/abrangência.",
+      "signal": "🟢",
       "url": "https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia",
-      "source_name": "Sapo Tek",
+      "source_name": "SAPO Tek",
       "image": "https://cdn.teknoticias.pt/uploads/2026/11/pessoas-computador-trabalho-IA-1024x576.jpg"
     },
     {
-      "headline": "DBRS mantém rating de Portugal em A (elevado) com perspetiva positiva.",
-      "hook": "Morningstar DBRS reaffirms Portuguese sovereign debt rating, stable outlook; economy growing stronger than forecast.",
-      "for_you": "Positive macro signal: funding environment for Portuguese SMBs remains stable, no currency/debt shocks expected. Frame this in client pitches: 'Portugal's economy is strong, your AI investment is low-risk.'",
-      "signal": "🟢",
-      "url": "https://eco.sapo.pt/2026/11/13/dbrs-mantem-rating-e-perspetiva-da-divida-publica-portuguesa",
-      "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2017/04/cropped-dbrs.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "headline": "Microsoft 365 recupera após falha global; Portugal afectado",
+      "hook": "Serviços voltaram online após mais de 24h de perturbações. Governo português e sector da saúde foram afectados.",
+      "for_you": "Já coberto, mas impacto em Portugal foi significativo. Reforça oportunidade de vender resiliência/redundância de sistemas para SMBs portugueses como defesa contra vendor lock-in único.",
+      "signal": "🔴",
+      "url": "https://tek.sapo.pt/noticias/internet/artigos/microsoft-365-servicos-em-recuperacao-e-uma-falha-global-ainda-sem-fim-a-vista-o-que-causou-um-dos-maiores-apagoes-da-historia-da-empresa",
+      "source_name": "SAPO Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Microsoft-empresa-logo.png"
     }
   ],
   "world_news": [
     {
-      "headline": "US ground stop: longest since 9/11, software overload not cyber-attack.",
-      "hook": "FAA ordered nationwide flight suspension ~5 hours Friday; old air traffic control equipment failed under load.",
-      "for_you": "Infrastructure fragility signal: AI systems managing critical infrastructure (FAA uses AI for congestion optimization) can fail catastrophically with old hardware. Risk for Portuguese clients: design mission-critical agent workflows with fallback and manual override.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg"
-    },
-    {
-      "headline": "Microsoft services fully restored after day-long global outage.",
-      "hook": "Outlook, Teams, Copilot recovered Friday; server health check failures, not cyber-attack. No ransom demanded.",
-      "for_you": "Single-vendor risk exposed again: European calls intensifying for tech autonomy. Position your agency as multi-cloud, vendor-agnostic alternative for clients uncomfortable with US-only dependencies. This incident is your proof point.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/5f18/live/9b3a5370-df98-11f1-a9ad-6774a3284d10.jpg",
-      "video": {
-        "id": "aWPSVTVfXHw",
-        "title": "Is the Microsoft Outage Over? Latest Update: Cause, Cost & Status #shorts"
-      }
-    },
-    {
-      "headline": "Trump, Putin, Xi plan unprecedented joint summit in China next week.",
-      "hook": "White House confirms three-way meeting in Shenzhen (APEC); Trump to discuss nuclear weapons reduction.",
-      "for_you": "Geopolitical volatility incoming: expect supply chain churn around semiconductors, export controls, tariffs. Advise clients with US/China operations to stress-test AI infrastructure for sanctions scenarios. Insurance for business continuity.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/ckz74jzpy18do",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/172e/live/be162960-dfc9-11f1-81be-1f9bcd2a4214.jpg",
-      "video": {
-        "id": "ZGFnDerWjvE",
-        "title": "Trump, Xi and Putin plan unprecedented joint meeting"
-      }
-    },
-    {
-      "headline": "Starship flight 15 reaches orbit; booster catch attempt ends in water.",
-      "hook": "SpaceX powered Starship to orbit Friday but aborted booster catch mid-flight; splashed down instead of catching.",
-      "for_you": "SpaceX continues rapid launch cadence iteration. Affects satellite launch availability long-term. Relevant if clients need imaging, comms, or GPS services that depend on launch cost/cadence.",
-      "signal": "💡",
-      "url": "https://www.bbc.co.uk/news/articles/ckregdgnl0xpo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1b1a/live/3f2ee680-dfbc-11f1-9e98-11d1980367a2.jpg",
-      "video": {
-        "id": "YQNRi1wT9NA",
-        "title": "Starship Reaches Orbit as Booster Explodes in Gulf"
-      }
-    },
-    {
-      "headline": "Zimbabwean author cleared of AI-generated writing after investigation.",
-      "hook": "Caine Prize (African literature, £10K) winner verified as human-written; AI detection inconclusive but human writing confirmed.",
-      "for_you": "AI detection maturity signal: even specialists couldn't conclusively prove AI authorship. Watermarking or metadata may be more reliable. Relevant if advising Portuguese media/publishing clients on content authenticity policies.",
+      "headline": "Zimbabwean author cleared of AI writing in Caine Prize win",
+      "hook": "Month-long investigation cleared Simbarashe Kundizeza of using AI to write prize-winning story. Declared human-written.",
+      "for_you": "Signal: AI-generated writing detection is difficult and error-prone. Governance around AI-created content is still forming. Relevant if selling content generation tools to SMBs.",
       "signal": "🟡",
       "url": "https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story",
       "source_name": "The Guardian",
       "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b972955b073a4788451a5a67593d810"
+    },
+    {
+      "headline": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
+      "hook": "AI helps researchers decipher Kurt Gödel's handwritten mathematical notebooks, revealing previously unknown proofs.",
+      "for_you": "Signal: AI as research tool for knowledge discovery in unstructured human-generated content. Interesting use case for document understanding agents in academic/scientific sectors.",
+      "signal": "💡",
+      "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/6eeccf216579fe2181ae737d30f31abd7590125c/210_58_1759_1407/master/1759.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=334efc63d7472a97d72be0ffd23af8bb"
+    },
+    {
+      "headline": "FAA ground stop was longest in 25 years; software overload confirmed",
+      "hook": "Third-ever nationwide US FAA ground stop lasted 5+ hours. Root cause: software overload in legacy air traffic control equipment, not cyberattack.",
+      "for_you": "Infrastructure resilience signal. Legacy systems still run critical infrastructure. SMBs: this justifies investment in modernization and redundancy.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo",
+      "source_name": "BBC News",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg"
+    },
+    {
+      "headline": "Microsoft outage impact compared to AWS, CrowdStrike; global disruption",
+      "hook": "Microsoft's 24+ hour outage of Outlook, Teams, Copilot is being compared to AWS and CrowdStrike incidents; arguably worse.",
+      "for_you": "Concentration risk signal. Single vendor failure cascades globally. Marketing angle for Portuguese SMBs: why you need multi-vendor strategy.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o",
+      "source_name": "BBC News",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/5f18/live/9b3a5370-df98-11f1-a9ad-6774a3284d10.jpg",
+      "video": {
+        "id": "Lmurx8-JvIQ",
+        "title": "What is CrowdStrike? Understanding the Company Behind Today's Microsoft Crisis."
+      }
+    },
+    {
+      "headline": "Starship booster catch aborted; fell to ocean instead",
+      "hook": "SpaceX Flight 15 reached orbit but aborted booster catch attempt. Booster landed in water instead.",
+      "for_you": "Engineering signal on iterative risk-taking. SpaceX willing to abort high-stakes operations. Not directly relevant unless building infrastructure systems.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/ckregdgnl0xpo",
+      "source_name": "BBC News",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1b1a/live/3f2ee680-dfbc-11f1-9e98-11d1980367a2.jpg",
+      "video": {
+        "id": "IQLad6Y9RPE",
+        "title": "WOW! Watch SpaceX Land Super Heavy Booster In The Ocean"
+      }
     }
   ],
-  "since_yesterday": null,
+  "since_yesterday": "Microsoft services fully restored after 24+ hour global outage; root cause confirmed as failed server health checks in legacy systems, not cyberattack. FAA ground stop resolved after 5+ hours; confirmed as software overload in air traffic control equipment.",
   "health": {
     "x": {
       "attempted": 15,
@@ -319,8 +458,8 @@
       "errors": []
     },
     "podcasts": {
-      "attempted": 3,
-      "ok": 3,
+      "attempted": 0,
+      "ok": 0,
       "errors": []
     },
     "rss": {

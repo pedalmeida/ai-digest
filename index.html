@@ -460,12 +460,16 @@ html, body {
     <div class="intro-card">
       <div class="intro-top">
         <span class="title-badge">Daily Briefing</span>
-        <details class="health-banner"><summary>Source health</summary><div class="health-rows"><span class="health-item">X/Twitter 15/15</span><span class="health-item">Podcasts 3/3</span><span class="health-item">RSS 22/22</span><span class="health-item">Hacker News 1/1</span><span class="health-item">GitHub Trending 1/1</span></div></details>
+        <details class="health-banner"><summary>Source health</summary><div class="health-rows"><span class="health-item">X/Twitter 15/15</span><span class="health-item">RSS 22/22</span><span class="health-item">Hacker News 1/1</span><span class="health-item">GitHub Trending 1/1</span></div></details>
       </div>
       <div class="intro-greeting">Good morning ☀️</div>
       <h1 class="intro-headline">Daily<br><em>Digest</em></h1>
       <p class="intro-date">Saturday, 14 November 2026</p>
       
+    <div class="since-yesterday">
+      <span class="since-label">Since yesterday</span>
+      <p>Microsoft services fully restored after 24+ hour global outage; root cause confirmed as failed server health checks in legacy systems, not cyberattack. FAA ground stop resolved after 5+ hours; confirmed as software overload in air traffic control equipment.</p>
+    </div>
       
     <div class="signal-legend">
       <span class="legend-item"><span class="legend-dot signal-green"></span>Apply now</span>
@@ -479,55 +483,88 @@ html, body {
       
     <div class="intro-item">
       <button class="intro-item-body" data-goto="2">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;amp;name=large" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Ask LLMs to explain in ASD-STE100 controlled language for precise, parseable output.</span>
-          <span class="intro-item-summary"><strong>ASD-STE100</strong> is a controlled natural language spec from aircraft maintenance; works for any LLM explanation task</span>
-          <a class="intro-item-source" href="https://x.com/karpathy/status/2105819303471976479" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Andrej Karpathy</a>
+          <span class="intro-item-title">Google launches Gemini Decision 1, joining Jev and OpenAI in structured decision model category.</span>
+          <span class="intro-item-summary"><strong>Gemini Decision 1</strong> supports yes/no, choice, and rubric-scoring questions; reuses Jev's &quot;Noul&quot; terminology</span>
+          <a class="intro-item-source" href="https://simonwillison.net/2026/Nov/11/gemini-decisions-api/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Google AI / Simon Willison coverage</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="3">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/6-kHIzfMhBw/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Frameworks must evolve: agents are builders now, not users of your components.</span>
-          <span class="intro-item-summary"><strong>UI SDK becomes x86 instruction set</strong> for agents to spontaneously compose UI components</span>
-          <a class="intro-item-source" href="https://x.com/rauchg/status/2120966768483262648" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Guillermo Rauch</a>
+          <span class="intro-item-title">ChatGPT Wallet and OpenAI Dots now integrated with payment networks for autonomous agent purchasing.</span>
+          <span class="intro-item-summary"><strong>ChatGPT Wallet</strong> lets agents shop and checkout for users across e-commerce</span>
+          <a class="intro-item-source" href="https://x.com/gdb/status/2121295213025194172" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Greg Brockman (OpenAI) / TechCrunch coverage</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="4">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><div class="intro-thumb intro-thumb-fallback">🤖</div></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Fable 5.2 delivers major capability jump; Gemini 4 Hydrogen surprises on accuracy, not just speed.</span>
-          <span class="intro-item-summary"><strong>Fable 5.2 on open-ended work</strong> (design review, strategy, debugging) feels like step beyond Opus 5.5 in reasoning quality, not incremental</span>
-          <a class="intro-item-source" href="https://x.com/alexalbert__/status/2119869724247077229" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Alex Albert &amp; Aaron Levie</a>
+          <span class="intro-item-title">AWS officially released aws-emulator: run tests against AWS services locally without API keys or billing.</span>
+          <span class="intro-item-summary">Written in Rust by <strong>29,684 commits in three weeks</strong> (agents generated most code)</span>
+          <a class="intro-item-source" href="https://simonwillison.net/2026/Nov/11/aws-emulator/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ AWS / Simon Willison coverage</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="5">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://pbs.twimg.com/card_img/2121352617133735936/DOgo4I6L?format=webp&amp;amp;name=medium" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/RiugudzHwDI/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Built an idea-minder agent that refines itself as you use it, not static across sessions.</span>
-          <span class="intro-item-summary"><strong>Recursive self-improvement</strong> pattern: agent retains conversation history and can modify its own instructions based on outcomes</span>
-          <a class="intro-item-source" href="https://x.com/garrytan/status/2121352628915593422" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Garry Tan</a>
+          <span class="intro-item-title">llama.cpp v1.0 released: &quot;A stronger foundation for the local AI ecosystem.&quot;</span>
+          <span class="intro-item-summary">V1.0 milestone signals <strong>production-ready maturity</strong> and API stability after years as experimental</span>
+          <a class="intro-item-source" href="https://huggingface.co/blog/ggml-org/llama-cpp-v1" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ GGML / Hugging Face coverage</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
     </div>
     <div class="intro-item">
       <button class="intro-item-body" data-goto="6">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://pbs.twimg.com/amplify_video_thumb/2120488543948550145/img/xqMZitJQJrtQI9dT?format=webp&amp;amp;name=large" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Work done in spare time with Fable 5.2 equals $200K and 5 full-time staff.</span>
-          <span class="intro-item-summary"><strong>Order-of-magnitude productivity leverage</strong>: customer survey analysis, internal tools, opportunity spotting in &quot;cracks of his week&quot;</span>
-          <a class="intro-item-source" href="https://x.com/danshipper/status/2120539547620790424" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Dan Shipper</a>
+          <span class="intro-item-title">Workflow SDK 5 improves time-to-first-step and step-between latency; security hardened; scale-proven.</span>
+          <span class="intro-item-summary"><strong>Time to first step and time between steps massively improved</strong> (concrete numbers not given but Rauch signals material reduction)</span>
+          <a class="intro-item-source" href="https://x.com/rauchg/status/2121277727940776114" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Guillermo Rauch (Vercel CEO)</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="7">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://techcrunch.com/wp-content/uploads/2026/11/Raising-money.jpg?resize=1200,829" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">LangChain, agent orchestration platform, valued at $3B in latest funding round.</span>
+          <span class="intro-item-summary">Agent orchestration tools now reach <strong>unicorn-class valuation</strong> ($1B+)</span>
+          <a class="intro-item-source" href="https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ LangChain / TechCrunch</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="8">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://pbs.twimg.com/card_img/2120953672314372097/suxA-RXq?format=webp&amp;amp;name=medium" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">OpenAI announces Daybreak Defense Factory and Daybreak Red Team for frontier cyber capabilities.</span>
+          <span class="intro-item-summary"><strong>Two new products</strong> putting frontier cyber capabilities to practical defense use</span>
+          <a class="intro-item-source" href="https://x.com/gdb/status/2121004237413142656" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Greg Brockman (OpenAI)</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="9">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://pbs.twimg.com/card_img/2120972458270298112/NDhUvLJP?format=webp&amp;amp;name=medium" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Builder highlights emerging pattern: simulations with multiverse of competitive agents.</span>
+          <span class="intro-item-summary">Dan Shipper calls @hammer_mt article on competitive agent simulations a <strong>'banger'</strong></span>
+          <a class="intro-item-source" href="https://x.com/danshipper/status/2121024534228897995" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Dan Shipper (Every CEO)</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -537,12 +574,23 @@ html, body {
       <div class="intro-group-label" style="color:#16A34A">🛠️ Build This Week</div>
       
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="8">
+      <button class="intro-item-body" data-goto="11">
         <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">ElevenLabs Meeting App</span>
-          <span class="intro-item-summary">Team meeting tool combining live transcription and automatic note-taking with dictation support. Outputs structured meeting records.</span>
-          <a class="intro-item-source" href="https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ TechCrunch</a>
+          <span class="intro-item-title">llama.cpp v1.0</span>
+          <span class="intro-item-summary">Production-ready local inference engine for running models on-premise without cloud APIs.</span>
+          <a class="intro-item-source" href="https://huggingface.co/blog/ggml-org/llama-cpp-v1" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ GGML Project / GitHub</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="12">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><div class="intro-thumb intro-thumb-fallback">🛠️</div></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Garry Tan's harness eval repo</span>
+          <span class="intro-item-summary">Open-source standard prompt evaluation framework for testing agent/model performance across dimensions.</span>
+          <a class="intro-item-source" href="https://x.com/garrytan/status/2121463161069228382" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ GitHub / X @garrytan</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -552,56 +600,56 @@ html, body {
       <div class="intro-group-label" style="color:#7C3AED">⚙️ Tech</div>
       
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="10">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Product creation still requires extraordinary human focus and attention span.</span>
-          <span class="intro-item-summary">Despite AI, builders need unbroken focus, motivation, and love for the work. AI amplifies human intent; doesn't replace it.</span>
-          <a class="intro-item-source" href="https://x.com/rauchg/status/2120601000176439478" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Guillermo Rauch</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="11">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Autonomous collaborators now standard for knowledge work. Order-of-magnitude productivity shifts confirmed.</span>
-          <span class="intro-item-summary">Combination of coding, computer use, domain reasoning, and agent orchestration brings automation to areas thought impossible before.</span>
-          <a class="intro-item-source" href="https://x.com/levie/status/2119987129204047894" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Aaron Levie</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="12">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://pbs.twimg.com/amplify_video_thumb/2120666837029625856/img/SNrPZKmrBfWgZ7dK?format=webp&amp;amp;name=large" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">44% of AI-native companies now use 2+ model providers, up from 33% in March.</span>
-          <span class="intro-item-summary">Multi-model strategy becoming standard. Builders no longer bet entire inference stack on one vendor.</span>
-          <a class="intro-item-source" href="https://x.com/nikunj/status/2120669243918418237" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Nikunj Kothari</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="13">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Robotics will fall to the bitter lesson: scale and compute beat hand-crafted engineering.</span>
-          <span class="intro-item-summary">Same pattern as language models: massive data + end-to-end learning defeats specialized systems.</span>
-          <a class="intro-item-source" href="https://x.com/alexalbert__/status/2119869925288558799" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Alex Albert</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
       <button class="intro-item-body" data-goto="14">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://pbs.twimg.com/profile_images/1445089558161334279/0nZjx6qu_400x400.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://fortune.com/img-assets/wp-content/uploads/2026/11/GettyImages-2304572308-e1794587995495.jpg?resize=1200,600" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Two company types to build now: diffusion of AI, or AI-native verticals.</span>
-          <span class="intro-item-summary">Diffusion plays (vertical SaaS, rollups, horizontal products) all converge: get AI into domain-specific workflows. Alternative: build AI-native from scratch in an unserved category.</span>
-          <a class="intro-item-source" href="https://x.com/adityaag/status/2120578134177464356" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Aditya Agarwal</a>
+          <span class="intro-item-title">OpenAI disbanded its robotics team as general models prove sufficient for robot control.</span>
+          <span class="intro-item-summary">Signals the <strong>bitter lesson</strong>: scale and compute beat hand-crafted, domain-specific engineering. Robotics no longer needs specialized team.</span>
+          <a class="intro-item-source" href="https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ OpenAI robotics team disbanded</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="15">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://img.youtube.com/vi/sPGITtRfXfo/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Startup proposes floating data centers powered by ocean heat; investors already engaged.</span>
+          <span class="intro-item-summary"><strong>Infrastructure innovation</strong> for AI compute cooling and power: taps ocean thermal differentials for energy.</span>
+          <a class="intro-item-source" href="https://techcrunch.com/2026/11/13/this-young-startup-wants-to-power-floating-data-centers-with-the-oceans-heat-and-investors-are-already-on-board/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Floating ocean data centers</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="16">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://img.youtube.com/vi/SaDnUydLTyw/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">FAA now uses AI to manage air traffic congestion across entire US airspace.</span>
+          <span class="intro-item-summary"><strong>Production deployment</strong> of AI in high-consequence domain (aviation). AI now making real-time routing decisions.</span>
+          <a class="intro-item-source" href="https://arstechnica.com/features/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ FAA expanding AI advice for air traffic management</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="17">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cdn.arstechnica.net/wp-content/uploads/2026/11/ai-destination-1152x648.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">OpenAI board member warns AI 'takeover' of society could occur within months.</span>
+          <span class="intro-item-summary"><strong>Governance signal</strong>: boardroom concern about pace of capability vs. safety/alignment.</span>
+          <a class="intro-item-source" href="https://arstechnica.com/ai/2026/11/ai-is-the-most-likely-reason-youll-die-openai-board-member-warns/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ OpenAI board member warns on AI takeover timeline</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="18">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://wp.technologyreview.com/wp-content/uploads/2026/11/foster-huang2a.jpg?resize=1200,600" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Nvidia privately confirmed feasibility of anti-smuggling chip tracking to Congress.</span>
+          <span class="intro-item-summary"><strong>Supply chain regulation</strong> is moving from discussion to implementation. Nvidia sees tracking as technically feasible.</span>
+          <a class="intro-item-source" href="https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Nvidia chip tracking feasibility confirmed</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -611,56 +659,56 @@ html, body {
       <div class="intro-group-label" style="color:#006400">🇵🇹 PT News</div>
       
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="16">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cdn.jornaldenegocios.pt/images/2026-11/img_1200x676uu2026-11-13-22-11-49-532911.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">FAA ground stop resolved; cascading US flight cancellations Saturday.</span>
-          <span class="intro-item-summary">5+ hour nationwide suspension Friday due to air traffic comm system overload; software issue, not cyber-attack.</span>
-          <a class="intro-item-source" href="https://www.jornaldenegocios.pt/empresas/transportes/aviacao/detalhe/descolagens-nos-eua-suspensas-fbi-nao-acredita-em-ciberataque-problema-de-software-podera-ser-a-causa" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Jornal de Negócios</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="17">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://eco.imgix.net/uploads/2025/10/cropped-45840691-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Microsoft outage fully resolved; Portuguese systems recovered.</span>
-          <span class="intro-item-summary">Day-long global disruption to Outlook, Teams, Copilot; Portuguese government, health, business systems were offline.</span>
-          <a class="intro-item-source" href="https://eco.sapo.pt/2026/11/13/apagao-da-microsoft-mostra-impacto-de-se-depender-de-um-unico-fornecedor" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ ECO</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="18">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/11/Imagem-satelite-CA-03-Forca-Aerea-2.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Satélite português CA-03 envia primeiras imagens da Terra.</span>
-          <span class="intro-item-summary">Portuguese Constellation Atlantic satellite operational; SAR imaging works day/night and in any weather.</span>
-          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/ciencia/artigos/satelite-portugues-ca-03-esta-no-espaco-ha-menos-de-um-mes-e-ja-enviou-as-primeiras-imagens-para-a-terra" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="19">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/11/pessoas-computador-trabalho-IA-1024x576.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">PwC vai certificar 85 mil profissionais em pensamento crítico na era da IA.</span>
-          <span class="intro-item-summary">€100M+ investment in simulations teaching professionals to audit and question AI outputs, not replace human judgment.</span>
-          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ Sapo Tek</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
       <button class="intro-item-body" data-goto="20">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://eco.imgix.net/uploads/2017/04/cropped-dbrs.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/11/6G_-Superficie-inteligente-a-redirecionar-sinais-1024x576.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">DBRS mantém rating de Portugal em A (elevado) com perspetiva positiva.</span>
-          <span class="intro-item-summary">Morningstar DBRS reaffirms Portuguese sovereign debt rating, stable outlook; economy growing stronger than forecast.</span>
-          <a class="intro-item-source" href="https://eco.sapo.pt/2026/11/13/dbrs-mantem-rating-e-perspetiva-da-divida-publica-portuguesa" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ ECO</a>
+          <span class="intro-item-title">Investigadores portugueses desenvolvem protótipo para redes 6G</span>
+          <span class="intro-item-summary">Espelho inteligente controlador de sinais sem fios pode tornar futuras redes móveis mais eficientes.</span>
+          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/investigadores-portugueses-desenvolvem-prototipo-que-pode-ajudar-a-tornar-redes-6g-mais-eficientes" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ SAPO Tek</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="21">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/11/Starlink-Mini-2_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Starlink Mini 2 com bateria amovível e Wi-Fi 6 chega aos EUA</span>
+          <span class="intro-item-summary">Antena portátil nova com bateria até 4,5h, design mais leve e Wi-Fi 6. Pré-venda por $999 nos EUA.</span>
+          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/starlink-mini-2-chega-com-bateria-amovivel-e-wi-fi-6-pre-vendas-ja-abriram-nos-eua-mas-so-por-convite" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ SAPO Tek</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="22">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/e469042db3a20def31f05cdda30e6f9de237302e.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">BrickLink recupera após ciberataque; Lego confirma dados expostos</span>
+          <span class="intro-item-summary">Mercado online de peças Lego voltou online após mais de uma semana offline. Nomes utilizador e IP expostos, mas senhas protegidas.</span>
+          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/internet/artigos/bricklink-ja-regressou-depois-de-um-ciberataque-lego-confirma-acesso-a-nomes-de-utilizador-ip-e-alguns-emails" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ SAPO Tek</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="23">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-green"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/11/pessoas-computador-trabalho-IA-1024x576.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">PwC vai certificar 85 mil profissionais em pensamento crítico na era da IA</span>
+          <span class="intro-item-summary">Consultora investe mais de $100M em programa de simulações para treinar capacidade de questionar resultados de IA.</span>
+          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ SAPO Tek</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="24">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://cdn.teknoticias.pt/uploads/2026/11/Microsoft-empresa-logo.png" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Microsoft 365 recupera após falha global; Portugal afectado</span>
+          <span class="intro-item-summary">Serviços voltaram online após mais de 24h de perturbações. Governo português e sector da saúde foram afectados.</span>
+          <a class="intro-item-source" href="https://tek.sapo.pt/noticias/internet/artigos/microsoft-365-servicos-em-recuperacao-e-uma-falha-global-ainda-sem-fim-a-vista-o-que-causou-um-dos-maiores-apagoes-da-historia-da-empresa" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ SAPO Tek</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -670,56 +718,56 @@ html, body {
       <div class="intro-group-label" style="color:#1D4ED8">🌍 World News</div>
       
     <div class="intro-item">
-      <button class="intro-item-body" data-goto="22">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">US ground stop: longest since 9/11, software overload not cyber-attack.</span>
-          <span class="intro-item-summary">FAA ordered nationwide flight suspension ~5 hours Friday; old air traffic control equipment failed under load.</span>
-          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="23">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/aWPSVTVfXHw/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Microsoft services fully restored after day-long global outage.</span>
-          <span class="intro-item-summary">Outlook, Teams, Copilot recovered Friday; server health check failures, not cyber-attack. No ransom demanded.</span>
-          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/c6rrg51rkz09o" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="24">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/ZGFnDerWjvE/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Trump, Putin, Xi plan unprecedented joint summit in China next week.</span>
-          <span class="intro-item-summary">White House confirms three-way meeting in Shenzhen (APEC); Trump to discuss nuclear weapons reduction.</span>
-          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/ckz74jzpy18do" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
-      <button class="intro-item-body" data-goto="25">
-        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://img.youtube.com/vi/YQNRi1wT9NA/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
-        <span class="intro-item-text">
-          <span class="intro-item-title">Starship flight 15 reaches orbit; booster catch attempt ends in water.</span>
-          <span class="intro-item-summary">SpaceX powered Starship to orbit Friday but aborted booster catch mid-flight; splashed down instead of catching.</span>
-          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/ckregdgnl0xpo" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC World</a>
-        </span>
-        <span class="intro-item-arrow">→</span>
-      </button>
-    </div>
-    <div class="intro-item">
       <button class="intro-item-body" data-goto="26">
         <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=2b972955b073a4788451a5a67593d810" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
         <span class="intro-item-text">
-          <span class="intro-item-title">Zimbabwean author cleared of AI-generated writing after investigation.</span>
-          <span class="intro-item-summary">Caine Prize (African literature, £10K) winner verified as human-written; AI detection inconclusive but human writing confirmed.</span>
+          <span class="intro-item-title">Zimbabwean author cleared of AI writing in Caine Prize win</span>
+          <span class="intro-item-summary">Month-long investigation cleared Simbarashe Kundizeza of using AI to write prize-winning story. Declared human-written.</span>
           <a class="intro-item-source" href="https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ The Guardian</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="27">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-blue"></span><img class="intro-thumb" src="https://i.guim.co.uk/img/media/6eeccf216579fe2181ae737d30f31abd7590125c/210_58_1759_1407/master/1759.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=334efc63d7472a97d72be0ffd23af8bb" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems</span>
+          <span class="intro-item-summary">AI helps researchers decipher Kurt Gödel's handwritten mathematical notebooks, revealing previously unknown proofs.</span>
+          <a class="intro-item-source" href="https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ The Guardian</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="28">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">FAA ground stop was longest in 25 years; software overload confirmed</span>
+          <span class="intro-item-summary">Third-ever nationwide US FAA ground stop lasted 5+ hours. Root cause: software overload in legacy air traffic control equipment, not cyberattack.</span>
+          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC News</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="29">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-red"></span><img class="intro-thumb" src="https://img.youtube.com/vi/Lmurx8-JvIQ/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Microsoft outage impact compared to AWS, CrowdStrike; global disruption</span>
+          <span class="intro-item-summary">Microsoft's 24+ hour outage of Outlook, Teams, Copilot is being compared to AWS and CrowdStrike incidents; arguably worse.</span>
+          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/c6rrg51rkz09o" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC News</a>
+        </span>
+        <span class="intro-item-arrow">→</span>
+      </button>
+    </div>
+    <div class="intro-item">
+      <button class="intro-item-body" data-goto="30">
+        <span class="intro-thumb-wrap"><span class="intro-signal-dot signal-yellow"></span><img class="intro-thumb" src="https://img.youtube.com/vi/IQLad6Y9RPE/hqdefault.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;intro-thumb intro-thumb-fallback&quot;>📰</div>'"></span>
+        <span class="intro-item-text">
+          <span class="intro-item-title">Starship booster catch aborted; fell to ocean instead</span>
+          <span class="intro-item-summary">SpaceX Flight 15 reached orbit but aborted booster catch attempt. Booster landed in water instead.</span>
+          <a class="intro-item-source" href="https://www.bbc.co.uk/news/articles/ckregdgnl0xpo" target="_blank" rel="noopener" onclick="event.stopPropagation()">↗ BBC News</a>
         </span>
         <span class="intro-item-arrow">→</span>
       </button>
@@ -743,37 +791,37 @@ html, body {
   <div class="slide" data-i="2">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/media/HTlaHqgbwAAS1lv?format=webp&amp;amp;name=large" alt="Ask LLMs to explain in ASD-STE100 controlled language for precise, parseable output." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/@karpathy" alt="" onerror="this.style.display='none'">
+          
           <div class="author-text">
-            <div class="author-name">Andrej Karpathy</div>
-            <div class="author-role">AI researcher</div>
+            <div class="author-name">Google AI / Simon Willison coverage</div>
+            <div class="author-role">Google Research | Blog aggregator</div>
           </div>
         </div>
-        <p class="hook-text">Ask LLMs to explain in ASD-STE100 controlled language for precise, parseable output.</p>
-        <span class="signal-badge signal-blue">💡 Learn</span>
+        <p class="hook-text">Google launches Gemini Decision 1, joining Jev and OpenAI in structured decision model category.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
         <div class="card-index">02</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Prompting patterns for LLM reliability</div><p>ASD-STE100 originated in aviation documentation to reduce ambiguity in critical systems. Karpathy suggests it as a general pattern for improving LLM output quality and parseability, not just aviation.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>New pattern observation from top AI researcher, not a product release.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · developing</div><div class="thread-title">Decision Models as Emerging Standard Category</div><p>Decision models are purpose-built to output deterministic structured answers (yes/no/choice/score) rather than free-form text. This emerged ~Nov 11 with Jev, now Google and OpenAI have entered. It signals the model market is segmenting beyond general-purpose reasoning.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>Google's entry confirms this is becoming a standard category, not a one-off from one lab.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>ASD-STE100</strong> is a controlled natural language spec from aircraft maintenance; works for any LLM explanation task</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Forces LLMs to reduce ambiguity and produce machine-readable output that downstream systems can parse reliably</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Shifts from free-form prose to structured, constraint-aware explanations</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Gemini Decision 1</strong> supports yes/no, choice, and rubric-scoring questions; reuses Jev's &quot;Noul&quot; terminology</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Priced at <strong>same cost as GPT-6 Luna</strong> (~$0.10/M input tokens), suggesting commoditization</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Three major labs (OpenAI, Anthropic via Jev, Google) now offering decision-specific models signals category maturity</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Test this with client stakeholder communication: when Claude needs to explain a technical recommendation to a non-technical SMB owner, ask it to use ASD-STE100 rules. Produces cleaner, more actionable output than vanilla LLM prose. Try this week on next client call.</p>
+          <p class="for-you-text">If your SMB agency builds agents that make structured decisions repeatedly (lead scoring, customer routing, workflow triage), decision models could reduce costs and improve reliability vs. using general-purpose models for the same task. Test one workflow that makes 100+ decisions/week.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>test, on the next client explanation that needs clarity and structure</p></div>
-        <p class="why-cut">Why this made the cut: High-engagement builder signal with immediately practical application to Pedro's agency work</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>watch - Test with one SMB workflow that makes high-volume structured decisions. See if decision model beats general model on cost and consistency.</p></div>
+        <p class="why-cut">Why this made the cut: Only real model category entry today; signals market segmentation shift.</p>
         <div class="url-row">
-    <a class="source-url" href="https://x.com/karpathy/status/2105819303471976479" target="_blank" rel="noopener">↗ x.com/karpathy/status/2105819303471976479</a></div>
+    <a class="source-url" href="https://simonwillison.net/2026/Nov/11/gemini-decisions-api/" target="_blank" rel="noopener">↗ simonwillison.net/2026/Nov/11/gemini-decis</a></div>
       </div>
     </div>
   </div>
@@ -781,37 +829,42 @@ html, body {
   <div class="slide" data-i="3">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg" alt="Frameworks must evolve: agents are builders now, not users of your components." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        
+    <div class="card-video" data-yt-id="6-kHIzfMhBw">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/6-kHIzfMhBw" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_400x400.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/@rauchg" alt="" onerror="this.style.display='none'">
+          <img class="author-avatar" src="https://unavatar.io/twitter/gdb" alt="" onerror="this.style.display='none'">
           <div class="author-text">
-            <div class="author-name">Guillermo Rauch</div>
-            <div class="author-role">CEO, Vercel</div>
+            <div class="author-name">Greg Brockman (OpenAI) / TechCrunch coverage</div>
+            <div class="author-role">President &amp; Co-Founder @OpenAI | Technology reporter</div>
           </div>
         </div>
-        <p class="hook-text">Frameworks must evolve: agents are builders now, not users of your components.</p>
-        <span class="signal-badge signal-blue">💡 Learn</span>
+        <p class="hook-text">ChatGPT Wallet and OpenAI Dots now integrated with payment networks for autonomous agent purchasing.</p>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">03</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Framework architecture for agent-first development</div><p>Rauch is rethinking React, Tailwind, and component libraries in an agents-first era. Rather than building for human developers, frameworks should support agents generating new UI dynamically and reliably.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>New architectural perspective from platform leader.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Agents Can Now Transact Autonomously</div><p>Prior to this, agents could browse and research but not spend money. Autonomous transactions open new classes of agentic workflows. Payment networks' participation signals this is moving from experimental to production-safe.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>Agents previously could assist with purchasing decisions; now they can execute transactions end-to-end with user-set limits.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>UI SDK becomes x86 instruction set</strong> for agents to spontaneously compose UI components</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Component libraries, frameworks, design systems must 'drill deeper' — delete unnecessary abstractions, optimize for agent composition</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Shadcn-style component philosophy extends: agents pick components based on capability, not developer preference</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>ChatGPT Wallet</strong> lets agents shop and checkout for users across e-commerce</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>OpenAI Dots</strong> integrated with American Express, Mastercard, Visa for secure transactions</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Signals trust model for agentic spending is now formalized and trusted by major payment networks</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">When you design agent-facing APIs or integrations for SMB clients, treat agents as first-class builders, not users. Expose named, granular tools; prefer markdown-structured data over nested configs; allow agents to assemble and register autonomously. File this for your next product design.</p>
+          <p class="for-you-text">Portuguese SMBs can now have agents autonomously handle purchasing: office supplies reordering, vendor payments, subscriptions, reservations. This is a new service offering for your agency. Map which client workflows could benefit (e.g., e-commerce retailer restocking, service provider subscription management).</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>watch, as a design principle for future agent-facing tools and APIs</p></div>
-        <p class="why-cut">Why this made the cut: Strategic framework thinking directly relevant to how Pedro's agents will interact with client systems</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>investigate - Map 3-5 SMB workflows where agent-driven autonomous purchasing would save time/cost. Prototype with one client by end of week.</p></div>
+        <p class="why-cut">Why this made the cut: New capability unlocks new agent use cases; directly testable this week.</p>
         <div class="url-row">
-    <a class="source-url" href="https://x.com/rauchg/status/2120966768483262648" target="_blank" rel="noopener">↗ x.com/rauchg/status/2120966768483262648</a></div>
+    <a class="source-url" href="https://x.com/gdb/status/2121295213025194172" target="_blank" rel="noopener">↗ x.com/gdb/status/2121295213025194172</a>
+    <a class="source-url" href="https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/" target="_blank" rel="noopener">↗ techcrunch.com/2026/11/13/chatgpts-new-wal</a></div>
       </div>
     </div>
   </div>
@@ -819,38 +872,37 @@ html, body {
   <div class="slide" data-i="4">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg" alt="Fable 5.2 delivers major capability jump; Gemini 4 Hydrogen surprises on accuracy, not just speed." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/@alexalbert__ @levie" alt="" onerror="this.style.display='none'">
+          
           <div class="author-text">
-            <div class="author-name">Alex Albert &amp; Aaron Levie</div>
-            <div class="author-role">Researcher, Anthropic; CEO, Box</div>
+            <div class="author-name">AWS / Simon Willison coverage</div>
+            <div class="author-role">Amazon Web Services | Technical blogger</div>
           </div>
         </div>
-        <p class="hook-text">Fable 5.2 delivers major capability jump; Gemini 4 Hydrogen surprises on accuracy, not just speed.</p>
+        <p class="hook-text">AWS officially released aws-emulator: run tests against AWS services locally without API keys or billing.</p>
         <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">04</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · developing</div><div class="thread-title">Empirical model selection data for workflow decisions</div><p>Practitioners are calibrating model choice based on real workflow evidence, not benchmarks. Levie and Albert provide feedback from enterprise testing, not lab results.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>Concrete practitioner feedback on model differentiation; Hydrogen success signals competition in fast-model tier.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">AWS Emulator Released for Local Agent Testing</div><p>Previously, testing AWS integrations required provisioning real AWS resources, adding cost and latency to development. This is the first official AWS emulator.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>New official tool available; agent-based development shows feasibility of massive code generation in short time.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Fable 5.2 on open-ended work</strong> (design review, strategy, debugging) feels like step beyond Opus 5.5 in reasoning quality, not incremental</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Gemini 4 Hydrogen +5pp accuracy</strong> over Flash 3.8; fast models now competitive on quality, not just latency, for enterprise work</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Model choice is now workflow-specific, not tier-based: pick Fable for reasoning, Hydrogen for efficiency, Opus for safety</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Written in Rust by <strong>29,684 commits in three weeks</strong> (agents generated most code)</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Supports local clone of AWS services (S3, Lambda, CloudWatch, RDS, etc.) for testing</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Removes friction from agent development that depends on AWS infrastructure</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Update your model selection rubric for client projects. Fable 5.2 should be default for strategy/analysis work; Hydrogen for cost-constrained automations; test both before committing to Opus for legacy projects. This shapes your pricing and SLA positioning.</p>
+          <p class="for-you-text">If you build agent workflows for SMBs that touch AWS (storage, compute, monitoring), you can now test locally and iterate faster without AWS billing or API key management. Speeds up iteration cycles. Include in your infrastructure setup for new agency projects.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>use_now, in next model evaluation for a client RFP</p></div>
-        <p class="why-cut">Why this made the cut: Direct evidence for model selection decisions that affect pricing and delivery timelines</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>test - Integrate aws-emulator into one agency infrastructure template. Measure iteration speed improvement on one client project using AWS.</p></div>
+        <p class="why-cut">Why this made the cut: Only official AWS emulator; immediately useful for agency infrastructure.</p>
         <div class="url-row">
-    <a class="source-url" href="https://x.com/alexalbert__/status/2119869724247077229" target="_blank" rel="noopener">↗ x.com/alexalbert__/status/2119869724247077</a>
-    <a class="source-url" href="https://x.com/levie/status/2120947988143198302" target="_blank" rel="noopener">↗ x.com/levie/status/2120947988143198302</a></div>
+    <a class="source-url" href="https://simonwillison.net/2026/Nov/11/aws-emulator/" target="_blank" rel="noopener">↗ simonwillison.net/2026/Nov/11/aws-emulator</a></div>
       </div>
     </div>
   </div>
@@ -858,37 +910,41 @@ html, body {
   <div class="slide" data-i="5">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/card_img/2121352617133735936/DOgo4I6L?format=webp&amp;amp;name=medium" alt="Built an idea-minder agent that refines itself as you use it, not static across sessions." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        
+    <div class="card-video" data-yt-id="RiugudzHwDI">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/RiugudzHwDI" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://cdn-uploads.huggingface.co/production/uploads/63148d3b996c52bf0142cdbe/2PgU1GxpJX_LVORaP2RRy.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/@garrytan" alt="" onerror="this.style.display='none'">
+          
           <div class="author-text">
-            <div class="author-name">Garry Tan</div>
-            <div class="author-role">CEO, Y Combinator</div>
+            <div class="author-name">GGML / Hugging Face coverage</div>
+            <div class="author-role">GGML Project | Hugging Face blog</div>
           </div>
         </div>
-        <p class="hook-text">Built an idea-minder agent that refines itself as you use it, not static across sessions.</p>
-        <span class="signal-badge signal-blue">💡 Learn</span>
+        <p class="hook-text">llama.cpp v1.0 released: &quot;A stronger foundation for the local AI ecosystem.&quot;</p>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
         <div class="card-index">05</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Agents that recursively improve from their own use</div><p>Rather than retraining models or fine-tuning, Tan's approach uses conversation state to evolve agent behavior without code changes. Portable across models.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>New agent design pattern from YC leader.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">llama.cpp Reaches v1.0: Local AI Foundation Mature</div><p>llama.cpp is the foundational local inference engine. V1.0 is a major stability/API guarantee milestone, not a new feature release.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>Reaching v1.0 signals the project has moved from experimental to production-grade, suitable for commercial deployments.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Recursive self-improvement</strong> pattern: agent retains conversation history and can modify its own instructions based on outcomes</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Unlike one-shot agents, improvements compound over repeated use and feedback</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Creates a form of localized adaptation: each user's agent becomes specialized to their domain and thinking patterns</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>V1.0 milestone signals <strong>production-ready maturity</strong> and API stability after years as experimental</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Enables self-hosted, offline-capable agents for privacy-sensitive or air-gapped SMB deployments</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Reduces dependency on cloud APIs; opens on-premise option for regulated sectors (healthcare, finance, government)</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Offer this as a premium service tier for your SMB clients: 'Adaptive Agent' that learns client workflows over time and adjusts its prompts/tools accordingly. Requires multi-turn history + instruction-editing capability. Test with internal project first.</p>
+          <p class="for-you-text">Portuguese SMBs in regulated sectors (fintech, health, government) can now justify on-premise AI. Messaging shifts from 'AI lives in cloud' to 'AI can run on your servers.' New sales angle: local-first AI for compliance and data residency. Test one quantized model on customer hardware this week.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>investigate, whether your agent framework supports instruction-editing and persistent state</p></div>
-        <p class="why-cut">Why this made the cut: Practical pattern for value-add agent product differentiation</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>use_now - Test running a quantized model (3B-7B) via llama.cpp on one SMB's local infrastructure. Document setup and performance. Use as case study for privacy-first pitch.</p></div>
+        <p class="why-cut">Why this made the cut: Version milestone signals ecosystem maturity; opens new market positioning for agency.</p>
         <div class="url-row">
-    <a class="source-url" href="https://x.com/garrytan/status/2121352628915593422" target="_blank" rel="noopener">↗ x.com/garrytan/status/2121352628915593422</a></div>
+    <a class="source-url" href="https://huggingface.co/blog/ggml-org/llama-cpp-v1" target="_blank" rel="noopener">↗ huggingface.co/blog/ggml-org/llama-cpp-v1</a></div>
       </div>
     </div>
   </div>
@@ -896,42 +952,156 @@ html, body {
   <div class="slide" data-i="6">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/amplify_video_thumb/2120488543948550145/img/xqMZitJQJrtQI9dT?format=webp&amp;amp;name=large" alt="Work done in spare time with Fable 5.2 equals $200K and 5 full-time staff." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg" alt="Workflow SDK 5 improves time-to-first-step and step-between latency; security hardened; scale-proven." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/@danshipper" alt="" onerror="this.style.display='none'">
+          <img class="author-avatar" src="https://unavatar.io/twitter/rauchg" alt="" onerror="this.style.display='none'">
           <div class="author-text">
-            <div class="author-name">Dan Shipper</div>
-            <div class="author-role">CEO, Every</div>
+            <div class="author-name">Guillermo Rauch (Vercel CEO)</div>
+            <div class="author-role">CEO @Vercel</div>
           </div>
         </div>
-        <p class="hook-text">Work done in spare time with Fable 5.2 equals $200K and 5 full-time staff.</p>
-        <span class="signal-badge signal-green">🟢 Apply now</span>
+        <p class="hook-text">Workflow SDK 5 improves time-to-first-step and step-between latency; security hardened; scale-proven.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
         <div class="card-index">06</div>
       </div>
       <div class="card-right">
-        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Quantifying agent productivity for pricing and positioning</div><p>Shipper is quantifying what 'autonomous collaborators' means in business terms. Not just feature parity with humans, but leverage.</p></div>
-        <div class="right-section"><div class="section-label">What changed</div><p>Concrete productivity anchor from CEO running AI-native company.</p></div>
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Vercel Workflows SDK 5: Latency and Security Hardened</div><p>Workflow orchestration latency directly impacts agent responsiveness. Security and scale proof are table-stakes for production.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>Concrete infrastructure improvements to latency, security, and scale validation for workflow orchestration.</p></div>
         
         <div class="right-section">
           <div class="section-label">Key signals</div>
           <ul class="insight-list">
-    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Order-of-magnitude productivity leverage</strong>: customer survey analysis, internal tools, opportunity spotting in &quot;cracks of his week&quot;</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>Tasks that would require contractor hiring, project budget, or team coordination happen solo in spare time</span></li>
-    <li class="insight-item"><span class="insight-dot">◆</span><span>This is repeatable, not one-off: pattern is systematic use of capable models on unstructured knowledge work</span></li></ul>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Time to first step and time between steps massively improved</strong> (concrete numbers not given but Rauch signals material reduction)</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Security hardened</strong> for production agent workloads</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Reliability proven at scale</strong> across production customers</span></li></ul>
         </div>
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Use this ROI anchor in your agency pitch to SMBs. Formula: 'Work equivalent to hiring a $200K contractor role, done by one person in spare time.' Adjust for Portuguese market and client size. Test this messaging on your next proposal.</p>
+          <p class="for-you-text">If deploying agents on Vercel's platform, this update means faster step execution (better end-user latency and UX) and production-grade security. If evaluating platforms for agent orchestration, this is a material improvement in Vercel's offer vs. Temporal/other options.</p>
         </div>
-        <div class="right-section"><div class="section-label">Recommended action</div><p>use_now, in next client ROI calculation and pitch</p></div>
-        <p class="why-cut">Why this made the cut: Direct evidence for value messaging and pricing justification to SMB clients</p>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>watch - If using Vercel, benchmark the new SDK. If evaluating platforms, use this as comparison point vs. Temporal, Encore, others.</p></div>
+        <p class="why-cut">Why this made the cut: Concrete infrastructure improvements for workflow platforms; relevant if using Vercel.</p>
         <div class="url-row">
-    <a class="source-url" href="https://x.com/danshipper/status/2120539547620790424" target="_blank" rel="noopener">↗ x.com/danshipper/status/212053954762079042</a></div>
+    <a class="source-url" href="https://x.com/rauchg/status/2121277727940776114" target="_blank" rel="noopener">↗ x.com/rauchg/status/2121277727940776114</a></div>
       </div>
     </div>
   </div>
 
   <div class="slide" data-i="7">
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://techcrunch.com/wp-content/uploads/2026/11/Raising-money.jpg?resize=1200,829" alt="LangChain, agent orchestration platform, valued at $3B in latest funding round." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">LangChain / TechCrunch</div>
+            <div class="author-role">Agent orchestration platform | Technology reporter</div>
+          </div>
+        </div>
+        <p class="hook-text">LangChain, agent orchestration platform, valued at $3B in latest funding round.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">07</div>
+      </div>
+      <div class="card-right">
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">LangChain Reaches $3B Valuation</div><p>LangChain is one of the main open-source agent orchestration platforms. Unicorn status validates the market exists.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>New funding milestone; validates the market for agent orchestration platforms.</p></div>
+        
+        <div class="right-section">
+          <div class="section-label">Key signals</div>
+          <ul class="insight-list">
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Agent orchestration tools now reach <strong>unicorn-class valuation</strong> ($1B+)</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Signals sustained capital and market confidence in tooling separate from model providers</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>LangChain likely to remain viable long-term; reduces platform lock-in risk</span></li></ul>
+        </div>
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">If building on LangChain, this valuation signals long-term viability and ongoing investment in ecosystem. Reduces risk of platform deprecation. Also signals strong venture demand for agent orchestration tools.</p>
+        </div>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>watch - If on LangChain, this reduces platform risk. If evaluating, it signals LangChain is likely to remain a primary player.</p></div>
+        <p class="why-cut">Why this made the cut: Market validation signal; directly relevant if using LangChain.</p>
+        <div class="url-row">
+    <a class="source-url" href="https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/" target="_blank" rel="noopener">↗ techcrunch.com/2026/11/13/ai-agent-startup</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="8">
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/card_img/2120953672314372097/suxA-RXq?format=webp&amp;amp;name=medium" alt="OpenAI announces Daybreak Defense Factory and Daybreak Red Team for frontier cyber capabilities." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          <img class="author-avatar" src="https://unavatar.io/twitter/gdb" alt="" onerror="this.style.display='none'">
+          <div class="author-text">
+            <div class="author-name">Greg Brockman (OpenAI)</div>
+            <div class="author-role">President &amp; Co-Founder @OpenAI</div>
+          </div>
+        </div>
+        <p class="hook-text">OpenAI announces Daybreak Defense Factory and Daybreak Red Team for frontier cyber capabilities.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">08</div>
+      </div>
+      <div class="card-right">
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">OpenAI Launches Daybreak Cyber Products</div><p>Cyber is a natural first specialization: high-value market, government customers, clear ROI measurable.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>New product category from OpenAI; signals model specialization strategy.</p></div>
+        
+        <div class="right-section">
+          <div class="section-label">Key signals</div>
+          <ul class="insight-list">
+    <li class="insight-item"><span class="insight-dot">◆</span><span><strong>Two new products</strong> putting frontier cyber capabilities to practical defense use</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Signals OpenAI expanding product surface beyond chat/general agents into specialized domains</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Likely targeting government/defense customers given cyber domain</span></li></ul>
+        </div>
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Not directly actionable unless you're building cyber defense tools. File as a signal: OpenAI is specializing frontier models into specific domains. May create defensive pressure to specialize your own agent offerings.</p>
+        </div>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>ignore - Not your market unless pivoting to cyber defense. Monitor for patterns if OpenAI specializes further.</p></div>
+        <p class="why-cut">Why this made the cut: New OpenAI product line; signals strategy shift to specialization.</p>
+        <div class="url-row">
+    <a class="source-url" href="https://x.com/gdb/status/2121004237413142656" target="_blank" rel="noopener">↗ x.com/gdb/status/2121004237413142656</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="9">
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/card_img/2120972458270298112/NDhUvLJP?format=webp&amp;amp;name=medium" alt="Builder highlights emerging pattern: simulations with multiverse of competitive agents." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          <img class="author-avatar" src="https://unavatar.io/twitter/danshipper" alt="" onerror="this.style.display='none'">
+          <div class="author-text">
+            <div class="author-name">Dan Shipper (Every CEO)</div>
+            <div class="author-role">CEO @Every (AI newsletter)</div>
+          </div>
+        </div>
+        <p class="hook-text">Builder highlights emerging pattern: simulations with multiverse of competitive agents.</p>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="card-index">09</div>
+      </div>
+      <div class="card-right">
+        <div class="thread-box"><div class="thread-label">Story thread · new</div><div class="thread-title">Competitive Agent Simulations Emerging as Design Pattern</div><p>This is still an exploratory signal from a builder, not yet mainstream. Hammer's article likely explores game theory, multi-agent coordination, or evolutionary dynamics.</p></div>
+        <div class="right-section"><div class="section-label">What changed</div><p>New architecture pattern identified by high-signal builder.</p></div>
+        
+        <div class="right-section">
+          <div class="section-label">Key signals</div>
+          <ul class="insight-list">
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Dan Shipper calls @hammer_mt article on competitive agent simulations a <strong>'banger'</strong></span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Pattern: organizations of competitive agents in simulated environments</span></li>
+    <li class="insight-item"><span class="insight-dot">◆</span><span>Represents emerging architectural approach beyond single-agent systems</span></li></ul>
+        </div>
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Interesting architectural pattern to understand, not yet immediately actionable. Could become relevant for testing decision-making agents, competitive scenarios, or organizational simulations. File as emerging design pattern to explore in Q4.</p>
+        </div>
+        <div class="right-section"><div class="section-label">Recommended action</div><p>investigate - Read @hammer_mt's article on competitive agent simulations. Assess relevance to your testing/evaluation workflows.</p></div>
+        <p class="why-cut">Why this made the cut: Early signal from high-credibility builder on emerging pattern.</p>
+        <div class="url-row">
+    <a class="source-url" href="https://x.com/danshipper/status/2121024534228897995" target="_blank" rel="noopener">↗ x.com/danshipper/status/212102453422889799</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="10">
     <div class="section-card" style="--sec-color:#16A34A;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
       <div class="section-card__inner">
         <div class="section-emoji">🛠️</div>
@@ -942,30 +1112,53 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="8">
+  <div class="slide" data-i="11">
     <div class="content-card">
       <div class="card-left">
         <div class="author-block">
           <div class="build-icon">🛠️</div>
           <div class="author-text">
-            <div class="author-name">ElevenLabs Meeting App</div>
-            <div class="author-role">TechCrunch</div>
+            <div class="author-name">llama.cpp v1.0</div>
+            <div class="author-role">GGML Project / GitHub</div>
           </div>
         </div>
-        <p class="hook-text">Team meeting tool combining live transcription and automatic note-taking with dictation support. Outputs structured meeting records.</p>
-        <div class="card-index">08</div>
+        <p class="hook-text">Production-ready local inference engine for running models on-premise without cloud APIs.</p>
+        <div class="card-index">11</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">Try this</div>
-          <p class="for-you-text">Use for your team's internal meetings first: test whether Claude can extract action items, decisions, and stakeholders from raw transcripts. If it works cleanly, become a distribution channel: offer this to SMB clients as a meeting-to-action-items pipeline, powered by your agent.</p>
+          <p class="for-you-text">Test one quantized model (3B-7B) on SMB customer hardware this week. Document setup, performance, compliance benefits for privacy-first pitch to regulated sectors.</p>
         </div>
-        <div class="url-row"><a class="source-url" href="https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/" target="_blank" rel="noopener">↗ Open link</a></div>
+        <div class="url-row"><a class="source-url" href="https://huggingface.co/blog/ggml-org/llama-cpp-v1" target="_blank" rel="noopener">↗ Open link</a></div>
       </div>
     </div>
   </div>
 
-  <div class="slide" data-i="9">
+  <div class="slide" data-i="12">
+    <div class="content-card">
+      <div class="card-left">
+        <div class="author-block">
+          <div class="build-icon">🛠️</div>
+          <div class="author-text">
+            <div class="author-name">Garry Tan's harness eval repo</div>
+            <div class="author-role">GitHub / X @garrytan</div>
+          </div>
+        </div>
+        <p class="hook-text">Open-source standard prompt evaluation framework for testing agent/model performance across dimensions.</p>
+        <div class="card-index">12</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">Try this</div>
+          <p class="for-you-text">Run evals on your current agent systems to establish baselines. Use as part of weekly model upgrade testing (run same harness on Fable 5.2 vs. Opus 5.5, etc.).</p>
+        </div>
+        <div class="url-row"><a class="source-url" href="https://x.com/garrytan/status/2121463161069228382" target="_blank" rel="noopener">↗ Open link</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="13">
     <div class="section-card" style="--sec-color:#7C3AED;--sec-bg:#F5F3FF;--sec-border:#DDD6FE">
       <div class="section-card__inner">
         <div class="section-emoji">⚙️</div>
@@ -976,142 +1169,18 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="10">
-    <div class="content-card">
-      <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg" alt="Product creation still requires extraordinary human focus and attention span." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/rauchg" alt="" onerror="this.style.display='none'">
-          <div class="author-text">
-            <div class="author-name">Guillermo Rauch</div>
-            <div class="author-role">CEO, Vercel</div>
-          </div>
-        </div>
-        <p class="hook-text">Product creation still requires extraordinary human focus and attention span.</p>
-        <span class="signal-badge signal-blue">💡 Learn</span>
-        <div class="card-index">10</div>
-      </div>
-      <div class="card-right">
-        
-        
-        
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Protect your agency team's focus time and autonomy. AI handles execution and iteration, but you and your team still need deep thinking time for strategy and design decisions. Don't automate that away.</p>
-        </div>
-        
-        
-        <div class="url-row">
-    <a class="source-url" href="https://x.com/rauchg/status/2120601000176439478" target="_blank" rel="noopener">↗ x.com/rauchg/status/2120601000176439478</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="11">
-    <div class="content-card">
-      <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg" alt="Autonomous collaborators now standard for knowledge work. Order-of-magnitude productivity shifts confirmed." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/levie" alt="" onerror="this.style.display='none'">
-          <div class="author-text">
-            <div class="author-name">Aaron Levie</div>
-            <div class="author-role">CEO, Box</div>
-          </div>
-        </div>
-        <p class="hook-text">Autonomous collaborators now standard for knowledge work. Order-of-magnitude productivity shifts confirmed.</p>
-        <span class="signal-badge signal-green">🟢 Apply now</span>
-        <div class="card-index">11</div>
-      </div>
-      <div class="card-right">
-        
-        
-        
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Pitch to SMBs: if they use knowledge workers (analysts, operators, coordinators), agents now handle that workload. Your agency's job is to teach them how to reshape the role, not replace the person.</p>
-        </div>
-        
-        
-        <div class="url-row">
-    <a class="source-url" href="https://x.com/levie/status/2119987129204047894" target="_blank" rel="noopener">↗ x.com/levie/status/2119987129204047894</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="12">
-    <div class="content-card">
-      <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/amplify_video_thumb/2120666837029625856/img/SNrPZKmrBfWgZ7dK?format=webp&amp;amp;name=large" alt="44% of AI-native companies now use 2+ model providers, up from 33% in March." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/nikunj" alt="" onerror="this.style.display='none'">
-          <div class="author-text">
-            <div class="author-name">Nikunj Kothari</div>
-            <div class="author-role">Partner, FPV Ventures</div>
-          </div>
-        </div>
-        <p class="hook-text">44% of AI-native companies now use 2+ model providers, up from 33% in March.</p>
-        <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="card-index">12</div>
-      </div>
-      <div class="card-right">
-        
-        
-        
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Build your agent infrastructure to swap models at runtime. This is now table stakes for competitive positioning: client wants to test Fable? Use it. Wants Gemini for cost? Switch it. Multi-model agility is a feature.</p>
-        </div>
-        
-        
-        <div class="url-row">
-    <a class="source-url" href="https://x.com/nikunj/status/2120669243918418237" target="_blank" rel="noopener">↗ x.com/nikunj/status/2120669243918418237</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="13">
-    <div class="content-card">
-      <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg" alt="Robotics will fall to the bitter lesson: scale and compute beat hand-crafted engineering." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/alexalbert__" alt="" onerror="this.style.display='none'">
-          <div class="author-text">
-            <div class="author-name">Alex Albert</div>
-            <div class="author-role">Researcher, Anthropic</div>
-          </div>
-        </div>
-        <p class="hook-text">Robotics will fall to the bitter lesson: scale and compute beat hand-crafted engineering.</p>
-        <span class="signal-badge signal-blue">💡 Learn</span>
-        <div class="card-index">13</div>
-      </div>
-      <div class="card-right">
-        
-        
-        
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Robotics clients (automation, manufacturing) should expect commodity robot APIs driven by frontier models, not proprietary stacks. Opportunity: position your agency as the integrator between robot APIs and their business logic.</p>
-        </div>
-        
-        
-        <div class="url-row">
-    <a class="source-url" href="https://x.com/alexalbert__/status/2119869925288558799" target="_blank" rel="noopener">↗ x.com/alexalbert__/status/2119869925288558</a></div>
-      </div>
-    </div>
-  </div>
-
   <div class="slide" data-i="14">
     <div class="content-card">
       <div class="card-left">
-        <div class="card-media"><img class="card-media-img" src="https://pbs.twimg.com/profile_images/1445089558161334279/0nZjx6qu_400x400.jpg" alt="Two company types to build now: diffusion of AI, or AI-native verticals." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="card-media"><img class="card-media-img" src="https://fortune.com/img-assets/wp-content/uploads/2026/11/GettyImages-2304572308-e1794587995495.jpg?resize=1200,600" alt="OpenAI disbanded its robotics team as general models prove sufficient for robot control." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
         <div class="author-block">
-          <img class="author-avatar" src="https://unavatar.io/twitter/adityaag" alt="" onerror="this.style.display='none'">
+          
           <div class="author-text">
-            <div class="author-name">Aditya Agarwal</div>
-            <div class="author-role">GP, SPC; co-founder, Bevel</div>
+            <div class="author-name">OpenAI robotics team disbanded</div>
+            <div class="author-role">Fortune / Industry signal</div>
           </div>
         </div>
-        <p class="hook-text">Two company types to build now: diffusion of AI, or AI-native verticals.</p>
+        <p class="hook-text">OpenAI disbanded its robotics team as general models prove sufficient for robot control.</p>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
         <div class="card-index">14</div>
       </div>
@@ -1121,17 +1190,149 @@ html, body {
         
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Your Portuguese SMB AI agency is a diffusion play: you're retrofitting AI into existing business workflows. Viable and valuable, but know your lane. Don't try to be both diffusion player and AI-native founder simultaneously.</p>
+          <p class="for-you-text">If you're considering specialization vs. generalization for your agent products, this signals market is moving toward general models + adaptation, not specialized tools.</p>
         </div>
         
         
         <div class="url-row">
-    <a class="source-url" href="https://x.com/adityaag/status/2120578134177464356" target="_blank" rel="noopener">↗ x.com/adityaag/status/2120578134177464356</a></div>
+    <a class="source-url" href="https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/" target="_blank" rel="noopener">↗ fortune.com/2026/11/13/openai-disbands-rob</a></div>
       </div>
     </div>
   </div>
 
   <div class="slide" data-i="15">
+    <div class="content-card">
+      <div class="card-left">
+        
+    <div class="card-video" data-yt-id="sPGITtRfXfo">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/sPGITtRfXfo" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://techcrunch.com/wp-content/uploads/2026/11/drogue-team.jpeg?resize=1200,900" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Floating ocean data centers</div>
+            <div class="author-role">TechCrunch / Startup coverage</div>
+          </div>
+        </div>
+        <p class="hook-text">Startup proposes floating data centers powered by ocean heat; investors already engaged.</p>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="card-index">15</div>
+      </div>
+      <div class="card-right">
+        
+        
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">File as infrastructure trend. Not immediately relevant to your agency unless you're building data-center-intensive services. Signals capital flowing into compute infrastructure for AI.</p>
+        </div>
+        
+        
+        <div class="url-row">
+    <a class="source-url" href="https://techcrunch.com/2026/11/13/this-young-startup-wants-to-power-floating-data-centers-with-the-oceans-heat-and-investors-are-already-on-board/" target="_blank" rel="noopener">↗ techcrunch.com/2026/11/13/this-young-start</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="16">
+    <div class="content-card">
+      <div class="card-left">
+        
+    <div class="card-video" data-yt-id="SaDnUydLTyw">
+      <div class="card-video-frame"></div>
+      <a class="card-video-open" href="https://youtube.com/shorts/SaDnUydLTyw" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://cdn.arstechnica.net/wp-content/uploads/2026/11/Pilots-during-DFW-departure-2560x1440.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">FAA expanding AI advice for air traffic management</div>
+            <div class="author-role">Ars Technica / Operational deployment</div>
+          </div>
+        </div>
+        <p class="hook-text">FAA now uses AI to manage air traffic congestion across entire US airspace.</p>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
+        <div class="card-index">16</div>
+      </div>
+      <div class="card-right">
+        
+        
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Signal that AI is moving into critical infrastructure. If you're pitching AI agents to risk-averse sectors, this is proof of government acceptance at scale.</p>
+        </div>
+        
+        
+        <div class="url-row">
+    <a class="source-url" href="https://arstechnica.com/features/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/" target="_blank" rel="noopener">↗ arstechnica.com/features/2026/11/faa-expan</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="17">
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://cdn.arstechnica.net/wp-content/uploads/2026/11/ai-destination-1152x648.jpg" alt="OpenAI board member warns AI 'takeover' of society could occur within months." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">OpenAI board member warns on AI takeover timeline</div>
+            <div class="author-role">Ars Technica / Governance signal</div>
+          </div>
+        </div>
+        <p class="hook-text">OpenAI board member warns AI 'takeover' of society could occur within months.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">17</div>
+      </div>
+      <div class="card-right">
+        
+        
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Not directly actionable. File as governance/credibility concern. If you're pitching agents to SMBs, be prepared for questions about safety and control. Have clear answer on guardrails.</p>
+        </div>
+        
+        
+        <div class="url-row">
+    <a class="source-url" href="https://arstechnica.com/ai/2026/11/ai-is-the-most-likely-reason-youll-die-openai-board-member-warns/" target="_blank" rel="noopener">↗ arstechnica.com/ai/2026/11/ai-is-the-most-</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="18">
+    <div class="content-card">
+      <div class="card-left">
+        <div class="card-media"><img class="card-media-img" src="https://wp.technologyreview.com/wp-content/uploads/2026/11/foster-huang2a.jpg?resize=1200,600" alt="Nvidia privately confirmed feasibility of anti-smuggling chip tracking to Congress." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="author-block">
+          
+          <div class="author-text">
+            <div class="author-name">Nvidia chip tracking feasibility confirmed</div>
+            <div class="author-role">MIT Technology Review / Regulatory signal</div>
+          </div>
+        </div>
+        <p class="hook-text">Nvidia privately confirmed feasibility of anti-smuggling chip tracking to Congress.</p>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="card-index">18</div>
+      </div>
+      <div class="card-right">
+        
+        
+        
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">If building for customers in regulated sectors or dependent on specific GPU allocations, track chip tracking/serialization requirements. May affect procurement workflows.</p>
+        </div>
+        
+        
+        <div class="url-row">
+    <a class="source-url" href="https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/" target="_blank" rel="noopener">↗ www.technologyreview.com/2026/11/12/114848</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="19">
     <div class="section-card" style="--sec-color:#006400;--sec-bg:#F0FDF4;--sec-border:#BBF7D0">
       <div class="section-card__inner">
         <div class="section-emoji">🇵🇹</div>
@@ -1142,107 +1343,107 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="16">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
-      <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://cdn.jornaldenegocios.pt/images/2026-11/img_1200x676uu2026-11-13-22-11-49-532911.jpg" alt="5+ hour nationwide suspension Friday due to air traffic comm system overload; software issue, not cyber-attack." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Jornal de Negócios</div>
-        <h2 class="news-headline">FAA ground stop resolved; cascading US flight cancellations Saturday.</h2>
-        <p class="hook-text news-hook">5+ hour nationwide suspension Friday due to air traffic comm system overload; software issue, not cyber-attack.</p>
-        <div class="card-index">16</div>
-      </div>
-      <div class="card-right">
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">If your SMB clients depend on US supply chains or have traveling teams, expect cascading delays Saturday. Brief them on backup logistics. Not directly AI-relevant but operational impact on project timelines.</p>
-        </div>
-        <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="url-row"><a class="source-url" href="https://www.jornaldenegocios.pt/empresas/transportes/aviacao/detalhe/descolagens-nos-eua-suspensas-fbi-nao-acredita-em-ciberataque-problema-de-software-podera-ser-a-causa" target="_blank" rel="noopener">↗ Read article</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="17">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
-      <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://eco.imgix.net/uploads/2025/10/cropped-45840691-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="Day-long global disruption to Outlook, Teams, Copilot; Portuguese government, health, business systems were offline." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">ECO</div>
-        <h2 class="news-headline">Microsoft outage fully resolved; Portuguese systems recovered.</h2>
-        <p class="hook-text news-hook">Day-long global disruption to Outlook, Teams, Copilot; Portuguese government, health, business systems were offline.</p>
-        <div class="card-index">17</div>
-      </div>
-      <div class="card-right">
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Reinforces concentration risk for your clients: many Portuguese SMBs run entirely on Microsoft 365. Pitch resilience: multi-cloud architecture, data export, agent failover. Make this incident your sales case study.</p>
-        </div>
-        <span class="signal-badge signal-red">🔴 Urgent</span>
-        <div class="url-row"><a class="source-url" href="https://eco.sapo.pt/2026/11/13/apagao-da-microsoft-mostra-impacto-de-se-depender-de-um-unico-fornecedor" target="_blank" rel="noopener">↗ Read article</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="18">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
-      <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/Imagem-satelite-CA-03-Forca-Aerea-2.jpg" alt="Portuguese Constellation Atlantic satellite operational; SAR imaging works day/night and in any weather." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">Satélite português CA-03 envia primeiras imagens da Terra.</h2>
-        <p class="hook-text news-hook">Portuguese Constellation Atlantic satellite operational; SAR imaging works day/night and in any weather.</p>
-        <div class="card-index">18</div>
-      </div>
-      <div class="card-right">
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Portugal now has indigenous imaging satellite capability. Not immediate, but filed for awareness: government and geo-data companies may soon need AI for image analysis pipelines. Positioning opportunity for future contracts.</p>
-        </div>
-        <span class="signal-badge signal-blue">💡 Learn</span>
-        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/ciencia/artigos/satelite-portugues-ca-03-esta-no-espaco-ha-menos-de-um-mes-e-ja-enviou-as-primeiras-imagens-para-a-terra" target="_blank" rel="noopener">↗ Read article</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="19">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
-      <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/pessoas-computador-trabalho-IA-1024x576.jpg" alt="€100M+ investment in simulations teaching professionals to audit and question AI outputs, not replace human judgment." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">Sapo Tek</div>
-        <h2 class="news-headline">PwC vai certificar 85 mil profissionais em pensamento crítico na era da IA.</h2>
-        <p class="hook-text news-hook">€100M+ investment in simulations teaching professionals to audit and question AI outputs, not replace human judgment.</p>
-        <div class="card-index">19</div>
-      </div>
-      <div class="card-right">
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">PwC sees market for 'critical thinking about AI' training. Your agency could offer similar workshops: 'How SMBs Use AI Responsibly' for client teams. B2B2B revenue stream. Partner or build this.</p>
-        </div>
-        <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia" target="_blank" rel="noopener">↗ Read article</a></div>
-      </div>
-    </div>
-  </div>
-
   <div class="slide" data-i="20">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://eco.imgix.net/uploads/2017/04/cropped-dbrs.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&amp;markscale=33&amp;markalign=center,left&amp;w=1200" alt="Morningstar DBRS reaffirms Portuguese sovereign debt rating, stable outlook; economy growing stronger than forecast." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">ECO</div>
-        <h2 class="news-headline">DBRS mantém rating de Portugal em A (elevado) com perspetiva positiva.</h2>
-        <p class="hook-text news-hook">Morningstar DBRS reaffirms Portuguese sovereign debt rating, stable outlook; economy growing stronger than forecast.</p>
+        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/6G_-Superficie-inteligente-a-redirecionar-sinais-1024x576.png" alt="Espelho inteligente controlador de sinais sem fios pode tornar futuras redes móveis mais eficientes." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">SAPO Tek</div>
+        <h2 class="news-headline">Investigadores portugueses desenvolvem protótipo para redes 6G</h2>
+        <p class="hook-text news-hook">Espelho inteligente controlador de sinais sem fios pode tornar futuras redes móveis mais eficientes.</p>
         <div class="card-index">20</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Positive macro signal: funding environment for Portuguese SMBs remains stable, no currency/debt shocks expected. Frame this in client pitches: 'Portugal's economy is strong, your AI investment is low-risk.'</p>
+          <p class="for-you-text">Sinal de que Portugal tem investigação avançada em infraestrutura de redes. Relevante se considerando parcerias com instituições de investigação para innovação em conectividade de agentes.</p>
         </div>
-        <span class="signal-badge signal-green">🟢 Apply now</span>
-        <div class="url-row"><a class="source-url" href="https://eco.sapo.pt/2026/11/13/dbrs-mantem-rating-e-perspetiva-da-divida-publica-portuguesa" target="_blank" rel="noopener">↗ Read article</a></div>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/investigadores-portugueses-desenvolvem-prototipo-que-pode-ajudar-a-tornar-redes-6g-mais-eficientes" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
 
   <div class="slide" data-i="21">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/Starlink-Mini-2_02.jpg" alt="Antena portátil nova com bateria até 4,5h, design mais leve e Wi-Fi 6. Pré-venda por $999 nos EUA." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">SAPO Tek</div>
+        <h2 class="news-headline">Starlink Mini 2 com bateria amovível e Wi-Fi 6 chega aos EUA</h2>
+        <p class="hook-text news-hook">Antena portátil nova com bateria até 4,5h, design mais leve e Wi-Fi 6. Pré-venda por $999 nos EUA.</p>
+        <div class="card-index">21</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Relevante para cenários de agentes offline ou em locais sem conectividade fiável. Portugal ainda sem preço/data, mas sinal da evolução de hardware móvel.</p>
+        </div>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/telecomunicacoes/artigos/starlink-mini-2-chega-com-bateria-amovivel-e-wi-fi-6-pre-vendas-ja-abriram-nos-eua-mas-so-por-convite" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="22">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/e469042db3a20def31f05cdda30e6f9de237302e.jpg" alt="Mercado online de peças Lego voltou online após mais de uma semana offline. Nomes utilizador e IP expostos, mas senhas protegidas." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">SAPO Tek</div>
+        <h2 class="news-headline">BrickLink recupera após ciberataque; Lego confirma dados expostos</h2>
+        <p class="hook-text news-hook">Mercado online de peças Lego voltou online após mais de uma semana offline. Nomes utilizador e IP expostos, mas senhas protegidas.</p>
+        <div class="card-index">22</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Sinal de segurança/resiliência em plataformas de e-commerce. Se construindo marketplace para SMBs, use como case study de resposta a incidente.</p>
+        </div>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/internet/artigos/bricklink-ja-regressou-depois-de-um-ciberataque-lego-confirma-acesso-a-nomes-de-utilizador-ip-e-alguns-emails" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="23">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/pessoas-computador-trabalho-IA-1024x576.jpg" alt="Consultora investe mais de $100M em programa de simulações para treinar capacidade de questionar resultados de IA." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">SAPO Tek</div>
+        <h2 class="news-headline">PwC vai certificar 85 mil profissionais em pensamento crítico na era da IA</h2>
+        <p class="hook-text news-hook">Consultora investe mais de $100M em programa de simulações para treinar capacidade de questionar resultados de IA.</p>
+        <div class="card-index">23</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Oportunidade: modelo de educação corporativa em IA. Se desenvolvendo programas de capacitação para SMBs, use isto como benchmark de investimento/abrangência.</p>
+        </div>
+        <span class="signal-badge signal-green">🟢 Apply now</span>
+        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="24">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://cdn.teknoticias.pt/uploads/2026/11/Microsoft-empresa-logo.png" alt="Serviços voltaram online após mais de 24h de perturbações. Governo português e sector da saúde foram afectados." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">SAPO Tek</div>
+        <h2 class="news-headline">Microsoft 365 recupera após falha global; Portugal afectado</h2>
+        <p class="hook-text news-hook">Serviços voltaram online após mais de 24h de perturbações. Governo português e sector da saúde foram afectados.</p>
+        <div class="card-index">24</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Já coberto, mas impacto em Portugal foi significativo. Reforça oportunidade de vender resiliência/redundância de sistemas para SMBs portugueses como defesa contra vendor lock-in único.</p>
+        </div>
+        <span class="signal-badge signal-red">🔴 Urgent</span>
+        <div class="url-row"><a class="source-url" href="https://tek.sapo.pt/noticias/internet/artigos/microsoft-365-servicos-em-recuperacao-e-uma-falha-global-ainda-sem-fim-a-vista-o-que-causou-um-dos-maiores-apagoes-da-historia-da-empresa" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="25">
     <div class="section-card" style="--sec-color:#1D4ED8;--sec-bg:#EFF6FF;--sec-border:#BFDBFE">
       <div class="section-card__inner">
         <div class="section-emoji">🌍</div>
@@ -1253,19 +1454,59 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="22">
+  <div class="slide" data-i="26">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg" alt="FAA ordered nationwide flight suspension ~5 hours Friday; old air traffic control equipment failed under load." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">US ground stop: longest since 9/11, software overload not cyber-attack.</h2>
-        <p class="hook-text news-hook">FAA ordered nationwide flight suspension ~5 hours Friday; old air traffic control equipment failed under load.</p>
-        <div class="card-index">22</div>
+        <div class="card-media"><img class="card-media-img" src="https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=2b972955b073a4788451a5a67593d810" alt="Month-long investigation cleared Simbarashe Kundizeza of using AI to write prize-winning story. Declared human-written." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">The Guardian</div>
+        <h2 class="news-headline">Zimbabwean author cleared of AI writing in Caine Prize win</h2>
+        <p class="hook-text news-hook">Month-long investigation cleared Simbarashe Kundizeza of using AI to write prize-winning story. Declared human-written.</p>
+        <div class="card-index">26</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Infrastructure fragility signal: AI systems managing critical infrastructure (FAA uses AI for congestion optimization) can fail catastrophically with old hardware. Risk for Portuguese clients: design mission-critical agent workflows with fallback and manual override.</p>
+          <p class="for-you-text">Signal: AI-generated writing detection is difficult and error-prone. Governance around AI-created content is still forming. Relevant if selling content generation tools to SMBs.</p>
+        </div>
+        <span class="signal-badge signal-yellow">🟡 Watch</span>
+        <div class="url-row"><a class="source-url" href="https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="27">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://i.guim.co.uk/img/media/6eeccf216579fe2181ae737d30f31abd7590125c/210_58_1759_1407/master/1759.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=334efc63d7472a97d72be0ffd23af8bb" alt="AI helps researchers decipher Kurt Gödel's handwritten mathematical notebooks, revealing previously unknown proofs." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">The Guardian</div>
+        <h2 class="news-headline">AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems</h2>
+        <p class="hook-text news-hook">AI helps researchers decipher Kurt Gödel's handwritten mathematical notebooks, revealing previously unknown proofs.</p>
+        <div class="card-index">27</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Signal: AI as research tool for knowledge discovery in unstructured human-generated content. Interesting use case for document understanding agents in academic/scientific sectors.</p>
+        </div>
+        <span class="signal-badge signal-blue">💡 Learn</span>
+        <div class="url-row"><a class="source-url" href="https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths" target="_blank" rel="noopener">↗ Read article</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide" data-i="28">
+    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
+      <div class="card-left news-left">
+        <div class="card-media"><img class="card-media-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg" alt="Third-ever nationwide US FAA ground stop lasted 5+ hours. Root cause: software overload in legacy air traffic control equipment, not cyberattack." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+        <div class="news-source-tag">BBC News</div>
+        <h2 class="news-headline">FAA ground stop was longest in 25 years; software overload confirmed</h2>
+        <p class="hook-text news-hook">Third-ever nationwide US FAA ground stop lasted 5+ hours. Root cause: software overload in legacy air traffic control equipment, not cyberattack.</p>
+        <div class="card-index">28</div>
+      </div>
+      <div class="card-right">
+        <div class="for-you-box">
+          <div class="for-you-label">What this means for you</div>
+          <p class="for-you-text">Infrastructure resilience signal. Legacy systems still run critical infrastructure. SMBs: this justifies investment in modernization and redundancy.</p>
         </div>
         <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo" target="_blank" rel="noopener">↗ Read article</a></div>
@@ -1273,23 +1514,23 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="23">
+  <div class="slide" data-i="29">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
         
-    <div class="card-video" data-yt-id="aWPSVTVfXHw">
+    <div class="card-video" data-yt-id="Lmurx8-JvIQ">
       <div class="card-video-frame"></div>
-      <a class="card-video-open" href="https://youtube.com/shorts/aWPSVTVfXHw" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+      <a class="card-video-open" href="https://youtube.com/shorts/Lmurx8-JvIQ" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
     </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/5f18/live/9b3a5370-df98-11f1-a9ad-6774a3284d10.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">Microsoft services fully restored after day-long global outage.</h2>
-        <p class="hook-text news-hook">Outlook, Teams, Copilot recovered Friday; server health check failures, not cyber-attack. No ransom demanded.</p>
-        <div class="card-index">23</div>
+        <div class="news-source-tag">BBC News</div>
+        <h2 class="news-headline">Microsoft outage impact compared to AWS, CrowdStrike; global disruption</h2>
+        <p class="hook-text news-hook">Microsoft's 24+ hour outage of Outlook, Teams, Copilot is being compared to AWS and CrowdStrike incidents; arguably worse.</p>
+        <div class="card-index">29</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Single-vendor risk exposed again: European calls intensifying for tech autonomy. Position your agency as multi-cloud, vendor-agnostic alternative for clients uncomfortable with US-only dependencies. This incident is your proof point.</p>
+          <p class="for-you-text">Concentration risk signal. Single vendor failure cascades globally. Marketing angle for Portuguese SMBs: why you need multi-vendor strategy.</p>
         </div>
         <span class="signal-badge signal-red">🔴 Urgent</span>
         <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/c6rrg51rkz09o" target="_blank" rel="noopener">↗ Read article</a></div>
@@ -1297,70 +1538,26 @@ html, body {
     </div>
   </div>
 
-  <div class="slide" data-i="24">
+  <div class="slide" data-i="30">
     <div class="content-card news-layout" style="--sec-color:#1D4ED8">
       <div class="card-left news-left">
         
-    <div class="card-video" data-yt-id="ZGFnDerWjvE">
+    <div class="card-video" data-yt-id="IQLad6Y9RPE">
       <div class="card-video-frame"></div>
-      <a class="card-video-open" href="https://youtube.com/shorts/ZGFnDerWjvE" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
-    </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/172e/live/be162960-dfc9-11f1-81be-1f9bcd2a4214.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">Trump, Putin, Xi plan unprecedented joint summit in China next week.</h2>
-        <p class="hook-text news-hook">White House confirms three-way meeting in Shenzhen (APEC); Trump to discuss nuclear weapons reduction.</p>
-        <div class="card-index">24</div>
-      </div>
-      <div class="card-right">
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">Geopolitical volatility incoming: expect supply chain churn around semiconductors, export controls, tariffs. Advise clients with US/China operations to stress-test AI infrastructure for sanctions scenarios. Insurance for business continuity.</p>
-        </div>
-        <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/ckz74jzpy18do" target="_blank" rel="noopener">↗ Read article</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="25">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
-      <div class="card-left news-left">
-        
-    <div class="card-video" data-yt-id="YQNRi1wT9NA">
-      <div class="card-video-frame"></div>
-      <a class="card-video-open" href="https://youtube.com/shorts/YQNRi1wT9NA" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
+      <a class="card-video-open" href="https://youtube.com/shorts/IQLad6Y9RPE" target="_blank" rel="noopener" title="Open on YouTube">↗</a>
     </div><div class="card-media-secondary"><img class="card-media-secondary-img" src="https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1b1a/live/3f2ee680-dfbc-11f1-9e98-11d1980367a2.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">BBC World</div>
-        <h2 class="news-headline">Starship flight 15 reaches orbit; booster catch attempt ends in water.</h2>
-        <p class="hook-text news-hook">SpaceX powered Starship to orbit Friday but aborted booster catch mid-flight; splashed down instead of catching.</p>
-        <div class="card-index">25</div>
+        <div class="news-source-tag">BBC News</div>
+        <h2 class="news-headline">Starship booster catch aborted; fell to ocean instead</h2>
+        <p class="hook-text news-hook">SpaceX Flight 15 reached orbit but aborted booster catch attempt. Booster landed in water instead.</p>
+        <div class="card-index">30</div>
       </div>
       <div class="card-right">
         <div class="for-you-box">
           <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">SpaceX continues rapid launch cadence iteration. Affects satellite launch availability long-term. Relevant if clients need imaging, comms, or GPS services that depend on launch cost/cadence.</p>
-        </div>
-        <span class="signal-badge signal-blue">💡 Learn</span>
-        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/ckregdgnl0xpo" target="_blank" rel="noopener">↗ Read article</a></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide" data-i="26">
-    <div class="content-card news-layout" style="--sec-color:#1D4ED8">
-      <div class="card-left news-left">
-        <div class="card-media"><img class="card-media-img" src="https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&amp;height=630&amp;quality=85&amp;auto=format&amp;fit=crop&amp;precrop=40:21,offset-x50,offset-y0&amp;overlay-align=bottom%2Cleft&amp;overlay-width=100p&amp;overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&amp;enable=upscale&amp;s=2b972955b073a4788451a5a67593d810" alt="Caine Prize (African literature, £10K) winner verified as human-written; AI detection inconclusive but human writing confirmed." loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-        <div class="news-source-tag">The Guardian</div>
-        <h2 class="news-headline">Zimbabwean author cleared of AI-generated writing after investigation.</h2>
-        <p class="hook-text news-hook">Caine Prize (African literature, £10K) winner verified as human-written; AI detection inconclusive but human writing confirmed.</p>
-        <div class="card-index">26</div>
-      </div>
-      <div class="card-right">
-        <div class="for-you-box">
-          <div class="for-you-label">What this means for you</div>
-          <p class="for-you-text">AI detection maturity signal: even specialists couldn't conclusively prove AI authorship. Watermarking or metadata may be more reliable. Relevant if advising Portuguese media/publishing clients on content authenticity policies.</p>
+          <p class="for-you-text">Engineering signal on iterative risk-taking. SpaceX willing to abort high-stakes operations. Not directly relevant unless building infrastructure systems.</p>
         </div>
         <span class="signal-badge signal-yellow">🟡 Watch</span>
-        <div class="url-row"><a class="source-url" href="https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story" target="_blank" rel="noopener">↗ Read article</a></div>
+        <div class="url-row"><a class="source-url" href="https://www.bbc.co.uk/news/articles/ckregdgnl0xpo" target="_blank" rel="noopener">↗ Read article</a></div>
       </div>
     </div>
   </div>
@@ -1370,14 +1567,14 @@ html, body {
   <button class="nav-btn" id="prev" aria-label="Previous">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
   </button>
-  <div id="counter">1 / 27</div>
+  <div id="counter">1 / 31</div>
   <button class="nav-btn" id="next" aria-label="Next">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
   </button>
 </div>
 
 <script>
-const TOTAL = 27;
+const TOTAL = 31;
 let current = 0;
 const allSlides = () => [...document.querySelectorAll('.slide')];
 
