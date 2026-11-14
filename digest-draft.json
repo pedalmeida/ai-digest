@@ -2,227 +2,151 @@
   "date": "Saturday, 14 November 2026",
   "ai": [
     {
-      "thread_id": "decision-models-category",
-      "thread_title": "Decision Models as Emerging Standard Category",
+      "thread_id": "jensen-huang-nvidia-crisis",
+      "thread_title": "Jensen Huang resignation and NVIDIA leadership transition",
       "thread_state": "developing",
-      "name": "Google AI / Simon Willison coverage",
-      "role": "Google Research | Blog aggregator",
-      "hook": "Google launches Gemini Decision 1, joining Jev and OpenAI in structured decision model category.",
+      "name": "Jensen Huang and NVIDIA Board",
+      "role": "NVIDIA CEO / Board governance crisis",
+      "hook": "NVIDIA CEO resigned after affair allegations; market cap down $500B overnight.",
       "insights": [
-        "**Gemini Decision 1** supports yes/no, choice, and rubric-scoring questions; reuses Jev's \"Noul\" terminology",
-        "Priced at **same cost as GPT-6 Luna** (~$0.10/M input tokens), suggesting commoditization",
-        "Three major labs (OpenAI, Anthropic via Jev, Google) now offering decision-specific models signals category maturity"
+        "Huang admitted to affair with alleged Chinese spy; board removed him from CEO role",
+        "NVIDIA market cap dropped approximately $500B; competitor dynamics shifted overnight",
+        "Implication: open-source AI funding ecosystem (Huang as major investor) enters uncertainty"
       ],
-      "for_you": "If your SMB agency builds agents that make structured decisions repeatedly (lead scoring, customer routing, workflow triage), decision models could reduce costs and improve reliability vs. using general-purpose models for the same task. Test one workflow that makes 100+ decisions/week.",
-      "context": "Decision models are purpose-built to output deterministic structured answers (yes/no/choice/score) rather than free-form text. This emerged ~Nov 11 with Jev, now Google and OpenAI have entered. It signals the model market is segmenting beyond general-purpose reasoning.",
-      "what_changed": "Google's entry confirms this is becoming a standard category, not a one-off from one lab.",
-      "action": "watch - Test with one SMB workflow that makes high-volume structured decisions. See if decision model beats general model on cost and consistency.",
+      "for_you": "If you're selling AI infrastructure services to Portuguese SMBs, this affects GPU pricing/availability and signals market volatility. NVIDIA's role as compute backbone means any governance chaos here cascades to your cost structure. Also watch: will open-source model funding dry up if Huang's personal investment stops.",
+      "context": "Jensen Huang founded NVIDIA in 1993 and led it through explosive growth as AI became central to computing. He was also a major venture investor backing AI startups to buy NVIDIA chips. His sudden removal creates uncertainty around leadership continuity, governance standards in AI industry, and allocation of AI compute resources.",
+      "what_changed": "Initial affair allegations (Nov 12-13) have now resulted in formal resignation and board transition. Analysis has shifted from personal scandal to institutional impact: open-source AI funding, governance at scale, and market confidence.",
+      "action": "watch, because infrastructure cost/availability for your agency could shift week-to-week pending new NVIDIA leadership direction",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Only real model category entry today; signals market segmentation shift.",
-      "signal": "🟡",
+      "why_it_made_the_cut": "largest single-day market impact in AI; affects agency infrastructure costs",
+      "signal": "🔴",
       "urls": [
-        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
-      ],
-      "handle": ""
-    },
-    {
-      "thread_id": "agent-commerce-capabilities",
-      "thread_title": "Agents Can Now Transact Autonomously",
-      "thread_state": "new",
-      "name": "Greg Brockman (OpenAI) / TechCrunch coverage",
-      "role": "President & Co-Founder @OpenAI | Technology reporter",
-      "hook": "ChatGPT Wallet and OpenAI Dots now integrated with payment networks for autonomous agent purchasing.",
-      "insights": [
-        "**ChatGPT Wallet** lets agents shop and checkout for users across e-commerce",
-        "**OpenAI Dots** integrated with American Express, Mastercard, Visa for secure transactions",
-        "Signals trust model for agentic spending is now formalized and trusted by major payment networks"
-      ],
-      "for_you": "Portuguese SMBs can now have agents autonomously handle purchasing: office supplies reordering, vendor payments, subscriptions, reservations. This is a new service offering for your agency. Map which client workflows could benefit (e.g., e-commerce retailer restocking, service provider subscription management).",
-      "context": "Prior to this, agents could browse and research but not spend money. Autonomous transactions open new classes of agentic workflows. Payment networks' participation signals this is moving from experimental to production-safe.",
-      "what_changed": "Agents previously could assist with purchasing decisions; now they can execute transactions end-to-end with user-set limits.",
-      "action": "investigate - Map 3-5 SMB workflows where agent-driven autonomous purchasing would save time/cost. Prototype with one client by end of week.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "New capability unlocks new agent use cases; directly testable this week.",
-      "signal": "🟢",
-      "urls": [
-        "https://x.com/gdb/status/2121295213025194172",
-        "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/"
-      ],
-      "handle": "gdb",
-      "image": "https://pbs.twimg.com/profile_images/1347621377503711233/bHg3ipfD_400x400.jpg",
-      "video": {
-        "id": "6-kHIzfMhBw",
-        "title": "AI Agents: Now on Mobile! (OpenClaw & Hermes Agent)"
-      }
-    },
-    {
-      "thread_id": "aws-emulator-local-testing",
-      "thread_title": "AWS Emulator Released for Local Agent Testing",
-      "thread_state": "new",
-      "name": "AWS / Simon Willison coverage",
-      "role": "Amazon Web Services | Technical blogger",
-      "hook": "AWS officially released aws-emulator: run tests against AWS services locally without API keys or billing.",
-      "insights": [
-        "Written in Rust by **29,684 commits in three weeks** (agents generated most code)",
-        "Supports local clone of AWS services (S3, Lambda, CloudWatch, RDS, etc.) for testing",
-        "Removes friction from agent development that depends on AWS infrastructure"
-      ],
-      "for_you": "If you build agent workflows for SMBs that touch AWS (storage, compute, monitoring), you can now test locally and iterate faster without AWS billing or API key management. Speeds up iteration cycles. Include in your infrastructure setup for new agency projects.",
-      "context": "Previously, testing AWS integrations required provisioning real AWS resources, adding cost and latency to development. This is the first official AWS emulator.",
-      "what_changed": "New official tool available; agent-based development shows feasibility of massive code generation in short time.",
-      "action": "test - Integrate aws-emulator into one agency infrastructure template. Measure iteration speed improvement on one client project using AWS.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Only official AWS emulator; immediately useful for agency infrastructure.",
-      "signal": "🟢",
-      "urls": [
-        "https://simonwillison.net/2026/Nov/11/aws-emulator/"
-      ],
-      "handle": ""
-    },
-    {
-      "thread_id": "llama-cpp-v1-local-ecosystem",
-      "thread_title": "llama.cpp Reaches v1.0: Local AI Foundation Mature",
-      "thread_state": "new",
-      "name": "GGML / Hugging Face coverage",
-      "role": "GGML Project | Hugging Face blog",
-      "hook": "llama.cpp v1.0 released: \"A stronger foundation for the local AI ecosystem.\"",
-      "insights": [
-        "V1.0 milestone signals **production-ready maturity** and API stability after years as experimental",
-        "Enables self-hosted, offline-capable agents for privacy-sensitive or air-gapped SMB deployments",
-        "Reduces dependency on cloud APIs; opens on-premise option for regulated sectors (healthcare, finance, government)"
-      ],
-      "for_you": "Portuguese SMBs in regulated sectors (fintech, health, government) can now justify on-premise AI. Messaging shifts from 'AI lives in cloud' to 'AI can run on your servers.' New sales angle: local-first AI for compliance and data residency. Test one quantized model on customer hardware this week.",
-      "context": "llama.cpp is the foundational local inference engine. V1.0 is a major stability/API guarantee milestone, not a new feature release.",
-      "what_changed": "Reaching v1.0 signals the project has moved from experimental to production-grade, suitable for commercial deployments.",
-      "action": "use_now - Test running a quantized model (3B-7B) via llama.cpp on one SMB's local infrastructure. Document setup and performance. Use as case study for privacy-first pitch.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Version milestone signals ecosystem maturity; opens new market positioning for agency.",
-      "signal": "🟢",
-      "urls": [
-        "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+        "https://stratechery.com/2026/the-end-of-jensen/",
+        "https://www.interconnects.ai/p/open-source-ai-without-jensen",
+        "https://latent.space/p/ainews-jensen-huang-resigns-after-33-years-leading-nvidia/"
       ],
       "handle": "",
-      "image": "https://cdn-uploads.huggingface.co/production/uploads/63148d3b996c52bf0142cdbe/2PgU1GxpJX_LVORaP2RRy.png",
-      "video": {
-        "id": "RiugudzHwDI",
-        "title": "llama.cpp Hits 1.0: What It Means for Running AI Locally"
-      }
+      "image": "https://i0.wp.com/stratechery.com/wp-content/uploads/2026/11/GettyImages-2266460767-blog.jpg?fit=1200%2C800&#038;ssl=1"
     },
     {
-      "thread_id": "vercel-workflows-orchestration",
-      "thread_title": "Vercel Workflows SDK 5: Latency and Security Hardened",
-      "thread_state": "new",
-      "name": "Guillermo Rauch (Vercel CEO)",
-      "role": "CEO @Vercel",
-      "hook": "Workflow SDK 5 improves time-to-first-step and step-between latency; security hardened; scale-proven.",
+      "thread_id": "model-releases-nov-2026-wave",
+      "thread_title": "Multiple model releases: pricing compression and capability gains",
+      "thread_state": "developing",
+      "name": "Claude, Gemini, Meta, Google, OpenAI",
+      "role": "Model release cycle, Nov 2026",
+      "hook": "Four major releases in 48 hours: Gemini Hydrogen (low-cost), Ember, decision models, Fable validation.",
       "insights": [
-        "**Time to first step and time between steps massively improved** (concrete numbers not given but Rauch signals material reduction)",
-        "**Security hardened** for production agent workloads",
-        "**Reliability proven at scale** across production customers"
+        "Gemini 4 Hydrogen: lowest-cost option in Gemini 4 family; roughly same price as GPT-6 Luna/Claude Haiku for shorter prompts",
+        "Meta Muse Ember: direct Claude Haiku 5.5 competitor, optimized for tool calls, routing, extraction, long document parsing",
+        "Google Decisions API joins Jev + OpenAI in structured decision-making category; nearly identical API to Jev",
+        "Fable 5.2 maintains #1 ranking; real-world builder validation (Dan Shipper: equivalent to $200K + 5 people in spare time)"
       ],
-      "for_you": "If deploying agents on Vercel's platform, this update means faster step execution (better end-user latency and UX) and production-grade security. If evaluating platforms for agent orchestration, this is a material improvement in Vercel's offer vs. Temporal/other options.",
-      "context": "Workflow orchestration latency directly impacts agent responsiveness. Security and scale proof are table-stakes for production.",
-      "what_changed": "Concrete infrastructure improvements to latency, security, and scale validation for workflow orchestration.",
-      "action": "watch - If using Vercel, benchmark the new SDK. If evaluating platforms, use this as comparison point vs. Temporal, Encore, others.",
+      "for_you": "Three pricing signals matter to your SMB agency: (1) faster/cheaper options from Google + Meta make baseline work commoditized, (2) decision models are becoming a standardized API (like Zapier was for integrations), (3) premium models (Fable, Opus) pull further ahead on complex reasoning. You likely need a multi-model strategy: cheap models for routing/classification, premium models for client-facing thinking work.",
+      "context": "These releases show the market stratifying into commodity (fast/cheap) and premium (reasoning-focused) tiers. Decision models emerging as a category means structured choice-making is becoming API-fied, not hand-coded.",
+      "what_changed": "Gemini 4 Carbon was cyber-defenders-only; now GA for all. Hydrogen and Ember are first new entrants in their cost/performance bands since September.",
+      "action": "test, all three new models this week against your existing workflows; compare output quality vs cost for SMB deliverables",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Concrete infrastructure improvements for workflow platforms; relevant if using Vercel.",
+      "why_it_made_the_cut": "three new model options in 48 hours; direct pricing/capability impact on agency margins",
       "signal": "🟡",
       "urls": [
-        "https://x.com/rauchg/status/2121277727940776114"
-      ],
-      "handle": "rauchg",
-      "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg"
-    },
-    {
-      "thread_id": "langchain-3b-valuation",
-      "thread_title": "LangChain Reaches $3B Valuation",
-      "thread_state": "new",
-      "name": "LangChain / TechCrunch",
-      "role": "Agent orchestration platform | Technology reporter",
-      "hook": "LangChain, agent orchestration platform, valued at $3B in latest funding round.",
-      "insights": [
-        "Agent orchestration tools now reach **unicorn-class valuation** ($1B+)",
-        "Signals sustained capital and market confidence in tooling separate from model providers",
-        "LangChain likely to remain viable long-term; reduces platform lock-in risk"
-      ],
-      "for_you": "If building on LangChain, this valuation signals long-term viability and ongoing investment in ecosystem. Reduces risk of platform deprecation. Also signals strong venture demand for agent orchestration tools.",
-      "context": "LangChain is one of the main open-source agent orchestration platforms. Unicorn status validates the market exists.",
-      "what_changed": "New funding milestone; validates the market for agent orchestration platforms.",
-      "action": "watch - If on LangChain, this reduces platform risk. If evaluating, it signals LangChain is likely to remain a primary player.",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Market validation signal; directly relevant if using LangChain.",
-      "signal": "🟡",
-      "urls": [
-        "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
+        "https://simonwillison.net/2026/Nov/12/llm-gemini/",
+        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/",
+        "https://latent.space/p/ainews-fable-5-2-retakes-world-1-llm-spot-as-ant-ipo-roadshow-begins/"
       ],
       "handle": "",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Raising-money.jpg?resize=1200,829"
+      "image": "https://static.simonwillison.net/static/2026/gemini-4-card.jpg"
     },
     {
-      "thread_id": "openai-daybreak-cyber",
-      "thread_title": "OpenAI Launches Daybreak Cyber Products",
+      "thread_id": "claude-meetings-agent-context",
+      "thread_title": "Claude Meetings: agent awareness of real-time context",
       "thread_state": "new",
-      "name": "Greg Brockman (OpenAI)",
-      "role": "President & Co-Founder @OpenAI",
-      "hook": "OpenAI announces Daybreak Defense Factory and Daybreak Red Team for frontier cyber capabilities.",
+      "name": "Alex Albert (Anthropic), Claude team",
+      "role": "Research · Anthropic",
+      "hook": "Claude can now attend meetings; closes context gaps automatically.",
       "insights": [
-        "**Two new products** putting frontier cyber capabilities to practical defense use",
-        "Signals OpenAI expanding product surface beyond chat/general agents into specialized domains",
-        "Likely targeting government/defense customers given cyber domain"
+        "**Claude Meetings** lets agents join meetings and extract live context, not just transcripts or summaries",
+        "Anthropic's own testing shows significant value: 'key to getting good work out of Claude is finding the context it's missing'",
+        "Pattern: the more context Claude has, the less hallucination and the better the reasoning"
       ],
-      "for_you": "Not directly actionable unless you're building cyber defense tools. File as a signal: OpenAI is specializing frontier models into specific domains. May create defensive pressure to specialize your own agent offerings.",
-      "context": "Cyber is a natural first specialization: high-value market, government customers, clear ROI measurable.",
-      "what_changed": "New product category from OpenAI; signals model specialization strategy.",
-      "action": "ignore - Not your market unless pivoting to cyber defense. Monitor for patterns if OpenAI specializes further.",
+      "for_you": "For your Portuguese SMBs, this means agents can join actual client calls, extract decisions, and write follow-ups in real time instead of waiting for a transcript. This is a new integration pattern you should test for client workflows. Real use case: agent joins sales call, creates CRM notes + next-step tasks automatically.",
+      "context": "Context-aware AI has been a known problem: models perform better with more complete information, but getting that information into the model at decision time is hard. Meetings are a data source most SaaS never taps for agent systems.",
+      "what_changed": "Claude Meetings moved from research idea to production feature with measurable value signal from internal use.",
+      "action": "test, with a Portuguese SMB client workflow this week; start with lower-stakes meetings (sales calls, internal standups)",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "New OpenAI product line; signals strategy shift to specialization.",
-      "signal": "🟡",
+      "why_it_made_the_cut": "production-ready tool for agency workflows; solves real integration gap",
+      "signal": "🟢",
       "urls": [
-        "https://x.com/gdb/status/2121004237413142656"
+        "https://x.com/alexalbert__/status/2120983722182988206",
+        "https://claude.com/resources/articles/claude-meetings"
       ],
-      "handle": "gdb",
-      "image": "https://pbs.twimg.com/card_img/2120953672314372097/suxA-RXq?format=webp&amp;name=medium"
+      "handle": "alexalbert__",
+      "image": "https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg"
     },
     {
-      "thread_id": "competitive-agent-simulations",
-      "thread_title": "Competitive Agent Simulations Emerging as Design Pattern",
+      "thread_id": "structured-decisions-api-category",
+      "thread_title": "Decision models become API category (Gemini Decisions joins Jev, OpenAI)",
       "thread_state": "new",
-      "name": "Dan Shipper (Every CEO)",
-      "role": "CEO @Every (AI newsletter)",
-      "hook": "Builder highlights emerging pattern: simulations with multiverse of competitive agents.",
+      "name": "Google, Jev, OpenAI",
+      "role": "Model API standardization, Nov 2026",
+      "hook": "Three vendors now offer identical decision-model APIs: yes/no, choice, rubric scoring.",
       "insights": [
-        "Dan Shipper calls @hammer_mt article on competitive agent simulations a **'banger'**",
-        "Pattern: organizations of competitive agents in simulated environments",
-        "Represents emerging architectural approach beyond single-agent systems"
+        "Google Gemini Decision 1 mirrors Jev's API; same question types, same pricing (roughly $0.10/1M input tokens)",
+        "Pattern: structured decision-making is becoming a standard interface, like webhooks or OAuth",
+        "Use case: agents need to make deterministic choices (categorize, evaluate, score) without hallucination"
       ],
-      "for_you": "Interesting architectural pattern to understand, not yet immediately actionable. Could become relevant for testing decision-making agents, competitive scenarios, or organizational simulations. File as emerging design pattern to explore in Q4.",
-      "context": "This is still an exploratory signal from a builder, not yet mainstream. Hammer's article likely explores game theory, multi-agent coordination, or evolutionary dynamics.",
-      "what_changed": "New architecture pattern identified by high-signal builder.",
-      "action": "investigate - Read @hammer_mt's article on competitive agent simulations. Assess relevance to your testing/evaluation workflows.",
-      "evidence_level": "early_signal",
-      "why_it_made_the_cut": "Early signal from high-credibility builder on emerging pattern.",
+      "for_you": "This matters for your agency's SMB clients who need reproducible categorization or scoring. Instead of prompt engineering, you can use a decision model API and guarantee consistent results. Useful for routing (which team handles this?), qualification (is this lead worth $X?), or grading (how bad is this defect?). Build this into your service delivery model—clients will pay for certainty.",
+      "context": "Decision models represent a shift from unstructured reasoning to structured choice-making. They're not replacing reasoning models; they're a complement for tasks where you need deterministic output.",
+      "what_changed": "Jev and OpenAI released decision APIs in September/October; Google entered category today.",
+      "action": "investigate, which decision model API has the best latency and accuracy for your common SMB use case (e.g., lead scoring)",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "category emergence signals market maturation; new revenue pattern for agency",
       "signal": "💡",
       "urls": [
-        "https://x.com/danshipper/status/2121024534228897995"
+        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/",
+        "https://huggingface.co/blog/decision"
       ],
-      "handle": "danshipper",
-      "image": "https://pbs.twimg.com/card_img/2120972458270298112/NDhUvLJP?format=webp&amp;name=medium"
+      "handle": ""
+    },
+    {
+      "thread_id": "primer-educational-simulation-agents",
+      "thread_title": "Primer: agent-driven educational simulation generation",
+      "thread_state": "new",
+      "name": "Ethan Mollick and Anthropic Generative AI Lab",
+      "role": "Professor · Wharton; research release",
+      "hook": "Teachers talk through lessons; agents generate playable simulations grounded in pedagogy.",
+      "insights": [
+        "**Primer** system lets teachers describe lesson concepts; agent builds interactive simulation",
+        "Built on pedagogical principles (not just prompt hacking); paper + code + prompts all open-source",
+        "Result: students can explore concepts interactively instead of passive video/text"
+      ],
+      "for_you": "Only directly relevant if you're exploring the education micro-SaaS you mentioned. Otherwise, file for awareness: shows what agent-driven content generation looks like when grounded in domain knowledge. The pattern (domain expert → agent → interactive output) could apply to SMB training, customer onboarding, or product documentation.",
+      "context": "Primer sits at intersection of pedagogical research and agentic systems. It's not generic LLM-powered education; it's built on learning science principles.",
+      "what_changed": "Released as open-source research with full paper and code today.",
+      "action": "watch, especially if you build education product; otherwise use as reference for grounded agent systems",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "open-source research with practical application pattern; grounds agent use in domain knowledge",
+      "signal": "💡",
+      "urls": [
+        "https://x.com/emollick/status/2121001056637431873"
+      ],
+      "handle": "emollick",
+      "image": "https://pbs.twimg.com/media/HW9Ohh6XwAA2xvd?format=webp&amp;name=large"
     }
   ],
   "build_this": [
     {
-      "name": "llama.cpp v1.0",
-      "source": "GGML Project / GitHub",
-      "what_it_is": "Production-ready local inference engine for running models on-premise without cloud APIs.",
-      "why_try_it": "Test one quantized model (3B-7B) on SMB customer hardware this week. Document setup, performance, compliance benefits for privacy-first pitch to regulated sectors.",
-      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+      "name": "SigNoz",
+      "source": "GitHub / https://github.com/SigNoz/signoz",
+      "what_it_is": "Open-source observability platform (logs, metrics, traces) with native AI agent monitoring and integrated AI teammate in cloud version.",
+      "why_try_it": "You're building and operating agent systems for SMBs. SigNoz gives you visibility into agent behavior (latency, errors, hallucinations) without vendor lock-in. Deploy on your infrastructure or SMB's infrastructure. Critical for diagnosing why an agent is making bad decisions or missing context. Test this week by instrumenting your current agency workflow.",
+      "url": "https://github.com/SigNoz/signoz"
     },
     {
-      "name": "Garry Tan's harness eval repo",
-      "source": "GitHub / X @garrytan",
-      "what_it_is": "Open-source standard prompt evaluation framework for testing agent/model performance across dimensions.",
-      "why_try_it": "Run evals on your current agent systems to establish baselines. Use as part of weekly model upgrade testing (run same harness on Fable 5.2 vs. Opus 5.5, etc.).",
-      "url": "https://x.com/garrytan/status/2121463161069228382"
+      "name": "Lance",
+      "source": "GitHub / https://github.com/lance-format/lance",
+      "what_it_is": "Open vector/multimodal data format for AI. Converts from Parquet in 2 lines; 100x faster random access than traditional databases; includes vector indexing and versioning.",
+      "why_try_it": "Portuguese SMBs need RAG systems (documents + vector search). Lance is cheaper and faster than managed vector DBs. Build a RAG workflow for one SMB client this week: load their docs into Lance, query via agent. Cost: near-zero (local storage). Benefit: SMB owns their data, you own the integration.",
+      "url": "https://github.com/lance-format/lance"
     }
   ],
   "podcasts": [],
@@ -230,227 +154,240 @@
     {
       "url": "https://x.com/gdb/status/2121004237413142656",
       "handle": "gdb",
-      "why": "OpenAI president announces Daybreak cyber products and Dot commerce integration with payment networks."
+      "why": "Daybreak Defense Factory, Red Team: frontier cyber capabilities for companies. Signals what's possible."
     },
     {
-      "url": "https://x.com/emollick/status/2121328191755218946",
+      "url": "https://x.com/emollick/status/2121001056637431873",
       "handle": "emollick",
-      "why": "Concrete quantified signal: student projects now 10x further along than full team projects from 3 years ago."
-    },
-    {
-      "url": "https://x.com/rauchg/status/2121277727940776114",
-      "handle": "rauchg",
-      "why": "Vercel Workflows SDK 5: latency and security hardened, reliability proven at scale."
-    },
-    {
-      "url": "https://x.com/danshipper/status/2121024534228897995",
-      "handle": "danshipper",
-      "why": "Emerging pattern: multiverse simulations with competitive agents. Worth understanding."
-    },
-    {
-      "url": "https://x.com/garrytan/status/2121352628915593422",
-      "handle": "garrytan",
-      "why": "Personal agent that recursively self-improves as you use it: architectural pattern exploration."
-    },
-    {
-      "url": "https://x.com/levie/status/2120947988143198302",
-      "handle": "levie",
-      "why": "Gemini 4 Hydrogen: 5pp accuracy improvement over Flash. Enterprise Box testing on complex work."
-    },
-    {
-      "url": "https://x.com/adityaag/status/2120578134177464356",
-      "handle": "adityaag",
-      "why": "Two company types to build now: AI diffusion vs AI-native verticals. Strategic framework."
-    },
-    {
-      "url": "https://x.com/petergyang/status/2121286290629107967",
-      "handle": "petergyang",
-      "why": "Practitioner signal: Fable 5.2 and Opus as daily drivers. Five real use cases for model selection."
+      "why": "Primer: agent-driven simulations from lesson descriptions. Paper, code, and prompts open. Grounded approach."
     },
     {
       "url": "https://x.com/alexalbert__/status/2120983722182988206",
       "handle": "alexalbert__",
-      "why": "Key insight: getting good Claude work is mostly about finding context gaps and closing them. Claude Meetings as one approach."
+      "why": "Claude Meetings: context-filling tool in production. Closes the information gap for agents."
     },
     {
-      "url": "https://x.com/garrytan/status/2121463161069228382",
+      "url": "https://x.com/danshipper/status/2120539547620790424",
+      "handle": "danshipper",
+      "why": "Fable 5.2 productivity: equivalent to 5 people + $200K in spare time. Real productivity signal."
+    },
+    {
+      "url": "https://x.com/rauchg/status/2120966768483262648",
+      "handle": "rauchg",
+      "why": "UI SDK as instruction set for agents. Frameworks must evolve for agent-builders, not users."
+    },
+    {
+      "url": "https://x.com/garrytan/status/2121352628915593422",
       "handle": "garrytan",
-      "why": "Open-source harness eval repo. Standard framework for testing agent performance."
+      "why": "Idea-minder agent that recursively self-improves as you use it. Concept: agents remember and refine."
+    },
+    {
+      "url": "https://x.com/petergyang/status/2121286290629107967",
+      "handle": "petergyang",
+      "why": "Real model usage across 5 workflows: chief of staff, podcast, analytics, games, mobile. Which models for what."
+    },
+    {
+      "url": "https://x.com/nikunj/status/2120669243918418237",
+      "handle": "nikunj",
+      "why": "Infra scraping: 44% of AI-native cos use 2+ model providers (up from 33%). Multi-model is norm now."
+    },
+    {
+      "url": "https://x.com/adityaag/status/2120578134177464356",
+      "handle": "adityaag",
+      "why": "Two company types to build: AI diffusion, or AI-native verticals. Strategic sorting for founders."
+    },
+    {
+      "url": "https://x.com/levie/status/2120947988143198302",
+      "handle": "levie",
+      "why": "Gemini 4 Hydrogen 5% accuracy improvement over Flash. Validation on fast model capabilities."
     }
   ],
   "tech": [
     {
-      "name": "OpenAI robotics team disbanded",
-      "role": "Fortune / Industry signal",
-      "hook": "OpenAI disbanded its robotics team as general models prove sufficient for robot control.",
-      "key_point": "Signals the **bitter lesson**: scale and compute beat hand-crafted, domain-specific engineering. Robotics no longer needs specialized team.",
-      "for_you": "If you're considering specialization vs. generalization for your agent products, this signals market is moving toward general models + adaptation, not specialized tools.",
-      "signal": "🟡",
-      "urls": [
-        "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/"
-      ],
-      "image": "https://fortune.com/img-assets/wp-content/uploads/2026/11/GettyImages-2304572308-e1794587995495.jpg?resize=1200,600"
-    },
-    {
-      "name": "Floating ocean data centers",
-      "role": "TechCrunch / Startup coverage",
-      "hook": "Startup proposes floating data centers powered by ocean heat; investors already engaged.",
-      "key_point": "**Infrastructure innovation** for AI compute cooling and power: taps ocean thermal differentials for energy.",
-      "for_you": "File as infrastructure trend. Not immediately relevant to your agency unless you're building data-center-intensive services. Signals capital flowing into compute infrastructure for AI.",
+      "name": "Guillermo Rauch",
+      "role": "CEO · Vercel",
+      "hook": "Product creation still requires focus, attention span, and human motivation.",
+      "key_point": "Even as AI accelerates velocity, the constraint now is human intentionality, not capability. Agents are builders; the human still steers.",
+      "for_you": "You're managing SMB client expectations around agent productivity. The hype says 'agent does everything.' The reality: agents need human direction. Your edge: helping SMBs understand what humans should steer vs what agents should run.",
       "signal": "💡",
       "urls": [
-        "https://techcrunch.com/2026/11/13/this-young-startup-wants-to-power-floating-data-centers-with-the-oceans-heat-and-investors-are-already-on-board/"
+        "https://x.com/rauchg/status/2120601000176439478"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/drogue-team.jpeg?resize=1200,900",
-      "video": {
-        "id": "sPGITtRfXfo",
-        "title": "Why India shouldn't bulid data centers  #economy"
-      }
+      "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
+      "handle": "rauchg"
     },
     {
-      "name": "FAA expanding AI advice for air traffic management",
-      "role": "Ars Technica / Operational deployment",
-      "hook": "FAA now uses AI to manage air traffic congestion across entire US airspace.",
-      "key_point": "**Production deployment** of AI in high-consequence domain (aviation). AI now making real-time routing decisions.",
-      "for_you": "Signal that AI is moving into critical infrastructure. If you're pitching AI agents to risk-averse sectors, this is proof of government acceptance at scale.",
+      "name": "Aaron Levie",
+      "role": "CEO · Box",
+      "hook": "Gemini 4 Hydrogen accuracy jumps 5 percentage points over Gemini 3.8 Flash.",
+      "key_point": "The fast-model tier is narrowing the gap to full-size models. Hydrogen is a serious contender for production workflows, not just prototyping.",
+      "for_you": "Pricing pressure on Claude Haiku / GPT-6 Luna tier. Test Hydrogen this week on your SMB workflows; it may be cheaper with acceptable quality.",
+      "signal": "🟡",
+      "urls": [
+        "https://x.com/levie/status/2120947988143198302"
+      ],
+      "image": "https://pbs.twimg.com/media/HW8e8-VasAAStoc?format=webp&amp;name=large",
+      "handle": "levie"
+    },
+    {
+      "name": "Garry Tan",
+      "role": "President & CEO · YCombinator",
+      "hook": "Built an idea-minder agent that recursively self-improves as you use it.",
+      "key_point": "Agents don't have to be stateless. They can retain insights across sessions and refine their own prompts over time.",
+      "for_you": "Pattern to test: agents that improve their own performance without retraining. Could build this into your SMB client tooling: agent learns what works for *this* client over weeks and gets better.",
+      "signal": "💡",
+      "urls": [
+        "https://x.com/garrytan/status/2121352628915593422"
+      ],
+      "image": "https://pbs.twimg.com/card_img/2121352617133735936/DOgo4I6L?format=webp&amp;name=medium",
+      "handle": "garrytan"
+    },
+    {
+      "name": "Peter Yang",
+      "role": "AI Educator & practitioner",
+      "hook": "Real model usage across 5 workflows: chief of staff, analytics, games, podcast, mobile.",
+      "key_point": "Different tasks call for different models. Chief of staff = Claude. Analytics = Gemini. Shows multi-model strategy in practice.",
+      "for_you": "Build a similar matrix for your SMB clients: which model for which task in their workflow. Document it so clients understand the choice, not just 'we use Claude.'",
       "signal": "🟢",
       "urls": [
-        "https://arstechnica.com/features/2026/11/faa-expands-ai-advice-to-manage-air-traffic-congestion-across-entire-us-airspace/"
+        "https://x.com/petergyang/status/2121286290629107967"
       ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/Pilots-during-DFW-departure-2560x1440.jpg",
-      "video": {
-        "id": "SaDnUydLTyw",
-        "title": "Pilot Accidentally Gives Passenger Announcement to Air Traffic Control | Funny ATC"
-      }
+      "image": "https://pbs.twimg.com/card_img/2120894646813634560/X4MNRnuH?format=webp&amp;name=medium",
+      "handle": "petergyang"
     },
     {
-      "name": "OpenAI board member warns on AI takeover timeline",
-      "role": "Ars Technica / Governance signal",
-      "hook": "OpenAI board member warns AI 'takeover' of society could occur within months.",
-      "key_point": "**Governance signal**: boardroom concern about pace of capability vs. safety/alignment.",
-      "for_you": "Not directly actionable. File as governance/credibility concern. If you're pitching agents to SMBs, be prepared for questions about safety and control. Have clear answer on guardrails.",
+      "name": "Nikunj Kothari",
+      "role": "Partner · Frontier Venture Partners",
+      "hook": "AI-native company infra scrape: 44% use 2+ model providers; up from 33% in March.",
+      "key_point": "Multi-model architecture is now standard practice, not edge case. Switching costs are plummeting as APIs converge.",
+      "for_you": "You should be comfortable building multi-model systems for SMBs. The market has already moved there. Avoid building lock-in to single vendor.",
       "signal": "🟡",
       "urls": [
-        "https://arstechnica.com/ai/2026/11/ai-is-the-most-likely-reason-youll-die-openai-board-member-warns/"
+        "https://x.com/nikunj/status/2120669243918418237"
       ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/ai-destination-1152x648.jpg"
-    },
-    {
-      "name": "Nvidia chip tracking feasibility confirmed",
-      "role": "MIT Technology Review / Regulatory signal",
-      "hook": "Nvidia privately confirmed feasibility of anti-smuggling chip tracking to Congress.",
-      "key_point": "**Supply chain regulation** is moving from discussion to implementation. Nvidia sees tracking as technically feasible.",
-      "for_you": "If building for customers in regulated sectors or dependent on specific GPU allocations, track chip tracking/serialization requirements. May affect procurement workflows.",
-      "signal": "🟡",
-      "urls": [
-        "https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/"
-      ],
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/foster-huang2a.jpg?resize=1200,600"
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2120666837029625856/img/SNrPZKmrBfWgZ7dK?format=webp&amp;name=large",
+      "handle": "nikunj"
     }
   ],
   "pt_news": [
     {
+      "headline": "Organograma é de 1998; AI chegou mas estrutura bloqueia",
+      "hook": "Portuguese analyst warns: AI adoption blocked not by technology but by organizational structure at companies and government.",
+      "for_you": "Your SMB clients have the same problem: legacy hierarchy, slow decision-making, siloed teams. Selling AI infrastructure is easier than selling organizational change. This is where your agency value is: not just the tool, but the workflow redesign.",
+      "signal": "🟡",
+      "url": "https://tek.sapo.pt/opiniao/artigos/a-ia-ja-chegou-o-organograma-e-de-1998/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/FabioGomes.jpg"
+    },
+    {
+      "headline": "32 cidades saem à rua pelo direito a morar",
+      "hook": "Housing crisis: nationwide manifestations today across 32 Portuguese cities demanding right to housing and reversal of rental law.",
+      "for_you": "Societal signal: economic instability affects hiring, talent retention, cost of living for your team and clients. If you're hiring in Portugal or scaling operations, factor this into planning.",
+      "signal": "🔴",
+      "url": "https://eco.sapo.pt/2026/11/14/manifestacao-pela-habitacao-sai-hoje-a-rua-em-32-cidades/",
+      "source_name": "Eco Sapo",
+      "image": "https://eco.imgix.net/uploads/2024/10/cropped-pavol-duracka-mu01df6uzeo-unsplash-2.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200",
+      "video": {
+        "id": "UKm-A8EeTLg",
+        "title": "as melhores cidades para morar no Brasil #melhores #cidades #brasil #cidadesdobrasil #melhorescidade"
+      }
+    },
+    {
+      "headline": "Nvidia market cap drop costs 500 mil milhões; Jensen gone",
+      "hook": "NVIDIA CEO resignation sent stock down ~13%; $500B market cap loss. Colette Kress interim CEO.",
+      "for_you": "Infrastructure vendor instability. If you're recommending NVIDIA compute to clients, this signals volatility ahead. GPU pricing and availability uncertain short-term.",
+      "signal": "🔴",
+      "url": "https://www.jornaldenegocios.pt/mercados/bolsa/detalhe/casos-de-jensen-huang-custam-mais-de-500-mil-milhoes-a-nvidia/",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-08/img_1200x676uu2026-08-27-11-37-25-528825.jpg",
+      "video": {
+        "id": "oPRNRFRp8FY",
+        "title": "Why did Nvidia lose $490 billion after Jensen Huang quit?"
+      }
+    },
+    {
       "headline": "Investigadores portugueses desenvolvem protótipo para redes 6G",
-      "hook": "Espelho inteligente controlador de sinais sem fios pode tornar futuras redes móveis mais eficientes.",
-      "for_you": "Sinal de que Portugal tem investigação avançada em infraestrutura de redes. Relevante se considerando parcerias com instituições de investigação para innovação em conectividade de agentes.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/investigadores-portugueses-desenvolvem-prototipo-que-pode-ajudar-a-tornar-redes-6g-mais-eficientes",
-      "source_name": "SAPO Tek",
+      "hook": "Portuguese researchers develop intelligent mirror prototype to control wireless signal paths for future 6G networks.",
+      "for_you": "Tech infrastructure progress signal. Portugal is contributing to next-gen telecom. Awareness level: shows domestic tech capacity.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/investigadores-portugueses-desenvolvem-prototipo-que-pode-ajudar-a-tornar-redes-6g-mais-eficientes/",
+      "source_name": "Sapo Tek",
       "image": "https://cdn.teknoticias.pt/uploads/2026/11/6G_-Superficie-inteligente-a-redirecionar-sinais-1024x576.png"
     },
     {
-      "headline": "Starlink Mini 2 com bateria amovível e Wi-Fi 6 chega aos EUA",
-      "hook": "Antena portátil nova com bateria até 4,5h, design mais leve e Wi-Fi 6. Pré-venda por $999 nos EUA.",
-      "for_you": "Relevante para cenários de agentes offline ou em locais sem conectividade fiável. Portugal ainda sem preço/data, mas sinal da evolução de hardware móvel.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/starlink-mini-2-chega-com-bateria-amovivel-e-wi-fi-6-pre-vendas-ja-abriram-nos-eua-mas-so-por-convite",
-      "source_name": "SAPO Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Starlink-Mini-2_02.jpg"
-    },
-    {
-      "headline": "BrickLink recupera após ciberataque; Lego confirma dados expostos",
-      "hook": "Mercado online de peças Lego voltou online após mais de uma semana offline. Nomes utilizador e IP expostos, mas senhas protegidas.",
-      "for_you": "Sinal de segurança/resiliência em plataformas de e-commerce. Se construindo marketplace para SMBs, use como case study de resposta a incidente.",
-      "signal": "🟡",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/bricklink-ja-regressou-depois-de-um-ciberataque-lego-confirma-acesso-a-nomes-de-utilizador-ip-e-alguns-emails",
-      "source_name": "SAPO Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/e469042db3a20def31f05cdda30e6f9de237302e.jpg"
-    },
-    {
-      "headline": "PwC vai certificar 85 mil profissionais em pensamento crítico na era da IA",
-      "hook": "Consultora investe mais de $100M em programa de simulações para treinar capacidade de questionar resultados de IA.",
-      "for_you": "Oportunidade: modelo de educação corporativa em IA. Se desenvolvendo programas de capacitação para SMBs, use isto como benchmark de investimento/abrangência.",
-      "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia",
-      "source_name": "SAPO Tek",
+      "headline": "PwC treina 85 mil profissionais em pensamento crítico na era AI",
+      "hook": "PwC invests $100M+ in certifications to teach critical thinking about AI results, filling gap as AI replaces junior analyst roles.",
+      "for_you": "Workforce signal: demand for AI literacy is institutional now. Your SMB clients will need their teams trained. This could be a secondary offering: not just AI tools, but AI literacy for their staff.",
+      "signal": "💡",
+      "url": "https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia/",
+      "source_name": "Sapo Tek",
       "image": "https://cdn.teknoticias.pt/uploads/2026/11/pessoas-computador-trabalho-IA-1024x576.jpg"
-    },
-    {
-      "headline": "Microsoft 365 recupera após falha global; Portugal afectado",
-      "hook": "Serviços voltaram online após mais de 24h de perturbações. Governo português e sector da saúde foram afectados.",
-      "for_you": "Já coberto, mas impacto em Portugal foi significativo. Reforça oportunidade de vender resiliência/redundância de sistemas para SMBs portugueses como defesa contra vendor lock-in único.",
-      "signal": "🔴",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/microsoft-365-servicos-em-recuperacao-e-uma-falha-global-ainda-sem-fim-a-vista-o-que-causou-um-dos-maiores-apagoes-da-historia-da-empresa",
-      "source_name": "SAPO Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Microsoft-empresa-logo.png"
     }
   ],
   "world_news": [
     {
-      "headline": "Zimbabwean author cleared of AI writing in Caine Prize win",
-      "hook": "Month-long investigation cleared Simbarashe Kundizeza of using AI to write prize-winning story. Declared human-written.",
-      "for_you": "Signal: AI-generated writing detection is difficult and error-prone. Governance around AI-created content is still forming. Relevant if selling content generation tools to SMBs.",
-      "signal": "🟡",
-      "url": "https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b972955b073a4788451a5a67593d810"
-    },
-    {
-      "headline": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
-      "hook": "AI helps researchers decipher Kurt Gödel's handwritten mathematical notebooks, revealing previously unknown proofs.",
-      "for_you": "Signal: AI as research tool for knowledge discovery in unstructured human-generated content. Interesting use case for document understanding agents in academic/scientific sectors.",
-      "signal": "💡",
-      "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/6eeccf216579fe2181ae737d30f31abd7590125c/210_58_1759_1407/master/1759.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=334efc63d7472a97d72be0ffd23af8bb"
-    },
-    {
-      "headline": "FAA ground stop was longest in 25 years; software overload confirmed",
-      "hook": "Third-ever nationwide US FAA ground stop lasted 5+ hours. Root cause: software overload in legacy air traffic control equipment, not cyberattack.",
-      "for_you": "Infrastructure resilience signal. Legacy systems still run critical infrastructure. SMBs: this justifies investment in modernization and redundancy.",
+      "headline": "Trump, Xi, Putin plan unprecedented trilateral summit in China next week",
+      "hook": "White House confirms historic joint meeting at APEC in Shenzhen; will cover nuclear treaties, Iran policy, trade.",
+      "for_you": "Geopolitical wildcard. Trade policy, chip export restrictions, US-China relations directly affect AI infrastructure costs and chip availability for European SMBs. Watch carefully.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo",
-      "source_name": "BBC News",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg"
-    },
-    {
-      "headline": "Microsoft outage impact compared to AWS, CrowdStrike; global disruption",
-      "hook": "Microsoft's 24+ hour outage of Outlook, Teams, Copilot is being compared to AWS and CrowdStrike incidents; arguably worse.",
-      "for_you": "Concentration risk signal. Single vendor failure cascades globally. Marketing angle for Portuguese SMBs: why you need multi-vendor strategy.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o",
-      "source_name": "BBC News",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/5f18/live/9b3a5370-df98-11f1-a9ad-6774a3284d10.jpg",
+      "url": "https://www.bbc.co.uk/news/articles/ckz74jzpy18do",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/172e/live/be162960-dfc9-11f1-81be-1f9bcd2a4214.jpg",
       "video": {
-        "id": "Lmurx8-JvIQ",
-        "title": "What is CrowdStrike? Understanding the Company Behind Today's Microsoft Crisis."
+        "id": "NWQn6uxyvNc",
+        "title": "Trump Says He’s Open to Trilateral Meeting With Putin, Xi"
       }
     },
     {
-      "headline": "Starship booster catch aborted; fell to ocean instead",
-      "hook": "SpaceX Flight 15 reached orbit but aborted booster catch attempt. Booster landed in water instead.",
-      "for_you": "Engineering signal on iterative risk-taking. SpaceX willing to abort high-stakes operations. Not directly relevant unless building infrastructure systems.",
+      "headline": "Ukraine offers US territorial concession for NATO bid, Zelenskyy says",
+      "hook": "US envoys reportedly proposed Ukraine cede Donbas territory to Russia in exchange for NATO membership.",
+      "for_you": "Geopolitical signal. If war ends or shifts, European tech markets (including Portugal) stabilize. Eastern European talent market normalizes. Uncertainty premium drops.",
       "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/cwvg2l312ylqo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/d028/live/47c10ab0-e013-11f1-b441-2b33b063138f.jpg",
+      "video": {
+        "id": "gi5-1KwPrVk",
+        "title": "Zelenskyy floats NATO bid concession in Ukraine-U.S. talks"
+      }
+    },
+    {
+      "headline": "FAA lifts nationwide ground stop after 4+ hour disruption; 6,000 flights cancelled",
+      "hook": "Third nationwide ground stop in US history resolved; caused by legacy equipment overload, not cyber-attack.",
+      "for_you": "Infrastructure brittleness signal. If your SMB clients depend on just-in-time anything (supply chain, field service), this shows critical systems still run on 1970s hardware. Your agents could help them build resilience.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg",
+      "video": {
+        "id": "ETPG9U_J7kw",
+        "title": "Flights Resume After FAA Lifts Nationwide Ground Stop | Nov 14"
+      }
+    },
+    {
+      "headline": "European calls for tech independence surge after Microsoft outage",
+      "hook": "Lawmakers across Europe call for reduced reliance on handful of foreign tech companies post-Microsoft 365 outage.",
+      "for_you": "Market opportunity and regulatory risk. Europeans (including Portugal) want local AI and infrastructure. You could position agency work as 'EU data, EU compute, EU ownership.' Also: regulatory risk if Brussels mandates data residency.",
+      "signal": "💡",
+      "url": "https://www.politico.eu/article/microsoft-outage-renews-european-calls-to-detox-from-us-tech/",
+      "source_name": "Politico Europe",
+      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/13/GettyImages-2304367896-scaled.jpg"
+    },
+    {
+      "headline": "Starship flight 15 reaches orbit; booster catch attempt ends in water",
+      "hook": "SpaceX's test of catching booster mid-air aborted; booster landed in ocean instead. Still major milestone.",
+      "for_you": "Space infrastructure progress. Starlink expansion (mini 2 launched this week too) affects global internet availability. For SMBs in remote Portugal or weak connectivity areas, Starlink becomes viable backup.",
+      "signal": "🟢",
       "url": "https://www.bbc.co.uk/news/articles/ckregdgnl0xpo",
-      "source_name": "BBC News",
+      "source_name": "BBC World",
       "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/1b1a/live/3f2ee680-dfbc-11f1-9e98-11d1980367a2.jpg",
       "video": {
-        "id": "IQLad6Y9RPE",
-        "title": "WOW! Watch SpaceX Land Super Heavy Booster In The Ocean"
+        "id": "YQNRi1wT9NA",
+        "title": "Starship Reaches Orbit as Booster Explodes in Gulf"
       }
     }
   ],
-  "since_yesterday": "Microsoft services fully restored after 24+ hour global outage; root cause confirmed as failed server health checks in legacy systems, not cyberattack. FAA ground stop resolved after 5+ hours; confirmed as software overload in air traffic control equipment.",
+  "since_yesterday": null,
   "health": {
     "x": {
       "attempted": 15,
