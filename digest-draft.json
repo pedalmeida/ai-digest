@@ -1,423 +1,377 @@
 {
-  "date": "Friday, 13 November 2026",
+  "date": "Saturday, 14 November 2026",
   "ai": [
     {
-      "thread_id": "decision-models-market-expansion",
-      "thread_title": "Decision Models Market Standardizes: Jev, OpenAI, Google",
+      "thread_id": "claude-code-parallel-workers",
+      "thread_title": "Claude Code: Parallel Worker Execution",
       "thread_state": "new",
-      "name": "Google AI",
-      "role": "Product · Google",
-      "hook": "Google launches Gemini Decision 1 API with identical spec to Jev.",
+      "name": "Anthropic · Claude Code",
+      "role": "Feature Update · Agent Architecture",
+      "hook": "Claude Code Projects now execute multiple agents in parallel, not sequentially.",
       "insights": [
-        "Google's Decisions API mirrors Jev's spec: yes/no, choice, and rubric-scoring questions",
-        "Three major vendors now offer deterministic decision APIs at identical pricing tiers",
-        "Identical API interface reduces switching costs and accelerates adoption across tools"
+        "**Concurrent workers** within a single project eliminate hand-off delays",
+        "Enables code review, testing, and documentation agents to run simultaneously",
+        "Architectural shift from sequential delegation to parallel compute model"
       ],
-      "for_you": "Decision models are now a standardized primitive across vendors, not a differentiator. For Portuguese SMBs, this means you can build deterministic workflows (loan approvals, content classification, routing) confident the API won't disappear if you switch platforms.",
-      "context": "Jev launched a System One decision model API earlier this year. OpenAI released GPT-6 Luna Decisions in October. Today Google completes the consensus with an API so similar Simon Willison notes it even reuses Jev's terminology. The spec covers yes/no questions (Jev's 'Noul'), multi-choice, and rubric-based scoring. All three are priced equivalently.",
-      "what_changed": "Google joins with identical API, completing three-vendor standardization.",
-      "action": "test",
+      "for_you": "Test on agency client work: run code audit, docs generation, and test suite in parallel. Could halve delivery time on Portuguese SMB automation projects by eliminating bottleneck of sequential task hand-offs.",
+      "context": null,
+      "what_changed": "Claude Code Projects redesigned to support concurrent agent workers",
+      "action": "test, architecture shift could improve agency delivery velocity on multi-task jobs",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Market consensus on standard APIs means you can ship deterministic workflows confident they'll work across model updates.",
+      "why_it_made_the_cut": "First parallel execution model in Claude Code, directly shifts agency workflow economics",
+      "signal": "🟡",
+      "urls": [
+        "https://claude.com/resources/articles/projects-redesigned"
+      ],
+      "handle": "",
+      "image": "https://claude.com/resources/articles/projects-redesigned/opengraph-image/og",
+      "video": {
+        "id": "JCLaezk2Klk",
+        "title": "Run multiple Claude Code agents at the same time without breaking your project #claude #claudecode"
+      }
+    },
+    {
+      "thread_id": "mollick-primer-agent-education",
+      "thread_title": "Primer: Agent-Driven Educational Simulations",
+      "thread_state": "new",
+      "name": "Ethan Mollick · Wharton Generative AI Lab",
+      "role": "Professor · Education AI",
+      "hook": "Primer converts teacher lessons into playable student simulations via agents.",
+      "insights": [
+        "**Agent-driven pipeline**: teacher talks → agent generates → playable simulation",
+        "Open-source release includes paper, prompts, and code for educators to adapt",
+        "Grounded in pedagogical research, not generic LLM output"
+      ],
+      "for_you": "Direct test case for yoga/meditation education product: could adapt Primer's agent-simulation pipeline for guided practice generation from instructor voice/intent. Low-code starting point with education credibility.",
+      "context": "Ethan Mollick's lab released Primer, a system where teachers verbally describe lessons and agents convert them into interactive simulations. Released with full code, paper, and reusable prompts for educators.",
+      "what_changed": "First release with open-source code available",
+      "action": "investigate, could be foundation for yoga/meditation education platform",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Open-source education agent system directly applicable to Pedro's yoga platform exploration",
       "signal": "💡",
       "urls": [
-        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
+        "https://x.com/emollick/status/2121001056637431873"
       ],
-      "handle": ""
+      "handle": "@emollick",
+      "image": "https://pbs.twimg.com/media/HW9Ohh6XwAA2xvd?format=webp&amp;name=large"
     },
     {
-      "thread_id": "agent-platform-ecosystem-maturation",
-      "thread_title": "Agent Platform Ecosystem Heating Up: Commerce, Orchestration, Adoption",
+      "thread_id": "alex-albert-code-audit-technique",
+      "thread_title": "Code Audit Workflow: Find Broken Code with Each Model Release",
       "thread_state": "new",
-      "name": "OpenAI",
-      "role": "Product · OpenAI",
-      "hook": "ChatGPT Wallet lets Dots agents make purchases on your behalf.",
+      "name": "Alex Albert · Anthropic",
+      "role": "Researcher · Claude Code Practitioner",
+      "hook": "Run standardized code audit prompt on projects with each new model release.",
       "insights": [
-        "ChatGPT Wallet provides agents a payment primitive, expanding transaction workflows beyond data",
-        "Agents can now shop, checkout, and transact without human intervention",
-        "Completes the agent stack: perception → decision → action → commerce"
+        "**Simple prompt**: ask model to find everything broken, inconsistent, inefficient, or obsolete",
+        "Model flags issues it's unsure about for human review",
+        "10k+ engagement suggests widespread adoption of technique"
       ],
-      "for_you": "Agent commerce is shipping. If you're building agency workflows for Portuguese SMBs, you can now have agents not just collect or process data, but complete transactions (bookings, orders, payments). This opens upsell: managed commerce workflows, not just automation.",
-      "context": "Agents have been able to read, write, and decide. ChatGPT Wallet adds the commerce layer. Coupled with LangChain reaching $3B valuation and Mercor's $750M Series D for agent infrastructure, the platform ecosystem is converging on a standard: agents that can see, decide, and transact.",
-      "what_changed": "Payment and shopping capabilities now available to agents.",
-      "action": "test",
+      "for_you": "Actionable this week: test on one Portuguese SMB client codebase with Fable 5.2 and Opus 5.5. Use as weekly hygiene check. Report findings to client as technical debt reduction. Low friction entry to agent-assisted code review for agency delivery.",
+      "context": null,
+      "what_changed": "Technique documented and popularized by Albert",
+      "action": "use_now, zero friction way to add code quality scanning to agency workflow",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Expands the economic surface area for agent-based services; most direct commercial capability addition in months.",
+      "why_it_made_the_cut": "immediately actionable workflow with proven adoption signal",
       "signal": "🟢",
       "urls": [
-        "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
-        "https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet"
+        "https://x.com/alexalbert__/status/2119884951550386671"
       ],
-      "handle": "",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/chatgpt-wallet.jpg?resize=1200,729",
-      "video": {
-        "id": "aB2NM-7gU60",
-        "title": "ChatGPT Can Now Buy From Your Store"
-      }
+      "handle": "@alexalbert__",
+      "image": "https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg"
     },
     {
-      "thread_id": null,
-      "thread_title": null,
-      "thread_state": null,
-      "name": "GGML / llama.cpp project",
-      "role": "Open-source · Foundation",
-      "hook": "llama.cpp reaches v1.0.0, stabilizing local AI inference.",
+      "thread_id": "karpathy-hackertube-scale-signal",
+      "thread_title": "HackerTube: Filtering at Scale with Language Models",
+      "thread_state": "new",
+      "name": "Andrej Karpathy · OpenAI",
+      "role": "Researcher · AI Pioneer",
+      "hook": "Filtered 43M HN comments to 6,454 curated videos using Claude Opus 5.5.",
       "insights": [
-        "Major version milestone signals production-ready local inference",
-        "Enables self-hosted LLM deployment without cloud dependencies",
-        "Critical foundation for privacy-first or disconnected-network deployments"
+        "**Scale proof**: 43 million comment corpus processed efficiently with Opus 5.5",
+        "Subjective curation task (video quality/relevance) handled reliably by model",
+        "2-hour processing time for multi-decade dataset suggests practical cost curve"
       ],
-      "for_you": "For Portuguese SMBs concerned about data residency or privacy (GDPR-critical workflows), llama.cpp v1.0 signals local inference is now stable enough for production. You can now legally promise 'models run on-premise, data never leaves your servers.'",
+      "for_you": "Pattern recognition for content production workflows: shows feasibility of using frontier models for bulk filtering/curation of client assets or user-generated content. File for yoga platform user-generated class evaluation.",
       "context": null,
-      "what_changed": "v1.0.0 marks API stability and production readiness.",
-      "action": "use_now",
+      "what_changed": "Karpathy published the hack with engagement results",
+      "action": "watch, signal on practical scale limits of model-driven curation",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Only stable local inference foundation available; essential for building privacy-compliant SMB workflows.",
-      "signal": "🟢",
-      "urls": [
-        "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
-      ],
-      "handle": "",
-      "image": "https://cdn-uploads.huggingface.co/production/uploads/63148d3b996c52bf0142cdbe/2PgU1GxpJX_LVORaP2RRy.png"
-    },
-    {
-      "thread_id": null,
-      "thread_title": null,
-      "thread_state": null,
-      "name": "OpenAI",
-      "role": "Product · OpenAI",
-      "hook": "OpenAI disbands robotics team as general models run robots.",
-      "insights": [
-        "Robotics team dissolved; general-purpose models now suffice for robot control",
-        "Signals end of specialized model teams for specific modalities",
-        "General models replacing domain-expert teams across domains"
-      ],
-      "for_you": "Pattern: specialized teams (robotics, code, vision, reasoning) are being replaced by general models + fine-tuning. Don't build agency offerings around custom-trained models—build around orchestration of general models. Specialization is moving to data and prompts, not architectures.",
-      "context": null,
-      "what_changed": "Robotics team officially dissolved.",
-      "action": "watch",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Signals where AI investment goes; you should build accordingly.",
-      "signal": "🟡",
-      "urls": [
-        "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/"
-      ],
-      "handle": "",
-      "image": "https://fortune.com/img-assets/wp-content/uploads/2026/11/GettyImages-2304572308-e1794587995495.jpg?resize=1200,600",
-      "video": {
-        "id": "QLTvMXdO1Eo",
-        "title": "OpenAI disbands its robotics team, betting general models can run robots #shorts"
-      }
-    },
-    {
-      "thread_id": null,
-      "thread_title": null,
-      "thread_state": null,
-      "name": "Latent Space",
-      "role": "Reporting · Latent Space",
-      "hook": "ArtCraft rewrote Photoshop as open-source, now plans to 'rebuild everything.'",
-      "insights": [
-        "AI-driven rewrite of Photoshop demonstrates full-software reimplementation is possible",
-        "CEO Brandon Thomas signals ambition to displace proprietary SaaS across verticals",
-        "Pattern: open-source AI tooling can displace closed commercial software"
-      ],
-      "for_you": "This is the pattern you should watch: open-source AI can rewrite entire product categories faster than vendors can iterate. Implication for SMBs: expensive SaaS tools (design, video, copywriting, CRM) may face open-source competition. Position agency services as 'tools + human expertise,' not just 'tool access.'",
-      "context": null,
-      "what_changed": "ArtCraft now open-source and expanding ambitions.",
-      "action": "watch",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Signals where AI tooling is headed; affects which SaaS dependencies you should rely on.",
-      "signal": "🟡",
-      "urls": [
-        "https://latent.space/p/artcraft/"
-      ],
-      "handle": "",
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/e61b607b-f9a5-4a6d-846b-f8792dd0a549/take-back-internet2.jpg?t=1794543381",
-      "video": {
-        "id": "vBT02ya5mtk",
-        "title": "Artcraft: Free Open-Source Adobe Alternatives"
-      }
-    },
-    {
-      "thread_id": null,
-      "thread_title": null,
-      "thread_state": null,
-      "name": "Handshake AI",
-      "role": "Startup · Data lab",
-      "hook": "Data lab Handshake AI reaches $1B valuation in one year.",
-      "insights": [
-        "Specialized data for frontier models is high-margin business",
-        "Launch to $1B unicorn in 12 months shows market appetite for data moats",
-        "Finance, bio, alignment data are separate, specialized verticals"
-      ],
-      "for_you": "Specialized data is becoming a margin play. You don't need to build a model; you need high-quality domain data (tax datasets, medical records, legal contracts). For Portuguese SMBs, this means: identify which datasets are hardest to access for your vertical, build access, sell to model labs. Data residency + privacy requirements in Portugal = defensible moat.",
-      "context": null,
-      "what_changed": "Handshake AI achieved $1B+ valuation through specialized data supply.",
-      "action": "investigate",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Shows alternative model for AI business (data, not models); relevant if you want to build a defensible data moat for SMBs.",
+      "why_it_made_the_cut": "highest-engagement builder signal on model scale in this cycle",
       "signal": "💡",
       "urls": [
-        "https://latent.space/p/handshake/"
+        "https://x.com/karpathy/status/2116957135661945283"
       ],
-      "handle": "",
-      "image": "https://i.ytimg.com/vi/v5IJwVnTxzg/maxresdefault.jpg"
+      "handle": "@karpathy",
+      "image": "https://pbs.twimg.com/media/HWDnuuCaIAA__wa?format=webp&amp;name=large"
     },
     {
-      "thread_id": "agent-platform-ecosystem-maturation",
-      "thread_title": "Agent Platform Ecosystem Heating Up: Commerce, Orchestration, Adoption",
+      "thread_id": "gemini-4-hydrogen-fast-tier-benchmark",
+      "thread_title": "Gemini 4 Hydrogen: 5% Accuracy Jump in Fast Model Tier",
       "thread_state": "developing",
-      "name": "Latent Space / AI Engineer Code Summit",
-      "role": "Reporting · Latent Space",
-      "hook": "Builders demonstrate System One models (Jev) in production at scale.",
+      "name": "Aaron Levie · Box",
+      "role": "CEO · Enterprise AI Adoption",
+      "hook": "Gemini 4 Hydrogen benchmarks 5 percentage points better than Gemini 3.8 Flash.",
       "insights": [
-        "Jev adoption shown across multiple production customers: Glean, Anthropic internals, more",
-        "Deterministic decision models are now standard tool in builder kits",
-        "Diogo Almeida (Jev lead) calls to 'automate everything' with decision models"
+        "**Benchmark**: Hydrogen +5% accuracy vs. Flash on Box AI Complex Work Eval",
+        "Fast model tier pricing consolidating; candidates now include Hydrogen, Luna, Haiku",
+        "Enterprise adoption signal: serious companies testing all three in production"
       ],
-      "for_you": "System One models aren't hype—they're shipping in production workflows right now. Builders are using them for routing, extraction, classification. For your agency: this is now table-stakes tooling. If your agents can't make reliable deterministic decisions, you're behind.",
+      "for_you": "Fast models now viable for cost-sensitive Portuguese SMB work; Hydrogen looks compelling vs Haiku/Luna. Add to weekly model comparison for client proposal generation. Track pricing changes.",
       "context": null,
-      "what_changed": "Jev adoption moving from announcement to production deployments at scale.",
-      "action": "use_now",
+      "what_changed": "Box published production benchmark data on Gemini 4 Hydrogen; confirms 5% jump from previous generation",
+      "action": "watch, informs model selection for cost-sensitive agency work",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Shows System One models are production-ready and widely adopted; not experimental.",
-      "signal": "🟢",
-      "urls": [
-        "https://latent.space/p/jev-revolution/"
-      ],
-      "handle": "",
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/b4181d5a-0460-4828-b350-07feca728023/jevalution-feature.jpg?t=1794458692"
-    },
-    {
-      "thread_id": "agent-platform-ecosystem-maturation",
-      "thread_title": "Agent Platform Ecosystem Heating Up: Commerce, Orchestration, Adoption",
-      "thread_state": "developing",
-      "name": "LangChain",
-      "role": "Startup · Agent orchestration",
-      "hook": "LangChain reaches $3B valuation as agent-as-a-service market heats up.",
-      "insights": [
-        "Agent orchestration platform valued at $3B, showing market willingness to centralize agent workflows",
-        "Signals competition: Mercor $750M Series D, Replit agents, OpenAI's own offerings all growing",
-        "Platform consolidation around agent orchestration, not model training"
-      ],
-      "for_you": "Don't build your own orchestration layer. LangChain, Replit, OpenAI Dots are converging on standard abstractions. For your agency: use a platform, specialize in use-case knowledge for Portuguese SMBs, not in infrastructure. Margin is in knowing how to sell agents to tax firms, not in reinventing the orchestration layer.",
-      "context": null,
-      "what_changed": "LangChain valuation reflects market confidence in agent-as-a-service ecosystem.",
-      "action": "watch",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Shows where investment goes; informs your infrastructure decisions.",
+      "why_it_made_the_cut": "only independent production benchmark on fast tier from credible enterprise builder",
       "signal": "🟡",
       "urls": [
-        "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/"
+        "https://x.com/levie/status/2120947988143198302"
+      ],
+      "handle": "@levie",
+      "image": "https://pbs.twimg.com/media/HW8e8-VasAAStoc?format=webp&amp;name=large"
+    },
+    {
+      "thread_id": "ai-vendor-diversification-trend",
+      "thread_title": "AI Vendor Diversification: 44% of Companies Using 2+ Model Providers",
+      "thread_state": "new",
+      "name": "Nikunj Kothari · FPV Ventures",
+      "role": "VC · Infrastructure Data",
+      "hook": "44% of AI companies now use multiple model providers, up from 33% in March.",
+      "insights": [
+        "**Vendor shift**: diversification growing quarter-over-quarter across 803 companies studied",
+        "Multi-provider strategy reduces single-vendor risk (relevant after Nvidia allegations)",
+        "Market showing deliberate hedging against concentration"
+      ],
+      "for_you": "Validates multi-model agency architecture: Portuguese SMB clients want redundancy anyway. Use data in client conversations to justify building with Claude + Gemini + fallback models. Trend is market-driven, not exotic.",
+      "context": null,
+      "what_changed": "Latest infrastructure scrape shows 44% (up from 33% three months prior)",
+      "action": "watch, confirms market-driven multi-vendor shift as hedge",
+      "evidence_level": "early_signal",
+      "why_it_made_the_cut": "quantified market trend with clean before/after comparison",
+      "signal": "🟡",
+      "urls": [
+        "https://x.com/nikunj/status/2120669243918418237"
+      ],
+      "handle": "@nikunj",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2120666837029625856/img/SNrPZKmrBfWgZ7dK?format=webp&amp;name=large"
+    },
+    {
+      "thread_id": "resend-agent-first-design",
+      "thread_title": "Resend: Designing Products for Agent-First Workflows (AEO)",
+      "thread_state": "new",
+      "name": "Zeno Rocha · Resend + Latent Space",
+      "role": "Product · Agent Experience Design",
+      "hook": "Resend designed docs, APIs, and SDKs so Claude Code could pick email provider.",
+      "insights": [
+        "**Answer Engine Optimization (AEO)**: docs structured for agent comprehension, not human speed-reading",
+        "Resend API tools visible to Claude Code, enabling **autonomous provider selection**",
+        "Pattern: companies now optimize product experience for agent-first workflows"
+      ],
+      "for_you": "Case study for client API design: when Pedro builds agency tools, structure APIs/docs so Claude Code agents can self-serve. Test with one Portuguese SMB's CRM API—agent-readable docs could reduce integration friction.",
+      "context": null,
+      "what_changed": "Latent Space published case study on Resend's agent-first design approach",
+      "action": "investigate, emerging pattern in how SaaS companies optimize for agent workflows",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "practical pattern for product design in agent era, directly applicable to agency client work",
+      "signal": "💡",
+      "urls": [
+        "https://latent.space/p/resend/"
       ],
       "handle": "",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Raising-money.jpg?resize=1200,829"
+      "image": "https://i.ytimg.com/vi/bdIoODXsu8k/maxresdefault.jpg"
     }
   ],
-  "build_this": [
-    {
-      "name": "llama.cpp v1.0.0",
-      "source": "GitHub / GGML",
-      "what_it_is": "Production-ready local LLM inference; enables on-premise model deployment without cloud.",
-      "why_try_it": "For Portuguese SMBs concerned about data residency or network isolation, you can now legally promise on-premise inference. Implement a privacy-first workflow: collect data locally, run inference locally, output results locally. This is table-stakes for regulated industries (finance, healthcare, legal). Integrate llama.cpp into your agency's deployment toolkit this week.",
-      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
-    }
-  ],
+  "build_this": [],
   "podcasts": [],
   "tech": [
     {
-      "name": "Simon Willison",
-      "role": "Independent analyst · LLM tooling",
-      "hook": "Anthropic trains Claude across AWS Trainium, Google TPUs, NVIDIA, and AMD GPUs.",
-      "key_point": "Multi-vendor GPU strategy revealed in IPO roadshow, not locked into NVIDIA despite Huang's chaos.",
-      "for_you": "Anthropic's multi-vendor approach means Claude won't disappear if Nvidia implodes. For your SMB agency, this signals vendor lock-in is declining; you can build on Claude without geopolitical risk.",
-      "signal": "🟢",
-      "urls": [
-        "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/"
-      ]
-    },
-    {
-      "name": "Jack Clark",
-      "role": "Editor · Import AI",
-      "hook": "AI startup converts a quantum conjecture into a published theorem.",
-      "key_point": "Breakthrough in mathematical proof automation; AI advancing frontier of formal reasoning.",
-      "for_you": "Signals: AI for science is moving from toy problems to real mathematical discoveries. If you're building education or research tools, the capability bar has just risen. Your competitors will have access to theorem-proving AI.",
+      "name": "Guillermo Rauch · Vercel",
+      "role": "CEO · Platform Infrastructure",
+      "hook": "MCP (Model Context Protocol) will become civilization-scale universal AI integration standard.",
+      "key_point": "MCP reusable across sessions and contexts, solving missing piece of universal callbacks for AI systems.",
+      "for_you": "Monitor MCP adoption: if it becomes standard for agent integrations, agency tooling could be simplified. Worth learning the spec.",
       "signal": "🟡",
       "urls": [
-        "https://jack-clark.net/2026/11/09/import-ai-480-self-sustaining-space-economies-ai-for-science-progress-and-meta-builds-perfect-hands-for-a-superintelligence/"
+        "https://x.com/rauchg/status/2119891138450755670"
       ],
-      "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-sNOLmO.png?fit=258%2C258&#038;ssl=1"
+      "image": "https://pbs.twimg.com/profile_images/1783856060249595904/8TfcCN0r_400x400.jpg",
+      "handle": "rauchg"
     },
     {
-      "name": "Ben Thompson",
-      "role": "Analyst · Stratechery",
-      "hook": "Jensen Huang's resignation marks end of founder-era dominance in AI.",
-      "key_point": "Governance failure in high-profile founder; market signaling shift toward professional management.",
-      "for_you": "Nvidia's chaos creates opportunity: suppliers, partners, and alternative vendors will have window to capture mindshare. Watch for GPU alternatives, cloud providers, chip designers pivoting. Portuguese tech startups building on AI may find more receptive buyer-base for alternatives to Nvidia-dependent stacks.",
+      "name": "Aaron Levie · Box",
+      "role": "CEO · Enterprise Knowledge Work",
+      "hook": "Autonomous collaborators now handling order-of-magnitude productivity gains in knowledge work.",
+      "key_point": "Shift from AI-assisted work to setting problems for agent swarms to solve independently; human approval of results.",
+      "for_you": "Enterprise adoption model for agency pitches to Portuguese SMBs: show how agents run client work autonomously with human checkpoints, not continuous steering.",
+      "signal": "🟡",
+      "urls": [
+        "https://x.com/levie/status/2119592025440092192"
+      ],
+      "image": "https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg",
+      "handle": "levie"
+    },
+    {
+      "name": "Amazon · Product Graph Initiative",
+      "role": "Platform Update · eCommerce AI",
+      "hook": "Amazon building searchable product graph indexing world's online shopping data with AI.",
+      "key_point": "Combines product indexing, pricing, availability, and reviews into AI-queryable knowledge graph.",
+      "for_you": "Not immediate for agency, but signals enterprise-scale AI indexing becoming commodity. File for yoga/education platform: could index instructor content similarly.",
+      "signal": "🟡",
+      "urls": [
+        "https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search"
+      ],
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/acastro_STK103__03.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.732984293194%2C100%2C78.534031413613&amp;w=1200"
+    },
+    {
+      "name": "Microsoft Security · Windows 0-Day",
+      "role": "Incident Report · Infrastructure Risk",
+      "hook": "Windows 0-day dropped by disgruntled researcher; grants system-level privileges to attackers.",
+      "key_point": "Unpatched vulnerability publicly disclosed, affecting agency infrastructure running Windows servers.",
+      "for_you": "Filed for awareness: if running Windows systems for client work, verify patch status. Consider Linux for new deployments.",
       "signal": "🔴",
       "urls": [
-        "https://stratechery.com/2026/the-end-of-jensen/"
+        "https://arstechnica.com/security/2026/11/windows-0-day-dropped-by-disgruntled-researcher-hands-hackers-system-rights/"
       ],
-      "image": "https://i0.wp.com/stratechery.com/wp-content/uploads/2026/11/GettyImages-2266460767-blog.jpg?fit=1200%2C800&#038;ssl=1"
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/GettyImages-1237693734-1152x648-1783631068.jpg"
     },
     {
-      "name": "MIT Technology Review",
-      "role": "Reporting · MIT",
-      "hook": "Nvidia privately confirmed chip tracking feasible; Treasury blames Commerce for export failures.",
-      "key_point": "Geopolitical AI supply chain tightening; private sector now accountable for export enforcement.",
-      "for_you": "Export controls on AI compute are becoming active policy. If you're building infrastructure plays or considering hardware investments for your agency, expect tighter scrutiny. Design your tech stack assuming GPU access may be restricted by geography or customer type.",
-      "signal": "🔴",
+      "name": "Politico Europe · Tech Policy",
+      "role": "Policy Analysis · Digital Sovereignty",
+      "hook": "Microsoft outage renews European calls to detox from single-vendor US tech dependency.",
+      "key_point": "Lawmakers proposing EU vendor-independent infrastructure after 20-hour global outage impact.",
+      "for_you": "Regulatory signal: Portuguese government/health IT may require backup non-US vendors. Informs vendor strategy for regulated client work.",
+      "signal": "🟡",
       "urls": [
-        "https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/"
+        "https://www.politico.eu/article/microsoft-outage-renews-european-calls-to-detox-from-us-tech/"
       ],
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/foster-huang2a.jpg?resize=1200,600"
-    },
-    {
-      "name": "Latent Space",
-      "role": "Reporting · Latent Space",
-      "hook": "Decision models market consolidates; Jev, OpenAI, Google now offer identical APIs.",
-      "key_point": "Market standardization on decision model specs; commoditization of deterministic reasoning.",
-      "for_you": "No single vendor lock-in on decision models anymore. Build agents confident the API will be available across platforms. Your agency won't be hostage to one provider's pricing or availability.",
-      "signal": "💡",
-      "urls": [
-        "https://latent.space/p/ainews-d-day-decision-models-day/"
-      ],
-      "image": "https://latent.space/og/card/post/ainews-d-day-decision-models-day/d2600d673d83d2c42c810a6c57c6e5942326283dfe350801c137d18f262c4f90.png"
+      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/13/GettyImages-2304367896-scaled.jpg"
     }
   ],
   "pt_news": [
     {
-      "headline": "Satélite português CA-03 envia primeiras imagens da Terra",
-      "hook": "Constelação do Atlântico operacional, tecnologia SAR noturna em funcionamento há menos de um mês após lançamento.",
-      "for_you": "Portuguese space tech is now operational and producing data. If you're building earth observation or satellite data products for European SMBs, there's now domestic infrastructure. Long-term: home-grown remote sensing data could reduce dependency on foreign providers.",
+      "headline": "FAA ground stop resolved; 1500+ flights canceled for Saturday.",
+      "hook": "US lifted nationwide flight suspension after 5 hours; cascading cancellations extended disruption.",
+      "for_you": "TAP air operations affected; brief impact on agency/client team travel to US. Issue resolved but recovery ongoing.",
+      "signal": "🟡",
+      "url": "https://www.theverge.com/news/1033489/faa-ground-stop",
+      "source_name": "The Verge",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/gettyimages-2304493507.jpg?quality=90&amp;strip=all&amp;crop=0%2C10.654918655606%2C100%2C78.690162688789&amp;w=1200"
+    },
+    {
+      "headline": "Microsoft outage resolved; Portuguese gov/health systems recovered.",
+      "hook": "Global Microsoft 365 outage lasted 20+ hours; Portuguese critical services affected.",
+      "for_you": "Policy signal: Portuguese authorities will likely mandate backup systems. No immediate action but affects client infrastructure recommendations.",
+      "signal": "🟡",
+      "url": "https://eco.sapo.pt/2026/11/13/apagao-da-microsoft-mostra-impacto-de-se-depender-de-um-unico-fornecedor/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2025/10/cropped-45840691-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "Portuguese satellite CA-03 sends first Earth images from orbit.",
+      "hook": "Satélite da Constelação Atlântica operational within one month; SAR imaging working in all conditions.",
+      "for_you": "Tech infrastructure win: demonstrates Portuguese space/satellite capability. Not directly relevant to agency work but signals domestic tech ecosystem strength.",
       "signal": "🟢",
       "url": "https://tek.sapo.pt/noticias/ciencia/artigos/satelite-portugues-ca-03-esta-no-espaco-ha-menos-de-um-mes-e-ja-enviou-as-primeiras-imagens-para-a-terra/",
       "source_name": "Sapo Tek",
       "image": "https://cdn.teknoticias.pt/uploads/2026/11/Imagem-satelite-CA-03-Forca-Aerea-2.jpg"
     },
     {
-      "headline": "PwC certificará 85 mil profissionais em pensamento crítico para era da IA",
-      "hook": "Programa de 100+ milhões USD em simulações para treinar capacidade de questionar resultados da IA; profissionais juniores agora treinados por máquinas.",
-      "for_you": "Major shift in Portuguese/European skills economy: critical thinking about AI outputs is now certified, in-demand skill. Your agency should be training clients' teams on 'how to spot when AI is wrong.' This is a service offering, not a threat.",
-      "signal": "🟢",
+      "headline": "PwC certificará 85 mil profissionais em pensamento crítico na era da IA.",
+      "hook": "Consulting firm investing $100M+ in simulations to train AI skepticism and questioning skills.",
+      "for_you": "Market signal: enterprise training for AI critical thinking becoming formalized. Could be service for Portuguese SMBs: \"AI skepticism training.\" Mentioned Friday but worth tracking as trend.",
+      "signal": "🟡",
       "url": "https://tek.sapo.pt/noticias/negocios/artigos/pwc-vai-certificar-85-mil-profissionais-em-pensamento-critico-na-era-da-ia/",
       "source_name": "Sapo Tek",
       "image": "https://cdn.teknoticias.pt/uploads/2026/11/pessoas-computador-trabalho-IA-1024x576.jpg"
     },
     {
-      "headline": "Apagão Microsoft 365 afeta serviços do Governo português e saúde",
-      "hook": "Falha global de 24+ horas; serviços em recuperação gradual. Origem identificada: falhas em verificações de saúde do servidor.",
-      "for_you": "Critical signal: Portuguese government and health systems depend entirely on Microsoft. Outage shows infrastructure fragility. For your agency: government contracts will increasingly require redundancy, local alternatives, and off-cloud disaster recovery. Build this capability or partner with providers who have it.",
-      "signal": "🔴",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/microsoft-365-servicos-em-recuperacao-e-uma-falha-global-ainda-sem-fim-a-vista-o-que-causou-um-dos-maiores-apagoes-da-historia-da-empresa/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Microsoft-empresa-logo.png"
-    },
-    {
-      "headline": "DBRS mantém rating de Portugal em A (elevado) com perspetiva positiva",
-      "hook": "Agência canadiana confirma notação e outlook; elogia crescimento superior ao esperado e prudência orçamental.",
-      "for_you": "Economic stability signal: Portuguese market remains stable and credible. Fundraising, hiring, and long-term contracts are safer. Government procurement budgets will remain available. Good macro environment for SMB services growth.",
+      "headline": "DBRS mantém rating de Portugal em A (elevado) com perspetiva positiva.",
+      "hook": "Credit rating agency confirms Portugal's improved fiscal position; positive outlook sustained.",
+      "for_you": "Macro backdrop for agency expansion: Portugal's sovereign credit improving, reducing business risk. Positive sign for SMB spending on services.",
       "signal": "🟢",
-      "url": "https://www.jornaldenegocios.pt/mercados/obrigacoes/detalhe/dbrs-mantem-rating-de-portugal-em-a-elevado-com-perspetiva-positiva",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2023-12/img_1200x676uu2023-12-13-20-34-14-466103.jpg"
-    },
-    {
-      "headline": "Investigadores portugueses desenvolvem protótipo para redes 6G mais eficientes",
-      "hook": "Espelho inteligente controla percurso de sinais sem fios; Portugal investindo em infraestrutura de próxima geração.",
-      "for_you": "Portugal is innovating in telecom infrastructure R&D. This is upstream innovation, not immediately commercialized, but signals the country has tech ambition. Long-term: domestic 6G capabilities could support new generations of Portuguese startups.",
-      "signal": "💡",
-      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/investigadores-portugueses-desenvolvem-prototipo-que-pode-ajudar-a-tornar-redes-6g-mais-eficientes/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/6G_-Superficie-inteligente-a-redirecionar-sinais-1024x576.png"
+      "url": "https://eco.sapo.pt/2026/11/13/dbrs-mantem-rating-e-perspetiva-da-divida-publica-portuguesa/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2017/04/cropped-dbrs.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     }
   ],
   "world_news": [
     {
-      "headline": "EU institutions survive Microsoft outage; Europe building vendor-independent tech",
-      "hook": "European institutions unaffected by 24h+ outage because they use alternative stacks and local infrastructure.",
-      "for_you": "Strategic signal: Europe is intentionally reducing Microsoft dependency. For Portuguese SMBs working with EU clients, expect growing demand for non-Microsoft tooling and EU-based alternatives. Your agency should have backup plans that don't depend on Microsoft.",
+      "headline": "FAA ground stop lifted after 5+ hours; cascading flight cancellations.",
+      "hook": "Nationwide US flight suspension resolved; 1500+ cancellations for Saturday follow disruption.",
+      "for_you": "Travel disruption resolved but recovery extending. Not tech-specific but affects any cross-Atlantic business.",
       "signal": "🟡",
-      "url": "https://www.politico.eu/article/eu-institutions-survive-microsoft-outage-unscathed/",
-      "source_name": "Politico Europe",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/13/GettyImages-2304372950-scaled.jpg"
-    },
-    {
-      "headline": "Silicon Valley claims to know the future, got midterms prediction wrong",
-      "hook": "OpenAI, Meta, SpaceX leaders built reputations on forecasting ability; 2026 midterms showed blind spots.",
-      "for_you": "Humbling reminder: even top AI founders can't predict near-term politics or society. Your long-term strategic planning should assume your forecasts are also fallible. Build flexibility and runway, not bet everything on one vision of how AI adoption will play out.",
-      "signal": "💡",
-      "url": "https://www.technologyreview.com/2026/11/13/1148498/silicon-valley-claims-to-know-the-future-so-why-did-it-get-the-midterms-so-wrong/",
-      "source_name": "MIT Technology Review",
-      "image": "https://wp.technologyreview.com/wp-content/uploads/2026/11/GettyImages-2297757667.jpg?resize=1200,600",
+      "url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/14ef/live/f4aae840-dfd7-11f1-b441-2b33b063138f.jpg",
       "video": {
-        "id": "qRNuIJU7OS0",
-        "title": "Anthropic’s CEO prediction about future of coding is wild 🤯"
+        "id": "O6jjfwMW_5w",
+        "title": "Flight Delays In US After FAA Computer Outage"
       }
     },
     {
-      "headline": "FAA grounds all US flights due to communication system failure",
-      "hook": "Rare nationwide grounding due to ATC (air traffic control) communications problem; infrastructure fragility exposed.",
-      "for_you": "Single point of failure in critical infrastructure created nationwide outage. Implications for AI adoption: overreliance on centralized systems (cloud, single-vendor, single-point-of-failure) is risky. Design your agency's infrastructure with redundancy and graceful degradation.",
-      "signal": "🔴",
+      "headline": "Microsoft outage fully resolved after day-long global disruption.",
+      "hook": "Services restored 20+ hours after cascading failure; underlying issue addressed.",
+      "for_you": "Resolved, but policy response ongoing: Europe calling for tech vendor independence. Structural shift, not incident.",
+      "signal": "🟡",
       "url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o",
       "source_name": "BBC World",
       "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/5f18/live/9b3a5370-df98-11f1-a9ad-6774a3284d10.jpg",
       "video": {
-        "id": "J9DUjcFJX4A",
-        "title": "FAA Grounds Flights Nationwide After Air Traffic Control Failure"
+        "id": "aWPSVTVfXHw",
+        "title": "Is the Microsoft Outage Over? Latest Update: Cause, Cost & Status #shorts"
       }
     },
     {
-      "headline": "UK civil service forces more interviews after surge in AI-generated job applications",
-      "hook": "Entire AI-generated applications submitted for UK government positions; agencies now requiring face-to-face interviews to verify humans.",
-      "for_you": "Policy response to AI-generated fraud is spreading. Expect more human-verification requirements in hiring, contracting, and compliance. For your agency: clients will demand proof of human involvement. This becomes a selling point ('human-supervised AI workflows') and a cost line item.",
-      "signal": "🟡",
-      "url": "https://www.politico.eu/article/whitehall-increase-in-person-job-interviews-after-ai-applications/",
+      "headline": "Europe calls for tech autonomy after Microsoft concentration risk exposed.",
+      "hook": "EU lawmakers propose vendor-independent infrastructure post-outage; regulatory response crystallizing.",
+      "for_you": "Market/regulatory shift: affects positioning for European enterprise clients. Multi-vendor strategy now policy-driven, not just prudent.",
+      "signal": "🔴",
+      "url": "https://www.politico.eu/article/microsoft-outage-renews-european-calls-to-detox-from-us-tech/",
       "source_name": "Politico Europe",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/13/iStock-2249077406-scaled.jpg",
+      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/13/GettyImages-2304367896-scaled.jpg"
+    },
+    {
+      "headline": "Trump, Putin, Xi plan unprecedented joint summit in China next week.",
+      "hook": "White House confirms historic talks on nuclear weapons reduction; first time three major nuclear powers meet.",
+      "for_you": "Geopolitical volatility: could affect semiconductor export controls, AI infrastructure investment timelines. File for risk scanning.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/ckz74jzpy18do",
+      "source_name": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/172e/live/be162960-dfc9-11f1-81be-1f9bcd2a4214.jpg",
       "video": {
-        "id": "A7CknuKv4P8",
-        "title": "job interviews with AI are like a walk in the park 😂 #jobinterview #jobsearch #jobinterviews #ai"
+        "id": "ZGFnDerWjvE",
+        "title": "Trump, Xi and Putin plan unprecedented joint meeting"
       }
     },
     {
-      "headline": "Zimbabwean author verified human-written after month-long AI-detection investigation",
-      "hook": "Prestigious Caine Prize for African writers cleared author after investigation found story was genuinely human-written despite initial suspicions.",
-      "for_you": "AI detection is unreliable and labor-intensive (took a month to verify). If your agency is building content for clients concerned about AI-generated 'slop,' expect they'll still struggle to verify originality. Position your service as 'human-written with AI assistance' rather than trying to sell '100% AI-free'—the market doesn't trust those claims.",
-      "signal": "🟡",
-      "url": "https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b972955b073a4788451a5a67593d810"
+      "headline": "Starship flight 15 powered to orbit; booster catch attempt ended with water landing.",
+      "hook": "SpaceX's latest Starship reached orbit but aborted catch sequence; booster recovered at sea.",
+      "for_you": "Not immediate to agency work, but space tech investment signals long-term US tech leadership. File for strategic context.",
+      "signal": "💡",
+      "url": "https://arstechnica.com/space/2026/11/starship-flight-15-powers-to-orbit-setting-up-a-possible-catch-on-saturday/",
+      "source_name": "Ars Technica",
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2305018954-1024x648.jpg",
+      "video": {
+        "id": "Gi3ZcH7g_9c",
+        "title": "WOW! Watch SpaceX Catch A Starship Booster In Air"
+      }
     }
   ],
-  "since_yesterday": "Jensen Huang scandal deepens: Congressional testimony looming, Treasury Secretary Bessent blamed Commerce Department for failing to block Nvidia chip exports to China. Microsoft's 24h+ recovery ongoing; root cause traced to cascading server health check failures affecting multiple regions and Portuguese government services. Decision models market completes: Google's Decisions API now standardizes the same spec as Jev and OpenAI, ending vendor differentiation on deterministic reasoning.",
+  "since_yesterday": "FAA ground stop resolved after 5+ hour suspension; 1500+ Saturday flight cancellations cascading from disruption. Microsoft outage recovery extended into Friday, with full service restoration confirmed but policy response (European tech autonomy) now crystallizing as structural shift rather than incident.",
   "health": {
     "x": {
       "attempted": 15,
-      "ok": 0,
-      "errors": [
-        "@karpathy: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@sama: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@gdb: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@amasad: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@rauchg: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@levie: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@garrytan: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@danshipper: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@swyx: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@petergyang: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@emollick: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@mattturck: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@nikunj: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@alexalbert__: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}",
-        "@adityaag: HTTP 402: {\"detail\":\"credits depleted\",\"status\":402,\"title\":\"Payment Required\",\"type\":\"https://api.x.com/2/problems/credits-depleted\"}"
-      ]
+      "ok": 15,
+      "errors": []
     },
     "podcasts": {
       "attempted": 3,
-      "ok": 3,
-      "errors": []
+      "ok": 0,
+      "errors": [
+        "Latent Space: HTTP 404",
+        "No Priors: HTTP 404",
+        "AI & I by Every: HTTP 404"
+      ]
     },
     "rss": {
       "attempted": 22,
