@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: cd scripts && npm install
 
-      - name: Fetch feed (X + podcasts + RSS + Hacker News + GitHub Trending)
+      - name: Fetch feed (X + RSS + Hacker News + GitHub Trending)
         timeout-minutes: 8
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
@@ -59,7 +59,7 @@ jobs:
         run: |
           git config user.name "AI Digest Bot"
           git config user.email "bot@ai-digest.local"
-          git add index.html digest-draft.json state/seen.json
+          git add index.html digest-draft.json state/seen.json state/x-state.json
           git diff --staged --quiet || git commit -m "digest: $(date +%Y-%m-%d)"
           git push
 
@@ -70,21 +70,31 @@ jobs:
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
         run: |
           MSG=$(node scripts/build-telegram-message.js)
-          node - "$MSG" <<'NODE'
-          const [,, text] = process.argv;
+          XTOP=$(node scripts/build-telegram-message.js --x-top)
+          node - "$MSG" "$XTOP" <<'NODE'
+          const [,, text, xTop] = process.argv;
           const https = require('https');
-          const body = JSON.stringify({ channel: process.env.SLACK_CHANNEL_ID, text, unfurl_links: false, unfurl_media: false });
-          const req = https.request('https://slack.com/api/chat.postMessage', {
-            method: 'POST',
-            headers: { 'Authorization': `Bearer ${process.env.SLACK_OPS_BOT_TOKEN}`, 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
-          }, res => {
-            let data = ''; res.on('data', c => data += c); res.on('end', () => {
-              const result = JSON.parse(data);
-              if (!result.ok) { console.error(data); process.exit(1); }
+          function post(payload) {
+            return new Promise((resolve, reject) => {
+              const body = JSON.stringify({ channel: process.env.SLACK_CHANNEL_ID, unfurl_links: false, unfurl_media: false, ...payload });
+              const req = https.request('https://slack.com/api/chat.postMessage', {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${process.env.SLACK_OPS_BOT_TOKEN}`, 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
+              }, res => {
+                let data = ''; res.on('data', c => data += c); res.on('end', () => {
+                  const result = JSON.parse(data);
+                  result.ok ? resolve(result) : reject(new Error(data));
+                });
+              });
+              req.on('error', reject);
+              req.write(body); req.end();
             });
-          });
-          req.on('error', err => { console.error(err); process.exit(1); });
-          req.write(body); req.end();
+          }
+          (async () => {
+            const card = await post({ text });
+            // X top 10 goes in the card's thread (Pedro, 2026-11-14)
+            if (xTop && xTop.trim()) await post({ text: xTop, thread_ts: card.ts });
+          })().catch(err => { console.error(err.message); process.exit(1); });
           NODE
 
       - name: Send Slack notification (failure)

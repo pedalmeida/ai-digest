@@ -373,15 +373,11 @@ OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
       "url": "link"
     }
   ],
-  "podcasts": [
+  "x_top": [
     {
-      "show": "Show Name",
-      "episode": "Episode Title",
-      "takeaway": "Single sentence. The ONE thing Pedro needs to know.",
-      "key_points": ["Point 1", "Point 2", "Point 3 (optional)"],
-      "for_you": "1-2 sentences, specific, swap-test applies.",
-      "signal": "exactly one emoji, no label text: 🔴 or 🟡 or 🟢 or 💡",
-      "url": "episode url"
+      "url": "exact X post URL copied from the sources (x.com/<handle>/status/<id>)",
+      "handle": "x handle",
+      "why": "Max 15 words: what is in the post and why it is worth Pedro's time."
     }
   ],
   "tech": [
@@ -408,6 +404,7 @@ RULES:
 - Include only sections that have actual content. Omit empty arrays entirely.
 - ai: this is the CORE section, be generous here — 5 to 8 entries when the sources support it. Prioritize actual news (model releases, technique breakthroughs, notable launches) over generic takes. One X builder's best tweet = one entry; do not create an entry for a builder whose tweets are trivial today, skip them instead of padding.
 - build_this: pick 2-3 the MOST concretely actionable items from the BUILD_THIS_CANDIDATES section — favor things Pedro could actually try or ship from this week, not just interesting reads. If nothing is genuinely actionable, return an empty array rather than forcing it.
+- x_top: the X posts Pedro should open and read today, best first, at most 10. Pick from the X Builder tweets only and copy each URL exactly. Prefer practical substance: a technique, a release with details, a real result, a lesson from building, a useful thread. Reject hype, vague predictions, engagement bait, drama, self-promotion with no content and one-word reactions. Fewer than 10 is fine; never pad. A post can be in x_top and also feed an ai entry.
 - tech, pt_news, world_news: exactly 5 items each (fewer only if the sources genuinely don't have 5 distinct stories today). Pick the 5 most important/relevant. Still scannable, but each item should carry a real supporting detail, not just a headline.
 - Never repeat a story already in ALREADY COVERED unless it has genuinely developed, then say what's new in for_you, and consider using since_yesterday.
 - Group related developments into persistent threads using thread_id. The first appearance must orient Pedro with context; later appearances must lead with what_changed and must not repeat the full background.
@@ -531,6 +528,7 @@ ${sections.join('\n\n')}${memoryBlock}`;
 
   // Attach handle from original X data (model may omit it)
   const allXAccounts = [...xAI, ...xTech];
+  const knownXUrls = new Set(allXAccounts.flatMap(b => (b.tweets || []).map(t => t.url)));
   function attachHandle(entries) {
     return (entries || []).map(e => {
       if (e.handle) return e;
@@ -545,6 +543,8 @@ ${sections.join('\n\n')}${memoryBlock}`;
     ai:          attachHandle(remixed.ai)   || [],
     build_this:  remixed.build_this  || [],
     podcasts:    remixed.podcasts    || [],
+    // X top 10 (Pedro, 2026-11-14): only URLs that really came from the fetched posts survive.
+    x_top: (remixed.x_top || []).filter(t => knownXUrls.has(String(t.url || '').replace(/\?.*$/, ''))).slice(0, 10),
     tech:        attachHandle(remixed.tech) || [],
     pt_news:     remixed.pt_news     || [],
     world_news:  remixed.world_news  || [],

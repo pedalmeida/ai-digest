@@ -9,6 +9,11 @@ const HN_API_BASE = 'https://hacker-news.firebaseio.com/v0';
 const SCRIPT_DIR = decodeURIComponent(new URL('.', import.meta.url).pathname);
 const SOURCES_PATH = join(SCRIPT_DIR, 'my-sources.json');
 const OUTPUT_PATH = join(SCRIPT_DIR, '..', 'my-feed.json');
+// X cost control (Pedro, 2026-11-14): the X API bills every user lookup (US$0.010) and every post read
+// (US$0.005), deduplicated only within one UTC day. User IDs never change and old posts were re-read every
+// day, so this state keeps each account's ID and the newest post ID (since_id). A run pays only for new posts.
+const X_STATE_PATH = join(SCRIPT_DIR, '..', 'state', 'x-state.json');
+const X_CACHE_HOURS = 72; // posts kept from earlier runs so the digest still sees the last few days
 const MAX_TWEETS_PER_USER = 10;
 const LOOKBACK_HOURS = 168; // 7 days, enough for the twice-daily feed
 const PODCAST_LOOKBACK_HOURS = 168;
@@ -146,12 +151,13 @@ async function lookupUser(handle, bearerToken) {
   return data.data;
 }
 
-async function fetchTweets(userId, handle, bearerToken) {
+async function fetchTweets(userId, handle, bearerToken, sinceId) {
   const params = new URLSearchParams({
     max_results: String(MAX_TWEETS_PER_USER),
     'tweet.fields': 'created_at,public_metrics',
     exclude: 'retweets,replies'
   });
+  if (sinceId) params.set('since_id', sinceId);
   const url = `${X_API_BASE}/users/${encodeURIComponent(userId)}/tweets?${params.toString()}`;
   const data = await fetchJson(url, bearerToken);
   return (data.data || []).map(tweet => ({
@@ -181,6 +187,15 @@ async function fetchXAccounts(accounts, bearerToken) {
     return x;
   }
 
+  let xState = {};
+  try {
+    xState = JSON.parse(await readFile(X_STATE_PATH, 'utf8'));
+  } catch {
+    xState = {};
+  }
+  const billed = { lookups: 0, posts: 0 };
+  const cacheCutoff = Date.now() - X_CACHE_HOURS * 60 * 60 * 1000;
+
   for (const account of accounts) {
     const handle = String(account.handle || '').trim().replace(/^@+/, '');
     if (!handle) {
@@ -190,8 +205,25 @@ async function fetchXAccounts(accounts, bearerToken) {
 
     health.x.attempted += 1;
     try {
-      const user = await lookupUser(handle, bearerToken);
-      const tweets = await fetchTweets(user.id, handle, bearerToken);
+      const key = handle.toLowerCase();
+      const saved = xState[key] || {};
+      let user = saved.id ? { id: saved.id, name: saved.name, description: saved.bio } : null;
+      if (!user) {
+        user = await lookupUser(handle, bearerToken);
+        billed.lookups += 1;
+      }
+      const fresh = await fetchTweets(user.id, handle, bearerToken, saved.since_id);
+      billed.posts += fresh.length;
+      const byId = new Map();
+      for (const t of [...fresh, ...(saved.tweets || [])]) {
+        if (!byId.has(t.id) && Date.parse(t.created_at) >= cacheCutoff) byId.set(t.id, t);
+      }
+      const tweets = [...byId.values()]
+        .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
+        .slice(0, MAX_TWEETS_PER_USER);
+      const newest = fresh.map(t => t.id)
+        .reduce((a, b) => (!a || BigInt(b) > BigInt(a) ? b : a), saved.since_id || null);
+      xState[key] = { id: user.id, name: user.name, bio: user.description || '', since_id: newest, tweets };
 
       x.push({
         source: 'x',
@@ -211,6 +243,8 @@ async function fetchXAccounts(accounts, bearerToken) {
     }
   }
 
+  await writeFile(X_STATE_PATH, JSON.stringify(xState, null, 2));
+  warning(`x: billed ${billed.lookups} user lookups and ${billed.posts} new posts (about US$${(billed.lookups * 0.01 + billed.posts * 0.005).toFixed(2)})`);
   return x;
 }
 
