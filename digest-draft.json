@@ -2,195 +2,222 @@
   "date": "Sunday, 15 November 2026",
   "ai": [
     {
-      "thread_id": "jensen-huang-nvidia-leadership",
-      "thread_title": "Jensen Huang resignation: market disruption and open-source implications",
+      "thread_id": "jensen-huang-nvidia-scandal",
+      "thread_title": "Jensen Huang resignation and Nvidia leadership crisis",
       "thread_state": "developing",
-      "name": "Jensen Huang, NVIDIA CEO and Cofounder",
-      "role": "CEO and Cofounder, NVIDIA",
-      "hook": "Huang resigned after affair allegations and espionage investigation; market cap dropped $500B.",
+      "name": "Satya Nadella, Elon Musk, Trump admin",
+      "role": "Tech leaders, government officials",
+      "hook": "Trump admin demands Nvidia restructuring; executives petition for Huang's reinstatement.",
       "insights": [
-        "**Huang resigned Friday** as NVIDIA CEO after disclosure of extramarital affair with person tied to espionage investigation.",
-        "**Colette Kress became interim CEO**; multiple tech leaders (Altman, Musk, Tan, Agarwal) signed petition calling for Huang's reinstatement.",
-        "**Immediate market impact**: NVIDIA lost ~$500B in value; implications for open-source AI funding, VC investment strategies, and NVIDIA's role as 'central banker' of AI ecosystem unclear."
+        "Bessent (Commerce Secretary) demands 'drastic restructuring' with 10-day deadline on China chip sales disclosure",
+        "Tech leaders including Musk sign petition to reinstate Huang, signaling industry concern over leadership instability",
+        "Governance failures now secondary scandal; political/regulatory pressure intensifying"
       ],
-      "for_you": "Signals major upheaval in AI leadership and funding dynamics directly affecting your agency's competitive landscape and client confidence. Huang was active acquirer (Hugging Face) and VC investor; transition creates uncertainty for open-source SMB infrastructure.",
-      "context": "Jensen Huang cofounded NVIDIA in 1993 and built it into the dominant AI infrastructure player. He has been both a technology visionary and strategic dealmaker, often making founder-level bets on open-source AI.",
-      "what_changed": "Sunday: Petition movement organized with prominent tech leadership signing on; market analysis showing consequences for open-source AI ecosystem and VC funding allocations. Friday was pure resignation; Sunday shows organized pushback and strategic implications for the broader ecosystem.",
-      "action": "watch, this reshapes AI leadership, funding incentives, and your competitive context over next 3-6 months",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "highest-impact market disruption; changes strategic landscape for AI agency economics and open-source adoption",
+      "for_you": "If Nvidia supply chain is critical for agency inference infrastructure, expect leadership turbulence and chip pricing/availability volatility through Q1 2027. Monitor alternatives (AMD, Google TPU).",
+      "context": "Huang resigned Friday after admitting to affair; espionage investigation ongoing. Market cap fell ~$500B. Now regulatory and industry pressure mounting over governance and export controls.",
+      "what_changed": "Bessent escalates pressure with 10-day restructuring deadline. Tech execs publicly contest resignation. Scandal now political theater in Trump administration.",
+      "action": "watch | Leadership instability at Nvidia cascades to supply costs and product roadmap confidence",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "Market and regulatory pressure on chip supply affects agency infrastructure assumptions",
       "signal": "🔴",
       "urls": [
-        "https://latent.space/p/ainews-jensen-huang-resigns-after-33-years-leading-nvidia/",
-        "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang"
+        "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/",
+        "https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/bessent-diz-que-a-nvidia-precisa-de-uma-reestruturacao-drastica-apos-demissao-de-huang/"
       ],
       "handle": "",
-      "image": "https://latent.space/og/card/post/ainews-jensen-huang-resigns-after-33-years-leading-nvidia/00b682fceec70ac5a963728725400ee392556ea7e0495837c1282ebea0220b21.png",
-      "video": {
-        "id": "mzgpM6VX3DI",
-        "title": "Jensen Huang Investigation: What It Means for Your Pension"
-      }
+      "image": "https://techcrunch.com/wp-content/uploads/2025/05/GettyImages-2216028442.jpg?w=1024"
     },
     {
-      "thread_id": "fable-benchmark-saturation",
-      "thread_title": "Fable 5.2 retakes #1 ranking amid accelerating benchmark saturation",
+      "thread_id": "benchmark-saturation-crisis",
+      "thread_title": "AI benchmarks saturating faster as models improve",
       "thread_state": "developing",
-      "name": "Claude Fable 5.2 + Ethan Mollick's SatBench analysis",
-      "role": "Anthropic / Professor @Wharton",
-      "hook": "Fable reclaimed #1 LLM spot; 63% of benchmarks since 2023 now saturated—saturation accelerating yearly.",
+      "name": "Ethan Mollick",
+      "role": "Professor · Wharton, AI researcher",
+      "hook": "63% of benchmarks cited since 2023 now saturated; saturation accelerating yearly.",
       "insights": [
-        "**Fable 5.2 retakes #1**: outperforms Mythos 5.2 and competitors; arrived on Anthropic's IPO roadshow day Friday.",
-        "**SatBench reveals saturation crisis**: of 173 major benchmarks cited by labs since 2023, **63% are now saturated** (effectively 'solved'). Saturation speed increasing each year.",
-        "**Practical evidence**: Mollick produced SatBench analysis in **4 Fable 5.2 prompts**; built dataset analysis that would've taken days in STATA, made visualization look professional in minutes."
+        "SatBench analysis covers 173 benchmarks from major labs; saturation trend is year-over-year accelerating",
+        "Implication: Model capabilities outpacing measurement; traditional benchmarks losing decision-making value",
+        "Mollick built analysis using Fable 5.2 in 4 prompts (previously days in STATA)"
       ],
-      "for_you": "Models are improving faster than your measurement tools. For Portuguese SMBs, this means benchmark leaderboards are increasingly unreliable for decision-making; real-world task performance is more signal than published scores. Your agency should move from benchmark-chasing to outcome benchmarks for client work.",
-      "what_changed": "Friday: Fable released; Saturday: SatBench data published showing benchmark meaninglessness accelerating. Sunday: implications clearer—model selection can't rely on published rankings anymore.",
-      "action": "test, build your own outcome metrics for client workflows rather than relying on public leaderboards",
+      "for_you": "Benchmark-driven model comparison (Claude vs Gemini vs DeepSeek) is becoming unreliable for client selection. Shift focus to **production testing on actual Portuguese SMB workflows** and real-world reliability patterns.",
+      "context": "As models improve, academic benchmarks max out faster than new tests can be created. Measurement blind spot: we don't know if 'better' on saturated benchmarks means actually better in production.",
+      "what_changed": "SatBench concrete data published; saturation acceleration quantified; production evals now mandatory",
+      "action": "watch | Shift model evaluation from benchmarks to proprietary production evals",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "directly challenges how model selection works; affects your agency's positioning on model choice for clients",
+      "why_it_made_the_cut": "Changes how to credibly compare models for client work",
       "signal": "🟡",
       "urls": [
-        "https://x.com/emollick/status/2121751565845360769",
-        "https://x.com/emollick/status/2121822367575945454"
+        "https://x.com/emollick/status/2121751565845360769"
       ],
-      "handle": "@emollick",
+      "handle": "emollick",
       "image": "https://pbs.twimg.com/media/HXH3hXVXUAA8oE1?format=webp&amp;name=large"
     },
     {
-      "thread_id": "decision-models-api-convergence",
-      "thread_title": "Decision models: Google joins standardized API ecosystem (Jev, GPT Luna format)",
-      "thread_state": "developing",
-      "name": "Gemini Decisions API",
-      "role": "Google",
-      "hook": "Google launches Decisions API with identical three-question format as Jev and OpenAI Luna.",
+      "thread_id": "gemini-4-family-pricing",
+      "thread_title": "Gemini 4 Hydrogen launch and pricing confusion",
+      "thread_state": "new",
+      "name": "Google, Simon Willison",
+      "role": "Google Brain · Google, Developer · Datasette",
+      "hook": "Gemini 4 Hydrogen (lowest cost) but only 25% cheaper than Carbon/Argon; quality tradeoffs unclear.",
       "insights": [
-        "**Google enters decision-model market** with Gemini Decisions API supporting yes/no, choice, and rubric-scoring questions.",
-        "**API convergence**: Google reuses **Jev's term 'Noul'** for yes/no questions; pricing matches GPT-6 Luna; three vendors now offering **identical structure**.",
-        "**Market validation**: Standardization signals this is becoming core abstraction for agent decision-making, not a niche."
+        "Three tiers: Argon and Carbon at identical token price, Hydrogen only 25% discount",
+        "Carbon/Argon prices double on Dec 1st; Hydrogen discount becomes even narrower",
+        "Hydrogen shows notable accuracy drops on some tasks ('pelicans' benchmark); confusion on when to use each tier"
       ],
-      "for_you": "Decision models are now a commodity layer. Your agency can build client agents without lock-in to one model provider. Test workflows using decision APIs to offload validation and scoring tasks from larger models (cost/speed win).",
-      "what_changed": "Friday: Google announced entry; Saturday/Sunday: tooling and pricing details confirmed, convergence clear. Three major vendors now offer identical interface.",
-      "action": "test, implement decision model API abstraction in your agent orchestration layer to enable multi-vendor flexibility",
+      "for_you": "Before migrating Portuguese SMB clients from Claude to Gemini, **model the three-tier cost structure**. Hydrogen margin advantage only holds if quality trade-off doesn't hurt results. Test on actual client prompts before deciding.",
+      "context": "Google enters 'good/better/best' pricing like Anthropic. Confusion stems from similar pricing across tiers and pending Dec 1st increase.",
+      "what_changed": "Hydrogen now available at scale; pricing scheme remains incoherent vs competitive offerings",
+      "action": "investigate | Test Hydrogen on real Portuguese workflows before recommending to cost-sensitive clients",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "standardization reduces vendor lock-in for your clients; direct tool layer for your agency",
+      "why_it_made_the_cut": "Affects agency economics: each model tier choice changes margin on client deliverables",
+      "signal": "🟡",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/12/llm-gemini/",
+        "https://x.com/simonw/status/2121039423441981444"
+      ],
+      "handle": "simonw",
+      "image": "https://static.simonwillison.net/static/2026/gemini-4-card.jpg"
+    },
+    {
+      "thread_id": "decision-models-consolidation",
+      "thread_title": "Decision models market consolidates around Jev format",
+      "thread_state": "monitoring",
+      "name": "Google, OpenAI, Jev",
+      "role": "AI model providers",
+      "hook": "Google launches Decisions API, matching Jev and OpenAI Luna's three-question format (yes/no, choice, rubric).",
+      "insights": [
+        "Google Decision 1 uses identical API to Jev: yes/no, multiple choice, and rubric-scoring questions",
+        "Priced the same as GPT-6 Luna; reinforces market convergence on format and pricing",
+        "Category is now standard across three major providers; no vendor lock-in on interface"
+      ],
+      "for_you": "Decision models are becoming **core components of agent workflows** (approval gates, classifications, rubric scoring). No vendor lock-in on format. Test Google's implementation this week if using Claude/Gemini mix for Portuguese clients.",
+      "context": "Decision models emerged as distinct category (September). Now standardized by major players, confirming this is real product category, not experimental.",
+      "what_changed": "Google enters market with identical API format, confirming category standardization",
+      "action": "test | Decision models matter for agent reliability; worth a week of testing on actual client workflows",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "New capability category entering production workflows fast",
       "signal": "🟢",
       "urls": [
-        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/",
-        "https://latent.space/p/ainews-d-day-decision-models-day/"
+        "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
       ],
       "handle": ""
     },
     {
-      "thread_id": "claude-meetings-context-auto-close",
-      "thread_title": "Claude Meetings auto-closes context gaps; proven internally at Anthropic",
+      "thread_id": "claude-auto-mode-control",
+      "thread_title": "Claude auto mode occasionally refuses tasks; permission injection workaround",
       "thread_state": "new",
-      "name": "Alex Albert",
-      "role": "Research @ Anthropic",
-      "hook": "Claude Meetings brings in missing context automatically; internal adoption shows strong utility.",
+      "name": "Simon Willison",
+      "role": "Developer · Datasette, PSF board",
+      "hook": "Claude's new auto mode refuses some requests; injecting permission statements ('I give you permission') unblocks execution.",
       "insights": [
-        "**Claude Meetings feature**: Claude can now attend meetings and automatically close context gaps that human summarization misses.",
-        "**Internal validation**: proving very useful inside Anthropic for closing information asymmetries.",
-        "**Practical implication**: agent workflows can now reference entire meetings instead of relying on manual notes or summaries."
+        "Auto mode takes user messages into account for safety decisions",
+        "Workaround: explicitly grant permission in prompt ('I give permission for...') to unblock",
+        "Safety system is dynamic, context-aware; blocks unpredictable on benign tasks"
       ],
-      "for_you": "Direct tool for your agency: integrate Claude Meetings into client workflows where agents need to understand decisions/context from team calls. Reduces manual note-taking and context loss. Test with your own team first.",
-      "action": "use_now, integrate into your daily workflows and client onboarding calls immediately",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "practical feature ready to use today; directly improves your agency operations",
-      "signal": "🟢",
+      "for_you": "If automating Claude Sheets or Claude Code for Portuguese SMB workflows, auto mode may block legitimate client requests. Test the permission injection technique before deploying to production.",
+      "context": "Claude's safety system is becoming more dynamic and context-aware, leading to unpredictable blocks on otherwise benign tasks.",
+      "what_changed": "Auto mode now active for regular chat; workaround discovered and documented",
+      "action": "test | Try permission injection on blocked automations before escalating to Anthropic support",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "Affects automation reliability for agency work",
+      "signal": "🟡",
       "urls": [
-        "https://x.com/alexalbert__/status/2120983722182988206"
+        "https://x.com/simonw/status/2121695097674981849"
       ],
-      "handle": "@alexalbert__",
-      "image": "https://pbs.twimg.com/profile_images/2121116984746377216/03T2yozR_400x400.jpg"
+      "handle": "simonw",
+      "image": "https://pbs.twimg.com/profile_images/378800000261649705/be9cc55e64014e6d7663c50d7cb9fc75_400x400.jpeg"
     },
     {
-      "thread_id": "anthropic-compute-multi-vendor-strategy",
-      "thread_title": "Anthropic trains and serves Claude across AWS, Google, NVIDIA, AMD (IPO roadshow reveals)",
-      "thread_state": "new",
-      "name": "Anthropic IPO roadshow",
-      "role": "Anthropic Leadership",
-      "hook": "IPO roadshow reveals Anthropic trains and serves Claude across four competing compute vendors.",
+      "thread_id": "production-agents-patterns",
+      "thread_title": "Production agent patterns emerging from OpenAI and Anthropic teams",
+      "thread_state": "developing",
+      "name": "Peter Steinberger, Alex Albert",
+      "role": "AI researcher · OpenAI, Research · Anthropic",
+      "hook": "Teams running persistent agents at scale; context management is the primary bottleneck, not capability.",
       "insights": [
-        "**Compute diversification**: Claude training and serving uses AWS Trainium, Google TPUs, NVIDIA GPUs, and AMD GPUs simultaneously.",
-        "**Business resilience**: no single vendor dependency; hedges against supply constraints and pricing leverage.",
-        "**Transparency**: unusual for a frontier lab to reveal this detail publicly; signals confidence in multi-vendor viability."
+        "OpenAI team documented how they run persistent agents in production (Steinberger's team)",
+        "Context gaps are the critical problem; Anthropic teams use Claude Meetings to solve",
+        "Pattern: good agents are 90% about feeding right context, 10% about model"
       ],
-      "for_you": "Signals that multi-cloud/multi-vendor is operationally feasible at scale. For Portuguese SMBs, this validates self-hosting and local inference strategies using mixed compute. Anthropic's strategy de-risks NVIDIA dependency.",
-      "action": "investigate, understand implications for your own infrastructure strategy—multi-vendor deployments are now proven at frontier scale",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "business model signal affecting infrastructure decisions for your clients",
+      "for_you": "If building agents for Portuguese SMBs, **context management is where you win or lose**. Document what context each client's workflows need (customer history, product catalog, previous decisions), then build agents that fetch and refresh that context automatically.",
+      "context": "Agent development shifting from 'what model is smartest' to 'how do we keep agents current on data that matters'.",
+      "what_changed": "Production patterns now documented publicly; context problems move center stage",
+      "action": "investigate | Interview 2-3 Portuguese SMB clients about their context needs before building",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "Structural insight into what makes agents work in production",
       "signal": "💡",
       "urls": [
-        "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/"
+        "https://x.com/steipete/status/2121058770767982997",
+        "https://x.com/alexalbert__/status/2120983722182988206"
       ],
-      "handle": ""
+      "handle": "steipete",
+      "image": "https://pbs.twimg.com/profile_images/1131851609774985216/OcsssQ9J_400x400.png"
     },
     {
-      "thread_id": "gemini-4-hydrogen-cost-accuracy",
-      "thread_title": "Gemini 4 Hydrogen: 5-point accuracy jump over Flash at low cost; pricing unclear",
+      "thread_id": "ai-quality-standards",
+      "thread_title": "No AI Slop Manifesto published; 300+ builder signatures",
       "thread_state": "new",
-      "name": "Gemini 4 Hydrogen release",
-      "role": "Google",
-      "hook": "Hydrogen shows significant accuracy improvement on fast-model tier; Google's pricing schema remains confusing.",
+      "name": "Dex Horthy, AIE speakers",
+      "role": "CTO · HumanLayer, AI Engineer Code Summit speakers",
+      "hook": "300+ signatures from builders at AI Engineer Code Summit; commit to fighting low-quality AI-generated content.",
       "insights": [
-        "**Performance jump**: Gemini Hydrogen is **5 percentage points more accurate** than Gemini 3.8 Flash on Box AI evaluations.",
-        "**Cost positioning**: lowest-cost member of Gemini 4 family; not far off siblings (Carbon, Argon) in price—confusing tier structure.",
-        "**Real-world validation**: Box AI tested Hydrogen in early access; results significant enough to warrant production evaluation."
+        "Manifesto published and hit Hacker News front page immediately",
+        "Signatories include teams from Baseten, SpaceX, OpenAI, PostHog, others",
+        "Signal: builder community taking quality ownership, not relying on vendors"
       ],
-      "for_you": "Cost-quality tradeoff improving for client workflows. For Portuguese SMBs doing high-volume inference (translations, categorization, summaries), Hydrogen could replace Flash at meaningful accuracy gain without proportional cost increase. Test on your own high-volume tasks.",
-      "action": "test, benchmark Hydrogen against your current inference model for routine client tasks (translations, summaries, categorization)",
+      "for_you": "Use this as **credibility anchor for Portuguese SMB clients**: 'Our agency follows the No AI Slop Manifesto principles—we produce AI output that meets professional standards, not just generated.' Community commitment = competitive advantage in B2B.",
+      "context": "Reaction to rising 'AI slop' (low-quality, obviously-generated content) polluting the internet. Builders organizing around quality standards.",
+      "what_changed": "Community manifesto published and gained rapid adoption; makes quality standards explicit and auditable",
+      "action": "use_now | Reference the manifesto in client proposals as your quality standard",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "practical model choice for your agency's cost structure",
+      "why_it_made_the_cut": "Market credibility signal and positioning tool for agency",
       "signal": "🟢",
       "urls": [
-        "https://x.com/levie/status/2120947988143198302"
+        "https://x.com/dexhorthy/status/2121660606256435325",
+        "https://latent.space/p/ainews-the-no-ai-slop-manifesto/"
       ],
-      "handle": "@levie",
-      "image": "https://pbs.twimg.com/media/HW8e8-VasAAStoc?format=webp&amp;name=large"
+      "handle": "dexhorthy",
+      "image": "https://pbs.twimg.com/media/HXGiF9MbAAEvNTu?format=webp&amp;name=large"
     },
     {
-      "thread_id": "aws-emulator-local-infrastructure",
-      "thread_title": "AWS releases official emulator in Rust; 29K commits in 3 weeks from agent swarm",
+      "thread_id": "agent-architecture-advantage",
+      "thread_title": "Agents improve faster than non-agentic AI models",
       "thread_state": "new",
-      "name": "aws-emulator",
-      "role": "AWS",
-      "hook": "AWS emulator written in Rust; built via agent swarm with 29,684 commits in three weeks.",
+      "name": "Aaron Levie",
+      "role": "CEO · Box",
+      "hook": "Agents using software tools improve faster than all other AI model capabilities (coding, math, general reasoning).",
       "insights": [
-        "**Official AWS emulator**: first time AWS provides official local clone of services without provisioning paid infrastructure.",
-        "**Agent-accelerated development**: 29,684 commits in first three weeks; project itself is proof-of-concept for agent-driven infrastructure development.",
-        "**Self-hosting enabler**: teams can now develop against full AWS service suite locally without API keys or cost."
+        "Architectural advantage: agents can use external tools, feedback loops, and software context",
+        "Implies agent-first development beats 'wait for smarter models' strategy",
+        "Non-agentic improvements slowing relative to agentic capability curves"
       ],
-      "for_you": "Direct infrastructure win for your agency: test workflows against local AWS without provisioning. For Portuguese SMBs, enables development without cloud costs. Build your client onboarding to use local emulator in dev/test.",
-      "action": "use_now, integrate aws-emulator into your development workflow and client onboarding process",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "removes cost barrier for local testing; practical immediate use",
-      "signal": "🟢",
+      "for_you": "For Portuguese SMB agency: **invest in agent architecture and tool integration now, not waiting for Claude 6.0**. A well-architected agent on Fable 5.2 will likely outperform vanilla Claude 6.0 in 6 months. This is your competitive window.",
+      "context": "Model scaling curves flattening, but agent curves still steep because limited by tool integration, not model weights.",
+      "what_changed": "High-signal insight from industry leader confirms agent-first strategy",
+      "action": "watch | Plan product roadmap around agent capabilities, not model releases",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "Strategic insight that should reshape product priorities",
+      "signal": "💡",
       "urls": [
-        "https://simonwillison.net/2026/Nov/11/aws-emulator/"
+        "https://x.com/levie/status/2121686564078297461"
       ],
-      "handle": ""
+      "handle": "levie",
+      "image": "https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg"
     }
   ],
   "build_this": [
     {
       "name": "datasette-llm 0.1a11",
-      "source": "Simon Willison's Blog",
-      "what_it_is": "Datasette plugin adding support for OpenAI-compatible endpoints, allowing local/self-hosted LLMs alongside cloud models.",
-      "why_try_it": "Your Portuguese SMBs running local models (LM Studio, Ollama) can now use Datasette queries with local inference. Test this week: spin up local Ollama model, configure datasette-llm to use it, run your client data through local inference for cost-sensitive tasks.",
+      "source": "GitHub / Simon Willison",
+      "what_it_is": "Plugin for Datasette that adds OpenAI-compatible endpoint support, letting you run local LLMs (via LM Studio, Ollama) or remote ones with the same interface.",
+      "why_try_it": "This week: Test local model inference for a Portuguese SMB client's sensitive data (payroll, customer lists, etc.). Build once against OpenAI API, switch backends without code changes. Privacy-first alternative to cloud models for compliance-sensitive industries.",
       "url": "https://simonwillison.net/2026/Nov/14/datasette-llm/"
-    },
-    {
-      "name": "aws-emulator",
-      "source": "AWS (via Simon Willison)",
-      "what_it_is": "Official AWS services emulator written in Rust; run full AWS environment locally without provisioning or API costs.",
-      "why_try_it": "Integrate into your client onboarding: develop and test agent workflows against local AWS before deploying to production. Eliminates dev-time cloud costs. Add to your agency's standard setup process this week.",
-      "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/"
     },
     {
       "name": "Lance",
       "source": "GitHub",
-      "what_it_is": "Open-source vector lakehouse format (Parquet-compatible); 100x faster random access, vector indexes, data versioning for multimodal AI.",
-      "why_try_it": "Your agents managing client data (docs, embeddings, metadata) need fast vector search. Lance reduces Parquet conversion friction. Test with one client's document corpus this week: convert to Lance, benchmark search performance and versioning.",
+      "what_it_is": "Open-source vector database and lakehouse format. Convert Parquet to Lance in 2 lines of code for 100x faster random access, vector indexing, and data versioning. Works with Pandas, DuckDB, Polars, PyArrow.",
+      "why_try_it": "This week: If building RAG (retrieval-augmented generation) for Portuguese SMB clients' knowledge bases, test Lance for vector search on product catalogs, FAQs, or internal docs. Faster than Pinecone, cheaper, self-hostable. Direct impact on agent response speed.",
       "url": "https://github.com/lance-format/lance"
     }
   ],
@@ -198,218 +225,219 @@
   "x_top": [
     {
       "url": "https://x.com/emollick/status/2121751565845360769",
-      "handle": "@emollick",
-      "why": "SatBench reveals 63% of benchmarks saturated; measurement innovation showing models outpace evaluation methods."
+      "handle": "emollick",
+      "why": "SatBench data: 63% of benchmarks since 2023 now saturated. Rethink model selection criteria."
+    },
+    {
+      "url": "https://x.com/steipete/status/2121058770767982997",
+      "handle": "steipete",
+      "why": "OpenAI's persistent agent patterns documented. Context management > model capability."
     },
     {
       "url": "https://x.com/alexalbert__/status/2120983722182988206",
-      "handle": "@alexalbert__",
-      "why": "Claude Meetings closes context gaps automatically; practical feature for agent workflows using real meeting data."
+      "handle": "alexalbert__",
+      "why": "Claude Meetings solves context gap problem internally. Test for agent reliability."
     },
     {
-      "url": "https://x.com/emollick/status/2121641417483169934",
-      "handle": "@emollick",
-      "why": "Fable reconstructed W.H. Auden's 1941 poetry class via multi-step Internet Archive searches; novel research capability."
+      "url": "https://x.com/natolambert/status/2121581040972255257",
+      "handle": "natolambert",
+      "why": "Open source AI faces political + investment headwinds post-Huang. Market shift warning."
     },
     {
-      "url": "https://x.com/rauchg/status/2121804295381377342",
-      "handle": "@rauchg",
-      "why": "UI SDK agents building components without framework; reused 14 behaviors spontaneously from SDK."
-    },
-    {
-      "url": "https://x.com/rauchg/status/2120966768483262648",
-      "handle": "@rauchg",
-      "why": "How will frameworks evolve in agents era? Drill deeper, optimize, accelerate—UI SDK as x86 for agent component generation."
+      "url": "https://x.com/simonw/status/2121695097674981849",
+      "handle": "simonw",
+      "why": "Claude auto mode permission bypass workaround. Test before deploying client automations."
     },
     {
       "url": "https://x.com/swyx/status/2121757606801023085",
-      "handle": "@swyx",
-      "why": "AI UX is suboptimal despite models too cheap to meter; design principles lag capability."
+      "handle": "swyx",
+      "why": "AI UX is suboptimal despite cheap models. Room for better interaction design."
     },
     {
-      "url": "https://x.com/emollick/status/2121822367575945454",
-      "handle": "@emollick",
-      "why": "Built SatBench analysis in 4 Fable prompts; took days in STATA before—practical productivity multiplier."
+      "url": "https://x.com/dexhorthy/status/2121660606256435325",
+      "handle": "dexhorthy",
+      "why": "No AI Slop Manifesto: 300+ signatures. Use as credibility marker for Portuguese clients."
+    },
+    {
+      "url": "https://x.com/clairevo/status/2121691288802337061",
+      "handle": "clairevo",
+      "why": "How I AI podcast production: bookmark scraper > Claude > animated video. Repurposing pattern."
     }
   ],
   "tech": [
     {
-      "name": "Guillermo Rauch",
-      "role": "CEO, Vercel",
-      "hook": "UI SDK as instruction set for agents to build components spontaneously and reuse 14+ behaviors.",
-      "key_point": "Agents used UI SDK to reuse window resizing, drag, menubar, typeahead, EQ sliders, scoped focus management out of the box—architecture as composability abstraction.",
-      "for_you": "Your agents need composable UI primitives to avoid rewriting basic behaviors. Study how Vercel's SDK design enables agent reuse; apply pattern to your client agent tooling.",
-      "signal": "💡",
+      "name": "LLMON (IBM Granite)",
+      "role": "Research release · IBM",
+      "hook": "LLM-native markup language for structured reasoning in Granite 4.1 models.",
+      "key_point": "New abstraction layer lets agents encode reasoning steps as markup, improving reliability and debuggability vs free-form reasoning.",
+      "for_you": "If building agents with reasoning bottlenecks, LLMON could improve output consistency for Portuguese clients. Test on complex workflows (multi-step approvals, compliance checks).",
+      "signal": "🟡",
       "urls": [
-        "https://x.com/rauchg/status/2121804295381377342"
+        "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite"
       ],
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2121796507259334656/img/gUc01MKgvRoDslQM?format=webp&amp;name=large",
-      "handle": "rauchg"
-    },
-    {
-      "name": "Aaron Levie",
-      "role": "CEO, Box",
-      "hook": "Agents using software and code generation will improve faster than all other AI model capabilities.",
-      "key_point": "Agents with access to tools/software interfaces improve trajectory steeper than text-only models; compounds over time.",
-      "for_you": "Design your client agents to use tools and APIs early; capability gains from tool-use outpace raw model improvements. Prioritize browser/API access in your agency's agent deployment.",
-      "signal": "💡",
-      "urls": [
-        "https://x.com/levie/status/2121686564078297461"
-      ],
-      "image": "https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg",
-      "handle": "levie"
+      "image": "https://cdn-uploads.huggingface.co/production/uploads/6484ca4d5ff9a3d2ee52a83b/6KFZDHIJkxpICiErHLqAw.gif"
     },
     {
       "name": "Peter Yang",
-      "role": "AI skills/tutorials practitioner",
-      "hook": "Free healthcare skill for Claude agents to audit medical records and propose treatment research directions.",
-      "key_point": "Built `/fuck-cancer` skill letting agents analyze patient records, find research directions, audit treatment protocols—real-world health-tech application with Claude Code.",
-      "for_you": "Demonstrates agent-driven healthcare workflows for Portuguese SMBs (pharmacies, clinics, health startups). Skill reusability pattern; test with health client if you have one.",
-      "signal": "💡",
+      "role": "AI educator · Self",
+      "hook": "Claude Code audit tools: /doctor prompt-audit and /claude-api prompt-audit [skill] reveal configuration issues.",
+      "key_point": "Practical debugging commands identify Claude Code misconfigurations before they break in production.",
+      "for_you": "Before shipping Claude Code automation to Portuguese SMB client, run audit. Saves hours of debugging.",
+      "signal": "🟢",
       "urls": [
-        "https://x.com/petergyang/status/2121430386685395022"
+        "https://x.com/petergyang/status/2121649295950762363"
       ],
-      "image": "https://pbs.twimg.com/card_img/2120538955485511680/KEbLEHbH?format=webp&amp;name=medium",
+      "image": "https://pbs.twimg.com/media/HXGcyp1bsAAefPe?format=webp&amp;name=large",
       "handle": "petergyang"
     },
     {
-      "name": "Ethan Mollick",
-      "role": "Professor @Wharton, AI research",
-      "hook": "Models improve faster than benchmarks saturate; 63% of benchmarks since 2023 now beaten.",
-      "key_point": "Saturation acceleration: benchmarks lasting shorter before being 'solved.' Implies measurement lag grows; published leaderboards increasingly unreliable for model selection.",
-      "for_you": "Stop using published benchmarks for client model selection. Build outcome-based metrics tied to actual client tasks (accuracy on real documents, speed on actual data).",
+      "name": "BotPsy",
+      "role": "Research release · Hugging Face",
+      "hook": "On-device personal assistant using sub-billion parameter agentic language model.",
+      "key_point": "Demonstrates efficient agent operation on constrained hardware; relevant for Portuguese market with older devices.",
+      "for_you": "If building lightweight agents for low-connectivity SMB environments (rural Portugal), BotPsy model size and architecture could transfer.",
       "signal": "🟡",
       "urls": [
-        "https://x.com/emollick/status/2121751565845360769"
+        "https://huggingface.co/blog/qvac/botpsy"
       ],
-      "image": "https://pbs.twimg.com/media/HXH3hXVXUAA8oE1?format=webp&amp;name=large",
-      "handle": "emollick"
+      "image": "https://cdn-uploads.huggingface.co/production/uploads/6468b319b2321e47d3267049/Emr86qw6NAueYLdIEiTTD.png",
+      "video": {
+        "id": "4HZI3s_k24A",
+        "title": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model"
+      }
     },
     {
-      "name": "Swyx",
-      "role": "Product · Temporal/Smol AI/Cognition",
-      "hook": "AI UX is suboptimal despite models too cheap to meter; massive room for better interaction design.",
-      "key_point": "Capability has decoupled from user experience design; products still treat LLMs like text APIs rather than reasoning partners.",
-      "for_you": "Your Portuguese SMB clients deserve better UX than chat interfaces. Invest in domain-specific interaction patterns (forms, commands, agents as background systems). UX differentiation is live opportunity.",
+      "name": "XYBench",
+      "role": "Research release · Allen AI",
+      "hook": "Problem-focused evaluation framework; moves beyond abstract metrics to task-specific measurement.",
+      "key_point": "Addresses benchmark-gaming problem by grounding evals in real problem definitions rather than generic benchmarks.",
+      "for_you": "Consider building proprietary XYBench-style evals for Portuguese SMB workflows instead of relying on published benchmarks.",
       "signal": "💡",
       "urls": [
-        "https://x.com/swyx/status/2121757606801023085"
+        "https://huggingface.co/blog/allenai/xybench"
       ],
-      "image": "https://pbs.twimg.com/profile_images/2073162797354217472/hNny55eF_400x400.jpg",
-      "handle": "swyx"
+      "image": "https://cdn-uploads.huggingface.co/production/uploads/638e39b249de7ae552d977b5/aOWdQgZ8ioJcx9Eii4iob.png"
+    },
+    {
+      "name": "llama.cpp v1.0.0",
+      "role": "Infrastructure release · GGML",
+      "hook": "Stability milestone for local LLM inference foundation, production-ready status confirmed.",
+      "key_point": "v1.0 signals maturity; local inference infrastructure is reliable for Portuguese privacy-sensitive deployments.",
+      "for_you": "If building self-hosted agents for Portuguese government or health sector, llama.cpp v1.0 is now stable foundation.",
+      "signal": "🟢",
+      "urls": [
+        "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+      ],
+      "image": "https://cdn-uploads.huggingface.co/production/uploads/63148d3b996c52bf0142cdbe/2PgU1GxpJX_LVORaP2RRy.png"
     }
   ],
   "pt_news": [
     {
-      "headline": "Fractile British AI chip startup valued £6.3B without product yet",
-      "hook": "London-based Fractile developing AI chips; first product arriving next year, Anthropic already interested as customer.",
-      "for_you": "European AI chip market accelerating outside NVIDIA. Signals fragmentation of inference infrastructure; your Portuguese SMBs may have options beyond NVIDIA/Google in 18 months.",
+      "headline": "Startup Portugal CEO: capital capture biggest challenge despite growth.",
+      "hook": "CEO avisa que startups portuguesas enfrentam gap de capital apesar de crescimento do ecossistema e talento.",
+      "for_you": "Se está a angariar para agência AI de SMBs portugueses, mercado VC permanece constrangido. Considere financiamento alternativo: receita, grants governamentais, ou bootstrapping antes de rondas VC.",
       "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/rival-britanica-da-nvidia-vale-6-3-mil-milhoes-sem-ter-um-chip-no-mercado",
+      "url": "https://www.jornaldenegocios.pt/empresas/web-summit/detalhe/startup-portugal-queremos-que-a-economia-portuguesa-se-desenvolva-com-talento-portugues",
       "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2021-09/img_1200x676uu2021-09-29-18-14-43-413487.jpg"
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-11/img_1200x676uu2026-11-13-15-21-32-532884.jpg"
     },
     {
-      "headline": "Microsoft 365 outage recovery ongoing; affected Portuguese government, health, firms",
-      "hook": "Global 24+ hour outage disrupted Portuguese public sector and healthcare; recovery proceeding in phases.",
-      "for_you": "Your clients depend on cloud infrastructure with single-vendor risk. This outage validates multi-cloud strategy you should be evangelizing. Use as case study in client conversations.",
-      "signal": "🔴",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/microsoft-365-servicos-em-recuperacao-e-uma-falha-global-ainda-sem-fim-a-vista-o-que-causou-um-dos-maiores-apagoes-da-historia-da-empresa/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Microsoft-empresa-logo.png"
-    },
-    {
-      "headline": "Inteligência Artificial já chegou mas organograma é de 1998",
-      "hook": "Portuguese companies acquiring AI tools but organizational structures haven't adapted; structural barriers to adoption.",
-      "for_you": "Your exact target market pain point: SMBs need organizational consulting alongside AI. Add change management and org design to your agency offer for Portuguese firms.",
+      "headline": "Anthropic IPO roadshow week begins; Claude enters boardrooms globally.",
+      "hook": "Anthropic (Claude maker) enters IPO market as enterprise AI adoption accelerates.",
+      "for_you": "Anthropic's public status could mean pricing transparency and long-term API stability assurance for Portuguese SMB clients. Market validation for Claude-first strategy.",
       "signal": "🟢",
-      "url": "https://tek.sapo.pt/opiniao/artigos/a-ia-ja-chegou-o-organograma-e-de-1998/",
+      "url": "https://www.jornaldenegocios.pt/mercados/detalhe/a-sua-semana-dia-a-dia-ipo-da-anthropic-contas-da-nvidia-e-rating-da-moody-s",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-04/img_1200x676uu2026-04-14-18-19-00-522025.png"
+    },
+    {
+      "headline": "GTA VI pre-orders strain Portuguese ISP infrastructure; 33 Tbps global record.",
+      "hook": "Download em pré-carga do GTA VI testou infraestrutura portuguesa sob carga massiva; máximo global de 33 Tbps registado.",
+      "for_you": "Infraestrutura portuguesa resistiu sem falhas maiores. Sinal de que capacidade ISP não é gargalo para scaling de serviços AI empresariais. Foco em aplicação, não em rede.",
+      "signal": "🟢",
+      "url": "https://www.dn.pt/viver/pr-carregamento-de-gta-vi-leva-trfego-global-da-net-a-mximo-histrico-acima-dos-33-terabits-por-segundo",
+      "source_name": "Dinheiro Vivo",
+      "image": "https://media.assettype.com/dn%2F2026-11-15%2Fwh37ylyl%2FUltimateEdition07enusR04Deliv.jpg?w=1200&amp;ar=40%3A21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop&amp;enlarge=true&amp;overlay=false&amp;overlay_position=bottom&amp;overlay_width=100"
+    },
+    {
+      "headline": "Trump administration demands Nvidia drastic restructuring after Huang exit.",
+      "hook": "Bessent (Commerce Sec) gives Nvidia 10 days to address governance and China chip controls.",
+      "for_you": "If Portuguese clients hold Nvidia-heavy tech ETFs or depend on Nvidia chips, prepare for volatility through Q1 2027. Affects chip supply for inference infrastructure.",
+      "signal": "🔴",
+      "url": "https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/bessent-diz-que-a-nvidia-precisa-de-uma-reestruturacao-drastica-apos-demissao-de-huang",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-09/img_1200x676uu2026-09-15-19-13-21-529561.jpg"
+    },
+    {
+      "headline": "Open Infrastructure Map launches free tool for utilities, telecoms, water mapping.",
+      "hook": "Open-source infrastructure mapping now available for Portuguese municipalities and utilities.",
+      "for_you": "If building location-based services for Portuguese government or utilities, test Open Infrastructure Map as free spatial data foundation instead of proprietary GIS.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/extras/site-do-dia/artigos/open-infrastructure-map-rede-eletrica-telecomunicacoes-gas-e-agua-num-mapa-aberto",
       "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/11/FabioGomes.jpg"
-    },
-    {
-      "headline": "Revolut rejects CTT Bank acquisition; no synergies with platform model",
-      "hook": "Revolut CEO cites incompatibility of traditional banking with fintech platform; passes on Portuguese bank.",
-      "for_you": "Market signal on fintech/legacy banking divergence. Portuguese startups should follow Revolut's platform-first approach rather than acquiring legacy infrastructure.",
-      "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/lusa/detalhe/revolut-afasta-se-de-compra-do-banco-ctt",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2025-10/img_1200x676uu2025-10-01-10-23-50-510396.jpg"
-    },
-    {
-      "headline": "Housing rights protesters occupy Restauradores; acampada enters second week",
-      "hook": "Thousands continue occupation at Plaza dos Restauradores demanding government action on housing costs.",
-      "for_you": "Social context: labor costs rising, housing crisis straining worker retention, public pressure on government for intervention. Plan for wage/benefit pressure in Portuguese SMB contracts.",
-      "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/economia/detalhe/acampada-mudou-de-morada-agora-esta-na-praca-dos-restauradores",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-11/img_1200x676uu2026-11-06-18-37-16-532575.jpg"
+      "image": "https://cdn.teknoticias.pt/uploads/2026/11/Open-infrastructure-map-europa.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "FAA ground stop from copper wire upgrade; third nationwide stop in history",
-      "hook": "US transportation secretary blamed routine equipment upgrade for nationwide flight suspension; only third ever in modern history.",
-      "for_you": "Systems fragility signal: infrastructure maintenance cascades into major disruption. Your clients' infrastructure dependencies are similarly brittle; model for failure scenarios.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/c6wy9lynq4qno",
+      "headline": "South Korea accountant uses AI and hidden camera to cheat professional licensing exam.",
+      "hook": "AI cheating on high-stakes professional exams entering legal system; 34-year-old confessed using camera and AI.",
+      "for_you": "Signal of AI detection evasion in regulated environments. Expect tightening of exam security in regulated Portuguese professions (accounting, law, medicine). Affects if building compliance software.",
+      "signal": "🟡",
+      "url": "https://www.bbc.co.uk/news/articles/ckvg2ezvpe08o",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/3177/live/2aeb3c20-e0c3-11f1-b441-2b33b063138f.jpg",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/32ab/live/d67148b0-e0ef-11f1-97b9-9110abfffc70.png",
       "video": {
-        "id": "cOrQ_RvmfZ4",
-        "title": "FAA Nationwide Ground Stop: Were You Stuck at an Airport?"
+        "id": "S2E-3BqMIMk",
+        "title": "smart way to cheat on exams #shorts #short #exam #school #viral"
       }
     },
     {
-      "headline": "Meta fined €805m by Italy for privacy law violations; largest fine ever by regulator",
-      "hook": "Italy's data protection authority issued largest fine in history over Meta's user photo/data handling.",
-      "for_you": "Regulation precedent: EU enforcement tightening. Your Portuguese clients' data handling practices should assume similar fines are possible; audit compliance now.",
-      "signal": "🔴",
-      "url": "https://www.politico.eu/article/italy-hits-meta-with-e805m-fine-over-privacy-law-violation/",
-      "source_name": "Politico Europe",
-      "image": "https://www.politico.eu/cdn-cgi/image/width=1200,height=630,fit=crop,quality=80,onerror=redirect/wp-content/uploads/2026/11/14/GettyImages-1230960746-scaled.jpg"
-    },
-    {
-      "headline": "Storm Charles damages southern Europe; 84mph winds in Madeira, 183 flights cancelled in Lisbon",
-      "hook": "Severe weather system hit Iberian peninsula with record wind gusts and flooding; aviation disrupted.",
-      "for_you": "Environmental/infrastructure resilience: your Portugal operations subject to increasing storm risk. Build client continuity plans around weather disruption patterns.",
+      "headline": "Zimbabwe author AI authorship cleared after month-long Caine Prize investigation.",
+      "hook": "Caine Prize ruled £10k-winning short story human-written; AI detection tools proved unreliable.",
+      "for_you": "AI detection is still not forensically reliable. Lesson for content moderation in Portuguese media or government systems: false positives will happen. Plan for human review layer.",
       "signal": "🟡",
-      "url": "https://www.theguardian.com/environment/2026/nov/13/storm-charles-floods-flight-cancellations-southern-europe-weather",
+      "url": "https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story",
       "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/dd799d5cd22d85bdbac03ed558d6c0d812d92a01/327_0_3561_2849/master/3561.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e2029e1a8105022678cca8e0aaffb22a"
+      "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b972955b073a4788451a5a67593d810"
     },
     {
-      "headline": "US reportedly suggested Ukraine cede Donbas to Russia for NATO membership",
-      "hook": "Ukrainian President Zelenskyy says US floated territorial concession as possible path to NATO accession.",
-      "for_you": "Geopolitical context: US policy toward Ukraine shifting. Affects European stability and, indirectly, tech sector confidence/investment climate.",
-      "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cwvg2l312ylqo",
+      "headline": "Estonia closes Russia border after drone maker sabotage attempt attributed to GRU.",
+      "hook": "Attempted arson at defense contractor attributed to Russian intelligence; border closure follows.",
+      "for_you": "Geopolitical escalation affecting European security. Portuguese defense contractors should review supply chain vulnerabilities. Affects if building for EU defense/aerospace sector.",
+      "signal": "🔴",
+      "url": "https://www.aljazeera.com/news/2026/11/15/estonia-to-close-border-crossings-with-russia-after-attack-on-drone-maker",
+      "source_name": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/getty_6af9e9dedd-1794763230.jpg?resize=1920%2C1440"
+    },
+    {
+      "headline": "Nvidia CEO scandal: alleged Chinese spy link raises US-China AI chip control questions.",
+      "hook": "BBC reports alleged spy left Nvidia in 2025; raises questions on export-controlled chip diversion.",
+      "for_you": "Geopolitical pressure on US chip exports may accelerate adoption of European/Chinese alternatives for AI inference. Affects long-term infrastructure assumptions.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cmdx1vpprk9vo",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/fc82/live/f8afbeb0-e087-11f1-b780-31cc9daf154a.jpg",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/fa43/live/e2a9a870-e10d-11f1-93e1-3b657b665bcf.jpg",
       "video": {
-        "id": "2vgL6y03dpo",
-        "title": "US suggests Ukraine cede land to Russia in exchange for NATO membership"
+        "id": "Hp9e4y0QZ1Y",
+        "title": "NVIDIA BOARD PROBES AFTER HUANG: AFFAIR WITH SUSPECTED SPY"
       }
     },
     {
-      "headline": "Iran attacks Bahrain military base with drones; second strike in three days",
-      "hook": "Tehran targets US-allied nation; escalating Middle East tensions amid Strait of Hormuz standoff.",
-      "for_you": "Geopolitical risk: Middle East escalation affects global supply chains and energy costs. Monitor for impact on European tech infrastructure costs.",
+      "headline": "US AI boom hidden costs: environmental, infrastructure, and worker strain mounting.",
+      "hook": "Al Jazeera investigates power, water, labor requirements for scaling US AI infrastructure.",
+      "for_you": "Sustainability concerns for Portuguese clients increasingly important. If building AI services, carbon/energy audit will become RFP requirement. Plan for green infrastructure positioning.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/cqn4e2py48kwo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/adcc/live/783de3c0-e0f4-11f1-b441-2b33b063138f.jpg",
-      "video": {
-        "id": "h5bX5oo3ug0",
-        "title": "BAHRAIN UNDER FIRE: IRAN CLAIMS DRONE STRIKE ON US BASE — RIYADH MISSILES SHOT DOWN"
-      }
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/the-hidden-costs-of-the-us-ai-boom",
+      "source_name": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/image-1794763493.jpg?resize=1920%2C1080&amp;quality=80"
     }
   ],
-  "since_yesterday": "Jensen Huang resignation story developing: Saturday saw $500B market cap loss; Sunday organized petition movement from major tech leaders (Altman, Musk, Tan) calling for reinstatement. Nvidia chip-tracking story emerged separately—MIT Tech Review reported Sunday that Nvidia privately told Congress anti-smuggling chip tracking is technically feasible despite industry claims otherwise. Fable capability examples multiplying (poetry class reconstruction, SatBench analysis) validating benchmark-saturation thesis.",
+  "since_yesterday": "Bessent escalates Nvidia pressure with 10-day restructuring deadline; tech leaders petition for Huang reinstatement. Scandal now political theater in Trump administration—expect rapid governance and chip policy developments through Tuesday.",
   "health": {
     "x": {
-      "attempted": 15,
-      "ok": 15,
+      "attempted": 14,
+      "ok": 14,
       "errors": []
     },
     "podcasts": {
