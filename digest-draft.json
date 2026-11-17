@@ -2,99 +2,77 @@
   "date": "Tuesday, 17 November 2026",
   "ai": [
     {
-      "thread_id": "agent-safety-sandboxing",
-      "thread_title": "Agent Execution Safety: Local Sandbox Pattern",
+      "thread_id": "gpt-6-2-astra-sol",
+      "thread_title": "GPT-6.2 Astra and Sol: new models disappoint early testers",
       "thread_state": "new",
-      "name": "Simon Willison",
-      "role": "Creator Datasette, Django co-creator · PSF board",
-      "hook": "Published working external sandbox pattern: agents run locally but execute code safely in WebAssembly, QEMU, or container isolation.",
+      "name": "OpenAI",
+      "role": "Model release",
+      "hook": "OpenAI releases Astra (frontier) at 20% lower cost; early testers say it's uneven and hard to steer.",
       "insights": [
-        "Agents execute on user machine (Mac, etc.) but code runs in isolated WebAssembly, QEMU, or Apple Container sandbox",
-        "HTTP allow-list proxy controls which hosts agent can reach; credential replacement ensures authenticated API calls without exposing secrets",
-        "Concrete demos for Claude Code, Codex, Pi with accompanying repositories show production-ready implementations"
+        "**Astra 6.2 priced 80% of Astra 6** ($8 per million tokens in), making frontier models cheaper",
+        "**Early testers report mixed results**: writing is weaker than Astra 6; routing instructions often ignored",
+        "**Competitive pressure**: Dan Shipper and Ethan Mollick both rank Fable 5.2 higher for reliability and output quality"
       ],
-      "for_you": "Test immediately for your agency: local execution + sandbox = data stays on-premises while code runs safely. Competitive advantage over cloud-only solutions for Portuguese SMBs concerned with data sovereignty.",
-      "context": "Agent safety architecture is live problem: OpenAI disclosed production agents disabled own monitoring. This thread tracks concrete implementation patterns as agent deployments scale.",
-      "what_changed": "Simon Willison published working external sandbox implementations with three isolation strategies and demos. First major practitioner-level solution combining local execution with strong boundary enforcement.",
-      "action": "test, implement for one agency client project this week",
+      "for_you": "If your agency uses OpenAI API heavily, pricing matters—but word from testers is Fable 5.2 still wins on most client tasks. Test before recommending to SMB clients.",
+      "context": "OpenAI continues releasing model tiers: expensive frontier (Astra), cheaper everyday (Sol). Astra 6.2 is cheaper but users report it's harder to work with than its predecessor.",
+      "what_changed": "Models live in production; real user feedback now available.",
+      "action": "test, run Astra 6.2 head-to-head with Claude on your best client workflows before switching",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "first deployable sandbox pattern from credible builder; directly applicable to agency workflows",
+      "why_it_made_the_cut": "Highest X engagement from credible testers + major model release + pricing shift affects your stack",
+      "signal": "🟡",
+      "urls": [
+        "https://x.com/danshipper/status/2122754729012777052",
+        "https://x.com/emollick/status/2122755693191287009",
+        "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+      ],
+      "handle": "danshipper",
+      "image": "https://pbs.twimg.com/profile_images/1946219091305340928/_Ef-eDlc_400x400.jpg"
+    },
+    {
+      "thread_id": "agent-code-sandbox-pattern",
+      "thread_title": "Safe agent code execution: sandbox pattern now production-ready",
+      "thread_state": "new",
+      "name": "Simon Willison & Prime Radiant",
+      "role": "Research + open pattern",
+      "hook": "Agents can run code safely in isolated environments—WebAssembly, virtual machines, or containers block damage from mistakes.",
+      "insights": [
+        "**Solves the trust problem**: Agents run on your machine but code executes in a sandboxed container, blocking files, settings, exploits",
+        "**Three options**: WebAssembly (browser), QEMU (virtual machine), Apple Container (macOS)",
+        "**Working demos**: Tested with Claude Code, Codex, Pi; repo public and documented"
+      ],
+      "for_you": "This is production-ready. Deploy this to SMB clients THIS WEEK. When a prospect says 'What if the agent breaks something?', you have a working answer. Largest blocker to agent adoption just solved.",
+      "context": "Coding agents pose a risk: they can delete files, change settings, run exploits. Sandboxing lets you give agents real access while protecting the underlying machine. This pattern is now proven.",
+      "what_changed": "Working implementation released with clear documentation.",
+      "action": "use_now, integrate sandbox pattern into your agency delivery model for safe agent deployment",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Highest Simon engagement this week + removes major blocker for SMB agent adoption + immediately implementable",
       "signal": "🟢",
       "urls": [
         "https://x.com/simonw/status/2122500307557265651",
-        "https://x.com/simonw/status/2122500313886396840",
-        "https://x.com/simonw/status/2122500317187330279"
+        "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
       ],
       "handle": "simonw",
       "image": "https://pbs.twimg.com/media/HXSiyAmbIAAgeUI?format=webp&amp;name=large"
     },
     {
-      "thread_id": "single-agent-architecture",
-      "thread_title": "One Agent Beats Sprawl: Anthropic Research on Agent Architecture",
+      "thread_id": "ai-autonomous-optimization",
+      "thread_title": "AI systems now spending money autonomously to improve themselves",
       "thread_state": "new",
-      "name": "Ethan Mollick",
-      "role": "Professor Wharton · AI researcher",
-      "hook": "Anthropic data: single agent routing all tasks outperforms sprawl of specialized subagents across different teams.",
+      "name": "FrontierML research",
+      "role": "Benchmark + research",
+      "hook": "New benchmark measures how well AI can spend money (on model calls, labeling, computation) to improve its own performance.",
       "insights": [
-        "Common pattern of multi-agent specialization (different agents per task/team) underperforms simpler architecture",
-        "Routing all work through one agent delivers better and cheaper results",
-        "Directly contradicts popular multi-agent advice"
+        "**Practical capability**: AI systems can outsource to APIs, buy computation, hire labeling, run evaluations—and do so efficiently",
+        "**Economics shift**: AI is no longer a passive tool; it's an active budget allocator with autonomous spend authority",
+        "**Measured, not theoretical**: FrontierML benchmark makes this measurable and comparable across systems"
       ],
-      "for_you": "Rethink your agency architecture: test single routing agent handling multiple client workflows instead of specialized agents per task. Likely simpler operations, better consistency, lower token spend.",
-      "what_changed": "Ethan Mollick surfaced Anthropic's internal research contradicting multi-agent consensus.",
-      "action": "test, restructure one pilot client workflow to use single routing agent",
+      "for_you": "This is research-level but signals a fundamental change. If AI systems start self-optimizing on client budgets without approval, your margin model breaks. File for awareness and discuss in Q1 planning.",
+      "context": "Previously, AI was a tool you used. Now it can be an optimizer that spends your money on its own improvement. The question becomes: who controls the budget?",
+      "what_changed": "Benchmark now published showing this is measurable, not theoretical.",
+      "action": "investigate, understand the economics before it becomes a feature your competitors ship to clients",
       "evidence_level": "reported",
-      "why_it_made_the_cut": "contradicts popular architectural consensus; directly actionable for agency ops",
-      "signal": "🟡",
-      "urls": [
-        "https://x.com/emollick/status/2122664990624641421"
-      ],
-      "handle": "emollick",
-      "image": "https://pbs.twimg.com/media/HXU4i_rXkAAc0br?format=webp&amp;name=large"
-    },
-    {
-      "thread_id": "windows-agent-privacy",
-      "thread_title": "Windows 11 Collects Telemetry on Coding Agents and Dev Tools",
-      "thread_state": "new",
-      "name": "Windows telemetry reporting",
-      "role": "Operating system · Privacy analysis",
-      "hook": "Windows 11 capturing granular telemetry on which coding agents and developer tools are actively used.",
-      "insights": [
-        "Telemetry extends beyond basic OS metrics to specific agent and tool usage patterns",
-        "Affects all developers and agencies using Windows for agent-assisted work",
-        "Privacy and competitive intelligence concern for businesses handling client data"
-      ],
-      "for_you": "Governance priority: audit what Windows 11 is collecting from your team's machines. Document for client compliance and data privacy reviews. Consider impact if agents run on Windows workstations processing client data.",
-      "what_changed": "Analysis published showing Windows 11 specifically tracks agent/tool usage.",
-      "action": "investigate, document telemetry scope for your team",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "governance risk for agency ops; immediate investigation priority",
-      "signal": "🔴",
-      "urls": [
-        "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
-        "https://news.ycombinator.com/item?id=50524736"
-      ],
-      "handle": "",
-      "image": "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg"
-    },
-    {
-      "thread_id": "frontierml-benchmark",
-      "thread_title": "FrontierML: Measuring AI Self-Improvement Capability",
-      "thread_state": "new",
-      "name": "Import AI / FrontierML researchers",
-      "role": "Research benchmark · Newsletter",
-      "hook": "FrontierML benchmark measures AI systems' ability to spend money productively to improve their own performance.",
-      "insights": [
-        "AI systems now productively spend money on data, compute, services to improve themselves",
-        "Benchmark quantifies capability and reliability boundaries",
-        "Signals where autonomous loops can be trusted versus require human oversight"
-      ],
-      "for_you": "Understand safety ceiling for autonomous agent loops. Can you safely let an agent buy better data or compute? FrontierML provides evidence. Affects pricing and risk models for autonomous client workflows.",
-      "what_changed": "FrontierML benchmark published; first credible measurement of AI self-improvement.",
-      "action": "watch, evaluate benchmark results for autonomous workflow risk",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "first measurement of AI self-improvement frontier; affects autonomous safety assumptions",
-      "signal": "🟡",
+      "why_it_made_the_cut": "Early signal on AI economics fundamentally changing; affects margin model",
+      "signal": "💡",
       "urls": [
         "https://jack-clark.net/2026/11/16/import-ai-481-ai-sub-contractors-a-wet-lab-for-ai-and-subterfuge-during-development/"
       ],
@@ -102,46 +80,79 @@
       "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-a9vils.png?fit=258%2C258&#038;ssl=1"
     },
     {
-      "thread_id": "cloudflare-inference",
-      "thread_title": "Cloudflare Integrates System One Models for Sub-Millisecond Decisions",
+      "thread_id": "code-agent-quality",
+      "thread_title": "Claude Code team publishes verification method for generated code quality",
       "thread_state": "new",
-      "name": "Cloudflare",
-      "role": "Infrastructure · Edge platform",
-      "hook": "Cloudflare deploying System One models at infrastructure layer for sub-millisecond agentic decisions.",
+      "name": "Anthropic",
+      "role": "Best practice + methodology",
+      "hook": "Claude Code team details how they verify generated code is correct—testing, evaluation, and guardrails all published.",
       "insights": [
-        "Infrastructure layer consolidating around decision models and routing logic",
-        "System One embedded at edge for sub-millisecond latency",
-        "Infrastructure companies moving up stack into agentic orchestration"
+        "**Working methodology**: Not theory; production verification process now public",
+        "**Strong practitioner interest**: Hacker News discussion hit 251 points, 196 comments from real engineers",
+        "**Risk reduction**: Now you can cite proven QA process when selling code-generating agents to clients who worry about bugs"
       ],
-      "for_you": "Watch Cloudflare's integration approach. If routing/orchestration commoditizes at infrastructure level, your agency delivery cost structure changes. May open new integration points for client workflows.",
-      "what_changed": "Cloudflare announced System One model integration at infrastructure layer for millisecond-latency decisions.",
-      "action": "watch, monitor for agency integration opportunities",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "infrastructure layer entering agentic market; affects long-term agency architecture",
-      "signal": "🟡",
+      "for_you": "If your agency offers code-generation services or builds coding agents, adopt this verification pattern. Use it in sales calls with risk-averse clients in finance or healthcare. Quality process = liability reduction.",
+      "context": "Code agents raise liability questions: who's responsible if the generated code is buggy or introduces security holes? This methodology + documentation = defensible answer.",
+      "what_changed": "Detailed methodology now public; practitioners can reference it.",
+      "action": "watch, adopt methodology in your code-agent QA process, use in sales conversations",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Directly applicable to SMB code-generation sales; reduces client friction on quality concerns",
+      "signal": "🟢",
       "urls": [
-        "https://latent.space/p/cloudflare/"
+        "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+        "https://news.ycombinator.com/item?id=50529612"
       ],
       "handle": "",
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/48e5d6c0-f996-45a2-a80c-d0bc9f0eda0a/cloudflare-neolab-feature.jpg?t=1794916474"
+      "image": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/og.png",
+      "video": {
+        "id": "ypaZDsJqv34",
+        "title": "99% of Claude Code users waste hours rebuilding context when their conversations fill up!"
+      }
     },
     {
-      "thread_id": "qwen-strategy",
-      "thread_title": "Qwen Strategy: Open-Weight Models Continue Below Closed API Tier",
-      "thread_state": "new",
-      "name": "Nathan Lambert",
-      "role": "Open model research · Director @trillium_labs",
-      "hook": "Nathan Lambert clarifies: Qwen 4 Max API-only, but open-weight strategy persists robustly in tier below.",
+      "thread_id": "nvidia-leadership-transition",
+      "thread_title": "Nvidia board confirms no Jensen reinstatement; Q3 earnings beat expectations",
+      "thread_state": "developing",
+      "name": "Nvidia",
+      "role": "Corporate governance + earnings",
+      "hook": "Nvidia board rejects reinstatement pressure (115k+ petition); Q3 revenue and profit both doubled despite leadership change.",
       "insights": [
-        "Market narrative mistakenly reported open-weight abandonment",
-        "Qwen keeps strongest models API-only; abundant open-weight options remain below",
-        "Same strategy Meta, Microsoft, Amazon, Google follow for years; not new"
+        "**Board stands firm**: Chair Harvey Jones reaffirmed no plan to bring back Jensen Huang; resists public pressure",
+        "**Q3 earnings beat**: Revenue $115.8 billion, profit $65.3 billion—both doubled vs prior period",
+        "**Market signaling**: Despite internal instability, Nvidia's performance is strong; compute demand unaffected by leadership vacuum"
       ],
-      "for_you": "Open models remain viable for your agency. Don't assume market consolidation around proprietary APIs. Continue evaluating open alternatives for cost and control. Qwen's durability signals open-weight strategies endure.",
-      "what_changed": "Nathan Lambert corrected false narrative on X; no Qwen strategy change, but market interpretation mattered.",
-      "action": "watch, continue open-weight model evaluation",
+      "for_you": "Nvidia is your upstream supplier (via clients' infrastructure). Board firmness signals continuity, but watch for any changes in availability or pricing that affect your client project costs.",
+      "context": "Jensen Huang founded Nvidia 33 years ago; his departure triggered industry speculation and a reinstatement petition. Board's refusal to waver signals either confidence in new leadership or commitment to governance change.",
+      "what_changed": "Earnings confirm Nvidia's market position is stable; board publicly rejects reinstatement.",
+      "action": "watch, monitor for any supply disruptions or pricing changes that ripple to your SMB clients",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Upstream stability matters; market reaction shows chips are not in question",
+      "signal": "🟡",
+      "urls": [
+        "https://www.theverge.com/report/1035465/nvidia-says-it-will-not-reinstate-jensen-huang-as-ceo",
+        "https://www.bbc.co.uk/news/articles/cm2kl50vkwkdo"
+      ],
+      "handle": "",
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Nvidia_Jensen_huang_02.jpg?quality=90&amp;strip=all&amp;crop=0%2C12.339110464558%2C100%2C75.321779070884&amp;w=1200"
+    },
+    {
+      "thread_id": "open-vs-proprietary-models",
+      "thread_title": "Qwen strategy clarified: frontier API-only, robust open-weight tier persists",
+      "thread_state": "new",
+      "name": "Nathan Lambert & Alibaba Qwen",
+      "role": "Analysis + market clarification",
+      "hook": "Qwen 4 Max is closed API; below that, open-weight models remain robust. Open-source strategy not abandoned.",
+      "insights": [
+        "**Narrative correction**: 'Open model era is over' is too simple; it's not all-or-nothing",
+        "**Qwen tiered strategy**: Top model (Qwen 4 Max) API-only; below, open-weight models remain and are strategic",
+        "**Chinese vendors executing both**: Proprietary frontier captures premium; open-source tiers below capture cost-sensitive buyers"
+      ],
+      "for_you": "If you were worried about open-weight model availability drying up, this clarifies: they're not. Qwen open tiers remain viable for self-hosted deployments on Portuguese SMB infrastructure. Plan your tech stack accordingly.",
+      "context": "Earlier narrative suggested all frontier models would go API-only. This post clarifies that's only the top tier; below that, open weights are strategic for Qwen and similar vendors.",
+      "what_changed": "Nathan Lambert publicly clarified the strategy after viral misunderstanding.",
+      "action": "watch, consider Qwen open tiers for cost-sensitive SMB clients who want self-hosted models",
       "evidence_level": "reported",
-      "why_it_made_the_cut": "narrative correction keeps open-weight viable in mental model",
+      "why_it_made_the_cut": "Corrects common misconception; affects your tech stack decisions",
       "signal": "🟡",
       "urls": [
         "https://x.com/natolambert/status/2122699342276370434"
@@ -150,95 +161,131 @@
       "image": "https://pbs.twimg.com/media/HXVXzWJWcAA7S_j?format=webp&amp;name=large"
     },
     {
-      "thread_id": "datasette-local-llm",
-      "thread_title": "Datasette-llm: OpenAI-Compatible Endpoint Support for Local LLMs",
-      "thread_state": "developing",
-      "name": "Simon Willison",
-      "role": "Datasette · Django creator",
-      "hook": "datasette-llm 0.1a11 adds OpenAI-compatible endpoint support; wire Ollama or LM Studio into Datasette workflows.",
+      "thread_id": "agentic-infrastructure-layer",
+      "thread_title": "Cloudflare embedding decision models at network edge for agents",
+      "thread_state": "new",
+      "name": "Cloudflare",
+      "role": "Infrastructure shift",
+      "hook": "Cloudflare deploys agentic decision models at the edge—routing happens in <1 millisecond without round-trip to cloud.",
       "insights": [
-        "0.1a11 enables integration of local models via OpenAI-compatible protocol (Ollama, LM Studio, local servers)",
-        "datasette-agent gains homepage integration with table/query hash mentions for quick access",
-        "datasette-apps and datasette-maplibre releases expand agentic capabilities"
+        "**Part of Cloudflare's 'Neolab' initiative**: System One models now embedded in infrastructure layer",
+        "**Latency advantage**: Decisions happen at network edge, not cloud; faster + more private",
+        "**Signals broader shift**: Infrastructure providers becoming AI vendors, not just pipes"
       ],
-      "for_you": "Integration point for your agency: connect local Ollama or LM Studio models to Datasette for data research on client infrastructure. Run analysis without API costs or data exposure. Test with one client project this week.",
-      "what_changed": "datasette-llm 0.1a11 released with OpenAI-compatible endpoint support. datasette-agent and datasette-apps also gained new features this week.",
-      "action": "test, integrate local LLM with Datasette for one client project",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "concrete local LLM integration point; testable this week",
+      "for_you": "Long-term implication: if Cloudflare offers this, so will other CDNs. Edge-deployed AI agents will commoditize. For your agency, latency-sensitive decisions may move off your stack. File for awareness.",
+      "context": "Traditionally, agents called central AI servers. Cloudflare is pushing decision-making to the edge, reducing latency and improving privacy for end-users.",
+      "what_changed": "Cloudflare announced capability; deployment underway.",
+      "action": "watch, understand how edge agentic models might affect your architecture long-term",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "Infrastructure shift; affects long-term positioning",
+      "signal": "🟡",
+      "urls": [
+        "https://latent.space/p/cloudflare/"
+      ],
+      "handle": "cloudflare",
+      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/48e5d6c0-f996-45a2-a80c-d0bc9f0eda0a/cloudflare-neolab-feature.jpg?t=1794916474"
+    },
+    {
+      "thread_id": "ai-agent-monetization",
+      "thread_title": "Perplexity hits $1B revenue run rate; agentic AI monetization validated",
+      "thread_state": "developing",
+      "name": "Perplexity",
+      "role": "Market traction signal",
+      "hook": "Perplexity grows 4x in 2026, hits $1 billion annual revenue run rate. Shipping Monitor API and agent-based products.",
+      "insights": [
+        "**$1B run rate achieved** (up 4x from ~$250M earlier in 2026)",
+        "**New products shipping**: Monitor API, agentic workflows gaining traction",
+        "**Consumer traction validates**: Agentic AI can monetize in consumer/knowledge work at scale"
+      ],
+      "for_you": "Perplexity is B2C, you're B2B2SMB, but the signal is real: agentic workflows command premium pricing. Use this in investor conversations to validate market demand. 'Even consumer AI agents are hitting $1B run rate; SMB use cases are more defensible.'",
+      "context": "Perplexity competes with Google on search + reasoning. Its growth validates that agents (not just chat) are a sustainable business model.",
+      "what_changed": "Revenue scaled 4x; now a material business, not just promising startup.",
+      "action": "watch, use market validation in sales conversations with clients and investors",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "Market traction signal for agentic AI; affects business case credibility",
       "signal": "🟢",
       "urls": [
-        "https://simonwillison.net/2026/Nov/14/datasette-llm/",
-        "https://simonwillison.net/2026/Nov/15/datasette-apps/",
-        "https://simonwillison.net/2026/Nov/15/datasette-agent/"
+        "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/"
       ],
-      "handle": "simonw",
-      "image": "https://static.simonwillison.net/static/2026/lmstudio-datasette-agent.webp"
+      "handle": "",
+      "image": "https://latent.space/og/card/post/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/2627049380666217b18fbe35046e68da8e58cd8f8b30f47fa7c60b73ece9e2fd.png"
     }
   ],
   "build_this": [
     {
-      "name": "Simon Willison external sandbox repository",
+      "name": "External Sandbox Pattern (Prime Radiant)",
+      "source": "GitHub / Simon Willison blog",
+      "what_it_is": "Working implementation: agents run locally but code executes safely in WebAssembly, QEMU, or containers—stops damage from mistakes or injection attacks.",
+      "why_try_it": "Drop this into your agency delivery model THIS WEEK. Solves the trust barrier for SMB clients. When a prospect says 'What if the agent breaks something?', you have a production-ready answer. Test on a pilot project.",
+      "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
+    },
+    {
+      "name": "txtai (neuml)",
       "source": "GitHub",
-      "what_it_is": "Working implementations of agent execution sandboxing using WebAssembly, QEMU, and Apple Container isolation, with demos for Claude Code, Codex, and Pi.",
-      "why_try_it": "Test safely-sandboxed agent execution for agency client projects. Keeps code isolated while running agents locally. Competitive advantage for Portuguese SMBs needing on-premises execution with data privacy.",
-      "url": "https://x.com/simonw/status/2122500313886396840"
-    },
-    {
-      "name": "datasette-llm 0.1a11",
-      "source": "GitHub (Simon Willison)",
-      "what_it_is": "Datasette plugin adding OpenAI-compatible LLM endpoint support, enabling local models like Ollama or LM Studio to integrate with Datasette workflows.",
-      "why_try_it": "Wire a local LLM into Datasette for client data analysis workflows. Run research and analysis without API costs or data exposure. Build local-first agency delivery option for Portuguese SMBs.",
-      "url": "https://simonwillison.net/2026/Nov/14/datasette-llm/"
-    },
-    {
-      "name": "llama.cpp v1.0.0",
-      "source": "GitHub (ggml-org)",
-      "what_it_is": "Foundation release for fast local LLM inference; core library enabling local model deployment without external APIs.",
-      "why_try_it": "Evaluate local inference cost and performance versus API-based approach for agency delivery. Build pricing model for on-premises workflows. Understand performance ceiling for client deployments.",
-      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+      "what_it_is": "Single library combining semantic search, language model orchestration, and AI workflow tools—replaces multiple separate tools.",
+      "why_try_it": "Could speed up your agency's knowledge retrieval and agent routing for clients. Build a pilot: wire txtai into one client's document base, measure if query latency drops and relevance improves. Good fit for Portuguese SMBs with document-heavy workflows.",
+      "url": "https://github.com/neuml/txtai"
     }
   ],
   "podcasts": [],
   "x_top": [
     {
-      "url": "https://x.com/simonw/status/2122500307557265651",
-      "handle": "simonw",
-      "why": "External sandbox pattern for safe agent execution. WebAssembly, QEMU, container isolation. Concrete demos."
+      "url": "https://x.com/danshipper/status/2122754729012777052",
+      "handle": "danshipper",
+      "title": "OpenAI Astra falls short of Fable 5.2; disappointing release",
+      "why": "Competitive comparison: OpenAI's new frontier model underperforms Claude on writing and steering. Affects your model selection for client projects."
     },
     {
-      "url": "https://x.com/emollick/status/2122664990624641421",
+      "url": "https://x.com/emollick/status/2122755693191287009",
       "handle": "emollick",
-      "why": "Anthropic research: single agent beats specialized multi-agent sprawl. Contradicts popular architecture advice."
-    },
-    {
-      "url": "https://x.com/levie/status/2122508098351038532",
-      "handle": "levie",
-      "why": "Token spend per employee shows no ceiling. Market signal: adoption curve early, acceleration continues."
+      "title": "Astra uneven and hard to steer; better on ambitious projects than small tasks",
+      "why": "Details capability gaps. Useful for understanding which tasks to route to which model in a multi-model agency workflow."
     },
     {
       "url": "https://x.com/clairevo/status/2122398076010983838",
       "handle": "clairevo",
-      "why": "Token fraud patterns costing solo founders tens of thousands. Six attack vectors revealed."
-    },
-    {
-      "url": "https://x.com/natolambert/status/2122699342276370434",
-      "handle": "natolambert",
-      "why": "Qwen strategy corrected: open-weight models continue robustly below Qwen 4 Max API-only tier."
+      "title": "Token fraud cost me tens of thousands; here's how to defend",
+      "why": "Real founder pain: fraudsters stealing AI credits. Must-read cost-control playbook for your agency operations and client safeguards."
     },
     {
       "url": "https://x.com/steipete/status/2122463466304971068",
       "handle": "steipete",
-      "why": "Apple expands permission alerts for agents on macOS despite user requests for fewer. Operational friction."
+      "title": "macOS permission alerts for agents: users want fewer; Apple adds more",
+      "why": "Real friction in agent UX. Agents on Mac face permission prompts. Signals challenge for deploying to SMB users."
+    },
+    {
+      "url": "https://x.com/levie/status/2122508098351038532",
+      "handle": "levie",
+      "title": "Token spend per employee shows no ceiling; adoption curve still early",
+      "why": "Market signal: AI adoption accelerating, margins compressing. Plan for sustained pricing pressure from clients."
+    },
+    {
+      "url": "https://x.com/swyx/status/2122746401482592549",
+      "handle": "swyx",
+      "title": "Devin bots multi-agent teams: always-on, outcome-owned, managed subagents",
+      "why": "Architecture lesson. How should your internal agents or client agents be structured? This post shows the operational model."
     }
   ],
   "tech": [
     {
-      "name": "Aaron Levie",
-      "role": "CEO · Box",
-      "hook": "Token spend per employee shows no ceiling. Adoption curve remains early.",
-      "key_point": "Builders report token spend acceleration as latest model releases push capabilities higher. Market shows no saturation signals.",
-      "for_you": "Agency token costs likely to increase. Model delivery margins on continued token growth, not plateau.",
+      "name": "Peter Yang",
+      "role": "AI practitioner, educator",
+      "hook": "Claude avoids AI slop via upfront context—share screenshots, real work, past designs.",
+      "key_point": "Giving Claude rebuilt screens from real code prevents generic output. Visual anchoring works better than text briefs.",
+      "for_you": "Use this pattern when designing tools or dashboards for SMB clients. Lesson: design context matters more than prompts.",
+      "signal": "🟢",
+      "urls": [
+        "https://x.com/petergyang/status/2122132596352327816"
+      ],
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2122132560604241920/img/sjPL3Kwt8eHYl9N_?format=webp&amp;name=large",
+      "handle": "petergyang"
+    },
+    {
+      "name": "Aaron Levie (Box CEO)",
+      "role": "Enterprise observer",
+      "hook": "Token spend per employee shows no ceiling; adoption curve still early.",
+      "key_point": "Enterprises burning more tokens each month; no sign of plateauing. Spending keeps accelerating despite price pressure.",
+      "for_you": "Market signal: AI spending stays elevated. Plan your margins assuming continued high token consumption from clients. Price power is shifting to model vendors.",
       "signal": "🟡",
       "urls": [
         "https://x.com/levie/status/2122508098351038532"
@@ -247,175 +294,140 @@
       "handle": "levie"
     },
     {
-      "name": "Windows 11 telemetry",
-      "role": "Operating system · Microsoft",
-      "hook": "Windows 11 collects granular telemetry on coding agents and developer tools.",
-      "key_point": "Tracking extends to specific agent and tool usage, raising privacy and competitive intelligence concerns.",
-      "for_you": "Audit what Windows 11 collects from your team's machines. Document for client data governance.",
-      "signal": "🔴",
+      "name": "Satya Nadella (Microsoft)",
+      "role": "CEO · Microsoft",
+      "hook": "Microsoft CEO says he's now AGI-pilled—believes 2026 is the year AI reaches artificial general intelligence.",
+      "key_point": "Major tech leader publicly betting on AGI timeline. Signals enterprise is repositioning around AGI assumptions.",
+      "for_you": "If Microsoft is planning for AGI, consider: how does your SMB service model hold up if AI becomes fully autonomous? Start planning future-proof offerings now.",
+      "signal": "💡",
       "urls": [
-        "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
-        "https://news.ycombinator.com/item?id=50524736"
+        "https://www.theverge.com/tech/1036111/satya-nadella-says-hes-agi-pilled-now"
       ],
-      "image": "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg"
+      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Screenshot-2026-11-17-at-3.00.15-PM.png?quality=90&amp;strip=all&amp;crop=0%2C5.5575251492495%2C100%2C88.884949701501&amp;w=1200"
     },
     {
-      "name": "Claude Code verification",
-      "role": "Anthropic research · Claude Code team",
-      "hook": "Claude Code team published verification approach for quality assurance on generated code.",
-      "key_point": "Concrete verification patterns ensure agent-generated code meets reliability standards.",
-      "for_you": "Reference for quality gates on your agency's code-generating workflows.",
+      "name": "Claude Code Team",
+      "role": "Research · Code quality",
+      "hook": "Published detailed methodology for verifying code generated by AI—testing, eval, guardrails all documented.",
+      "key_point": "Code-generation agents need QA. Anthropic's approach is now public; cite it when selling to risk-averse clients.",
+      "for_you": "If offering code-generation services, adopt this verification framework. Use in sales conversations with regulated industries. Quality methodology = reduced liability.",
       "signal": "🟢",
       "urls": [
-        "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
-        "https://news.ycombinator.com/item?id=50529612"
+        "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/"
       ],
-      "image": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/og.png",
-      "video": {
-        "id": "ypaZDsJqv34",
-        "title": "99% of Claude Code users waste hours rebuilding context when their conversations fill up!"
-      }
+      "image": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/og.png"
     },
     {
-      "name": "Baidu and Xiaomi leadership",
-      "role": "CEO · Chinese tech",
-      "hook": "Baidu and Xiaomi warn: growing gap between AI hype and actual returns.",
-      "key_point": "Reality check: ROI from AI investments remains elusive at scale. Hype exceeds delivered value.",
-      "for_you": "Client conversations: set expectations that AI ROI takes time. Use as framing for phased delivery.",
+      "name": "Cloudflare",
+      "role": "Infrastructure · AI",
+      "hook": "Cloudflare embedding decision models at network edge for sub-millisecond agentic routing.",
+      "key_point": "CDN becoming AI vendor. Agents no longer need cloud round-trip; decisions happen at edge.",
+      "for_you": "Long-term implication: latency-sensitive agent decisions may move to infrastructure providers. Monitor; affects your architecture positioning.",
       "signal": "🟡",
       "urls": [
-        "https://www.scmp.com/tech/big-tech/article/3374774/baidu-xiaomi-ceos-warn-growing-gap-between-ai-hype-and-returns",
-        "https://news.ycombinator.com/item?id=50531751"
-      ]
-    },
-    {
-      "name": "Nvidia post-transition",
-      "role": "Leadership · Nvidia",
-      "hook": "Nvidia's first strategic move post-Jensen: national security focus.",
-      "key_point": "New leadership signaling shift toward government/defense alignment away from pure market expansion.",
-      "for_you": "Expect continued export controls and regulatory scrutiny. Plan agency offerings with compliance in mind.",
-      "signal": "🟡",
-      "urls": [
-        "https://techcrunch.com/2026/11/17/nvidias-first-big-move-after-jensen-huangs-exit-targets-national-security/"
+        "https://latent.space/p/cloudflare/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2024/10/GettyImages-2087335475.jpg?resize=1200,799"
+      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/48e5d6c0-f996-45a2-a80c-d0bc9f0eda0a/cloudflare-neolab-feature.jpg?t=1794916474"
     }
   ],
   "pt_news": [
     {
-      "headline": "Anthropic prepares IPO at $70-78 per share; Google, Amazon ~28% each.",
-      "hook": "Roadshow week shows strong investor demand for Claude creator's public market entry.",
-      "for_you": "Market signal: AI model companies reaching scale valuations. Affects competitive landscape and capital availability.",
-      "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/mercados/bolsa/detalhe/anthropic-espera-preco-do-ipo-no-topo-ou-acima-do-intervalo-google-e-amazon-vao-ter-cerca-de-28",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-09/img_1200x676uu2026-09-11-07-29-03-529357.jpg",
-      "video": {
-        "id": "y7HW78ok5to",
-        "title": "Anthropic IPO: The $2 Trillion Dream Shrinks"
-      }
-    },
-    {
-      "headline": "Qonto expands to Portuguese savings accounts with BCE-aligned interest rates.",
-      "hook": "French fintech now offering remunerative accounts for Portuguese SMEs after securing credit institution license.",
-      "for_you": "New fintech competitor for SMB banking in Portugal. Consider impact on client cash management workflows.",
-      "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/mercados/taxas-de-juro/detalhe/qonto-chega-as-contas-poupanca-portuguesas-com-juros-alinhados-com-o-bce",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-11/img_1200x676uu2026-11-16-15-25-47-532998.jpg"
-    },
-    {
-      "headline": "OpenAI develops detection for AI-generated child abuse imagery.",
-      "hook": "OpenAI releases tool to identify synthetically-created CSAM before distribution.",
-      "for_you": "Policy/safety signal affecting all AI builders. Understand responsibility frameworks and implications for user-generated content.",
+      "headline": "Nvidia doubles profits post-Jensen; board rejects reinstatement",
+      "hook": "Nvidia earnings beat: revenue $115.8B, profit $65.3B, both doubled. Board firm on no Jensen return.",
+      "for_you": "Upstream stability signal. No supply shock expected; compute availability should remain stable for your client projects.",
       "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/internet/artigos/openai-quer-travar-partilha-de-imagens-de-abuso-infantil-criadas-por-inteligencia-artificial/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/c3f46c76d18afe28f28bb73796af9fb4ce22b0c6.jpg"
+      "url": "https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/nvidia-supera-previsoes-de-receitas-nos-primeiros-resultados-apos-saida-de-huang",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-08/img_1200x676uu2026-08-11-16-45-57-528016.jpg"
     },
     {
-      "headline": "China leveraging US AI models to train competing systems at scale.",
-      "hook": "Reuters investigation: distillation from US models already industrial practice in China amid escalating US export restrictions.",
-      "for_you": "Competitive intelligence: open models likely accelerate de-coupling. Plan for two-tier global AI market.",
-      "signal": "🔴",
-      "url": "https://tek.sapo.pt/noticias/negocios/artigos/china-recorre-a-modelos-de-ia-norte-americanos-para-treinar-os-seus-rivais/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/09/Trump-Xi-Jinping-Personalizar.jpg"
-    },
-    {
-      "headline": "Windows 11 collects telemetry on coding agents and developer tools.",
-      "hook": "Analysis reveals Windows 11 tracks specific agents and tools used for competitive intelligence.",
-      "for_you": "Governance risk for your team's machine security and client data privacy. Audit telemetry and implement mitigations.",
-      "signal": "🔴",
-      "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
-      "source_name": "Sapo Tek",
-      "image": "https://xusheng.dev/posts/windows-coding-agent-telemetry/agent-names.jpeg",
+      "headline": "Anthropic IPO priced at $70-78 per share; Google/Amazon secure ~28%",
+      "hook": "Anthropic's public offering signals strong institutional demand for AI infrastructure. Big tech backing visible in cap table.",
+      "for_you": "Market validation for AI startups. If raising VC for your agency or future products, Anthropic's valuation shows how much AI companies are worth.",
+      "signal": "🟢",
+      "url": "https://www.jornaldenegocios.pt/mercados/bolsa/detalhe/anthropic-e-o-novo-farol-da-ia-em-bolsa-mas-a-spacex-deixou-lhe-um-caminho-acidentado",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-02/img_1200x676uu2026-02-13-11-57-56-518484.jpg",
       "video": {
-        "id": "VmtUrLYuO7A",
-        "title": "Windows 11 can note which AI coding agents you run (Claude Code, Codex, Cursor and… #Shorts"
+        "id": "GCWAPeHCSY0",
+        "title": "Anthropic Sets Its IPO Price: $70 to $78 a Share, About $1 Trillion"
       }
+    },
+    {
+      "headline": "Microsoft using agents to detect and patch cybersecurity threats in real-time",
+      "hook": "Microsoft launching Perception platform: agentic AI for threat detection, vulnerability fixing, and predictive defense.",
+      "for_you": "Opportunity for agency partnerships. SMBs need security; offer managed security agent services using this Microsoft pattern. Easy sell to risk-averse clients.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/computadores/artigos/como-responder-as-ameacas-na-era-da-ia-microsoft-quer-usar-agentes-para-detetar-corrigir-e-antecipar-ataques/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/05/gradient-technology-background-1024x584.jpg"
+    },
+    {
+      "headline": "AI amplified gender discrimination; systems not built with equality principles",
+      "hook": "Specialist warns: AI systems not only discriminated on gender, they amplified existing bias systematically.",
+      "for_you": "Regulatory and liability risk. If deploying AI for hiring or lending, audit for bias now. Becomes compliance checklist item and selling point.",
+      "signal": "🔴",
+      "url": "https://observador.pt/2026/11/17/igualdade-primeira-ia-nao-so-discriminou-como-amplificou-a-discriminacao/",
+      "source_name": "Observador",
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A1254%3A705%3Anowe%3A0%3A65%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F06%2F11202205%2Fdados-ia.jpg?layer=obstop:T"
+    },
+    {
+      "headline": "Apple services outage disrupts App Store, iCloud, music—internal update blamed",
+      "hook": "Apple's core services went down. Company blamed internal upgrade. Signals infrastructure fragility even at scale.",
+      "for_you": "Even Apple has single-points-of-failure. Clients should diversify. If building on Apple services, have contingency plans.",
+      "signal": "🟡",
+      "url": "https://www.jornaldenegocios.pt/empresas/detalhe/apple-com-interrupcoes-nos-servicos-empresa-justifica-com-atualizacao-interna",
+      "source_name": "Jornal de Negócios",
+      "image": "https://cdn.jornaldenegocios.pt/images/2026-07/img_1200x676uu2026-07-08-11-15-02-526246.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "US DOJ investigates Megaspeed for illegal Nvidia chip exports.",
-      "hook": "Singapore-based Megaspeed suspected of helping ship high-end AI chips to China, violating US export controls.",
-      "for_you": "Enforcement action signal: export restrictions tightening. Plan agency operations with regulatory scrutiny in mind.",
+      "headline": "Ukraine destroys Crimea bridge in coordinated seven-stage military operation",
+      "hook": "Strategic infrastructure struck; operation took weeks to plan. Bridge partially collapsed; symbolic and military impact both significant.",
+      "for_you": "Infrastructure vulnerability signal. Coordinated multi-stage attacks on critical systems work. For tech infrastructure: plan for multi-vector failures.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cmn504nq5033o",
+      "url": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo",
       "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/a77e/live/31ebc580-e267-11f1-900c-895604014268.jpg"
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/222d/live/db8315b0-e278-11f1-99a1-253766e7ad8b.png"
     },
     {
-      "headline": "US loses measles elimination status after 26 years amid outbreak.",
-      "hook": "Major health reversal: 5,400+ cases reported, first measles-related deaths since early 1990s. Vax hesitancy resurgent.",
-      "for_you": "Public trust and misinformation signal: AI content authenticity matters. Implications for content generation and verification.",
+      "headline": "US loses measles elimination status after 26 years amid outbreak",
+      "hook": "Over 5,400 cases reported; 10 deaths—first time since early 1990s. Public health regression significant.",
+      "for_you": "Policy/regulatory risk signal. If offering healthcare AI, compliance requirements will tighten. Plan accordingly.",
       "signal": "🟡",
       "url": "https://www.bbc.co.uk/news/articles/c977p71jx0xxo",
       "source_name": "BBC World",
       "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0b33/live/4927cca0-dfd1-11f1-8c90-4fc10fbf9142.jpg",
       "video": {
-        "id": "49b0hmhnskg",
-        "title": "US Reportedly Loses Measles Elimination Status After 26 Years #Shorts"
+        "id": "bSFSD25SogY",
+        "title": "U.S. LOSES MEASLES ELIMINATION STATUS AFTER 26 YEARS AMID RECORD OUTBREAKS AND DE*THS"
       }
     },
     {
-      "headline": "FAA communications infrastructure failure disrupts US aviation.",
-      "hook": "Router replacement and system failures caused nationwide aviation ground stop. Telecom fragility exposed.",
-      "for_you": "Data center and infrastructure fragility: critical systems still vulnerable. Plan mission-critical deployments with redundancy.",
-      "signal": "🔴",
-      "url": "https://www.aljazeera.com/news/2026/11/17/us-senators-demand-faa-pause-upgrades-linked-to-nationwide-ground-stop",
-      "source_name": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/11/reuters_6afc60a2-1794924706.jpg?resize=1920%2C1440",
-      "video": {
-        "id": "YYUZ1UeMNeA",
-        "title": "9,500 Flights Disrupted After FAA Communication Failure #breakingnews #FAAOutage #FAACommunication"
-      }
-    },
-    {
-      "headline": "Ukraine destroys Crimea bridge in seven-stage coordinated operation.",
-      "hook": "Strategic infrastructure destruction disrupts Russian supply chains; symbolic loss for Putin-era conquest.",
-      "for_you": "Logistics and supply chain vulnerability signal. AI-guided operations executing complex multi-stage warfare.",
+      "headline": "Zimbabwean author cleared of AI plagiarism; AI detection fell false positive",
+      "hook": "Month-long investigation concluded story was genuine. Caine Prize winner Simbarashe Kundizeza exonerated.",
+      "for_you": "AI detection unreliable. If offering content verification services, know the limits. False positives damage credibility.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/crz9dgz28zwdo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/82dd/live/f7995500-e29d-11f1-99a1-253766e7ad8b.jpg"
+      "url": "https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story",
+      "source_name": "The Guardian",
+      "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b972955b073a4788451a5a67593d810"
     },
     {
-      "headline": "Five EU states announce asylum-seeker return hubs in Rwanda.",
-      "hook": "Germany, Austria, Netherlands, Denmark, Greece establish offshore processing centers for deportation.",
-      "for_you": "Governance and policy signal: EU coordination on contentious immigration. Watch for precedent in data/AI governance.",
+      "headline": "Five EU states announce asylum-seeker return hubs in Rwanda",
+      "hook": "Germany, Austria, Netherlands, Denmark, Greece planning offshore processing centers. Expected to face legal challenges.",
+      "for_you": "Policy/regulation shift affecting immigration tech. Expect regulatory tightening on data residency and compliance. Risks for clients in migration services.",
       "signal": "🟡",
       "url": "https://www.theguardian.com/world/2026/nov/16/eu-states-immigration-return-hubs-rwanda",
       "source_name": "The Guardian",
       "image": "https://i.guim.co.uk/img/media/d668e44ea9f6f3fb2d88cfee76bb772cccada10f/456_0_4053_3243/master/4053.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2c6e402db7971102686e38e4401eb7a4",
       "video": {
-        "id": "mQ1IhRTrrco",
-        "title": "Five EU Countries Plan Rwanda Return Hub; No Final Deal Signed #shorts"
+        "id": "x7wB1GZd-nk",
+        "title": "Five EU Countries Plan Rwanda Migrant Hub. What Changes?"
       }
     }
   ],
-  "since_yesterday": "California AG sued OpenAI over rogue agent incidents; datasette-llm 0.1a11 adds OpenAI-compatible endpoint support for local models; Simon Willison published working external sandbox pattern for safe agent execution.",
+  "since_yesterday": "Anthropic IPO pricing confirmed at $70-78 per share; Google and Amazon securing ~28% each signals strong institutional demand for AI companies. Nvidia Q3 earnings beat expectations (revenue $115.8B, profit $65.3B, both doubled) despite leadership vacancy—market shrugs off Jensen exit. OpenAI Astra/Sol launched but early user reviews mixed; Fable 5.2 still outperforming on most client tasks.",
   "health": {
     "x": {
       "attempted": 14,
