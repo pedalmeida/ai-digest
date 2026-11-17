@@ -132,3 +132,8 @@ Do not force equal representation. The mix should reflect what actually happened
 ## Tone
 
 Direct, precise and calm. Explain technical terms briefly. State uncertainty plainly. No breathless language. No inflated adjectives. No manufactured urgency.
+
+
+## Audience level (Pedro, 2026-11-17)
+
+Pedro is non-technical. The digest leads with business, launches, company moves, market shifts and reviews of tools. Technical deep-dives are rare, short and written in plain words. Test: could a CEO who has never opened a terminal repeat the headline to a friend?

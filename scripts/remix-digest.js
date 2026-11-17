@@ -377,7 +377,8 @@ OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
     {
       "url": "exact X post URL copied from the sources (x.com/<handle>/status/<id>)",
       "handle": "x handle",
-      "why": "Max 15 words: what is in the post and why it is worth Pedro's time."
+      "title": "Plain-language headline for a non-technical CEO, max 10 words, no jargon.",
+      "why": "Max 15 words, plain Portuguese-friendly English: what happened and why it matters for business. No technical terms."
     }
   ],
   "tech": [
@@ -400,11 +401,16 @@ OUTPUT FORMAT — respond ONLY with valid JSON, no markdown fences:
   "since_yesterday": "1-2 sentences, only if something genuinely developed from a story shown in the last 7 days. Omit the key entirely if nothing has continued."
 }
 
+AUDIENCE (Pedro, 2026-11-17: "está um bocado técnico, sou non technical, não retiro valor, quero temas mais high level, business, lançamentos, reviews"):
+- Pedro is NOT a developer. Write every hook, why, title and for_you so a smart non-technical CEO understands it in one read. No protocol, framework, sandbox, WebAssembly, token, API, repo or similar jargon; if a technical term is unavoidable, explain it in five words.
+- Rank by business meaning: product launches, company moves (funding, acquisitions, partnerships, pricing, lawsuits, regulation), market shifts, adoption numbers, and hands-on reviews or comparisons of tools people actually use. Technique deep-dives, architecture debates, benchmarks and developer tooling rank last and only appear when the business consequence is obvious.
+- x_top: prefer launches, reviews, company news and market signals over engineering posts. Every item needs a title.
+
 RULES:
 - Include only sections that have actual content. Omit empty arrays entirely.
 - ai: this is the CORE section, be generous here — 5 to 8 entries when the sources support it. Prioritize actual news (model releases, technique breakthroughs, notable launches) over generic takes. One X builder's best tweet = one entry; do not create an entry for a builder whose tweets are trivial today, skip them instead of padding.
 - build_this: pick 2-3 the MOST concretely actionable items from the BUILD_THIS_CANDIDATES section — favor things Pedro could actually try or ship from this week, not just interesting reads. If nothing is genuinely actionable, return an empty array rather than forcing it.
-- x_top: the X posts Pedro should open and read today, best first, at most 10. Pick from the X Builder tweets only and copy each URL exactly. Prefer practical substance: a technique, a release with details, a real result, a lesson from building, a useful thread. Reject hype, vague predictions, engagement bait, drama, self-promotion with no content and one-word reactions. Fewer than 10 is fine; never pad. A post can be in x_top and also feed an ai entry.
+- x_top: the X posts Pedro should open and read today, best first, at most 10. Pick from the X Builder tweets only and copy each URL exactly. Prefer, in this order: a product launch or release, a hands-on review or comparison, company or market news, a real business result. Engineering technique posts only if the business consequence is clear. Reject hype, vague predictions, engagement bait, drama, self-promotion with no content and one-word reactions. Fewer than 10 is fine; never pad. A post can be in x_top and also feed an ai entry.
 - tech, pt_news, world_news: exactly 5 items each (fewer only if the sources genuinely don't have 5 distinct stories today). Pick the 5 most important/relevant. Still scannable, but each item should carry a real supporting detail, not just a headline.
 - Never repeat a story already in ALREADY COVERED unless it has genuinely developed, then say what's new in for_you, and consider using since_yesterday.
 - Group related developments into persistent threads using thread_id. The first appearance must orient Pedro with context; later appearances must lead with what_changed and must not repeat the full background.

@@ -94,8 +94,10 @@ jobs:
             const card = await post({ text });
             // X top 10 goes in the card's thread (Pedro, 2026-11-14)
             if (xTop && xTop.trim()) await post({ text: xTop, thread_ts: card.ts });
+            require('fs').writeFileSync('card_ts.txt', card.ts);
           })().catch(err => { console.error(err.message); process.exit(1); });
           NODE
+          [ -f card_ts.txt ] && node scripts/post-thumbnails.js "$(cat card_ts.txt)" || true
 
       - name: Send Slack notification (failure)
         if: failure()
