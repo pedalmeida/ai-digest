@@ -2,75 +2,118 @@
   "date": "Wednesday, 18 November 2026",
   "ai": [
     {
-      "thread_id": "gpt-6-2-astra-sol-launch",
-      "thread_title": "GPT-6.2 Astra and Sol release with mixed reviews and cost reductions",
+      "thread_id": "anthropic-ipo-mega-event",
+      "thread_title": "Anthropic IPO priced at $83/share, beats expectations",
       "thread_state": "new",
-      "name": "OpenAI",
-      "role": "Model release · AI lab",
-      "hook": "OpenAI releases Astra 6.2 and Sol 6.2; Astra 20% cheaper but hard to steer.",
+      "name": "Anthropic / TechCrunch",
+      "role": "AI Company / News",
+      "hook": "Claude maker prices IPO $15 above range, validates AI market maturity for investors.",
       "insights": [
-        "Astra 6.2 priced at $8/MTok, 80% of Astra 6 cost, available via API immediately",
-        "Sol 6.2 positioned for everyday tasks; both models show uneven performance across domains",
-        "Early testers report Astra wins on image+code animation but lags on writing versus Astra 6"
+        "Priced at **$83/share** vs $70-78 projected range",
+        "Expected to raise **$68B+** in IPO plus private placement",
+        "Total offering may exceed **$94B**, beating SpaceX June IPO ($75B)"
       ],
-      "for_you": "SMB clients using OpenAI API face immediate pricing shift. Test Astra on real client tasks before recommending; Sol may become default for routine work. Run parallel comparison first.",
-      "context": "OpenAI released two new frontier models on Nov 18. Astra is the successor to Astra 6, priced lower but with mixed capability reviews. Sol is a new everyday-task model. Both are available immediately via API.",
-      "what_changed": "Official release and multiple hands-on reviews now available. Early testers report Astra is uneven but efficient; Sol positioning is clearer.",
-      "action": "test - run a real client task on both models before migration",
+      "for_you": "Market confidence in AI products. Use this as credibility signal when pitching AI services to PT SMBs: tell them enterprise investors now fund AI agents and tools—this is proven space.",
+      "action": "watch",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "largest model release this week with pricing and capability shifts affecting agency positioning and client spend",
-      "signal": "🟡",
+      "why_it_made_the_cut": "Mega-event in AI market; signals enterprise funding appetite.",
+      "signal": "🟢",
       "urls": [
-        "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
-        "https://x.com/danshipper/status/2122754729012777052",
-        "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/"
-      ],
-      "handle": "@openai"
-    },
-    {
-      "thread_id": "code-review-becomes-bottleneck",
-      "thread_title": "AI coding agents have shifted the bottleneck from writing to reviewing code",
-      "thread_state": "new",
-      "name": "Harvard researchers",
-      "role": "Academic research · University",
-      "hook": "Harvard study finds agents write code fast; human review is now the constraint.",
-      "insights": [
-        "AI agents dramatically accelerate code generation, but humans cannot review fast enough",
-        "This shifts team structure and QA burden downstream",
-        "Verification and code review become the critical resource constraint"
-      ],
-      "for_you": "Agency delivery changes: coding agents accelerate output, but plan for 2–3x QA effort per sprint. Review bottleneck means you need more reviewers or stronger code quality gates.",
-      "context": "Recent Harvard research measured the operational impact of coding agents on team workflows. The study found that while agents write code efficiently, the human review process cannot keep pace.",
-      "what_changed": "Study published and discussed on Hacker News with 283 points and 368 comments, confirming operational pattern that teams are experiencing.",
-      "action": "investigate - request full methodology paper to understand testing setup and generalizability",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "operational implication for how coding workflows should be managed; directly affects agency delivery planning",
-      "signal": "🟡",
-      "urls": [
-        "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
-        "https://news.ycombinator.com/item?id=50538303"
+        "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/"
       ],
       "handle": "",
-      "image": "https://complexdiscovery.com/wp-content/uploads/2026/10/AI-Report-One.jpg"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2295579000.jpg?resize=1200,800"
     },
     {
-      "thread_id": "google-search-ai-answers-kill-traffic",
-      "thread_title": "Google AI search overviews cutting website traffic by 40%; SMBs lose organic reach",
-      "thread_state": "new",
-      "name": "Revscope · Hacker News",
-      "role": "Research · Community",
-      "hook": "Google's AI-powered search summaries reduce click-through to websites by ~40%.",
+      "thread_id": "gpt62-astra-sol-release",
+      "thread_title": "GPT-6.2 Astra and Sol: pricing confirmed, early use cases emerge",
+      "thread_state": "developing",
+      "name": "OpenAI / Claire Vo, Dan Shipper, Swyx",
+      "role": "Model Release / Product Feedback",
+      "hook": "Astra $8/MTok (20% cheaper); excels at animation, hard to steer. Sol as reliable workhorse.",
       "insights": [
-        "Google is cannibalizing its own ad revenue with AI overviews",
-        "Publishers and creators seeing significant traffic loss to AI summaries",
-        "Pattern accelerating as AI answers become search default"
+        "**$8/MTok** input pricing (20% cheaper than 6 Astra)",
+        "**Animation and pixel-level code generation** are Astra's strengths",
+        "**Steering/behavior remains difficult** per early user reports",
+        "Efficiency gains real; marketing was tone-deaf per Swyx"
       ],
-      "for_you": "SMB clients dependent on organic search traffic face existential threat. Advise diversification to owned channels (email, app, community) or paid search while AI answers dominate organic.",
-      "context": "Google's AI-powered search results are reducing click-through rates to destination websites. For SMBs relying on organic search for customer acquisition, this represents a major distribution shift.",
-      "what_changed": "Hacker News discussion (625 points, 473 comments) confirms the pattern with real data from Revscope. This is becoming measurable industry impact.",
-      "action": "investigate - understand impact by industry (local services vs content creators vs e-commerce)",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "market shift threatening organic search viability for SMB clients; strategic implication for agency service offerings",
+      "for_you": "Test Astra this week on animation or creative code tasks for PT SMB clients (e-commerce, gaming). Use Fable 5.2 for precision/compliance work. Astra is speed+creativity, not accuracy.",
+      "what_changed": "Pricing confirmed today. Early users publishing real examples (interactive storybooks, 3D animation). Dan Shipper live-testing against competitors today.",
+      "action": "test",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Pricing and use cases now clear and directly actionable for model selection.",
+      "signal": "🟡",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/",
+        "https://x.com/clairevo/status/2122845185512271959"
+      ],
+      "handle": "",
+      "image": "https://static.simonwillison.net/static/2026/astra-6-2-max.webp"
+    },
+    {
+      "thread_id": "apple-permissions-agents-friction",
+      "thread_title": "Apple adds more permission alerts for agents; friction worsens",
+      "thread_state": "developing",
+      "name": "Peter Steinberger",
+      "role": "AI Developer · Superpowers",
+      "hook": "Instead of fixing agent permissions, Apple added scarier alerts. Friction is architectural.",
+      "insights": [
+        "Developers asked Apple to **reduce permission prompts**",
+        "Apple's answer: **add more, scarier alerts** instead",
+        "Problem is **not solvable by UI design**; it's fundamental to OS model"
+      ],
+      "for_you": "If you deploy agents to clients' Macs for local work, expect constant user interruption and permission denials. This may force you toward cloud-based or browser-based agent architecture instead. Plan around this constraint.",
+      "what_changed": "Peter Steinberger confirms latest Apple update worsens, not improves, the permission friction signal.",
+      "action": "watch",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Real architectural constraint affecting agent deployment strategy.",
+      "signal": "🔴",
+      "urls": [
+        "https://x.com/steipete/status/2122463466304971068"
+      ],
+      "handle": "steipete",
+      "image": "https://pbs.twimg.com/profile_images/1131851609774985216/OcsssQ9J_400x400.png"
+    },
+    {
+      "thread_id": "agent-code-safety-sandboxes",
+      "thread_title": "Safe code execution for agents: isolation patterns prevent host damage",
+      "thread_state": "developing",
+      "name": "Simon Willison, Prime Radiant",
+      "role": "Developer · Datasette, AI Research Lab",
+      "hook": "Run agents safely in isolated sandboxes; zero damage risk even on prompt injection attack.",
+      "insights": [
+        "**Three sandbox models**: WebAssembly (browser), QEMU (virtual machine), Apple Container",
+        "Agents run on your machine but **execute in isolated environment**",
+        "Demo code with **working examples for Claude Code, Codex, Pi** published"
+      ],
+      "for_you": "If you deploy agents for code or systems work with PT SMB clients, use external sandboxes to cut liability risk. Test WebAssembly approach this week if building browser-based tools.",
+      "what_changed": "Simon Willison published detailed blog post and GitHub examples; now has authoritative patterns for three sandbox types.",
+      "action": "use_now",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Practical safety pattern; reduces risk and liability for agent deployments.",
+      "signal": "🟢",
+      "urls": [
+        "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
+      ],
+      "handle": "simonw",
+      "image": "https://static.simonwillison.net/static/2026/sandbox-proxy.png"
+    },
+    {
+      "thread_id": "search-traffic-audit-agents",
+      "thread_title": "AI search summaries cut web traffic 40%; agents outperform audit teams",
+      "thread_state": "new",
+      "name": "Google, KPMG, builders",
+      "role": "Platform, Professional Services",
+      "hook": "Google AI Overviews divert 40% of search traffic; agents beat accountants at reasoning.",
+      "insights": [
+        "Google Search AI **reduces click-through 40%** to web pages",
+        "AI agents **outperformed KPMG auditors** in audit reasoning tasks",
+        "Both signal **major business model disruption**"
+      ],
+      "for_you": "Tell PT SMB clients: SEO is broken. Test Perplexity/Claude for internal knowledge work. Tell them: organic search margins are collapsing. Pivot to AI-first platforms, brand, or direct channels. This is now, not 2027.",
+      "action": "investigate",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "Two major business shifts hitting simultaneously; directly affects SMB monetization.",
       "signal": "🔴",
       "urls": [
         "https://revscope.co/blog/search-seo-geo-2026/",
@@ -79,251 +122,203 @@
       "handle": ""
     },
     {
-      "thread_id": "macos-agent-permissions-friction",
-      "thread_title": "Apple adds scary new permission alerts for agents, defeating safety sandbox goal",
+      "thread_id": "nadella-agents-web-economics",
+      "thread_title": "Satya Nadella: AI agents will reshuffle web economics",
       "thread_state": "new",
-      "name": "Peter Steinberger",
-      "role": "Developer advocate · AI tools",
-      "hook": "Apple's response to agent permission friction: more scary alerts, not fewer.",
+      "name": "Satya Nadella",
+      "role": "CEO · Microsoft",
+      "hook": "Microsoft CEO predicts agent-based work will restructure how value flows on web.",
       "insights": [
-        "Users requested fewer permission popups so agents could work without constant babysitting",
-        "Apple instead added more permission alerts, making agent UX worse",
-        "Creates operational friction for coding agents (Claude Code, Cursor, Replit) on Mac"
+        "Nadella sees **agents as next platform phase** beyond chat",
+        "Implies **distribution and revenue models will shift**",
+        "Microsoft **embedding agents into Office stack** as new OS",
+        "**CEO-level bet**, not speculative"
       ],
-      "for_you": "If deploying coding agents to SMB client Macs, expect constant permission popups disrupting workflows. This will impact adoption unless Apple reverses course or provides agent whitelist.",
-      "context": "Agent development on macOS is hitting platform friction. Apple's permission system, designed for security, is now a user-experience blocker for agentic workflows.",
-      "what_changed": "Peter Steinberger flagged the specific pattern: permission friction is getting worse, not better.",
-      "action": "watch - monitor Apple's response and check if agent-specific permission handling emerges",
+      "for_you": "If Nadella is right, your agency value shifts from 'hiring humans' to 'building agents that work.' Revenue model: recurring agent fees or usage pricing, not project fees. Sketch this out for your 2027 business plan.",
+      "action": "investigate",
       "evidence_level": "reported",
-      "why_it_made_the_cut": "platform constraint affecting agent deployability on Mac; UX blocker for real-world adoption",
-      "signal": "🔴",
+      "why_it_made_the_cut": "CEO-level market thesis; signals where big tech is betting.",
+      "signal": "💡",
       "urls": [
-        "https://x.com/steipete/status/2122463466304971068"
-      ],
-      "handle": "@steipete",
-      "image": "https://pbs.twimg.com/profile_images/1131851609774985216/OcsssQ9J_400x400.png"
-    },
-    {
-      "thread_id": "cyber-security-patch-cycle-explains-outages",
-      "thread_title": "Security patch rush explains recent infrastructure outages; CIO exhaustion escalating",
-      "thread_state": "monitoring",
-      "name": "Ethan Mollick",
-      "role": "Professor, AI researcher · Wharton",
-      "hook": "Mollick confirms: security patch demand is correct explanation for recent platform outages.",
-      "insights": [
-        "CIOs report exhaustion trying to keep up with security patch cycles",
-        "Balancing patch urgency against normal operations is creating reliability stress",
-        "Pattern will likely continue through Q4 2026 as supply-chain security tightens"
-      ],
-      "for_you": "If SMB client infrastructure goes down unexpectedly, ask about recent security patches before assuming you broke something. Brief clients on patch management ahead of time.",
-      "context": "October/November 2026 saw multiple platform outages. Initial cause unclear, but CIOs confirm that mandatory security patching is driving the incidents.",
-      "what_changed": "Mollick's confirmation (673 hearts) adds credibility to the pattern. CIO interviews validate that this is widespread, not isolated.",
-      "action": "watch - this pattern will likely intensify through Q4; plan infrastructure stability discussions with clients",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "operational context for infrastructure reliability planning; helps with client blame attribution",
-      "signal": "🟡",
-      "urls": [
-        "https://x.com/emollick/status/2122869773683831129"
-      ],
-      "handle": "@emollick",
-      "image": "https://pbs.twimg.com/profile_images/1601382188712398850/3AAOlqrX_400x400.jpg"
-    },
-    {
-      "thread_id": "unsiloed-ai-7-5m-document-bottleneck",
-      "thread_title": "Unsiloed AI $7.5M funding signals enterprise document bottleneck is real for agents",
-      "thread_state": "new",
-      "name": "Unsiloed AI",
-      "role": "Startup · AI document tools",
-      "hook": "Felicis leads $7.5M into Unsiloed AI; makes enterprise documents agent-usable.",
-      "insights": [
-        "Enterprise document silos are a critical blocker for agent productivity",
-        "Unsiloed's mission: make messy, decentralized documents accessible to AI systems",
-        "Funding signals venture capital sees this as a real, valuable problem"
-      ],
-      "for_you": "If SMB clients have messy document stores (email archives, shared drives, legacy systems), Unsiloed-like tools will become critical for agent workflows. Consider this for infrastructure planning.",
-      "context": "Enterprise documents (scattered across email, drives, systems) are a major friction point for AI agents trying to access knowledge. Unsiloed is building the bridge.",
-      "what_changed": "Felicis funding round confirmed; Unsiloed enters the market as a venture-backed solution to document integration.",
-      "action": "watch - track Unsiloed market adoption; evaluate if this is a critical service for future client deployments",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "market signal that document bottlenecks are real; relevant to agency infrastructure planning for clients",
-      "signal": "🟡",
-      "urls": [
-        "https://techcrunch.com/2026/11/18/felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-enterprise-documents-usable-by-ai-agents/"
+        "https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/"
       ],
       "handle": "",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/unsiloed-AI-founders-adnan-abbas-aman-mishra.jpg?resize=1200,800"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2305773211.jpg?w=594"
     }
   ],
-  "build_this": [],
+  "build_this": [
+    {
+      "name": "n8n",
+      "source": "GitHub Trending",
+      "what_it_is": "Fair-code workflow automation with native AI, 400+ integrations, self-hosted or cloud.",
+      "why_try_it": "Build a workflow automation for a PT SMB client this week: lead scoring, invoice processing, ticket routing, data cleanup. Ship a working automation in 1-2 days.",
+      "url": "https://github.com/n8n-io/n8n"
+    },
+    {
+      "name": "llama.cpp v1.0",
+      "source": "Hugging Face Blog",
+      "what_it_is": "Local LLM inference engine reaches v1.0 stable; run open-weight models on-premise.",
+      "why_try_it": "If building data-private or offline solutions for PT clients (healthcare, finance), llama.cpp is now production-ready foundation. Test on simple client use case this week.",
+      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1"
+    }
+  ],
   "podcasts": [],
   "x_top": [
     {
-      "url": "https://x.com/danshipper/status/2122754729012777052",
-      "handle": "@danshipper",
-      "title": "OpenAI releases Astra 6.2 and Sol, mixed reviews so far",
-      "why": "Every team testing new models for capabilities and cost. Breakdown shows Astra is cheaper but inconsistent."
-    },
-    {
-      "url": "https://x.com/danshipper/status/2122858139989012510",
-      "handle": "@danshipper",
-      "title": "Team ratings: Astra 6.2 and Sol across writing, reasoning, coding",
-      "why": "Real-world performance comparison. Shows where new models win and where they lag behind Fable 5.2."
-    },
-    {
-      "url": "https://x.com/emollick/status/2122983239883317335",
-      "handle": "@emollick",
-      "title": "Google, OpenAI, Anthropic all equally strong now; unless you switch models, you're happy",
-      "why": "Market consolidation signal. Suggests frontier model parity means you can pick one and stop worrying."
-    },
-    {
-      "url": "https://x.com/natolambert/status/2122868827000013241",
-      "handle": "@natolambert",
-      "title": "Best cyber news in long time; infrastructure things are finally working",
-      "why": "Security and infrastructure wins matter. Things are getting more reliable, not less."
+      "url": "https://x.com/simonw/status/2122500307557265651",
+      "handle": "simonw",
+      "title": "Run agent code safely in isolated sandboxes",
+      "why": "Practical patterns for safe code execution. Zero host damage risk. WebAssembly, QEMU, containers."
     },
     {
       "url": "https://x.com/steipete/status/2122463466304971068",
-      "handle": "@steipete",
-      "title": "Apple adds scary permission alerts for agents on macOS",
-      "why": "Platform blocker for anyone deploying agents to client Macs. UX degradation, not improvement."
+      "handle": "steipete",
+      "title": "Apple makes permission alerts worse, not better",
+      "why": "Real friction: Apple added scarier alerts instead of solving problem. Affects your agent deployment strategy."
     },
     {
-      "url": "https://x.com/swyx/status/2122746401482592549",
-      "handle": "@swyx",
-      "title": "Devin bots are multi-agent teams done right; proactive, outcome-focused",
-      "why": "Practical pattern for how agents should be designed. Shows discipline beats sprawl."
+      "url": "https://x.com/swyx/status/2122862646265520150",
+      "handle": "swyx",
+      "title": "Astra model solid; marketing tone was tone-deaf",
+      "why": "Astra delivers efficiency but marketing misstep. Efficiency is key reinforcement learning objective."
     },
     {
       "url": "https://x.com/clairevo/status/2122845185512271959",
-      "handle": "@clairevo",
-      "title": "Astra 6.2 beats Opus and Fable on image generation and code animation",
-      "why": "Specific capability win. Shows where new models have improved over previous generation."
+      "handle": "clairevo",
+      "title": "Astra wins on animation and pixel code",
+      "why": "Concrete use case: interactive storybook with AI animation. Where Astra beats competitors."
     },
     {
-      "url": "https://x.com/danshipper/status/2123074507443196364",
-      "handle": "@danshipper",
-      "title": "Every frontier team retesting Astra and Sol live at 3pm ET today",
-      "why": "Real-time comparison happening today. Shows urgency of evaluation for teams using frontier models."
+      "url": "https://x.com/emollick/status/2122983239883317335",
+      "handle": "emollick",
+      "title": "Google, OpenAI, Anthropic all strong; choice doesn't matter",
+      "why": "Unless you switch between all three, you're happy. Market has converged on quality."
     }
   ],
   "tech": [
     {
-      "name": "Aaron Levie",
-      "role": "CEO · Box",
-      "hook": "Token spend per employee has no ceiling; adoption curve remains early.",
-      "key_point": "Box execs seeing accelerating token consumption as model capabilities expand and teams discover new use cases.",
-      "for_you": "Budget for token costs to increase 3–5x over 2027 for SMB clients using AI agents. This compounds, not caps.",
-      "signal": "🟡",
+      "name": "Satya Nadella",
+      "role": "CEO · Microsoft",
+      "hook": "AI agents will fundamentally reshuffle web economics and work distribution.",
+      "key_point": "Microsoft embedding agents into Office as new operating system; agents are platform, not tool.",
+      "for_you": "Start modeling recurring agent fees for PT SMB clients instead of project pricing.",
+      "signal": "💡",
       "urls": [
-        "https://x.com/levie/status/2122508098351038532"
+        "https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/"
       ],
-      "image": "https://pbs.twimg.com/profile_images/885529357904510976/tM0vLiYS_400x400.jpg",
-      "handle": "levie"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2305773211.jpg?w=594"
     },
     {
-      "name": "Microsoft",
-      "role": "Release · enterprise software",
-      "hook": "Microsoft embeds Office apps inside Copilot; Copilot is now the new OS for work.",
-      "key_point": "Shift from app-centric to agent-centric interface. Office no longer the starting point; Copilot is.",
-      "for_you": "SMB clients using Microsoft 365 will see Copilot as the primary interface soon. Plan for client training and adoption friction.",
-      "signal": "🟡",
+      "name": "Peter Steinberger",
+      "role": "AI Developer · Superpowers",
+      "hook": "Apple's new permission system makes local agent autonomy less feasible than before.",
+      "key_point": "Instead of reducing alerts, Apple added scarier ones. Friction is architectural, unsolvable by UI.",
+      "for_you": "May force cloud-first or browser-based agent architecture for PT clients instead of local Mac agents.",
+      "signal": "🔴",
       "urls": [
-        "https://arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote/"
+        "https://x.com/steipete/status/2122463466304971068"
       ],
-      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/MS_Ignite_Perception.png"
+      "image": "https://pbs.twimg.com/profile_images/1131851609774985216/OcsssQ9J_400x400.png",
+      "handle": "steipete"
     },
     {
-      "name": "Nvidia",
-      "role": "Financial statement · semiconductor leader",
-      "hook": "Nvidia clarifies neocloud financing strategy post-Jensen; being more selective than Huang era.",
-      "key_point": "New leadership is tightening capital allocation for AI hardware startups, not funding everyone.",
-      "for_you": "If SMB clients invested in Nvidia-backed hardware startups, financing environment just got tougher. Advise realistic runway planning.",
-      "signal": "🟡",
+      "name": "Google, KPMG",
+      "role": "Platform, Professional Services",
+      "hook": "AI search summaries cut web traffic 40%; agents outperform accountants on reasoning.",
+      "key_point": "Content distribution breaking; professional services workflows threatened by AI agents.",
+      "for_you": "Tell PT SMB clients: SEO is broken. Pivot to AI-first platforms or brand. This is now, not future.",
+      "signal": "🔴",
       "urls": [
-        "https://techcrunch.com/2026/11/18/nvidia-clarifies-when-it-will-and-wont-keep-financing-neoclouds/"
-      ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/04/dollar-signs-data-center.png?w=1024",
-      "video": {
-        "id": "xkR4VEAWRl0",
-        "title": "NVIDIA CEO Jensen Huang at Meet-a-Claw in Taipei"
-      }
+        "https://revscope.co/blog/search-seo-geo-2026/",
+        "https://news.ycombinator.com/item?id=50540178"
+      ]
     },
     {
-      "name": "Humyn Labs",
-      "role": "Funding round · data supply",
-      "hook": "India's Humyn Labs raises $47M to supply training data for US robotics companies.",
-      "key_point": "Robotics AI is now capital-intensive and data-intensive; foreign supply chains critical.",
-      "for_you": "Early signal: robotics and hardware AI will follow software adoption curves. Watch for SMB automation opportunities in 12–18 months.",
-      "signal": "🟡",
+      "name": "Anthropic",
+      "role": "AI Company",
+      "hook": "Claude maker IPO priced at $83/share, above range, mega-event for AI market.",
+      "key_point": "Raising $68B+; total offering may exceed $94B, beating SpaceX IPO size.",
+      "for_you": "Market confidence validates AI products. Use as credibility signal in PT client pitches.",
+      "signal": "🟢",
       "urls": [
-        "https://techcrunch.com/2026/11/18/accel-backs-indias-humyn-labs-to-supply-training-data-needed-by-u-s-robotics-ai-developers/"
+        "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/"
       ],
-      "image": "https://techcrunch.com/wp-content/uploads/2026/11/humyn-labs-co-founders_164602.jpg?resize=1200,800",
-      "video": {
-        "id": "tkP7mEeJ5OM",
-        "title": "Humyn Labs Raises $47M to Supply US Robotics Data #Shorts"
-      }
-    },
-    {
-      "name": "Meta",
-      "role": "Platform note · social media",
-      "hook": "Meta admits test limiting news reach on Facebook and Instagram in Portugal.",
-      "key_point": "Meta is experimenting with algorithmic constraints on news distribution. Impact on SMB publishers unknown.",
-      "for_you": "If SMB clients use Facebook/Instagram for organic reach, brief them on this test. May reduce news reach further.",
-      "signal": "🟡",
-      "urls": [
-        "https://eco.sapo.pt/2026/11/18/meta-admite-teste-que-podera-estar-a-limitar-alcance-de-noticias-no-facebook-e-instagram/"
-      ],
-      "image": "https://eco.imgix.net/uploads/2026/11/cropped-45934472-scaled-3.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200",
-      "video": {
-        "id": "ea24FO8U5aA",
-        "title": "All SMS text issues in foreign countries fixed - easy fix - first fix // (Instagram, Facebook, etc.)"
-      }
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2295579000.jpg?resize=1200,800"
     }
   ],
   "pt_news": [
     {
-      "headline": "Accenture cutting 950 Lisbon jobs via voluntary exit by January",
-      "hook": "Lisbon's largest consulting firm is downsizing as enterprise demand softens.",
-      "for_you": "Skilled workers will be available. This is a hiring opportunity for your agency if you're expanding.",
+      "headline": "Anthropic IPO priced at $83 per share, above expectations",
+      "hook": "Claude maker raises $68B+ on strong investor demand for AI.",
+      "for_you": "Market validation signals enterprise funds AI. Use as credibility signal for PT SMB pitches.",
       "signal": "🟢",
-      "url": "https://eco.sapo.pt/2026/11/18/accenture-prepara-saida-voluntaria-de-950-pessoas-em-lisboa-ate-janeiro/",
+      "url": "https://eco.sapo.pt/2026/11/18/anthropic-bate-expetativas-e-fixa-preco-do-ipo-em-83-dolares-por-acao/",
       "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/11/cropped-accenture.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "image": "https://eco.imgix.net/uploads/2026/10/anthropic-2000x1125-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200",
+      "video": {
+        "id": "q-fqRu54s_o",
+        "title": "Would You Invest in Anthropic's $2 Trillion IPO? #shorts"
+      }
     },
     {
-      "headline": "Rail workers strike Nov 23–27 disrupts Portuguese transport",
-      "hook": "CP maquinistas demanding career development and schedule improvements.",
-      "for_you": "SMB clients dependent on rail logistics will face delays. Advise them to plan shipments before Nov 23 or after Nov 27.",
+      "headline": "Google AI finds and exploits security flaws autonomously",
+      "hook": "AI tool discovers vulnerabilities without human intervention or guidance.",
+      "for_you": "Security threat and opportunity: test your PT clients' systems; build security consulting offers.",
       "signal": "🔴",
-      "url": "https://observador.pt/2026/11/18/maquinistas-da-cp-convocam-greve-de-23-a-27-de-novembro-empresa-avisa-para-perturbacoes-na-circulacao/",
-      "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1124%3Anowe%3A0%3A104%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2024%2F01%2F02194528%2F42079219.jpg?layer=obstop:T"
+      "url": "https://tek.sapo.pt/noticias/computadores/artigos/google-deteta-ia-capaz-de-descobrir-e-explorar-falhas-de-seguranca-sem-intervencao-humana/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2a4a6f6736498677cfd8d2b4898c73c854b5c94d-scaled.jpg",
+      "video": {
+        "id": "NCdrg8iRDzQ",
+        "title": "Google’s New AI Can Find and Fix Security Flaws"
+      }
     },
     {
-      "headline": "Budget meds rising 2.3% in 2027 due to price review",
-      "hook": "Pharmaceutical pricing tied to reference-country cost updates.",
-      "for_you": "Healthcare SMBs will see input costs rise modestly. Plan budget increases for 2027.",
+      "headline": "Orçamento de Estado 2027 passes specialized parliamentary debate",
+      "hook": "Parliament votes on government budget; policy changes on taxes, pensions, housing.",
+      "for_you": "Monitor for impacts on PT SMB client finances, payroll, hiring decisions for 2027.",
       "signal": "🟡",
-      "url": "https://eco.sapo.pt/2026/11/18/medicamentos-ate-cinco-euros-podem-aumentar-23-em-2027/",
+      "url": "https://eco.sapo.pt/2026/11/18/oposicao-forca-garantia-publica-para-arrendamento-contra-vontade-do-governo/",
       "source_name": "ECO",
-      "image": "https://eco.imgix.net/uploads/2026/11/cropped-6402450.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+      "image": "https://eco.imgix.net/uploads/2026/09/cropped-45445297-scaled-1.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     },
     {
-      "headline": "China criticizes Portugal Huawei 5G restrictions",
-      "hook": "Beijing rejects Portugal's renewed ban on high-risk 5G vendors; calls it politicization.",
-      "for_you": "If SMB clients have investments in China or use Chinese telecom gear, geopolitical risk is rising. Brief them on supply chain alternatives.",
+      "headline": "China criticizes Portugal Huawei 5G restrictions as politicization",
+      "hook": "Beijing rejects security concerns as geopolitical interference in commerce.",
+      "for_you": "Geopolitics affecting telecom infrastructure. File for client data sovereignty and infrastructure choices.",
       "signal": "🟡",
       "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/china-critica-restricoes-portuguesas-a-huawei-no-5g-e-rejeita-politizacao-da-economia-e-comercio/",
       "source_name": "Sapo Tek",
       "image": "https://cdn.teknoticias.pt/uploads/c1e9061868c4d79ddaf43be72b8b71c526e63b6b.jpg"
+    },
+    {
+      "headline": "Instagram gives creators tools to protect from AI deepfakes",
+      "hook": "Platform enables automatic copyright enforcement and deepfake detection for video.",
+      "for_you": "Platform prioritizing creator protection. Signals where social media regulation is heading.",
+      "signal": "🟢",
+      "url": "https://tek.sapo.pt/noticias/internet/artigos/instagram-da-aos-criadores-novas-ferramentas-para-proteger-videos-contra-copias-e-conteudos-manipulados-por-ia/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/2026/09/instagram-redes-sociais-pexels-solenfeyissa.jpg",
+      "video": {
+        "id": "9AsZinSCBCs",
+        "title": "How to protect yourself from AI deepfakes"
+      }
     }
   ],
   "world_news": [
     {
-      "headline": "Trump, Putin, Xi meet in Shenzhen for historic summit",
-      "hook": "Three leaders scheduled for direct talks on denuclearization, Iran, bilateral relations.",
-      "for_you": "Major geopolitical event. If SMB clients trade with or invest in China, Russia, or US, brief them on potential policy shifts.",
+      "headline": "Myanmar faces genocide verdict at UN court Thursday",
+      "hook": "ICJ ruling could set precedent for Gaza case; first state genocide finding.",
+      "for_you": "Legal precedent for state accountability. Monitor geopolitical fallout and US response.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/c5m2l90ez144o",
+      "source_name": "BBC",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/67fc/live/b89f41e0-e336-11f1-9479-d17d3e98c29d.jpg"
+    },
+    {
+      "headline": "Trump meets Putin and Xi in historic Shenzhen summit",
+      "hook": "First three-leader meeting amid rising geopolitical tensions.",
+      "for_you": "Geopolitics affecting AI regulation and trade. Watch for signals on sanctions or export control.",
       "signal": "🟡",
       "url": "https://www.bbc.co.uk/news/articles/ck9d75x5wwwwo",
       "source_name": "BBC",
@@ -334,54 +329,42 @@
       }
     },
     {
-      "headline": "Iran attacks Kuwait and Bahrain after US airstrike",
-      "hook": "Kuwait and Bahrain targeted following US military action; regional tensions escalate.",
-      "for_you": "Energy prices and shipping insurance in Strait of Hormuz could spike. Notify SMB clients with energy and logistics exposure.",
+      "headline": "Israel launches rare ground operation beyond Yellow Line in Gaza",
+      "hook": "Tanks advance beyond ceasefire buffer; humanitarian crisis escalates.",
+      "for_you": "Humanitarian crisis ongoing; not directly business-related.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o",
+      "url": "https://www.bbc.co.uk/news/articles/cw8r7510degno",
       "source_name": "BBC",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/492e/live/f37939a0-e346-11f1-99aa-0f40b013ad11.jpg",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee79/live/56061990-e382-11f1-a094-5fdc692f3e33.jpg",
       "video": {
-        "id": "vXrUBTj5MvY",
-        "title": "Iran Launches Missiles at Kuwait and Bahrain After US Strike"
+        "id": "fCqwl5w53JI",
+        "title": "Israeli military launches rare ground operation in Gaza beyond Yellow Line #Shorts"
       }
     },
     {
-      "headline": "Five EU states plan asylum return centers in Rwanda",
-      "hook": "Germany, Austria, Netherlands, Denmark, Greece seek to house rejected asylum seekers offshores; faces legal challenges.",
-      "for_you": "Immigration policy is tightening. If SMB clients hire migrant workers in EU, plan for labor supply constraints.",
-      "signal": "🟡",
-      "url": "https://www.theguardian.com/world/2026/nov/16/eu-states-immigration-return-hubs-rwanda",
-      "source_name": "The Guardian",
-      "video": {
-        "id": "x7wB1GZd-nk",
-        "title": "Five EU Countries Plan Rwanda Migrant Hub. What Changes?"
-      }
-    },
-    {
-      "headline": "British hacker sentenced to 6 years for SIM-swap theft",
-      "hook": "Tyler Buchanan from Dundee stole $11M via text-message identity fraud; Scattered Spider member.",
-      "for_you": "SMB clients with high-value online accounts need MFA and SIM-swap protection. This is a credible, proven threat.",
+      "headline": "US loses measles elimination status after 26 years",
+      "hook": "Largest outbreak in decades reverses 1990s public health milestone.",
+      "for_you": "Public health setback; not directly relevant to business.",
       "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cm87987w1qz5o",
+      "url": "https://www.bbc.co.uk/news/videos/c8p3vw4q6nzzo",
       "source_name": "BBC",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee74/live/b9842e30-e337-11f1-9479-d17d3e98c29d.png",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7a52/live/a0e1e280-e36b-11f1-99b6-a35a62fa4264.jpg",
       "video": {
-        "id": "RK4rbjZAk6U",
-        "title": "Scattered Spider hacker gets 6 years. Lovely filing, though #shorts"
+        "id": "--q-AGUJ0fo",
+        "title": "'PREVENTABLE FAILURE': U.S. loses measles elimination status after 26 years"
       }
     },
     {
       "headline": "Grand Theft Auto 6 meets critical and commercial expectations",
-      "hook": "GTA 6 confirmed as greatest game ever by critics; strongest entertainment launch of 2026.",
-      "for_you": "If SMB clients in entertainment or gaming services, GTA 6 success signals strong consumer demand for AI-assisted high-production content.",
+      "hook": "Most-anticipated game ships as masterpiece; signals AAA AI-assisted development is production-ready.",
+      "for_you": "Cultural moment. AI in games is real and commercial now.",
       "signal": "🟢",
       "url": "https://www.bbc.co.uk/news/articles/cw8r75xm8v4po",
       "source_name": "BBC",
       "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/29a1/live/fdfec1e0-e2b7-11f1-a094-5fdc692f3e33.jpg"
     }
   ],
-  "since_yesterday": null,
+  "since_yesterday": "Astra pricing confirmed at $8/MTok; early users publishing real use cases (animation, interactive storybooks). Anthropic IPO priced at $83/share today, above range, validating AI market maturity to investor class. Apple permission friction worsening per Peter Steinberger.",
   "health": {
     "x": {
       "attempted": 14,
