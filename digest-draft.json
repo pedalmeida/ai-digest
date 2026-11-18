@@ -1,291 +1,218 @@
 {
-  "date": "Tuesday, 17 November 2026",
+  "date": "Wednesday, 18 November 2026",
   "ai": [
     {
-      "thread_id": "gpt-6-2-astra-sol",
-      "thread_title": "GPT-6.2 Astra and Sol: new models disappoint early testers",
+      "thread_id": "gpt-6-2-astra-sol-launch",
+      "thread_title": "GPT-6.2 Astra and Sol release with mixed reviews and cost reductions",
       "thread_state": "new",
       "name": "OpenAI",
-      "role": "Model release",
-      "hook": "OpenAI releases Astra (frontier) at 20% lower cost; early testers say it's uneven and hard to steer.",
+      "role": "Model release · AI lab",
+      "hook": "OpenAI releases Astra 6.2 and Sol 6.2; Astra 20% cheaper but hard to steer.",
       "insights": [
-        "**Astra 6.2 priced 80% of Astra 6** ($8 per million tokens in), making frontier models cheaper",
-        "**Early testers report mixed results**: writing is weaker than Astra 6; routing instructions often ignored",
-        "**Competitive pressure**: Dan Shipper and Ethan Mollick both rank Fable 5.2 higher for reliability and output quality"
+        "Astra 6.2 priced at $8/MTok, 80% of Astra 6 cost, available via API immediately",
+        "Sol 6.2 positioned for everyday tasks; both models show uneven performance across domains",
+        "Early testers report Astra wins on image+code animation but lags on writing versus Astra 6"
       ],
-      "for_you": "If your agency uses OpenAI API heavily, pricing matters—but word from testers is Fable 5.2 still wins on most client tasks. Test before recommending to SMB clients.",
-      "context": "OpenAI continues releasing model tiers: expensive frontier (Astra), cheaper everyday (Sol). Astra 6.2 is cheaper but users report it's harder to work with than its predecessor.",
-      "what_changed": "Models live in production; real user feedback now available.",
-      "action": "test, run Astra 6.2 head-to-head with Claude on your best client workflows before switching",
+      "for_you": "SMB clients using OpenAI API face immediate pricing shift. Test Astra on real client tasks before recommending; Sol may become default for routine work. Run parallel comparison first.",
+      "context": "OpenAI released two new frontier models on Nov 18. Astra is the successor to Astra 6, priced lower but with mixed capability reviews. Sol is a new everyday-task model. Both are available immediately via API.",
+      "what_changed": "Official release and multiple hands-on reviews now available. Early testers report Astra is uneven but efficient; Sol positioning is clearer.",
+      "action": "test - run a real client task on both models before migration",
       "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Highest X engagement from credible testers + major model release + pricing shift affects your stack",
+      "why_it_made_the_cut": "largest model release this week with pricing and capability shifts affecting agency positioning and client spend",
       "signal": "🟡",
       "urls": [
+        "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
         "https://x.com/danshipper/status/2122754729012777052",
-        "https://x.com/emollick/status/2122755693191287009",
-        "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+        "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/"
       ],
-      "handle": "danshipper",
-      "image": "https://pbs.twimg.com/profile_images/1946219091305340928/_Ef-eDlc_400x400.jpg"
+      "handle": "@openai"
     },
     {
-      "thread_id": "agent-code-sandbox-pattern",
-      "thread_title": "Safe agent code execution: sandbox pattern now production-ready",
+      "thread_id": "code-review-becomes-bottleneck",
+      "thread_title": "AI coding agents have shifted the bottleneck from writing to reviewing code",
       "thread_state": "new",
-      "name": "Simon Willison & Prime Radiant",
-      "role": "Research + open pattern",
-      "hook": "Agents can run code safely in isolated environments—WebAssembly, virtual machines, or containers block damage from mistakes.",
+      "name": "Harvard researchers",
+      "role": "Academic research · University",
+      "hook": "Harvard study finds agents write code fast; human review is now the constraint.",
       "insights": [
-        "**Solves the trust problem**: Agents run on your machine but code executes in a sandboxed container, blocking files, settings, exploits",
-        "**Three options**: WebAssembly (browser), QEMU (virtual machine), Apple Container (macOS)",
-        "**Working demos**: Tested with Claude Code, Codex, Pi; repo public and documented"
+        "AI agents dramatically accelerate code generation, but humans cannot review fast enough",
+        "This shifts team structure and QA burden downstream",
+        "Verification and code review become the critical resource constraint"
       ],
-      "for_you": "This is production-ready. Deploy this to SMB clients THIS WEEK. When a prospect says 'What if the agent breaks something?', you have a working answer. Largest blocker to agent adoption just solved.",
-      "context": "Coding agents pose a risk: they can delete files, change settings, run exploits. Sandboxing lets you give agents real access while protecting the underlying machine. This pattern is now proven.",
-      "what_changed": "Working implementation released with clear documentation.",
-      "action": "use_now, integrate sandbox pattern into your agency delivery model for safe agent deployment",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Highest Simon engagement this week + removes major blocker for SMB agent adoption + immediately implementable",
-      "signal": "🟢",
-      "urls": [
-        "https://x.com/simonw/status/2122500307557265651",
-        "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
-      ],
-      "handle": "simonw",
-      "image": "https://pbs.twimg.com/media/HXSiyAmbIAAgeUI?format=webp&amp;name=large"
-    },
-    {
-      "thread_id": "ai-autonomous-optimization",
-      "thread_title": "AI systems now spending money autonomously to improve themselves",
-      "thread_state": "new",
-      "name": "FrontierML research",
-      "role": "Benchmark + research",
-      "hook": "New benchmark measures how well AI can spend money (on model calls, labeling, computation) to improve its own performance.",
-      "insights": [
-        "**Practical capability**: AI systems can outsource to APIs, buy computation, hire labeling, run evaluations—and do so efficiently",
-        "**Economics shift**: AI is no longer a passive tool; it's an active budget allocator with autonomous spend authority",
-        "**Measured, not theoretical**: FrontierML benchmark makes this measurable and comparable across systems"
-      ],
-      "for_you": "This is research-level but signals a fundamental change. If AI systems start self-optimizing on client budgets without approval, your margin model breaks. File for awareness and discuss in Q1 planning.",
-      "context": "Previously, AI was a tool you used. Now it can be an optimizer that spends your money on its own improvement. The question becomes: who controls the budget?",
-      "what_changed": "Benchmark now published showing this is measurable, not theoretical.",
-      "action": "investigate, understand the economics before it becomes a feature your competitors ship to clients",
+      "for_you": "Agency delivery changes: coding agents accelerate output, but plan for 2–3x QA effort per sprint. Review bottleneck means you need more reviewers or stronger code quality gates.",
+      "context": "Recent Harvard research measured the operational impact of coding agents on team workflows. The study found that while agents write code efficiently, the human review process cannot keep pace.",
+      "what_changed": "Study published and discussed on Hacker News with 283 points and 368 comments, confirming operational pattern that teams are experiencing.",
+      "action": "investigate - request full methodology paper to understand testing setup and generalizability",
       "evidence_level": "reported",
-      "why_it_made_the_cut": "Early signal on AI economics fundamentally changing; affects margin model",
-      "signal": "💡",
-      "urls": [
-        "https://jack-clark.net/2026/11/16/import-ai-481-ai-sub-contractors-a-wet-lab-for-ai-and-subterfuge-during-development/"
-      ],
-      "handle": "",
-      "image": "https://i0.wp.com/jack-clark.net/wp-content/uploads/2026/11/https3A2F2Fsubstack-post-media.s3.amazonaws.com2Fpublic2Fimages2Fd6d17996-2bef-40a4-abe3-be72a0e8a227_258x258-a9vils.png?fit=258%2C258&#038;ssl=1"
-    },
-    {
-      "thread_id": "code-agent-quality",
-      "thread_title": "Claude Code team publishes verification method for generated code quality",
-      "thread_state": "new",
-      "name": "Anthropic",
-      "role": "Best practice + methodology",
-      "hook": "Claude Code team details how they verify generated code is correct—testing, evaluation, and guardrails all published.",
-      "insights": [
-        "**Working methodology**: Not theory; production verification process now public",
-        "**Strong practitioner interest**: Hacker News discussion hit 251 points, 196 comments from real engineers",
-        "**Risk reduction**: Now you can cite proven QA process when selling code-generating agents to clients who worry about bugs"
-      ],
-      "for_you": "If your agency offers code-generation services or builds coding agents, adopt this verification pattern. Use it in sales calls with risk-averse clients in finance or healthcare. Quality process = liability reduction.",
-      "context": "Code agents raise liability questions: who's responsible if the generated code is buggy or introduces security holes? This methodology + documentation = defensible answer.",
-      "what_changed": "Detailed methodology now public; practitioners can reference it.",
-      "action": "watch, adopt methodology in your code-agent QA process, use in sales conversations",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Directly applicable to SMB code-generation sales; reduces client friction on quality concerns",
-      "signal": "🟢",
-      "urls": [
-        "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
-        "https://news.ycombinator.com/item?id=50529612"
-      ],
-      "handle": "",
-      "image": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/og.png",
-      "video": {
-        "id": "ypaZDsJqv34",
-        "title": "99% of Claude Code users waste hours rebuilding context when their conversations fill up!"
-      }
-    },
-    {
-      "thread_id": "nvidia-leadership-transition",
-      "thread_title": "Nvidia board confirms no Jensen reinstatement; Q3 earnings beat expectations",
-      "thread_state": "developing",
-      "name": "Nvidia",
-      "role": "Corporate governance + earnings",
-      "hook": "Nvidia board rejects reinstatement pressure (115k+ petition); Q3 revenue and profit both doubled despite leadership change.",
-      "insights": [
-        "**Board stands firm**: Chair Harvey Jones reaffirmed no plan to bring back Jensen Huang; resists public pressure",
-        "**Q3 earnings beat**: Revenue $115.8 billion, profit $65.3 billion—both doubled vs prior period",
-        "**Market signaling**: Despite internal instability, Nvidia's performance is strong; compute demand unaffected by leadership vacuum"
-      ],
-      "for_you": "Nvidia is your upstream supplier (via clients' infrastructure). Board firmness signals continuity, but watch for any changes in availability or pricing that affect your client project costs.",
-      "context": "Jensen Huang founded Nvidia 33 years ago; his departure triggered industry speculation and a reinstatement petition. Board's refusal to waver signals either confidence in new leadership or commitment to governance change.",
-      "what_changed": "Earnings confirm Nvidia's market position is stable; board publicly rejects reinstatement.",
-      "action": "watch, monitor for any supply disruptions or pricing changes that ripple to your SMB clients",
-      "evidence_level": "confirmed",
-      "why_it_made_the_cut": "Upstream stability matters; market reaction shows chips are not in question",
+      "why_it_made_the_cut": "operational implication for how coding workflows should be managed; directly affects agency delivery planning",
       "signal": "🟡",
       "urls": [
-        "https://www.theverge.com/report/1035465/nvidia-says-it-will-not-reinstate-jensen-huang-as-ceo",
-        "https://www.bbc.co.uk/news/articles/cm2kl50vkwkdo"
+        "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+        "https://news.ycombinator.com/item?id=50538303"
       ],
       "handle": "",
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Nvidia_Jensen_huang_02.jpg?quality=90&amp;strip=all&amp;crop=0%2C12.339110464558%2C100%2C75.321779070884&amp;w=1200"
+      "image": "https://complexdiscovery.com/wp-content/uploads/2026/10/AI-Report-One.jpg"
     },
     {
-      "thread_id": "open-vs-proprietary-models",
-      "thread_title": "Qwen strategy clarified: frontier API-only, robust open-weight tier persists",
+      "thread_id": "google-search-ai-answers-kill-traffic",
+      "thread_title": "Google AI search overviews cutting website traffic by 40%; SMBs lose organic reach",
       "thread_state": "new",
-      "name": "Nathan Lambert & Alibaba Qwen",
-      "role": "Analysis + market clarification",
-      "hook": "Qwen 4 Max is closed API; below that, open-weight models remain robust. Open-source strategy not abandoned.",
+      "name": "Revscope · Hacker News",
+      "role": "Research · Community",
+      "hook": "Google's AI-powered search summaries reduce click-through to websites by ~40%.",
       "insights": [
-        "**Narrative correction**: 'Open model era is over' is too simple; it's not all-or-nothing",
-        "**Qwen tiered strategy**: Top model (Qwen 4 Max) API-only; below, open-weight models remain and are strategic",
-        "**Chinese vendors executing both**: Proprietary frontier captures premium; open-source tiers below capture cost-sensitive buyers"
+        "Google is cannibalizing its own ad revenue with AI overviews",
+        "Publishers and creators seeing significant traffic loss to AI summaries",
+        "Pattern accelerating as AI answers become search default"
       ],
-      "for_you": "If you were worried about open-weight model availability drying up, this clarifies: they're not. Qwen open tiers remain viable for self-hosted deployments on Portuguese SMB infrastructure. Plan your tech stack accordingly.",
-      "context": "Earlier narrative suggested all frontier models would go API-only. This post clarifies that's only the top tier; below that, open weights are strategic for Qwen and similar vendors.",
-      "what_changed": "Nathan Lambert publicly clarified the strategy after viral misunderstanding.",
-      "action": "watch, consider Qwen open tiers for cost-sensitive SMB clients who want self-hosted models",
+      "for_you": "SMB clients dependent on organic search traffic face existential threat. Advise diversification to owned channels (email, app, community) or paid search while AI answers dominate organic.",
+      "context": "Google's AI-powered search results are reducing click-through rates to destination websites. For SMBs relying on organic search for customer acquisition, this represents a major distribution shift.",
+      "what_changed": "Hacker News discussion (625 points, 473 comments) confirms the pattern with real data from Revscope. This is becoming measurable industry impact.",
+      "action": "investigate - understand impact by industry (local services vs content creators vs e-commerce)",
       "evidence_level": "reported",
-      "why_it_made_the_cut": "Corrects common misconception; affects your tech stack decisions",
+      "why_it_made_the_cut": "market shift threatening organic search viability for SMB clients; strategic implication for agency service offerings",
+      "signal": "🔴",
+      "urls": [
+        "https://revscope.co/blog/search-seo-geo-2026/",
+        "https://news.ycombinator.com/item?id=50540178"
+      ],
+      "handle": ""
+    },
+    {
+      "thread_id": "macos-agent-permissions-friction",
+      "thread_title": "Apple adds scary new permission alerts for agents, defeating safety sandbox goal",
+      "thread_state": "new",
+      "name": "Peter Steinberger",
+      "role": "Developer advocate · AI tools",
+      "hook": "Apple's response to agent permission friction: more scary alerts, not fewer.",
+      "insights": [
+        "Users requested fewer permission popups so agents could work without constant babysitting",
+        "Apple instead added more permission alerts, making agent UX worse",
+        "Creates operational friction for coding agents (Claude Code, Cursor, Replit) on Mac"
+      ],
+      "for_you": "If deploying coding agents to SMB client Macs, expect constant permission popups disrupting workflows. This will impact adoption unless Apple reverses course or provides agent whitelist.",
+      "context": "Agent development on macOS is hitting platform friction. Apple's permission system, designed for security, is now a user-experience blocker for agentic workflows.",
+      "what_changed": "Peter Steinberger flagged the specific pattern: permission friction is getting worse, not better.",
+      "action": "watch - monitor Apple's response and check if agent-specific permission handling emerges",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "platform constraint affecting agent deployability on Mac; UX blocker for real-world adoption",
+      "signal": "🔴",
+      "urls": [
+        "https://x.com/steipete/status/2122463466304971068"
+      ],
+      "handle": "@steipete",
+      "image": "https://pbs.twimg.com/profile_images/1131851609774985216/OcsssQ9J_400x400.png"
+    },
+    {
+      "thread_id": "cyber-security-patch-cycle-explains-outages",
+      "thread_title": "Security patch rush explains recent infrastructure outages; CIO exhaustion escalating",
+      "thread_state": "monitoring",
+      "name": "Ethan Mollick",
+      "role": "Professor, AI researcher · Wharton",
+      "hook": "Mollick confirms: security patch demand is correct explanation for recent platform outages.",
+      "insights": [
+        "CIOs report exhaustion trying to keep up with security patch cycles",
+        "Balancing patch urgency against normal operations is creating reliability stress",
+        "Pattern will likely continue through Q4 2026 as supply-chain security tightens"
+      ],
+      "for_you": "If SMB client infrastructure goes down unexpectedly, ask about recent security patches before assuming you broke something. Brief clients on patch management ahead of time.",
+      "context": "October/November 2026 saw multiple platform outages. Initial cause unclear, but CIOs confirm that mandatory security patching is driving the incidents.",
+      "what_changed": "Mollick's confirmation (673 hearts) adds credibility to the pattern. CIO interviews validate that this is widespread, not isolated.",
+      "action": "watch - this pattern will likely intensify through Q4; plan infrastructure stability discussions with clients",
+      "evidence_level": "reported",
+      "why_it_made_the_cut": "operational context for infrastructure reliability planning; helps with client blame attribution",
       "signal": "🟡",
       "urls": [
-        "https://x.com/natolambert/status/2122699342276370434"
+        "https://x.com/emollick/status/2122869773683831129"
       ],
-      "handle": "natolambert",
-      "image": "https://pbs.twimg.com/media/HXVXzWJWcAA7S_j?format=webp&amp;name=large"
+      "handle": "@emollick",
+      "image": "https://pbs.twimg.com/profile_images/1601382188712398850/3AAOlqrX_400x400.jpg"
     },
     {
-      "thread_id": "agentic-infrastructure-layer",
-      "thread_title": "Cloudflare embedding decision models at network edge for agents",
+      "thread_id": "unsiloed-ai-7-5m-document-bottleneck",
+      "thread_title": "Unsiloed AI $7.5M funding signals enterprise document bottleneck is real for agents",
       "thread_state": "new",
-      "name": "Cloudflare",
-      "role": "Infrastructure shift",
-      "hook": "Cloudflare deploys agentic decision models at the edge—routing happens in <1 millisecond without round-trip to cloud.",
+      "name": "Unsiloed AI",
+      "role": "Startup · AI document tools",
+      "hook": "Felicis leads $7.5M into Unsiloed AI; makes enterprise documents agent-usable.",
       "insights": [
-        "**Part of Cloudflare's 'Neolab' initiative**: System One models now embedded in infrastructure layer",
-        "**Latency advantage**: Decisions happen at network edge, not cloud; faster + more private",
-        "**Signals broader shift**: Infrastructure providers becoming AI vendors, not just pipes"
+        "Enterprise document silos are a critical blocker for agent productivity",
+        "Unsiloed's mission: make messy, decentralized documents accessible to AI systems",
+        "Funding signals venture capital sees this as a real, valuable problem"
       ],
-      "for_you": "Long-term implication: if Cloudflare offers this, so will other CDNs. Edge-deployed AI agents will commoditize. For your agency, latency-sensitive decisions may move off your stack. File for awareness.",
-      "context": "Traditionally, agents called central AI servers. Cloudflare is pushing decision-making to the edge, reducing latency and improving privacy for end-users.",
-      "what_changed": "Cloudflare announced capability; deployment underway.",
-      "action": "watch, understand how edge agentic models might affect your architecture long-term",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Infrastructure shift; affects long-term positioning",
+      "for_you": "If SMB clients have messy document stores (email archives, shared drives, legacy systems), Unsiloed-like tools will become critical for agent workflows. Consider this for infrastructure planning.",
+      "context": "Enterprise documents (scattered across email, drives, systems) are a major friction point for AI agents trying to access knowledge. Unsiloed is building the bridge.",
+      "what_changed": "Felicis funding round confirmed; Unsiloed enters the market as a venture-backed solution to document integration.",
+      "action": "watch - track Unsiloed market adoption; evaluate if this is a critical service for future client deployments",
+      "evidence_level": "confirmed",
+      "why_it_made_the_cut": "market signal that document bottlenecks are real; relevant to agency infrastructure planning for clients",
       "signal": "🟡",
       "urls": [
-        "https://latent.space/p/cloudflare/"
-      ],
-      "handle": "cloudflare",
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/48e5d6c0-f996-45a2-a80c-d0bc9f0eda0a/cloudflare-neolab-feature.jpg?t=1794916474"
-    },
-    {
-      "thread_id": "ai-agent-monetization",
-      "thread_title": "Perplexity hits $1B revenue run rate; agentic AI monetization validated",
-      "thread_state": "developing",
-      "name": "Perplexity",
-      "role": "Market traction signal",
-      "hook": "Perplexity grows 4x in 2026, hits $1 billion annual revenue run rate. Shipping Monitor API and agent-based products.",
-      "insights": [
-        "**$1B run rate achieved** (up 4x from ~$250M earlier in 2026)",
-        "**New products shipping**: Monitor API, agentic workflows gaining traction",
-        "**Consumer traction validates**: Agentic AI can monetize in consumer/knowledge work at scale"
-      ],
-      "for_you": "Perplexity is B2C, you're B2B2SMB, but the signal is real: agentic workflows command premium pricing. Use this in investor conversations to validate market demand. 'Even consumer AI agents are hitting $1B run rate; SMB use cases are more defensible.'",
-      "context": "Perplexity competes with Google on search + reasoning. Its growth validates that agents (not just chat) are a sustainable business model.",
-      "what_changed": "Revenue scaled 4x; now a material business, not just promising startup.",
-      "action": "watch, use market validation in sales conversations with clients and investors",
-      "evidence_level": "reported",
-      "why_it_made_the_cut": "Market traction signal for agentic AI; affects business case credibility",
-      "signal": "🟢",
-      "urls": [
-        "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/"
+        "https://techcrunch.com/2026/11/18/felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-enterprise-documents-usable-by-ai-agents/"
       ],
       "handle": "",
-      "image": "https://latent.space/og/card/post/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/2627049380666217b18fbe35046e68da8e58cd8f8b30f47fa7c60b73ece9e2fd.png"
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/unsiloed-AI-founders-adnan-abbas-aman-mishra.jpg?resize=1200,800"
     }
   ],
-  "build_this": [
-    {
-      "name": "External Sandbox Pattern (Prime Radiant)",
-      "source": "GitHub / Simon Willison blog",
-      "what_it_is": "Working implementation: agents run locally but code executes safely in WebAssembly, QEMU, or containers—stops damage from mistakes or injection attacks.",
-      "why_try_it": "Drop this into your agency delivery model THIS WEEK. Solves the trust barrier for SMB clients. When a prospect says 'What if the agent breaks something?', you have a production-ready answer. Test on a pilot project.",
-      "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
-    },
-    {
-      "name": "txtai (neuml)",
-      "source": "GitHub",
-      "what_it_is": "Single library combining semantic search, language model orchestration, and AI workflow tools—replaces multiple separate tools.",
-      "why_try_it": "Could speed up your agency's knowledge retrieval and agent routing for clients. Build a pilot: wire txtai into one client's document base, measure if query latency drops and relevance improves. Good fit for Portuguese SMBs with document-heavy workflows.",
-      "url": "https://github.com/neuml/txtai"
-    }
-  ],
+  "build_this": [],
   "podcasts": [],
   "x_top": [
     {
       "url": "https://x.com/danshipper/status/2122754729012777052",
-      "handle": "danshipper",
-      "title": "OpenAI Astra falls short of Fable 5.2; disappointing release",
-      "why": "Competitive comparison: OpenAI's new frontier model underperforms Claude on writing and steering. Affects your model selection for client projects."
+      "handle": "@danshipper",
+      "title": "OpenAI releases Astra 6.2 and Sol, mixed reviews so far",
+      "why": "Every team testing new models for capabilities and cost. Breakdown shows Astra is cheaper but inconsistent."
     },
     {
-      "url": "https://x.com/emollick/status/2122755693191287009",
-      "handle": "emollick",
-      "title": "Astra uneven and hard to steer; better on ambitious projects than small tasks",
-      "why": "Details capability gaps. Useful for understanding which tasks to route to which model in a multi-model agency workflow."
+      "url": "https://x.com/danshipper/status/2122858139989012510",
+      "handle": "@danshipper",
+      "title": "Team ratings: Astra 6.2 and Sol across writing, reasoning, coding",
+      "why": "Real-world performance comparison. Shows where new models win and where they lag behind Fable 5.2."
     },
     {
-      "url": "https://x.com/clairevo/status/2122398076010983838",
-      "handle": "clairevo",
-      "title": "Token fraud cost me tens of thousands; here's how to defend",
-      "why": "Real founder pain: fraudsters stealing AI credits. Must-read cost-control playbook for your agency operations and client safeguards."
+      "url": "https://x.com/emollick/status/2122983239883317335",
+      "handle": "@emollick",
+      "title": "Google, OpenAI, Anthropic all equally strong now; unless you switch models, you're happy",
+      "why": "Market consolidation signal. Suggests frontier model parity means you can pick one and stop worrying."
+    },
+    {
+      "url": "https://x.com/natolambert/status/2122868827000013241",
+      "handle": "@natolambert",
+      "title": "Best cyber news in long time; infrastructure things are finally working",
+      "why": "Security and infrastructure wins matter. Things are getting more reliable, not less."
     },
     {
       "url": "https://x.com/steipete/status/2122463466304971068",
-      "handle": "steipete",
-      "title": "macOS permission alerts for agents: users want fewer; Apple adds more",
-      "why": "Real friction in agent UX. Agents on Mac face permission prompts. Signals challenge for deploying to SMB users."
-    },
-    {
-      "url": "https://x.com/levie/status/2122508098351038532",
-      "handle": "levie",
-      "title": "Token spend per employee shows no ceiling; adoption curve still early",
-      "why": "Market signal: AI adoption accelerating, margins compressing. Plan for sustained pricing pressure from clients."
+      "handle": "@steipete",
+      "title": "Apple adds scary permission alerts for agents on macOS",
+      "why": "Platform blocker for anyone deploying agents to client Macs. UX degradation, not improvement."
     },
     {
       "url": "https://x.com/swyx/status/2122746401482592549",
-      "handle": "swyx",
-      "title": "Devin bots multi-agent teams: always-on, outcome-owned, managed subagents",
-      "why": "Architecture lesson. How should your internal agents or client agents be structured? This post shows the operational model."
+      "handle": "@swyx",
+      "title": "Devin bots are multi-agent teams done right; proactive, outcome-focused",
+      "why": "Practical pattern for how agents should be designed. Shows discipline beats sprawl."
+    },
+    {
+      "url": "https://x.com/clairevo/status/2122845185512271959",
+      "handle": "@clairevo",
+      "title": "Astra 6.2 beats Opus and Fable on image generation and code animation",
+      "why": "Specific capability win. Shows where new models have improved over previous generation."
+    },
+    {
+      "url": "https://x.com/danshipper/status/2123074507443196364",
+      "handle": "@danshipper",
+      "title": "Every frontier team retesting Astra and Sol live at 3pm ET today",
+      "why": "Real-time comparison happening today. Shows urgency of evaluation for teams using frontier models."
     }
   ],
   "tech": [
     {
-      "name": "Peter Yang",
-      "role": "AI practitioner, educator",
-      "hook": "Claude avoids AI slop via upfront context—share screenshots, real work, past designs.",
-      "key_point": "Giving Claude rebuilt screens from real code prevents generic output. Visual anchoring works better than text briefs.",
-      "for_you": "Use this pattern when designing tools or dashboards for SMB clients. Lesson: design context matters more than prompts.",
-      "signal": "🟢",
-      "urls": [
-        "https://x.com/petergyang/status/2122132596352327816"
-      ],
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2122132560604241920/img/sjPL3Kwt8eHYl9N_?format=webp&amp;name=large",
-      "handle": "petergyang"
-    },
-    {
-      "name": "Aaron Levie (Box CEO)",
-      "role": "Enterprise observer",
-      "hook": "Token spend per employee shows no ceiling; adoption curve still early.",
-      "key_point": "Enterprises burning more tokens each month; no sign of plateauing. Spending keeps accelerating despite price pressure.",
-      "for_you": "Market signal: AI spending stays elevated. Plan your margins assuming continued high token consumption from clients. Price power is shifting to model vendors.",
+      "name": "Aaron Levie",
+      "role": "CEO · Box",
+      "hook": "Token spend per employee has no ceiling; adoption curve remains early.",
+      "key_point": "Box execs seeing accelerating token consumption as model capabilities expand and teams discover new use cases.",
+      "for_you": "Budget for token costs to increase 3–5x over 2027 for SMB clients using AI agents. This compounds, not caps.",
       "signal": "🟡",
       "urls": [
         "https://x.com/levie/status/2122508098351038532"
@@ -294,140 +221,167 @@
       "handle": "levie"
     },
     {
-      "name": "Satya Nadella (Microsoft)",
-      "role": "CEO · Microsoft",
-      "hook": "Microsoft CEO says he's now AGI-pilled—believes 2026 is the year AI reaches artificial general intelligence.",
-      "key_point": "Major tech leader publicly betting on AGI timeline. Signals enterprise is repositioning around AGI assumptions.",
-      "for_you": "If Microsoft is planning for AGI, consider: how does your SMB service model hold up if AI becomes fully autonomous? Start planning future-proof offerings now.",
-      "signal": "💡",
-      "urls": [
-        "https://www.theverge.com/tech/1036111/satya-nadella-says-hes-agi-pilled-now"
-      ],
-      "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/Screenshot-2026-11-17-at-3.00.15-PM.png?quality=90&amp;strip=all&amp;crop=0%2C5.5575251492495%2C100%2C88.884949701501&amp;w=1200"
-    },
-    {
-      "name": "Claude Code Team",
-      "role": "Research · Code quality",
-      "hook": "Published detailed methodology for verifying code generated by AI—testing, eval, guardrails all documented.",
-      "key_point": "Code-generation agents need QA. Anthropic's approach is now public; cite it when selling to risk-averse clients.",
-      "for_you": "If offering code-generation services, adopt this verification framework. Use in sales conversations with regulated industries. Quality methodology = reduced liability.",
-      "signal": "🟢",
-      "urls": [
-        "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/"
-      ],
-      "image": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/og.png"
-    },
-    {
-      "name": "Cloudflare",
-      "role": "Infrastructure · AI",
-      "hook": "Cloudflare embedding decision models at network edge for sub-millisecond agentic routing.",
-      "key_point": "CDN becoming AI vendor. Agents no longer need cloud round-trip; decisions happen at edge.",
-      "for_you": "Long-term implication: latency-sensitive agent decisions may move to infrastructure providers. Monitor; affects your architecture positioning.",
+      "name": "Microsoft",
+      "role": "Release · enterprise software",
+      "hook": "Microsoft embeds Office apps inside Copilot; Copilot is now the new OS for work.",
+      "key_point": "Shift from app-centric to agent-centric interface. Office no longer the starting point; Copilot is.",
+      "for_you": "SMB clients using Microsoft 365 will see Copilot as the primary interface soon. Plan for client training and adoption friction.",
       "signal": "🟡",
       "urls": [
-        "https://latent.space/p/cloudflare/"
+        "https://arstechnica.com/gadgets/2026/11/microsoft-calls-copilot-the-new-os-for-work-at-ignite-keynote/"
       ],
-      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/48e5d6c0-f996-45a2-a80c-d0bc9f0eda0a/cloudflare-neolab-feature.jpg?t=1794916474"
+      "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/11/MS_Ignite_Perception.png"
+    },
+    {
+      "name": "Nvidia",
+      "role": "Financial statement · semiconductor leader",
+      "hook": "Nvidia clarifies neocloud financing strategy post-Jensen; being more selective than Huang era.",
+      "key_point": "New leadership is tightening capital allocation for AI hardware startups, not funding everyone.",
+      "for_you": "If SMB clients invested in Nvidia-backed hardware startups, financing environment just got tougher. Advise realistic runway planning.",
+      "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/11/18/nvidia-clarifies-when-it-will-and-wont-keep-financing-neoclouds/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/04/dollar-signs-data-center.png?w=1024",
+      "video": {
+        "id": "xkR4VEAWRl0",
+        "title": "NVIDIA CEO Jensen Huang at Meet-a-Claw in Taipei"
+      }
+    },
+    {
+      "name": "Humyn Labs",
+      "role": "Funding round · data supply",
+      "hook": "India's Humyn Labs raises $47M to supply training data for US robotics companies.",
+      "key_point": "Robotics AI is now capital-intensive and data-intensive; foreign supply chains critical.",
+      "for_you": "Early signal: robotics and hardware AI will follow software adoption curves. Watch for SMB automation opportunities in 12–18 months.",
+      "signal": "🟡",
+      "urls": [
+        "https://techcrunch.com/2026/11/18/accel-backs-indias-humyn-labs-to-supply-training-data-needed-by-u-s-robotics-ai-developers/"
+      ],
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/humyn-labs-co-founders_164602.jpg?resize=1200,800",
+      "video": {
+        "id": "tkP7mEeJ5OM",
+        "title": "Humyn Labs Raises $47M to Supply US Robotics Data #Shorts"
+      }
+    },
+    {
+      "name": "Meta",
+      "role": "Platform note · social media",
+      "hook": "Meta admits test limiting news reach on Facebook and Instagram in Portugal.",
+      "key_point": "Meta is experimenting with algorithmic constraints on news distribution. Impact on SMB publishers unknown.",
+      "for_you": "If SMB clients use Facebook/Instagram for organic reach, brief them on this test. May reduce news reach further.",
+      "signal": "🟡",
+      "urls": [
+        "https://eco.sapo.pt/2026/11/18/meta-admite-teste-que-podera-estar-a-limitar-alcance-de-noticias-no-facebook-e-instagram/"
+      ],
+      "image": "https://eco.imgix.net/uploads/2026/11/cropped-45934472-scaled-3.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200",
+      "video": {
+        "id": "ea24FO8U5aA",
+        "title": "All SMS text issues in foreign countries fixed - easy fix - first fix // (Instagram, Facebook, etc.)"
+      }
     }
   ],
   "pt_news": [
     {
-      "headline": "Nvidia doubles profits post-Jensen; board rejects reinstatement",
-      "hook": "Nvidia earnings beat: revenue $115.8B, profit $65.3B, both doubled. Board firm on no Jensen return.",
-      "for_you": "Upstream stability signal. No supply shock expected; compute availability should remain stable for your client projects.",
+      "headline": "Accenture cutting 950 Lisbon jobs via voluntary exit by January",
+      "hook": "Lisbon's largest consulting firm is downsizing as enterprise demand softens.",
+      "for_you": "Skilled workers will be available. This is a hiring opportunity for your agency if you're expanding.",
       "signal": "🟢",
-      "url": "https://www.jornaldenegocios.pt/empresas/tecnologias/detalhe/nvidia-supera-previsoes-de-receitas-nos-primeiros-resultados-apos-saida-de-huang",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-08/img_1200x676uu2026-08-11-16-45-57-528016.jpg"
+      "url": "https://eco.sapo.pt/2026/11/18/accenture-prepara-saida-voluntaria-de-950-pessoas-em-lisboa-ate-janeiro/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2026/11/cropped-accenture.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
     },
     {
-      "headline": "Anthropic IPO priced at $70-78 per share; Google/Amazon secure ~28%",
-      "hook": "Anthropic's public offering signals strong institutional demand for AI infrastructure. Big tech backing visible in cap table.",
-      "for_you": "Market validation for AI startups. If raising VC for your agency or future products, Anthropic's valuation shows how much AI companies are worth.",
-      "signal": "🟢",
-      "url": "https://www.jornaldenegocios.pt/mercados/bolsa/detalhe/anthropic-e-o-novo-farol-da-ia-em-bolsa-mas-a-spacex-deixou-lhe-um-caminho-acidentado",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-02/img_1200x676uu2026-02-13-11-57-56-518484.jpg",
-      "video": {
-        "id": "GCWAPeHCSY0",
-        "title": "Anthropic Sets Its IPO Price: $70 to $78 a Share, About $1 Trillion"
-      }
-    },
-    {
-      "headline": "Microsoft using agents to detect and patch cybersecurity threats in real-time",
-      "hook": "Microsoft launching Perception platform: agentic AI for threat detection, vulnerability fixing, and predictive defense.",
-      "for_you": "Opportunity for agency partnerships. SMBs need security; offer managed security agent services using this Microsoft pattern. Easy sell to risk-averse clients.",
-      "signal": "🟢",
-      "url": "https://tek.sapo.pt/noticias/computadores/artigos/como-responder-as-ameacas-na-era-da-ia-microsoft-quer-usar-agentes-para-detetar-corrigir-e-antecipar-ataques/",
-      "source_name": "Sapo Tek",
-      "image": "https://cdn.teknoticias.pt/uploads/2026/05/gradient-technology-background-1024x584.jpg"
-    },
-    {
-      "headline": "AI amplified gender discrimination; systems not built with equality principles",
-      "hook": "Specialist warns: AI systems not only discriminated on gender, they amplified existing bias systematically.",
-      "for_you": "Regulatory and liability risk. If deploying AI for hiring or lending, audit for bias now. Becomes compliance checklist item and selling point.",
+      "headline": "Rail workers strike Nov 23–27 disrupts Portuguese transport",
+      "hook": "CP maquinistas demanding career development and schedule improvements.",
+      "for_you": "SMB clients dependent on rail logistics will face delays. Advise them to plan shipments before Nov 23 or after Nov 27.",
       "signal": "🔴",
-      "url": "https://observador.pt/2026/11/17/igualdade-primeira-ia-nao-so-discriminou-como-amplificou-a-discriminacao/",
+      "url": "https://observador.pt/2026/11/18/maquinistas-da-cp-convocam-greve-de-23-a-27-de-novembro-empresa-avisa-para-perturbacoes-na-circulacao/",
       "source_name": "Observador",
-      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A1254%3A705%3Anowe%3A0%3A65%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2026%2F06%2F11202205%2Fdados-ia.jpg?layer=obstop:T"
+      "image": "https://wm.observador.pt/wm/l/https%3A%2F%2Fbordalo.observador.pt%2Fv2%2Frs%3Afill%3A770%3A403%2Fc%3A2000%3A1124%3Anowe%3A0%3A104%2Fq%3A70%2Ff%3Awebp%2Fplain%2Fhttps%3A%2F%2Fs3.observador.pt%2Fwp-content%2Fuploads%2F2024%2F01%2F02194528%2F42079219.jpg?layer=obstop:T"
     },
     {
-      "headline": "Apple services outage disrupts App Store, iCloud, music—internal update blamed",
-      "hook": "Apple's core services went down. Company blamed internal upgrade. Signals infrastructure fragility even at scale.",
-      "for_you": "Even Apple has single-points-of-failure. Clients should diversify. If building on Apple services, have contingency plans.",
+      "headline": "Budget meds rising 2.3% in 2027 due to price review",
+      "hook": "Pharmaceutical pricing tied to reference-country cost updates.",
+      "for_you": "Healthcare SMBs will see input costs rise modestly. Plan budget increases for 2027.",
       "signal": "🟡",
-      "url": "https://www.jornaldenegocios.pt/empresas/detalhe/apple-com-interrupcoes-nos-servicos-empresa-justifica-com-atualizacao-interna",
-      "source_name": "Jornal de Negócios",
-      "image": "https://cdn.jornaldenegocios.pt/images/2026-07/img_1200x676uu2026-07-08-11-15-02-526246.jpg"
+      "url": "https://eco.sapo.pt/2026/11/18/medicamentos-ate-cinco-euros-podem-aumentar-23-em-2027/",
+      "source_name": "ECO",
+      "image": "https://eco.imgix.net/uploads/2026/11/cropped-6402450.jpg?mark64=aHR0cHM6Ly9lY28uaW1naXgubmV0L0VDT193YXRlcm1hcmsucG5nP2ZtPXBuZw%3D%3D&markscale=33&markalign=center,left&w=1200"
+    },
+    {
+      "headline": "China criticizes Portugal Huawei 5G restrictions",
+      "hook": "Beijing rejects Portugal's renewed ban on high-risk 5G vendors; calls it politicization.",
+      "for_you": "If SMB clients have investments in China or use Chinese telecom gear, geopolitical risk is rising. Brief them on supply chain alternatives.",
+      "signal": "🟡",
+      "url": "https://tek.sapo.pt/noticias/telecomunicacoes/artigos/china-critica-restricoes-portuguesas-a-huawei-no-5g-e-rejeita-politizacao-da-economia-e-comercio/",
+      "source_name": "Sapo Tek",
+      "image": "https://cdn.teknoticias.pt/uploads/c1e9061868c4d79ddaf43be72b8b71c526e63b6b.jpg"
     }
   ],
   "world_news": [
     {
-      "headline": "Ukraine destroys Crimea bridge in coordinated seven-stage military operation",
-      "hook": "Strategic infrastructure struck; operation took weeks to plan. Bridge partially collapsed; symbolic and military impact both significant.",
-      "for_you": "Infrastructure vulnerability signal. Coordinated multi-stage attacks on critical systems work. For tech infrastructure: plan for multi-vector failures.",
-      "signal": "🔴",
-      "url": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/222d/live/db8315b0-e278-11f1-99a1-253766e7ad8b.png"
-    },
-    {
-      "headline": "US loses measles elimination status after 26 years amid outbreak",
-      "hook": "Over 5,400 cases reported; 10 deaths—first time since early 1990s. Public health regression significant.",
-      "for_you": "Policy/regulatory risk signal. If offering healthcare AI, compliance requirements will tighten. Plan accordingly.",
+      "headline": "Trump, Putin, Xi meet in Shenzhen for historic summit",
+      "hook": "Three leaders scheduled for direct talks on denuclearization, Iran, bilateral relations.",
+      "for_you": "Major geopolitical event. If SMB clients trade with or invest in China, Russia, or US, brief them on potential policy shifts.",
       "signal": "🟡",
-      "url": "https://www.bbc.co.uk/news/articles/c977p71jx0xxo",
-      "source_name": "BBC World",
-      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/0b33/live/4927cca0-dfd1-11f1-8c90-4fc10fbf9142.jpg",
+      "url": "https://www.bbc.co.uk/news/articles/ck9d75x5wwwwo",
+      "source_name": "BBC",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/a9fb/live/b2707bf0-e349-11f1-99aa-0f40b013ad11.jpg",
       "video": {
-        "id": "bSFSD25SogY",
-        "title": "U.S. LOSES MEASLES ELIMINATION STATUS AFTER 26 YEARS AMID RECORD OUTBREAKS AND DE*THS"
+        "id": "YXwI6KVsWhQ",
+        "title": "Trump Arrives in Shenzhen for Historic Xi Putin Summit"
       }
     },
     {
-      "headline": "Zimbabwean author cleared of AI plagiarism; AI detection fell false positive",
-      "hook": "Month-long investigation concluded story was genuine. Caine Prize winner Simbarashe Kundizeza exonerated.",
-      "for_you": "AI detection unreliable. If offering content verification services, know the limits. False positives damage credibility.",
-      "signal": "🟡",
-      "url": "https://www.theguardian.com/books/2026/nov/12/zimbabwean-author-simbarashe-kundizeza-cleared-ai-caine-prize-winning-story",
-      "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/6487803463c6c4e3138642f657eeb1cd90cd5acc/0_111_1078_862/master/1078.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2b972955b073a4788451a5a67593d810"
+      "headline": "Iran attacks Kuwait and Bahrain after US airstrike",
+      "hook": "Kuwait and Bahrain targeted following US military action; regional tensions escalate.",
+      "for_you": "Energy prices and shipping insurance in Strait of Hormuz could spike. Notify SMB clients with energy and logistics exposure.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o",
+      "source_name": "BBC",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/492e/live/f37939a0-e346-11f1-99aa-0f40b013ad11.jpg",
+      "video": {
+        "id": "vXrUBTj5MvY",
+        "title": "Iran Launches Missiles at Kuwait and Bahrain After US Strike"
+      }
     },
     {
-      "headline": "Five EU states announce asylum-seeker return hubs in Rwanda",
-      "hook": "Germany, Austria, Netherlands, Denmark, Greece planning offshore processing centers. Expected to face legal challenges.",
-      "for_you": "Policy/regulation shift affecting immigration tech. Expect regulatory tightening on data residency and compliance. Risks for clients in migration services.",
+      "headline": "Five EU states plan asylum return centers in Rwanda",
+      "hook": "Germany, Austria, Netherlands, Denmark, Greece seek to house rejected asylum seekers offshores; faces legal challenges.",
+      "for_you": "Immigration policy is tightening. If SMB clients hire migrant workers in EU, plan for labor supply constraints.",
       "signal": "🟡",
       "url": "https://www.theguardian.com/world/2026/nov/16/eu-states-immigration-return-hubs-rwanda",
       "source_name": "The Guardian",
-      "image": "https://i.guim.co.uk/img/media/d668e44ea9f6f3fb2d88cfee76bb772cccada10f/456_0_4053_3243/master/4053.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2c6e402db7971102686e38e4401eb7a4",
       "video": {
         "id": "x7wB1GZd-nk",
         "title": "Five EU Countries Plan Rwanda Migrant Hub. What Changes?"
       }
+    },
+    {
+      "headline": "British hacker sentenced to 6 years for SIM-swap theft",
+      "hook": "Tyler Buchanan from Dundee stole $11M via text-message identity fraud; Scattered Spider member.",
+      "for_you": "SMB clients with high-value online accounts need MFA and SIM-swap protection. This is a credible, proven threat.",
+      "signal": "🔴",
+      "url": "https://www.bbc.co.uk/news/articles/cm87987w1qz5o",
+      "source_name": "BBC",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/ee74/live/b9842e30-e337-11f1-9479-d17d3e98c29d.png",
+      "video": {
+        "id": "RK4rbjZAk6U",
+        "title": "Scattered Spider hacker gets 6 years. Lovely filing, though #shorts"
+      }
+    },
+    {
+      "headline": "Grand Theft Auto 6 meets critical and commercial expectations",
+      "hook": "GTA 6 confirmed as greatest game ever by critics; strongest entertainment launch of 2026.",
+      "for_you": "If SMB clients in entertainment or gaming services, GTA 6 success signals strong consumer demand for AI-assisted high-production content.",
+      "signal": "🟢",
+      "url": "https://www.bbc.co.uk/news/articles/cw8r75xm8v4po",
+      "source_name": "BBC",
+      "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/29a1/live/fdfec1e0-e2b7-11f1-a094-5fdc692f3e33.jpg"
     }
   ],
-  "since_yesterday": "Anthropic IPO pricing confirmed at $70-78 per share; Google and Amazon securing ~28% each signals strong institutional demand for AI companies. Nvidia Q3 earnings beat expectations (revenue $115.8B, profit $65.3B, both doubled) despite leadership vacancy—market shrugs off Jensen exit. OpenAI Astra/Sol launched but early user reviews mixed; Fable 5.2 still outperforming on most client tasks.",
+  "since_yesterday": null,
   "health": {
     "x": {
       "attempted": 14,
